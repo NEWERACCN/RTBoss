@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss — Strategic Framework</title>
+<style>
+:root{
+  --bg:#020408;
+  --s1:#0a1420;
+  --s2:#12202e;
+  --s3:#1a2c3e;
+  --border:#2a4060;
+  --text:#e8f4ff;
+  --mid:#a0b8d0;
+  --dim:#607890;
+  --blue:#40c4ff;
+  --green:#00e676;
+  --amber:#ffca28;
+  --violet:#b388ff;
+  --red:#ff5252;
+  --teal:#1de9b6;
+  --orange:#ff9100;
+  --pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.nav-header{
+  background:var(--s1);
+  border-bottom:1px solid var(--border);
+  padding:1rem 2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.nav-title{
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--green);
+}
+.nav-back{
+  color:var(--mid);
+  text-decoration:none;
+  font-size:0.9rem;
+  transition:color 0.2s;
+}
+.nav-back:hover{color:var(--green);}
+.tabs{
+  background:var(--s1);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;
+  display:flex;
+  gap:0.5rem;
+  overflow-x:auto;
+  position:sticky;
+  top:57px;
+  z-index:99;
+}
+.tab{
+  padding:1rem 1.5rem;
+  cursor:pointer;
+  color:var(--dim);
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+  font-size:0.9rem;
+  font-weight:500;
+  transition:all 0.2s;
+}
+.tab:hover{color:var(--mid);}
+.tab.active{color:var(--green);border-bottom-color:var(--green);}
+.panel{display:none;}
+.panel.active{display:block;}
+.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.ph{
+  text-align:center;
+  padding:3rem 2rem;
+  border-bottom:1px solid var(--border);
+  margin-bottom:3rem;
+}
+.ph-kicker{
+  font-family:'Fira Code',monospace;
+  font-size:0.75rem;
+  color:var(--green);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:0.75rem;
+}
+.ph-title{
+  font-size:2.5rem;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+}
+.ph-sub{
+  font-size:1.1rem;
+  color:var(--mid);
+  max-width:800px;
+  margin:0 auto;
+  line-height:1.8;
+}
+.def-block{
+  background:var(--s2);
+  border-left:4px solid var(--green);
+  padding:1.5rem;
+  margin-bottom:2rem;
+  border-radius:0 8px 8px 0;
+  font-family:'Fira Code',monospace;
+  font-size:0.9rem;
+  line-height:1.8;
+  color:var(--mid);
+}
+.sec-head{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin:3rem 0 1.5rem;
+}
+.sec-label{
+  font-family:'Fira Code',monospace;
+  font-size:0.7rem;
+  color:var(--green);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.sec-head-line{
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+.content-block{
+  background:var(--s1);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.5rem;
+  margin-bottom:2rem;
+}
+.content-block h3{
+  font-size:1.1rem;
+  font-weight:700;
+  margin-bottom:1rem;
+  color:var(--text);
+}
+.content-block p{
+  color:var(--mid);
+  line-height:1.8;
+  margin-bottom:1rem;
+}
+.content-block ul{
+  padding-left:1.5rem;
+  color:var(--mid);
+  line-height:1.8;
+}
+.content-block li{
+  margin-bottom:0.5rem;
+}
+.callout{
+  background:var(--s2);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  padding:1.2rem;
+  margin-bottom:2rem;
+  display:flex;
+  gap:1rem;
+}
+.callout-icon{
+  font-size:1.5rem;
+  flex-shrink:0;
+}
+.callout-body{
+  font-size:0.9rem;
+  line-height:1.7;
+  color:var(--mid);
+}
+.callout.info{--accent:var(--blue);}
+.callout.success{--accent:var(--green);}
+.callout.warn{--accent:var(--amber);}
+.callout.violet{--accent:var(--violet);}
+.pillar-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2rem;
+  margin-bottom:2rem;
+}
+.pillar-card{
+  background:var(--s1);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  border-radius:0 12px 12px 0;
+  padding:2rem;
+}
+.pillar-num{
+  font-family:'Fira Code',monospace;
+  font-size:0.7rem;
+  color:var(--accent);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:0.5rem;
+}
+.pillar-title{
+  font-size:1.5rem;
+  font-weight:700;
+  margin-bottom:1rem;
+  color:var(--text);
+}
+.pillar-desc{
+  color:var(--mid);
+  line-height:1.8;
+  font-size:0.95rem;
+}
+</style>
+</head>
+<body>
+
+<div class="nav-header">
+  <div class="nav-title">Section 01 · Strategic Framework</div>
+  <a href="index.html" class="nav-back">← Back to Hub</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 · RTBoss Core</div>
+  <div class="tab" onclick="showTab(1)">02 · Strategic Pillars</div>
+  <div class="tab" onclick="showTab(2)">03 · Transformation Fund</div>
+  <div class="tab" onclick="showTab(3)">04 · Revenue Model</div>
+  <div class="tab" onclick="showTab(4)">05 · The Flywheel</div>
+</div>
+
+<!-- ══ TAB 01 · RTBoss CORE DEFINITION ══ -->
+<div class="panel active" id="tab-0"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 1 · RTBoss Foundation</div>
+    <h1 class="ph-title">The Real-Time Business Operating System</h1>
+    <p class="ph-sub">A universal way to run any business. Not software, not a methodology, not automation — a real-time operating model that treats the entire business as a continuous stream of objective, timestamped events flowing through one consistent pipeline.</p>
+  </div>
+
+  <div class="def-block">RTBoss := A real-time operating model where everything—sales, support, operations, finance, compliance, physical assets—follows one unchanging pattern: Fact → Dimensions → Digital Asset → Agentic Factory → Hybrid Worker → New Fact. This creates no-drift consistency: reality is captured uniformly, decisions are traceable, work scales without reinventing processes per department or industry.</div>
+
+  <div class="sec-head"><span class="sec-label">Core Elements</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>Facts — Objective, Timestamped Events</h3>
+    <p>Indisputable events or signals that actually happened: payment cleared at 14:32 UTC, ticket submitted, sensor anomaly detected, approval granted.</p>
+    <p><strong>Critical principle:</strong> If it is not captured as a fact, it does not exist operationally. Verbal commitments, hallway conversations, undocumented decisions are NOT facts until written into the system.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Dimensions — Essential Context</h3>
+    <p>Context added to facts to make them meaningful and actionable: who, what, where, urgency (Traffic Light: RED/YELLOW/GREEN), risk, value, jurisdiction, client tier, location.</p>
+    <p>Dimensions turn raw events into prioritized situations that can be routed and acted upon.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Digital Assets — Persistent, Versioned Entities</h3>
+    <p>Everything the business owns and manages: customers, contracts, devices, buildings, documents, queues, capital.</p>
+    <p>Facts always affect one or more digital assets, making change visible, governable, and measurable over time.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Agentic Factory (DOL) — Decision & Orchestration Layer</h3>
+    <p>Interprets fact + dimensions, determines the correct response, applies rules/models/policy, assigns work to the right actor (Digital Worker, Hybrid Worker, or Human Worker), and enforces governance and traceability.</p>
+    <p>The "brain" of RTBoss — where automation, intelligence, and human judgment intersect.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Hybrid Workforce — Humans Enabled by Digital Workers</h3>
+    <p>Digital workers handle deterministic or high-speed tasks automatically or semi-automatically. Humans set intent, define policy, resolve ambiguity, approve sensitive actions, and retain accountability.</p>
+    <p><strong>Current state:</strong> ~95% Human Worker, 5% Digital Worker<br>
+    <strong>Target state (Q3 2026):</strong> 60% Digital Worker, 30% Hybrid Worker, 10% Human Worker</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">The Operating Loop</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>A Single, Closed, Continuous Pipeline</h3>
+    <ol style="padding-left:1.5rem;color:var(--mid);line-height:1.8;">
+      <li>A real event becomes a <strong>Fact</strong></li>
+      <li><strong>Dimensions</strong> add context (Traffic Light, Worker Type, Domain, Client, etc.)</li>
+      <li>The fact links to the affected <strong>Digital Asset</strong></li>
+      <li>The <strong>Agentic Factory</strong> decides and assigns (Digital/Hybrid/Human Worker)</li>
+      <li>The <strong>Hybrid Worker</strong> executes (digital automation or human judgment)</li>
+      <li>The outcome becomes a <strong>New Fact</strong>, restarting the loop</li>
+    </ol>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Why RTBoss Works for Any Business</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <ul>
+      <li><strong>Avoids the classic failure</strong> of forcing process standardization across diverse teams</li>
+      <li><strong>Standardizes only reality capture</strong> — the pattern every business already follows naturally</li>
+      <li><strong>Enables real-time visibility</strong> — minutes/hours response times, not days/weeks</li>
+      <li><strong>Built-in controls</strong> — every fact, decision, and outcome is traceable</li>
+      <li><strong>Easy scaling of AI agents</strong> — start with Human Workers, incrementally shift to Digital/Hybrid</li>
+      <li><strong>Whole-business view</strong> — unified fact streams and asset updates across all departments</li>
+    </ul>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">✦</div>
+    <div class="callout-body"><strong>The universal truth:</strong> Every business runs on events (facts), applies context (dimensions), updates entities (digital assets), makes decisions (agentic factory), and executes work (hybrid workers). RTBoss simply makes this explicit, traceable, and optimizable.</div>
+  </div>
+
+</div></div>
+
+<!-- ══ TAB 02 · STRATEGIC PILLARS ══ -->
+<div class="panel" id="tab-1"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 1 · Strategic Framework</div>
+    <h1 class="ph-title">Strategic Pillars</h1>
+    <p class="ph-sub">How RTBoss delivers value today and scales tomorrow. AI Studio is the engineering foundation. The four revenue pillars are practical expressions of the identical universal pattern applied to different business contexts.</p>
+  </div>
+
+  <div class="def-block">Every pillar follows: Fact → Dimensions → Digital Asset → Agentic Factory → Hybrid Worker → New Fact. The pattern is identical. The application context changes.</div>
+
+  <div class="pillar-grid">
+    
+    <div class="pillar-card" style="--accent:var(--green);">
+      <div class="pillar-num">Pillar 01</div>
+      <div class="pillar-title">AI Studio — Platform Development & Agent Engineering</div>
+      <div class="pillar-desc">
+        <p>The factory behind every vertical. AI Studio is where Mini-OS domains are designed, specialist agents are engineered, and the RTBoss loop is configured, tested, and deployed for each client context. Every engagement starts here — no vertical ships without passing through AI Studio first.</p>
+        <p>Codex 5.3 scaffolds and versions all agent systems, collapsing multi-week manual builds into governed, repeatable sessions. Opus 4.6 orchestration is tuned and validated here before it runs in production. AI Studio owns the build, the model selection, the tool bindings, and the deployment pipeline.</p>
+        <p><strong>Why it anchors everything:</strong> Pillars 2–5 are where we earn recurring revenue. AI Studio is why clients trust we can deliver them. It is our engineering credibility — the proof that RTBoss is a repeatable capability, not a bespoke project assembled from scratch each time.</p>
+      </div>
+    </div>
+
+    <div class="pillar-card" style="--accent:var(--blue);">
+      <div class="pillar-num">Pillar 02</div>
+      <div class="pillar-title">MIP — Managed Intelligent Provider Services</div>
+      <div class="pillar-desc">
+        <p>Our current revenue foundation and the fastest path to client value. MIP turns every IT event, service request, and infrastructure alert into a structured fact — context added, asset linked, resolution routed through the Agentic Factory. Routine cases are resolved autonomously; complex ones are escalated to the right human with full context already assembled.</p>
+        <p>Delivered as a monthly retainer across three tiers: Trial ($2–4k), Standard ($4–8k), and Strategic ($8–15k). Clients receive 24/7 monitoring, predictive alerting, automatic remediation, and clear reporting on downtime prevented and costs saved. Current run rate: $38.5k MRR across four active clients.</p>
+        <p><strong>Why it leads the revenue pillars:</strong> MIP generates the steady recurring base that funds AI Studio development, produces high-volume fact streams that improve every other pillar, and creates the trusted relationships that open doors to LiveOps, Intelligent Buildings, and Intelligence engagements.</p>
+      </div>
+    </div>
+
+    <div class="pillar-card" style="--accent:var(--violet);">
+      <div class="pillar-num">Pillar 03</div>
+      <div class="pillar-title">LiveOps — Real-Time Command Center & Back-of-House Operations</div>
+      <div class="pillar-desc">
+        <p>The operational backbone that most clients don't see until they need it. LiveOps runs the real-time command center — live view of incoming facts, active situations, asset status, and workflow health — while simultaneously managing the back-of-house human layer: call centers, support desks, security operations, incident response, and administrative teams handling judgment, escalation, and compliance.</p>
+        <p>Built on the iceberg model: the visible front-of-house outcomes clients celebrate sit above the waterline; the larger, foundational mass keeping it stable is LiveOps. Includes a Digital Twin environment for replaying history, testing changes, running simulations, and predicting outcomes before committing to production.</p>
+        <p><strong>Why it compounds value:</strong> LiveOps is where RTBoss becomes irreplaceable. Once a client's operations run through the command center, the switching cost is near-zero to add new Mini-OS domains — every new fact type lands in an environment that already knows the client's assets, people, and patterns.</p>
+      </div>
+    </div>
+
+    <div class="pillar-card" style="--accent:var(--teal);">
+      <div class="pillar-num">Pillar 04</div>
+      <div class="pillar-title">Intelligent Buildings + Robotics & Physical Operations</div>
+      <div class="pillar-desc">
+        <p>RTBoss extended into the physical world. Sensors, devices, robots, and building management systems across offices, factories, warehouses, and facilities all generate facts — temperature spikes, equipment faults, inventory movements, energy anomalies. Intelligent Buildings applies the same loop: context added, assets linked, response decided, action executed, state updated.</p>
+        <p>Outcomes are immediate and measurable: self-managing spaces, autonomous HVAC and energy optimisation, predictive maintenance dispatch, robot coordination, and safety monitoring — all without manual intervention. Delivered as a Value Engine implementation ($60–100k) layered onto an existing MIP or LiveOps engagement.</p>
+        <p><strong>Why it extends our reach:</strong> Physical operations unlock industries and contract sizes that pure digital RTBoss cannot address. Warehousing, logistics, manufacturing, and facility management all become addressable — each with higher-value, longer-term contracts and compelling proof points for new client acquisition.</p>
+      </div>
+    </div>
+
+    <div class="pillar-card" style="--accent:var(--amber);">
+      <div class="pillar-num">Pillar 05</div>
+      <div class="pillar-title">RTBoss Intelligence — Analytics, Planning & Foresight</div>
+      <div class="pillar-desc">
+        <p>The highest-value unlock in the RTBoss stack. Where every other pillar operates in the present — capturing facts, resolving issues, running operations — Intelligence works across time. It turns the continuous fact stream from all active pillars into real-time dashboards, anomaly detection, KPI tracking, and predictive foresight, with no ETL delays and no data silos.</p>
+        <p>Agentic intelligence agents monitor streams continuously, run scenario models against the Digital Twin, surface prescriptive recommendations, and — where governance permits — auto-adjust plans before human review. Clients get capacity planning, demand forecasting, early risk detection, and cross-department insights that were previously impossible without a dedicated analytics team.</p>
+        <p><strong>Why it elevates every engagement:</strong> Intelligence transforms RTBoss from an operational efficiency tool into a strategic asset. Clients stop asking "what happened" and start asking "what should we do next" — and RTBoss answers with traceable, fact-backed reasoning rather than gut feel or quarterly reports.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout violet">
+    <div class="callout-icon">⬡</div>
+    <div class="callout-body"><strong>The meta-pillar:</strong> All five pillars use the same RTBoss loop. AI Studio builds and maintains the platform. MIP handles IT facts. LiveOps orchestrates human work. Intelligent Buildings handles physical facts. RTBoss Intelligence analyzes all fact streams. The pattern never changes — only the domain of application.</div>
+  </div>
+
+</div></div>
+
+<!-- ══ TAB 03 · TRANSFORMATION FUND ══ -->
+<div class="panel" id="tab-2"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 1 · Strategic Framework</div>
+    <h1 class="ph-title">RTBoss Transformation Fund</h1>
+    <p class="ph-sub">Investing to scale impact. RTBoss is a proven, universal model that can operate and transform any company or vertical. The Fund extends that model through targeted investments — turning struggling or disrupted businesses into high-growth, AI-native assets.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Fund Overview</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>Starting Size & Strategy</h3>
+    <ul>
+      <li><strong>Starting size:</strong> $5–10 million (lean launch for fast deployment and early proof)</li>
+      <li><strong>Strategy:</strong> Invest, acquire, or form joint ventures in undervalued or challenged companies</li>
+      <li><strong>Target profile:</strong> Small-to-mid-sized businesses ($2–20M revenue) facing AI adoption struggles, market shifts, high COGS, or operational fragmentation — any vertical driven by events, assets, and decisions</li>
+    </ul>
+  </div>
+
+  <div class="content-block">
+    <h3>Investment Approaches</h3>
+    <ul>
+      <li><strong>Minority stakes</strong> with RTBoss as a value-add partner</li>
+      <li><strong>Majority acquisitions</strong> followed by rapid RTBoss implementation</li>
+      <li><strong>Joint ventures</strong> for co-development and shared upside</li>
+    </ul>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Transformation Playbook</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>How We Transform Portfolio Companies</h3>
+    <ol style="padding-left:1.5rem;color:var(--mid);line-height:1.8;">
+      <li><strong>Overlay RTBoss pillars aggressively</strong>
+        <ul style="margin-top:0.5rem;">
+          <li>MIP for quick wins (operational efficiency, cost reduction)</li>
+          <li>LiveOps for control and back-office scale</li>
+          <li>Intelligent Buildings for physical edge (if applicable)</li>
+          <li>RTBoss Intelligence for foresight and strategic planning</li>
+        </ul>
+      </li>
+      <li><strong>Cut COGS 20–40%</strong> through agentic automation, fact-stream optimization, and reduced manual work</li>
+      <li><strong>Expand markets</strong> via predictive scenario planning, faster pivots, and new opportunity identification</li>
+      <li><strong>Achieve compliant, AI-native operations</strong> with built-in governance and real-time adaptability</li>
+    </ol>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Value Creation & Returns</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>Return Model</h3>
+    <ul>
+      <li><strong>Hands-on execution</strong> delivers measurable improvements in 12–18 months</li>
+      <li><strong>Target 3–5x multiples</strong> on exits (trade sales, sponsor-to-sponsor, scaled IPOs)</li>
+      <li><strong>Early cash-flow distributions</strong> from efficiency gains (COGS reduction flows to bottom line)</li>
+    </ul>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">✦</div>
+    <div class="callout-body"><strong>Why this fund succeeds:</strong> RTBoss is our proprietary transformation engine — unlike generic funds, we bring the model that consistently delivers results. Starting small proves ROI fast, then enables scaling to larger funds ($50M+, $100M+).</div>
+  </div>
+
+  <div class="content-block">
+    <h3>Example Transformation Path</h3>
+    <p><strong>Year 0 (Acquisition):</strong> Acquire struggling manufacturing business, $10M revenue, 35% COGS, fragmented manual operations</p>
+    <p><strong>Year 1 (RTBoss Deployment):</strong></p>
+    <ul>
+      <li>Deploy MIP → reduce IT support costs 40%</li>
+      <li>Deploy LiveOps → centralize operations, outsource back-office</li>
+      <li>Deploy Intelligent Buildings → automate warehouse, reduce energy 25%</li>
+      <li>Result: COGS drops to 22%, EBITDA improves from $1M to $3.5M</li>
+    </ul>
+    <p><strong>Year 2 (Growth & Exit):</strong></p>
+    <ul>
+      <li>Deploy RTBoss Intelligence → identify new market opportunity</li>
+      <li>Expand revenue to $15M with same cost base</li>
+      <li>Exit at 8x EBITDA ($28M) vs acquisition at 4x EBITDA ($4M)</li>
+      <li><strong>Fund return:</strong> 7x in 24 months</li>
+    </ul>
+  </div>
+
+</div></div>
+
+<!-- ══ TAB 04 · REVENUE MODEL ══ -->
+<div class="panel" id="tab-3"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 1 · Strategic Framework</div>
+    <h1 class="ph-title">Revenue Model & Strategic Anchors</h1>
+    <p class="ph-sub">The path to $50k MRR by mid-2026, 5 active clients by end-2026, and fund launch readiness. Multiple revenue streams compounding toward profitability and scalability.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Strategic Anchors (Non-Negotiable Targets)</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>The Three Anchors</h3>
+    <ol style="padding-left:1.5rem;color:var(--mid);line-height:1.8;">
+      <li><strong>$50,000 AUD MRR by mid-2026</strong> — Recurring revenue proving business model viability</li>
+      <li><strong>5 active RTBoss clients by end-2026</strong> — Portfolio demonstrating replicability across verticals</li>
+      <li><strong>Fund launch readiness</strong> — Track record, deal flow, LP relationships established</li>
+    </ol>
+    <p style="margin-top:1rem;"><strong>Current state (Feb 2026):</strong> $38.5k MRR, 4 active clients, fund thesis documented</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Revenue Streams</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>Stream 1: MIP Recurring Revenue (Current Foundation)</h3>
+    <p><strong>Model:</strong> Monthly retainer for Managed Intelligent Provider services</p>
+    <ul>
+      <li><strong>Strategic tier:</strong> $8–15k/month (full RTBoss deployment, proactive optimization, dedicated support)</li>
+      <li><strong>Standard tier:</strong> $4–8k/month (core monitoring, alerting, resolution, standard SLA)</li>
+      <li><strong>Trial tier:</strong> $2–4k/month (limited scope, proving value before upsell)</li>
+    </ul>
+    <p><strong>Current MRR breakdown:</strong> 2 Strategic ($22k), 2 Standard ($16.5k) = $38.5k total</p>
+    <p><strong>Path to $50k MRR:</strong> Add 1 Strategic client ($10k+) OR upsell 1 Standard to Strategic + add 1 Trial</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Stream 2: Mini-OS Deployments (Project Revenue)</h3>
+    <p><strong>Model:</strong> One-time implementation fees for deploying specific Mini-OS instances</p>
+    <ul>
+      <li><strong>Productivity OS:</strong> $15–25k (foundation, all clients need this)</li>
+      <li><strong>Finance OS:</strong> $20–35k (Profit First, automated reporting, tax compliance)</li>
+      <li><strong>MIP Mini-OS:</strong> $30–50k (full IT service management transformation)</li>
+      <li><strong>Operations/Manufacturing OS:</strong> $40–60k (complex, physical integration)</li>
+    </ul>
+    <p><strong>Revenue potential:</strong> 5 clients × 2 Mini-OS deployments/year × $30k avg = $300k annual project revenue</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Stream 3: Value Engine Implementations (High-Value Projects)</h3>
+    <p><strong>Model:</strong> Cross-functional transformation projects spanning multiple Mini-OS</p>
+    <ul>
+      <li><strong>Growth Engine:</strong> $50–80k (Sales + Marketing + Product integration)</li>
+      <li><strong>Fulfillment Engine:</strong> $60–100k (Operations + Logistics + Services orchestration)</li>
+      <li><strong>Innovation Engine:</strong> $40–70k (Product + R&D + LEAN integration)</li>
+    </ul>
+    <p><strong>Revenue potential:</strong> 2–3 Value Engine projects/year × $65k avg = $130–195k annual</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Stream 4: Transformation Fund Management Fees (Future)</h3>
+    <p><strong>Model:</strong> Standard 2/20 structure (2% management fee, 20% carried interest)</p>
+    <ul>
+      <li><strong>$5M fund:</strong> $100k annual management fee + carry on exits</li>
+      <li><strong>$10M fund:</strong> $200k annual management fee + carry on exits</li>
+      <li><strong>Scale to $50M:</strong> $1M annual management fee + significant carry</li>
+    </ul>
+    <p><strong>Timeline:</strong> First close Q4 2026, first distributions 2028</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Unit Economics & Path to Profitability</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>Current State Analysis</h3>
+    <p><strong>Revenue:</strong> $38.5k MRR × 12 = $462k ARR + ~$100k project revenue = $562k total annual</p>
+    <p><strong>Cost structure (estimated):</strong></p>
+    <ul>
+      <li>Personnel (2–3 people): $300–400k</li>
+      <li>Microsoft licensing & infrastructure: $50–75k</li>
+      <li>Other operating costs: $50–75k</li>
+      <li><strong>Total annual burn:</strong> ~$400–550k</li>
+    </ul>
+    <p><strong>Current state:</strong> Near breakeven or slight profit</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Target State (Mid-2026)</h3>
+    <p><strong>Revenue:</strong> $50k MRR × 12 = $600k ARR + $300k project revenue = $900k total annual</p>
+    <p><strong>Cost structure:</strong> Similar personnel cost (leverage Digital Workers to scale without hiring)</p>
+    <p><strong>Projected EBITDA:</strong> $300–400k (30–40% margin)</p>
+    <p><strong>Reinvestment:</strong> Fund development costs, build out remaining Mini-OS, hire for fund ops</p>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">✦</div>
+    <div class="callout-body"><strong>The compounding effect:</strong> MIP revenue funds RTBoss development. RTBoss maturation reduces delivery costs. Lower costs = higher margins. Higher margins fund Fund development. Fund success brings LP capital. LP capital scales RTBoss deployment. Flywheel accelerates.</div>
+  </div>
+
+</div></div>
+
+<!-- ══ TAB 05 · THE FLYWHEEL ══ -->
+<div class="panel" id="tab-4"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 1 · Strategic Framework</div>
+    <h1 class="ph-title">The Flywheel & Long-Term Direction</h1>
+    <p class="ph-sub">How everything compounds. Each component reinforces the others, creating momentum that accelerates over time. The more we build, the faster we build. The more we deploy, the better we get. The better we get, the more valuable we become.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">The Compounding Effect</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>How Each Element Feeds the Next</h3>
+    <ol style="padding-left:1.5rem;color:var(--mid);line-height:2;">
+      <li><strong>MIP clients generate recurring revenue + fact streams</strong></li>
+      <li><strong>Fact streams train the Agentic Factory</strong> (more data = smarter agents)</li>
+      <li><strong>Smarter agents reduce delivery costs</strong> (automation replaces manual work)</li>
+      <li><strong>Lower costs = higher margins</strong> (30–40% EBITDA vs industry 10–15%)</li>
+      <li><strong>Higher margins fund RTBoss development</strong> (build more Mini-OS, Genies, Streams)</li>
+      <li><strong>More Mini-OS deployed = more reusable components</strong> (each client deployment gets faster)</li>
+      <li><strong>Faster deployments = ability to serve more clients</strong> (scale without linear cost increase)</li>
+      <li><strong>More client success stories = easier sales</strong> (proof points across verticals)</li>
+      <li><strong>Easier sales = Fund credibility</strong> (track record attracts LPs)</li>
+      <li><strong>Fund capital = ability to acquire portfolio companies</strong> (deploy RTBoss at scale)</li>
+      <li><strong>Portfolio company transformations = more fact streams</strong> (back to step 2, flywheel accelerates)</li>
+    </ol>
+  </div>
+
+  <div class="callout violet">
+    <div class="callout-icon">⬡</div>
+    <div class="callout-body"><strong>The insight:</strong> We're not just building a service business. We're building a compounding asset. Every client makes RTBoss smarter. Every deployment makes the next one cheaper. Every success makes the fund more credible. The flywheel effect is real — initial progress is slow, but momentum builds exponentially.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Long-Term Direction (3 Year Horizon)</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>Phase 1: Prove the Model (2026)</h3>
+    <ul>
+      <li>Reach $50k MRR with 5 active clients</li>
+      <li>Deploy Productivity OS, MIP, Finance OS across all clients</li>
+      <li>Achieve 40% Digital Worker maturation</li>
+      <li>Document fund thesis, establish LP relationships</li>
+      <li><strong>Outcome:</strong> Proven, profitable service business + fund-ready track record</li>
+    </ul>
+  </div>
+
+  <div class="content-block">
+    <h3>Phase 2: Scale Service + Launch Fund (2027)</h3>
+    <ul>
+      <li>Grow to 10–12 active clients, $100k+ MRR</li>
+      <li>First fund close ($5–10M)</li>
+      <li>First 2–3 portfolio company acquisitions</li>
+      <li>Deploy full RTBoss stack (all 14 Mini-OS buildable on demand)</li>
+      <li><strong>Outcome:</strong> Service business funds itself, Fund begins transformation work</li>
+    </ul>
+  </div>
+
+  <div class="content-block">
+    <h3>Phase 3: Fund Becomes Primary Value Driver (2028)</h3>
+    <ul>
+      <li>Service business stable at $150–200k MRR (15–20 clients)</li>
+      <li>Fund scales to $25–50M (second close)</li>
+      <li>Portfolio: 8–12 companies in various transformation stages</li>
+      <li>First exits generating 3–5x returns</li>
+      <li>RTBoss becomes licensable platform — sell to other service providers and PE firms</li>
+      <li><strong>Outcome:</strong> Fund management fees + carry >> service revenue. RTBoss is the standard operating model for AI-native businesses.</li>
+    </ul>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-icon">✦</div>
+    <div class="callout-body"><strong>The ultimate vision:</strong> RTBoss becomes the standard operating model for AI-native businesses. Just like Linux is the OS for servers, RTBoss is the OS for business operations. We prove it works by deploying it ourselves, scale it through the fund, then license it to the market. The flywheel never stops.</div>
+  </div>
+
+</div></div>
+
+<script>
+function showTab(n){
+  const tabs=document.querySelectorAll('.tab');
+  const panels=document.querySelectorAll('.panel');
+  tabs.forEach((t,i)=>{
+    if(i===n){
+      t.classList.add('active');
+      panels[i].classList.add('active');
+    }else{
+      t.classList.remove('active');
+      panels[i].classList.remove('active');
+    }
+  });
+}
+</script>
+
+</body>
+</html>

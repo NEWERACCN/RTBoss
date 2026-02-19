@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss — Changelog & Audit Standards</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#020408;--s1:#0a1420;--s2:#12202e;--border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;--blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;--red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--cl:var(--violet);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;overflow-x:hidden;}
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:var(--cl);}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;}
+.nav-back:hover{color:var(--cl);}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:var(--cl);border-bottom-color:var(--cl);}
+.panel{display:none;}.panel.active{display:block;}
+.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--cl);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
+.ph-sub{font-size:1.1rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
+.sh{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.5rem;}
+.sl{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--cl);letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;}
+.sline{flex:1;height:1px;background:linear-gradient(90deg,rgba(179,136,255,0.3),transparent);}
+.callout{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--cl);border-radius:0 8px 8px 0;padding:1.2rem;margin-bottom:1.5rem;display:flex;gap:1rem;}
+.ci{font-size:1.4rem;flex-shrink:0;}
+.cb{font-size:0.85rem;line-height:1.7;color:var(--mid);}
+.cb strong{color:var(--text);}
+.ci-iso{border-left-color:var(--teal);}
+.ci-warn{border-left-color:var(--amber);}
+.ci-ok{border-left-color:var(--green);}
+.dt{width:100%;border-collapse:collapse;margin:1rem 0 2rem;font-size:0.82rem;}
+.dt th{background:var(--s2);color:var(--mid);font-family:'Fira Code',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1rem;text-align:left;border-bottom:2px solid var(--border);}
+.dt td{padding:0.75rem 1rem;border-bottom:1px solid rgba(42,64,96,0.4);vertical-align:top;color:var(--mid);line-height:1.6;}
+.dt tr:hover td{background:rgba(42,64,96,0.15);}
+.mono{font-family:'Fira Code',monospace;font-size:0.78rem;color:var(--cl);}
+.cb-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--cl);border-radius:0 8px 8px 0;padding:1rem 1.25rem;font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--teal);line-height:1.9;overflow-x:auto;white-space:pre;margin:0.5rem 0 1.5rem;}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:1.5rem 0;}
+.card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;border-left:3px solid var(--ca,var(--cl));}
+.card h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:var(--text);}
+.card p{font-size:0.83rem;color:var(--mid);line-height:1.7;}
+.sb{display:inline-block;padding:0.15rem 0.6rem;border-radius:4px;font-family:'Fira Code',monospace;font-size:0.65rem;font-weight:600;}
+.sm{background:rgba(255,202,40,0.1);color:var(--amber);border:1px solid rgba(255,202,40,0.3);}
+.sM{background:rgba(255,145,0,0.1);color:var(--orange);border:1px solid rgba(255,145,0,0.3);}
+.sC{background:rgba(255,82,82,0.1);color:var(--red);border:1px solid rgba(255,82,82,0.3);}
+.tl{position:relative;padding-left:2rem;margin:1.5rem 0;}
+.tl::before{content:'';position:absolute;left:0.45rem;top:0;bottom:0;width:2px;background:var(--border);}
+.ti{position:relative;margin-bottom:1.5rem;}
+.td{position:absolute;left:-1.73rem;top:0.2rem;width:12px;height:12px;border-radius:50%;border:2px solid var(--bg);}
+.ti h4{font-size:0.9rem;font-weight:700;margin-bottom:0.25rem;}
+.ti p{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+.tm{font-family:'Fira Code',monospace;font-size:0.62rem;color:var(--dim);margin-bottom:0.3rem;}
+.ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0;}
+.qb{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.ql{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--cl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem;}
+.qb h4{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;}
+.qb ul{padding-left:1.25rem;}
+.qb li{font-size:0.78rem;color:var(--mid);line-height:1.8;}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin:1.5rem 0;}
+.rb{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.rb h4{font-size:0.9rem;font-weight:700;margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+.ri{display:flex;align-items:flex-start;gap:0.5rem;padding:0.35rem 0;font-size:0.8rem;color:var(--mid);}
+.ri::before{content:"→";color:var(--cl);flex-shrink:0;font-family:'Fira Code',monospace;font-size:0.7rem;margin-top:0.15rem;}
+</style>
+</head>
+<body>
+<div class="nav-header">
+  <div class="nav-title">Section 12 · Changelog &amp; Audit Standards</div>
+  <a href="index.html" class="nav-back">← Back to Hub</a>
+</div>
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 · Version Control</div>
+  <div class="tab" onclick="showTab(1)">02 · NCR Process</div>
+  <div class="tab" onclick="showTab(2)">03 · Lesson Capture</div>
+  <div class="tab" onclick="showTab(3)">04 · Internal Audit</div>
+  <div class="tab" onclick="showTab(4)">05 · Management Review</div>
+</div>
+
+<!-- TAB 01 · VERSION CONTROL -->
+<div class="panel active" id="tab-0"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">ISO 9001 Cl.7.5 · ISO 27001 Cl.7.5</div>
+    <h1 class="ph-title">Version Control &amp; Changelog</h1>
+    <p class="ph-sub">Every change to RTBoss — agents, system prompts, processes, ontology, documents, infrastructure — is versioned, logged, and traceable. Version control is not an admin burden; it is the audit trail that proves the system evolves intentionally.</p>
+  </div>
+  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>ISO requirement:</strong> ISO 9001 Cl.7.5 requires that documented information be controlled — available when needed, adequately protected, and subject to distribution, access, retrieval, use, storage, and preservation controls. ISO 27001 Cl.7.5 has near-identical requirements. This Section 12 satisfies both.</div></div>
+
+  <div class="sh"><div class="sl">Versioning Scheme — Semantic Version Standard</div><div class="sline"></div></div>
+  <p style="color:var(--mid);font-size:0.88rem;line-height:1.8;margin-bottom:1.5rem;">All RTBoss components use semantic versioning: <span style="font-family:Fira Code,monospace;color:var(--cl);">MAJOR.MINOR.PATCH</span>. The rules are strict — ambiguity about what constitutes a major vs minor change causes audit failures.</p>
+
+  <table class="dt">
+    <thead><tr><th>Level</th><th>When to Use</th><th>Examples</th><th>Requires</th></tr></thead>
+    <tbody>
+      <tr><td class="mono" style="color:var(--dim);">PATCH (x.x.N)</td><td>Bug fix, typo correction, wording clarification — no behaviour or structure change</td><td>Fix typo in system prompt; correct broken link; update review date</td><td>Author review only. Log in Changelog. No re-testing unless output affected.</td></tr>
+      <tr><td class="mono" style="color:var(--amber);">MINOR (x.N.0)</td><td>New capability added, process extended, new entity property added — backward compatible</td><td>Add output field to Genie; add prompt instruction; extend a template</td><td>Author + peer review. Log in Changelog with diff summary. Re-run unit tests. Update ENT-004 registry.</td></tr>
+      <tr><td class="mono" style="color:var(--red);">MAJOR (N.0.0)</td><td>Breaking change — behaviour changes, ontology changes, entity removed/renamed, security control changed</td><td>Change Genie output schema; rename Dataverse entity; change classification level; alter auth method</td><td>Author + Tech Lead approval. Full test suite. Risk assessment updated. ISO control block re-reviewed. Changelog entry mandatory.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sh"><div class="sl">Changelog Entry Format</div><div class="sline"></div></div>
+  <div class="cb-block">RTBoss CHANGELOG ENTRY TEMPLATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Entry ID:         CL-[YYYY]-[nnn]                    e.g. CL-2026-042
+Date:             [YYYY-MM-DD]
+Author:           [Name · Role]
+Component:        [Agent ID / Section / Entity / Process]
+Version Change:   [old] → [new]                      e.g. 1.2.1 → 1.3.0
+Change Type:      PATCH | MINOR | MAJOR
+ISO Reference:    [Clause(s) affected]               e.g. ISO 27001 A.8.28 / ISO 9001 Cl.7.5
+Classification:   🔴 RESTRICTED | 🟡 CONFIDENTIAL | 🔵 INTERNAL | 🟢 PUBLIC
+
+Description:      [What changed and why]
+
+Diff Summary:
+  BEFORE: [Specific text / config / schema that was changed]
+  AFTER:  [What it was changed to]
+
+Impact Assessment:
+  Security impact:  [None / Low / Medium / High]
+  Quality impact:   [None / Low / Medium / High]
+  Downstream deps:  [Other components affected]
+
+Review &amp; Approval:
+  Reviewed by:  [Name]
+  Approved by:  [Name] (required for MAJOR)
+  Tests run:    [Unit / Integration / E2E / UAT]
+  NCR raised:   [NCR-ID if triggered by a nonconformance]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
+  <div class="sh"><div class="sl">Component Version Registry — Schema</div><div class="sline"></div></div>
+  <table class="dt">
+    <thead><tr><th>Component Type</th><th>ID Pattern</th><th>Storage Location</th><th>Who Can Bump</th></tr></thead>
+    <tbody>
+      <tr><td>Genie / Agent</td><td class="mono">AGT-xxx</td><td>Dataverse ENT-004 (neit_agent)</td><td>Tech Lead (MAJOR) · Author (MINOR/PATCH)</td></tr>
+      <tr><td>System Prompt</td><td class="mono">AGT-xxx.prompt</td><td>Copilot Studio / AI Foundry</td><td>Author — review required for all changes</td></tr>
+      <tr><td>Mini-OS / System</td><td class="mono">OS-xx</td><td>Dataverse + SharePoint</td><td>Tech Lead (MAJOR) · Author (MINOR)</td></tr>
+      <tr><td>Ontology Entity</td><td class="mono">ENT-xxx</td><td>Dataverse schema</td><td>Tech Lead only — always MAJOR</td></tr>
+      <tr><td>Document Template</td><td class="mono">[CLIENT]-[TYPE]-[DATE]-[nnn]</td><td>SharePoint document library</td><td>CSM (MINOR/PATCH) · MD (MAJOR)</td></tr>
+      <tr><td>QMS Section</td><td class="mono">09-qms.html</td><td>SharePoint · Playbook</td><td>Tech Lead · MD sign-off for MAJOR</td></tr>
+      <tr><td>ISO Policy Document</td><td class="mono">NEIT-POL-xxx</td><td>SharePoint · Policies</td><td>MD only — annual review mandatory</td></tr>
+      <tr><td>Risk Register Item</td><td class="mono">ENT-005</td><td>Dataverse neit_riskitem</td><td>Tech Lead · Quarterly review</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout ci-warn"><div class="ci">⚠</div><div class="cb"><strong>Ontology changes are always MAJOR — no exceptions.</strong> Any change to a Dataverse entity schema (adding a required field, renaming a property, changing a lookup relationship) is a MAJOR version bump. Requires Tech Lead approval, downstream impact assessment across all Genies using the entity, and an updated test suite.</div></div>
+
+</div></div>
+
+<!-- TAB 02 · NCR PROCESS -->
+<div class="panel" id="tab-1"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">ISO 9001 Cl.10.2 · ISO 27001 Cl.10.1</div>
+    <h1 class="ph-title">Nonconformance &amp; Corrective Action</h1>
+    <p class="ph-sub">Every deviation from a defined requirement is captured as a Non-Conformance Report (NCR). The discipline of raising, investigating, correcting, and verifying NCRs is what separates a system that learns from one that accumulates technical debt.</p>
+  </div>
+  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>ISO 9001 Cl.10.2 and ISO 27001 Cl.10.1 are explicit:</strong> React to the nonconformity. Deal with consequences. Determine if similar nonconformities exist. Implement corrective action. Review effectiveness. Retain documented information as evidence. An NCR without a verified corrective action is an open audit finding.</div></div>
+
+  <div class="sh"><div class="sl">What Triggers an NCR</div><div class="sline"></div></div>
+  <div class="cg">
+    <div class="card" style="--ca:var(--red);"><h3>Agent Failure</h3><p>A Genie produces an incorrect, incomplete, or unsafe output. Confidence score below threshold. Output causes a downstream process failure.</p></div>
+    <div class="card" style="--ca:var(--amber);"><h3>Process Deviation</h3><p>A defined RTBoss process was not followed. Sprint cycle skipped. Go-live gate not completed. Document classification not applied.</p></div>
+    <div class="card" style="--ca:var(--orange);"><h3>Client Complaint</h3><p>A client raises a formal concern about RTBoss outputs, service delivery, or SLA performance. Any NPS below target. Outcome Bonus disputed.</p></div>
+    <div class="card" style="--ca:var(--violet);"><h3>Security Event</h3><p>Any event that may have compromised information confidentiality, integrity, or availability. Unauthorised access attempt. Data classification breach.</p></div>
+    <div class="card" style="--ca:var(--blue);"><h3>Audit Finding</h3><p>An internal or external audit finds a gap. An observation not corrected becomes a minor NC. An unaddressed minor NC becomes a major NC.</p></div>
+    <div class="card" style="--ca:var(--teal);"><h3>Proactive Identification</h3><p>Team member identifies a process that could fail. "We should raise an NCR" is a cultural indicator of a mature QMS — it means the team owns quality.</p></div>
+  </div>
+
+  <div class="sh"><div class="sl">NCR Severity Definitions</div><div class="sline"></div></div>
+  <table class="dt">
+    <thead><tr><th>Severity</th><th>Definition</th><th>Response Time</th><th>Escalation</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sb sm">MINOR</span></td><td>Single isolated failure with low impact. Process not followed but no significant harm.</td><td>Immediate action within 5 business days. Corrective action within 30 days.</td><td>Author + direct manager.</td></tr>
+      <tr><td><span class="sb sM">MAJOR</span></td><td>Systematic failure or pattern of failures. Significant client or operational impact. ISO clause not met.</td><td>Containment within 24h. Root cause within 10 days. Corrective action within 45 days.</td><td>Tech Lead + MD. Client notified if affected.</td></tr>
+      <tr><td><span class="sb sC">CRITICAL</span></td><td>Certification-threatening. Data breach. Patient safety risk (EMS). Client contract at risk. Regulatory breach.</td><td>Escalation within 2h. Incident response plan activated within 24h.</td><td>MD + Legal + Client MD. ACSC notification if personal data breach (Privacy Act NDB scheme).</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sh"><div class="sl">NCR Lifecycle — 5-Why Root Cause Method</div><div class="sline"></div></div>
+  <div class="tl">
+    <div class="ti"><div class="td" style="background:var(--red);"></div><div class="tm">Step 1 · Immediate</div><h4>Raise the NCR</h4><p>Anyone on the NEIT team can raise an NCR. Create ENT-006 record in Dataverse (NCR-YYYY-nnn). Set severity, describe the nonconformance, assign owner. Notify Tech Lead for MAJOR/CRITICAL.</p></div>
+    <div class="ti"><div class="td" style="background:var(--amber);"></div><div class="tm">Step 2 · 24h (CRITICAL), 5 days (MAJOR), 10 days (MINOR)</div><h4>Immediate Containment</h4><p>Isolate the failing component. Notify affected parties. Document the containment action in immediate_action field. For security incidents: follow NEIT-POL-INC-001.</p></div>
+    <div class="ti"><div class="td" style="background:var(--orange);"></div><div class="tm">Step 3 · Root Cause Analysis</div><h4>5-Why Investigation</h4><p>Ask "Why?" five times. The first answer is usually a symptom; the fifth is usually a process or design failure. Document the 5-Why chain in root_cause. Involve the person closest to the failure.</p></div>
+    <div class="ti"><div class="td" style="background:var(--blue);"></div><div class="tm">Step 4 · Corrective Action</div><h4>Fix the Root Cause, Not the Symptom</h4><p>Define what permanently prevents recurrence. Update the relevant Genie, process, or document. Create a Changelog entry. Update the test suite to catch this class of failure in future.</p></div>
+    <div class="ti"><div class="td" style="background:var(--green);"></div><div class="tm">Step 5 · 30 to 90 days after correction</div><h4>Verify the Fix Worked</h4><p>Verify the corrective action prevented recurrence. Check output quality, review logs. Document in effectiveness_check. Only then set status to VERIFIED and CLOSED. An NCR not verified remains open for ISO purposes.</p></div>
+    <div class="ti"><div class="td" style="background:var(--violet);"></div><div class="tm">Step 6 · Playbook Update</div><h4>Prevent It System-Wide</h4><p>For MAJOR or CRITICAL NCRs: does this indicate a playbook gap? Document the playbook_update field with the section and version changed. This is how RTBoss learns.</p></div>
+  </div>
+
+  <div class="sh"><div class="sl">NCR Register Dashboard</div><div class="sline"></div></div>
+  <div class="cb-block">NCR REGISTER — DASHBOARD (Dataverse → Power BI)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ NCR-ID       │ Raised     │ Sev      │ Status          │ Due
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ NCR-2026-001 │ 2026-01-15 │ MINOR    │ CLOSED/VERIFIED │ Closed
+ NCR-2026-002 │ 2026-02-01 │ MAJOR    │ UNDER REVIEW    │ 2026-03-01
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Open: 1  │ Overdue: 0 │ This Quarter: 2 │ CRITICAL: 0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+</div></div>
+
+<!-- TAB 03 · LESSON CAPTURE -->
+<div class="panel" id="tab-2"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">ISO 9001 Cl.10.3 · Continual Improvement</div>
+    <h1 class="ph-title">Lesson Capture &amp; Continual Improvement</h1>
+    <p class="ph-sub">ISO 9001 Cl.10.3 requires continual improvement of the QMS. Lessons are captured at every sprint review, every maturation review, and every NCR closure. The system must demonstrably improve over time — not just operate.</p>
+  </div>
+  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>Continual improvement is mandatory under ISO 9001 Cl.10.3.</strong> The standard requires that the organisation continually improve the suitability, adequacy, and effectiveness of the QMS. "Things are working fine" is not evidence of continual improvement — it must be demonstrated through logged actions and their verified outcomes.</div></div>
+
+  <div class="sh"><div class="sl">Lesson Capture Triggers</div><div class="sline"></div></div>
+  <div class="cg">
+    <div class="card" style="--ca:var(--green);"><h3>Sprint Review (Every 2 Weeks)</h3><p>At the end of every sprint, 10 minutes is dedicated to "what worked, what didn't, what would we do differently." Captured as 2–3 bullets in the sprint plan. Patterns across 3+ sprints become formal improvement proposals.</p></div>
+    <div class="card" style="--ca:var(--blue);"><h3>Maturation Review (30/90/180 days)</h3><p>Structured client reviews capture lessons at scale. How did the agent perform vs expectation? What surprised us? These feed the Section 10 Factory Library agent improvement backlog.</p></div>
+    <div class="card" style="--ca:var(--violet);"><h3>NCR Closure</h3><p>Every closed MAJOR or CRITICAL NCR generates at minimum one lesson — documented before the NCR is set to VERIFIED. If the same lesson appears in 3+ NCRs, it must become a playbook update.</p></div>
+    <div class="card" style="--ca:var(--amber);"><h3>New Client Onboarding</h3><p>Every new client brings new context and edge cases. Captured during onboarding and at end of first sprint. Often reveals QMS template or agent logic gaps not visible in existing clients.</p></div>
+  </div>
+
+  <div class="sh"><div class="sl">Lesson Entry Format</div><div class="sline"></div></div>
+  <div class="cb-block">LESSON CAPTURE ENTRY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Lesson ID:    LSN-[YYYY]-[nnn]
+Date:         [YYYY-MM-DD]
+Source:       sprint_review | maturation_review | ncr_closure | onboarding
+Context:      [Client / Sprint / Event]
+Author:       [Name]
+
+What happened:   [Factual description — not blame, just events]
+What we learned: [The insight]
+
+Improvement:
+  Type:     playbook_update | agent_improvement | process_change | training
+  Target:   [Section / agent / process]
+  Priority: low | medium | high
+  Status:   proposed | approved | implemented | deferred
+
+Implementation: [If implemented: what changed, Changelog ID, date]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
+  <div class="sh"><div class="sl">Improvement Routing</div><div class="sline"></div></div>
+  <table class="dt">
+    <thead><tr><th>Lesson Type</th><th>Where It Goes</th><th>Owner</th><th>Cadence</th></tr></thead>
+    <tbody>
+      <tr><td>Agent output quality issue</td><td>Section 10 improvement backlog. System prompt updated → version bump → Changelog.</td><td>Tech Lead</td><td>Next sprint planning</td></tr>
+      <tr><td>Process unclear or not followed</td><td>Relevant Section updated. MAJOR version bump if content changes materially.</td><td>Section owner</td><td>Within 30 days</td></tr>
+      <tr><td>QMS gap identified</td><td>Section 09 updated. If ISO clause gap: ISO Framework tab + SoA reviewed.</td><td>Tech Lead + MD</td><td>Next Management Review</td></tr>
+      <tr><td>Security improvement identified</td><td>Risk Register updated (ENT-005). Annex A mapping updated. SoA re-reviewed if scope changes.</td><td>Tech Lead</td><td>Within 30 days</td></tr>
+      <tr><td>Client-specific edge case</td><td>Industry Advisor spec updated. If reusable: Factory Library registered (Section 10).</td><td>CSM + Tech Lead</td><td>Before next sprint</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout ci-ok"><div class="ci">✦</div><div class="cb"><strong>The compounding improvement effect:</strong> Each lesson that becomes a Changelog entry improves every future deployment that uses that component. An improvement to the EMS EmailClassifier benefits RDM and RLAW when they deploy a classifier pattern. Lesson capture is an investment — the returns compound across every client.</div></div>
+</div></div>
+
+<!-- TAB 04 · INTERNAL AUDIT -->
+<div class="panel" id="tab-3"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">ISO 9001 Cl.9.2 · ISO 27001 Cl.9.2</div>
+    <h1 class="ph-title">Internal Audit Programme</h1>
+    <p class="ph-sub">Both ISO standards mandate planned internal audits at defined intervals. The programme must consider the importance of processes and the results of previous audits. Auditors must be objective and impartial — they cannot audit their own work.</p>
+  </div>
+  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>ISO 9001 Cl.9.2 and ISO 27001 Cl.9.2:</strong> Conduct internal audits at planned intervals. Define criteria and scope. Select auditors ensuring objectivity and impartiality. Report results to relevant management. Retain documented information as evidence. Take corrective action without undue delay. An audit without documented findings is not a compliant audit.</div></div>
+
+  <div class="sh"><div class="sl">Annual Audit Programme</div><div class="sline"></div></div>
+  <div class="ag">
+    <div class="qb"><div class="ql">Q1 · Jan–Mar</div><h4>Infrastructure &amp; Access Controls</h4><ul><li>ISO 27001 Annex A.8 — Technical controls</li><li>Entra ID RBAC — who has access to what</li><li>Privileged access (PIM) review</li><li>Azure Key Vault — secrets current and rotated</li><li>MFA enforcement — all accounts verified</li><li>Data residency — Australia East confirmed</li><li>Encryption at rest and in transit verified</li></ul></div>
+    <div class="qb"><div class="ql">Q2 · Apr–Jun</div><h4>Delivery &amp; Customer Satisfaction</h4><ul><li>ISO 9001 Cl.8 — Operational processes</li><li>Sprint process adherence — sample 3 sprints</li><li>Go-live gates completed for all deployments</li><li>Agent ISO Control Blocks current</li><li>Client NPS — all active clients reviewed</li><li>SOW vs actual outcome comparison</li><li>30/90/180 review completion rate</li></ul></div>
+    <div class="qb"><div class="ql">Q3 · Jul–Sep</div><h4>Document Control &amp; Records</h4><ul><li>ISO 9001 + 27001 Cl.7.5</li><li>Document control headers — sample check</li><li>Classification labels — applied to all outputs</li><li>SharePoint version history enabled everywhere</li><li>Changelog — all MAJOR changes logged</li><li>Policy documents reviewed within 12 months</li><li>No obsolete templates active</li></ul></div>
+    <div class="qb"><div class="ql">Q4 · Oct–Dec</div><h4>Risk &amp; Management Systems</h4><ul><li>ISO 27001 Cl.6 + ISO 9001 Cl.6</li><li>Risk register — all items reviewed this year</li><li>SoA — current and approved</li><li>NCR register — all closed items verified</li><li>HIGH priority lessons implemented</li><li>Security awareness training — all staff done</li><li>Management review — quarterly, minutes filed</li></ul></div>
+  </div>
+
+  <div class="sh"><div class="sl">Triggered Audit Criteria</div><div class="sline"></div></div>
+  <table class="dt">
+    <thead><tr><th>Trigger Event</th><th>Audit Scope</th><th>Timeframe</th><th>Auditor</th></tr></thead>
+    <tbody>
+      <tr><td>CRITICAL NCR raised</td><td>Full audit of affected process, all related controls, upstream/downstream dependencies</td><td>Within 10 business days</td><td>Independent — not the NCR owner</td></tr>
+      <tr><td>New client onboarded</td><td>Client-facing delivery process + data handling + classification applied to all client data</td><td>Within 30 days of go-live</td><td>Tech Lead (not the onboarding CSM)</td></tr>
+      <tr><td>Major infrastructure change</td><td>Affected Annex A controls + access control review + updated risk register items</td><td>Before change goes live</td><td>Tech Lead</td></tr>
+      <tr><td>Security incident (any severity)</td><td>Full ISMS audit — A.8 controls, access logs, incident timeline, containment effectiveness</td><td>Within 5 days of incident closure</td><td>Independent — MD involvement mandatory</td></tr>
+      <tr><td>External certification audit finding</td><td>Scope defined by the finding — minimum: the control(s) cited plus related controls</td><td>Corrective action audit within 45 days</td><td>Tech Lead + MD sign-off</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sh"><div class="sl">Audit Report Format</div><div class="sline"></div></div>
+  <div class="cb-block">RTBoss INTERNAL AUDIT REPORT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Audit ID:         AUD-[YYYY]-[nnn]             e.g. AUD-2026-001
+Audit Type:       annual | triggered
+Quarter/Trigger:  Q1 2026 — Infrastructure &amp; Access Controls
+Audit Date(s):    [YYYY-MM-DD to YYYY-MM-DD]
+Auditor:          [Name · Role] — confirmed independent of areas audited
+Areas Audited:    [List of processes, controls, clauses covered]
+ISO Reference:    [Clauses / Annex A controls assessed]
+
+SUMMARY
+  Overall finding:  CONFORMING | MINOR NCs FOUND | MAJOR NC FOUND
+  Total findings:   [N conformances / N observations / N minor NCs / N major NCs]
+
+FINDINGS
+  Finding 1:  [CONFORM | MINOR NC | MAJOR NC | OBSERVATION]
+    Clause:   [ISO reference]
+    Evidence: [What was examined]
+    Finding:  [What was found]
+    NCR:      [NCR-ID if NC raised]
+
+STRENGTHS NOTED
+  [What is working particularly well]
+
+MANAGEMENT PRESENTATION
+  Presented to: [Name(s) · Date]
+  Actions agreed: [Any immediate actions]
+
+Filed: [SharePoint path] · [Date]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+</div></div>
+
+<!-- TAB 05 · MANAGEMENT REVIEW -->
+<div class="panel" id="tab-4"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">ISO 9001 Cl.9.3 · ISO 27001 Cl.9.3</div>
+    <h1 class="ph-title">Management Review</h1>
+    <p class="ph-sub">Top management must review the QMS and ISMS at planned intervals to ensure continuing suitability, adequacy, and effectiveness. This is a leadership obligation — not a delegatable task. Outputs must include decisions and actions.</p>
+  </div>
+  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>Both ISO standards (9001 Cl.9.3 and 27001 Cl.9.3) require defined inputs and outputs.</strong> A management review without documented inputs and outputs is not a compliant review — it is just a meeting. The minutes must capture what was reviewed, what was decided, and who is accountable for what action by when.</div></div>
+
+  <div class="sh"><div class="sl">Format &amp; Cadence</div><div class="sline"></div></div>
+  <div class="cg">
+    <div class="card" style="--ca:var(--cl);"><h3>Frequency</h3><p>Quarterly — minimum 4 per year. Additional reviews triggered by: CRITICAL NCR, significant security incident, major business change, or pre-certification audit preparation.</p></div>
+    <div class="card" style="--ca:var(--blue);"><h3>Attendees</h3><p>Required: MD (chair). Strongly recommended: Tech Lead, CSM. Minutes must be taken and filed in SharePoint within 5 business days of the meeting.</p></div>
+    <div class="card" style="--ca:var(--green);"><h3>Duration</h3><p>Typically 60–90 minutes — adequate to genuinely discuss each input item. If items are deferred, schedule a follow-up within 2 weeks. Not a tick-box exercise.</p></div>
+  </div>
+
+  <div class="sh"><div class="sl">Mandatory Review Inputs — ISO 9001 Cl.9.3.2 + ISO 27001 Cl.9.3</div><div class="sline"></div></div>
+  <div class="rg">
+    <div class="rb"><h4>Status of Previous Actions</h4><div class="ri">Actions from last review — complete, open, overdue</div><div class="ri">NCR corrective actions — status of all open NCRs</div><div class="ri">Audit findings — follow-up on previous audit actions</div></div>
+    <div class="rb"><h4>Performance Against Objectives</h4><div class="ri">Section 06 metrics — Maturation %, MRR, Genies deployed, client count</div><div class="ri">Quality objectives — NPS, SLA performance, sprint velocity</div><div class="ri">Security objectives — zero critical incidents, 100% MFA, audit scores</div></div>
+    <div class="rb"><h4>Nonconformances &amp; Trends</h4><div class="ri">NCR register — open count, severity breakdown, trend</div><div class="ri">Patterns in NCRs — any systematic issues emerging</div><div class="ri">Near misses and proactive NCRs raised</div></div>
+    <div class="rb"><h4>Audit Results</h4><div class="ri">Internal audit findings from last quarter</div><div class="ri">External certification findings (if applicable)</div><div class="ri">Annex A controls — any gaps identified</div></div>
+    <div class="rb"><h4>Customer Feedback</h4><div class="ri">Client NPS scores — all active clients</div><div class="ri">Client complaints and escalations</div><div class="ri">Outcome Bonus claims — evidence of customer results</div><div class="ri">30/90/180-day maturation review outcomes</div></div>
+    <div class="rb"><h4>Changes &amp; Context</h4><div class="ri">New regulations, new clients, market changes</div><div class="ri">Changes to interested parties and their requirements</div><div class="ri">New risks identified, improvement opportunities</div><div class="ri">Supplier performance — Microsoft, key third-party tools</div></div>
+  </div>
+
+  <div class="sh"><div class="sl">Mandatory Outputs — ISO 9001 Cl.9.3.3</div><div class="sline"></div></div>
+  <div class="callout ci-warn"><div class="ci">⚠</div><div class="cb"><strong>Outputs must include decisions and actions.</strong> ISO 9001 Cl.9.3.3 explicitly requires: (a) decisions and actions related to improvement opportunities; (b) QMS changes needed; (c) resource needs. A review where the only output is "continue as is" is either non-compliant or evidence that the inputs were not genuinely reviewed.</div></div>
+
+  <div class="cb-block">MANAGEMENT REVIEW MINUTES TEMPLATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Meeting ID:   MR-[YYYY]-[Q]           e.g. MR-2026-Q1
+Date:         [YYYY-MM-DD]
+Attendees:    [Names and roles]
+Chair:        [MD name]
+
+INPUT REVIEW SUMMARY
+  Previous actions:  [N complete / N open / N overdue]
+  Performance:       [RAG — Red/Amber/Green per objective]
+  NCRs:              [N new / N closed / N open total]
+  Audit findings:    [Summary]
+  Customer feedback: [NPS average / key themes]
+
+OUTPUTS — DECISIONS AND ACTIONS
+  Decision 1:  [What was decided]
+    Action:    [Specific action]
+    Owner:     [Named person]
+    Due date:  [YYYY-MM-DD]
+    ISO ref:   [Clause satisfied]
+
+RESOURCE DECISIONS
+  [Infrastructure, people, tools, budget decisions]
+
+NEXT REVIEW:  [YYYY-MM-DD — must be within 3 months]
+Minutes approved by MD: [Signature / date]
+Filed: [SharePoint path]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
+  <div class="sh"><div class="sl">The Continual Improvement Loop</div><div class="sline"></div></div>
+  <div class="callout ci-ok"><div class="ci">✦</div><div class="cb"><strong>Section 12 closes the loop.</strong> Lessons feed NCRs. NCRs feed Changelog entries. Changelog entries update the Playbook. Internal audits verify the Playbook is being followed. Management Reviews assess whether the system is improving. The output of Management Reviews feeds the next sprint cycle. This is how RTBoss achieves ISO 9001 Cl.10.3 continual improvement — not as a compliance exercise, but as the operating rhythm of a system that genuinely learns.</div></div>
+
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1.5rem 0;">
+    <div style="font-family:Fira Code,monospace;font-size:0.65rem;color:var(--cl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;">The Improvement Cycle</div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--mid);">
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Sprint Review</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Lessons Captured</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">NCR if needed</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">5-Why Root Cause</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Corrective Action</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Changelog Entry</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Playbook Updated</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Internal Audit Verifies</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Management Review</span>
+      <span style="color:var(--cl);">→</span>
+      <span style="background:rgba(179,136,255,0.1);border:1px solid rgba(179,136,255,0.3);border-radius:6px;padding:0.35rem 0.65rem;color:var(--cl);font-weight:600;">Next Sprint Better ✓</span>
+    </div>
+  </div>
+
+</div></div>
+
+<script>
+function showTab(n){
+  document.querySelectorAll(".tab").forEach((t,i)=>{
+    t.classList.toggle("active",i===n);
+    document.querySelectorAll(".panel")[i].classList.toggle("active",i===n);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body>
+</html>

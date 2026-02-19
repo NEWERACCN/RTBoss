@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss — Build Guides</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;
+  --red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:var(--orange);}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:var(--orange);}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.panel{display:none;}
+.panel.active{display:block;}
+.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
+.ph-sub{font-size:1.1rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
+
+/* Step blocks */
+.steps-container{display:flex;flex-direction:column;gap:0;}
+.step{display:grid;grid-template-columns:3rem 1fr;gap:0 1.5rem;position:relative;}
+.step:not(:last-child)::after{content:'';position:absolute;left:1.4rem;top:3.5rem;bottom:0;width:2px;background:linear-gradient(to bottom,var(--border),transparent);}
+.step-num{width:3rem;height:3rem;border-radius:50%;background:var(--s2);border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:0.85rem;font-weight:700;color:var(--orange);flex-shrink:0;margin-top:0.25rem;z-index:1;}
+.step-body{padding:0 0 2.5rem 0;}
+.step-title{font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;}
+.step-desc{color:var(--mid);line-height:1.75;margin-bottom:1rem;}
+
+/* Cards and boxes */
+.info-box{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin:0.75rem 0;}
+.info-box.green{border-color:rgba(0,230,118,0.3);background:rgba(0,230,118,0.05);}
+.info-box.amber{border-color:rgba(255,202,40,0.3);background:rgba(255,202,40,0.05);}
+.info-box.red{border-color:rgba(255,82,82,0.3);background:rgba(255,82,82,0.05);}
+.info-box.blue{border-color:rgba(64,196,255,0.3);background:rgba(64,196,255,0.05);}
+.info-box.violet{border-color:rgba(179,136,255,0.3);background:rgba(179,136,255,0.05);}
+.info-box.teal{border-color:rgba(29,233,182,0.3);background:rgba(29,233,182,0.05);}
+.info-box-title{font-family:'Fira Code',monospace;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;}
+.info-box.green .info-box-title{color:var(--green);}
+.info-box.amber .info-box-title{color:var(--amber);}
+.info-box.red .info-box-title{color:var(--red);}
+.info-box.blue .info-box-title{color:var(--blue);}
+.info-box.violet .info-box-title{color:var(--violet);}
+.info-box.teal .info-box-title{color:var(--teal);}
+
+/* Code blocks */
+.code-block{background:#010810;border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;margin:0.75rem 0;font-family:'Fira Code',monospace;font-size:0.82rem;line-height:1.7;color:var(--mid);overflow-x:auto;}
+.code-block .key{color:var(--blue);}
+.code-block .val{color:var(--green);}
+.code-block .comment{color:var(--dim);}
+.code-block .label{color:var(--amber);}
+.code-block .highlight{color:var(--orange);}
+
+/* Checklist */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:0.4rem;margin:0.75rem 0;}
+.checklist li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.9rem;color:var(--mid);line-height:1.6;}
+.checklist li::before{content:'☐';color:var(--dim);font-size:1rem;flex-shrink:0;margin-top:0.05rem;}
+.checklist.done li::before{content:'✓';color:var(--green);}
+
+/* Pill tags */
+.tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.5rem 0;}
+.tag{font-family:'Fira Code',monospace;font-size:0.67rem;padding:0.2rem 0.55rem;border-radius:4px;border:1px solid var(--border);color:var(--mid);}
+.tag.orange{color:var(--orange);border-color:rgba(255,145,0,0.3);background:rgba(255,145,0,0.07);}
+.tag.green{color:var(--green);border-color:rgba(0,230,118,0.3);background:rgba(0,230,118,0.07);}
+.tag.amber{color:var(--amber);border-color:rgba(255,202,40,0.3);background:rgba(255,202,40,0.07);}
+.tag.blue{color:var(--blue);border-color:rgba(64,196,255,0.3);background:rgba(64,196,255,0.07);}
+.tag.red{color:var(--red);border-color:rgba(255,82,82,0.3);background:rgba(255,82,82,0.07);}
+.tag.violet{color:var(--violet);border-color:rgba(179,136,255,0.3);background:rgba(179,136,255,0.07);}
+
+/* Section labels */
+.section-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;margin-top:2.5rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+
+/* Gate box */
+.gate{background:var(--s2);border:2px solid var(--orange);border-radius:12px;padding:1.5rem;margin:1.5rem 0;}
+.gate-title{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.gate-rule{display:flex;align-items:flex-start;gap:0.6rem;color:var(--mid);font-size:0.88rem;line-height:1.6;margin-bottom:0.35rem;}
+.gate-rule span{color:var(--orange);font-weight:700;flex-shrink:0;}
+
+/* ISO control block */
+.iso-block{background:#010810;border:1px solid rgba(255,202,40,0.4);border-radius:8px;padding:1.25rem 1.5rem;margin:0.75rem 0;font-family:'Fira Code',monospace;font-size:0.8rem;line-height:1.8;}
+.iso-block .iso-header{color:var(--amber);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.iso-row{display:grid;grid-template-columns:160px 1fr;gap:0.25rem 1rem;}
+.iso-row .k{color:var(--dim);}
+.iso-row .v{color:var(--mid);}
+
+/* Two column layout */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1rem 0;}
+@media(max-width:700px){.two-col{grid-template-columns:1fr;}}
+
+/* Phase headers */
+.phase-header{background:linear-gradient(135deg,var(--s2),var(--s3));border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin:2rem 0 1rem;}
+.phase-id{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--orange);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;}
+.phase-name{font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+.phase-sub{font-size:0.85rem;color:var(--mid);}
+
+/* Table */
+.data-table{width:100%;border-collapse:collapse;margin:0.75rem 0;font-size:0.85rem;}
+.data-table th{text-align:left;padding:0.6rem 0.85rem;background:var(--s2);color:var(--dim);font-family:'Fira Code',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--border);}
+.data-table td{padding:0.65rem 0.85rem;border-bottom:1px solid rgba(42,64,96,0.5);color:var(--mid);vertical-align:top;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:rgba(255,255,255,0.02);}
+
+/* Flow diagram */
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:0.4rem;margin:0.75rem 0;}
+.flow-item{background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.85rem;font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--mid);}
+.flow-arrow{color:var(--dim);font-size:0.85rem;}
+.flow-item.highlight{border-color:var(--orange);color:var(--orange);background:rgba(255,145,0,0.07);}
+</style>
+</head>
+<body>
+
+<div class="nav-header">
+  <div class="nav-title">Section 11 · RTBoss Build Guides</div>
+  <a href="index.html" class="nav-back">← Back to Hub</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 · How to Build a Genie</div>
+  <div class="tab" onclick="showTab(1)">02 · How to Deploy a Mini-OS</div>
+  <div class="tab" onclick="showTab(2)">03 · How to Build a Stream</div>
+  <div class="tab" onclick="showTab(3)">04 · How to Activate a Value Engine</div>
+  <div class="tab" onclick="showTab(4)">05 · How to Test & Validate</div>
+</div>
+
+<!-- ============================================================
+     TAB 01: HOW TO BUILD A GENIE
+     ============================================================ -->
+<div class="panel active" id="tab-0"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Operational Playbook · 8-Step Process</div>
+    <h1 class="ph-title">How to Build a Genie</h1>
+    <p class="ph-sub">A Genie is a discrete specialist agent that executes one bounded task, always within the rules of its Mini-OS. Every Genie in the RTBoss system — regardless of domain — is built using this same 8-step process. No shortcuts. No variations.</p>
+  </div>
+
+  <div class="section-label">Prerequisites</div>
+  <div class="info-box amber">
+    <div class="info-box-title">Before you start, you must have:</div>
+    <div class="two-col">
+      <ul class="checklist done">
+        <li>Mini-OS is deployed and schema is live in Dataverse</li>
+        <li>Power Platform environment provisioned (Dev/Test/Prod)</li>
+        <li>Copilot Studio licence active for the environment</li>
+        <li>Service account created for this Genie's connections</li>
+      </ul>
+      <ul class="checklist done">
+        <li>Data classification confirmed for all inputs and outputs</li>
+        <li>Business owner identified (approves outputs)</li>
+        <li>AGT-XXX ID reserved from the Factory Library (S10)</li>
+        <li>Test dataset prepared (min. 10 real-world cases)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">The 8-Step Build Process</div>
+  <div class="steps-container">
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <div class="step-title">Define the Single Job</div>
+        <div class="step-desc">Every Genie does exactly one thing. Write the job as a single sentence using the format: <em>"When [trigger], receive [input], execute [task], and return [output]."</em> If you need the word "and" to describe the task (not the output), you have two Genies. Split it.</div>
+        <div class="info-box blue">
+          <div class="info-box-title">Good Examples</div>
+          <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+            ✓ "When a prescription email arrives, extract patient name, drug, dose, quantity, and prescriber, and return a structured RxFact."<br>
+            ✓ "When an RxFact is created, check PBS eligibility status and return an eligibility result with reason."<br>
+            ✓ "When an RxFact is approved, generate an AusPost consignment and return a tracking number."
+          </div>
+        </div>
+        <div class="info-box red">
+          <div class="info-box-title">Bad Examples — Split These</div>
+          <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+            ✗ "Extract prescription data AND check PBS eligibility" → Two Genies<br>
+            ✗ "Process the order and send the confirmation email" → Two Genies<br>
+            ✗ "Monitor inventory and raise purchase orders when low" → Two Genies
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">Output: Genie Design Doc (GDD)</div>
+          <div style="color:var(--mid);font-size:0.88rem;">Record: AGT-ID · Job statement · Trigger · Input spec · Output spec · Mini-OS owner · Data classification</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <div class="step-title">Identify Trigger, System Context & Mini-OS</div>
+        <div class="step-desc">Every Genie belongs to exactly one Mini-OS and fires on exactly one trigger type. Define these before touching Copilot Studio.</div>
+        <table class="data-table">
+          <thead><tr><th>Trigger Type</th><th>Technology</th><th>Use When</th></tr></thead>
+          <tbody>
+            <tr><td>Event-based</td><td>Power Automate flow → HTTP action → Genie</td><td>Something happens in Dataverse (row created, field changed)</td></tr>
+            <tr><td>Schedule-based</td><td>Power Automate scheduled trigger</td><td>Regular check (e.g., daily compliance scan, weekly report)</td></tr>
+            <tr><td>Inbound message</td><td>Email connector / Teams connector</td><td>External data arrives (prescription email, client message)</td></tr>
+            <tr><td>Human-initiated</td><td>Power Apps button → HTTP</td><td>Staff-triggered one-off task (e.g., escalate, override)</td></tr>
+            <tr><td>API call</td><td>HTTP request from another Genie/Stream</td><td>Chained in a Stream — receives output from upstream Genie</td></tr>
+          </tbody>
+        </table>
+        <div class="info-box">
+          <div class="info-box-title">System Context Block — Complete This Now</div>
+          <div class="code-block">
+<span class="key">Mini-OS:</span>       <span class="val">Finance OS</span>          <span class="comment">// Must be a defined Mini-OS</span>
+<span class="key">Domain Layer:</span>   <span class="val">Fact Processing</span>     <span class="comment">// Capture / Process / Execute / Report / Audit</span>
+<span class="key">Trigger:</span>        <span class="val">Dataverse row created (RxFact)</span>
+<span class="key">Upstream from:</span>  <span class="val">AGT-002 (Rx Extraction Genie)</span>
+<span class="key">Downstream to:</span>  <span class="val">AGT-004 (Label Generation Genie)</span>
+<span class="key">SLA:</span>            <span class="val">&lt; 30 seconds end-to-end</span>
+<span class="key">Failure route:</span>  <span class="val">FLAG status + notify Pharmacy Manager</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <div class="step-title">Define Inputs, Outputs & Tools</div>
+        <div class="step-desc">Be explicit and typed. Vague inputs produce vague outputs. Every field must have a name, type, source, and mandatory/optional status.</div>
+        <table class="data-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Source</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>patient_name</td><td>String</td><td>Upstream Genie output</td><td>Yes</td><td>Full legal name</td></tr>
+            <tr><td>drug_code</td><td>String (PBS code)</td><td>Upstream Genie output</td><td>Yes</td><td>Must match PBS formulary</td></tr>
+            <tr><td>prescriber_ahpra</td><td>String</td><td>Upstream Genie output</td><td>Yes</td><td>AHPRA registration number</td></tr>
+            <tr><td>quantity</td><td>Integer</td><td>Upstream Genie output</td><td>Yes</td><td>Units (not packs)</td></tr>
+          </tbody>
+        </table>
+        <div class="info-box">
+          <div class="info-box-title">Tool Inventory — List Every Tool This Genie Calls</div>
+          <div class="code-block">
+<span class="comment">// Tool = any connector, API, or Dataverse action the Genie invokes</span>
+<span class="label">Tool 1:</span> <span class="val">Dataverse – Read RxFact entity</span>
+<span class="label">Tool 2:</span> <span class="val">HTTP connector → PBS API (eligibility check)</span>
+<span class="label">Tool 3:</span> <span class="val">Dataverse – Update RxFact (write eligibility result)</span>
+<span class="label">Tool 4:</span> <span class="val">Power Automate – trigger downstream flow on success</span>
+<span class="comment">
+// Rule: If a tool doesn't exist yet, build it as a separate Power Automate
+// flow or custom connector FIRST — do not build a Genie around phantom tools.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <div class="step-title">Create the Agent in Copilot Studio</div>
+        <div class="step-desc">Navigate to <strong>make.powerautomate.com → Copilot Studio → Agents → New Agent</strong>. Configure the core settings before writing a single word of the system prompt.</div>
+        <div class="two-col">
+          <div>
+            <div class="info-box">
+              <div class="info-box-title">Naming Convention</div>
+              <div class="code-block" style="font-size:0.78rem;">
+<span class="highlight">AGT-{ID} {Mini-OS} {Job Name} Genie</span>
+
+<span class="comment">// Examples:</span>
+<span class="val">AGT-003 EMS PBS Eligibility Genie</span>
+<span class="val">AGT-007 Finance Invoice Classifier Genie</span>
+<span class="val">AGT-011 HR Leave Approver Genie</span>
+
+<span class="comment">// Never use vague names like:
+// "Email Bot", "Assistant", "Helper"</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="info-box">
+              <div class="info-box-title">Environment Settings</div>
+              <ul class="checklist done">
+                <li>Deploy to Dev environment first — never straight to Prod</li>
+                <li>Set language to English (Australia)</li>
+                <li>Disable "Allow the agent to use web content" unless explicitly needed</li>
+                <li>Set authentication: "Only for internal users" (Entra ID)</li>
+                <li>Assign service account (not personal account) as connection owner</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <div class="step-title">Write the System Prompt</div>
+        <div class="step-desc">The system prompt is the Genie's complete rulebook. It must be precise, scoped, and include the mandatory ISO control block. Use the template below — every field is required.</div>
+        <div class="iso-block">
+          <div class="iso-header">ISO CONTROL BLOCK — MANDATORY · All fields required</div>
+          <div class="iso-row"><span class="k">CLASSIFICATION:</span><span class="v">CONFIDENTIAL — Patient Health Information</span></div>
+          <div class="iso-row"><span class="k">ISO-27001:</span><span class="v">A.8.2 (Information Classification) · A.8.15 (Logging)</span></div>
+          <div class="iso-row"><span class="k">ISO-9001:</span><span class="v">Cl.8.1 (Operational Planning) · Cl.8.5.1 (Controlled Conditions)</span></div>
+          <div class="iso-row"><span class="k">DATA RETENTION:</span><span class="v">7 years (TGA / PBS compliance requirement)</span></div>
+          <div class="iso-row"><span class="k">ACCESS CONTROL:</span><span class="v">Pharmacy Staff · Pharmacist (read/write) · IT Admin (read)</span></div>
+          <div class="iso-row"><span class="k">LOGGING:</span><span class="v">Every invocation logged to AuditRecord (ENT-007) · PII fields masked</span></div>
+          <div class="iso-row"><span class="k">FAILURE ACTION:</span><span class="v">Set RxFact.status = FLAG · Notify PharmacyManager · Raise NCR if repeat failure</span></div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">System Prompt Structure (below the ISO block)</div>
+          <div class="code-block" style="font-size:0.8rem;">
+<span class="comment">## IDENTITY</span>
+<span class="val">You are the PBS Eligibility Genie for [Client Name]. You perform a single,
+bounded task: checking whether a compounded prescription qualifies for PBS
+subsidy. You do not advise, interpret policy, or perform any other task.</span>
+
+<span class="comment">## TASK</span>
+<span class="val">Given an RxFact (patient, drug_code, prescriber_ahpra, quantity), call the
+PBS API and return: { eligible: bool, reason: string, item_code: string|null }</span>
+
+<span class="comment">## RULES</span>
+<span class="val">1. Always return a structured JSON response — never prose.
+2. If the PBS API returns an error, set eligible=false and reason="API_ERROR".
+3. Never store or log the raw prescription text — log fact IDs only.
+4. If prescriber_ahpra fails AHPRA validation, reject immediately with
+   reason="INVALID_PRESCRIBER" without calling the PBS API.
+5. You have no memory between invocations. Each call is independent.</span>
+
+<span class="comment">## FAILURE PROTOCOL</span>
+<span class="val">On any unhandled exception: return { status: "FAILED", error_code: "[code]" }
+and trigger the failure route defined in System Context.</span>
+
+<span class="comment">## SCOPE BOUNDARY</span>
+<span class="val">Do not: advise on PBS policy changes, suggest alternative drugs, interact
+with patients, or perform any task outside the single job above.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">06</div>
+      <div class="step-body">
+        <div class="step-title">Add Actions & Configure Connections</div>
+        <div class="step-desc">Actions are the tools the Genie can call. Add them one at a time. Test each connection before proceeding to the next. A broken connection is the #1 cause of Genie test failures.</div>
+        <table class="data-table">
+          <thead><tr><th>Action Type</th><th>How to Add</th><th>Test Method</th></tr></thead>
+          <tbody>
+            <tr><td>Dataverse Read</td><td>Topics → Actions → Dataverse → Select entity + fields</td><td>Run with known entity ID, verify correct fields returned</td></tr>
+            <tr><td>Dataverse Write</td><td>Topics → Actions → Dataverse → Update/Create row</td><td>Create test row in Dev, verify fields written correctly</td></tr>
+            <tr><td>HTTP Connector</td><td>Topics → Actions → HTTP Request → Enter endpoint + auth</td><td>Call with test payload, verify response structure matches spec</td></tr>
+            <tr><td>Power Automate Flow</td><td>Topics → Actions → Power Automate → Select flow</td><td>Trigger manually from Studio, verify flow executes + returns</td></tr>
+            <tr><td>Send Email</td><td>Topics → Actions → Office 365 Outlook → Send email</td><td>Send to test mailbox, verify content + formatting</td></tr>
+          </tbody>
+        </table>
+        <div class="info-box red">
+          <div class="info-box-title">Common Failure Points — Check These Before Moving On</div>
+          <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+            ✗ Service account doesn't have write permission to the Dataverse table<br>
+            ✗ HTTP connector auth token expires mid-flow (add refresh logic)<br>
+            ✗ Power Automate flow uses personal account connection — must be service account<br>
+            ✗ Dataverse column internal name differs from display name in the action config
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">07</div>
+      <div class="step-body">
+        <div class="step-title">Test With the Standard Test Suite</div>
+        <div class="step-desc">Every Genie must pass all 4 test categories before it can be registered. Use the test dataset prepared in Step 0 (minimum 10 real cases). Document results — don't just run and forget.</div>
+        <div class="two-col">
+          <div class="info-box green">
+            <div class="info-box-title">Happy Path Tests</div>
+            <ul class="checklist">
+              <li>10 valid inputs → correct outputs, correct Dataverse writes</li>
+              <li>Edge cases: minimum valid input (only required fields)</li>
+              <li>Edge cases: maximum valid input (all optional fields populated)</li>
+              <li>Response time under SLA for all 10 cases</li>
+            </ul>
+          </div>
+          <div class="info-box red">
+            <div class="info-box-title">Failure & Edge Tests</div>
+            <ul class="checklist">
+              <li>Null/missing required field → correct rejection + error message</li>
+              <li>Malformed input (wrong type, invalid format) → handled gracefully</li>
+              <li>External API unavailable → failure route triggers correctly</li>
+              <li>Duplicate trigger (same input twice) → idempotent behaviour</li>
+            </ul>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="info-box amber">
+            <div class="info-box-title">Security & Compliance Tests</div>
+            <ul class="checklist">
+              <li>PII fields are masked in AuditRecord logs</li>
+              <li>Genie rejects requests from unauthorised users</li>
+              <li>Data classification enforced — no RESTRICTED data written to lower-classification entities</li>
+              <li>ISO control block present and correct in system prompt</li>
+            </ul>
+          </div>
+          <div class="info-box blue">
+            <div class="info-box-title">Integration Tests</div>
+            <ul class="checklist">
+              <li>Upstream trigger fires and Genie receives input correctly</li>
+              <li>Genie output correctly triggers downstream Genie/Stream</li>
+              <li>Failure route: FLAG status set + notification delivered</li>
+              <li>AuditRecord (ENT-007) row created for every invocation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="gate">
+          <div class="gate-title">Gate: Pass/Fail Criteria — All Must Pass</div>
+          <div class="gate-rule"><span>PASS:</span> 100% happy path cases correct</div>
+          <div class="gate-rule"><span>PASS:</span> 100% failure tests handled gracefully (no unhandled exceptions)</div>
+          <div class="gate-rule"><span>PASS:</span> SLA met on all test cases (&lt;30s unless spec says otherwise)</div>
+          <div class="gate-rule"><span>PASS:</span> All AuditRecord rows created with correct fields</div>
+          <div class="gate-rule"><span>PASS:</span> Business owner UAT sign-off (minimum 3 test cases reviewed by human)</div>
+          <div class="gate-rule"><span>FAIL:</span> Any unhandled exception → fix before proceeding</div>
+          <div class="gate-rule"><span>FAIL:</span> Any PII written to log in clear text → immediate fix + NCR raised</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">08</div>
+      <div class="step-body">
+        <div class="step-title">Register in the Factory Library & Promote to Production</div>
+        <div class="step-desc">A Genie that isn't registered doesn't exist for the organisation. Register in S10 (Agentic Factory Library) first, then promote Dev → Test → Prod using managed solutions.</div>
+        <div class="info-box">
+          <div class="info-box-title">Factory Library Registration (S10 — ENT-003)</div>
+          <div class="code-block" style="font-size:0.78rem;">
+<span class="key">AGT-ID:</span>       <span class="val">AGT-003</span>
+<span class="key">Name:</span>          <span class="val">EMS PBS Eligibility Genie</span>
+<span class="key">Version:</span>       <span class="val">1.0.0</span>
+<span class="key">Mini-OS:</span>       <span class="val">EMS Pharmacy Operations Mini-OS</span>
+<span class="key">Status:</span>        <span class="val">ACTIVE · Prod</span>
+<span class="key">Classification:</span> <span class="val">CONFIDENTIAL</span>
+<span class="key">Clients:</span>       <span class="val">EMS (active)</span>
+<span class="key">Build Date:</span>    <span class="val">2026-02-18</span>
+<span class="key">Built By:</span>      <span class="val">[engineer name]</span>
+<span class="key">Test Suite:</span>    <span class="val">PASSED · 2026-02-18 · Signed off: [business owner]</span>
+<span class="key">Change Log:</span>    <span class="val">→ 12-changelog-audit.html</span></div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">Promotion Checklist: Dev → Test → Prod</div>
+          <ul class="checklist">
+            <li>Export as managed solution from Dev environment</li>
+            <li>Import to Test environment — re-run full test suite in Test</li>
+            <li>Business owner confirms UAT pass in Test environment</li>
+            <li>Export managed solution from Test, import to Production</li>
+            <li>Update Factory Library record: status = ACTIVE · Prod</li>
+            <li>Update Deployment record (ENT-004) for this client</li>
+            <li>Notify all stakeholders: Genie is live</li>
+          </ul>
+        </div>
+        <div class="tags" style="margin-top:1rem;">
+          <span class="tag orange">AGT-ID registered</span>
+          <span class="tag green">Test suite passed</span>
+          <span class="tag amber">Business owner sign-off</span>
+          <span class="tag blue">ENT-003 updated</span>
+          <span class="tag blue">ENT-004 updated</span>
+          <span class="tag">Changelog entry created</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /steps-container -->
+
+  <div class="section-label">Quick Reference</div>
+  <div class="info-box teal">
+    <div class="info-box-title">Genie Build Checklist — Print or Pin</div>
+    <div class="two-col">
+      <ul class="checklist">
+        <li>Single job statement written (one sentence)</li>
+        <li>GDD (Genie Design Doc) completed</li>
+        <li>AGT-ID reserved from Factory Library</li>
+        <li>Trigger type defined and trigger flow built</li>
+        <li>Inputs/outputs typed and documented</li>
+        <li>All tools confirmed available and tested</li>
+        <li>Copilot Studio agent created (naming convention)</li>
+        <li>System prompt written with ISO control block</li>
+      </ul>
+      <ul class="checklist">
+        <li>All actions added and connections verified</li>
+        <li>Happy path tests: 10/10 pass</li>
+        <li>Failure tests: all handled gracefully</li>
+        <li>SLA met on all test cases</li>
+        <li>Security/compliance tests pass</li>
+        <li>Business owner UAT sign-off obtained</li>
+        <li>Registered in Factory Library (S10)</li>
+        <li>Promoted to Prod via managed solution</li>
+      </ul>
+    </div>
+  </div>
+
+</div></div>
+
+<!-- ============================================================
+     TAB 02: HOW TO DEPLOY A MINI-OS
+     ============================================================ -->
+<div class="panel" id="tab-1"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Operational Playbook · 5-Phase SOP</div>
+    <h1 class="ph-title">How to Deploy a Mini-OS</h1>
+    <p class="ph-sub">A Mini-OS is the full operating system for one business domain — schema, Genies, Streams, reporting, and governance. Each Mini-OS is deployed in 5 phases that must be completed in order. Finance OS (EMS) is the reference implementation.</p>
+  </div>
+
+  <div class="section-label">Before You Start</div>
+  <div class="info-box amber">
+    <div class="info-box-title">Prerequisites — Gate Before Phase 1</div>
+    <div class="two-col">
+      <ul class="checklist done">
+        <li>Client is onboarded — Delivery SOP (S08) Phases 1–3 complete</li>
+        <li>Power Platform environment provisioned (Dev/Test/Prod)</li>
+        <li>Dataverse database created in tenant</li>
+        <li>Microsoft 365 licences confirmed (all staff who will use the Mini-OS)</li>
+      </ul>
+      <ul class="checklist done">
+        <li>Entra ID groups created for this Mini-OS (roles defined in S05)</li>
+        <li>Business domain mapped: what Facts exist, who owns them</li>
+        <li>Domain owner confirmed (accountable for UAT and go-live approval)</li>
+        <li>Copilot Studio environment licences active</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-header">
+    <div class="phase-id">Phase 1 of 5</div>
+    <div class="phase-name">Schema & Data Foundation</div>
+    <div class="phase-sub">Build the Dataverse entity model that all Genies and Streams will read from and write to. This is the SOT — nothing moves until the schema is right.</div>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">1.1</div>
+      <div class="step-body">
+        <div class="step-title">Define the Fact Types</div>
+        <div class="step-desc">A Fact is a discrete piece of business-true data this domain produces or consumes. List every Fact type before creating a single Dataverse table.</div>
+        <div class="info-box">
+          <div class="info-box-title">Fact Identification Template</div>
+          <table class="data-table">
+            <thead><tr><th>Fact Name</th><th>Produced By</th><th>Consumed By</th><th>Retention</th><th>Classification</th></tr></thead>
+            <tbody>
+              <tr><td>RxFact</td><td>Rx Extraction Genie</td><td>PBS Genie, Label Genie, Dispatch Genie</td><td>7 years</td><td>CONFIDENTIAL</td></tr>
+              <tr><td>DispatchFact</td><td>AusPost Genie</td><td>Tracking Genie, Invoice Genie</td><td>7 years</td><td>INTERNAL</td></tr>
+              <tr><td>InvoiceFact</td><td>Invoice Genie</td><td>Finance Mini-OS</td><td>7 years</td><td>CONFIDENTIAL</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">1.2</div>
+      <div class="step-body">
+        <div class="step-title">Create Dataverse Tables</div>
+        <div class="step-desc">One table per Fact type. Use the standard field naming convention: snake_case, no abbreviations. Every table must include the mandatory base fields.</div>
+        <div class="info-box">
+          <div class="info-box-title">Mandatory Base Fields — Every Table</div>
+          <div class="code-block" style="font-size:0.78rem;">
+<span class="key">id</span>             GUID (auto)         Primary key
+<span class="key">created_at</span>     DateTime            Auto-set on creation
+<span class="key">updated_at</span>     DateTime            Auto-set on every update
+<span class="key">status</span>         Choice              PENDING / ACTIVE / COMPLETE / FLAG / ARCHIVED
+<span class="key">classification</span> Choice              PUBLIC / INTERNAL / CONFIDENTIAL / RESTRICTED
+<span class="key">created_by</span>     Lookup → SystemUser  Which Genie/user created this row
+<span class="key">client_id</span>      Lookup → ENT-001     Client this Fact belongs to</div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">1.3</div>
+      <div class="step-body">
+        <div class="step-title">Configure Security Roles</div>
+        <div class="step-desc">Every table needs row-level security. Map which Entra ID groups get which permission level on each table. Use Dataverse security roles — never individual user assignments.</div>
+        <div class="gate">
+          <div class="gate-title">Phase 1 Gate — Before Proceeding to Phase 2</div>
+          <div class="gate-rule"><span>✓</span> All Fact tables created in Dataverse Dev environment</div>
+          <div class="gate-rule"><span>✓</span> All base fields present on every table</div>
+          <div class="gate-rule"><span>✓</span> Security roles configured and tested with test users</div>
+          <div class="gate-rule"><span>✓</span> Schema reviewed and approved by domain owner</div>
+          <div class="gate-rule"><span>✓</span> Schema documented in Mini-OS reference doc (S03)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-header">
+    <div class="phase-id">Phase 2 of 5</div>
+    <div class="phase-name">Fact Capture Channels</div>
+    <div class="phase-sub">Stand up every inbound channel that creates Facts. Nothing can flow until Facts are being captured correctly.</div>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">2.1</div>
+      <div class="step-body">
+        <div class="step-title">Build Inbound Capture Flows</div>
+        <div class="step-desc">For each Fact type, build the Power Automate flow (or Genie) that captures the raw input and creates the initial Dataverse row with status=PENDING. At this stage, capture only — no processing.</div>
+        <div class="flow">
+          <div class="flow-item highlight">External trigger</div><div class="flow-arrow">→</div>
+          <div class="flow-item">Power Automate / Genie</div><div class="flow-arrow">→</div>
+          <div class="flow-item">Create Dataverse row</div><div class="flow-arrow">→</div>
+          <div class="flow-item highlight">status = PENDING</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">Common Capture Channels</div>
+          <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+            <strong style="color:var(--text);">Email:</strong> Shared mailbox → Power Automate email trigger → extraction Genie → Dataverse<br>
+            <strong style="color:var(--text);">Form:</strong> Power Apps form → HTTP POST → Dataverse create<br>
+            <strong style="color:var(--text);">API:</strong> Webhook from external system → custom connector → Dataverse<br>
+            <strong style="color:var(--text);">Manual:</strong> Staff enters via Power Apps canvas app → Dataverse
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2.2</div>
+      <div class="step-body">
+        <div class="step-title">Validate Capture with Test Data</div>
+        <div class="step-desc">Send 10 real test inputs through each capture channel. Verify the Dataverse row is created correctly, status=PENDING, classification is correct, and all mandatory fields are populated.</div>
+        <div class="gate">
+          <div class="gate-title">Phase 2 Gate</div>
+          <div class="gate-rule"><span>✓</span> All capture channels live in Dev environment</div>
+          <div class="gate-rule"><span>✓</span> 10/10 test inputs create correct Dataverse rows</div>
+          <div class="gate-rule"><span>✓</span> status=PENDING set on all new rows</div>
+          <div class="gate-rule"><span>✓</span> No PII visible in flow run history</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-header">
+    <div class="phase-id">Phase 3 of 5</div>
+    <div class="phase-name">System Configuration</div>
+    <div class="phase-sub">Configure the Power Platform environment, security, logging, and monitoring before any Genies are deployed. The house must be built before the staff move in.</div>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">3.1</div>
+      <div class="step-body">
+        <div class="step-title">Configure Copilot Studio Environment</div>
+        <div class="steps-container" style="gap:0.5rem;">
+          <ul class="checklist">
+            <li>Create environment-specific Copilot Studio settings (Dev/Test/Prod separate)</li>
+            <li>Set data loss prevention (DLP) policy — restrict connectors to approved list only</li>
+            <li>Configure audit logging: all Copilot Studio activity logs to Azure Monitor</li>
+            <li>Set sharing policy: agents not publicly shareable without IT approval</li>
+            <li>Create service connection accounts for all connectors this Mini-OS will use</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3.2</div>
+      <div class="step-body">
+        <div class="step-title">Set Up Logging & Alerting</div>
+        <div class="step-desc">Per ISO 27001 A.8.15 — every Genie invocation must be logged. Configure this before Genies are built, not after.</div>
+        <div class="info-box">
+          <div class="info-box-title">Logging Architecture</div>
+          <div class="code-block" style="font-size:0.78rem;">
+<span class="comment">// Every Genie invocation must write to ENT-007 (AuditRecord)</span>
+<span class="key">Fields required:</span>
+  agent_id         AGT-XXX
+  invocation_time  DateTime (UTC)
+  trigger_source   Which flow/user triggered this
+  input_summary    Fact ID only — NO raw PII
+  output_status    PASS / FAIL / FLAG
+  duration_ms      Execution time in milliseconds
+  environment      Dev / Test / Prod
+  client_id        ENT-001 Lookup
+
+<span class="comment">// Azure Monitor alerts required for:</span>
+  Failure rate &gt; 5% in 1 hour     → email IT + Domain Owner
+  SLA breach (response &gt; 60s)      → email IT
+  3 consecutive failures same Genie → create NCR automatically</div>
+        </div>
+        <div class="gate">
+          <div class="gate-title">Phase 3 Gate</div>
+          <div class="gate-rule"><span>✓</span> DLP policy active and tested</div>
+          <div class="gate-rule"><span>✓</span> AuditRecord logging verified with test invocations</div>
+          <div class="gate-rule"><span>✓</span> Azure Monitor alerts configured and tested (fire test alerts)</div>
+          <div class="gate-rule"><span>✓</span> Service accounts operational, permissions verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-header">
+    <div class="phase-id">Phase 4 of 5</div>
+    <div class="phase-name">Genie Deployment</div>
+    <div class="phase-sub">Build and deploy each Genie using the Genie Build Guide (Tab 01). Deploy in dependency order — upstream Genies first. Never deploy a Genie before its dependencies are live.</div>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">4.1</div>
+      <div class="step-body">
+        <div class="step-title">Build Deployment Order</div>
+        <div class="step-desc">Map the dependency tree before writing a line of code. Genies with no upstream dependencies deploy first. Genies that consume other Genies' outputs deploy after their dependencies pass testing.</div>
+        <div class="info-box">
+          <div class="info-box-title">EMS Reference Deployment Order</div>
+          <div class="flow" style="flex-direction:column;align-items:flex-start;gap:0.5rem;">
+            <div style="display:flex;align-items:center;gap:0.5rem;"><span class="tag orange">Batch 1</span><div class="flow-item">AGT-001 Email Monitor</div><div class="flow-arrow">→</div><div class="flow-item">AGT-002 Rx Extraction</div></div>
+            <div style="display:flex;align-items:center;gap:0.5rem;"><span class="tag amber">Batch 2</span><div class="flow-item">AGT-003 PBS Eligibility</div><div class="flow-arrow">→</div><div class="flow-item">AGT-004 Label Generator</div></div>
+            <div style="display:flex;align-items:center;gap:0.5rem;"><span class="tag blue">Batch 3</span><div class="flow-item">AGT-005 Dispatch Genie</div><div class="flow-arrow">→</div><div class="flow-item">AGT-006 Invoice Genie</div></div>
+            <div style="display:flex;align-items:center;gap:0.5rem;"><span class="tag green">Batch 4</span><div class="flow-item">AGT-007–013 Support Genies</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4.2</div>
+      <div class="step-body">
+        <div class="step-title">Deploy Each Genie — Follow Tab 01</div>
+        <div class="step-desc">Build each Genie following the 8-step Genie Build Guide (Tab 01 of this document). Do not skip steps or combine steps to save time. Each Genie must pass its own gate before the next is built.</div>
+        <div class="info-box">
+          <div class="info-box-title">End-to-End Test After Each Batch</div>
+          <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">After each batch of Genies is deployed, run an end-to-end test from the first capture channel through to the furthest downstream Genie. Don't wait until all Genies are deployed — catch integration issues early.</div>
+        </div>
+        <div class="gate">
+          <div class="gate-title">Phase 4 Gate</div>
+          <div class="gate-rule"><span>✓</span> All Genies pass their individual 8-step gate (Tab 01)</div>
+          <div class="gate-rule"><span>✓</span> End-to-end test: 10 real inputs flow from capture to final output</div>
+          <div class="gate-rule"><span>✓</span> All Genies registered in Factory Library (S10)</div>
+          <div class="gate-rule"><span>✓</span> All AuditRecord rows created correctly for each invocation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-header">
+    <div class="phase-id">Phase 5 of 5</div>
+    <div class="phase-name">Go-Live & Handover</div>
+    <div class="phase-sub">Final checks, staff training, production promotion, and the 30/90/180-day review cadence that drives ongoing maturation.</div>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">5.1</div>
+      <div class="step-body">
+        <div class="step-title">Production Promotion Checklist</div>
+        <ul class="checklist">
+          <li>All Genies exported as managed solutions from Test environment</li>
+          <li>All managed solutions imported to Production environment</li>
+          <li>Production connections reconfigured (service accounts, not test accounts)</li>
+          <li>Production alerting confirmed active</li>
+          <li>Rollback plan confirmed: known-good Test snapshot available, &lt;15 min rollback window</li>
+          <li>Domain owner signs go-live approval form</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5.2</div>
+      <div class="step-body">
+        <div class="step-title">Staff Training & Handover</div>
+        <ul class="checklist">
+          <li>1-hour walkthrough with domain owner: what the Mini-OS does, what to watch for</li>
+          <li>Demonstrate: how to check the AuditRecord log for failures</li>
+          <li>Demonstrate: how to manually override a FLAG status if Genie is wrong</li>
+          <li>Provide: Genie cheat sheet (1-pager) for each Genie staff interact with</li>
+          <li>Confirm escalation path: staff issue → Domain Owner → NEIT IT → NCR</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5.3</div>
+      <div class="step-body">
+        <div class="step-title">30 / 90 / 180-Day Review Cadence</div>
+        <table class="data-table">
+          <thead><tr><th>Review</th><th>Focus</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Day 30</td><td>Accuracy. Are Genies getting the right answer?</td><td>Fix prompt issues, retrain on real failure cases, update test suite</td></tr>
+            <tr><td>Day 90</td><td>Coverage. Are there gaps the Genies are missing?</td><td>Identify missing Fact types or Genies, add to build backlog</td></tr>
+            <tr><td>Day 180</td><td>Maturation. What % of domain work is now digital?</td><td>Update Digital/Hybrid/Human ratio, calculate COGS reduction, plan next expansion</td></tr>
+          </tbody>
+        </table>
+        <div class="gate">
+          <div class="gate-title">Mini-OS Complete — Definition of Done</div>
+          <div class="gate-rule"><span>✓</span> All 5 phases completed and gates passed</div>
+          <div class="gate-rule"><span>✓</span> Mini-OS live in Production for ≥5 business days with no P1 issues</div>
+          <div class="gate-rule"><span>✓</span> Domain owner has confirmed successful operation</div>
+          <div class="gate-rule"><span>✓</span> 30-day review date scheduled</div>
+          <div class="gate-rule"><span>✓</span> S03 (Mini-OS) documentation updated with as-built state</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></div>
+
+<!-- ============================================================
+     TAB 03: HOW TO BUILD A STREAM
+     ============================================================ -->
+<div class="panel" id="tab-2"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Operational Playbook · 6-Step Process</div>
+    <h1 class="ph-title">How to Build a Stream</h1>
+    <p class="ph-sub">A Stream orchestrates multiple Genies into an end-to-end workflow. Where a Genie executes one job, a Stream executes a complete business outcome — from trigger to final result. Streams are built in Power Automate and must maintain Digital Twin continuity throughout.</p>
+  </div>
+
+  <div class="section-label">What Is a Stream?</div>
+  <div class="info-box blue">
+    <div class="info-box-title">Stream vs Genie — Know the Difference</div>
+    <div class="two-col">
+      <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+        <strong style="color:var(--blue);">A Genie:</strong><br>
+        Does one thing. Has one job statement. Is stateless. Receives input, does a task, returns output. Can be called by multiple Streams.
+      </div>
+      <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+        <strong style="color:var(--orange);">A Stream:</strong><br>
+        Orchestrates a sequence of Genies to deliver a business outcome. Manages state, handoffs, error routing, and Digital Twin continuity across all steps.
+      </div>
+    </div>
+    <div class="info-box" style="margin-top:0.75rem;">
+      <div class="info-box-title">EMS Reference Stream</div>
+      <div class="flow">
+        <div class="flow-item highlight">Email arrives</div><div class="flow-arrow">→</div>
+        <div class="flow-item">AGT-001 Email Monitor</div><div class="flow-arrow">→</div>
+        <div class="flow-item">AGT-002 Rx Extraction</div><div class="flow-arrow">→</div>
+        <div class="flow-item">AGT-003 PBS Eligibility</div><div class="flow-arrow">→</div>
+        <div class="flow-item">AGT-004 Label Gen</div><div class="flow-arrow">→</div>
+        <div class="flow-item">AGT-005 Dispatch</div><div class="flow-arrow">→</div>
+        <div class="flow-item highlight">AusPost dispatched</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">The 6-Step Build Process</div>
+  <div class="steps-container">
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <div class="step-title">Define the Workflow Outcome</div>
+        <div class="step-desc">Write the Stream outcome statement: <em>"Starting from [trigger], this Stream delivers [final outcome] by orchestrating [list of Genies]."</em> The outcome must be a complete business result — not a step along the way.</div>
+        <div class="info-box green">
+          <div class="info-box-title">Good Outcome Statement</div>
+          <div style="color:var(--mid);font-size:0.88rem;">"Starting from an inbound prescription email, this Stream delivers a dispatched AusPost consignment by orchestrating: Email Monitor → Rx Extraction → PBS Eligibility → Label Generation → Dispatch."</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">Stream Design Document (SDD) — Complete Before Building</div>
+          <div class="code-block" style="font-size:0.78rem;">
+<span class="key">Stream ID:</span>       <span class="val">STR-001</span>
+<span class="key">Stream Name:</span>     <span class="val">EMS Prescription to Dispatch Stream</span>
+<span class="key">Mini-OS:</span>         <span class="val">EMS Pharmacy Operations</span>
+<span class="key">Trigger:</span>         <span class="val">New email in rx@evergreenmedical.com.au</span>
+<span class="key">Final Outcome:</span>   <span class="val">AusPost consignment created + patient notified</span>
+<span class="key">Genies:</span>          <span class="val">AGT-001, AGT-002, AGT-003, AGT-004, AGT-005</span>
+<span class="key">SLA:</span>             <span class="val">Complete within 4 hours of email receipt</span>
+<span class="key">Business Hours:</span>  <span class="val">24/7 (prescriptions arrive at any time)</span>
+<span class="key">Classification:</span>  <span class="val">CONFIDENTIAL</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <div class="step-title">Map the Genie Sequence & Handoff Contracts</div>
+        <div class="step-desc">For each Genie-to-Genie handoff, define exactly what is passed. This is the "contract" — the upstream Genie guarantees this output shape, the downstream Genie expects exactly this input. Ambiguous contracts cause 80% of Stream failures.</div>
+        <table class="data-table">
+          <thead><tr><th>From</th><th>To</th><th>Handoff Data</th><th>Condition</th></tr></thead>
+          <tbody>
+            <tr><td>Trigger</td><td>AGT-001 Email Monitor</td><td>Raw email (from, subject, body, attachments)</td><td>Always</td></tr>
+            <tr><td>AGT-001</td><td>AGT-002 Rx Extraction</td><td>Email body text (extracted) + attachment OCR text</td><td>If email matches Rx pattern</td></tr>
+            <tr><td>AGT-002</td><td>AGT-003 PBS Eligibility</td><td>RxFact ID + drug_code + prescriber_ahpra</td><td>If RxFact.status = PENDING</td></tr>
+            <tr><td>AGT-003</td><td>AGT-004 Label Gen</td><td>RxFact ID + eligibility result + item_code</td><td>If eligible = true</td></tr>
+            <tr><td>AGT-004</td><td>AGT-005 Dispatch</td><td>RxFact ID + label PDF URL + patient address</td><td>If label generated = success</td></tr>
+          </tbody>
+        </table>
+        <div class="info-box amber">
+          <div class="info-box-title">Handoff Rule</div>
+          <div style="color:var(--mid);font-size:0.88rem;">Always pass IDs (Dataverse row IDs), never pass raw data between Genies in a Stream. The downstream Genie reads from Dataverse using the ID. This ensures the SOT is always the source of truth — not the Stream orchestrator's memory.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <div class="step-title">Design Error Handling & Branch Logic</div>
+        <div class="step-desc">Every branch point in a Stream needs an explicit error path. "Happy path only" design is not acceptable — a Stream that breaks silently is worse than no automation.</div>
+        <div class="two-col">
+          <div>
+            <div class="info-box red">
+              <div class="info-box-title">Required Error Paths</div>
+              <ul style="color:var(--mid);font-size:0.85rem;line-height:1.8;padding-left:1rem;">
+                <li>Genie returns FAILED status</li>
+                <li>Genie times out (SLA breach)</li>
+                <li>Required field is null/missing in handoff</li>
+                <li>Dataverse write fails (permissions, network)</li>
+                <li>External API unavailable</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="info-box">
+              <div class="info-box-title">Error Routing Standard</div>
+              <div style="color:var(--mid);font-size:0.85rem;line-height:1.8;">
+                <strong style="color:var(--text);">Recoverable errors:</strong> Retry 3x with 30s backoff → if still failing, FLAG + notify<br><br>
+                <strong style="color:var(--text);">Non-recoverable:</strong> FLAG immediately + notify domain owner + create NCR if repeat<br><br>
+                <strong style="color:var(--text);">All errors:</strong> Write error detail to AuditRecord (ENT-007)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">Branch Logic Pattern — Power Automate Condition</div>
+          <div class="code-block" style="font-size:0.78rem;">
+<span class="comment">// After each Genie step:</span>
+<span class="key">IF</span> <span class="val">genie_output.status == "PASS"</span>
+  <span class="key">→</span> <span class="val">Continue to next step</span>
+<span class="key">ELSE IF</span> <span class="val">genie_output.status == "FAILED"</span>
+  <span class="key">→</span> <span class="val">Set Dataverse status = "FLAG"</span>
+  <span class="key">→</span> <span class="val">Send notification to domain owner</span>
+  <span class="key">→</span> <span class="val">Write to AuditRecord</span>
+  <span class="key">→</span> <span class="highlight">Terminate stream (do not proceed)</span>
+<span class="key">ELSE IF</span> <span class="val">genie_output.status == "NEEDS_REVIEW"</span>
+  <span class="key">→</span> <span class="val">Create task for human review</span>
+  <span class="key">→</span> <span class="val">Pause stream (wait for human approval action)</span>
+  <span class="key">→</span> <span class="val">Resume stream on approval or terminate on rejection</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <div class="step-title">Build in Power Automate</div>
+        <div class="step-desc">Build the Stream in Power Automate as an automated cloud flow. The Stream is the orchestrator — it calls Genies via HTTP actions and manages state via Dataverse. All business logic lives in Genies, not in the flow.</div>
+        <div class="info-box">
+          <div class="info-box-title">Power Automate Build Checklist</div>
+          <ul class="checklist">
+            <li>Flow trigger configured and tested (correct mailbox/event)</li>
+            <li>Each Genie called via HTTP action with correct payload structure</li>
+            <li>Response from each Genie parsed and validated before next step</li>
+            <li>All Condition blocks have both Yes and No paths (never leave a No path empty)</li>
+            <li>Error handling scope wraps every external call (HTTP, Dataverse writes)</li>
+            <li>Retry logic configured on all HTTP calls (3 retries, exponential backoff)</li>
+            <li>Termination condition defined for every error path</li>
+            <li>Flow variable to track stream_id for correlation across all Genie logs</li>
+            <li>Final success action: write DispatchFact + notify stakeholders</li>
+          </ul>
+        </div>
+        <div class="info-box amber">
+          <div class="info-box-title">Digital Twin Continuity Rule</div>
+          <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">After every Genie step, the Dataverse row must be updated with the current state. This is how the Digital Twin stays current in real-time. The Dataverse row is the single source of truth — the flow is just the orchestrator. If the flow stops for any reason, you must be able to reconstruct what happened from Dataverse alone.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <div class="step-title">Test End-to-End</div>
+        <div class="step-desc">Stream testing is different from Genie testing. You're testing the orchestration, not the individual Genie logic. Use these 3 test types in sequence.</div>
+        <div class="info-box green">
+          <div class="info-box-title">Test Type 1: Full Happy Path</div>
+          <div style="color:var(--mid);font-size:0.88rem;">Run 5 complete real-world cases from trigger to final outcome. Every Genie fires, every Dataverse write succeeds, final outcome achieved. SLA met end-to-end.</div>
+        </div>
+        <div class="info-box red">
+          <div class="info-box-title">Test Type 2: Failure Injection</div>
+          <div style="color:var(--mid);font-size:0.88rem;">Force each Genie to fail (disable the Genie, break the connection, pass bad data). Verify the Stream handles the failure correctly: correct status set, correct notification sent, no unhandled exceptions, stream terminates cleanly.</div>
+        </div>
+        <div class="info-box amber">
+          <div class="info-box-title">Test Type 3: Human Review Branch</div>
+          <div style="color:var(--mid);font-size:0.88rem;">If the Stream includes any human approval steps, test the approval path (approve → stream resumes) and rejection path (reject → stream terminates correctly). Test timeout: if human doesn't respond within X hours, what happens?</div>
+        </div>
+        <div class="gate">
+          <div class="gate-title">Stream Gate — All Must Pass</div>
+          <div class="gate-rule"><span>✓</span> 5/5 happy path cases reach final outcome</div>
+          <div class="gate-rule"><span>✓</span> Each Genie failure produces correct Stream response (no crashes)</div>
+          <div class="gate-rule"><span>✓</span> Dataverse updated correctly after every step</div>
+          <div class="gate-rule"><span>✓</span> AuditRecord rows created for all Genie invocations in stream</div>
+          <div class="gate-rule"><span>✓</span> SLA met end-to-end on all 5 happy path cases</div>
+          <div class="gate-rule"><span>✓</span> Business owner UAT: 3 real cases reviewed and approved</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">06</div>
+      <div class="step-body">
+        <div class="step-title">Register in Factory Library & Promote</div>
+        <div class="step-desc">Follow the same process as Genie registration (Tab 01, Step 08) but with Stream-specific fields.</div>
+        <div class="info-box">
+          <div class="info-box-title">Factory Library Registration (ENT-003 — type: Stream)</div>
+          <div class="code-block" style="font-size:0.78rem;">
+<span class="key">Stream ID:</span>      <span class="val">STR-001</span>
+<span class="key">Name:</span>           <span class="val">EMS Prescription to Dispatch Stream</span>
+<span class="key">Version:</span>        <span class="val">1.0.0</span>
+<span class="key">Genies:</span>         <span class="val">AGT-001, AGT-002, AGT-003, AGT-004, AGT-005</span>
+<span class="key">Mini-OS:</span>        <span class="val">EMS Pharmacy Operations</span>
+<span class="key">Status:</span>         <span class="val">ACTIVE · Prod</span>
+<span class="key">SLA:</span>            <span class="val">4 hours end-to-end</span>
+<span class="key">Failure Rate:</span>   <span class="val">Baseline TBD after 30 days live</span>
+<span class="key">Test Suite:</span>     <span class="val">PASSED · [date] · Signed off: [domain owner]</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<!-- ============================================================
+     TAB 04: HOW TO ACTIVATE A VALUE ENGINE
+     ============================================================ -->
+<div class="panel" id="tab-3"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Operational Playbook · Cross-OS Orchestration</div>
+    <h1 class="ph-title">How to Activate a Value Engine</h1>
+    <p class="ph-sub">Value Engines deliver outcomes no single Mini-OS can achieve alone. They orchestrate Genies and Streams across multiple domains. This makes them the most powerful — and most complex — components of RTBoss. Prerequisites are strict: the required Mini-OS must be live and stable before a Value Engine can activate.</p>
+  </div>
+
+  <div class="section-label">Value Engine Overview</div>
+  <table class="data-table">
+    <thead><tr><th>Engine</th><th>Outcome</th><th>Mini-OS Required</th><th>When to Activate</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--blue)">RTBI</td><td>Real-Time Business Intelligence dashboards that update as Facts change</td><td>Any 2+ Mini-OS live</td><td>After 2 Mini-OS stable for 30+ days</td></tr>
+      <tr><td style="color:var(--green)">Digital Twin</td><td>Real-time digital replica of the entire business in Dataverse</td><td>All core Mini-OS live (min 4)</td><td>After 4 Mini-OS stable for 90+ days</td></tr>
+      <tr><td style="color:var(--amber)">Transformation Fund</td><td>20% of agent savings ring-fenced and deployed to next automation</td><td>Finance Mini-OS live + RTBI active</td><td>After COGS reduction measurable (Day 90 review)</td></tr>
+      <tr><td style="color:var(--violet)">Command Centre</td><td>Single-pane executive dashboard across all Mini-OS</td><td>Digital Twin + 3+ clients active</td><td>Phase 2, Q3 2026</td></tr>
+    </tbody>
+  </table>
+
+  <div class="phase-header" style="border-left-color:var(--blue)">
+    <div class="phase-id" style="color:var(--blue)">Value Engine 01</div>
+    <div class="phase-name">RTBI — Real-Time Business Intelligence</div>
+    <div class="phase-sub">Turn the Dataverse SOT into live dashboards that non-technical staff can read without training.</div>
+  </div>
+  <div class="info-box blue">
+    <div class="info-box-title">Prerequisites</div>
+    <ul class="checklist done">
+      <li>Minimum 2 Mini-OS live in Production for ≥30 days</li>
+      <li>All Fact tables have consistent status fields (PENDING/ACTIVE/COMPLETE/FLAG)</li>
+      <li>Power BI Pro licences assigned to business owners + executives</li>
+      <li>RTBI data classification confirmed (dashboards may aggregate CONFIDENTIAL data)</li>
+    </ul>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">R1</div>
+      <div class="step-body">
+        <div class="step-title">Define the Dashboard Outcomes</div>
+        <div class="step-desc">Don't build dashboards — build answers. For each audience, identify the 3 questions they ask most often. Each question becomes one visual.</div>
+        <div class="info-box">
+          <div class="info-box-title">EMS RTBI: Questions → Visuals</div>
+          <table class="data-table">
+            <thead><tr><th>Audience</th><th>Question</th><th>Visual</th></tr></thead>
+            <tbody>
+              <tr><td>Pharmacist</td><td>How many scripts are pending right now?</td><td>Live KPI tile from RxFact status=PENDING count</td></tr>
+              <tr><td>Pharmacy Manager</td><td>What's the current dispatch rate today?</td><td>Gauge: dispatched today vs daily average</td></tr>
+              <tr><td>Finance</td><td>What's the PBS revenue generated this month?</td><td>Line chart: InvoiceFact sum by day, MTD</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">R2</div>
+      <div class="step-body">
+        <div class="step-title">Connect Power BI to Dataverse</div>
+        <ul class="checklist">
+          <li>Open Power BI Desktop → Get Data → Dataverse</li>
+          <li>Connect using service account (never personal account)</li>
+          <li>Import only the columns needed for the dashboard — do not import PII fields</li>
+          <li>Set DirectQuery mode for real-time data (not Import mode)</li>
+          <li>Configure Row-Level Security in Power BI to match Dataverse security roles</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">R3</div>
+      <div class="step-body">
+        <div class="step-title">Build, Publish & Embed</div>
+        <ul class="checklist">
+          <li>Build each visual against the defined question (Step R1)</li>
+          <li>Publish to Power BI Service workspace</li>
+          <li>Embed in Microsoft Teams channel for each Mini-OS (Teams → Add tab → Power BI)</li>
+          <li>Set refresh schedule: every 15 minutes for operational dashboards</li>
+          <li>Business owner confirms: "This answers my question accurately"</li>
+        </ul>
+        <div class="gate">
+          <div class="gate-title">RTBI Activation Gate</div>
+          <div class="gate-rule"><span>✓</span> Dashboard answers each defined question correctly with live data</div>
+          <div class="gate-rule"><span>✓</span> Row-level security verified (Finance can't see HR data, etc.)</div>
+          <div class="gate-rule"><span>✓</span> No PII visible in any dashboard visual</div>
+          <div class="gate-rule"><span>✓</span> Business owners trained and confirmed able to read the dashboard</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-header" style="border-left-color:var(--amber)">
+    <div class="phase-id" style="color:var(--amber)">Value Engine 03</div>
+    <div class="phase-name">Transformation Fund</div>
+    <div class="phase-sub">Ring-fence 20% of measured agent savings and deploy them systematically to fund the next automation — creating a self-funding compounding loop.</div>
+  </div>
+  <div class="info-box amber">
+    <div class="info-box-title">Prerequisites</div>
+    <ul class="checklist done">
+      <li>Finance Mini-OS live for ≥90 days (so savings data is reliable)</li>
+      <li>RTBI active (COGS reduction must be measurable in Power BI)</li>
+      <li>Baseline COGS established at go-live (Day 0 measurement)</li>
+      <li>Client has agreed to Transformation Fund clause in commercial agreement</li>
+    </ul>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">T1</div>
+      <div class="step-body">
+        <div class="step-title">Measure the Savings Baseline</div>
+        <div class="step-desc">At the 90-day review, calculate actual COGS reduction: compare pre-RTBoss cost per transaction vs current cost per transaction. COGS reduction = savings amount.</div>
+        <div class="info-box">
+          <div class="info-box-title">Savings Calculation Formula</div>
+          <div class="code-block" style="font-size:0.82rem;">
+<span class="comment">// EMS Example</span>
+<span class="key">Pre-RTBoss:</span>  <span class="val">45 min/prescription × $45/hr labour = $33.75/script</span>
+<span class="key">Post-RTBoss:</span> <span class="val">8 min/prescription (human review only) = $6.00/script</span>
+<span class="key">Saving:</span>      <span class="val">$27.75/script</span>
+<span class="key">Volume:</span>      <span class="val">200 scripts/month</span>
+<span class="key">Monthly saving:</span> <span class="val">$5,550/month</span>
+<span class="highlight">Transformation Fund (20%): $1,110/month → deployed to next Mini-OS build</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">T2</div>
+      <div class="step-body">
+        <div class="step-title">Configure the Fund Tracking in Dataverse</div>
+        <ul class="checklist">
+          <li>Create TransformationFundFact entity in Finance Mini-OS Dataverse</li>
+          <li>Fields: month, cogs_baseline, cogs_current, saving_amount, fund_20pct, deployed_to, deployed_amount, balance</li>
+          <li>Build RTBI visual: Transformation Fund balance and deployment history</li>
+          <li>Schedule: Finance Genie calculates and posts fund update on 1st of each month</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">T3</div>
+      <div class="step-body">
+        <div class="step-title">Deploy the Fund — Investment Decision</div>
+        <div class="step-desc">Each quarter, review the fund balance with the client. Present 3 candidate next automation investments ranked by ROI. Client selects one. Fund is deployed to that build.</div>
+        <div class="info-box green">
+          <div class="info-box-title">Investment Criteria (rank candidates by these)</div>
+          <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+            1. Highest COGS reduction per dollar spent<br>
+            2. Fastest time to first value (months to ROI)<br>
+            3. Enables activation of a higher-tier Value Engine
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-header" style="border-left-color:var(--green)">
+    <div class="phase-id" style="color:var(--green)">Value Engine 02</div>
+    <div class="phase-name">Digital Twin</div>
+    <div class="phase-sub">When enough Mini-OS are live and stable, the aggregate of all Dataverse Facts becomes a real-time digital replica of the business — the Digital Twin. Activation is not a build step: it emerges when the conditions are met.</div>
+  </div>
+  <div class="info-box green">
+    <div class="info-box-title">Digital Twin Activation Conditions</div>
+    <ul class="checklist done">
+      <li>Minimum 4 Mini-OS live in Production for ≥90 days each</li>
+      <li>Finance, Operations, and Delivery Mini-OS all active (core business functions covered)</li>
+      <li>RTBI active across all Mini-OS</li>
+      <li>Digital Twin completeness score ≥70% (% of business activities captured as Facts)</li>
+    </ul>
+  </div>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-num">D1</div>
+      <div class="step-body">
+        <div class="step-title">Calculate Digital Twin Completeness Score</div>
+        <div class="step-desc">Map every key business activity in the domain. Count how many are captured as Facts in Dataverse. Completeness = Facts captured / Total activities × 100.</div>
+        <div class="info-box">
+          <div class="info-box-title">Completeness Score Interpretation</div>
+          <table class="data-table">
+            <thead><tr><th>Score</th><th>Status</th><th>What It Means</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--red)">&lt;40%</td><td>Insufficient</td><td>Too many blind spots for meaningful analysis. Build more Mini-OS first.</td></tr>
+              <tr><td style="color:var(--amber)">40–70%</td><td>Partial</td><td>Core operations visible. Significant gaps. RTBI useful but Digital Twin not yet reliable.</td></tr>
+              <tr><td style="color:var(--green)">≥70%</td><td>Active</td><td>Digital Twin is representative. Cross-domain analysis is reliable. Activate.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">D2</div>
+      <div class="step-body">
+        <div class="step-title">Build Cross-OS Dataverse Views</div>
+        <div class="step-desc">Create Dataverse views that join Facts across Mini-OS for cross-domain queries. These views power the Digital Twin analysis and Command Centre dashboards.</div>
+        <div class="gate">
+          <div class="gate-title">Digital Twin Activation Gate</div>
+          <div class="gate-rule"><span>✓</span> Completeness score ≥70%</div>
+          <div class="gate-rule"><span>✓</span> Cross-OS views return accurate cross-domain data</div>
+          <div class="gate-rule"><span>✓</span> RTBI dashboards updated to include cross-OS views</div>
+          <div class="gate-rule"><span>✓</span> Client notified: Digital Twin is now active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></div>
+
+<!-- ============================================================
+     TAB 05: HOW TO TEST & VALIDATE
+     ============================================================ -->
+<div class="panel" id="tab-4"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Quality Assurance · ISO 9001 Cl.8.5</div>
+    <h1 class="ph-title">How to Test & Validate</h1>
+    <p class="ph-sub">No RTBoss component goes live without passing its relevant test gate. This guide defines what "done" means for every component type, the test templates to use, and the evidence required for ISO audit purposes.</p>
+  </div>
+
+  <div class="section-label">The Testing Hierarchy</div>
+  <div class="flow" style="margin-bottom:1.5rem;">
+    <div class="flow-item highlight">Unit Testing</div><div class="flow-arrow">→</div>
+    <div class="flow-item">Integration Testing</div><div class="flow-arrow">→</div>
+    <div class="flow-item">End-to-End Testing</div><div class="flow-arrow">→</div>
+    <div class="flow-item highlight">UAT (Business Sign-Off)</div>
+  </div>
+  <div class="info-box">
+    <div class="info-box-title">Which Tests Apply to Which Component</div>
+    <table class="data-table">
+      <thead><tr><th>Component</th><th>Unit</th><th>Integration</th><th>End-to-End</th><th>UAT</th></tr></thead>
+      <tbody>
+        <tr><td>Genie</td><td style="color:var(--green)">✓ Required</td><td style="color:var(--green)">✓ Required</td><td style="color:var(--dim)">—</td><td style="color:var(--green)">✓ Required</td></tr>
+        <tr><td>Stream</td><td style="color:var(--dim)">—</td><td style="color:var(--green)">✓ Required</td><td style="color:var(--green)">✓ Required</td><td style="color:var(--green)">✓ Required</td></tr>
+        <tr><td>Mini-OS</td><td style="color:var(--dim)">—</td><td style="color:var(--green)">✓ Required</td><td style="color:var(--green)">✓ Required</td><td style="color:var(--green)">✓ Required</td></tr>
+        <tr><td>Value Engine</td><td style="color:var(--dim)">—</td><td style="color:var(--dim)">—</td><td style="color:var(--green)">✓ Required</td><td style="color:var(--green)">✓ Required</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-label">Unit Testing — Genie Level</div>
+  <div class="info-box">
+    <div class="info-box-title">Unit Test Template — Copy for Every Genie</div>
+    <div class="code-block" style="font-size:0.78rem;">
+<span class="comment">## UNIT TEST RECORD</span>
+<span class="key">Genie ID:</span>        <span class="val">AGT-XXX</span>
+<span class="key">Genie Name:</span>      <span class="val">[Name]</span>
+<span class="key">Test Date:</span>       <span class="val">[YYYY-MM-DD]</span>
+<span class="key">Tester:</span>          <span class="val">[Name]</span>
+<span class="key">Environment:</span>     <span class="val">Dev</span>
+
+<span class="comment">## HAPPY PATH TESTS (min 10 cases)</span>
+<span class="label">Test 01:</span> Input=[value] → Expected=[value] → Actual=[value] → <span class="val">PASS/FAIL</span>
+<span class="label">Test 02:</span> Input=[value] → Expected=[value] → Actual=[value] → <span class="val">PASS/FAIL</span>
+<span class="comment">// ... repeat for all 10 cases</span>
+
+<span class="comment">## FAILURE TESTS</span>
+<span class="label">Null required field:</span>      → Expected: reject with error_code → Actual: <span class="val">PASS/FAIL</span>
+<span class="label">Wrong type input:</span>         → Expected: reject with error_code → Actual: <span class="val">PASS/FAIL</span>
+<span class="label">External API unavailable:</span> → Expected: FLAG + notify → Actual: <span class="val">PASS/FAIL</span>
+<span class="label">Duplicate trigger:</span>        → Expected: idempotent (no double processing) → Actual: <span class="val">PASS/FAIL</span>
+
+<span class="comment">## SECURITY TESTS</span>
+<span class="label">PII masking in audit log:</span>  → Expected: fact ID only, no PII → Actual: <span class="val">PASS/FAIL</span>
+<span class="label">Unauthorised user:</span>        → Expected: 403 reject → Actual: <span class="val">PASS/FAIL</span>
+
+<span class="comment">## SLA TEST</span>
+<span class="label">Average response time:</span>    <span class="val">[X] seconds</span> → SLA target: <span class="val">[Y] seconds</span> → <span class="val">PASS/FAIL</span>
+
+<span class="comment">## RESULT</span>
+<span class="key">Overall:</span>    <span class="highlight">PASS / FAIL</span>
+<span class="key">Issues:</span>     [List any failures]
+<span class="key">Resolution:</span> [What was fixed and re-tested]</div>
+  </div>
+
+  <div class="section-label">Integration Testing</div>
+  <div class="info-box">
+    <div class="info-box-title">What Integration Tests Must Verify</div>
+    <div class="two-col">
+      <div>
+        <div style="color:var(--orange);font-family:'Fira Code',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">For Genies in a Stream</div>
+        <ul class="checklist done">
+          <li>Upstream trigger correctly fires the Genie</li>
+          <li>Genie output correctly updates Dataverse</li>
+          <li>Genie output correctly fires downstream trigger</li>
+          <li>Failure route triggers correctly (not just happy path)</li>
+          <li>AuditRecord row created for every invocation</li>
+        </ul>
+      </div>
+      <div>
+        <div style="color:var(--orange);font-family:'Fira Code',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">For Mini-OS as a Whole</div>
+        <ul class="checklist done">
+          <li>All Fact tables writable by appropriate Genies</li>
+          <li>Security: Genie A cannot write to Mini-OS B tables</li>
+          <li>Notification routing: correct person gets correct alert</li>
+          <li>RTBI dashboard updates within 15 min of Fact creation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">End-to-End Testing</div>
+  <div class="info-box">
+    <div class="info-box-title">E2E Test Script Template</div>
+    <div class="code-block" style="font-size:0.78rem;">
+<span class="comment">## E2E TEST: [Stream/Mini-OS Name]</span>
+<span class="key">Test ID:</span>       <span class="val">E2E-001</span>
+<span class="key">Stream/Mini-OS:</span> <span class="val">[Name]</span>
+<span class="key">Test Date:</span>     <span class="val">[YYYY-MM-DD]</span>
+<span class="key">Tester:</span>        <span class="val">[Name]</span>
+<span class="key">Business Owner:</span> <span class="val">[Name] — present for UAT phase</span>
+
+<span class="comment">## TEST CASES (min 5 real-world cases)</span>
+
+<span class="label">Case 01 — Standard case</span>
+  Input:    [describe the starting input, e.g., sample prescription email]
+  Expected: [final outcome, e.g., AusPost consignment created + email to patient]
+  Steps verified:
+    ✓ AGT-001 fired and email parsed
+    ✓ AGT-002 created RxFact in Dataverse
+    ✓ AGT-003 eligibility check returned PASS
+    ✓ AGT-004 label PDF generated
+    ✓ AGT-005 consignment created: [tracking number]
+  SLA: Started [HH:MM] → Completed [HH:MM] → Duration: [X min] → <span class="val">PASS/FAIL</span>
+  Dataverse: RxFact.status = COMPLETE → <span class="val">PASS/FAIL</span>
+  Result: <span class="val">PASS/FAIL</span>
+
+<span class="label">Case 02 — Failure injection</span>
+  Setup:    Disable AGT-003 PBS Eligibility Genie
+  Expected: Stream halts at AGT-003, RxFact.status=FLAG, email to Pharmacy Manager
+  Result:   <span class="val">PASS/FAIL</span>
+
+<span class="comment">// Add Case 03–05 following same pattern</span>
+
+<span class="comment">## OVERALL RESULT</span>
+<span class="key">Cases passed:</span>  <span class="val">[X]/5</span>
+<span class="key">Issues found:</span>  <span class="val">[List]</span>
+<span class="key">Resolved:</span>      <span class="val">[How fixed + re-tested]</span>
+<span class="key">E2E Result:</span>    <span class="highlight">PASS / FAIL</span></div>
+  </div>
+
+  <div class="section-label">UAT — Business Owner Sign-Off</div>
+  <div class="info-box amber">
+    <div class="info-box-title">UAT Rules</div>
+    <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+      UAT is run with the <strong style="color:var(--text);">business owner</strong> (domain owner), not IT. The business owner must run the test cases themselves — they are not passengers observing a demo. IT facilitates but does not operate the system during UAT.<br><br>
+      Minimum: <strong style="color:var(--text);">3 real business cases</strong> selected by the business owner from their own recent work. Not synthetic test data — real data from the past 30 days.
+    </div>
+  </div>
+  <div class="info-box">
+    <div class="info-box-title">UAT Sign-Off Form</div>
+    <div class="code-block" style="font-size:0.78rem;">
+<span class="comment">## UAT SIGN-OFF RECORD</span>
+<span class="key">Component:</span>       <span class="val">[Genie/Stream/Mini-OS name]</span>
+<span class="key">Business Owner:</span>  <span class="val">[Name, Role]</span>
+<span class="key">UAT Date:</span>        <span class="val">[YYYY-MM-DD]</span>
+<span class="key">Environment:</span>     <span class="val">Test (pre-Prod)</span>
+
+<span class="comment">## CASES REVIEWED</span>
+<span class="label">Case 1:</span> [Description] → Result: <span class="val">PASS/FAIL</span> → Owner assessment: [Comments]
+<span class="label">Case 2:</span> [Description] → Result: <span class="val">PASS/FAIL</span> → Owner assessment: [Comments]
+<span class="label">Case 3:</span> [Description] → Result: <span class="val">PASS/FAIL</span> → Owner assessment: [Comments]
+
+<span class="comment">## ACCEPTANCE STATEMENT</span>
+<span class="val">I confirm the above component performs as required for production deployment.
+I understand I am approving this for live operation with real data.</span>
+
+<span class="key">Signed:</span>     <span class="val">_________________________ [Business Owner]</span>
+<span class="key">Date:</span>        <span class="val">_________________________</span>
+<span class="key">Approved for:</span> <span class="highlight">PRODUCTION DEPLOYMENT</span></div>
+  </div>
+
+  <div class="section-label">Definition of Done — Quick Reference</div>
+  <div class="two-col">
+    <div class="gate">
+      <div class="gate-title">A Genie Is Done When:</div>
+      <div class="gate-rule"><span>✓</span> Unit test: 10/10 happy path cases pass</div>
+      <div class="gate-rule"><span>✓</span> All failure tests handled gracefully</div>
+      <div class="gate-rule"><span>✓</span> SLA met on all test cases</div>
+      <div class="gate-rule"><span>✓</span> Security tests: PII masked, auth enforced</div>
+      <div class="gate-rule"><span>✓</span> Integration: upstream/downstream verified</div>
+      <div class="gate-rule"><span>✓</span> UAT: business owner sign-off (3 cases)</div>
+      <div class="gate-rule"><span>✓</span> Factory Library: ENT-003 registered</div>
+      <div class="gate-rule"><span>✓</span> Promoted to Production via managed solution</div>
+    </div>
+    <div class="gate">
+      <div class="gate-title">A Mini-OS Is Done When:</div>
+      <div class="gate-rule"><span>✓</span> All 5 deployment phases gated and passed</div>
+      <div class="gate-rule"><span>✓</span> All Genies individually done (as above)</div>
+      <div class="gate-rule"><span>✓</span> All Streams E2E tested and passed</div>
+      <div class="gate-rule"><span>✓</span> Mini-OS UAT: domain owner sign-off</div>
+      <div class="gate-rule"><span>✓</span> Live in Production ≥5 business days, no P1s</div>
+      <div class="gate-rule"><span>✓</span> RTBI dashboard active and confirmed accurate</div>
+      <div class="gate-rule"><span>✓</span> 30-day review date scheduled</div>
+      <div class="gate-rule"><span>✓</span> S03 documentation updated as-built</div>
+    </div>
+  </div>
+
+  <div class="section-label">ISO 9001 Test Evidence Requirements</div>
+  <div class="info-box violet">
+    <div class="info-box-title">What Must Be Retained for Audit (ISO 9001 Cl.9.1 + Cl.8.5.1)</div>
+    <div style="color:var(--mid);font-size:0.88rem;line-height:1.8;">
+      For every deployed component, the following must be stored in Dataverse (ENT-007) and accessible to internal auditors:<br><br>
+      <strong style="color:var(--text);">Unit Test Records:</strong> Completed test template (above) with PASS/FAIL results per case<br>
+      <strong style="color:var(--text);">Integration Test Records:</strong> Evidence that upstream/downstream connections verified<br>
+      <strong style="color:var(--text);">E2E Test Records:</strong> Completed E2E script with case results<br>
+      <strong style="color:var(--text);">UAT Sign-Off Form:</strong> Business owner signature or digital equivalent<br>
+      <strong style="color:var(--text);">NCR records:</strong> Any non-conformances found during testing and their resolution (→ S12)<br>
+      <strong style="color:var(--text);">Version record:</strong> Which version was tested, promoted, and when (→ S12 Changelog)<br><br>
+      Retention period: 3 years minimum (or the longer of any applicable regulatory requirement).
+    </div>
+  </div>
+
+</div></div>
+
+<script>
+function showTab(n){
+  const tabs=document.querySelectorAll('.tab');
+  const panels=document.querySelectorAll('.panel');
+  tabs.forEach((t,i)=>{
+    if(i===n){t.classList.add('active');panels[i].classList.add('active');}
+    else{t.classList.remove('active');panels[i].classList.remove('active');}
+  });
+}
+</script>
+</body>
+</html>

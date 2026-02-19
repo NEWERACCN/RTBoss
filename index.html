@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss — Complete Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;
+  --red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;overflow-x:hidden;}
+.container{max-width:1400px;margin:0 auto;padding:2rem;}
+.header{text-align:center;padding:3.5rem 2rem 2.5rem;background:linear-gradient(180deg,var(--s1) 0%,var(--bg) 100%);border-bottom:1px solid var(--border);position:relative;}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--border) 2px,var(--border) 4px),repeating-linear-gradient(90deg,transparent,transparent 2px,var(--border) 2px,var(--border) 4px);opacity:0.03;pointer-events:none;}
+.logo{font-size:2.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem;background:linear-gradient(135deg,var(--blue),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tagline{font-size:1.05rem;color:var(--mid);font-weight:400;margin-bottom:0.5rem;}
+.iso-badges{display:flex;justify-content:center;gap:0.75rem;margin-top:1.25rem;flex-wrap:wrap;}
+.iso-badge{padding:0.3rem 0.9rem;border-radius:100px;font-family:'Fira Code',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;}
+.badge-iso27001{background:rgba(64,196,255,0.1);color:var(--blue);border:1px solid rgba(64,196,255,0.25);}
+.badge-iso9001{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.25);}
+.badge-neit{background:rgba(179,136,255,0.1);color:var(--violet);border:1px solid rgba(179,136,255,0.25);}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin:3rem 0 1rem;}
+.stat-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;position:relative;overflow:hidden;}
+.stat-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);}
+.stat-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;}
+.stat-value{font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:0.25rem;}
+.stat-target{font-size:0.82rem;color:var(--mid);}
+.group-label{font-family:'Fira Code',monospace;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin:3rem 0 1.25rem;display:flex;align-items:center;gap:1rem;}
+.group-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.phase-bar{display:flex;align-items:center;gap:0.75rem;margin:2.5rem 0 1.25rem;padding:0.9rem 1.25rem;background:var(--s1);border:1px solid var(--border);border-radius:10px;}
+.phase-num{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--dim);background:var(--s2);padding:0.25rem 0.65rem;border-radius:4px;border:1px solid var(--border);white-space:nowrap;}
+.phase-title{font-size:0.92rem;font-weight:700;color:var(--text);}
+.phase-desc{font-size:0.8rem;color:var(--mid);margin-left:auto;}
+.sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1.75rem;margin-bottom:0.5rem;}
+.section-card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:1.75rem;cursor:pointer;transition:all 0.25s ease;position:relative;overflow:hidden;text-decoration:none;color:var(--text);display:block;}
+.section-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity 0.25s ease;}
+.section-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.35);}
+.section-card:hover::before{opacity:1;}
+.section-card.placeholder{opacity:0.72;}
+.section-num{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;}
+.section-title{font-size:1.3rem;font-weight:700;margin-bottom:0.65rem;color:var(--text);}
+.section-desc{color:var(--mid);font-size:0.87rem;line-height:1.7;margin-bottom:1rem;}
+.section-meta{display:flex;gap:0.75rem;flex-wrap:wrap;font-size:0.74rem;color:var(--dim);font-family:'Fira Code',monospace;}
+.meta-complete{color:var(--green);}
+.meta-progress{color:var(--amber);}
+.meta-placeholder{color:var(--dim);}
+.card-featured{grid-column:1 / -1;background:linear-gradient(135deg,var(--s1) 0%,rgba(179,136,255,0.06) 100%);border:1px solid rgba(179,136,255,0.25);border-radius:16px;padding:2rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;cursor:pointer;transition:all 0.25s ease;text-decoration:none;color:var(--text);position:relative;overflow:hidden;}
+.card-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--violet),var(--blue),var(--teal));opacity:0;transition:opacity 0.25s;}
+.card-featured:hover{border-color:var(--violet);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.card-featured:hover::before{opacity:1;}
+.cf-kicker{font-family:'Fira Code',monospace;font-size:0.68rem;color:var(--violet);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;}
+.cf-title{font-size:1.4rem;font-weight:700;margin-bottom:0.6rem;}
+.cf-desc{color:var(--mid);font-size:0.9rem;line-height:1.75;max-width:700px;}
+.cf-right{display:flex;gap:0.65rem;flex-wrap:wrap;}
+.cf-badge{padding:0.4rem 0.9rem;border-radius:100px;font-size:0.72rem;font-weight:600;white-space:nowrap;}
+.cf-b1{background:rgba(255,202,40,0.1);color:var(--amber);border:1px solid rgba(255,202,40,0.2);}
+.cf-b2{background:rgba(0,230,118,0.08);color:var(--green);border:1px solid rgba(0,230,118,0.15);}
+.cf-b3{background:rgba(179,136,255,0.08);color:var(--violet);border:1px solid rgba(179,136,255,0.15);}
+.progress-banner{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:1rem 1.5rem;margin:2rem 0;display:flex;align-items:center;gap:1rem;font-size:0.87rem;color:var(--mid);}
+.progress-banner strong{color:var(--amber);}
+.footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);color:var(--dim);font-size:0.82rem;line-height:2;}
+@media(max-width:768px){.sections{grid-template-columns:1fr;}.stats{grid-template-columns:1fr 1fr;}.card-featured{grid-template-columns:1fr;}.cf-right{flex-direction:row;}.phase-desc{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">RTBoss</div>
+  <div class="tagline">Real-Time Business Operating System — Complete Playbook · New Era IT</div>
+  <div class="iso-badges">
+    <span class="iso-badge badge-iso27001">ISO 27001:2022</span>
+    <span class="iso-badge badge-iso9001">ISO 9001:2015</span>
+    <span class="iso-badge badge-neit">New Era IT · Brisbane</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stats">
+    <div class="stat-card" style="--accent:var(--green);">
+      <div class="stat-label">Monthly Recurring Revenue</div>
+      <div class="stat-value">$38.5k</div>
+      <div class="stat-target">Target: $50k by mid-2026</div>
+    </div>
+    <div class="stat-card" style="--accent:var(--blue);">
+      <div class="stat-label">Active Clients</div>
+      <div class="stat-value">4</div>
+      <div class="stat-target">Target: 5 by end-2026</div>
+    </div>
+    <div class="stat-card" style="--accent:var(--violet);">
+      <div class="stat-label">Digital Worker Maturation</div>
+      <div class="stat-value">18%</div>
+      <div class="stat-target">Target: 40% by Q3 2026</div>
+    </div>
+    <div class="stat-card" style="--accent:var(--amber);">
+      <div class="stat-label">Genies Deployed</div>
+      <div class="stat-value">6</div>
+      <div class="stat-target">Target: 25 by Q4 2026</div>
+    </div>
+    <div class="stat-card" style="--accent:var(--teal);">
+      <div class="stat-label">Playbook Sections Complete</div>
+      <div class="stat-value">9</div>
+      <div class="stat-target">of 12 sections · 2 placeholders remaining</div>
+    </div>
+  </div>
+
+  <div class="progress-banner">
+    <span>⚡</span>
+    <span><strong>Active Build:</strong> Section 06 complete · New Tab 06 "RTBoss Tracking" added (improvements + opportunities register) · Sections 03, 04, 05 ready for deep-dive content · Sections 10, 11 structured placeholders · ISO 27001/9001 fully integrated into Sections 09 &amp; 12</span>
+  </div>
+
+  <!-- COMMUNICATIONS -->
+  <div class="group-label">Communications &amp; Stakeholder Summaries</div>
+  <div class="sections">
+    <a href="rtbos-summaries.html" class="card-featured">
+      <div class="cf-left">
+        <div class="cf-kicker">February 2026 · Audience-Tailored</div>
+        <div class="cf-title">RTBoss Audience Summaries</div>
+        <div class="cf-desc">Three tailored summaries for every conversation — Board &amp; Investors (commercial thesis, roadmap, model), Clients (outcomes, journey, commercial structure), and Social &amp; Future Stakeholders (vision, energy, shareability). Switch between audiences in one document.</div>
+      </div>
+      <div class="cf-right">
+        <span class="cf-badge cf-b1">Board &amp; Investors</span>
+        <span class="cf-badge cf-b2">Clients</span>
+        <span class="cf-badge cf-b3">Social &amp; Future</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-bar">
+    <span class="phase-num">PHASE 1</span>
+    <span class="phase-title">Foundation — What RTBoss Is &amp; How It's Built</span>
+    <span class="phase-desc">Sections 01–05 · Static Reference Architecture</span>
+  </div>
+  <div class="sections">
+
+    <a href="01-strategy.html" class="section-card" style="--accent:var(--green);">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Strategic Framework</div>
+      <div class="section-desc">RTBoss core definition, the six strategic pillars, transformation fund model, revenue architecture, and the compounding flywheel that makes every client deployment more valuable than the last.</div>
+      <div class="section-meta">
+        <span>📄 5 tabs</span>
+        <span class="meta-complete">✓ Complete</span>
+      </div>
+    </a>
+
+    <a href="02-architecture.html" class="section-card" style="--accent:var(--blue);">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Architecture Foundation</div>
+      <div class="section-desc">SOT framework, Mini-OS domains, digital workers, value engines, RTBI, the full Microsoft tech stack, flow of work, and the weekly/monthly company cadence that keeps everything aligned.</div>
+      <div class="section-meta">
+        <span>📄 9 tabs</span>
+        <span class="meta-complete">✓ Complete</span>
+      </div>
+    </a>
+
+    <a href="03-minios.html" class="section-card" style="--accent:var(--violet);">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Mini-OS Build Guides</div>
+      <div class="section-desc">Click-by-click build guides for all 14 Mini-OS domains plus MIP. Systems, Genies, Streams, deployment steps, integration points, and data flows for each domain. The full operational blueprint.</div>
+      <div class="section-meta">
+        <span>📄 14 tabs</span>
+        <span class="meta-progress">⏳ Deepening</span>
+      </div>
+    </a>
+
+    <a href="04-value-engines.html" class="section-card" style="--accent:var(--teal);">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">Value Engine Build Guides</div>
+      <div class="section-desc">Click-by-click build guides for all 4 Value Engines — RTBI, Digital Twin, Transformation Fund, and Command Centre. Multi-OS orchestration, Genies, Streams, and full deployment steps.</div>
+      <div class="section-meta">
+        <span>📄 5 tabs</span>
+        <span class="meta-progress">⏳ Deepening</span>
+      </div>
+    </a>
+
+    <a href="05-infrastructure.html" class="section-card" style="--accent:var(--orange);">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Foundation &amp; Infrastructure</div>
+      <div class="section-desc">Complete setup guides for Microsoft 365, Dynamics 365, Azure, Power Platform, Copilot Studio, security baseline, ISO 27001 compliance configuration, and all third-party tool integrations.</div>
+      <div class="section-meta">
+        <span>📄 8 tabs</span>
+        <span class="meta-progress">⏳ Deepening</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-bar">
+    <span class="phase-num">PHASE 2</span>
+    <span class="phase-title">Execution — How We Deliver &amp; Track</span>
+    <span class="phase-desc">Sections 06–08 · Operational &amp; Client-Facing</span>
+  </div>
+  <div class="sections">
+
+    <a href="06-execution.html" class="section-card" style="--accent:var(--amber);">
+      <div class="section-num">Section 06</div>
+      <div class="section-title">Execution &amp; Tracking</div>
+      <div class="section-desc">Tracking system architecture — where it lives, how it works, and how each client gets their own instance. Fact Stream design, Maturity Model (3 lenses), System Opportunities engine, and per-client tracking links. Auto and manual fact capture. Links to live Power BI dashboards as clients go live.</div>
+      <div class="section-meta">
+        <span>📄 5 tabs</span>
+        <span class="meta-complete">✓ Complete</span>
+      </div>
+    </a>
+
+    <a href="07-projects.html" class="section-card" style="--accent:var(--pink);">
+      <div class="section-num">Section 07</div>
+      <div class="section-title">Client Projects</div>
+      <div class="section-desc">Complete project documentation for EMS (full 13-agent reference), RDM, and RLAW. Each client: Architecture overview, deployment Build Guide, and full Agents &amp; Estimates with pricing breakdown.</div>
+      <div class="section-meta">
+        <span>📄 3 tabs per client · EMS has 4 (incl. Complete Reference)</span>
+        <span class="meta-complete">✓ EMS Complete · RDM/RLAW Structured</span>
+      </div>
+    </a>
+
+    <a href="08-delivery.html" class="section-card" style="--accent:var(--pink);">
+      <div class="section-num">Section 08</div>
+      <div class="section-title">Agentic Delivery Model</div>
+      <div class="section-desc">How to run a client engagement end-to-end — Discovery, scoping, SOW, onboarding, QMS setup, go-live, and the 30/90/180-day maturation review cadence. The ISO 9001-aligned delivery playbook.</div>
+      <div class="section-meta">
+        <span>📄 9 tabs</span>
+        <span class="meta-complete">✓ Complete</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-bar">
+    <span class="phase-num">PHASE 3</span>
+    <span class="phase-title">Standards — How We Govern &amp; Improve</span>
+    <span class="phase-desc">Sections 09–12 · ISO 27001/9001 Integrated</span>
+  </div>
+  <div class="sections">
+
+    <a href="09-qms.html" class="section-card" style="--accent:var(--teal);">
+      <div class="section-num">Section 09</div>
+      <div class="section-title">Quality Management System</div>
+      <div class="section-desc">NEIT master QMS — Brand &amp; Information Classification (ISO 27001 A.5.12), Personas, Advisors, Document Templates (with ISO control headers), Ontology &amp; Taxonomy, Dictionary, and full ISO 27001:2022 / ISO 9001:2015 clause-by-clause compliance framework with SoA.</div>
+      <div class="section-meta">
+        <span>📄 7 tabs</span>
+        <span class="meta-complete">✓ Complete · ISO Integrated</span>
+      </div>
+    </a>
+
+    <a href="10-agentic-factory-library.html" class="section-card placeholder" style="--accent:var(--amber);">
+      <div class="section-num">Section 10</div>
+      <div class="section-title">Agentic Factory Library</div>
+      <div class="section-desc">Canonical deployment registry for every Stream and Genie across all Mini-OS and Value Engines. Single source of truth for all deployable agents — version history, client deployments, performance data, ISO control fields.</div>
+      <div class="section-meta">
+        <span>📄 4 tabs</span>
+        <span class="meta-placeholder">◌ Placeholder — populates as agents deploy</span>
+      </div>
+    </a>
+
+    <a href="11-build-guides.html" class="section-card placeholder" style="--accent:var(--orange);">
+      <div class="section-num">Section 11</div>
+      <div class="section-title">RTBoss Build Guides</div>
+      <div class="section-desc">How to build RTBoss things — Genies, Mini-OS, Streams, Value Engines, Infrastructure. The operational how-to library for the NEIT engineering team. Each guide deepens with every real deployment.</div>
+      <div class="section-meta">
+        <span>📄 4 tabs</span>
+        <span class="meta-placeholder">◌ Placeholder — ready to deepen</span>
+      </div>
+    </a>
+
+    <a href="12-changelog-audit.html" class="section-card" style="--accent:var(--violet);">
+      <div class="section-num">Section 12</div>
+      <div class="section-title">Changelog &amp; Audit Standards</div>
+      <div class="section-desc">Logging standards (ISO 27001 A.8.15), lesson capture (ISO 9001 Cl.10.3), version control policy (both Cl.7.5), NCR &amp; corrective action 5-step process (both Cl.10.2), internal audit programme (both Cl.9.2), and Command Centre Phase 2 roadmap.</div>
+      <div class="section-meta">
+        <span>📄 6 tabs</span>
+        <span class="meta-complete">✓ Complete · ISO Integrated</span>
+      </div>
+    </a>
+
+</div>
+
+<div class="footer">
+  RTBoss — Real-Time Business Operating System<br>
+  New Era IT · Brisbane, Australia · ISO 27001:2022 &amp; ISO 9001:2015 Integrated<br>
+  Baseline: February 19, 2026 · 16 files · 3 phases · 12 sections
+</div>
+
+</body>
+</html>
+
