@@ -246,6 +246,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="tab active" onclick="showTab(0)">01 · Architecture</div>
   <div class="tab" onclick="showTab(1)">02 · Build Guide</div>
   <div class="tab" onclick="showTab(2)">03 · Agents &amp; Estimates</div>
+  <div class="tab" onclick="showTab(3)">04 · Complete Reference</div>
 </div>
 <!-- ══ RDM · PLACEHOLDERS ══ -->
 <div class="panel active" id="tab-0"><div class="pw">
@@ -256,7 +257,26 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
   <div class="placeholder-content">
-    <h3>RDM Architecture (Future)</h3>
+      <div class="content-block">
+    <h3>Architecture Placeholder Scope</h3>
+    <p>This tab uses the same architecture format as EMS. Keep section order identical and replace content with RDM-specific details when discovery starts.</p>
+    <ul>
+      <li>Business Context + Operating Loop</li>
+      <li>Mini-OS domains and activation order</li>
+      <li>Fact-to-Asset-to-Agent flow map</li>
+      <li>Hybrid workforce split and escalation rules</li>
+    </ul>
+  </div>
+  <div class="content-block">
+    <h3>RDM-Specific Inputs Required</h3>
+    <ul>
+      <li>Property portfolio profile and service mix</li>
+      <li>Compliance obligations by jurisdiction</li>
+      <li>Current system landscape and data sources</li>
+      <li>Priority outcomes for first 90 days</li>
+    </ul>
+  </div>
+<h3>RDM Architecture (Future)</h3>
     <p>When RDM project begins, this tab will contain: client overview, business context, deployed Mini-OS instances, fact flows, agent chain, digital assets schema, and hybrid workforce breakdown. Use EMS Architecture as the template.</p>
   </div>
 </div></div>
@@ -269,7 +289,26 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
   <div class="placeholder-content">
-    <h3>RDM Build Guide (Future)</h3>
+      <div class="content-block">
+    <h3>Build Guide Placeholder Scope</h3>
+    <p>Mirror EMS build format exactly: same phase numbering, same gate language, same evidence style. Only environment specifics should differ.</p>
+    <ul>
+      <li>Phase checklist and prerequisites</li>
+      <li>Environment provisioning steps</li>
+      <li>Agent and stream deployment sequence</li>
+      <li>Test/validation and handoff criteria</li>
+    </ul>
+  </div>
+  <div class="content-block">
+    <h3>RDM Build Inputs Required</h3>
+    <ul>
+      <li>Tenant, subscription, and environment plan</li>
+      <li>Data model and connector inventory</li>
+      <li>Security/RBAC model for property operations</li>
+      <li>UAT sign-off owners and review cadence</li>
+    </ul>
+  </div>
+<h3>RDM Build Guide (Future)</h3>
     <p>When RDM project begins, this tab will contain all 11 deployment phases: Prerequisites, AI Foundry Hub, Cosmos DB, Fabric + OneLake, Create Agents, Orchestrator, Power Automate, Service Bus, Key Vault, Cutoff Scheduler, Test & Verify.</p>
   </div>
 </div></div>
@@ -282,8 +321,59 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
   <div class="placeholder-content">
-    <h3>RDM Agents & Estimates (Future)</h3>
+      <div class="content-block">
+    <h3>Agents & Estimates Placeholder Scope</h3>
+    <p>Use the EMS schema for every agent entry: role, trigger, input/output contract, tools, ISO block, and estimate range.</p>
+    <ul>
+      <li>Agent inventory table and dependency map</li>
+      <li>Estimate bands and effort assumptions</li>
+      <li>Traditional vs RTBoss cost comparison</li>
+      <li>Reporting model and KPI structure</li>
+    </ul>
+  </div>
+  <div class="content-block">
+    <h3>RDM Agent Inputs Required</h3>
+    <ul>
+      <li>Top workflow list and automation boundaries</li>
+      <li>Exception classes requiring human approval</li>
+      <li>Client communication/reporting preferences</li>
+      <li>Outcome metrics for bonus verification</li>
+    </ul>
+  </div>
+<h3>RDM Agents & Estimates (Future)</h3>
     <p>When RDM project begins, this tab will contain: complete agent specifications, build time estimates, traditional vs RTBoss cost comparison, and Power BI report structure. Use EMS Agents & Estimates as the template.</p>
+  </div>
+</div></div>
+
+<div class="panel" id="tab-3"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">RDM Project · Future Client</div>
+    <h1 class="ph-title">Complete Reference</h1>
+    <p class="ph-sub">Unified reference view for RDM. This tab mirrors EMS format and will consolidate roadmap, progress dashboard, workforce maturity metrics, and deployment timeline once active.</p>
+  </div>
+  <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
+  <div class="placeholder-content">
+      <div class="content-block">
+    <h3>Complete Reference Placeholder Scope</h3>
+    <p>Keep this tab as the consolidated source in the same structure as EMS complete reference.</p>
+    <ul>
+      <li>Build Roadmap (Q1-Q4)</li>
+      <li>Progress Dashboard</li>
+      <li>Workforce Maturity Metrics</li>
+      <li>Deployment Timeline</li>
+    </ul>
+  </div>
+  <div class="content-block">
+    <h3>RDM Reference Inputs Required</h3>
+    <ul>
+      <li>Roadmap milestones and owners</li>
+      <li>Dashboard KPI definitions</li>
+      <li>Workforce maturity baseline and targets</li>
+      <li>Critical dependencies and risk controls</li>
+    </ul>
+  </div>
+<h3>RDM Complete Reference (Future)</h3>
+    <p>When RDM project begins, this tab will contain the complete reference pack in the same structure as EMS: Build Roadmap, Progress Dashboard, Workforce Maturity Metrics, and Deployment Timeline. Placeholder intentionally kept to preserve format parity.</p>
   </div>
 </div></div>
 
@@ -1899,3 +1989,9 @@ renderAgents();
 </script>
 </body>
 </html>
+
+
+
+
+
+

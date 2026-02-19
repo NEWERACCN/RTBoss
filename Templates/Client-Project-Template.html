@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss - {{CLIENT_CODE}} Client Project</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;
+  --red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:var(--pink);}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:var(--pink);}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:var(--pink);border-bottom-color:var(--pink);}
+.panel{display:none;}
+.panel.active{display:block;}
+.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.ph{text-align:center;padding:2.6rem 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--pink);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.2rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.8rem;}
+.ph-sub{font-size:1rem;color:var(--mid);max-width:780px;margin:0 auto;line-height:1.8;}
+.status-badge{display:inline-flex;align-items:center;gap:0.45rem;font-family:'Fira Code',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.35rem 0.7rem;border-radius:6px;margin-bottom:1rem;}
+.status-badge.placeholder{background:rgba(96,120,144,0.1);color:var(--dim);border:1px solid var(--dim);}
+.placeholder-content{background:var(--s1);border:1px dashed var(--border);border-radius:12px;padding:2.2rem;text-align:center;margin:1.2rem 0;}
+.placeholder-content h3{font-size:1.25rem;color:var(--mid);margin-bottom:0.8rem;}
+.placeholder-content p{color:var(--dim);line-height:1.8;max-width:860px;margin:0 auto;font-size:0.92rem;}
+.content-block{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;}
+.content-block h3{font-size:1rem;margin-bottom:0.6rem;}
+.content-block p,.content-block li{color:var(--mid);font-size:0.86rem;line-height:1.7;}
+.content-block ul{padding-left:1.1rem;}
+</style>
+</head>
+<body>
+
+<div class="nav-header">
+  <div class="nav-title">{{CLIENT_CODE}} · {{CLIENT_NAME}} Client Project</div>
+  <a href="07-projects.html" class="nav-back">← Back to Client Projects</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 · Architecture</div>
+  <div class="tab" onclick="showTab(1)">02 · Build Guide</div>
+  <div class="tab" onclick="showTab(2)">03 · Agents &amp; Estimates</div>
+  <div class="tab" onclick="showTab(3)">04 · Complete Reference</div>
+</div>
+
+<!-- TAB 01 -->
+<div class="panel active" id="tab-0"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">{{CLIENT_CODE}} Project · Future Client</div>
+    <h1 class="ph-title">Architecture & Overview</h1>
+    <p class="ph-sub">{{ARCHITECTURE_SUMMARY}}</p>
+  </div>
+  <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
+  <div class="placeholder-content">
+    <h3>{{CLIENT_CODE}} Architecture (Future)</h3>
+    <p>Populate with client overview, business context, deployed Mini-OS domains, fact flows, digital assets schema, and hybrid workforce model. Maintain the same structure and ordering used in EMS.</p>
+  </div>
+</div></div>
+
+<!-- TAB 02 -->
+<div class="panel" id="tab-1"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">{{CLIENT_CODE}} Project · Future Client</div>
+    <h1 class="ph-title">Build Guide</h1>
+    <p class="ph-sub">{{BUILD_GUIDE_SUMMARY}}</p>
+  </div>
+  <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
+  <div class="placeholder-content">
+    <h3>{{CLIENT_CODE}} Build Guide (Future)</h3>
+    <p>Populate with the full EMS-equivalent phased build sequence. Keep phase numbering and gate criteria format identical to EMS for consistency.</p>
+  </div>
+</div></div>
+
+<!-- TAB 03 -->
+<div class="panel" id="tab-2"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">{{CLIENT_CODE}} Project · Future Client</div>
+    <h1 class="ph-title">Agents & Estimates</h1>
+    <p class="ph-sub">{{AGENTS_SUMMARY}}</p>
+  </div>
+  <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
+  <div class="placeholder-content">
+    <h3>{{CLIENT_CODE}} Agents & Estimates (Future)</h3>
+    <p>Populate with complete agent inventory, ISO control blocks, cost/time estimates, and reporting structure. Keep table format and section order aligned with EMS.</p>
+  </div>
+</div></div>
+
+<!-- TAB 04 -->
+<div class="panel" id="tab-3"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">{{CLIENT_CODE}} Project · Future Client</div>
+    <h1 class="ph-title">Complete Reference</h1>
+    <p class="ph-sub">{{REFERENCE_SUMMARY}}</p>
+  </div>
+  <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
+  <div class="content-block">
+    <h3>Reference Structure (must match EMS)</h3>
+    <ul>
+      <li>Build Roadmap</li>
+      <li>Progress Dashboard</li>
+      <li>Workforce Maturity Metrics</li>
+      <li>Deployment Timeline</li>
+    </ul>
+  </div>
+  <div class="placeholder-content">
+    <h3>{{CLIENT_CODE}} Complete Reference (Future)</h3>
+    <p>Populate this tab with consolidated execution artifacts once project starts. Keep naming, section order, and metric framing identical to EMS unless a client-specific compliance requirement forces divergence.</p>
+  </div>
+</div></div>
+
+<script>
+function showTab(n){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active',i===n));
+}
+</script>
+</body>
+</html>
+
