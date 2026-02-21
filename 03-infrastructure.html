@@ -80,6 +80,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .step-placeholder-label{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--amber);margin-bottom:.3rem;}
 .step-placeholder-desc{font-size:.72rem;color:var(--dim);line-height:1.6;font-style:italic;}
 
+.stack-overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin:0 0 1rem;}
+.stack-overview-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:.85rem .95rem;position:relative;overflow:hidden;}
+.stack-overview-card::after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--sc,#40c4ff);opacity:.85;}
+.stack-overview-title{font-size:.82rem;font-weight:700;color:#e8f4ff;margin-bottom:.4rem;}
+.stack-overview-desc{font-size:.74rem;color:var(--mid);line-height:1.65;}
+.stack-overview-note{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--dim);margin:0 0 1rem;}
 
 .def-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--green);line-height:1.65;margin:.75rem 0;}
 .def-block.violet{border-left-color:var(--violet);color:var(--violet);}
@@ -143,8 +149,36 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">RTBoss  Foundation  Technology Stack</div>
     <h1 class="ph-title">Tech Stack  Microsoft Ecosystem</h1>
-    <p class="ph-sub">Full Microsoft-only stack. All Mini-OS instances, all Value Engines, all RTBI components run on this foundation. Australia data residency. ISO 27001/9001 certified. Zero-trust security model.</p>
+    <p class="ph-sub">High-level view: the OS runs on one unified stack, and every action emits facts into one stream. This page shows the architecture at a glance; each tab below covers the implementation detail.</p>
   </div>
+
+  <div class="stack-overview-grid">
+    <div class="stack-overview-card" style="--sc:#b388ff;">
+      <div class="stack-overview-title">Identity + Access</div>
+      <div class="stack-overview-desc">Entra ID, role controls, and security boundaries define who can trigger, approve, and change work.</div>
+    </div>
+    <div class="stack-overview-card" style="--sc:#40c4ff;">
+      <div class="stack-overview-title">Mini-OS Control Layer</div>
+      <div class="stack-overview-desc">Domain rules and governance decide routing, ownership, and escalation before execution starts.</div>
+    </div>
+    <div class="stack-overview-card" style="--sc:#ffca28;">
+      <div class="stack-overview-title">Value Engines</div>
+      <div class="stack-overview-desc">Core workflows run end-to-end for growth, fulfillment, innovation, and logistics outcomes.</div>
+    </div>
+    <div class="stack-overview-card" style="--sc:#f48fb1;">
+      <div class="stack-overview-title">Digital Workforce</div>
+      <div class="stack-overview-desc">Systems, genies, and automation execute work and emit events as they complete each step.</div>
+    </div>
+    <div class="stack-overview-card" style="--sc:#1de9b6;">
+      <div class="stack-overview-title">Facts Stream</div>
+      <div class="stack-overview-desc">Events are normalized into facts with context, ownership, and timestamp for one auditable operating record.</div>
+    </div>
+    <div class="stack-overview-card" style="--sc:#82b1ff;">
+      <div class="stack-overview-title">RTBI + Cadence</div>
+      <div class="stack-overview-desc">Dashboards and review rhythm convert live facts into decisions, checkpoints, and continuous improvement.</div>
+    </div>
+  </div>
+  <div class="stack-overview-note">Summary first. Depth is in tabs 02 through 09.</div>
 
   <div class="def-block">Microsoft-only constraint: No third-party SaaS except where unavoidable. All data stays in AU regions. Zero-trust via Entra ID + Intune.</div>
 

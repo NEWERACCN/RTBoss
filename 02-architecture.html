@@ -185,6 +185,26 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .tab-flowbar{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.06));border:1px solid rgba(0,230,118,.28);border-radius:10px;padding:.85rem 1rem;margin:0 0 1.25rem;}
 .tab-flowbar-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem;}
 .tab-flowbar-v{font-family:'Fira Code',monospace;font-size:.7rem;color:#d7ebff;line-height:1.6;}
+
+.os-flow{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.05));border:1px solid rgba(0,230,118,.28);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1.25rem;}
+.os-flow-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);text-align:center;margin-bottom:.55rem;}
+.os-flow-v{font-family:'Fira Code',monospace;font-size:.86rem;line-height:1.7;text-align:center;word-spacing:.05em;}
+.os-c1{color:#40c4ff;font-weight:600}.os-c2{color:#b388ff;font-weight:600}.os-c3{color:#1de9b6;font-weight:600}.os-c4{color:#82b1ff;font-weight:600}.os-c5{color:#ffca28;font-weight:600}.os-c6{color:#f48fb1;font-weight:600}.os-c7{color:#00e676;font-weight:700}
+.overview-sub{max-width:100%;}
+.flow-tiles{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:.55rem;margin:0 0 1.25rem;}
+.flow-tile{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:.55rem .6rem;text-align:center;position:relative;overflow:hidden;}
+.flow-tile::after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--ftc,#40c4ff);opacity:.75;}
+.flow-tile span{font-family:'Fira Code',monospace;font-size:.62rem;color:#d7ebff;letter-spacing:.04em;}
+.outcome-tiles{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:.55rem;margin:0 0 1.25rem;}
+.outcome-tile{background:linear-gradient(90deg,rgba(10,28,52,.82),rgba(18,42,72,.7));border:1px solid var(--border);border-radius:10px;padding:.65rem .7rem;position:relative;text-align:center;}
+.outcome-tile::after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--otc,#40c4ff);opacity:.85;}
+.outcome-tile span{font-family:'Fira Code',monospace;font-size:.62rem;color:#dff8ea;letter-spacing:.05em;text-transform:uppercase;display:block;}
+.panel#tab-overview .ov-tile-sub{display:block;font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:var(--mid);margin-top:.25rem;}
+.boss-layer{background:linear-gradient(90deg,rgba(179,136,255,.12),rgba(64,196,255,.08));border:1px solid var(--border);border-radius:12px;padding:.95rem 1rem;margin:0 0 1.1rem;text-align:center;}
+.boss-layer-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#b388ff;margin:0 0 .45rem;}
+.boss-layer-v{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#eaf4ff;letter-spacing:.01em;margin:0 0 .3rem;}
+.boss-layer-sub{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#b8d5ef;}
+.boss-layer-end{font-family:'Inter',sans-serif;font-size:1.12rem;font-weight:700;color:#e6f2ff;text-align:center;margin:0 0 1.25rem;letter-spacing:.02em;}
 </style>
 </head>
 <body>
@@ -195,13 +215,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </div>
 <div class="tabs">
   <button class="ntab active" onclick="show('overview',this)">01 - Overview</button>
-  <button class="ntab" onclick="show('minios',this)">02 - Mini-OS</button>
-  <button class="ntab" onclick="show('bts',this)">03 - Operating Identity</button>
-  <button class="ntab" onclick="show('workers',this)">04 - Digital Workforce</button>
+  <button class="ntab" onclick="show('boss',this)">02 - The Boss Layer</button>
+  <button class="ntab" onclick="show('bts',this)">03 - Identities</button>
+  <button class="ntab" onclick="show('minios',this)">04 - Mini-OS</button>
   <button class="ntab" onclick="show('ve',this)">05 - Value Engines</button>
-  <button class="ntab" onclick="show('rtbi',this)">06 - RTBI</button>
-  <button class="ntab" onclick="show('flow',this)">07 - Flow of Work</button>
-  <button class="ntab" onclick="show('cadence',this)">08 - Company Cadence</button>
+  <button class="ntab" onclick="show('workers',this)">06 - Digital Workforce</button>
+  <button class="ntab" onclick="show('rtbi',this)">07 - RTBI</button>
+  <button class="ntab" onclick="show('flow',this)">08 - Flow of Work</button>
+  <button class="ntab" onclick="show('cadence',this)">09 - Company Cadence</button>
 </div>
 
 
@@ -209,15 +230,48 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 <div class="panel active" id="tab-overview"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Overview</div>
-  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Mini-OS -> Operating Identity -> Digital Workforce -> Value Engines -> RTBI -> Flow of Work -> Company Cadence</div></div>
 
-    <h1 class="ph-title">Architecture Overview</h1>
-    <p class="ph-sub">Section 02 maps how the operating model fits together: Mini-OS domains, Digital Workforce execution, Value Engines, RTBI intelligence, Operating Identity, Flow of Work, and Company Cadence.</p>
+    <h1 class="ph-title">OS Framework Overview</h1>
+    <p class="ph-sub overview-sub">Command layer on top, execution chain in the middle, outcomes at the bottom.</p>
   </div>
 
-  <div class="def-block">Architecture chain: Mini-OS -> Digital Workforce -> Value Engines -> RTBI -> Operating Identity -> Flow of Work -> Company Cadence.</div>
+  <div class="boss-layer">
+    <div class="boss-layer-k">The Boss Layer</div>
+    <div class="boss-layer-v">Domain Experts | Relationship Owners | Customer Intelligence</div>
+    <div class="boss-layer-sub">Top Governs The Agent Chain</div>
+  </div>
+
+  <div class="os-flow">
+    <div class="os-flow-k">OS Framework Workflow</div>
+    <div class="os-flow-v"><span class="os-c1">Identities</span> -> <span class="os-c2">Mini-OS</span> -> <span class="os-c3">Value Engines</span> -> <span class="os-c4">Digital Workforce</span> -> <span class="os-c5">Real-Time Business Intelligence</span> -> <span class="os-c6">Flow of Work</span> -> <span class="os-c7">Cadence</span></div>
+  </div>
+  <div class="flow-tiles">
+    <div class="flow-tile" style="--ftc:#b388ff;"><span>Identities</span></div>
+    <div class="flow-tile" style="--ftc:#40c4ff;"><span>Mini-OS</span></div>
+    <div class="flow-tile" style="--ftc:#ffca28;"><span>Value Engines</span></div>
+    <div class="flow-tile" style="--ftc:#f48fb1;"><span>Digital Workforce</span></div>
+    <div class="flow-tile" style="--ftc:#1de9b6;"><span>Real-Time Business Intelligence</span></div>
+    <div class="flow-tile" style="--ftc:#82b1ff;"><span>Flow of Work</span></div>
+    <div class="flow-tile" style="--ftc:#00e676;"><span>Cadence</span></div>
+  </div>
+  <div class="outcome-tiles">
+    <div class="outcome-tile" style="--otc:#40c4ff;"><span>More Money</span></div>
+    <div class="outcome-tile" style="--otc:#ffca28;"><span>Lower Costs</span></div>
+    <div class="outcome-tile" style="--otc:#b388ff;"><span>Higher Value</span></div>
+    <div class="outcome-tile" style="--otc:#f48fb1;"><span>Lower Risk</span></div>
+  </div>
+  <div class="boss-layer-end">The Future of Work</div>
 
   <div class="sec-head"><span class="sec-label">Section Map</span><div class="sec-head-line"></div></div>
+  <div class="callout info">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong>Simple explanation:</strong><br>
+      1) Humans lead through the Boss Layer and clear identities.<br>
+      2) The OS runs the business through Mini-OS, Value Engines, and the Digital Workforce.<br>
+      3) RTBI, Flow of Work, and Cadence turn facts into decisions and continuous improvement.
+    </div>
+  </div>
 
   <div class="rtbos-overview">
     <div class="ov-col">
@@ -227,9 +281,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="ov-col-count">3 tabs</div>
       </div>
       <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('minios',document.querySelectorAll('.ntab')[1])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Mini-OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('workers',document.querySelectorAll('.ntab')[3])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Digital Workforce<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[4])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Value Engines<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('minios',document.querySelectorAll('.ntab')[3])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Mini-OS<span class="tile-arrow">?</span><span class="ov-tile-sub">Governance and Admin Controls.</span></div>
+        <div class="ov-tile" onclick="show('workers',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Digital Workforce<span class="tile-arrow">?</span><span class="ov-tile-sub">Systems, Genies, and Automation Execute Work.</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[4])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Value Engines<span class="tile-arrow">?</span><span class="ov-tile-sub">Core Workflows That Drive Outcomes.</span></div>
       </div>
     </div>
     <div class="ov-col">
@@ -239,8 +293,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="ov-col-count">2 tabs</div>
       </div>
       <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">RTBI<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('bts',document.querySelectorAll('.ntab')[2])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Operating Identity<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">RTBI<span class="tile-arrow">?</span><span class="ov-tile-sub">Makes Facts Visible for Decisions.</span></div>
+        <div class="ov-tile" onclick="show('bts',document.querySelectorAll('.ntab')[2])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Identities<span class="tile-arrow">?</span><span class="ov-tile-sub">Who We Are, Roles, and Boundaries.</span></div>
       </div>
     </div>
     <div class="ov-col">
@@ -250,10 +304,37 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="ov-col-count">2 tabs</div>
       </div>
       <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('flow',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Flow of Work<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('cadence',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Company Cadence<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('flow',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Flow of Work<span class="tile-arrow">?</span><span class="ov-tile-sub">How Work Is Routed and Completed.</span></div>
+        <div class="ov-tile" onclick="show('cadence',document.querySelectorAll('.ntab')[8])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Company Cadence<span class="tile-arrow">?</span><span class="ov-tile-sub">Review, Improve, and Scale Continuously.</span></div>
       </div>
     </div>
+  </div>
+</div></div>
+
+<!-- -- TAB 02  -  THE BOSS LAYER -- -->
+<div class="panel" id="tab-boss"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 02 - OS Framework - The Boss Layer</div>
+    <h1 class="ph-title">The Boss Layer</h1>
+    <p class="ph-sub">The human command layer that governs the operating chain.</p>
+  </div>
+
+  <div class="boss-layer">
+    <div class="boss-layer-k">The Boss Layer</div>
+    <div class="boss-layer-v">Domain Experts | Relationship Owners | Customer Intelligence</div>
+    <div class="boss-layer-sub">Top Governs The Agent Chain</div>
+  </div>
+
+  <div class="os-flow">
+    <div class="os-flow-k">OS Framework Workflow</div>
+    <div class="os-flow-v"><span class="os-c1">Identities</span> -> <span class="os-c2">Mini-OS</span> -> <span class="os-c3">Value Engines</span> -> <span class="os-c4">Digital Workforce</span> -> <span class="os-c5">Real-Time Business Intelligence</span> -> <span class="os-c6">Flow of Work</span> -> <span class="os-c7">Cadence</span></div>
+  </div>
+
+  <div class="outcome-tiles">
+    <div class="outcome-tile" style="--otc:#40c4ff;"><span>More Money</span></div>
+    <div class="outcome-tile" style="--otc:#ffca28;"><span>Lower Costs</span></div>
+    <div class="outcome-tile" style="--otc:#b388ff;"><span>Higher Value</span></div>
+    <div class="outcome-tile" style="--otc:#f48fb1;"><span>Lower Risk</span></div>
   </div>
 </div></div>
 
@@ -312,11 +393,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="ov-col-count">5 components</div>
       </div>
       <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Unified Data<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Digital Twin<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Planning<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Analytics<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Decisions<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Unified Data<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Digital Twin<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Planning<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Analytics<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Decisions<span class="tile-arrow">?</span></div>
       </div>
     </div>
   </div>
@@ -2126,7 +2207,7 @@ function show(id, btn) {
 }
 
 function openMOS(idx) {
-  show('minios', document.querySelectorAll('.ntab')[1]);
+  show('minios', document.querySelectorAll('.ntab')[3]);
   setTimeout(()=>{
     const blocks = document.querySelectorAll('#mosAccordion .acc-block');
     if(blocks[idx]){ blocks[idx].classList.add('open'); blocks[idx].scrollIntoView({behavior:'smooth',block:'center'}); }
@@ -2197,6 +2278,16 @@ function openMOS(idx) {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
