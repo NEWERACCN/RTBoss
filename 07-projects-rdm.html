@@ -14,16 +14,16 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
 .nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.nav-title{font-size:1.2rem;font-weight:700;color:var(--pink);}
-.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;}
-.nav-back:hover{color:var(--pink);}
-.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.25rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
-.tab{padding:0.9rem 1.2rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.82rem;font-weight:500;transition:all 0.2s;}
+.nav-title{font-size:1.2rem;font-weight:700;color:var(--green);}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:var(--green);}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
 .tab:hover{color:var(--mid);}
-.tab.active{color:var(--pink);border-bottom-color:var(--pink);}
+.tab.active{color:var(--green);border-bottom-color:var(--green);}
 .tab-divider{width:1px;background:var(--border);margin:0.5rem 0.5rem;}
 .panel{display:none;}.panel.active{display:block;}
-.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
 .ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
 .ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--pink);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
 .ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
@@ -97,7 +97,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .prereq-item{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--amber);background:rgba(255,202,40,0.07);border:1px solid rgba(255,202,40,0.2);padding:0.2rem 0.5rem;border-radius:3px;}
 .checklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.5rem;margin-top:1rem;}
 .check-item{background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.5rem 0.75rem;font-size:0.78rem;color:var(--mid);display:flex;align-items:center;gap:0.5rem;}
-.check-item::before{content:'□';font-family:'Fira Code',monospace;color:var(--green);font-size:0.8rem;}
+.check-item::before{content:'?';font-family:'Fira Code',monospace;color:var(--green);font-size:0.8rem;}
 /* Agent cards */
 .agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:2rem;}
 .agent-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.2rem;border-left:3px solid var(--violet);}
@@ -124,7 +124,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .placeholder-content h3{font-size:1.2rem;color:var(--mid);margin-bottom:1rem;}
 .placeholder-content p{color:var(--dim);line-height:1.8;max-width:600px;margin:0 auto;font-size:0.9rem;}
 
-/* ── SUB-NAV (EMS Build Guide & Agents sub-tabs) ── */
+/* -- SUB-NAV (EMS Build Guide & Agents sub-tabs) -- */
 .sub-nav{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:0.5rem;display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:2rem;}
 .sub-tab{padding:0.45rem 0.9rem;cursor:pointer;color:var(--dim);border-radius:6px;font-size:0.75rem;font-weight:500;transition:all 0.2s;font-family:'Fira Code',monospace;letter-spacing:0.03em;white-space:nowrap;}
 .sub-tab:hover{color:var(--mid);background:rgba(255,255,255,0.04);}
@@ -234,21 +234,22 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .agent-block.open .agent-id-badge{color:var(--violet);}
 .agent-role-short{font-size:0.72rem;color:var(--mid);margin-top:0.1rem;}
 .tool-pill{display:inline-block;font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.15rem 0.5rem;border-radius:3px;background:rgba(64,196,255,0.07);color:var(--blue);border:1px solid rgba(64,196,255,0.2);margin:0.15rem 0.2rem 0.15rem 0;}
+
 </style>
 </head>
 
 <body>
 <div class="nav-header">
-  <div class="nav-title">RDM · Client Project</div>
-  <a href="07-projects.html" class="nav-back">← Back to Client Projects</a>
+  <div class="nav-title">Section 11 &middot; Client Projects &middot; RDM</div>
+  <a href="07-projects.html" class="nav-back">? Back to Client Projects</a>
 </div>
 <div class="tabs">
-  <div class="tab active" onclick="showTab(0)">01 · Architecture</div>
-  <div class="tab" onclick="showTab(1)">02 · Build Guide</div>
-  <div class="tab" onclick="showTab(2)">03 · Agents &amp; Estimates</div>
-  <div class="tab" onclick="showTab(3)">04 · Complete Reference</div>
+  <div class="tab active" onclick="showTab(0)">01 &middot; Architecture</div>
+  <div class="tab" onclick="showTab(1)">02 &middot; Build Guide</div>
+  <div class="tab" onclick="showTab(2)">03 &middot; Agents &amp; Estimates</div>
+  <div class="tab" onclick="showTab(3)">04 &middot; Complete Reference</div>
 </div>
-<!-- ══ RDM · PLACEHOLDERS ══ -->
+<!-- -- RDM · PLACEHOLDERS -- -->
 <div class="panel active" id="tab-0"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">RDM Project · Future Client</div>
@@ -378,7 +379,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 </div></div>
 
 <script>
-// ── TAB NAV ──────────────────────────────────────────────────────────────────
+// -- TAB NAV ------------------------------------------------------------------
 function showTab(n){
   document.querySelectorAll('.tab:not(.sub-tab)').forEach((t,i)=>t.classList.toggle('active',i===n));
   document.querySelectorAll('.panel:not(.sub-panel)').forEach((p,i)=>p.classList.toggle('active',i===n));
@@ -391,18 +392,18 @@ function showSubPanel(group,id,btn){
   pw.querySelectorAll('.sub-panel').forEach(p=>p.classList.toggle('active', p.id===group+'-'+id));
 }
 
-// ── STEP DONE ────────────────────────────────────────────────────────────────
+// -- STEP DONE ----------------------------------------------------------------
 function toggleDone(phaseKey,idx){
   const el=document.getElementById('step-'+phaseKey+'-'+idx);
   if(el) el.classList.toggle('done');
 }
 
-// ── COPY ─────────────────────────────────────────────────────────────────────
+// -- COPY ---------------------------------------------------------------------
 function copyCode(btn){
   const block=btn.closest('.code-block');
   const text=block.innerText.replace(/^copy\n?/,'').trim();
   navigator.clipboard.writeText(text).then(()=>{
-    btn.textContent='✓ copied'; btn.style.color='var(--green)';
+    btn.textContent='? copied'; btn.style.color='var(--green)';
     setTimeout(()=>{btn.textContent='copy';btn.style.color='';},2000);
   });
 }
@@ -412,12 +413,12 @@ function copyPrompt(idx,e){
   const btn=e.target;
   const text=AGENTS[idx]?AGENTS[idx].prompt:'';
   navigator.clipboard.writeText(text).then(()=>{
-    btn.textContent='✓ copied';
+    btn.textContent='? copied';
     setTimeout(()=>btn.textContent='copy',2000);
   });
 }
 
-// ── AGENT ACCORDION ──────────────────────────────────────────────────────────
+// -- AGENT ACCORDION ----------------------------------------------------------
 function toggleAgent(idx){
   const el=document.getElementById('ab-'+idx);
   if(el) el.classList.toggle('open');
@@ -475,12 +476,12 @@ az account show --query "{name:name, id:id, state:state}"
       desc:'Azure OpenAI requires explicit access approval and a quota increase for GPT-4o. This can take 1–3 business days. Do this first — it is the most common blocker.',
       instructions:[
         'Go to <span class="nav-click">aka.ms/oai/access</span> and submit the access request form',
-        'Once approved, go to <span class="nav-click">portal.azure.com</span> → <span class="click">Azure OpenAI</span>',
+        'Once approved, go to <span class="nav-click">portal.azure.com</span> ? <span class="click">Azure OpenAI</span>',
         'Click <span class="click">+ Create</span>',
         'Select resource group: <span class="val">rg-rtbos-pharmacy-prod</span>',
         'Region: <span class="val">Australia East</span>, Name: <span class="val">oai-rtbos-pharmacy</span>, Pricing: <span class="val">S0</span>',
-        'Click <span class="click">Review + create</span> → <span class="click">Create</span>',
-        'Once deployed, go to the resource → <span class="click">Quotas</span>',
+        'Click <span class="click">Review + create</span> ? <span class="click">Create</span>',
+        'Once deployed, go to the resource ? <span class="click">Quotas</span>',
         'Confirm <span class="val">gpt-4o</span> is available. If quota is 0, click <span class="click">Request Quota Increase</span>'
       ]
     },
@@ -491,12 +492,12 @@ az account show --query "{name:name, id:id, state:state}"
       instructions:[
         'Go to <span class="nav-click">developers.auspost.com.au</span>',
         'Sign in or create a developer account',
-        'Navigate to <span class="click">My Apps</span> → <span class="click">Create App</span>',
+        'Navigate to <span class="click">My Apps</span> ? <span class="click">Create App</span>',
         'Add products: <span class="val">Address Validation API</span> and <span class="val">Shipping & Tracking API</span>',
         'Copy <span class="field">API_KEY</span> and <span class="field">API_PASSWORD</span> — save to a secure notepad for Key Vault (Phase 08)',
         'For production: request eParcel merchant account via your AusPost Business account manager'
       ],
-      callout:{ type:'warn', icon:'⚠️', body:'<strong>Sandbox vs Production:</strong> Use AusPost sandbox credentials for all testing (Phases 04–09). Switch to production credentials only after full end-to-end test passes in Phase 10.' }
+      callout:{ type:'warn', icon:'??', body:'<strong>Sandbox vs Production:</strong> Use AusPost sandbox credentials for all testing (Phases 04–09). Switch to production credentials only after full end-to-end test passes in Phase 10.' }
     },
     {
       title:'Create Google Sheets service account',
@@ -505,11 +506,11 @@ az account show --query "{name:name, id:id, state:state}"
       instructions:[
         'Go to <span class="nav-click">console.cloud.google.com</span>',
         'Create a new project or select existing: <span class="val">rtbos-pharmacy</span>',
-        'Navigate to <span class="click">APIs & Services</span> → <span class="click">Enable APIs</span>',
+        'Navigate to <span class="click">APIs & Services</span> ? <span class="click">Enable APIs</span>',
         'Search and enable <span class="val">Google Sheets API</span>',
-        'Go to <span class="click">Credentials</span> → <span class="click">Create Credentials</span> → <span class="click">Service Account</span>',
+        'Go to <span class="click">Credentials</span> ? <span class="click">Create Credentials</span> ? <span class="click">Service Account</span>',
         'Name: <span class="val">rtbos-sheets-reader</span>, Role: <span class="val">Viewer</span>',
-        'Click the service account → <span class="click">Keys</span> → <span class="click">Add Key</span> → <span class="click">JSON</span>',
+        'Click the service account ? <span class="click">Keys</span> ? <span class="click">Add Key</span> ? <span class="click">JSON</span>',
         'Download the JSON key file — store securely for Key Vault (Phase 08)',
         'Share your TESTOSTERONE rules Google Sheet with the service account email'
       ]
@@ -530,10 +531,10 @@ az account show --query "{name:name, id:id, state:state}"
         'Set <span class="field">Location</span>: <span class="val">Australia East</span>',
         'Under <span class="click">Azure AI Services</span> — select <span class="val">oai-rtbos-pharmacy</span> (created in Phase 00)',
         'Leave storage, Key Vault, and App Insights as auto-create',
-        'Click <span class="click">Next</span> → <span class="click">Review + create</span> → <span class="click">Create</span>',
+        'Click <span class="click">Next</span> ? <span class="click">Review + create</span> ? <span class="click">Create</span>',
         'Wait ~3 minutes for provisioning to complete'
       ],
-      callout:{ type:'info', icon:'ℹ️', body:'The Hub auto-creates a managed storage account and Key Vault. <strong>Do not use these for RTBoss secrets</strong> — create a dedicated Key Vault in Phase 08 for explicit control.' }
+      callout:{ type:'info', icon:'??', body:'The Hub auto-creates a managed storage account and Key Vault. <strong>Do not use these for RTBoss secrets</strong> — create a dedicated Key Vault in Phase 08 for explicit control.' }
     },
     {
       title:'Create Foundry Project inside the Hub',
@@ -551,11 +552,11 @@ az account show --query "{name:name, id:id, state:state}"
     },
     {
       title:'Deploy GPT-4o model',
-      where:'portal', whereLabel:'ai.azure.com → Deployments',
+      where:'portal', whereLabel:'ai.azure.com ? Deployments',
       desc:'All 13 agents use GPT-4o. Deploy it once at the Hub level and all agents in the project reference the same deployment.',
       instructions:[
         'Inside your project, click <span class="click">Deployments</span> in the left sidebar',
-        'Click <span class="click">+ Deploy model</span> → <span class="click">Deploy base model</span>',
+        'Click <span class="click">+ Deploy model</span> ? <span class="click">Deploy base model</span>',
         'Search for <span class="val">gpt-4o</span>, select the latest version',
         'Set <span class="field">Deployment name</span>: <span class="val">gpt-4o-rtbos</span>',
         'Set <span class="field">Tokens per minute</span>: <span class="val">100K</span> (increase if order volume demands)',
@@ -571,14 +572,14 @@ az cognitiveservices account deployment show \\
     },
     {
       title:'Add Azure Document Intelligence connection',
-      where:'portal', whereLabel:'ai.azure.com → Settings → Connections',
+      where:'portal', whereLabel:'ai.azure.com ? Settings ? Connections',
       desc:'AGT-004 (OrderTypeClassifierAgent) uses Azure Document Intelligence to parse prescription PDFs. Add it as a connected service in the Foundry project.',
       instructions:[
-        'First, create a Document Intelligence resource in the Azure Portal: search <span class="val">Document Intelligence</span> → <span class="click">+ Create</span>',
+        'First, create a Document Intelligence resource in the Azure Portal: search <span class="val">Document Intelligence</span> ? <span class="click">+ Create</span>',
         'Name: <span class="val">docintel-rtbos</span>, Resource group: <span class="val">rg-rtbos-pharmacy-prod</span>, Region: <span class="val">Australia East</span>, Tier: <span class="val">S0</span>',
         'Click <span class="click">Create</span> and wait for deployment',
         'Back in <span class="nav-click">ai.azure.com</span>, open your project',
-        'Click <span class="click">Settings</span> → <span class="click">Connections</span> → <span class="click">+ New connection</span>',
+        'Click <span class="click">Settings</span> ? <span class="click">Connections</span> ? <span class="click">+ New connection</span>',
         'Select <span class="click">Azure AI Document Intelligence</span>',
         'Select <span class="val">docintel-rtbos</span> from the dropdown',
         'Click <span class="click">Add connection</span>',
@@ -587,17 +588,17 @@ az cognitiveservices account deployment show \\
     },
     {
       title:'Enable System-Assigned Managed Identity on the Hub',
-      where:'portal', whereLabel:'Azure Portal → Hub resource',
+      where:'portal', whereLabel:'Azure Portal ? Hub resource',
       desc:'Managed Identity is how agents authenticate to Key Vault, Cosmos DB, and Service Bus without stored credentials. Enable it on the Hub resource.',
       instructions:[
-        'Go to <span class="nav-click">portal.azure.com</span> → search for <span class="val">hub-rtbos-pharmacy-prod</span>',
+        'Go to <span class="nav-click">portal.azure.com</span> ? search for <span class="val">hub-rtbos-pharmacy-prod</span>',
         'Open the Hub resource (type: Azure Machine Learning workspace)',
         'In the left sidebar click <span class="click">Identity</span>',
         'Under <span class="click">System assigned</span>, toggle Status to <span class="val">On</span>',
-        'Click <span class="click">Save</span> → confirm the dialog',
+        'Click <span class="click">Save</span> ? confirm the dialog',
         'Copy the <span class="field">Object (principal) ID</span> — save it. You will use this in every RBAC assignment in Phase 08.'
       ],
-      callout:{ type:'success', icon:'✓', body:'<strong>Note the Object ID carefully.</strong> It looks like a GUID: <span style="font-family:monospace;color:var(--teal)">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>. This is the identity that all agents run as.' }
+      callout:{ type:'success', icon:'?', body:'<strong>Note the Object ID carefully.</strong> It looks like a GUID: <span style="font-family:monospace;color:var(--teal)">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>. This is the identity that all agents run as.' }
     }
   ],
 
@@ -607,20 +608,20 @@ az cognitiveservices account deployment show \\
       where:'portal', whereLabel:'Azure Portal',
       desc:'Use the NoSQL (Core SQL) API for flexible JSON documents with strong consistency. The RTBoss pharmacy system requires strong consistency for twin version increments.',
       instructions:[
-        'Go to <span class="nav-click">portal.azure.com</span> → search <span class="val">Azure Cosmos DB</span> → <span class="click">+ Create</span>',
+        'Go to <span class="nav-click">portal.azure.com</span> ? search <span class="val">Azure Cosmos DB</span> ? <span class="click">+ Create</span>',
         'Select <span class="click">Azure Cosmos DB for NoSQL</span>',
         'Resource group: <span class="val">rg-rtbos-pharmacy-prod</span>',
         'Account name: <span class="val">cosmos-rtbos-pharmacy</span>',
         'Location: <span class="val">Australia East</span>',
         'Capacity mode: <span class="val">Provisioned throughput</span>',
         'Apply Free Tier: only if dev/test. For prod: <span class="val">No</span>',
-        'Click <span class="click">Review + create</span> → <span class="click">Create</span>',
+        'Click <span class="click">Review + create</span> ? <span class="click">Create</span>',
         'Wait ~5 minutes for provisioning'
       ]
     },
     {
       title:'Create the rtbos_pharmacy database',
-      where:'portal', whereLabel:'Cosmos DB → Data Explorer',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
       desc:'All RTBoss containers live in a single database. Use shared throughput at the database level for cost efficiency across containers.',
       instructions:[
         'Open <span class="val">cosmos-rtbos-pharmacy</span> in the Azure Portal',
@@ -634,7 +635,7 @@ az cognitiveservices account deployment show \\
     },
     {
       title:'Create order_twins container',
-      where:'portal', whereLabel:'Cosmos DB → Data Explorer',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
       desc:'The primary container. Every pharmacy order gets one document here — the Digital Twin. Partitioned by order_id for even distribution.',
       instructions:[
         'In Data Explorer, expand <span class="val">rtbos_pharmacy</span>',
@@ -647,14 +648,14 @@ az cognitiveservices account deployment show \\
     },
     {
       title:'Create pipeline_state container',
-      where:'portal', whereLabel:'Cosmos DB → Data Explorer',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
       desc:'A singleton container holding one document per shift day — the cutoff_active flag, shift_id, and daily cycle state read by all agents.',
       instructions:[
         'Click <span class="click">New Container</span> again',
         'Set <span class="field">Container id</span>: <span class="val">pipeline_state</span>',
         'Set <span class="field">Partition key</span>: <span class="val">/shift_id</span>',
         'Click <span class="click">OK</span>',
-        'Click into <span class="val">pipeline_state</span> → <span class="click">Items</span> → <span class="click">New Item</span>',
+        'Click into <span class="val">pipeline_state</span> ? <span class="click">Items</span> ? <span class="click">New Item</span>',
         'Paste the seed document from the code block below',
         'Click <span class="click">Save</span>'
       ],
@@ -670,11 +671,11 @@ az cognitiveservices account deployment show \\
     },
     {
       title:'Deploy append-only stored procedure for audit trail',
-      where:'code', whereLabel:'Cosmos DB → Data Explorer',
+      where:'code', whereLabel:'Cosmos DB ? Data Explorer',
       desc:'The RTBoss audit trail relies on an append-only stored procedure — agents call it to add loop_trace entries without being able to modify existing ones.',
       instructions:[
         'In Data Explorer, click on <span class="val">order_twins</span> container',
-        'Click <span class="click">Stored Procedures</span> → <span class="click">New Stored Procedure</span>',
+        'Click <span class="click">Stored Procedures</span> ? <span class="click">New Stored Procedure</span>',
         'Set <span class="field">Stored procedure id</span>: <span class="val">appendLoopTrace</span>',
         'Paste the stored procedure code below',
         'Click <span class="click">Save</span>'
@@ -712,7 +713,7 @@ az cognitiveservices account deployment show \\
     },
     {
       title:'Copy Cosmos DB connection string to notepad',
-      where:'portal', whereLabel:'Cosmos DB → Keys',
+      where:'portal', whereLabel:'Cosmos DB ? Keys',
       desc:'Agents reference Cosmos DB via a connection string stored in Key Vault. Get the primary connection string now.',
       instructions:[
         'Open <span class="val">cosmos-rtbos-pharmacy</span>',
@@ -720,7 +721,7 @@ az cognitiveservices account deployment show \\
         'Under <span class="click">Read-write Keys</span>, copy <span class="field">PRIMARY CONNECTION STRING</span>',
         'Save it securely — you will enter it into Key Vault in Phase 08'
       ],
-      callout:{ type:'danger', icon:'🔐', body:'<strong>Never commit this string to source control.</strong> Treat it like a password. It goes into Key Vault only.' }
+      callout:{ type:'danger', icon:'??', body:'<strong>Never commit this string to source control.</strong> Treat it like a password. It goes into Key Vault only.' }
     }
   ],
 
@@ -731,9 +732,9 @@ az cognitiveservices account deployment show \\
       desc:'The Fabric workspace hosts the Lakehouse, Delta tables, and Notebooks. Requires a Fabric capacity assigned (F2 minimum for agent workloads).',
       instructions:[
         'Go to <span class="nav-click">app.fabric.microsoft.com</span>',
-        'Click <span class="click">Workspaces</span> in the left rail → <span class="click">+ New workspace</span>',
+        'Click <span class="click">Workspaces</span> in the left rail ? <span class="click">+ New workspace</span>',
         'Set <span class="field">Name</span>: <span class="val">ws-rtbos-pharmacy</span>',
-        'Expand <span class="click">Advanced</span> → Licence mode: select <span class="val">Fabric capacity</span>',
+        'Expand <span class="click">Advanced</span> ? Licence mode: select <span class="val">Fabric capacity</span>',
         'Select your provisioned Fabric capacity from the dropdown',
         'Click <span class="click">Apply</span>',
         'Workspace is created and you are taken to it automatically'
@@ -753,13 +754,13 @@ az cognitiveservices account deployment show \\
     },
     {
       title:'Create orders Delta table',
-      where:'portal', whereLabel:'Fabric Lakehouse → Notebooks',
+      where:'portal', whereLabel:'Fabric Lakehouse ? Notebooks',
       desc:'Create the orders Delta table using a Fabric Notebook. This is the persistent order record store read by the ReportingAgent and CSVDispatchAgent.',
       instructions:[
-        'In your workspace, click <span class="click">+ New item</span> → <span class="click">Notebook</span>',
-        'Attach to Lakehouse: click <span class="click">Add Lakehouse</span> → select <span class="val">lh_pharmacy_rtbos</span>',
+        'In your workspace, click <span class="click">+ New item</span> ? <span class="click">Notebook</span>',
+        'Attach to Lakehouse: click <span class="click">Add Lakehouse</span> ? select <span class="val">lh_pharmacy_rtbos</span>',
         'Paste the PySpark code below into a cell',
-        'Click <span class="click">Run cell</span> (▶)',
+        'Click <span class="click">Run cell</span> (?)',
         'Confirm in the Lakehouse explorer that <span class="val">orders</span> appears under Tables'
       ],
       code:`from pyspark.sql.types import *
@@ -820,25 +821,25 @@ df.write.format("delta").mode("overwrite") \\
     },
     {
       title:'Create OneLake file folders',
-      where:'portal', whereLabel:'Fabric Lakehouse → Files',
+      where:'portal', whereLabel:'Fabric Lakehouse ? Files',
       desc:'Agents write prescription PDFs, labels, CSVs, and reports to specific OneLake folder paths. Create the folder structure now.',
       instructions:[
         'In the Lakehouse explorer, click <span class="click">Files</span> section (not Tables)',
-        'Click <span class="click">...</span> next to Files → <span class="click">New subfolder</span>',
+        'Click <span class="click">...</span> next to Files ? <span class="click">New subfolder</span>',
         'Create these folders one by one: <span class="val">rx</span>, <span class="val">labels</span>, <span class="val">csvs</span>, <span class="val">reports</span>, <span class="val">incomplete</span>',
         'Inside <span class="val">rx</span>, create a subfolder for the current year: e.g. <span class="val">2024</span>'
       ]
     },
     {
       title:'Create Foundry linked service to Fabric OneLake',
-      where:'portal', whereLabel:'ai.azure.com → Settings → Connections',
+      where:'portal', whereLabel:'ai.azure.com ? Settings ? Connections',
       desc:'Agents access OneLake files and Delta tables via a Foundry connection. Use the OneLake endpoint URL from your Fabric workspace.',
       instructions:[
         'In <span class="nav-click">app.fabric.microsoft.com</span>, open your workspace',
-        'Click the <span class="click">...</span> on <span class="val">lh_pharmacy_rtbos</span> → <span class="click">Properties</span>',
+        'Click the <span class="click">...</span> on <span class="val">lh_pharmacy_rtbos</span> ? <span class="click">Properties</span>',
         'Copy the <span class="field">OneLake URL</span> (format: <span class="val">https://onelake.dfs.fabric.microsoft.com/...</span>)',
-        'Go to <span class="nav-click">ai.azure.com</span> → your project → <span class="click">Settings</span> → <span class="click">Connections</span>',
-        'Click <span class="click">+ New connection</span> → <span class="click">Azure Data Lake Storage Gen2</span>',
+        'Go to <span class="nav-click">ai.azure.com</span> ? your project ? <span class="click">Settings</span> ? <span class="click">Connections</span>',
+        'Click <span class="click">+ New connection</span> ? <span class="click">Azure Data Lake Storage Gen2</span>',
         'Account URL: paste the OneLake URL',
         'Auth: select <span class="val">System-assigned managed identity</span>',
         'Name: <span class="val">onelake-pharmacy</span>',
@@ -853,14 +854,14 @@ df.write.format("delta").mode("overwrite") \\
       where:'portal', whereLabel:'ai.azure.com',
       desc:'All agents are created in the Foundry Agent Studio. You will repeat the create flow 13 times — one per RTBoss loop step.',
       instructions:[
-        'Go to <span class="nav-click">ai.azure.com</span> → open <span class="val">proj-pharmacy-rtbos</span>',
+        'Go to <span class="nav-click">ai.azure.com</span> ? open <span class="val">proj-pharmacy-rtbos</span>',
         'In the left sidebar, click <span class="click">Agents</span>',
         'You should see an empty agent list — this is where all 13 agents will appear'
       ]
     },
     {
       title:'Create AGT-001: EmailIngestionAgent',
-      where:'portal', whereLabel:'Foundry → Agents → + New agent',
+      where:'portal', whereLabel:'Foundry ? Agents ? + New agent',
       desc:'The gateway agent. Stateless — extracts email fields and produces a structured JSON payload. No tools needed, output contract only.',
       instructions:[
         'Click <span class="click">+ New agent</span>',
@@ -887,7 +888,7 @@ Return ONLY valid JSON. No explanation. No markdown. No preamble.`
     },
     {
       title:'Create AGT-002: EmailClassifierAgent',
-      where:'portal', whereLabel:'Foundry → Agents → + New agent',
+      where:'portal', whereLabel:'Foundry ? Agents ? + New agent',
       desc:'Classifies emails as ORDER or NON_ORDER. Routes to audit trail via Cosmos DB write tool.',
       instructions:[
         'Click <span class="click">+ New agent</span>',
@@ -916,8 +917,8 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
     },
     {
       title:'Create AGT-003 through AGT-013 — repeat pattern',
-      where:'portal', whereLabel:'Foundry → Agents',
-      desc:'Repeat the New Agent creation flow for each remaining agent. The pattern is identical: Name → Deployment → System Prompt → Tools → Save. Use the system prompts from the Agents tab of the RTBoss Architecture document.',
+      where:'portal', whereLabel:'Foundry ? Agents',
+      desc:'Repeat the New Agent creation flow for each remaining agent. The pattern is identical: Name ? Deployment ? System Prompt ? Tools ? Save. Use the system prompts from the Agents tab of the RTBoss Architecture document.',
       instructions:[
         'For each agent, click <span class="click">+ New agent</span>',
         'Set <span class="field">Name</span> exactly as specified (AGT-003 RxLinkClassifierAgent, AGT-004 OrderTypeClassifierAgent, etc.)',
@@ -927,15 +928,15 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
         'Click <span class="click">Save</span> after each one',
         'After all 13 are created, verify the Agents list shows all 13 with status <span class="val">Active</span>'
       ],
-      callout:{ type:'info', icon:'ℹ️', body:'<strong>Tool schemas:</strong> For each HTTP tool (AusPost, Google Sheets), you must define the OpenAPI-style function schema. Use the RTBoss Architecture document → Agents tab → each agent\'s "Tools & Connectors" section for the exact API endpoint and parameters.' }
+      callout:{ type:'info', icon:'??', body:'<strong>Tool schemas:</strong> For each HTTP tool (AusPost, Google Sheets), you must define the OpenAPI-style function schema. Use the RTBoss Architecture document ? Agents tab ? each agent\'s "Tools & Connectors" section for the exact API endpoint and parameters.' }
     },
     {
       title:'Configure tool definitions for HTTP agents',
-      where:'portal', whereLabel:'Foundry → Agent → Tools',
+      where:'portal', whereLabel:'Foundry ? Agent ? Tools',
       desc:'Agents that call external APIs (AusPost, Google Sheets) use HTTP function tools. Each tool needs an OpenAPI-style JSON schema. Example for AusPost Address Validation shown below.',
       instructions:[
         'Open <span class="val">AddressValidationAgent</span> (AGT-007)',
-        'Click <span class="click">Tools</span> → <span class="click">+ Add tool</span> → <span class="click">Function</span>',
+        'Click <span class="click">Tools</span> ? <span class="click">+ Add tool</span> ? <span class="click">Function</span>',
         'Set <span class="field">Function name</span>: <span class="val">validate_address</span>',
         'Paste the schema below into the <span class="click">Definition</span> field',
         'Click <span class="click">Save</span>',
@@ -961,14 +962,14 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
   p5: [
     {
       title:'Create the Orchestrator Agent',
-      where:'portal', whereLabel:'Foundry → Agents → + New agent',
+      where:'portal', whereLabel:'Foundry ? Agents ? + New agent',
       desc:'The Orchestrator is the DOL coordinator — the master agent that routes the context envelope through all specialist agents in sequence. It uses the multi-agent "handoff" pattern.',
       instructions:[
         'Click <span class="click">+ New agent</span>',
         'Set <span class="field">Name</span>: <span class="val">RTBossOrchestratorAgent</span>',
         'Set <span class="field">Deployment</span>: <span class="val">gpt-4o-rtbos</span>',
         'Paste orchestrator system prompt below',
-        'Under <span class="click">Tools</span> → <span class="click">+ Add tool</span> → <span class="click">Agent</span>',
+        'Under <span class="click">Tools</span> ? <span class="click">+ Add tool</span> ? <span class="click">Agent</span>',
         'Add all 13 specialist agents as sub-agents',
         'Click <span class="click">Save</span>'
       ],
@@ -1093,7 +1094,7 @@ def run_rtbos_loop(email_payload: dict) -> dict:
       desc:'Power Automate monitors a shared mailbox — not a personal inbox. Create a dedicated shared mailbox for all inbound orders.',
       instructions:[
         'Go to <span class="nav-click">admin.microsoft.com</span>',
-        'Navigate to <span class="click">Teams & groups</span> → <span class="click">Shared mailboxes</span>',
+        'Navigate to <span class="click">Teams & groups</span> ? <span class="click">Shared mailboxes</span>',
         'Click <span class="click">+ Add a shared mailbox</span>',
         'Set <span class="field">Name</span>: <span class="val">Pharmacy Orders</span>',
         'Set <span class="field">Email</span>: <span class="val">orders@yourdomain.com.au</span>',
@@ -1107,7 +1108,7 @@ def run_rtbos_loop(email_payload: dict) -> dict:
       desc:'The Power Automate flow is the RTBoss fact ingestion point. When email arrives, it calls the Orchestrator Agent HTTP endpoint to start the operating loop.',
       instructions:[
         'Go to <span class="nav-click">make.powerautomate.com</span>',
-        'Click <span class="click">+ Create</span> → <span class="click">Automated cloud flow</span>',
+        'Click <span class="click">+ Create</span> ? <span class="click">Automated cloud flow</span>',
         'Name: <span class="val">RTBoss-EmailTrigger</span>',
         'Search for trigger: <span class="val">When a new email arrives in a shared mailbox (V2)</span>',
         'Click <span class="click">Create</span>'
@@ -1132,7 +1133,7 @@ def run_rtbos_loop(email_payload: dict) -> dict:
       desc:'After the trigger, add an HTTP action that POSTs the email payload to the Orchestrator Agent\'s HTTP endpoint.',
       instructions:[
         'Click <span class="click">+ New step</span>',
-        'Search for: <span class="val">HTTP</span> → select <span class="click">HTTP</span> action',
+        'Search for: <span class="val">HTTP</span> ? select <span class="click">HTTP</span> action',
         'Set <span class="field">Method</span>: <span class="val">POST</span>',
         'Set <span class="field">URI</span>: paste your Orchestrator Agent endpoint URL from Foundry',
         'Set <span class="field">Headers</span>: <span class="val">Content-Type: application/json</span>',
@@ -1155,11 +1156,11 @@ def run_rtbos_loop(email_payload: dict) -> dict:
       where:'portal', whereLabel:'Power Automate + Outlook',
       desc:'Send a test email to the shared mailbox and verify the entire chain fires — flow triggers, Orchestrator is called, Digital Twin created in Cosmos DB.',
       instructions:[
-        'Click <span class="click">Test</span> in Power Automate → <span class="val">Manually</span>',
+        'Click <span class="click">Test</span> in Power Automate ? <span class="val">Manually</span>',
         'Send an email to <span class="val">orders@yourdomain.com.au</span> with subject: <span class="val">Test Rx Order — Tirzepatide</span>',
         'Watch the flow run in real time in the Power Automate run history',
         'Confirm HTTP action returns <span class="val">200 OK</span>',
-        'Go to Cosmos DB → Data Explorer → <span class="val">order_twins</span> — a new document should appear'
+        'Go to Cosmos DB ? Data Explorer ? <span class="val">order_twins</span> — a new document should appear'
       ]
     }
   ],
@@ -1323,12 +1324,12 @@ az keyvault secret show \\
       where:'portal', whereLabel:'Azure Portal',
       desc:'A Logic App provides reliable CRON scheduling for the 10:55 AM warning and 11:00 AM cutoff. Logic Apps have better reliability guarantees than Fabric schedulers for time-critical triggers.',
       instructions:[
-        'Go to <span class="nav-click">portal.azure.com</span> → search <span class="val">Logic Apps</span> → <span class="click">+ Create</span>',
+        'Go to <span class="nav-click">portal.azure.com</span> ? search <span class="val">Logic Apps</span> ? <span class="click">+ Create</span>',
         'Select <span class="click">Consumption</span> plan',
         'Resource group: <span class="val">rg-rtbos-pharmacy-prod</span>',
         'Name: <span class="val">la-rtbos-cutoff</span>',
         'Region: <span class="val">Australia East</span>',
-        'Click <span class="click">Review + create</span> → <span class="click">Create</span>',
+        'Click <span class="click">Review + create</span> ? <span class="click">Create</span>',
         'After deployment, click <span class="click">Go to resource</span>',
         'Click <span class="click">Logic app designer</span>'
       ]
@@ -1340,13 +1341,13 @@ az keyvault secret show \\
       instructions:[
         'In Logic Apps Designer, search for <span class="val">Recurrence</span> trigger',
         'Set <span class="field">Interval</span>: <span class="val">1</span>, <span class="field">Frequency</span>: <span class="val">Day</span>',
-        'Click <span class="click">Add new parameter</span> → check <span class="val">At these hours</span> and <span class="val">At these minutes</span>',
+        'Click <span class="click">Add new parameter</span> ? check <span class="val">At these hours</span> and <span class="val">At these minutes</span>',
         'Set <span class="field">Hours</span>: <span class="val">0</span> (UTC = 10:55 AEST = 00:55 UTC in summer / 00:55 AEDT)',
         'Set <span class="field">Minutes</span>: <span class="val">55</span>',
-        'Add next step: <span class="click">HTTP</span> → POST to AGT-012 (CutoffOrchestratorAgent) with body <span class="val">{"event":"PRE_CUTOFF_WARNING"}</span>',
+        'Add next step: <span class="click">HTTP</span> ? POST to AGT-012 (CutoffOrchestratorAgent) with body <span class="val">{"event":"PRE_CUTOFF_WARNING"}</span>',
         'Click <span class="click">Save</span>'
       ],
-      callout:{ type:'warn', icon:'⚠️', body:'<strong>AEST vs UTC:</strong> Australia East is UTC+10 (AEST) or UTC+11 (AEDT). Set your Logic App UTC times to always fire at 11:00 AM local time. Use a timezone-aware CRON or adjust each daylight savings season.' }
+      callout:{ type:'warn', icon:'??', body:'<strong>AEST vs UTC:</strong> Australia East is UTC+10 (AEST) or UTC+11 (AEDT). Set your Logic App UTC times to always fire at 11:00 AM local time. Use a timezone-aware CRON or adjust each daylight savings season.' }
     },
     {
       title:'Add 11:00 AM cutoff trigger',
@@ -1358,7 +1359,7 @@ az keyvault secret show \\
         'Add HTTP step: POST to AGT-012 with body: <span class="val">{"event":"CUTOFF_INITIATED","cutoff_active":true}</span>',
         'Add second HTTP step: POST to AGT-013 (IncompleteFileAgent) with body: <span class="val">{"event":"GENERATE_INCOMPLETE_FILE"}</span>',
         'Click <span class="click">Save</span>',
-        'Click <span class="click">Run Trigger</span> → <span class="click">Run</span> to test immediately'
+        'Click <span class="click">Run Trigger</span> ? <span class="click">Run</span> to test immediately'
       ]
     },
     {
@@ -1366,11 +1367,11 @@ az keyvault secret show \\
       where:'portal', whereLabel:'app.fabric.microsoft.com',
       desc:'The End-of-Day Fabric pipeline archives the day\'s Delta table partition and generates daily metrics. Schedule it to run after the last shift closes.',
       instructions:[
-        'In <span class="nav-click">app.fabric.microsoft.com</span> → <span class="val">ws-rtbos-pharmacy</span>',
-        'Click <span class="click">+ New item</span> → <span class="click">Data pipeline</span>',
+        'In <span class="nav-click">app.fabric.microsoft.com</span> ? <span class="val">ws-rtbos-pharmacy</span>',
+        'Click <span class="click">+ New item</span> ? <span class="click">Data pipeline</span>',
         'Name: <span class="val">pl-rtbos-eod</span>',
         'Add a <span class="click">Notebook activity</span> pointing to your EOD aggregation notebook',
-        'Click the pipeline canvas (not an activity) → <span class="click">Schedule</span>',
+        'Click the pipeline canvas (not an activity) ? <span class="click">Schedule</span>',
         'Toggle <span class="click">Scheduled run</span>: <span class="val">On</span>',
         'Set <span class="field">Repeat</span>: <span class="val">Daily</span>',
         'Set <span class="field">Time</span>: <span class="val">17:00 AEST</span> (end of shift)',
@@ -1388,13 +1389,13 @@ az keyvault secret show \\
       instructions:[
         'Send a test email to <span class="val">orders@yourdomain.com.au</span> with subject: <span class="val">Rx Order — Tirzepatide 2.5mg</span>',
         'Attach a test prescription PDF (or use the sample from your test fixtures folder)',
-        'Watch Power Automate flow run → confirm HTTP 200 to Orchestrator',
-        'In Cosmos DB → <span class="val">order_twins</span>: confirm new document with <span class="val">status: PROCESSED</span> appears within 60 seconds',
+        'Watch Power Automate flow run ? confirm HTTP 200 to Orchestrator',
+        'In Cosmos DB ? <span class="val">order_twins</span>: confirm new document with <span class="val">status: PROCESSED</span> appears within 60 seconds',
         'Confirm <span class="val">loop_trace[]</span> has entries from AGT-001 through AGT-009',
         'Confirm <span class="val">shipment.tracking_no</span> is populated',
-        'In OneLake → <span class="val">labels/</span> folder: confirm label PDF exists',
+        'In OneLake ? <span class="val">labels/</span> folder: confirm label PDF exists',
         'Check Teams #pharmacy-ops channel: confirm shipment notification posted',
-        '✓ Pass criteria: twin status = PROCESSED, tracking_no present, loop_trace has 9+ entries'
+        '? Pass criteria: twin status = PROCESSED, tracking_no present, loop_trace has 9+ entries'
       ]
     },
     {
@@ -1408,11 +1409,11 @@ az keyvault secret show \\
         'Confirm order twin status = <span class="val">REQUIRES_REVIEW</span> (not PROCESSED)',
         'Confirm a Teams task/alert was posted to the pharmacist',
         'Confirm shipment chain did NOT fire (no tracking_no in twin)',
-        '✓ Pass criteria: status = REQUIRES_REVIEW, no shipment, Teams alert sent'
+        '? Pass criteria: status = REQUIRES_REVIEW, no shipment, Teams alert sent'
       ]
     },
     {
-      title:'Scenario C: Invalid address → INCOMPLETE',
+      title:'Scenario C: Invalid address ? INCOMPLETE',
       where:'config', whereLabel:'End-to-End Test',
       desc:'Tests the address validation failure branch. A deliberate invalid address should result in INCOMPLETE status and entry in the incomplete queue.',
       instructions:[
@@ -1421,29 +1422,29 @@ az keyvault secret show \\
         'Confirm AGT-008 sets <span class="val">order_status: INCOMPLETE</span>',
         'Confirm Service Bus <span class="val">incomplete-orders</span> topic has a message',
         'Confirm order does NOT appear in shipment batch',
-        '✓ Pass criteria: status = INCOMPLETE, published to Service Bus, no shipment'
+        '? Pass criteria: status = INCOMPLETE, published to Service Bus, no shipment'
       ]
     },
     {
-      title:'Scenario D: Order received in cutoff window → DEFERRED',
+      title:'Scenario D: Order received in cutoff window ? DEFERRED',
       where:'config', whereLabel:'End-to-End Test',
       desc:'Tests the cutoff deferral logic. Manually set cutoff_active=true in pipeline_state, then send an order and verify it is tagged DEFERRED_NEXT_DAY.',
       instructions:[
-        'In Cosmos DB → <span class="val">pipeline_state</span> → edit the document: set <span class="val">"cutoff_active": true</span>',
+        'In Cosmos DB ? <span class="val">pipeline_state</span> ? edit the document: set <span class="val">"cutoff_active": true</span>',
         'Send a valid test email to the orders mailbox',
         'Confirm the Orchestrator reads pipeline_state and tags the order <span class="val">DEFERRED_NEXT_DAY</span>',
         'Confirm order twin has <span class="val">status: DEFERRED_NEXT_DAY</span> and <span class="val">deferral_reason: CUTOFF_WINDOW</span>',
         'Confirm no shipment was created',
         'After test: reset Cosmos DB pipeline_state <span class="val">cutoff_active</span> back to <span class="val">false</span>',
-        '✓ Pass criteria: status = DEFERRED_NEXT_DAY, no shipment, audit entry from AGT-012'
+        '? Pass criteria: status = DEFERRED_NEXT_DAY, no shipment, audit entry from AGT-012'
       ]
     },
     {
       title:'Verify audit trail completeness for all scenarios',
-      where:'portal', whereLabel:'Cosmos DB → Data Explorer',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
       desc:'Every scenario must produce a complete, tamper-evident loop_trace. Run this verification query against all four test twins.',
       instructions:[
-        'In Cosmos DB → Data Explorer → <span class="val">order_twins</span> container',
+        'In Cosmos DB ? Data Explorer ? <span class="val">order_twins</span> container',
         'Click <span class="click">New SQL Query</span>',
         'Paste and run the query below',
         'Verify: Scenario A has 9+ entries, Scenario B stops at seq 6, Scenario C stops at seq 8, Scenario D stops at seq 1–2',
@@ -1460,18 +1461,18 @@ ORDER BY c._ts DESC`
     },
     {
       title:'Application Insights — verify observability',
-      where:'portal', whereLabel:'Azure Portal → Application Insights',
+      where:'portal', whereLabel:'Azure Portal ? Application Insights',
       desc:'All agent runs should emit telemetry to Application Insights. Verify you have end-to-end request tracing before go-live.',
       instructions:[
-        'Go to <span class="nav-click">portal.azure.com</span> → navigate to the Application Insights instance auto-created with your Hub',
+        'Go to <span class="nav-click">portal.azure.com</span> ? navigate to the Application Insights instance auto-created with your Hub',
         'Click <span class="click">Transaction search</span>',
         'Set time range: <span class="val">Last 1 hour</span>',
         'You should see traces for each agent invocation from your test scenarios',
-        'Click any trace → verify you can see the full dependency chain (Orchestrator → specialist agents)',
+        'Click any trace ? verify you can see the full dependency chain (Orchestrator ? specialist agents)',
         'Click <span class="click">Failures</span> — confirm no unexpected errors from your test runs',
-        '✓ All 4 scenarios traced. Zero unexpected failures. You are ready for go-live.'
+        '? All 4 scenarios traced. Zero unexpected failures. You are ready for go-live.'
       ],
-      callout:{ type:'success', icon:'🚀', body:'<strong>Go-live checklist complete.</strong> All 4 test scenarios pass. Digital Twins are accurate. Audit trails are intact. Cutoff cycle fires correctly. Application Insights is observing. Switch AusPost credentials from sandbox to production and enable the Power Automate flow on the live mailbox.' }
+      callout:{ type:'success', icon:'??', body:'<strong>Go-live checklist complete.</strong> All 4 test scenarios pass. Digital Twins are accurate. Audit trails are intact. Cutoff cycle fires correctly. Application Insights is observing. Switch AusPost credentials from sandbox to production and enable the Power Automate flow on the live mailbox.' }
     }
   ]
 };
@@ -1502,7 +1503,7 @@ Return ONLY valid JSON. No explanation. No markdown. No preamble.`
   },
   {
     id:'AGT-002', name:'EmailClassifierAgent',
-    role:'Classifies inbound email as ORDER or NON_ORDER using keyword rules + GPT-4o intent detection. Threshold: confidence ≥ 0.85 required for ORDER.',
+    role:'Classifies inbound email as ORDER or NON_ORDER using keyword rules + GPT-4o intent detection. Threshold: confidence = 0.85 required for ORDER.',
     model:'gpt-4o-rtbos', memory:'Per-order context', trigger:'Called by Orchestrator after AGT-001',
     inputs:['subject','body_text','sender'],
     outputs:['email_class: ORDER|NON_ORDER','confidence: 0–1','reason: string'],
@@ -1837,12 +1838,12 @@ Return ONLY valid JSON:
 Handle the event received:
 
 IF event = "PRE_CUTOFF_WARNING":
-  Post Teams webhook: "⚠️ CUTOFF in 5 minutes — finalise all orders before 11:00 AM AEST"
+  Post Teams webhook: "?? CUTOFF in 5 minutes — finalise all orders before 11:00 AM AEST"
   Append entry to pipeline_state audit log.
 
 IF event = "CUTOFF_INITIATED":
   1. Update pipeline_state: set cutoff_active=true, cutoff_initiated_at=now()
-  2. Post Teams: "🔴 CUTOFF ACTIVE — orders received after 11:00 AM will be deferred to next business day"
+  2. Post Teams: "?? CUTOFF ACTIVE — orders received after 11:00 AM will be deferred to next business day"
   3. Call AGT-013 (IncompleteFileAgent) HTTP endpoint to start incomplete file generation
   4. Tag all PENDING orders received after 11:00 AM as DEFERRED_NEXT_DAY
 
@@ -1891,7 +1892,7 @@ You have a strict 5-minute execution window (11:00–11:05 AM AEST). Complete al
 
 5. Append an audit entry to the pipeline_state document.
 
-If incomplete_count = 0: send confirmation email "All orders processed successfully today ✓"
+If incomplete_count = 0: send confirmation email "All orders processed successfully today ?"
 
 Return ONLY valid JSON:
 {
@@ -1903,7 +1904,7 @@ Return ONLY valid JSON:
   }
 ];
 
-// ── RENDER PHASES (steps-pX containers in build guide sub-panels) ─────────────
+// -- RENDER PHASES (steps-pX containers in build guide sub-panels) -------------
 function renderPhase(key){
   const c=document.getElementById('steps-'+key);
   if(!c||!PHASES[key]) return;
@@ -1911,11 +1912,11 @@ function renderPhase(key){
     const wc=s.where||'portal';
     const inst=(s.instructions||[]).map(x=>`<li><span>${x}</span></li>`).join('');
     const code=s.code?`<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>${s.code}</div>`:'';
-    const cl=s.callout?`<div class="callout ${s.callout.type||'info'}"><div class="callout-icon">${s.callout.icon||'ℹ️'}</div><div class="callout-body">${s.callout.body}</div></div>`:'';
+    const cl=s.callout?`<div class="callout ${s.callout.type||'info'}"><div class="callout-icon">${s.callout.icon||'??'}</div><div class="callout-body">${s.callout.body}</div></div>`:'';
     return `<div class="step" id="step-${key}-${i}">
       <div class="step-num-col">
         <div class="step-num">${String(i+1).padStart(2,'0')}</div>
-        <div class="step-check" onclick="toggleDone('${key}',${i})" title="Mark complete">✓</div>
+        <div class="step-check" onclick="toggleDone('${key}',${i})" title="Mark complete">?</div>
       </div>
       <div class="step-body">
         <div class="step-header">
@@ -1930,7 +1931,7 @@ function renderPhase(key){
   }).join('');
 }
 
-// ── RENDER AGENTS (agentAccordion container) ──────────────────────────────────
+// -- RENDER AGENTS (agentAccordion container) ----------------------------------
 function renderAgents(){
   const c=document.getElementById('agentAccordion');
   if(!c) return;
@@ -1947,7 +1948,7 @@ function renderAgents(){
           <div class="agent-name">${a.name}</div>
           <div class="agent-role-short">${(a.role||'').substring(0,90)}${(a.role||'').length>90?'…':''}</div>
         </div>
-        <div class="agent-toggle">▼</div>
+        <div class="agent-toggle">?</div>
       </div>
       <div class="agent-block-body">
         <div>
@@ -1974,7 +1975,7 @@ function renderAgents(){
         </div>
         <div>
           <div class="ab-section">
-            <h4>System Prompt — paste into Foundry Agent Studio → Instructions</h4>
+            <h4>System Prompt — paste into Foundry Agent Studio ? Instructions</h4>
             <div class="prompt-block"><button class="copy-btn" onclick="copyPrompt(${i},event)">copy</button>${safePrompt}</div>
           </div>
         </div>
@@ -1983,12 +1984,16 @@ function renderAgents(){
   }).join('');
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
+// -- INIT ----------------------------------------------------------------------
 ['p0','p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'].forEach(renderPhase);
 renderAgents();
 </script>
 </body>
 </html>
+
+
+
+
 
 
 

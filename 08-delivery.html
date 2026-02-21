@@ -29,18 +29,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 /* NAV */
 .nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.nav-title{font-size:1.2rem;font-weight:700;color:var(--pink);}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
 .nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
-.nav-back:hover{color:var(--pink);}
+.nav-back:hover{color:#00e676 !important;}
 
 /* TABS */
 .tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
-.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
 .tab:hover{color:var(--mid);}
-.tab.active{color:var(--pink);border-bottom-color:var(--pink);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
 .panel{display:none;}
 .panel.active{display:block;}
-.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
 
 /* PAGE HEADER */
 .ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
@@ -183,28 +183,29 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .badge-first{background:rgba(255,82,82,0.1);color:var(--red);border:1px solid rgba(255,82,82,0.2);}
 .badge-core{background:rgba(64,196,255,0.1);color:var(--blue);border:1px solid rgba(64,196,255,0.2);}
 .badge-context{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.2);}
+
 </style>
 </head>
 <body>
 
 <div class="nav-header">
-  <div class="nav-title">Section 08 · Agentic Delivery Model</div>
-  <a href="index.html" class="nav-back">← Back to Hub</a>
+  <div class="nav-title">Section 06 &middot; Agentic Delivery Model</div>
+  <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 
 <div class="tabs">
-  <div class="tab active" onclick="showTab(0)">01 · Engagement Model</div>
-  <div class="tab" onclick="showTab(1)">02 · Discovery</div>
-  <div class="tab" onclick="showTab(2)">03 · Outcome Mapping</div>
-  <div class="tab" onclick="showTab(3)">04 · Infrastructure</div>
-  <div class="tab" onclick="showTab(4)">05 · QMS Setup</div>
-  <div class="tab" onclick="showTab(5)">06 · Continuous Delivery</div>
-  <div class="tab" onclick="showTab(6)">07 · Workflow Activation</div>
+  <div class="tab active" onclick="showTab(0)">01 &middot; Engagement Model</div>
+  <div class="tab" onclick="showTab(1)">02 &middot; Discovery</div>
+  <div class="tab" onclick="showTab(2)">03 &middot; Outcome Mapping</div>
+  <div class="tab" onclick="showTab(3)">04 &middot; Infrastructure</div>
+  <div class="tab" onclick="showTab(4)">05 &middot; QMS Setup</div>
+  <div class="tab" onclick="showTab(5)">06 &middot; Continuous Delivery</div>
+  <div class="tab" onclick="showTab(6)">07 &middot; Workflow Activation</div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 01 · ENGAGEMENT MODEL
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel active" id="tab-0"><div class="pw">
 
   <div class="ph">
@@ -214,7 +215,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout pink">
-    <div class="callout-icon">⬡</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>The agentic shift:</strong> Traditional delivery = "build these 12 specified things." Agentic delivery = "achieve these 3 business outcomes — we'll build whatever agents are needed, learn what works, and deploy continuously." The client buys outcomes. We deliver agents. The system learns and compounds.</div>
   </div>
 
@@ -238,7 +239,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="stage-duration" style="background:rgba(64,196,255,0.1);color:var(--blue);border:1px solid rgba(64,196,255,0.2);">1 week</div>
       <div class="stage-output">
         <strong>Activities</strong>
-        Outcome → Agent mapping, pilot workflow selection, pricing, contract drafting
+        Outcome ? Agent mapping, pilot workflow selection, pricing, contract drafting
       </div>
       <div class="stage-output" style="margin-top:0.75rem;">
         <strong>Gate Output</strong>
@@ -313,7 +314,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="callout amber">
     <div class="callout-icon">03</div>
-    <div class="callout-body"><strong>Continuous delivery, not big bang:</strong> Agents are built in 2-week sprints. Each sprint: design 1 agent → build → test → deploy. The system learns incrementally. What works compounds. What doesn't gets refined or replaced. No "go-live day" — the system is always live and always improving.</div>
+    <div class="callout-body"><strong>Continuous delivery, not big bang:</strong> Agents are built in 2-week sprints. Each sprint: design 1 agent ? build ? test ? deploy. The system learns incrementally. What works compounds. What doesn't gets refined or replaced. No "go-live day" — the system is always live and always improving.</div>
   </div>
 
   <div class="callout violet">
@@ -347,15 +348,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </table>
 
   <div class="callout teal">
-    <div class="callout-icon">✦</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>Why this works:</strong> Fixed MRR removes scope anxiety — client knows their monthly cost. Outcome bonuses align incentives — we only earn extra when they see real results. Project fee covers setup. Then continuous delivery begins and never stops. The system compounds value every sprint.</div>
   </div>
 
 </div></div>
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 02 · DISCOVERY
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-1"><div class="pw">
 
   <div class="ph">
@@ -365,7 +366,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout green">
-    <div class="callout-icon">✦</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>Discovery mindset shift:</strong> Don't ask "what systems do you use?" Ask "what keeps you up at night?" Don't ask "how many invoices per month?" Ask "what would change if invoice processing took 2 days instead of 2 weeks?" Listen for pain, frustration, and aspiration — these are the outcomes agents will deliver.</div>
   </div>
 
@@ -416,11 +417,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <p><strong>Outcome format:</strong> [Action] + [Metric] + [Timeframe] + [Current vs Target]</p>
       <p>Examples:</p>
       <ul>
-        <li><strong>Cost reduction:</strong> "Reduce invoice processing cost by 40% within 90 days" (Current: $12k/month → Target: $7.2k/month)</li>
-        <li><strong>Time saved:</strong> "Free up 20 hours per week of Finance team time within 60 days" (Current: 60 hrs/week manual work → Target: 40 hrs/week)</li>
-        <li><strong>Revenue growth:</strong> "Increase lead-to-close rate by 25% within 120 days" (Current: 8% → Target: 10%)</li>
-        <li><strong>Compliance:</strong> "Achieve 100% on-time regulatory reporting within 30 days" (Current: 70% on-time → Target: 100%)</li>
-        <li><strong>Customer satisfaction:</strong> "Reduce support ticket resolution time by 50% within 90 days" (Current: 48 hrs → Target: 24 hrs)</li>
+        <li><strong>Cost reduction:</strong> "Reduce invoice processing cost by 40% within 90 days" (Current: $12k/month ? Target: $7.2k/month)</li>
+        <li><strong>Time saved:</strong> "Free up 20 hours per week of Finance team time within 60 days" (Current: 60 hrs/week manual work ? Target: 40 hrs/week)</li>
+        <li><strong>Revenue growth:</strong> "Increase lead-to-close rate by 25% within 120 days" (Current: 8% ? Target: 10%)</li>
+        <li><strong>Compliance:</strong> "Achieve 100% on-time regulatory reporting within 30 days" (Current: 70% on-time ? Target: 100%)</li>
+        <li><strong>Customer satisfaction:</strong> "Reduce support ticket resolution time by 50% within 90 days" (Current: 48 hrs ? Target: 24 hrs)</li>
       </ul>
       <p>Outcomes must be:</p>
       <ul>
@@ -454,9 +455,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 </div></div>
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 03 · OUTCOME MAPPING
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-2"><div class="pw">
 
   <div class="ph">
@@ -469,14 +470,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="pb-step">
     <div class="pb-step-num amber">MAPPING</div>
-    <div class="pb-step-title">Outcome → Agent Mapping Process</div>
+    <div class="pb-step-title">Outcome ? Agent Mapping Process</div>
     <div class="pb-step-body">
       <p>For each outcome in the Outcome Map, define which agent types are needed to deliver it. Use this logic:</p>
       <ul>
-        <li><strong>If the outcome requires classification or routing decisions →</strong> Genies (discrete specialist agents)</li>
-        <li><strong>If the outcome requires strategic guidance or recommendations →</strong> Advisors (senior-scope AI with broader domain knowledge)</li>
-        <li><strong>If the outcome requires end-to-end process automation →</strong> Streams (multi-Genie workflows)</li>
-        <li><strong>If the outcome requires real-time monitoring and alerts →</strong> Systems (governing frameworks that watch fact streams)</li>
+        <li><strong>If the outcome requires classification or routing decisions ?</strong> Genies (discrete specialist agents)</li>
+        <li><strong>If the outcome requires strategic guidance or recommendations ?</strong> Advisors (senior-scope AI with broader domain knowledge)</li>
+        <li><strong>If the outcome requires end-to-end process automation ?</strong> Streams (multi-Genie workflows)</li>
+        <li><strong>If the outcome requires real-time monitoring and alerts ?</strong> Systems (governing frameworks that watch fact streams)</li>
       </ul>
       <p>Example mapping:</p>
     </div>
@@ -486,13 +487,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="agent-map-title">Outcome: Reduce invoice processing cost by 40% in 90 days <span class="badge">Example</span></div>
     <div class="agent-flow">
       <div class="agent-node outcome">Invoice cost -40%</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node genie">Invoice Extraction Genie</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node genie">AP Approval Genie</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node genie">Payment Scheduling Genie</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node advisor">CFO Advisor</div>
     </div>
   </div>
@@ -501,13 +502,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="agent-map-title">Outcome: Increase lead-to-close rate by 25% in 120 days <span class="badge">Example</span></div>
     <div class="agent-flow">
       <div class="agent-node outcome">Lead conversion +25%</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node genie">Lead Qualifier Genie</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node genie">Nurture Sequencing Genie</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node genie">Follow-up Reminder Genie</div>
-      <div class="agent-arrow">→</div>
+      <div class="agent-arrow">?</div>
       <div class="agent-node advisor">Sales Advisor</div>
     </div>
   </div>
@@ -558,8 +559,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
             <div class="outcome-metric-value">-40%</div>
           </div>
           <div class="outcome-metric">
-            <div class="outcome-metric-label">Current → Target</div>
-            <div class="outcome-metric-value" style="font-size:0.9rem;">$12k/mo → $7.2k/mo</div>
+            <div class="outcome-metric-label">Current ? Target</div>
+            <div class="outcome-metric-value" style="font-size:0.9rem;">$12k/mo ? $7.2k/mo</div>
           </div>
           <div class="outcome-metric">
             <div class="outcome-metric-label">Timeframe</div>
@@ -574,8 +575,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
             <div class="outcome-metric-value">+25%</div>
           </div>
           <div class="outcome-metric">
-            <div class="outcome-metric-label">Current → Target</div>
-            <div class="outcome-metric-value" style="font-size:0.9rem;">8% → 10%</div>
+            <div class="outcome-metric-label">Current ? Target</div>
+            <div class="outcome-metric-value" style="font-size:0.9rem;">8% ? 10%</div>
           </div>
           <div class="outcome-metric">
             <div class="outcome-metric-label">Timeframe</div>
@@ -633,15 +634,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout amber">
-    <div class="callout-icon">✦</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>Why this contract structure works:</strong> It removes scope anxiety (no arguing over whether a 13th Genie is "in scope"). It aligns incentives (we only earn bonuses when outcomes are achieved). It enables continuous improvement (the agent build queue evolves as we learn). And it's universal across all pillars — Growth, Fulfillment, Innovation, Logistics all use the same contract template.</div>
   </div>
 
 </div></div>
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 04 · INFRASTRUCTURE
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-3"><div class="pw">
 
   <div class="ph">
@@ -651,7 +652,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout teal">
-    <div class="callout-icon">⚡</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>Infrastructure is pillar-agnostic:</strong> Whether the client is deploying a Growth Engine or a Fulfillment Engine, the foundation is identical. Security, M365, Dataverse, Power Platform — these are prerequisites for any RTBoss deployment. Build them once, build them correctly, never revisit.</div>
   </div>
 
@@ -661,7 +662,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="pb-step-num teal">W1</div>
     <div class="pb-step-title">Security & Identity Foundation</div>
     <div class="pb-step-body">
-      <p>Reference: <strong>Section 05 · Tab 08 · Security & Compliance</strong>. Complete in this exact order:</p>
+      <p>Reference: <strong>Section 05 &middot; Tab 08 · Security & Compliance</strong>. Complete in this exact order:</p>
       <ul>
         <li><strong>Entra ID:</strong> Conditional access policies, MFA for all users, Privileged Identity Management for admin roles</li>
         <li><strong>Intune:</strong> Device enrollment, compliance policies, app protection. All RTBoss-accessing devices must be compliant.</li>
@@ -685,7 +686,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <li><strong>Power Platform:</strong> Power Automate environment, Copilot Studio environment, both linked to Dataverse</li>
         <li><strong>Azure foundations:</strong> Resource group, AI Foundry project (for Advisors), Cosmos DB (Digital Twin), Fabric workspace (if RTBI in scope)</li>
       </ul>
-      <p><strong>Verification checklist:</strong> All items in Section 06 · Tab 04 · Onboarding Verification must be green before proceeding to QMS.</p>
+      <p><strong>Verification checklist:</strong> All items in Section 06 &middot; Tab 04 · Onboarding Verification must be green before proceeding to QMS.</p>
     </div>
   </div>
 
@@ -704,9 +705,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 </div></div>
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 05 · QMS SETUP
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-4"><div class="pw">
 
   <div class="ph">
@@ -716,7 +717,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout pink">
-    <div class="callout-icon">⬡</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>QMS is not optional:</strong> In the agentic model, QMS comes before agents — not in parallel, not after. Agents built without QMS context produce generic outputs that clients reject. QMS is the difference between "an AI did this" and "my business did this." It is the foundation agents build on.</div>
   </div>
 
@@ -725,7 +726,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="qms-config">
     <div class="qms-tile">
       <div class="qms-tile-head">
-        <div class="qms-tile-icon">🎨</div>
+        <div class="qms-tile-icon">??</div>
         <div class="qms-tile-title">Brand & Identity <span class="config-badge badge-first">First</span></div>
       </div>
       <div class="qms-tile-body">
@@ -739,7 +740,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </div>
     <div class="qms-tile">
       <div class="qms-tile-head">
-        <div class="qms-tile-icon">📖</div>
+        <div class="qms-tile-icon">??</div>
         <div class="qms-tile-title">Dictionary <span class="config-badge badge-core">Core</span></div>
       </div>
       <div class="qms-tile-body">
@@ -753,7 +754,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </div>
     <div class="qms-tile">
       <div class="qms-tile-head">
-        <div class="qms-tile-icon">🗂️</div>
+        <div class="qms-tile-icon">???</div>
         <div class="qms-tile-title">Ontology <span class="config-badge badge-core">Core</span></div>
       </div>
       <div class="qms-tile-body">
@@ -767,7 +768,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </div>
     <div class="qms-tile">
       <div class="qms-tile-head">
-        <div class="qms-tile-icon">👥</div>
+        <div class="qms-tile-icon">??</div>
         <div class="qms-tile-title">Personas <span class="config-badge badge-context">Context</span></div>
       </div>
       <div class="qms-tile-body">
@@ -781,7 +782,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </div>
     <div class="qms-tile">
       <div class="qms-tile-head">
-        <div class="qms-tile-icon">🤖</div>
+        <div class="qms-tile-icon">??</div>
         <div class="qms-tile-title">Advisors <span class="config-badge badge-context">Context</span></div>
       </div>
       <div class="qms-tile-body">
@@ -795,7 +796,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </div>
     <div class="qms-tile">
       <div class="qms-tile-head">
-        <div class="qms-tile-icon">📄</div>
+        <div class="qms-tile-icon">??</div>
         <div class="qms-tile-title">Templates <span class="config-badge badge-context">Context</span></div>
       </div>
       <div class="qms-tile-body">
@@ -827,25 +828,25 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout green">
-    <div class="callout-icon">✦</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>QMS as a living system:</strong> QMS is not "set and forget." As agents are deployed and workflows are activated, the Dictionary and Ontology evolve. New terms are added. New personas emerge. The QMS compounds knowledge over time — every sprint refines it. This is why it must exist before agents, not after.</div>
   </div>
 
 </div></div>
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 06 · CONTINUOUS DELIVERY
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-5"><div class="pw">
 
   <div class="ph">
     <div class="ph-kicker">Stage 05 · Ongoing</div>
     <h1 class="ph-title">Continuous Agent Delivery</h1>
-    <p class="ph-sub">Agents are built in 2-week sprints. Each sprint: design 1 agent → build → test → deploy. The build queue is prioritized by outcome impact. The system learns incrementally. This stage never ends — continuous delivery is the operating model.</p>
+    <p class="ph-sub">Agents are built in 2-week sprints. Each sprint: design 1 agent ? build ? test ? deploy. The build queue is prioritized by outcome impact. The system learns incrementally. This stage never ends — continuous delivery is the operating model.</p>
   </div>
 
   <div class="callout violet">
-    <div class="callout-icon">⬡</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>Continuous delivery mindset:</strong> There is no "go-live day" where all agents deploy at once. Instead, agents are deployed one at a time, every 2 weeks, as soon as they pass testing. The system is always live. The system is always improving. Outcomes compound as more agents activate.</div>
   </div>
 
@@ -939,15 +940,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout teal">
-    <div class="callout-icon">✦</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>Continuous delivery compounds:</strong> Sprint 1 deploys 1 agent. Sprint 2 deploys agent 2, which uses agent 1's output. Sprint 3 refines agent 1 based on what agent 2 revealed. Sprint 4 deploys agent 3, which orchestrates 1 and 2. By sprint 10, the system is doing things no individual agent could do alone. This is the compounding effect.</div>
   </div>
 
 </div></div>
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 07 · WORKFLOW ACTIVATION
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-6"><div class="pw">
 
   <div class="ph">
@@ -957,7 +958,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout pink">
-    <div class="callout-icon">⬡</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>Workflow as proof:</strong> A single deployed agent proves the agent works. A workflow proves the *system* works — that agents can orchestrate, that the QMS grounds them correctly, that outcomes compound. The workflow is where RTBoss transitions from "automation" to "operating system."</div>
   </div>
 
@@ -969,7 +970,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="pb-step-body">
       <p>A workflow can be activated when ALL of these are true:</p>
       <ul>
-        <li><strong>All workflow steps have an agent:</strong> Every step in the workflow (capture → classify → route → action → verify) has a deployed Genie or Advisor assigned.</li>
+        <li><strong>All workflow steps have an agent:</strong> Every step in the workflow (capture ? classify ? route ? action ? verify) has a deployed Genie or Advisor assigned.</li>
         <li><strong>Agent error rate <5%:</strong> Each agent in the workflow is processing Facts with <5% error rate in standalone testing.</li>
         <li><strong>End-to-end test passed:</strong> A real Fact has been manually injected and successfully flowed through all workflow steps without human intervention.</li>
         <li><strong>Escalation paths verified:</strong> When an agent can't proceed, it escalates correctly to the right Persona.</li>
@@ -992,7 +993,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
           <div class="workflow-step-num" style="color:var(--green);">01</div>
           <div class="workflow-step-content">
             <div class="workflow-step-name">Lead Capture</div>
-            <div class="workflow-step-agents">Form submission, email, LinkedIn → Lead Fact created in Dataverse</div>
+            <div class="workflow-step-agents">Form submission, email, LinkedIn ? Lead Fact created in Dataverse</div>
           </div>
         </div>
         <div class="workflow-step">
@@ -1036,7 +1037,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
           <div class="workflow-step-num" style="color:var(--blue);">01</div>
           <div class="workflow-step-content">
             <div class="workflow-step-name">Order Capture</div>
-            <div class="workflow-step-agents">Sales order, email, portal → Order Fact created</div>
+            <div class="workflow-step-agents">Sales order, email, portal ? Order Fact created</div>
           </div>
         </div>
         <div class="workflow-step">
@@ -1111,7 +1112,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout green">
-    <div class="callout-icon">✦</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>The agentic delivery model at scale:</strong> Start with outcomes. Build QMS first. Deploy agents iteratively. Prove the first workflow. Expand to the next. Repeat. Every client follows this model — Growth, Fulfillment, Innovation, Logistics. The playbook is universal. The outcomes are specific. The system compounds.</div>
   </div>
 
@@ -1126,6 +1127,25 @@ function showTab(n){
     else{t.classList.remove('active');panels[i].classList.remove('active');}
   });
 }
+function initGroupReviewSync_S08(){
+  var SECTION_KEY='S08', stateKey='rtboss_content_review_08_delivery_v1', progressKey='rtboss_content_review_progress_v1';
+  var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
+  function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
+  function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
+  document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
+  applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
+}
+document.addEventListener('DOMContentLoaded', initGroupReviewSync_S08);
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+

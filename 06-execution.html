@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,30 +15,30 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
 
-/* ── NAV ── */
+/* -- NAV -- */
 .nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.nav-title{font-size:1.2rem;font-weight:700;color:var(--amber);}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
 .nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
-.nav-back:hover{color:var(--amber);}
+.nav-back:hover{color:#00e676 !important;}
 .tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
-.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
 .tab:hover{color:var(--mid);}
-.tab.active{color:var(--amber);border-bottom-color:var(--amber);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
 .panel{display:none;}.panel.active{display:block;}
-.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
 
-/* ── PAGE HEADER ── */
+/* -- PAGE HEADER -- */
 .ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
 .ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
 .ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
 .ph-sub{font-size:1.05rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
 
-/* ── SECTION HEADS ── */
+/* -- SECTION HEADS -- */
 .sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
 .sec-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:var(--border);}
 
-/* ── CALLOUTS ── */
+/* -- CALLOUTS -- */
 .callout{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;display:flex;gap:0.75rem;}
 .callout.amber{border-left-color:var(--amber);}
 .callout.green{border-left-color:var(--green);}
@@ -49,7 +49,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .callout-body{font-size:0.88rem;color:var(--mid);line-height:1.75;}
 .callout-body strong{color:var(--text);}
 
-/* ── CONTENT BLOCKS ── */
+/* -- CONTENT BLOCKS -- */
 .content-block{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
 .content-block h3{font-size:1.05rem;font-weight:700;margin-bottom:0.75rem;color:var(--text);}
 .content-block p{color:var(--mid);line-height:1.8;margin-bottom:0.75rem;font-size:0.9rem;}
@@ -58,7 +58,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .content-block li{margin-bottom:0.4rem;}
 .content-block strong{color:var(--text);}
 
-/* ── COMPONENT GRID ── */
+/* -- COMPONENT GRID -- */
 .component-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin:2rem 0;}
 .component-card{background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--c-color);border-radius:0 0 12px 12px;padding:1.5rem;}
 .component-id{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--c-color);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem;}
@@ -68,18 +68,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .component-body ul{padding-left:1rem;margin-top:0.5rem;}
 .component-body li{margin-bottom:0.3rem;}
 
-/* ── TWO-COL ── */
+/* -- TWO-COL -- */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0;}
 @media(max-width:750px){.two-col{grid-template-columns:1fr;}}
 
-/* ── PIPELINE ── */
+/* -- PIPELINE -- */
 .pipeline{display:flex;align-items:center;gap:0;margin:1.5rem 0;flex-wrap:wrap;}
 .pl-node{background:var(--s1);border:1px solid var(--border);padding:0.6rem 1rem;font-size:0.78rem;font-weight:600;white-space:nowrap;}
 .pl-node:first-child{border-radius:8px 0 0 8px;}
 .pl-node:last-child{border-radius:0 8px 8px 0;}
 .pl-arrow{background:var(--s2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.6rem 0.5rem;color:var(--dim);font-size:0.9rem;}
 
-/* ── TABLES ── */
+/* -- TABLES -- */
 .std-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.85rem;}
 .std-table th{font-family:'Fira Code',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);padding:0.6rem 1rem;border-bottom:1px solid var(--border);text-align:left;}
 .std-table td{padding:0.65rem 1rem;border-bottom:1px solid rgba(42,64,96,0.4);color:var(--mid);vertical-align:top;line-height:1.6;}
@@ -87,10 +87,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .std-table tr:last-child td{border-bottom:none;}
 .std-table tr:hover td{background:rgba(42,64,96,0.15);}
 
-/* ── SCHEMA BLOCK ── */
+/* -- SCHEMA BLOCK -- */
 .schema-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1rem 1.25rem;font-family:'Fira Code',monospace;font-size:0.68rem;color:var(--green);line-height:1.8;overflow-x:auto;white-space:pre;margin:1rem 0;}
 
-/* ── FACT CARDS ── */
+/* -- FACT CARDS -- */
 .fact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0;}
 .fact-card{background:var(--s1);border:1px solid var(--border);border-left:3px solid var(--f-color);border-radius:0 10px 10px 0;padding:1.2rem;}
 .fact-type-label{font-family:'Fira Code',monospace;font-size:0.8rem;font-weight:600;color:var(--f-color);margin-bottom:0.25rem;}
@@ -100,7 +100,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .src-manual{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.1rem 0.5rem;border-radius:3px;background:rgba(255,202,40,0.08);color:var(--amber);border:1px solid rgba(255,202,40,0.2);}
 .src-phase{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.1rem 0.5rem;border-radius:3px;background:rgba(64,196,255,0.08);color:var(--blue);border:1px solid rgba(64,196,255,0.2);}
 
-/* ── MATURITY STAGES ── */
+/* -- MATURITY STAGES -- */
 .maturity-track{margin:2rem 0;}
 .maturity-stage{display:grid;grid-template-columns:110px 1fr;gap:0;margin-bottom:0.5rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color 0.2s;}
 .maturity-stage:hover{border-color:var(--amber);}
@@ -113,7 +113,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .ms-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
 .ms-tag{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.1rem 0.45rem;border-radius:3px;background:rgba(255,202,40,0.07);color:var(--amber);border:1px solid rgba(255,202,40,0.15);}
 
-/* ── THREE-LENS GRID ── */
+/* -- THREE-LENS GRID -- */
 .lens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin:2rem 0;}
 .lens-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .lens-header{background:var(--s2);padding:1.25rem;border-bottom:1px solid var(--border);}
@@ -129,7 +129,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .lens-row-val.blue{color:var(--blue);}
 .lens-row-val.dim{color:var(--dim);}
 
-/* ── OPPORTUNITY CARDS ── */
+/* -- OPPORTUNITY CARDS -- */
 .opp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;margin:2rem 0;}
 .opp-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.4rem;position:relative;overflow:hidden;}
 .opp-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--o-color);}
@@ -143,7 +143,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .pill-pattern{background:rgba(179,136,255,0.07);color:var(--violet);border:1px solid rgba(179,136,255,0.18);}
 .pill-exception{background:rgba(255,82,82,0.07);color:var(--red);border:1px solid rgba(255,82,82,0.18);}
 
-/* ── EXCEPTION LIFECYCLE ── */
+/* -- EXCEPTION LIFECYCLE -- */
 .exc-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:1.5rem 0;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
 @media(max-width:800px){.exc-flow{grid-template-columns:1fr 1fr;}}
 .exc-stage{padding:1rem;border-right:1px solid var(--border);text-align:center;}
@@ -152,7 +152,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .exc-stage-name{font-size:0.82rem;font-weight:700;color:var(--text);}
 .exc-stage-action{font-size:0.72rem;color:var(--mid);margin-top:0.3rem;line-height:1.5;}
 
-/* ── CLIENT STATUS CARDS ── */
+/* -- CLIENT STATUS CARDS -- */
 .client-status-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;margin:2rem 0;}
 .csc{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .csc-header{padding:1.25rem 1.5rem;background:var(--s2);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;}
@@ -180,28 +180,29 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .trk-complete td{opacity:0.85;background:rgba(0,230,118,0.04);}
 .trk-ignored td{opacity:0.78;background:rgba(255,202,40,0.04);}
 .trk-deleted{display:none;}
+
 </style>
 </head>
 <body>
 
 <div class="nav-header">
-  <div class="nav-title">Section 06 · Execution & Tracking</div>
-  <a href="index.html" class="nav-back">← Back to Hub</a>
+  <div class="nav-title">Section 07 - Execution Governance Standards</div>
+  <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 
 <div class="tabs">
-  <div class="tab active" onclick="showTab('tab-0', this)">01 · System Overview</div>
-  <div class="tab" onclick="showTab('tab-1', this)">02 · Fact Stream Design</div>
-  <div class="tab" onclick="showTab('tab-2', this)">03 · Workforce Maturity</div>
-  <div class="tab" onclick="showTab('tab-3', this)">04 · System Opportunities</div>
-  <div class="tab" onclick="showTab('tab-4', this)">05 · Client Tracking</div>
-  <div class="tab" onclick="showTab('tab-5', this)">06 · RTBoss Tracking</div>
+  <div class="tab active" onclick="showTab('tab-0', this)">01 - System Overview</div>
+  <div class="tab" onclick="showTab('tab-1', this)">02 - Fact Stream Design</div>
+  <div class="tab" onclick="showTab('tab-2', this)">03 - Workforce Maturity</div>
+  <div class="tab" onclick="showTab('tab-3', this)">04 - System Opportunities</div>
+  <div class="tab" onclick="showTab('tab-4', this)">05 - Client Tracking</div>
+  <div class="tab" onclick="showTab('tab-5', this)">06 - RTBoss Tracking</div>
 </div>
 
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 01 · SYSTEM OVERVIEW
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel active" id="tab-0"><div class="pw">
 
   <div class="ph">
@@ -211,7 +212,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout amber">
-    <div class="callout-icon">⬡</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>RTBoss eats its own cooking.</strong> The tracking system is built on RTBoss principles — every implementation step is a Fact, every agent deployment is a tracked event, every exception surfaces as an Opportunity. We use the same fact model to track the build as we use to run client operations.</div>
   </div>
 
@@ -224,7 +225,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <ul>
         <li>Build guide completion % per client</li>
         <li>Discovery status per Mini-OS</li>
-        <li>Genie pipeline: Specced → Built → Tested → Deployed</li>
+        <li>Genie pipeline: Specced ? Built ? Tested ? Deployed</li>
         <li>Handoff readiness gates</li>
       </ul>
     </div>
@@ -290,15 +291,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="pipeline">
     <div class="pl-node" style="color:var(--blue);">Codex / Azure AI</div>
-    <div class="pl-arrow">→</div>
+    <div class="pl-arrow">?</div>
     <div class="pl-node" style="color:var(--orange);">Service Bus Event</div>
-    <div class="pl-arrow">→</div>
+    <div class="pl-arrow">?</div>
     <div class="pl-node" style="color:var(--violet);">Power Automate</div>
-    <div class="pl-arrow">→</div>
+    <div class="pl-arrow">?</div>
     <div class="pl-node" style="color:var(--blue);">Dataverse Fact</div>
-    <div class="pl-arrow">→</div>
+    <div class="pl-arrow">?</div>
     <div class="pl-node" style="color:var(--teal);">Power BI Refresh</div>
-    <div class="pl-arrow">→</div>
+    <div class="pl-arrow">?</div>
     <div class="pl-node" style="color:var(--amber);">MD Dashboard</div>
   </div>
 
@@ -327,9 +328,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 </div></div>
 
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 02 · FACT STREAM DESIGN
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-1"><div class="pw">
 
   <div class="ph">
@@ -339,7 +340,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout teal">
-    <div class="callout-icon">◈</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>The same model, used twice.</strong> RTBoss operational facts are business events — ORDER_RECEIVED, PARCEL_DISPATCHED. RTBoss tracking facts are implementation events — GENIE_DEPLOYED, TEST_PASSED, GO_LIVE_CONFIRMED. The schema is identical. The context differs. The discipline is the same.</div>
   </div>
 
@@ -479,9 +480,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 </div></div>
 
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 03 · MATURITY MODEL
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-2"><div class="pw">
 
   <div class="ph">
@@ -491,8 +492,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout green">
-    <div class="callout-icon">◎</div>
-    <div class="callout-body"><strong>The workforce maturity clock starts at MINI_OS_LIVE.</strong> From the moment a Mini-OS goes live, every maturity fact accumulates. The 30/90/180-day review cadence captures the progression. The target trajectory — 0% → 18% → 40% → 80% Digital Worker over 24 months — is the measurable outcome RTBoss is sold on delivering.</div>
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>The workforce maturity clock starts at MINI_OS_LIVE.</strong> From the moment a Mini-OS goes live, every maturity fact accumulates. The 30/90/180-day review cadence captures the progression. The target trajectory — 0% ? 18% ? 40% ? 80% Digital Worker over 24 months — is the measurable outcome RTBoss is sold on delivering.</div>
   </div>
 
   <div class="sec-head"><span class="sec-label">The Five Workforce Stages</span><div class="sec-line"></div></div>
@@ -644,9 +645,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 </div></div>
 
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 04 · SYSTEM OPPORTUNITIES
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-3"><div class="pw">
 
   <div class="ph">
@@ -656,7 +657,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout violet">
-    <div class="callout-icon">◈</div>
+    <div class="callout-icon">?</div>
     <div class="callout-body"><strong>The tracking system improves itself.</strong> Every GENIE_EXCEPTION fact, every BUILD_STEP_COMPLETED with status FAIL, every cluster of similar exceptions — these feed the System Opportunities engine. The system doesn't just record what happened. It tells you what to fix next.</div>
   </div>
 
@@ -741,7 +742,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <h3>Where Opportunities Live</h3>
     <p>System opportunities are stored as records in Dataverse (neit_Opportunity table) and surfaced in a dedicated Power BI report page. Each system opportunity has: type, title, client, Mini-OS, severity, owner, lifecycle stage, linked fact IDs, and created/updated timestamps.</p>
     <p>The backlog is reviewed at every 30/90/180-day workforce maturity review. High-severity system opportunities (Exception Cluster, Bottleneck) trigger immediate engineer review via Power Automate notification — they do not wait for the scheduled review cadence.</p>
-    <p>Closed system opportunities feed directly into the ISO 9001 Cl.10.3 Lesson Capture process in Section 12 (Changelog &amp; Audit Standards). Every improvement cycle makes the next deployment better.</p>
+    <p>Closed system opportunities feed directly into the ISO 9001 Cl.10.3 Lesson Capture process in Section 12 &middot; Changelog &amp; Audit Standards). Every improvement cycle makes the next deployment better.</p>
   </div>
 
   <table class="std-table">
@@ -760,9 +761,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 </div></div>
 
 
-<!-- ══════════════════════════════════════
+<!-- --------------------------------------
      TAB 05 · CLIENT TRACKING
-════════════════════════════════════════ -->
+---------------------------------------- -->
 <div class="panel" id="tab-4"><div class="pw">
 
   <div class="ph">
@@ -772,7 +773,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="callout">
-    <div class="callout-icon">🔗</div>
+    <div class="callout-icon">??</div>
     <div class="callout-body"><strong>Links populate as systems go live.</strong> Each client card below will show a live link to their Power BI tracking dashboard once their first Mini-OS is live and the tracking system is provisioned. Until then, the card shows current build status and maturity stage.</div>
   </div>
 
@@ -787,7 +788,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
           <div class="csc-id">Client 01 · EMS</div>
           <div class="csc-name">Evergreen Medical Supplies</div>
         </div>
-        <span class="csc-badge badge-live">● Live</span>
+        <span class="csc-badge badge-live">? Live</span>
       </div>
       <div class="csc-body">
         <div class="csc-row"><span class="csc-row-label">Workforce Stage</span><span class="csc-row-val amber">Stage 1 — Emergence</span></div>
@@ -798,7 +799,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div class="csc-row"><span class="csc-row-label">Open Opportunities</span><span class="csc-row-val amber">2</span></div>
         <div class="csc-row"><span class="csc-row-label">Next Review</span><span class="csc-row-val">90-day · May 2026</span></div>
       </div>
-      <a href="#" class="csc-link live">→ EMS Tracking Dashboard (Power BI) — Live</a>
+      <a href="#" class="csc-link live">? EMS Tracking Dashboard (Power BI) — Live</a>
     </div>
 
     <!-- RDM -->
@@ -808,7 +809,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
           <div class="csc-id">Client 02 · RDM</div>
           <div class="csc-name">RDM</div>
         </div>
-        <span class="csc-badge badge-future">◌ Future</span>
+        <span class="csc-badge badge-future">? Future</span>
       </div>
       <div class="csc-body">
         <div class="csc-row"><span class="csc-row-label">Workforce Stage</span><span class="csc-row-val dim">Stage 0 — Pre-Deployment</span></div>
@@ -819,7 +820,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div class="csc-row"><span class="csc-row-label">Tracking System</span><span class="csc-row-val dim">Not provisioned</span></div>
         <div class="csc-row"><span class="csc-row-label">Provisioned On</span><span class="csc-row-val dim">MINI_OS_LIVE event</span></div>
       </div>
-      <a href="#" class="csc-link">→ RDM Tracking Dashboard — Activates at engagement start</a>
+      <a href="#" class="csc-link">? RDM Tracking Dashboard — Activates at engagement start</a>
     </div>
 
     <!-- RLAW -->
@@ -829,7 +830,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
           <div class="csc-id">Client 03 · RLAW</div>
           <div class="csc-name">RLAW</div>
         </div>
-        <span class="csc-badge badge-future">◌ Future</span>
+        <span class="csc-badge badge-future">? Future</span>
       </div>
       <div class="csc-body">
         <div class="csc-row"><span class="csc-row-label">Workforce Stage</span><span class="csc-row-val dim">Stage 0 — Pre-Deployment</span></div>
@@ -840,7 +841,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div class="csc-row"><span class="csc-row-label">Special Handling</span><span class="csc-row-val amber">RESTRICTED data class</span></div>
         <div class="csc-row"><span class="csc-row-label">Provisioned On</span><span class="csc-row-val dim">MINI_OS_LIVE event</span></div>
       </div>
-      <a href="#" class="csc-link">→ RLAW Tracking Dashboard — Activates at engagement start</a>
+      <a href="#" class="csc-link">? RLAW Tracking Dashboard — Activates at engagement start</a>
     </div>
 
   </div>
@@ -850,7 +851,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="content-block">
     <h3>When a New Client Engages</h3>
     <p>A client tracking instance is provisioned in three stages: <strong>at contract signing</strong> — create the Dataverse environment, configure ISO access controls, and establish the client's data classification baseline; <strong>at discovery completion</strong> — wire the manual entry path so engineers can begin recording PRE_BUILD facts; <strong>at first MINI_OS_LIVE</strong> — provision Service Bus namespace, connect Power Automate flows, activate the Power BI workspace, and switch automated fact capture on.</p>
-    <p>The full provisioning guide will live in Section 11 (Build Guides) under "How to Provision a Client Tracking Instance." That guide will be the click-by-click Codex handoff for standing up each new client's tracking infrastructure.</p>
+    <p>The full provisioning guide will live in Section 11 &middot; Build Guides) under "How to Provision a Client Tracking Instance." That guide will be the click-by-click Codex handoff for standing up each new client's tracking infrastructure.</p>
   </div>
 
   <div class="sec-head"><span class="sec-label">MD Portfolio Dashboard — What It Shows</span><div class="sec-line"></div></div>
@@ -879,7 +880,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">Execution Governance - Improvement Register</div>
     <h1 class="ph-title">RTBoss Tracking</h1>
-    <p class="ph-sub">Central register for the improvements, system opportunities, and missing pieces identified in Section 06. This tab is the working control surface for closing gaps in Tabs 03, 04, and 05.</p>
+    <p class="ph-sub">Central register for the improvements, system opportunities, and missing pieces identified in Section 06 &middot; This tab is the working control surface for closing gaps in Tabs 03, 04, and 05.</p>
   </div>
 
   <div class="callout green">
@@ -937,7 +938,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <p>Posting contract: each generated item must include <strong>ID</strong>, <strong>Owner</strong>, <strong>Due Date</strong>, <strong>Impact</strong>, and <strong>Recommended Action</strong>. Rows are then managed with the action checkboxes above: <strong>Complete</strong>, <strong>Ignore</strong>, or <strong>Delete</strong>.</p>
   </div>
 
-  <div class="sec-head"><span class="sec-label">D. Missing Pieces Plan For Section 06</span><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-label">D. Missing Pieces Plan For Section 06 &middot; /span><div class="sec-line"></div></div>
 
   <div class="content-block">
     <h3>What is still missing and how completion is measured</h3>
@@ -1037,9 +1038,29 @@ document.addEventListener('DOMContentLoaded', function(){
     console.error('RTBoss Tracking init error:', e);
   }
 });
+
+function initGroupReviewSync_S06(){
+  var SECTION_KEY='S06', stateKey='rtboss_content_review_06_execution_v1', progressKey='rtboss_content_review_progress_v1';
+  var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
+  function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
+  function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
+  document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
+  applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
+}
+document.addEventListener('DOMContentLoaded', initGroupReviewSync_S06);
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 

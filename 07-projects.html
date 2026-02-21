@@ -15,10 +15,14 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
 .nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.nav-title{font-size:1.2rem;font-weight:700;color:var(--pink);}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
 .nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
-.nav-back:hover{color:var(--pink);}
-.pw{max-width:1100px;margin:0 auto;padding:3rem 2rem;}
+.nav-back:hover{color:#00e676 !important;}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
 .ph{text-align:center;padding:3rem 2rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
 .ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--pink);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
 .ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
@@ -40,18 +44,23 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .meta-placeholder{color:var(--dim);}
 .client-arrow{font-size:1.1rem;color:var(--accent);opacity:0;transition:opacity 0.2s;}
 .client-card:hover .client-arrow{opacity:1;}
+
 </style>
 </head>
 <body>
 
 <div class="nav-header">
-  <div class="nav-title">Section 07 · Client Projects</div>
-  <a href="index.html" class="nav-back">← Back to Hub</a>
+  <div class="nav-title">Section 11 &middot; Client Projects</div>
+  <a href="index.html" class="nav-back">Back to Hub</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active">01 - Client Portfolio</div>
 </div>
 
 <div class="pw">
   <div class="ph">
-    <div class="ph-kicker">Section 07 · Portfolio Overview</div>
+    <div class="ph-kicker">Section 07 &middot; Portfolio Overview</div>
     <h1 class="ph-title">Client Projects</h1>
     <p class="ph-sub">Each client has its own dedicated workspace — Architecture overview, deployment Build Guide, and Agents &amp; Estimates. Select a client below to open their project.</p>
   </div>
@@ -70,10 +79,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <span class="client-tab-pill">04 · Complete Reference</span>
       </div>
       <div class="client-meta">
-        <span class="meta-complete">✓ Complete · Reference Template</span>
+        <span class="meta-complete">? Complete · Reference Template</span>
         <span>13 agents · 6 layers</span>
       </div>
-      <div class="client-arrow">Open EMS Project →</div>
+      <div class="client-arrow">Open EMS Project ?</div>
     </a>
 
     <a href="07-projects-rdm.html" class="client-card placeholder" style="--accent:var(--blue);">
@@ -88,9 +97,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <span class="client-tab-pill">04 · Complete Reference</span>
       </div>
       <div class="client-meta">
-        <span class="meta-placeholder">◌ Future Project — Uses EMS Template</span>
+        <span class="meta-placeholder">? Future Project — Uses EMS Template</span>
       </div>
-      <div class="client-arrow">Open RDM Project →</div>
+      <div class="client-arrow">Open RDM Project ?</div>
     </a>
 
     <a href="07-projects-rlaw.html" class="client-card placeholder" style="--accent:var(--violet);">
@@ -105,9 +114,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <span class="client-tab-pill">04 · Complete Reference</span>
       </div>
       <div class="client-meta">
-        <span class="meta-placeholder">◌ Future Project — Uses EMS Template</span>
+        <span class="meta-placeholder">? Future Project — Uses EMS Template</span>
       </div>
-      <div class="client-arrow">Open RLAW Project →</div>
+      <div class="client-arrow">Open RLAW Project ?</div>
     </a>
 
   </div>
@@ -115,3 +124,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 </body>
 </html>
+
+
+
+
+
+
+
+

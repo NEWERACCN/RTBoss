@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss — Three Audience Summaries</title>
+<title>RTBoss — Four Audience Summaries</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Epilogue:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -62,6 +62,7 @@ body{
 .sw-tab.a1.active{background:rgba(255,202,40,0.12);color:var(--amber);border-color:rgba(255,202,40,0.3);}
 .sw-tab.a2.active{background:rgba(0,230,118,0.1);color:var(--green);border-color:rgba(0,230,118,0.25);}
 .sw-tab.a3.active{background:rgba(179,136,255,0.1);color:var(--violet);border-color:rgba(179,136,255,0.25);}
+.sw-tab.a4.active{background:rgba(64,196,255,0.12);color:var(--blue);border-color:rgba(64,196,255,0.3);}
 .sw-tag{
   font-family:'IBM Plex Mono',monospace;
   font-size:0.65rem;
@@ -914,6 +915,85 @@ body{
 }
 .btn-violet:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(179,136,255,0.35);}
 
+/* ═══════════════════════════════
+   PANEL 4 — DARK FACTORY PATH
+══════════════════════════════ */
+.p4{background:#040812;}
+.p4-hero{
+  border-bottom:1px solid rgba(64,196,255,0.16);
+  padding:5.5rem 0 4rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 95% 0%, rgba(64,196,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(29,233,182,0.06) 0%, transparent 60%);
+}
+.p4-inner,.p4-body{max-width:1120px;margin:0 auto;padding:0 3rem;}
+.p4-kicker{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.68rem;
+  color:var(--blue);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.p4-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,5vw,4.2rem);
+  line-height:1.08;
+  margin-bottom:1.2rem;
+  letter-spacing:-0.02em;
+}
+.p4-title span{
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.p4-sub{font-size:1rem;color:var(--mid);line-height:1.85;max-width:840px;}
+.p4-body{padding-top:3rem;padding-bottom:4rem;}
+.p4-sec-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.64rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin:0 0 1rem;
+}
+.p4-flow{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:0.75rem;
+  margin-bottom:3rem;
+}
+.p4-step{
+  border:1px solid rgba(64,196,255,0.2);
+  border-radius:12px;
+  background:rgba(64,196,255,0.05);
+  padding:1rem;
+  min-height:180px;
+}
+.p4-step-num{font-family:'IBM Plex Mono',monospace;font-size:0.63rem;color:var(--blue);margin-bottom:0.4rem;letter-spacing:0.08em;}
+.p4-step-title{font-size:0.87rem;font-weight:700;margin-bottom:0.5rem;color:var(--text);}
+.p4-step-desc{font-size:0.77rem;line-height:1.65;color:var(--mid);}
+.p4-map{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.p4-card{
+  border:1px solid rgba(42,64,96,0.9);
+  border-radius:12px;
+  background:rgba(10,20,32,0.75);
+  padding:1.1rem;
+}
+.p4-card h3{font-size:0.86rem;margin-bottom:0.75rem;color:var(--blue);letter-spacing:0.03em;text-transform:uppercase;}
+.p4-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
+.p4-list li{font-size:0.78rem;color:var(--mid);line-height:1.5;padding-left:0.7rem;position:relative;}
+.p4-list li::before{content:'·';position:absolute;left:0;color:var(--teal);}
+.p4-note{
+  margin-top:1.2rem;
+  border:1px solid rgba(29,233,182,0.2);
+  border-radius:10px;
+  background:rgba(29,233,182,0.06);
+  padding:0.9rem 1rem;
+  font-size:0.78rem;
+  color:var(--mid);
+  line-height:1.65;
+}
+
 /* ─── PRINT HINTS ─── */
 .print-note{
   font-family:'IBM Plex Mono',monospace;
@@ -931,11 +1011,13 @@ body{
   .p1-model{grid-template-columns:1fr;}
   .p2-outcomes-grid,.p2-tiers{grid-template-columns:1fr;}
   .p3-cards{grid-template-columns:1fr;}
+  .p4-flow{grid-template-columns:1fr 1fr;}
+  .p4-map{grid-template-columns:1fr;}
   .p3-pillars-social{grid-template-columns:repeat(3,1fr);}
   .p3-stat-strip{flex-wrap:wrap;}
   .sw-tag{display:none;}
   .p1-inner,.p2-inner,.p3-inner,
-  .p1-body,.p2-body,.p3-body{padding-left:1.5rem;padding-right:1.5rem;}
+  .p1-body,.p2-body,.p3-body,.p4-body{padding-left:1.5rem;padding-right:1.5rem;}
 }
 </style>
 </head>
@@ -948,6 +1030,7 @@ body{
     <button class="sw-tab a1 active" onclick="show(1)">Board &amp; Investors</button>
     <button class="sw-tab a2" onclick="show(2)">Clients</button>
     <button class="sw-tab a3" onclick="show(3)">Social &amp; Future</button>
+    <button class="sw-tab a4" onclick="show(4)">Dark Factory Path</button>
   </div>
   <a href="index.html" style="font-size:0.8rem;color:rgba(160,184,208,0.7);text-decoration:none;white-space:nowrap;padding:0.3rem 0.75rem;border:1px solid rgba(42,64,96,0.6);border-radius:6px;transition:color 0.2s;" onmouseover="this.style.color='#e8f4ff'" onmouseout="this.style.color='rgba(160,184,208,0.7)'">← Hub</a>
   <div class="sw-tag">NEW ERA IT · BRISBANE</div>
@@ -1394,17 +1477,110 @@ body{
   <div class="print-note">RTBoss · New Era IT · newera-it.com.au · Building the AI-native business · Brisbane 🇦🇺</div>
 </div>
 
+<!-- ═══════════════════════════════
+     PANEL 4 — DARK FACTORY PATH
+══════════════════════════════ -->
+<div class="panel p4" id="panel-4">
+  <div class="p4-hero">
+    <div class="p4-inner">
+      <div class="p4-kicker">Internal Program Path · From Baseline to Fully Agentic</div>
+      <h1 class="p4-title">Current State to <span>Dark Factory</span></h1>
+      <p class="p4-sub">This path shows where RTBoss is now and the execution sequence to reach a truly agentic operating model: zero-touch for in-policy work, human intervention only for exceptions, strategy, and governance.</p>
+    </div>
+  </div>
+
+  <div class="p4-body">
+    <div class="p4-sec-label">Flow Chart</div>
+    <div class="p4-flow">
+      <div class="p4-step"><div class="p4-step-num">Step 01 · Now</div><div class="p4-step-title">Baseline Locked</div><div class="p4-step-desc">Section sweep active, deliverable canon seeded, and critical gaps explicitly identified (Business Central + Contact Center).</div></div>
+      <div class="p4-step"><div class="p4-step-num">Step 02</div><div class="p4-step-title">Foundation Hardening</div><div class="p4-step-desc">QMS context finalized (Brand, Dictionary, Ontology, Personas, Templates). Fact lifecycle enforced across all deliverables.</div></div>
+      <div class="p4-step"><div class="p4-step-num">Step 03</div><div class="p4-step-title">Platform Activation</div><div class="p4-step-desc">Business Central and Contact Center infrastructure systems activated. Dataverse + Power Automate + Copilot Studio + Foundry fully wired.</div></div>
+      <div class="p4-step"><div class="p4-step-num">Step 04</div><div class="p4-step-title">First Autonomous Flows</div><div class="p4-step-desc">Month-end close, contact intake/escalation, and Zero Touch remediation streams go live with policy-bound automation.</div></div>
+      <div class="p4-step"><div class="p4-step-num">Step 05</div><div class="p4-step-title">Compounding Agentic Factory</div><div class="p4-step-desc">Digital workers auto-register in ENT-004, move planned -> building -> deployed -> proven, and system opportunities are raised from evidence.</div></div>
+      <div class="p4-step"><div class="p4-step-num">Step 06 · Target</div><div class="p4-step-title">Dark Factory</div><div class="p4-step-desc">In-policy operations run end-to-end without manual handling. Humans focus on exception judgment, commercial direction, and governance.</div></div>
+    </div>
+
+    <div class="p4-sec-label">Content Inventory</div>
+    <div class="p4-map">
+      <div class="p4-card">
+        <h3>Genies / Agents</h3>
+        <ul class="p4-list">
+          <li>Invoice Approval Genie</li>
+          <li>QMS Bootstrap Genie</li>
+          <li>Persona Mapping Genie</li>
+          <li>Template Population Genie</li>
+          <li>Skills Loader Genie</li>
+          <li>Business Central Approval Genie (target)</li>
+          <li>Contact Center Triage Genie (target)</li>
+          <li>Monitoring Alert Genie for Zero Touch (target)</li>
+        </ul>
+      </div>
+      <div class="p4-card">
+        <h3>Streams</h3>
+        <ul class="p4-list">
+          <li>Client Onboarding Stream (STR-001)</li>
+          <li>Document Generation Stream (STR-002)</li>
+          <li>Payment Run Stream (STR-003)</li>
+          <li>Month-End Stream (STR-004 / STR-BC-001)</li>
+          <li>Contact Intake &amp; Escalation Stream (STR-CC-001)</li>
+          <li>Zero Touch Alert-to-Remediation Stream (target)</li>
+        </ul>
+      </div>
+      <div class="p4-card">
+        <h3>Tools / Platforms</h3>
+        <ul class="p4-list">
+          <li>Dataverse (ENT-004 + fact tables)</li>
+          <li>Power Automate (stream orchestration)</li>
+          <li>Copilot Studio (genie/advisor surfaces)</li>
+          <li>Azure AI Foundry (agent runtime + orchestration)</li>
+          <li>Dynamics 365 Business Central</li>
+          <li>D365 Contact Center</li>
+          <li>Zero Touch AI (RMM fact source)</li>
+          <li>Power BI / Command Centre</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="p4-note"><strong>Definition:</strong> Dark Factory in RTBoss means routine, policy-compliant workflows execute autonomously with full traceability, while humans intervene only on exceptions, risk decisions, and strategy shifts.</div>
+  </div>
+  <div class="print-note">RTBoss · New Era IT · Dark Factory Path · Feb 2026 baseline</div>
+</div>
+
 <script>
-function show(n){
+var TAB_HASHES = ['board-investors','clients','social-future','dark-factory'];
+var HASH_TO_TAB = {
+  'board-investors': 1,
+  'clients': 2,
+  'social-future': 3,
+  'dark-factory': 4
+};
+
+function show(n, skipHashUpdate){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.sw-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('panel-'+n).classList.add('active');
   document.querySelectorAll('.sw-tab')[n-1].classList.add('active');
+  if(!skipHashUpdate){
+    var nextHash = TAB_HASHES[n-1];
+    if(nextHash){ history.replaceState(null, '', '#' + nextHash); }
+  }
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function showFromHash(){
+  var key = (window.location.hash || '').replace('#','').trim().toLowerCase();
+  var n = HASH_TO_TAB[key] || 1;
+  show(n, true);
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  showFromHash();
+});
+
+window.addEventListener('hashchange', function(){
+  showFromHash();
+});
 </script>
 </body>
 </html>
-
-
 

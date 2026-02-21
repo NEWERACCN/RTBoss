@@ -10,15 +10,15 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;overflow-x:hidden;}
 .nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.nav-title{font-size:1.2rem;font-weight:700;color:var(--cl);}
-.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;}
-.nav-back:hover{color:var(--cl);}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:#00e676 !important;}
 .tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
-.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
 .tab:hover{color:var(--mid);}
-.tab.active{color:var(--cl);border-bottom-color:var(--cl);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
 .panel{display:none;}.panel.active{display:block;}
-.pw{max-width:1200px;margin:0 auto;padding:2rem;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
 .ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
 .ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--cl);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
 .ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
@@ -64,20 +64,21 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .rb{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
 .rb h4{font-size:0.9rem;font-weight:700;margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
 .ri{display:flex;align-items:flex-start;gap:0.5rem;padding:0.35rem 0;font-size:0.8rem;color:var(--mid);}
-.ri::before{content:"→";color:var(--cl);flex-shrink:0;font-family:'Fira Code',monospace;font-size:0.7rem;margin-top:0.15rem;}
+.ri::before{content:"?";color:var(--cl);flex-shrink:0;font-family:'Fira Code',monospace;font-size:0.7rem;margin-top:0.15rem;}
+
 </style>
 </head>
 <body>
 <div class="nav-header">
-  <div class="nav-title">Section 12 · Changelog &amp; Audit Standards</div>
-  <a href="index.html" class="nav-back">← Back to Hub</a>
+  <div class="nav-title">Section 09/12 - Audit Standards &amp; Changelog</div>
+  <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 <div class="tabs">
-  <div class="tab active" onclick="showTab(0)">01 · Version Control</div>
-  <div class="tab" onclick="showTab(1)">02 · NCR Process</div>
-  <div class="tab" onclick="showTab(2)">03 · Lesson Capture</div>
-  <div class="tab" onclick="showTab(3)">04 · Internal Audit</div>
-  <div class="tab" onclick="showTab(4)">05 · Management Review</div>
+  <div class="tab active" onclick="showTab(0)">01 - Version Control</div>
+  <div class="tab" onclick="showTab(1)">02 - NCR Process</div>
+  <div class="tab" onclick="showTab(2)">03 - Lesson Capture</div>
+  <div class="tab" onclick="showTab(3)">04 - Internal Audit</div>
+  <div class="tab" onclick="showTab(4)">05 - Management Review</div>
 </div>
 
 <!-- TAB 01 · VERSION CONTROL -->
@@ -87,7 +88,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <h1 class="ph-title">Version Control &amp; Changelog</h1>
     <p class="ph-sub">Every change to RTBoss — agents, system prompts, processes, ontology, documents, infrastructure — is versioned, logged, and traceable. Version control is not an admin burden; it is the audit trail that proves the system evolves intentionally.</p>
   </div>
-  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>ISO requirement:</strong> ISO 9001 Cl.7.5 requires that documented information be controlled — available when needed, adequately protected, and subject to distribution, access, retrieval, use, storage, and preservation controls. ISO 27001 Cl.7.5 has near-identical requirements. This Section 12 satisfies both.</div></div>
+  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>ISO requirement:</strong> ISO 9001 Cl.7.5 requires that documented information be controlled — available when needed, adequately protected, and subject to distribution, access, retrieval, use, storage, and preservation controls. ISO 27001 Cl.7.5 has near-identical requirements. This Section 12 satisfies both.</div></div>
 
   <div class="sh"><div class="sl">Versioning Scheme — Semantic Version Standard</div><div class="sline"></div></div>
   <p style="color:var(--mid);font-size:0.88rem;line-height:1.8;margin-bottom:1.5rem;">All RTBoss components use semantic versioning: <span style="font-family:Fira Code,monospace;color:var(--cl);">MAJOR.MINOR.PATCH</span>. The rules are strict — ambiguity about what constitutes a major vs minor change causes audit failures.</p>
@@ -103,15 +104,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="sh"><div class="sl">Changelog Entry Format</div><div class="sline"></div></div>
   <div class="cb-block">RTBoss CHANGELOG ENTRY TEMPLATE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+??????????????????????????????????????????????????????????
 Entry ID:         CL-[YYYY]-[nnn]                    e.g. CL-2026-042
 Date:             [YYYY-MM-DD]
 Author:           [Name · Role]
 Component:        [Agent ID / Section / Entity / Process]
-Version Change:   [old] → [new]                      e.g. 1.2.1 → 1.3.0
+Version Change:   [old] ? [new]                      e.g. 1.2.1 ? 1.3.0
 Change Type:      PATCH | MINOR | MAJOR
 ISO Reference:    [Clause(s) affected]               e.g. ISO 27001 A.8.28 / ISO 9001 Cl.7.5
-Classification:   🔴 RESTRICTED | 🟡 CONFIDENTIAL | 🔵 INTERNAL | 🟢 PUBLIC
+Classification:   ?? RESTRICTED | ?? CONFIDENTIAL | ?? INTERNAL | ?? PUBLIC
 
 Description:      [What changed and why]
 
@@ -129,7 +130,7 @@ Review &amp; Approval:
   Approved by:  [Name] (required for MAJOR)
   Tests run:    [Unit / Integration / E2E / UAT]
   NCR raised:   [NCR-ID if triggered by a nonconformance]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+??????????????????????????????????????????????????????????</div>
 
   <div class="sh"><div class="sl">Component Version Registry — Schema</div><div class="sline"></div></div>
   <table class="dt">
@@ -146,7 +147,7 @@ Review &amp; Approval:
     </tbody>
   </table>
 
-  <div class="callout ci-warn"><div class="ci">⚠</div><div class="cb"><strong>Ontology changes are always MAJOR — no exceptions.</strong> Any change to a Dataverse entity schema (adding a required field, renaming a property, changing a lookup relationship) is a MAJOR version bump. Requires Tech Lead approval, downstream impact assessment across all Genies using the entity, and an updated test suite.</div></div>
+  <div class="callout ci-warn"><div class="ci">?</div><div class="cb"><strong>Ontology changes are always MAJOR — no exceptions.</strong> Any change to a Dataverse entity schema (adding a required field, renaming a property, changing a lookup relationship) is a MAJOR version bump. Requires Tech Lead approval, downstream impact assessment across all Genies using the entity, and an updated test suite.</div></div>
 
 </div></div>
 
@@ -157,7 +158,7 @@ Review &amp; Approval:
     <h1 class="ph-title">Nonconformance &amp; Corrective Action</h1>
     <p class="ph-sub">Every deviation from a defined requirement is captured as a Non-Conformance Report (NCR). The discipline of raising, investigating, correcting, and verifying NCRs is what separates a system that learns from one that accumulates technical debt.</p>
   </div>
-  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>ISO 9001 Cl.10.2 and ISO 27001 Cl.10.1 are explicit:</strong> React to the nonconformity. Deal with consequences. Determine if similar nonconformities exist. Implement corrective action. Review effectiveness. Retain documented information as evidence. An NCR without a verified corrective action is an open audit finding.</div></div>
+  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>ISO 9001 Cl.10.2 and ISO 27001 Cl.10.1 are explicit:</strong> React to the nonconformity. Deal with consequences. Determine if similar nonconformities exist. Implement corrective action. Review effectiveness. Retain documented information as evidence. An NCR without a verified corrective action is an open audit finding.</div></div>
 
   <div class="sh"><div class="sl">What Triggers an NCR</div><div class="sline"></div></div>
   <div class="cg">
@@ -190,15 +191,15 @@ Review &amp; Approval:
   </div>
 
   <div class="sh"><div class="sl">NCR Register Dashboard</div><div class="sline"></div></div>
-  <div class="cb-block">NCR REGISTER — DASHBOARD (Dataverse → Power BI)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- NCR-ID       │ Raised     │ Sev      │ Status          │ Due
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- NCR-2026-001 │ 2026-01-15 │ MINOR    │ CLOSED/VERIFIED │ Closed
- NCR-2026-002 │ 2026-02-01 │ MAJOR    │ UNDER REVIEW    │ 2026-03-01
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Open: 1  │ Overdue: 0 │ This Quarter: 2 │ CRITICAL: 0
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  <div class="cb-block">NCR REGISTER — DASHBOARD (Dataverse ? Power BI)
+????????????????????????????????????????????????????
+ NCR-ID       ¦ Raised     ¦ Sev      ¦ Status          ¦ Due
+????????????????????????????????????????????????????
+ NCR-2026-001 ¦ 2026-01-15 ¦ MINOR    ¦ CLOSED/VERIFIED ¦ Closed
+ NCR-2026-002 ¦ 2026-02-01 ¦ MAJOR    ¦ UNDER REVIEW    ¦ 2026-03-01
+????????????????????????????????????????????????????
+ Open: 1  ¦ Overdue: 0 ¦ This Quarter: 2 ¦ CRITICAL: 0
+????????????????????????????????????????????????????</div>
 </div></div>
 
 <!-- TAB 03 · LESSON CAPTURE -->
@@ -208,7 +209,7 @@ Review &amp; Approval:
     <h1 class="ph-title">Lesson Capture &amp; Continual Improvement</h1>
     <p class="ph-sub">ISO 9001 Cl.10.3 requires continual improvement of the QMS. Lessons are captured at every sprint review, every project health review, and every NCR closure. The system must demonstrably improve over time — not just operate.</p>
   </div>
-  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>Continual improvement is mandatory under ISO 9001 Cl.10.3.</strong> The standard requires that the organisation continually improve the suitability, adequacy, and effectiveness of the QMS. "Things are working fine" is not evidence of continual improvement — it must be demonstrated through logged actions and their verified outcomes.</div></div>
+  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>Continual improvement is mandatory under ISO 9001 Cl.10.3.</strong> The standard requires that the organisation continually improve the suitability, adequacy, and effectiveness of the QMS. "Things are working fine" is not evidence of continual improvement — it must be demonstrated through logged actions and their verified outcomes.</div></div>
 
   <div class="sh"><div class="sl">Lesson Capture Triggers</div><div class="sline"></div></div>
   <div class="cg">
@@ -220,7 +221,7 @@ Review &amp; Approval:
 
   <div class="sh"><div class="sl">Lesson Entry Format</div><div class="sline"></div></div>
   <div class="cb-block">LESSON CAPTURE ENTRY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+??????????????????????????????????????????????
 Lesson ID:    LSN-[YYYY]-[nnn]
 Date:         [YYYY-MM-DD]
 Source:       sprint_review | project_health_review | ncr_closure | onboarding
@@ -237,21 +238,21 @@ Improvement:
   Status:   proposed | approved | implemented | deferred
 
 Implementation: [If implemented: what changed, Changelog ID, date]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+??????????????????????????????????????????????</div>
 
   <div class="sh"><div class="sl">Improvement Routing</div><div class="sline"></div></div>
   <table class="dt">
     <thead><tr><th>Lesson Type</th><th>Where It Goes</th><th>Owner</th><th>Cadence</th></tr></thead>
     <tbody>
-      <tr><td>Agent output quality issue</td><td>Section 10 improvement backlog. System prompt updated → version bump → Changelog.</td><td>Tech Lead</td><td>Next sprint planning</td></tr>
+      <tr><td>Agent output quality issue</td><td>Section 10 improvement backlog. System prompt updated ? version bump ? Changelog.</td><td>Tech Lead</td><td>Next sprint planning</td></tr>
       <tr><td>Process unclear or not followed</td><td>Relevant Section updated. MAJOR version bump if content changes materially.</td><td>Section owner</td><td>Within 30 days</td></tr>
       <tr><td>QMS gap identified</td><td>Section 09 updated. If ISO clause gap: ISO Framework tab + SoA reviewed.</td><td>Tech Lead + MD</td><td>Next Management Review</td></tr>
       <tr><td>Security improvement identified</td><td>Risk Register updated (ENT-005). Annex A mapping updated. SoA re-reviewed if scope changes.</td><td>Tech Lead</td><td>Within 30 days</td></tr>
-      <tr><td>Client-specific edge case</td><td>Industry Advisor spec updated. If reusable: Factory Library registered (Section 10).</td><td>CSM + Tech Lead</td><td>Before next sprint</td></tr>
+      <tr><td>Client-specific edge case</td><td>Industry Advisor spec updated. If reusable: Factory Library registered (Section 10 &middot; .</td><td>CSM + Tech Lead</td><td>Before next sprint</td></tr>
     </tbody>
   </table>
 
-  <div class="callout ci-ok"><div class="ci">✦</div><div class="cb"><strong>The compounding improvement effect:</strong> Each lesson that becomes a Changelog entry improves every future deployment that uses that component. An improvement to the EMS EmailClassifier benefits RDM and RLAW when they deploy a classifier pattern. Lesson capture is an investment — the returns compound across every client.</div></div>
+  <div class="callout ci-ok"><div class="ci">?</div><div class="cb"><strong>The compounding improvement effect:</strong> Each lesson that becomes a Changelog entry improves every future deployment that uses that component. An improvement to the EMS EmailClassifier benefits RDM and RLAW when they deploy a classifier pattern. Lesson capture is an investment — the returns compound across every client.</div></div>
 </div></div>
 
 <!-- TAB 04 · INTERNAL AUDIT -->
@@ -261,7 +262,7 @@ Implementation: [If implemented: what changed, Changelog ID, date]
     <h1 class="ph-title">Internal Audit Programme</h1>
     <p class="ph-sub">Both ISO standards mandate planned internal audits at defined intervals. The programme must consider the importance of processes and the results of previous audits. Auditors must be objective and impartial — they cannot audit their own work.</p>
   </div>
-  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>ISO 9001 Cl.9.2 and ISO 27001 Cl.9.2:</strong> Conduct internal audits at planned intervals. Define criteria and scope. Select auditors ensuring objectivity and impartiality. Report results to relevant management. Retain documented information as evidence. Take corrective action without undue delay. An audit without documented findings is not a compliant audit.</div></div>
+  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>ISO 9001 Cl.9.2 and ISO 27001 Cl.9.2:</strong> Conduct internal audits at planned intervals. Define criteria and scope. Select auditors ensuring objectivity and impartiality. Report results to relevant management. Retain documented information as evidence. Take corrective action without undue delay. An audit without documented findings is not a compliant audit.</div></div>
 
   <div class="sh"><div class="sl">Annual Audit Programme</div><div class="sline"></div></div>
   <div class="ag">
@@ -285,7 +286,7 @@ Implementation: [If implemented: what changed, Changelog ID, date]
 
   <div class="sh"><div class="sl">Audit Report Format</div><div class="sline"></div></div>
   <div class="cb-block">RTBoss INTERNAL AUDIT REPORT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+??????????????????????????????????????????????????????????
 Audit ID:         AUD-[YYYY]-[nnn]             e.g. AUD-2026-001
 Audit Type:       annual | triggered
 Quarter/Trigger:  Q1 2026 — Infrastructure &amp; Access Controls
@@ -313,7 +314,7 @@ MANAGEMENT PRESENTATION
   Actions agreed: [Any immediate actions]
 
 Filed: [SharePoint path] · [Date]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+??????????????????????????????????????????????????????????</div>
 </div></div>
 
 <!-- TAB 05 · MANAGEMENT REVIEW -->
@@ -323,7 +324,7 @@ Filed: [SharePoint path] · [Date]
     <h1 class="ph-title">Management Review</h1>
     <p class="ph-sub">Top management must review the QMS and ISMS at planned intervals to ensure continuing suitability, adequacy, and effectiveness. This is a leadership obligation — not a delegatable task. Outputs must include decisions and actions.</p>
   </div>
-  <div class="callout ci-iso"><div class="ci">⬡</div><div class="cb"><strong>Both ISO standards (9001 Cl.9.3 and 27001 Cl.9.3) require defined inputs and outputs.</strong> A management review without documented inputs and outputs is not a compliant review — it is just a meeting. The minutes must capture what was reviewed, what was decided, and who is accountable for what action by when.</div></div>
+  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>Both ISO standards (9001 Cl.9.3 and 27001 Cl.9.3) require defined inputs and outputs.</strong> A management review without documented inputs and outputs is not a compliant review — it is just a meeting. The minutes must capture what was reviewed, what was decided, and who is accountable for what action by when.</div></div>
 
   <div class="sh"><div class="sl">Format &amp; Cadence</div><div class="sline"></div></div>
   <div class="cg">
@@ -343,10 +344,10 @@ Filed: [SharePoint path] · [Date]
   </div>
 
   <div class="sh"><div class="sl">Mandatory Outputs — ISO 9001 Cl.9.3.3</div><div class="sline"></div></div>
-  <div class="callout ci-warn"><div class="ci">⚠</div><div class="cb"><strong>Outputs must include decisions and actions.</strong> ISO 9001 Cl.9.3.3 explicitly requires: (a) decisions and actions related to improvement opportunities; (b) QMS changes needed; (c) resource needs. A review where the only output is "continue as is" is either non-compliant or evidence that the inputs were not genuinely reviewed.</div></div>
+  <div class="callout ci-warn"><div class="ci">?</div><div class="cb"><strong>Outputs must include decisions and actions.</strong> ISO 9001 Cl.9.3.3 explicitly requires: (a) decisions and actions related to improvement opportunities; (b) QMS changes needed; (c) resource needs. A review where the only output is "continue as is" is either non-compliant or evidence that the inputs were not genuinely reviewed.</div></div>
 
   <div class="cb-block">MANAGEMENT REVIEW MINUTES TEMPLATE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+??????????????????????????????????????????????????????????
 Meeting ID:   MR-[YYYY]-[Q]           e.g. MR-2026-Q1
 Date:         [YYYY-MM-DD]
 Attendees:    [Names and roles]
@@ -372,33 +373,33 @@ RESOURCE DECISIONS
 NEXT REVIEW:  [YYYY-MM-DD — must be within 3 months]
 Minutes approved by MD: [Signature / date]
 Filed: [SharePoint path]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+??????????????????????????????????????????????????????????</div>
 
   <div class="sh"><div class="sl">The Continual Improvement Loop</div><div class="sline"></div></div>
-  <div class="callout ci-ok"><div class="ci">✦</div><div class="cb"><strong>Section 12 closes the loop.</strong> Lessons feed NCRs. NCRs feed Changelog entries. Changelog entries update the Playbook. Internal audits verify the Playbook is being followed. Management Reviews assess whether the system is improving. The output of Management Reviews feeds the next sprint cycle. This is how RTBoss achieves ISO 9001 Cl.10.3 continual improvement — not as a compliance exercise, but as the operating rhythm of a system that genuinely learns.</div></div>
+  <div class="callout ci-ok"><div class="ci">?</div><div class="cb"><strong>Section 12 closes the loop.</strong> Lessons feed NCRs. NCRs feed Changelog entries. Changelog entries update the Playbook. Internal audits verify the Playbook is being followed. Management Reviews assess whether the system is improving. The output of Management Reviews feeds the next sprint cycle. This is how RTBoss achieves ISO 9001 Cl.10.3 continual improvement — not as a compliance exercise, but as the operating rhythm of a system that genuinely learns.</div></div>
 
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1.5rem 0;">
     <div style="font-family:Fira Code,monospace;font-size:0.65rem;color:var(--cl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;">The Improvement Cycle</div>
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--mid);">
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Sprint Review</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Lessons Captured</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">NCR if needed</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">5-Why Root Cause</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Corrective Action</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Changelog Entry</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Playbook Updated</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Internal Audit Verifies</span>
-      <span style="color:var(--cl);">→</span>
+      <span style="color:var(--cl);">?</span>
       <span style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.65rem;">Management Review</span>
-      <span style="color:var(--cl);">→</span>
-      <span style="background:rgba(179,136,255,0.1);border:1px solid rgba(179,136,255,0.3);border-radius:6px;padding:0.35rem 0.65rem;color:var(--cl);font-weight:600;">Next Sprint Better ✓</span>
+      <span style="color:var(--cl);">?</span>
+      <span style="background:rgba(179,136,255,0.1);border:1px solid rgba(179,136,255,0.3);border-radius:6px;padding:0.35rem 0.65rem;color:var(--cl);font-weight:600;">Next Sprint Better ?</span>
     </div>
   </div>
 
@@ -412,7 +413,27 @@ function showTab(n){
   });
   window.scrollTo({top:0,behavior:"smooth"});
 }
+function initGroupReviewSync_S12(){
+  var SECTION_KEY='S12', stateKey='rtboss_content_review_12_changelog_audit_v1', progressKey='rtboss_content_review_progress_v1';
+  var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sh.done .sl,.sec-head.done .sec-label{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
+  function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
+  function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sh')||cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
+  var labels=Array.from(document.querySelectorAll('.sh .sl, .sec-head .sec-label'));
+  labels.forEach((label, idx)=>{ var holder=label.closest('.sh')||label.closest('.sec-head'); if(!holder||holder.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=label.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); holder.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); holder.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
+  applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
+}
+document.addEventListener('DOMContentLoaded', initGroupReviewSync_S12);
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
