@@ -80,6 +80,42 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .step-placeholder-label{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--amber);margin-bottom:.3rem;}
 .step-placeholder-desc{font-size:.72rem;color:var(--dim);line-height:1.6;font-style:italic;}
 
+
+.def-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--green);line-height:1.65;margin:.75rem 0;}
+.def-block.violet{border-left-color:var(--violet);color:var(--violet);}
+.def-block.blue{border-left-color:var(--blue);color:var(--blue);}
+.def-block.amber{border-left-color:var(--amber);color:var(--amber);}
+.tag-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem;}
+.tag{font-family:'Fira Code',monospace;font-size:.58rem;padding:.15rem .55rem;border-radius:3px;letter-spacing:.04em;}
+.tag.green{background:rgba(0,230,118,.07);color:var(--green);border:1px solid rgba(0,230,118,.2);}
+.tag.blue{background:rgba(64,196,255,.07);color:var(--blue);border:1px solid rgba(64,196,255,.2);}
+.tag.amber{background:rgba(255,202,40,.07);color:var(--amber);border:1px solid rgba(255,202,40,.2);}
+.tag.violet{background:rgba(179,136,255,.07);color:var(--violet);border:1px solid rgba(179,136,255,.2);}
+.tag.teal{background:rgba(29,233,182,.07);color:var(--teal);border:1px solid rgba(29,233,182,.2);}
+.tag.pink{background:rgba(244,143,177,.07);color:var(--pink);border:1px solid rgba(244,143,177,.2);}
+.rtbi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:2rem;}
+.rtbi-card{background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--rc,var(--violet));border-radius:0 0 10px 10px;transition:border-color .2s,transform .2s;}
+.rtbi-card:hover{transform:translateY(-2px);}
+.rtbi-card-head{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);background:var(--s2);display:flex;align-items:center;gap:.75rem;}
+.rtbi-icon{font-size:1.2rem;flex-shrink:0;}
+.rtbi-card-title{font-weight:600;font-size:.88rem;color:#e8f4ff;}
+.rtbi-card-type{font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.08em;margin-top:.15rem;text-transform:uppercase;}
+.rtbi-card-body{padding:.9rem 1.1rem;}
+.rtbi-card-body p{font-size:.77rem;color:var(--mid);line-height:1.7;margin-bottom:.65rem;}
+.rtbi-metrics{display:flex;flex-direction:column;gap:5px;}
+.rtbi-metric{display:flex;justify-content:space-between;align-items:center;padding:.32rem 0;border-bottom:1px solid rgba(24,36,53,.6);font-size:.73rem;}
+.rtbi-metric:last-child{border-bottom:none;}
+.rm-label{color:var(--mid);} .rm-val{font-family:'Fira Code',monospace;font-weight:500;}
+
+.sec-head-line{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);}
+.callout{display:flex;gap:.75rem;padding:.85rem 1.1rem;border-radius:8px;font-size:.8rem;line-height:1.7;margin:1rem 0;}
+.callout-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem;}
+.callout-body{color:var(--mid);} .callout-body strong{color:var(--text);font-weight:500;}
+.callout.info{background:rgba(64,196,255,.05);border:1px solid rgba(64,196,255,.15);}
+.callout.success{background:rgba(0,230,118,.05);border:1px solid rgba(0,230,118,.18);}
+.callout.warn{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.18);}
+.callout.violet{background:rgba(179,136,255,.05);border:1px solid rgba(179,136,255,.18);}
+.callout.amber{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.2);}
 </style>
 </head>
 <body>
@@ -104,65 +140,253 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 <!-- -- TAB 01 &middot; TECH STACK -- -->
 <div class="panel active" id="tab-00"><div class="pw">
-
   <div class="ph">
-    <div class="ph-kicker">Technical Infrastructure Foundation &middot; Tech Stack</div>
-    <h1 class="ph-title">Tech Stack</h1>
-    <p class="ph-sub">The end-to-end platform baseline for RTBoss infrastructure delivery. This tab defines the stack map at a system level, while the following tabs provide implementation detail by platform area.</p>
+    <div class="ph-kicker">RTBoss  Foundation  Technology Stack</div>
+    <h1 class="ph-title">Tech Stack  Microsoft Ecosystem</h1>
+    <p class="ph-sub">Full Microsoft-only stack. All Mini-OS instances, all Value Engines, all RTBI components run on this foundation. Australia data residency. ISO 27001/9001 certified. Zero-trust security model.</p>
   </div>
 
-  <div class="role-block" style="border-left-color:#40c4ff;">
-    <div class="role-label">Role in Section 03</div>
-    <div class="role-text">Tech Stack is the technical foundation view: identity, collaboration, business apps, data platform, AI runtime, automation, network edge, and security controls. It anchors all infra build decisions before detailed configuration starts.</div>
-  </div>
+  <div class="def-block">Microsoft-only constraint: No third-party SaaS except where unavoidable. All data stays in AU regions. Zero-trust via Entra ID + Intune.</div>
 
-  <div class="feeds-block">
-    <div class="feeds-label">Stack layers covered in this section</div>
-    <div class="feeds-tags"><span class="feed-tag">M365 workspace layer</span> <span class="feed-tag">Dynamics + Dataverse transaction/data layer</span> <span class="feed-tag">Power Platform orchestration layer</span> <span class="feed-tag">Azure intelligence layer</span> <span class="feed-tag">Edge + network layer</span> <span class="feed-tag">Security & compliance baseline</span></div>
-  </div>
+  <div class="sec-head"><span class="sec-label">M365 Core  Productivity & Collaboration</span><div class="sec-head-line"></div></div>
 
-  <div class="phases-list">
-    <div class="phase-card" style="--pc:#40c4ff;">
-      <div class="phase-header"><div class="phase-dot" style="background:#40c4ff;"></div><div class="phase-name">Workspace + Business Platform</div></div>
-      <div class="phase-body">
-        <div class="phase-section-label">Core components</div>
-        <div class="config-list">
-          <div class="config-item">Microsoft 365</div>
-          <div class="config-item">Dynamics 365</div>
-          <div class="config-item">Dataverse</div>
-          <div class="config-item">Power Platform</div>
-        </div>
+  <div class="rtbi-grid">
+    <div class="rtbi-card" style="--rc:#40c4ff;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">M365 Copilot + Notebooks</div><div class="rtbi-card-type" style="color:#40c4ff;">AI-native productivity layer</div></div></div>
+      <div class="rtbi-card-body">
+        <p>AI assistant layer across all M365 apps. Copilot Notebooks for persistent AI workspaces. Native integration with Word, Excel, PowerPoint, Teams, Outlook.</p>
+        <div class="tag-row"><span class="tag blue">AI-first</span><span class="tag blue">Cross-app</span><span class="tag blue">Persistent context</span></div>
       </div>
     </div>
-    <div class="phase-card" style="--pc:#00e676;">
-      <div class="phase-header"><div class="phase-dot" style="background:#00e676;"></div><div class="phase-name">AI + Data + Infrastructure</div></div>
-      <div class="phase-body">
-        <div class="phase-section-label">Core components</div>
-        <div class="config-list">
-          <div class="config-item">Azure AI Foundry</div>
-          <div class="config-item">Fabric + Cosmos DB</div>
-          <div class="config-item">Service Bus + Key Vault</div>
-          <div class="config-item">IoT Hub + device telemetry</div>
-        </div>
+    <div class="rtbi-card" style="--rc:#00e676;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Office Suite</div><div class="rtbi-card-type" style="color:#00e676;">Word  Excel  PowerPoint</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Document creation, spreadsheet modeling, presentations. Native Copilot integration. Cloud-first via OneDrive sync.</p>
+        <div class="tag-row"><span class="tag green">Desktop + Web</span><span class="tag green">Real-time coauth</span></div>
       </div>
     </div>
-    <div class="phase-card" style="--pc:#ffca28;">
-      <div class="phase-header"><div class="phase-dot" style="background:#ffca28;"></div><div class="phase-name">Edge + Security Baseline</div></div>
-      <div class="phase-body">
-        <div class="phase-section-label">Core components</div>
-        <div class="config-list">
-          <div class="config-item">Zero Touch AI</div>
-          <div class="config-item">UniFi infrastructure</div>
-          <div class="config-item">Entra ID + Intune + Defender</div>
-          <div class="config-item">ISO-aligned controls</div>
-        </div>
+    <div class="rtbi-card" style="--rc:#b388ff;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Teams</div><div class="rtbi-card-type" style="color:#b388ff;">Communication  Collaboration</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Chat, video calls, channel-based collaboration. Loop integration for live collaborative canvases. Copilot-enabled meeting summaries and chat threads.</p>
+        <div class="tag-row"><span class="tag violet">Persistent channels</span><span class="tag violet">Meetings</span><span class="tag violet">Loop integrated</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#1de9b6;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Loop</div><div class="rtbi-card-type" style="color:#1de9b6;">Collaborative workspaces</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Live collaborative canvases that work across Teams, Outlook, and standalone. Persistent workspaces for cross-functional projects.</p>
+        <div class="tag-row"><span class="tag teal">Real-time sync</span><span class="tag teal">Cross-app</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#ffca28;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Planner + To Do</div><div class="rtbi-card-type" style="color:#ffca28;">Task & project management</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Planner for team project boards. To Do for personal task tracking. Sync between both. Teams integration for task creation from conversations.</p>
+        <div class="tag-row"><span class="tag amber">Kanban boards</span><span class="tag amber">Personal + team</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#f48fb1;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">?</div><div><div class="rtbi-card-title">Power Automate</div><div class="rtbi-card-type" style="color:#f48fb1;">Workflow automation</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Low-code workflow automation. Orchestration glue between M365, Dynamics 365, Azure services. Cloud flows + desktop flows.</p>
+        <div class="tag-row"><span class="tag pink">600+ connectors</span><span class="tag pink">Cloud + Desktop</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#40c4ff;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">SharePoint + OneDrive</div><div class="rtbi-card-type" style="color:#40c4ff;">Document management  Storage</div></div></div>
+      <div class="rtbi-card-body">
+        <p>SharePoint for team sites, document libraries, intranet. OneDrive for personal cloud storage. Both sync to desktop. Version history, permissions, metadata.</p>
+        <div class="tag-row"><span class="tag blue">Team + personal</span><span class="tag blue">Desktop sync</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#00e676;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Outlook</div><div class="rtbi-card-type" style="color:#00e676;">Email  Calendar</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Email, calendar, contacts. Copilot-assisted email drafting and meeting scheduling. Loop component embedding in emails.</p>
+        <div class="tag-row"><span class="tag green">Desktop + Web + Mobile</span></div>
       </div>
     </div>
   </div>
 
-  <div class="callout warn"><div class="callout-icon">!</div><div class="callout-body"><strong>Scope boundary:</strong> this tab is the stack map. Detailed step-by-step build standards remain in tabs 02-09.</div></div>
+  <div class="sec-head"><span class="sec-label">Azure Development & AI Platform</span><div class="sec-head-line"></div></div>
+
+  <div class="rtbi-grid">
+    <div class="rtbi-card" style="--rc:#b388ff;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Microsoft Copilot Studio</div><div class="rtbi-card-type" style="color:#b388ff;">Agent & copilot development</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Low-code agent builder. Create custom copilots and agents. Natural language -> structured actions. Dataverse + API connectors. Ideal for Genies (specialist agents for discrete tasks).</p>
+        <div class="tag-row"><span class="tag violet">Low-code</span><span class="tag violet">Custom copilots</span><span class="tag violet">Dataverse native</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#40c4ff;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Azure AI Foundry</div><div class="rtbi-card-type" style="color:#40c4ff;">Agent orchestration  DOL pattern  LLM</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Pro-code agent orchestration. Implements Division of Labour (DOL) pattern: Orchestrator + specialist agents. LLM model deployment, prompt flow, evaluation. Agentic Factory core engine.</p>
+        <div class="tag-row"><span class="tag blue">Orchestrator pattern</span><span class="tag blue">DOL</span><span class="tag blue">Model deployment</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#1de9b6;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Azure Fabric</div><div class="rtbi-card-type" style="color:#1de9b6;">Unified data platform  OneLake  RTI</div></div></div>
+      <div class="rtbi-card-body">
+        <p>All-in-one analytics platform. OneLake (data lake), Real-Time Intelligence (streaming), Data Warehouse, Power BI integration. Unified Data layer + RTBI Analytics foundation.</p>
+        <div class="tag-row"><span class="tag teal">OneLake</span><span class="tag teal">Real-Time Intelligence</span><span class="tag teal">Power BI native</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#ff9100;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Azure IoT</div><div class="rtbi-card-type" style="color:#ff9100;">Device connectivity  Edge computing</div></div></div>
+      <div class="rtbi-card-body">
+        <p>IoT Hub for device-to-cloud telemetry. IoT Edge for on-premises compute. Enables Intelligent Buildings Mini-OS and physical edge Facts.</p>
+        <div class="tag-row"><span class="tag orange">IoT Hub</span><span class="tag orange">Edge runtime</span><span class="tag orange">Physical edge</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Azure Services  Data, Security, Integration</span><div class="sec-head-line"></div></div>
+
+  <table class="rule-table">
+    <thead><tr><th>Service</th><th>Role</th><th>RTBoss Component</th></tr></thead>
+    <tbody>
+      <tr><td>Dynamics 365 Customer Service</td><td>Service ticketing, case management, SLA tracking</td><td>MIP Mini-OS, Service ticket Digital Assets</td></tr>
+      <tr><td>Dynamics 365 Field Service</td><td>Field operations, work orders, technician dispatch</td><td>Field Services Mini-OS, Logistics Engine</td></tr>
+      <tr><td>Dynamics 365 Business Central</td><td>ERP  financials, supply chain, inventory, procurement</td><td>Finance OS, Operations OS, Manufacturing OS</td></tr>
+      <tr><td>Dataverse</td><td>Unified business data layer</td><td>Digital Assets storage, Unified Data</td></tr>
+      <tr><td>Cosmos DB</td><td>NoSQL database with multi-region replication</td><td>Digital Twin storage (append-only fact log)</td></tr>
+      <tr><td>Power BI</td><td>Business intelligence and dashboards</td><td>RTBI Analytics (real-time dashboards)</td></tr>
+      <tr><td>Azure Key Vault</td><td>Secrets, keys, certificate management</td><td>Security  API keys, connection strings</td></tr>
+      <tr><td>Azure Service Bus</td><td>Messaging and event streaming</td><td>Fact event streaming between systems</td></tr>
+      <tr><td>Entra ID</td><td>Identity and access management</td><td>Zero-trust identity, Personas, RBAC</td></tr>
+      <tr><td>Intune</td><td>Device management and security</td><td>Zero-trust device posture, mobile/desktop</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout success"><div class="callout-icon">?</div><div class="callout-body"><strong>Microsoft-only constraint rationale:</strong> Maximum security (single vendor trust boundary), unified data governance (Dataverse + OneLake), native integration (no API brittleness), AU data residency guarantee, ISO 27001/9001 compliance inheritance, and enterprise support SLAs across the entire stack.</div></div>
+
+  <div class="sec-head"><span class="sec-label">Infrastructure Tools  RMM, Network, Edge</span><div class="sec-head-line"></div></div>
+
+  <div class="rtbi-grid">
+    <div class="rtbi-card" style="--rc:#00e676;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Zero Touch AI</div><div class="rtbi-card-type" style="color:#00e676;">RMM  Remote Monitoring & Management</div></div></div>
+      <div class="rtbi-card-body">
+        <p>AI-powered RMM platform. Agent-based monitoring for Windows, macOS, Linux endpoints and servers. Automated patching, script execution, and remediation. Real-time telemetry feeding MIP Mini-OS as Facts.</p>
+        <div class="rtbi-metrics">
+          <div class="rtbi-metric"><span class="rm-label">Agent deployment</span><span class="rm-val" style="color:#00e676;">Windows  macOS  Linux</span></div>
+          <div class="rtbi-metric"><span class="rm-label">Monitoring scope</span><span class="rm-val" style="color:#00e676;">Endpoints  Servers  Apps</span></div>
+          <div class="rtbi-metric"><span class="rm-label">Automation</span><span class="rm-val" style="color:#00e676;">Patching  Scripts  Remediation</span></div>
+          <div class="rtbi-metric"><span class="rm-label">RTBoss integration</span><span class="rm-val" style="color:#00e676;">Facts -> MIP Mini-OS</span></div>
+        </div>
+        <div class="tag-row"><span class="tag green">Device telemetry</span><span class="tag green">Auto-remediation</span><span class="tag green">MIP integration</span></div>
+      </div>
+    </div>
+    <div class="rtbi-card" style="--rc:#40c4ff;">
+      <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Unifi Network</div><div class="rtbi-card-type" style="color:#40c4ff;">Networking  WiFi  Access Control  Surveillance</div></div></div>
+      <div class="rtbi-card-body">
+        <p>Ubiquiti UniFi ecosystem for network infrastructure. Switches, access points, gateways, cameras, access control. Centrally managed via UniFi Controller. Network telemetry and camera feeds as Facts for Intelligent Buildings Mini-OS.</p>
+        <div class="rtbi-metrics">
+          <div class="rtbi-metric"><span class="rm-label">Products</span><span class="rm-val" style="color:#40c4ff;">Network  WiFi  Cameras  Access</span></div>
+          <div class="rtbi-metric"><span class="rm-label">Management</span><span class="rm-val" style="color:#40c4ff;">UniFi Controller (cloud/self-hosted)</span></div>
+          <div class="rtbi-metric"><span class="rm-label">Telemetry</span><span class="rm-val" style="color:#40c4ff;">Network events  Device status  Camera motion</span></div>
+          <div class="rtbi-metric"><span class="rm-label">RTBoss integration</span><span class="rm-val" style="color:#40c4ff;">Facts -> Intelligent Buildings Mini-OS</span></div>
+        </div>
+        <div class="tag-row"><span class="tag blue">Physical edge</span><span class="tag blue">Network facts</span><span class="tag blue">Access control</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Robotics & Automation Partners</span><div class="sec-head-line"></div></div>
+
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+    <h3 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;">Physical Automation Layer  Future State</h3>
+    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1rem;">Robotics extend RTBoss to the physical edge  warehouse automation, facilities robots, manufacturing automation. Every robot action becomes a Fact. Every sensor reading triggers the Agentic Factory. Enables the full Intelligent Buildings and Manufacturing Mini-OS vision.</p>
+    
+    <div class="callout warn" style="margin-bottom:1.5rem;"><div class="callout-icon">?</div><div class="callout-body"><strong>Status: No active partnerships yet.</strong> Robotics integration is roadmap. Target partners will be identified as Intelligent Buildings Mini-OS and Manufacturing Mini-OS deployments scale. Integration pattern: robot telemetry -> Azure IoT Hub -> Service Bus -> Agentic Factory -> response command -> robot actuator.</div></div>
+
+    <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.3rem;border-bottom:1px solid var(--border);">Target Robotics Categories</h4>
+    <table class="rule-table">
+      <thead><tr><th>Category</th><th>Use Case</th><th>RTBoss Integration Point</th></tr></thead>
+      <tbody>
+        <tr><td>Warehouse AMRs (Autonomous Mobile Robots)</td><td>Inventory movement, picking, packing automation</td><td>Manufacturing OS, Logistics Engine</td></tr>
+        <tr><td>Facilities robots</td><td>Cleaning, security patrol, delivery within buildings</td><td>Intelligent Buildings Mini-OS</td></tr>
+        <tr><td>Collaborative robots (cobots)</td><td>Assembly assistance, quality inspection, material handling</td><td>Manufacturing OS, Operations OS</td></tr>
+        <tr><td>Drones</td><td>Site inspection, inventory audits, surveillance</td><td>Intelligent Buildings, Field Services</td></tr>
+        <tr><td>Robotic process automation (RPA)</td><td>Software bots for repetitive digital tasks</td><td>All Mini-OS instances via Power Automate Desktop</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.78rem;color:var(--mid);line-height:1.7;"><strong>Integration pattern:</strong> All robotics generate Facts (task_started, movement_completed, obstacle_detected, battery_low, task_failed) that flow into the RTBoss loop. The Agentic Factory decides next actions. Digital Twin stores full robot operational history for replay and optimization.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Vendor & Distribution Partners</span><div class="sec-head-line"></div></div>
+
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+    <h3 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;">Supply Chain & Distribution Network</h3>
+    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;">Vendor partners provide hardware, software licenses, and distribution services. These partnerships enable client deployments at scale without New Era IT holding inventory or managing fulfillment directly. Partner orders and deliveries become Facts in the Operations OS and Logistics Engine.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:1.5rem;">
+      
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">
+          <span style="font-size:1.1rem;">??</span>
+          <h4 style="font-weight:700;font-size:.88rem;color:#e8f4ff;">Pax8</h4>
+        </div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.5rem;">Cloud marketplace & distribution. Microsoft CSP, SaaS licenses, security tools.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--blue);letter-spacing:.05em;">CSP DISTRIBUTOR</div>
+      </div>
+
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">
+          <span style="font-size:1.1rem;">???</span>
+          <h4 style="font-weight:700;font-size:.88rem;color:#e8f4ff;">Leader Systems</h4>
+        </div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.5rem;">Australian IT distributor. Hardware, networking, peripherals.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--green);letter-spacing:.05em;">HARDWARE DISTRIBUTOR  AU</div>
+      </div>
+
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">
+          <span style="font-size:1.1rem;">??</span>
+          <h4 style="font-weight:700;font-size:.88rem;color:#e8f4ff;">Breeze Connect</h4>
+        </div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.5rem;">Managed connectivity provider. NBN, fiber, SD-WAN, mobile data.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--violet);letter-spacing:.05em;">CONNECTIVITY  AU</div>
+      </div>
+
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">
+          <span style="font-size:1.1rem;">??</span>
+          <h4 style="font-weight:700;font-size:.88rem;color:#e8f4ff;">Conetix</h4>
+        </div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.5rem;">Cloud hosting & infrastructure. Australian data center, VPS, colocation.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--teal);letter-spacing:.05em;">HOSTING  AU DATA RESIDENCY</div>
+      </div>
+
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">
+          <span style="font-size:1.1rem;">??</span>
+          <h4 style="font-weight:700;font-size:.88rem;color:#e8f4ff;">TelAir</h4>
+        </div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.5rem;">Telecommunications provider. Voice, mobile, data services.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--amber);letter-spacing:.05em;">TELCO  AU</div>
+      </div>
+
+    </div>
+
+    <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.3rem;border-bottom:1px solid var(--border);">Partner Integration with RTBoss</h4>
+    <table class="rule-table">
+      <thead><tr><th>Partner Type</th><th>Integration Method</th><th>Facts Generated</th><th>RTBoss Component</th></tr></thead>
+      <tbody>
+        <tr><td>CSP Distributor (Pax8)</td><td>API for order placement, license provisioning</td><td>order_placed  license_provisioned  renewal_due</td><td>Operations OS, Finance OS</td></tr>
+        <tr><td>Hardware Distributor (Leader)</td><td>API or EDI for orders, shipment tracking</td><td>order_placed  shipment_dispatched  delivery_confirmed</td><td>Operations OS, Logistics Engine</td></tr>
+        <tr><td>Connectivity (Breeze, TelAir)</td><td>API for service orders, outage notifications</td><td>service_ordered  outage_detected  service_restored</td><td>MIP Mini-OS, Operations OS</td></tr>
+        <tr><td>Hosting (Conetix)</td><td>API for provisioning, monitoring alerts</td><td>resource_provisioned  threshold_exceeded  incident_raised</td><td>MIP Mini-OS, Operations OS</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.78rem;color:var(--mid);line-height:1.7;"><strong>Future state:</strong> All vendor interactions automated via Power Automate + Copilot Studio agents. Order placement, shipment tracking, license renewals, and outage management happen automatically within the RTBoss loop. No manual vendor portals. Everything is a Fact.</p>
+  </div>
 
 </div></div>
+
+
+
 
 <!-- -- TAB 02 &middot; MICROSOFT 365 -- -->
 <div class="panel" id="tab-01"><div class="pw">
@@ -1588,6 +1812,8 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S05);
 </script>
 </body>
 </html>
+
+
 
 
 

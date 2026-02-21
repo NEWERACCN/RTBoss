@@ -181,6 +181,42 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .trk-ignored td{opacity:0.78;background:rgba(255,202,40,0.04);}
 .trk-deleted{display:none;}
 
+
+.def-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--green);line-height:1.65;margin:.75rem 0;}
+.def-block.violet{border-left-color:var(--violet);color:var(--violet);}
+.def-block.blue{border-left-color:var(--blue);color:var(--blue);}
+.def-block.amber{border-left-color:var(--amber);color:var(--amber);}
+.tag-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem;}
+.tag{font-family:'Fira Code',monospace;font-size:.58rem;padding:.15rem .55rem;border-radius:3px;letter-spacing:.04em;}
+.tag.green{background:rgba(0,230,118,.07);color:var(--green);border:1px solid rgba(0,230,118,.2);}
+.tag.blue{background:rgba(64,196,255,.07);color:var(--blue);border:1px solid rgba(64,196,255,.2);}
+.tag.amber{background:rgba(255,202,40,.07);color:var(--amber);border:1px solid rgba(255,202,40,.2);}
+.tag.violet{background:rgba(179,136,255,.07);color:var(--violet);border:1px solid rgba(179,136,255,.2);}
+.tag.teal{background:rgba(29,233,182,.07);color:var(--teal);border:1px solid rgba(29,233,182,.2);}
+.tag.pink{background:rgba(244,143,177,.07);color:var(--pink);border:1px solid rgba(244,143,177,.2);}
+.rtbi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:2rem;}
+.rtbi-card{background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--rc,var(--violet));border-radius:0 0 10px 10px;transition:border-color .2s,transform .2s;}
+.rtbi-card:hover{transform:translateY(-2px);}
+.rtbi-card-head{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);background:var(--s2);display:flex;align-items:center;gap:.75rem;}
+.rtbi-icon{font-size:1.2rem;flex-shrink:0;}
+.rtbi-card-title{font-weight:600;font-size:.88rem;color:#e8f4ff;}
+.rtbi-card-type{font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.08em;margin-top:.15rem;text-transform:uppercase;}
+.rtbi-card-body{padding:.9rem 1.1rem;}
+.rtbi-card-body p{font-size:.77rem;color:var(--mid);line-height:1.7;margin-bottom:.65rem;}
+.rtbi-metrics{display:flex;flex-direction:column;gap:5px;}
+.rtbi-metric{display:flex;justify-content:space-between;align-items:center;padding:.32rem 0;border-bottom:1px solid rgba(24,36,53,.6);font-size:.73rem;}
+.rtbi-metric:last-child{border-bottom:none;}
+.rm-label{color:var(--mid);} .rm-val{font-family:'Fira Code',monospace;font-weight:500;}
+
+.sec-head-line{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);}
+.callout{display:flex;gap:.75rem;padding:.85rem 1.1rem;border-radius:8px;font-size:.8rem;line-height:1.7;margin:1rem 0;}
+.callout-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem;}
+.callout-body{color:var(--mid);} .callout-body strong{color:var(--text);font-weight:500;}
+.callout.info{background:rgba(64,196,255,.05);border:1px solid rgba(64,196,255,.15);}
+.callout.success{background:rgba(0,230,118,.05);border:1px solid rgba(0,230,118,.18);}
+.callout.warn{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.18);}
+.callout.violet{background:rgba(179,136,255,.05);border:1px solid rgba(179,136,255,.18);}
+.callout.amber{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.2);}
 </style>
 </head>
 <body>
@@ -197,6 +233,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="tab" onclick="showTab('tab-3', this)">04 - System Opportunities</div>
   <div class="tab" onclick="showTab('tab-4', this)">05 - Client Tracking</div>
   <div class="tab" onclick="showTab('tab-5', this)">06 - RTBoss Tracking</div>
+  <div class="tab" onclick="showTab('tab-6', this)">07 - Design Philosophy</div>
 </div>
 
 
@@ -953,6 +990,154 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
 </div></div>
+<!-- -- TAB 07  DESIGN PHILOSOPHY -- -->
+<div class="panel" id="tab-6"><div class="pw">
+  <div class="sec-head" style="margin-bottom:2rem;">
+    <span class="sec-label">Model Strategy  Build vs Runtime  Foundry Architecture</span>
+    <div class="sec-head-line"></div>
+  </div>
+
+  <div style="max-width:860px;margin-bottom:2.5rem;">
+    <h2 style="font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">The Two-Layer Principle</h2>
+    <p style="font-size:0.82rem;color:var(--mid);line-height:1.85;">RTBoss operates on a strict separation between <strong style="color:var(--green)">construction time</strong> and <strong style="color:var(--violet)">runtime</strong>. These are not concurrent activities  they are sequential, use different models, and serve completely different purposes. Conflating them is the most common architectural mistake in multi-agent systems.</p>
+  </div>
+
+  <!-- TWO LAYER CARDS -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2.5rem;">
+
+    <div style="background:var(--s1);border:1px solid var(--border);border-top:3px solid #40c4ff;border-radius:0 0 10px 10px;padding:1.5rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:#40c4ff;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.75rem;">Layer 01  Construction Time</div>
+      <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">GPT-5.3-Codex</div>
+      <div style="font-size:0.75rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">Your engineer. Exits at deployment.</div>
+      <p style="font-size:0.79rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Codex 5.3 writes the system  not a deployed agent within it. It generates Foundry Agent Service registration code for all 13 agents from the RTBoss spec, writes Azure Function and Logic App tool bindings, and produces the full test harness for Phase 10 validation scenarios. With agent-teams mode, multiple Codex sessions work in parallel across agents.</p>
+      <div style="border-top:1px solid var(--border);padding-top:0.9rem;margin-top:0.5rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Codex 5.3 Responsibilities</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.9;">
+          -> Generate all 13 agent registration payloads<br>
+          -> Write Cosmos DB + Fabric + Service Bus connectors<br>
+          -> Scaffold orchestrator routing logic<br>
+          -> Build Phase 10 automated test scenarios<br>
+          -> Version, redeploy &amp; extend on spec change<br>
+          -> Collapses 11-phase build from days -> hours
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--violet);border-radius:0 0 10px 10px;padding:1.5rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.75rem;">Layer 02  Runtime  Every Order  Every Day</div>
+      <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Opus 4.6 + Sonnet 4.5</div>
+      <div style="font-size:0.75rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">Your workforce. Never exits.</div>
+      <p style="font-size:0.79rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Once deployed, Codex 5.3 steps out entirely. The production loop is owned by two Claude models with a deliberate cost/capability split  Opus 4.6 at the orchestration layer where deep planning earns its premium, Sonnet 4.5 across all 13 specialists where bounded, structured work runs reliably at a fraction of the cost.</p>
+      <div style="border-top:1px solid var(--border);padding-top:0.9rem;margin-top:0.5rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Runtime Model Assignment</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.9;">
+          <span style="color:var(--violet);">Opus 4.6</span> -> RTBossOrchestratorAgent only<br>
+          <span style="color:var(--green);">Sonnet 4.5</span> -> All 13 specialist agents<br>
+          <span style="color:var(--green);">Sonnet 4.5</span> -> CutoffOrchestratorAgent<br>
+          <span style="color:var(--blue);">Haiku 4.5</span> -> High-volume lookup &amp; validation<br>
+          -> ~1 Opus call per order loop<br>
+          -> ~12 cost reduction vs all-Opus approach
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHILOSOPHICAL DIFFERENCES -->
+  <div style="margin-bottom:2.5rem;">
+    <div class="sec-head" style="margin-bottom:1.25rem;">
+      <span class="sec-label">Strategic &amp; Philosophical Differences  Opus 4.6 vs Codex 5.3</span>
+      <div class="sec-head-line"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+      <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">Anthropic  Opus 4.6</div>
+        <div style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;">"Deep Thinker First"</div>
+        <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Opus 4.6 is built on a reliability-before-speed doctrine. Its core architectural bet  adaptive thinking  means the model decides when to reason deeply and when not to. This is Constitutional AI heritage made practical: safety and trustworthiness are baked into the model, not bolted on. It is optimised less for one-shot cleverness and more for robust, multi-turn, tool-using workflows.</p>
+        <div style="font-size:0.74rem;color:var(--dim);line-height:1.85;">
+          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RTBoss</div>
+          A pharmacy EMS making real dispatch decisions requires a model that checks its work, honours context across a long loop, and fails safely. Opus 4.6's caution is a feature, not a limitation. Its 1M token context holds an entire day's order history without degradation.
+        </div>
+      </div>
+      <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:#40c4ff;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">OpenAI  Codex 5.3</div>
+        <div style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;">"General-Purpose Builder"</div>
+        <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Codex 5.3 merges the previous GPT-5.2 reasoning model and the GPT-5.2-Codex coding agent into a single system. Its philosophy is end-to-end execution  not just writing functions, but understanding all the work around the code: updating Jira, writing documentation, managing deployment pipelines. It was the first model instrumentally involved in building itself, signalling OpenAI's accelerationist posture toward self-improvement loops.</p>
+        <div style="font-size:0.74rem;color:var(--dim);line-height:1.85;">
+          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RTBoss</div>
+          Codex 5.3's strength is construction velocity. The 11-phase build guide becomes a Codex session. Its interactive steering  where you can redirect it mid-task without losing context  is ideal for the iterative agent-scaffolding work that human engineers would otherwise spend days doing in the portal.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAFETY POSTURE NOTE -->
+  <div style="background:rgba(255,202,40,0.04);border:1px solid rgba(255,202,40,0.2);border-radius:8px;padding:1.1rem 1.25rem;margin-bottom:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;">
+    <div style="font-size:1.2rem;padding-top:0.1rem;">??</div>
+    <div>
+      <div style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;">Safety Posture Divergence</div>
+      <p style="font-size:0.77rem;color:var(--mid);line-height:1.8;">Codex 5.3 is the first model OpenAI has designated "High capability" for cybersecurity under their Preparedness Framework  they cannot rule out its ability to automate end-to-end operations against hardened targets. Anthropic's posture is more conservative by design. For RTBoss runtime, this divergence is decisive: Opus 4.6's Constitutional AI heritage is the right choice for a system that touches real patient prescriptions, AusPost dispatch, and financial reconciliation. Use Codex 5.3's power at build time; deploy Opus 4.6's trustworthiness at runtime.</p>
+    </div>
+  </div>
+
+  <!-- FOUNDRY ARCHITECTURE -->
+  <div class="sec-head" style="margin-bottom:1.25rem;">
+    <span class="sec-label">How Foundry Wires This Together  Three Primitives</span>
+    <div class="sec-head-line"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2.5rem;">
+    <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.1rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--green);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">01  Connected Agents</div>
+      <div style="font-size:0.84rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">Primary -> Sub-agent Delegation</div>
+      <p style="font-size:0.76rem;color:var(--mid);line-height:1.8;">The Opus 4.6 Orchestrator is the primary agent. The 13 Sonnet 4.5 specialists are connected sub-agents. Foundry manages context handoff, retries, and routing  no hand-coded routing logic required. This is the DOL pattern implemented natively in the platform.</p>
+    </div>
+    <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.1rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">02  Workflows</div>
+      <div style="font-size:0.84rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">Stateful Long-Running Loops</div>
+      <p style="font-size:0.76rem;color:var(--mid);line-height:1.8;">The context envelope  the Digital Twin state  lives in the Workflow layer between agent calls, not only in Cosmos DB. Built-in error handling, retries, and recovery replace most of the Service Bus dependency for inter-agent handoff. The full order loop is a single stateful Workflow execution.</p>
+    </div>
+    <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.1rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">03  Foundry IQ</div>
+      <div style="font-size:0.84rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">Unified Grounding API</div>
+      <p style="font-size:0.76rem;color:var(--mid);line-height:1.8;">DrugLookupAgent currently hits a Fabric Delta table directly. Foundry IQ becomes the abstraction layer  querying Fabric, OneLake, and drug reference data through one governed, permission-aware API. Reduces hardcoded connectors and respects data classification boundaries automatically.</p>
+    </div>
+  </div>
+
+  <!-- FORWARD LOOK -->
+  <div class="sec-head" style="margin-bottom:1.25rem;">
+    <span class="sec-label">Forward Look  Are We on the Right Track?</span>
+    <div class="sec-head-line"></div>
+  </div>
+  <div style="background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:2rem;">
+    <div style="font-size:0.88rem;font-weight:600;color:var(--green);margin-bottom:0.85rem;">RTBoss was designed for this model before either model existed.</div>
+    <p style="font-size:0.79rem;color:var(--mid);line-height:1.9;margin-bottom:1rem;">The Division of Labour pattern  specialist agents, clean context envelope, append-only audit trail, an orchestrator that routes but doesn't do  is precisely what both Foundry's Connected Agents primitive and Opus 4.6's parallel subagent capability were independently built to support. The architectural convergence is not coincidental: these are the patterns that work at scale for complex, multi-step, high-stakes workflows.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div>
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Validated by Platform Convergence</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.85;">
+          Opus 4.6 -> parallel subagents, context envelope, deep planning<br>
+          Foundry -> Connected Agents, stateful Workflows, governed tools<br>
+          Codex 5.3 -> agent-teams parallel build, self-healing scaffolding<br>
+          Microsoft Foundry -> only cloud with both GPT and Claude frontier models
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--amber);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">What Needs Updating</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.85;">
+          Build guide model refs -> replace gpt-4o-rtbos with Sonnet 4.5<br>
+          Orchestrator -> upgrade to Opus 4.6 in agent config<br>
+          High-volume lookups -> route to Haiku 4.5<br>
+          Service Bus handoffs -> evaluate Foundry Workflow replacement
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="def-block">// The verdict: RTBoss is architecturally sound for where both models are going. You are not behind the curve  you designed a system the platform is now catching up to. Being a Microsoft shop on Azure Foundry is the strategic advantage: both model families, one governance roof, one billing surface, one observability layer.</div>
+
+</div></div>
+<!-- -- END TAB 07 -- -->
+
+
 <script>
 function showTab(panelId, el){
   document.querySelectorAll('.tab').forEach((t)=>t.classList.remove('active'));
@@ -1053,6 +1238,8 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S06);
 </script>
 </body>
 </html>
+
+
 
 
 
