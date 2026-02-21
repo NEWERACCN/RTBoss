@@ -15,6 +15,10 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;overflow-x:hidden;}
 .container{max-width:1400px;margin:0 auto;padding:2rem;}
+.top-quicknav{display:flex;gap:.9rem;align-items:center;margin:.35rem 0 1.3rem;}
+.quick-btn{display:inline-flex;align-items:center;justify-content:center;min-width:180px;height:46px;padding:0 1.15rem;border:1px solid var(--border);border-radius:10px;background:var(--s1);color:var(--mid);text-decoration:none;font-family:'Fira Code',monospace;font-size:.78rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;transition:all .2s;}
+.quick-btn:hover{color:var(--text);border-color:var(--green);}
+.quick-btn.active{color:var(--green);border-color:rgba(0,230,118,.5);background:rgba(0,230,118,.08);}
 .header{text-align:center;padding:3.5rem 2rem 2.5rem;background:linear-gradient(180deg,var(--s1) 0%,var(--bg) 100%);border-bottom:1px solid var(--border);position:relative;}
 .header::before{content:'';position:absolute;top:0;left:0;right:0;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--border) 2px,var(--border) 4px),repeating-linear-gradient(90deg,transparent,transparent 2px,var(--border) 2px,var(--border) 4px);opacity:0.03;pointer-events:none;}
 .logo{font-size:2.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.35rem;color:var(--text);}
@@ -43,7 +47,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .phase-state.complete{color:var(--green);border-color:rgba(0,230,118,0.35);background:rgba(0,230,118,0.08);}
 .ws-progress{margin-left:auto;font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--mid);}
 .sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1.75rem;margin-bottom:0.5rem;}
-.section-card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:1.75rem;cursor:pointer;transition:all 0.25s ease;position:relative;overflow:hidden;text-decoration:none;color:var(--text);display:block;}
+.section-card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:1.75rem;cursor:pointer;transition:all 0.25s ease;position:relative;overflow:hidden;text-decoration:none;color:var(--text);display:flex;flex-direction:column;}
 .section-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity 0.25s ease;}
 .section-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.35);}
 .section-card:hover::before{opacity:1;}
@@ -51,9 +55,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .section-num{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;}
 .section-title{font-size:1.3rem;font-weight:700;margin-bottom:0.65rem;color:var(--text);}
 .section-desc{color:var(--mid);font-size:0.87rem;line-height:1.7;margin-bottom:1rem;}
-.section-meta{display:grid;grid-template-columns:1fr;gap:0.35rem;font-size:0.74rem;color:var(--dim);font-family:'Fira Code',monospace;}
+.section-meta{display:flex;align-items:center;gap:.55rem;font-size:0.74rem;color:var(--dim);font-family:'Fira Code',monospace;margin-top:auto;padding-top:.55rem;border-top:1px solid rgba(42,64,96,.5);}
+.section-meta .meta-chip{border-radius:999px;padding:.15rem .55rem;border:1px solid var(--border);}
+.section-meta .meta-tabs{color:var(--blue);background:rgba(64,196,255,.1);border-color:rgba(64,196,255,.3);}
+.section-meta .meta-groups{color:var(--teal);background:rgba(29,233,182,.1);border-color:rgba(29,233,182,.3);}
+.section-meta .meta-status{margin-left:auto;}
 .meta-complete{color:var(--green);}
 .meta-progress{color:var(--amber);}
+.meta-not-started{color:var(--red);}
 .meta-placeholder{color:var(--dim);}
 .card-featured{grid-column:1 / -1;background:linear-gradient(135deg,var(--s1) 0%,rgba(179,136,255,0.06) 100%);border:1px solid rgba(179,136,255,0.25);border-radius:16px;padding:2rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;cursor:pointer;transition:all 0.25s ease;text-decoration:none;color:var(--text);position:relative;overflow:hidden;}
 .card-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--violet),var(--blue),var(--teal));opacity:0;transition:opacity 0.25s;}
@@ -62,6 +71,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .cf-kicker{font-family:'Fira Code',monospace;font-size:0.68rem;color:var(--violet);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;}
 .cf-title{font-size:1.4rem;font-weight:700;margin-bottom:0.6rem;}
 .cf-desc{color:var(--mid);font-size:0.9rem;line-height:1.75;max-width:700px;}
+.cf-desc-list{color:var(--mid);font-size:0.9rem;line-height:1.75;max-width:700px;padding-left:1.1rem;}
+.cf-desc-list li{margin:0.2rem 0;}
 .cf-right{display:flex;gap:0.65rem;flex-wrap:wrap;}
 .cf-badge{padding:0.4rem 0.9rem;border-radius:100px;font-size:0.72rem;font-weight:600;white-space:nowrap;}
 .cf-b1{background:rgba(255,202,40,0.1);color:var(--amber);border:1px solid rgba(255,202,40,0.2);}
@@ -85,6 +96,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 </div>
 <div class="container">
+
+  <div class="top-quicknav">
+    <a class="quick-btn active" href="13-enterprise-build-plan.html#tab-11">Dashboard</a>
+  </div>
 
   <div class="stats">
     <div class="stat-card" style="--accent:var(--green);">
@@ -115,8 +130,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 
   <div class="progress-banner">
-    <span>?</span>
-    <span><strong>Active Build:</strong> Section 13 live for internal execution planning · Full section-by-section sweep in progress · Business Central and Contact Center now explicit critical deliverables · Productivity OS personal workspace, strategic mantras, care team model, and email template library added to internal rollout scope</span>
+    <span>Active Build</span>
+    <span><strong>Current Focus:</strong> This Is An Active Build In Stage 1 - Content Review.</span>
     <span class="ws-progress">Workstreams Complete: <strong id="ws-done">0</strong>/<strong id="ws-total">5</strong></span>
   </div>
 
@@ -131,14 +146,20 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="sections">
     <a href="rtbos-summaries.html" class="card-featured">
       <div class="cf-left">
-        <div class="cf-kicker">February 2026 · Audience-Tailored</div>
+        <div class="cf-kicker">February 2026 - Audience-Tailored</div>
         <div class="cf-title">RTBoss Audience Summaries</div>
-        <div class="cf-desc">Three tailored summaries for every conversation — Board &amp; Investors (commercial thesis, roadmap, model), Clients (outcomes, journey, commercial structure), and Social &amp; Future Stakeholders (vision, energy, shareability). Switch between audiences in one document.</div>
+        <ul class="cf-desc-list">
+          <li>Board &amp; Investors: Commercial thesis, roadmap, and model.</li>
+          <li>Clients: Outcomes, journey, and commercial structure.</li>
+          <li>Social &amp; Future Stakeholders: Vision, energy, and shareability.</li>
+          <li>Dark Factory: Maturity storyline for future operations.</li>
+        </ul>
       </div>
       <div class="cf-right">
         <span class="cf-badge cf-b1">Board &amp; Investors</span>
         <span class="cf-badge cf-b2">Clients</span>
         <span class="cf-badge cf-b3">Social &amp; Future</span>
+        <span class="cf-badge cf-b2">Dark Factory</span>
       </div>
     </a>
   </div>
@@ -153,65 +174,71 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div class="sections">
 
-    <a href="01-strategy.html" class="section-card" style="--accent:var(--green);">
+    <a href="01-strategy.html" class="section-card" data-progress-key="S01" style="--accent:var(--green);">
       <div class="section-num">Section 01</div>
       <div class="section-title">Strategic Framework</div>
       <div class="section-desc">Defines what RTBoss is, why it matters, and how value is created.</div>
       <div class="section-meta">
-        <span>Tabs: 5</span>
-        <span class="meta-complete">Complete</span>
+        <span class="meta-chip meta-tabs">Tabs: 5</span>
+        <span class="meta-chip meta-groups">Groups: 5</span>
+        <span class="meta-status meta-complete">Complete</span>
       </div>
     </a>
 
-    <a href="02-architecture.html" class="section-card" style="--accent:var(--blue);">
+    <a href="02-architecture.html" class="section-card" data-progress-key="S02" style="--accent:var(--blue);">
       <div class="section-num">Section 02</div>
       <div class="section-title">OS Framework</div>
       <div class="section-desc">Shows how the operating system is structured end to end.</div>
       <div class="section-meta">
-        <span>Tabs: 10</span>
-        <span class="meta-complete">Complete</span>
+        <span class="meta-chip meta-tabs">Tabs: 10</span>
+        <span class="meta-chip meta-groups">Groups: 10</span>
+        <span class="meta-status meta-complete">Complete</span>
       </div>
     </a>
 
-    <a href="03-infrastructure.html" class="section-card" style="--accent:var(--orange);">
+    <a href="03-infrastructure.html" class="section-card" data-progress-key="S05" style="--accent:var(--orange);">
       <div class="section-num">Section 03</div>
       <div class="section-title">Tech Infrastructure</div>
       <div class="section-desc">Covers the core technical stack, platform setup, and base controls.</div>
       <div class="section-meta">
-        <span>Tabs: 8</span>
-        <span class="meta-progress">In Progress</span>
+        <span class="meta-chip meta-tabs">Tabs: 8</span>
+        <span class="meta-chip meta-groups">Groups: 8</span>
+        <span class="meta-status meta-progress">In Progress</span>
       </div>
     </a>
 
-    <a href="04-minios.html" class="section-card" style="--accent:var(--violet);">
+    <a href="04-minios.html" class="section-card" data-progress-key="S03" style="--accent:var(--violet);">
       <div class="section-num">Section 04</div>
       <div class="section-title">Mini-OS Guides</div>
       <div class="section-desc">Step-by-step guides for each Mini-OS and how each one runs.</div>
       <div class="section-meta">
-        <span>Tabs: 14</span>
-        <span class="meta-progress">In Progress</span>
+        <span class="meta-chip meta-tabs">Tabs: 14</span>
+        <span class="meta-chip meta-groups">Groups: 14</span>
+        <span class="meta-status meta-progress">In Progress</span>
       </div>
     </a>
 
-    <a href="05-value-engines.html" class="section-card" style="--accent:var(--teal);">
+    <a href="05-value-engines.html" class="section-card" data-progress-key="S04" style="--accent:var(--teal);">
       <div class="section-num">Section 05</div>
       <div class="section-title">Value Engine Guides</div>
       <div class="section-desc">Build guides for the value engines and how they connect to operations.</div>
       <div class="section-meta">
-        <span>Tabs: 5</span>
-        <span class="meta-progress">In Progress</span>
+        <span class="meta-chip meta-tabs">Tabs: 5</span>
+        <span class="meta-chip meta-groups">Groups: 5</span>
+        <span class="meta-status meta-progress">In Progress</span>
       </div>
     </a>
 
 
 
-    <a href="08-delivery.html" class="section-card" style="--accent:var(--pink);">
+    <a href="08-delivery.html" class="section-card" data-progress-key="S08" style="--accent:var(--pink);">
       <div class="section-num">Section 06</div>
-      <div class="section-title">Continuous Delivery</div>
-      <div class="section-desc">Defines how work is shipped, tracked, and improved in live cycles.</div>
+      <div class="section-title">Continuous Delivery & Continuous Improvement</div>
+      <div class="section-desc">Defines how work is shipped, tracked, and continuously improved in live cycles.</div>
       <div class="section-meta">
-        <span>Tabs: 9</span>
-        <span class="meta-complete">Complete</span>
+        <span class="meta-chip meta-tabs">Tabs: 9</span>
+        <span class="meta-chip meta-groups">Groups: 9</span>
+        <span class="meta-status meta-complete">Complete</span>
       </div>
     </a>
 
@@ -232,33 +259,36 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div class="sections">
 
-    <a href="09-qms.html" class="section-card" style="--accent:var(--teal);">
+    <a href="09-qms.html" class="section-card" data-progress-key="S09" style="--accent:var(--teal);">
       <div class="section-num">Section 07</div>
       <div class="section-title">Quality Management System</div>
       <div class="section-desc">Defines quality rules, controls, and operating standards.</div>
       <div class="section-meta">
-        <span>Tabs: 7</span>
-        <span class="meta-complete">Complete</span>
+        <span class="meta-chip meta-tabs">Tabs: 7</span>
+        <span class="meta-chip meta-groups">Groups: 7</span>
+        <span class="meta-status meta-complete">Complete</span>
       </div>
     </a>
 
-    <a href="12-changelog-audit.html" class="section-card" style="--accent:var(--violet);">
+    <a href="12-changelog-audit.html" class="section-card" data-progress-key="S12" style="--accent:var(--violet);">
       <div class="section-num">Section 08</div>
       <div class="section-title">Changelog & Audit Standards</div>
       <div class="section-desc">Tracks changes, audit evidence, and review history.</div>
       <div class="section-meta">
-        <span>Tabs: 9</span>
-        <span class="meta-complete">Complete</span>
+        <span class="meta-chip meta-tabs">Tabs: 9</span>
+        <span class="meta-chip meta-groups">Groups: 9</span>
+        <span class="meta-status meta-complete">Complete</span>
       </div>
     </a>
 
-    <a href="06-execution.html" class="section-card" style="--accent:var(--amber);">
+    <a href="06-execution.html" class="section-card" data-progress-key="S06" style="--accent:var(--amber);">
       <div class="section-num">Section 09</div>
       <div class="section-title">Execution Standards</div>
       <div class="section-desc">Sets the standard way execution is measured and controlled.</div>
       <div class="section-meta">
-        <span>Tabs: 6</span>
-        <span class="meta-complete">Complete</span>
+        <span class="meta-chip meta-tabs">Tabs: 6</span>
+        <span class="meta-chip meta-groups">Groups: 6</span>
+        <span class="meta-status meta-complete">Complete</span>
       </div>
     </a>
 
@@ -268,39 +298,42 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-bar">
     <span class="phase-num">WORKSTREAM 4</span>
     <span class="phase-title">Visual Management</span>
-    <span class="phase-desc">Live Execution Tracking, Delivery Rhythm, And Project Control</span>
+    <span class="phase-desc">Live Execution Tracking, Delivery Rhythm, Reporting, And Project Control</span>
     <span class="phase-state" data-workstream-state="ws4">Open</span>
     <label class="phase-check"><input type="checkbox" data-workstream-key="ws4">Complete</label>
   </div>
   <div class="sections">
 
-    <a href="13-enterprise-build-plan.html" class="section-card" style="--accent:var(--violet);">
+    <a href="13-enterprise-build-plan.html" class="section-card" data-progress-key="S13" style="--accent:var(--violet);">
       <div class="section-num">Section 10</div>
-      <div class="section-title">Enterprise Build Plan</div>
+      <div class="section-title">RTBoss Project Management</div>
       <div class="section-desc">Program-level build plan with priorities, milestones, and ownership.</div>
       <div class="section-meta">
-        <span>Tabs: 9</span>
-        <span class="meta-progress">In Progress</span>
+        <span class="meta-chip meta-tabs">Tabs: 9</span>
+        <span class="meta-chip meta-groups">Groups: 9</span>
+        <span class="meta-status meta-progress">In Progress</span>
       </div>
     </a>
 
-    <a href="07-projects.html" class="section-card" style="--accent:var(--pink);">
+    <a href="07-projects.html" class="section-card" data-progress-key="S07" style="--accent:var(--pink);">
       <div class="section-num">Section 11</div>
       <div class="section-title">Client Projects</div>
       <div class="section-desc">Project pages for client delivery, scope, and progress.</div>
       <div class="section-meta">
-        <span>Tabs: 3</span>
-        <span class="meta-complete">Complete</span>
+        <span class="meta-chip meta-tabs">Tabs: 3</span>
+        <span class="meta-chip meta-groups">Groups: 3</span>
+        <span class="meta-status meta-complete">Complete</span>
       </div>
     </a>
 
-    <a href="#" class="section-card" style="--accent:var(--blue);" onclick="return false;">
+    <a href="13-enterprise-build-plan.html" class="section-card" data-progress-key="S15" style="--accent:var(--dim);">
       <div class="section-num">Section 12</div>
-      <div class="section-title">Continious Improvement</div>
-      <div class="section-desc">Captures what to fix next and how the system gets better each cycle.</div>
+      <div class="section-title">Reporting Dashboard</div>
+      <div class="section-desc">Central reporting dashboard for execution progress, section completion, and phase burndown.</div>
       <div class="section-meta">
-        <span>Tabs: 1</span>
-        <span class="meta-placeholder">Placeholder</span>
+        <span class="meta-chip meta-tabs">Tabs: 1-2</span>
+        <span class="meta-chip meta-groups">Groups: 1-2</span>
+        <span class="meta-status meta-progress">In Progress</span>
       </div>
     </a>
 
@@ -316,34 +349,25 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div class="sections">
 
-    <a href="10-agentic-factory-library.html" class="section-card" style="--accent:var(--amber);">
+    <a href="10-agentic-factory-library.html" class="section-card" data-progress-key="S10" style="--accent:var(--amber);">
       <div class="section-num">Section 13</div>
       <div class="section-title">Agentic Factory Library</div>
       <div class="section-desc">Catalog of agents, roles, and reusable factory components.</div>
       <div class="section-meta">
-        <span>Tabs: 4</span>
-        <span class="meta-progress">In Progress</span>
+        <span class="meta-chip meta-tabs">Tabs: 4</span>
+        <span class="meta-chip meta-groups">Groups: 4</span>
+        <span class="meta-status meta-progress">In Progress</span>
       </div>
     </a>
 
-    <a href="11-build-guides.html" class="section-card" style="--accent:var(--orange);">
+    <a href="11-build-guides.html" class="section-card" data-progress-key="S11" style="--accent:var(--orange);">
       <div class="section-num">Section 14</div>
       <div class="section-title">Build Guides</div>
       <div class="section-desc">Practical setup guides for teams building and operating RTBoss.</div>
       <div class="section-meta">
-        <span>Tabs: 4</span>
-        <span class="meta-progress">In Progress</span>
-      </div>
-    </a>
-
-  
-    <a href="#" class="section-card" style="--accent:var(--dim);" onclick="return false;">
-      <div class="section-num">Section 15</div>
-      <div class="section-title">Vault Placeholder</div>
-      <div class="section-desc">Reserved space for future vault content.</div>
-      <div class="section-meta">
-        <span>Tabs: 1</span>
-        <span class="meta-placeholder">Placeholder</span>
+        <span class="meta-chip meta-tabs">Tabs: 4</span>
+        <span class="meta-chip meta-groups">Groups: 4</span>
+        <span class="meta-status meta-progress">In Progress</span>
       </div>
     </a>
   </div>
@@ -351,9 +375,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 </div>
 
 <div class="footer">
-  RTBoss — Real-Time Business Operating System<br>
-  New Era IT · Brisbane, Australia · ISO 27001:2022 &amp; ISO 9001:2015 Integrated<br>
-  Baseline: February 19, 2026 · 17 files · 4 phases · 13 sections
+  Real-Time Business Operations System<br>
+  Baseline Date: February 19, 2026
 </div>
 
 <script>
@@ -398,10 +421,97 @@ function initWorkstreamProgress(){
   render();
 }
 
-document.addEventListener('DOMContentLoaded', initWorkstreamProgress);
+
+function initSectionCardProgress(){
+  var key='rtboss_content_review_progress_v1';
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.section-card[data-progress-key]'));
+  if(!cards.length){ return; }
+
+  function readProgress(){
+    try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch(e){ return {}; }
+  }
+
+  function setStatus(statusEl, cssClass, text){
+    if(!statusEl){ return; }
+    statusEl.classList.remove('meta-complete','meta-progress','meta-not-started');
+    statusEl.classList.add('meta-status');
+    statusEl.classList.add(cssClass);
+    statusEl.textContent=text;
+  }
+
+  function render(){
+    var progress=readProgress();
+    cards.forEach(function(card){
+      var sectionKey=card.getAttribute('data-progress-key');
+      var statusEl=card.querySelector('.section-meta span:last-child');
+      var groupsEl=card.querySelector('.meta-groups');
+      var payload=progress[sectionKey];
+      if(!payload || !Array.isArray(payload.groups)){
+        return;
+      }
+      var total=payload.groups.length;
+      var done=(typeof payload.done==='number') ? payload.done : payload.groups.filter(Boolean).length;
+      if(groupsEl){ groupsEl.textContent='Groups: '+String(total); }
+      if(total<=0){
+        setStatus(statusEl,'meta-not-started','Not Started');
+        return;
+      }
+      if(done<=0){
+        setStatus(statusEl,'meta-not-started','Not Started (0/'+total+')');
+      } else if(done>=total){
+        setStatus(statusEl,'meta-complete','Complete ('+total+'/'+total+')');
+      } else {
+        setStatus(statusEl,'meta-progress','In Progress ('+done+'/'+total+')');
+      }
+    });
+  }
+
+  render();
+  window.addEventListener('storage', function(e){
+    if(e.key===key){ render(); }
+  });
+}
+document.addEventListener('DOMContentLoaded', function(){ initWorkstreamProgress(); initSectionCardProgress(); });
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

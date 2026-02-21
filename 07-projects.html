@@ -34,6 +34,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .client-card:hover::before{opacity:1;}
 .client-card.placeholder{opacity:0.75;}
 .client-id{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;}
+.client-id.done{opacity:.85;text-decoration:line-through;}
+.sec-group-check{width:14px;height:14px;accent-color:var(--green);margin-left:.5rem;vertical-align:middle;}
 .client-name{font-size:1.5rem;font-weight:800;letter-spacing:-0.01em;margin-bottom:0.5rem;}
 .client-sector{font-size:0.82rem;color:var(--dim);font-family:'Fira Code',monospace;margin-bottom:1rem;}
 .client-desc{color:var(--mid);font-size:0.87rem;line-height:1.75;margin-bottom:1.5rem;}
@@ -122,8 +124,69 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 </div>
 
+<script>
+(function(){
+  var SECTION_KEY='S07';
+  var stateKey='rtboss_content_review_07_projects_v1';
+  var progressKey='rtboss_content_review_progress_v1';
+  var state={};
+  var syncing=false;
+  try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; }
+
+  function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} }
+  function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
+
+  function saveProgressFromUI(){
+    if(syncing){ return; }
+    var checks=Array.from(document.querySelectorAll('.sec-group-check'));
+    var groups=checks.map(function(cb){ return !!cb.checked; });
+    var p=readProgress();
+    p[SECTION_KEY]={ done: groups.filter(Boolean).length, groups: groups };
+    try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){}
+  }
+
+  function applyProgressToUI(){
+    var external=readProgress()[SECTION_KEY];
+    if(!external || !Array.isArray(external.groups)){ return; }
+    syncing=true;
+    var checks=Array.from(document.querySelectorAll('.sec-group-check'));
+    checks.forEach(function(cb, idx){
+      var v=!!external.groups[idx];
+      cb.checked=v;
+      var label=cb.previousElementSibling;
+      if(label){ label.classList.toggle('done', v); }
+    });
+    syncing=false;
+  }
+
+  document.querySelectorAll('.client-card .client-id').forEach(function(label, idx){
+    if(label.parentElement.querySelector('.sec-group-check')){ return; }
+    var title=(label.textContent||'').trim();
+    var id='client::'+idx+'::'+title;
+    var cb=document.createElement('input');
+    cb.type='checkbox';
+    cb.className='sec-group-check';
+    cb.dataset.reviewId=id;
+    cb.checked=!!state[id];
+    label.insertAdjacentElement('afterend', cb);
+    label.classList.toggle('done', cb.checked);
+    cb.addEventListener('change', function(){
+      state[id]=cb.checked;
+      saveState();
+      label.classList.toggle('done', cb.checked);
+      saveProgressFromUI();
+    });
+  });
+
+  applyProgressToUI();
+  saveProgressFromUI();
+  window.addEventListener('storage', function(e){ if(e.key===progressKey){ applyProgressToUI(); } });
+})();
+</script>
 </body>
 </html>
+
+
 
 
 

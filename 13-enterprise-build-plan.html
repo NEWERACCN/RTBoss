@@ -95,7 +95,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <body>
 
 <div class="nav-header">
-  <div class="nav-title">Section 10 - RTBoss Tracking</div>
+  <div class="nav-title">Section 10 - RTBoss Project Management</div>
   <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 
@@ -110,6 +110,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="tab" onclick="showTab('tab-8', this)">08 - 4-Person Delivery</div>
   <div class="tab" onclick="showTab('tab-9', this)">09 - Master Register Seed</div>
   <div class="tab" onclick="showTab('tab-10', this)">10 - Content Review Queue</div>
+  <div class="tab" onclick="showTab('tab-11', this)">11 - Reporting Dashboard</div>
 </div>
 
 <div class="panel active" id="tab-1"><div class="pw">
@@ -607,7 +608,111 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
 </div></div>
 
+
+<div class="panel" id="tab-11"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Reporting Layer Rebuild</div>
+    <h1 class="ph-title">Reporting Dashboard</h1>
+    <p class="ph-sub">This dashboard is being rebuilt. Section 10 remains the active execution view until the new reporting model is complete.</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>Status:</strong> Redesign in progress. This tab is reserved for the rebuilt reporting dashboard.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Dashboard Build Checklist</span><div class="sec-line"></div></div>
+  <div class="phase-check-grid" id="dashboard-check-grid">
+    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="scope">Dashboard Scope Locked</label>
+    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="tiles">Core Tiles Built</label>
+    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="sources">Data Sources Bound</label>
+    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="qa">QA Review Complete</label>
+    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="publish">Dashboard Published</label>
+  </div>
+</div></div>
 <script>
+
+function initReportingDashboardTab(){
+  var progressKey='rtboss_content_review_progress_v1';
+  var phaseKey='rtboss_phase_completion_v1';
+  var sectionKeys=['S01','S02','S03','S04','S05','S06','S07','S08','S09','S10','S11','S12','S13','S15'];
+
+  function read(k){ try{ return JSON.parse(localStorage.getItem(k)||'{}'); }catch(e){ return {}; } }
+
+  function render(){
+    var p=read(progressKey);
+    var complete=0, inProgress=0, notStarted=0;
+    sectionKeys.forEach(function(sk){
+      var row=p[sk];
+      if(!row || !Array.isArray(row.groups) || row.groups.length===0){ notStarted++; return; }
+      var total=row.groups.length;
+      var done=(typeof row.done==='number')?row.done:row.groups.filter(Boolean).length;
+      if(done<=0){ notStarted++; }
+      else if(done>=total){ complete++; }
+      else{ inProgress++; }
+    });
+
+    var phase=read(phaseKey);
+    var keys=['phase1','phase2','phase3','phase4','dashboard'];
+    var phaseDone=keys.filter(function(k){ return !!phase[k]; }).length;
+    var phasePct=Math.round((phaseDone/keys.length)*100);
+
+    var c=document.getElementById('dash-sections-complete'); if(c){ c.textContent=String(complete); }
+    var i=document.getElementById('dash-sections-progress'); if(i){ i.textContent=String(inProgress); }
+    var n=document.getElementById('dash-sections-not-started'); if(n){ n.textContent=String(notStarted); }
+    var pp=document.getElementById('dash-phase-pct'); if(pp){ pp.textContent=String(phasePct)+'%'; }
+  }
+
+  render();
+  window.addEventListener('storage', function(e){
+    if(e.key===progressKey || e.key===phaseKey){ render(); }
+  });
+}
+
+function initReportingDashboardChecklist(){
+  var sectionKey='S15';
+  var stateKey='rtboss_content_review_15_dashboard_v1';
+  var progressKey='rtboss_content_review_progress_v1';
+  var boxes=Array.prototype.slice.call(document.querySelectorAll('.dash-build-check'));
+  if(!boxes.length){ return; }
+
+  var state={};
+  try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; }
+
+  function saveState(){
+    try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){}
+  }
+
+  function saveProgress(){
+    var groups=boxes.map(function(cb){ return !!cb.checked; });
+    var done=groups.filter(Boolean).length;
+    var p={};
+    try{ p=JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ p={}; }
+    p[sectionKey]={ done: done, groups: groups };
+    try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){}
+  }
+
+  boxes.forEach(function(cb){
+    var k=cb.getAttribute('data-dash-key');
+    cb.checked=!!state[k];
+    cb.addEventListener('change', function(){
+      state[k]=cb.checked;
+      saveState();
+      saveProgress();
+    });
+  });
+
+  saveProgress();
+}
+
+
+function openTabFromHash(){
+  var hash=(window.location.hash||'').replace('#','');
+  if(!hash){ return; }
+  var panel=document.getElementById(hash);
+  if(!panel){ return; }
+  var tabEl=document.querySelector('.tab[onclick*="\''+hash+'\''"]');
+  if(tabEl){ showTab(hash, tabEl); }
+}
 function showTab(tabId, el){
   document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
   document.getElementById(tabId).classList.add('active');
@@ -1048,11 +1153,15 @@ function updateReviewBurndown(){
 document.addEventListener('DOMContentLoaded', function(){
   initArtifactBurndown();
   initPhaseCompletionControls();
+  initReportingDashboardChecklist();
   updatePhaseCompletionBurndown();
   renderArtifactMilestones();
   initMasterRegisterTracking();
   initReviewQueueTracking();
+  openTabFromHash();
 });
+
+window.addEventListener('hashchange', openTabFromHash);
 
 window.addEventListener('storage', function(e){
   if(e.key === 'rtboss_content_review_progress_v1'){
@@ -1066,6 +1175,13 @@ window.addEventListener('storage', function(e){
 
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
