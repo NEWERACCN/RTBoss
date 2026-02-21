@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss — Changelog & Audit Standards</title>
+<title>RTBoss - Section 09 - Audit Standards</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#020408;--s1:#0a1420;--s2:#12202e;--border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;--blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;--red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--cl:var(--violet);}
@@ -70,7 +70,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 </head>
 <body>
 <div class="nav-header">
-  <div class="nav-title">Section 09/12 - Audit Standards &amp; Changelog</div>
+  <div class="nav-title">Section 09 &middot; Audit Standards</div>
   <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 <div class="tabs">
@@ -88,7 +88,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <h1 class="ph-title">Version Control &amp; Changelog</h1>
     <p class="ph-sub">Every change to RTBoss — agents, system prompts, processes, ontology, documents, infrastructure — is versioned, logged, and traceable. Version control is not an admin burden; it is the audit trail that proves the system evolves intentionally.</p>
   </div>
-  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>ISO requirement:</strong> ISO 9001 Cl.7.5 requires that documented information be controlled — available when needed, adequately protected, and subject to distribution, access, retrieval, use, storage, and preservation controls. ISO 27001 Cl.7.5 has near-identical requirements. This Section 12 satisfies both.</div></div>
+  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>ISO requirement:</strong> ISO 9001 Cl.7.5 requires that documented information be controlled — available when needed, adequately protected, and subject to distribution, access, retrieval, use, storage, and preservation controls. ISO 27001 Cl.7.5 has near-identical requirements. This Section 09 satisfies both.</div></div>
 
   <div class="sh"><div class="sl">Versioning Scheme — Semantic Version Standard</div><div class="sline"></div></div>
   <p style="color:var(--mid);font-size:0.88rem;line-height:1.8;margin-bottom:1.5rem;">All RTBoss components use semantic versioning: <span style="font-family:Fira Code,monospace;color:var(--cl);">MAJOR.MINOR.PATCH</span>. The rules are strict — ambiguity about what constitutes a major vs minor change causes audit failures.</p>
@@ -141,7 +141,7 @@ Review &amp; Approval:
       <tr><td>Mini-OS / System</td><td class="mono">OS-xx</td><td>Dataverse + SharePoint</td><td>Tech Lead (MAJOR) · Author (MINOR)</td></tr>
       <tr><td>Ontology Entity</td><td class="mono">ENT-xxx</td><td>Dataverse schema</td><td>Tech Lead only — always MAJOR</td></tr>
       <tr><td>Document Template</td><td class="mono">[CLIENT]-[TYPE]-[DATE]-[nnn]</td><td>SharePoint document library</td><td>CSM (MINOR/PATCH) · MD (MAJOR)</td></tr>
-      <tr><td>QMS Section</td><td class="mono">09-qms.html</td><td>SharePoint · Playbook</td><td>Tech Lead · MD sign-off for MAJOR</td></tr>
+      <tr><td>QMS Section</td><td class="mono">07-qms.html</td><td>SharePoint · Playbook</td><td>Tech Lead · MD sign-off for MAJOR</td></tr>
       <tr><td>ISO Policy Document</td><td class="mono">NEIT-POL-xxx</td><td>SharePoint · Policies</td><td>MD only — annual review mandatory</td></tr>
       <tr><td>Risk Register Item</td><td class="mono">ENT-005</td><td>Dataverse neit_riskitem</td><td>Tech Lead · Quarterly review</td></tr>
     </tbody>
@@ -376,7 +376,7 @@ Filed: [SharePoint path]
 ??????????????????????????????????????????????????????????</div>
 
   <div class="sh"><div class="sl">The Continual Improvement Loop</div><div class="sline"></div></div>
-  <div class="callout ci-ok"><div class="ci">?</div><div class="cb"><strong>Section 12 closes the loop.</strong> Lessons feed NCRs. NCRs feed Changelog entries. Changelog entries update the Playbook. Internal audits verify the Playbook is being followed. Management Reviews assess whether the system is improving. The output of Management Reviews feeds the next sprint cycle. This is how RTBoss achieves ISO 9001 Cl.10.3 continual improvement — not as a compliance exercise, but as the operating rhythm of a system that genuinely learns.</div></div>
+  <div class="callout ci-ok"><div class="ci">?</div><div class="cb"><strong>Section 09 closes the loop.</strong> Lessons feed NCRs. NCRs feed Changelog entries. Changelog entries update the Playbook. Internal audits verify the Playbook is being followed. Management Reviews assess whether the system is improving. The output of Management Reviews feeds the next sprint cycle. This is how RTBoss achieves ISO 9001 Cl.10.3 continual improvement — not as a compliance exercise, but as the operating rhythm of a system that genuinely learns.</div></div>
 
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1.5rem 0;">
     <div style="font-family:Fira Code,monospace;font-size:0.65rem;color:var(--cl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;">The Improvement Cycle</div>
@@ -428,6 +428,15 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S12);
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
