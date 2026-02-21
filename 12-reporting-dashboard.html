@@ -6,28 +6,96 @@
 <title>RTBoss - Section 12 - Reporting Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#020408;--s1:#0a1420;--s2:#12202e;--border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;--green:#00e676;--teal:#1de9b6;--violet:#b388ff;--amber:#ffca28}
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#182a3d;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --green:#00e676;--teal:#1de9b6;--violet:#b388ff;--amber:#ffca28;--blue:#40c4ff;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6}
-.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+body{
+  background:
+    radial-gradient(circle at 15% -10%, rgba(64,196,255,.18), transparent 38%),
+    radial-gradient(circle at 90% 0%, rgba(0,230,118,.1), transparent 34%),
+    linear-gradient(180deg,#020408 0%, #050b14 45%, #040912 100%);
+  color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6
+}
+.nav-header{
+  background:linear-gradient(180deg,rgba(10,20,32,.96),rgba(10,20,32,.9));
+  border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(8px)
+}
 .nav-title{font-size:1.2rem;font-weight:700;color:#00e676}
 .nav-back{color:var(--mid);text-decoration:none;font-size:.9rem}
-.wrap{max-width:1400px;margin:0 auto;padding:2rem}
+.tabs{
+  background:linear-gradient(180deg,rgba(10,20,32,.95),rgba(8,16,26,.92));
+  border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:.6rem;position:sticky;top:57px;z-index:99
+}
+.tab{
+  padding:1rem 1.25rem;border:none;background:transparent;color:var(--dim);cursor:pointer;border-bottom:2px solid transparent;font-weight:600;
+  transition:all .18s ease
+}
+.tab:hover{color:var(--mid)}
+.tab.active{color:var(--green);border-bottom-color:var(--green);text-shadow:0 0 10px rgba(0,230,118,.25)}
+.panel{display:none}
+.panel.active{display:block;animation:fadeUp .26s ease}
+.wrap{max-width:1540px;margin:0 auto;padding:2rem}
 .ph{text-align:center;padding:1rem 0 2rem}
 .ph-kicker{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--violet);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.75rem}
 .ph-title{font-size:2.2rem;font-weight:800;margin-bottom:.7rem}
 .ph-sub{color:var(--mid);max-width:900px;margin:0 auto}
-.callout{margin:0 0 1.25rem;background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:1rem;color:var(--mid)}
+.callout{
+  margin:0 0 1.25rem;background:linear-gradient(180deg,rgba(18,32,46,.9),rgba(14,26,40,.92));
+  border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:1rem;color:var(--mid)
+}
 .sec-head{display:flex;align-items:center;gap:1rem;margin:1.75rem 0 .9rem}
-.sec-label{font-family:'Fira Code',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.sec-label{
+  font-family:'Fira Code',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
+  background:rgba(29,233,182,.08);border:1px solid rgba(29,233,182,.25);padding:.3rem .5rem;border-radius:6px
+}
 .sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(29,233,182,.35),transparent)}
 .metrics{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:1rem}
-.metric{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem}
+.metric{
+  position:relative;background:linear-gradient(180deg,rgba(10,20,32,.95),rgba(8,16,26,.98));
+  border:1px solid var(--border);border-radius:12px;padding:1rem;overflow:hidden
+}
+.metric::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--blue),transparent)
+}
 .metric .k{font-family:'Fira Code',monospace;font-size:.65rem;color:var(--mid);letter-spacing:.08em;text-transform:uppercase}
 .metric .v{font-size:1.5rem;font-weight:800;margin-top:.2rem}
 .phase-check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.7rem}
-.phase-check-item{display:flex;align-items:center;gap:.6rem;background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:.75rem .9rem;color:var(--mid)}
+.phase-check-item{
+  display:flex;align-items:center;gap:.6rem;background:linear-gradient(180deg,rgba(10,20,32,.95),rgba(8,16,26,.98));
+  border:1px solid var(--border);border-radius:10px;padding:.75rem .9rem;color:var(--mid)
+}
 .phase-check-item input{accent-color:var(--green);width:16px;height:16px}
+.burndown-grid{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:1rem}
+.bd-card{
+  background:linear-gradient(180deg,rgba(10,20,32,.95),rgba(8,16,26,.98));
+  border:1px solid var(--border);border-radius:12px;padding:1rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)
+}
+.bd-title{font-size:.95rem;font-weight:700;margin-bottom:.55rem}
+.bd-meta{font-size:.82rem;color:var(--mid);margin-top:.4rem}
+.bd-bar{height:10px;background:#08121d;border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.bd-fill{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--green));transition:width .25s ease}
+.client-list{display:grid;gap:.45rem}
+.client-row{display:grid;grid-template-columns:95px 1fr 42px;gap:.45rem;align-items:center;font-size:.78rem;color:var(--mid)}
+.client-row .mini{height:8px;background:#08121d;border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.client-row .mini > span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--green))}
+.metric-placeholders{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:.85rem}
+.metric-ph{
+  background:linear-gradient(180deg,rgba(10,20,32,.94),rgba(8,16,26,.98));
+  border:1px dashed #3b5779;border-radius:12px;padding:.9rem;min-height:84px;position:relative;overflow:hidden
+}
+.metric-ph::after{
+  content:'';position:absolute;top:-40%;right:-20%;width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(64,196,255,.16),transparent 68%)
+}
+.metric-ph .k{font-family:'Fira Code',monospace;font-size:.62rem;color:var(--mid);letter-spacing:.08em;text-transform:uppercase}
+.metric-ph .v{font-size:1.2rem;font-weight:800;margin-top:.25rem;color:#d7e8fa}
+.draft-link{display:inline-block;margin-top:.8rem;padding:.65rem .95rem;border:1px solid var(--border);border-radius:8px;background:var(--s1);color:var(--text);text-decoration:none}
+.draft-link:hover{border-color:var(--teal);color:var(--teal)}
+@keyframes fadeUp{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
@@ -36,34 +104,97 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;lin
   <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 
-<div class="wrap">
-  <div class="ph">
-    <div class="ph-kicker">Reporting Layer Rebuild</div>
-    <h1 class="ph-title">Reporting Dashboard</h1>
-    <p class="ph-sub">Section 12 is the reporting view for build progress and completion status.</p>
-  </div>
-
-  <div class="callout"><strong>Status:</strong> Redesign in progress. This section is reserved for the rebuilt reporting dashboard.</div>
-
-  <div class="sec-head"><span class="sec-label">Dashboard Snapshot</span><div class="sec-line"></div></div>
-  <div class="metrics">
-    <div class="metric"><div class="k">Sections Complete</div><div class="v" id="dash-sections-complete">0</div></div>
-    <div class="metric"><div class="k">Sections In Progress</div><div class="v" id="dash-sections-progress">0</div></div>
-    <div class="metric"><div class="k">Sections Not Started</div><div class="v" id="dash-sections-not-started">0</div></div>
-    <div class="metric"><div class="k">Workstream Complete</div><div class="v" id="dash-phase-pct">0%</div></div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Dashboard Build Checklist</span><div class="sec-line"></div></div>
-  <div class="phase-check-grid" id="dashboard-check-grid">
-    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="scope">Dashboard Scope Locked</label>
-    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="tiles">Core Tiles Built</label>
-    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="sources">Data Sources Bound</label>
-    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="qa">QA Review Complete</label>
-    <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="publish">Dashboard Published</label>
-  </div>
+<div class="tabs">
+  <button class="tab active" onclick="showTab(0)">01 - Overview</button>
+  <button class="tab" onclick="showTab(1)">02 - Dashboard</button>
+  <button class="tab" onclick="showTab(2)">03 - Digital Twin Draft</button>
 </div>
 
+<section class="panel active" id="tab-0">
+  <div class="wrap">
+    <div class="ph">
+      <div class="ph-kicker">Reporting Layer Rebuild</div>
+      <h1 class="ph-title">Overview</h1>
+      <p class="ph-sub">Section 12 is the reporting view for build progress and completion status.</p>
+    </div>
+    <div class="callout"><strong>Status:</strong> Redesign in progress. This section is reserved for the rebuilt reporting dashboard.</div>
+  </div>
+</section>
+
+<section class="panel" id="tab-1">
+  <div class="wrap">
+    <div class="ph">
+      <div class="ph-kicker">Reporting Layer Rebuild</div>
+      <h1 class="ph-title">Dashboard</h1>
+      <p class="ph-sub">Live metrics and checklist tracking for Section 12.</p>
+    </div>
+
+    <div class="sec-head"><span class="sec-label">Dashboard Snapshot</span><div class="sec-line"></div></div>
+    <div class="metrics">
+      <div class="metric"><div class="k">Sections Complete</div><div class="v" id="dash-sections-complete">0</div></div>
+      <div class="metric"><div class="k">Sections In Progress</div><div class="v" id="dash-sections-progress">0</div></div>
+      <div class="metric"><div class="k">Sections Not Started</div><div class="v" id="dash-sections-not-started">0</div></div>
+      <div class="metric"><div class="k">Workstream Complete</div><div class="v" id="dash-phase-pct">0%</div></div>
+    </div>
+
+    <div class="sec-head"><span class="sec-label">Major Phase Burn Down</span><div class="sec-line"></div></div>
+    <div class="burndown-grid">
+      <div class="bd-card">
+        <div class="bd-title">Content Burn Down</div>
+        <div class="bd-bar"><span class="bd-fill" id="bd-content-fill"></span></div>
+        <div class="bd-meta" id="bd-content-meta">0%</div>
+      </div>
+      <div class="bd-card">
+        <div class="bd-title">Milestone Seed Burn Down</div>
+        <div class="bd-bar"><span class="bd-fill" id="bd-seed-fill"></span></div>
+        <div class="bd-meta" id="bd-seed-meta">0%</div>
+      </div>
+      <div class="bd-card">
+        <div class="bd-title">Dark Factory Burn Down</div>
+        <div class="bd-bar"><span class="bd-fill" id="bd-dark-fill"></span></div>
+        <div class="bd-meta" id="bd-dark-meta">0%</div>
+      </div>
+      <div class="bd-card">
+        <div class="bd-title">Each Client Burn Down</div>
+        <div class="client-list" id="client-burndown-list"></div>
+      </div>
+    </div>
+
+    <div class="sec-head"><span class="sec-label">Metric Placeholders (15)</span><div class="sec-line"></div></div>
+    <div class="metric-placeholders" id="metric-placeholder-grid"></div>
+
+    <div class="sec-head"><span class="sec-label">Dashboard Build Checklist</span><div class="sec-line"></div></div>
+    <div class="phase-check-grid" id="dashboard-check-grid">
+      <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="scope">Dashboard Scope Locked</label>
+      <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="tiles">Core Tiles Built</label>
+      <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="sources">Data Sources Bound</label>
+      <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="qa">QA Review Complete</label>
+      <label class="phase-check-item"><input type="checkbox" class="dash-build-check" data-dash-key="publish">Dashboard Published</label>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="tab-2">
+  <div class="wrap">
+    <div class="ph">
+      <div class="ph-kicker">Digital Twin</div>
+      <h1 class="ph-title">Digital Twin Draft</h1>
+      <p class="ph-sub">Working draft for the factory-style visual management twin used to track burndown and operational state.</p>
+    </div>
+    <div class="callout"><strong>Draft location:</strong> The active draft is maintained on a separate page to avoid disturbing the baseline dashboard.</div>
+    <a class="draft-link" href="visual-management-draft.html">Open Digital Twin Draft</a>
+  </div>
+</section>
+
 <script>
+function showTab(i){
+  var tabs=document.querySelectorAll('.tab');
+  var panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(t,n){ t.classList.toggle('active',n===i); });
+  panels.forEach(function(p,n){ p.classList.toggle('active',n===i); });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
 function initReportingDashboardTab(){
   var progressKey='rtboss_content_review_progress_v1';
   var phaseKey='rtboss_phase_completion_v1';
@@ -85,14 +216,16 @@ function initReportingDashboardTab(){
     var keys=['phase1','phase2','phase3','phase4','dashboard'];
     var phaseDone=keys.filter(function(k){ return !!phase[k]; }).length;
     var phasePct=Math.round((phaseDone/keys.length)*100);
-    document.getElementById('dash-sections-complete').textContent=String(complete);
-    document.getElementById('dash-sections-progress').textContent=String(inProgress);
-    document.getElementById('dash-sections-not-started').textContent=String(notStarted);
-    document.getElementById('dash-phase-pct').textContent=String(phasePct)+'%';
+    var el;
+    el=document.getElementById('dash-sections-complete'); if(el){ el.textContent=String(complete); }
+    el=document.getElementById('dash-sections-progress'); if(el){ el.textContent=String(inProgress); }
+    el=document.getElementById('dash-sections-not-started'); if(el){ el.textContent=String(notStarted); }
+    el=document.getElementById('dash-phase-pct'); if(el){ el.textContent=String(phasePct)+'%'; }
   }
   render();
   window.addEventListener('storage', function(e){ if(e.key===progressKey || e.key===phaseKey){ render(); } });
 }
+
 function initReportingDashboardChecklist(){
   var sectionKey='S12';
   var stateKey='rtboss_content_review_12_dashboard_v1';
@@ -117,9 +250,86 @@ function initReportingDashboardChecklist(){
   });
   saveProgress();
 }
-document.addEventListener('DOMContentLoaded', function(){ initReportingDashboardTab(); initReportingDashboardChecklist(); });
+
+function initDashboardStructure(){
+  var host=document.getElementById('metric-placeholder-grid');
+  if(!host){ return; }
+  host.innerHTML='';
+  for(var i=1;i<=15;i++){
+    var card=document.createElement('div');
+    card.className='metric-ph';
+    card.innerHTML='<div class="k">Metric '+String(i).padStart(2,'0')+'</div><div class="v">--</div>';
+    host.appendChild(card);
+  }
+}
+
+function initMajorBurndown(){
+  var progressKey='rtboss_content_review_progress_v1';
+  var darkKey='rtboss_dark_factory_progress_v1';
+  var clientsKey='rtboss_client_burndown_v1';
+  var contentSections=['S01','S02','S03','S04','S05','S06','S07','S08','S09','S10','S11','S12','S13','S14','S15'];
+
+  function readObj(key){
+    try{ return JSON.parse(localStorage.getItem(key)||'{}'); }catch(e){ return {}; }
+  }
+  function sectionPct(row){
+    if(!row){ return 0; }
+    var total=(Array.isArray(row.groups) && row.groups.length)?row.groups.length:0;
+    var done=(typeof row.done==='number')?row.done:(Array.isArray(row.groups)?row.groups.filter(Boolean).length:0);
+    return total?Math.max(0,Math.min(100,Math.round((done/total)*100))):0;
+  }
+  function setBar(fillId, metaId, pct){
+    var fill=document.getElementById(fillId);
+    var meta=document.getElementById(metaId);
+    if(fill){ fill.style.width=String(pct)+'%'; }
+    if(meta){ meta.textContent=String(pct)+'%'; }
+  }
+  function render(){
+    var p=readObj(progressKey);
+    var done=0,total=0;
+    contentSections.forEach(function(sk){
+      var row=p[sk];
+      if(!row || !Array.isArray(row.groups) || row.groups.length===0){ return; }
+      total+=row.groups.length;
+      done+=(typeof row.done==='number')?row.done:row.groups.filter(Boolean).length;
+    });
+    var contentPct=total?Math.max(0,Math.min(100,Math.round((done/total)*100))):0;
+
+    var seedPct=sectionPct(p.S10);
+    var dark=readObj(darkKey);
+    var darkPct=(typeof dark.pct==='number')?Math.max(0,Math.min(100,Math.round(dark.pct))):0;
+
+    setBar('bd-content-fill','bd-content-meta',contentPct);
+    setBar('bd-seed-fill','bd-seed-meta',seedPct);
+    setBar('bd-dark-fill','bd-dark-meta',darkPct);
+
+    var clientHost=document.getElementById('client-burndown-list');
+    if(clientHost){
+      var clients=readObj(clientsKey);
+      var rows=[
+        {name:'EMS',pct:(typeof clients.ems==='number')?clients.ems:(typeof clients.client01==='number'?clients.client01:sectionPct(p.S11))},
+        {name:'RDM',pct:(typeof clients.rdm==='number')?clients.rdm:(typeof clients.client02==='number'?clients.client02:0)},
+        {name:'RLAW',pct:(typeof clients.rlaw==='number')?clients.rlaw:(typeof clients.client03==='number'?clients.client03:0)}
+      ];
+      clientHost.innerHTML=rows.map(function(r){
+        var pct=Math.max(0,Math.min(100,Math.round(r.pct)));
+        return '<div class="client-row"><span>'+r.name+'</span><div class="mini"><span style="width:'+pct+'%"></span></div><strong>'+pct+'%</strong></div>';
+      }).join('');
+    }
+  }
+  render();
+  window.addEventListener('storage', function(e){
+    if(e.key===progressKey || e.key===darkKey || e.key===clientsKey){ render(); }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  initDashboardStructure();
+  initMajorBurndown();
+  initReportingDashboardTab();
+  initReportingDashboardChecklist();
+});
 </script>
 </body>
 </html>
-
 

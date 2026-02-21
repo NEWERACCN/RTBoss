@@ -1,113 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RTBoss - Visual Management Draft</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss - Digital Twin Draft Selector</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#020408;--s1:#0a1420;--s2:#12202e;--border:#2a4060;
-  --text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
-  --green:#00e676;--amber:#ffca28;--red:#ff5252;--blue:#40c4ff;--teal:#1de9b6;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.5;}
-.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
-.nav-title{font-size:1.2rem;font-weight:700;color:var(--green);}
-.nav-back{color:var(--mid);text-decoration:none;font-size:.9rem;}
-.wrap{max-width:1400px;margin:0 auto;padding:1.25rem 2rem 2rem;}
-.note{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:.8rem 1rem;color:var(--mid);font-size:.88rem;margin-bottom:1.1rem;}
-.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1rem;}
-.card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem;}
-.kpi{grid-column:span 3;}
-.k-label{font-family:'Fira Code',monospace;font-size:.64rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;}
-.k-val{font-size:1.7rem;font-weight:700;}
-.k-sub{color:var(--mid);font-size:.8rem;}
-.lines{grid-column:span 8;}
-.alerts{grid-column:span 4;}
-.tbl{width:100%;border-collapse:collapse;font-size:.84rem;}
-.tbl th,.tbl td{padding:.5rem .45rem;border-bottom:1px solid rgba(42,64,96,.45);text-align:left;}
-.tbl th{font-family:'Fira Code',monospace;font-size:.62rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;}
-.badge{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:.15rem .5rem;font-family:'Fira Code',monospace;font-size:.62rem;}
-.b-ok{color:var(--green);border-color:rgba(0,230,118,.4);background:rgba(0,230,118,.08);} 
-.b-risk{color:var(--amber);border-color:rgba(255,202,40,.4);background:rgba(255,202,40,.08);} 
-.b-stop{color:var(--red);border-color:rgba(255,82,82,.4);background:rgba(255,82,82,.08);} 
-.chart{height:220px;border:1px dashed rgba(64,196,255,.35);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-family:'Fira Code',monospace;font-size:.75rem;background:rgba(64,196,255,.04);} 
-.burndown{grid-column:span 6;}
-.twin{grid-column:span 6;}
-.full{grid-column:span 12;}
-@media(max-width:1100px){.kpi{grid-column:span 6;}.lines,.alerts,.burndown,.twin{grid-column:span 12;}}
+:root{--bg:#040912;--s1:#0c1b2d;--line:#2c4868;--text:#e9f3ff;--muted:#9ab3cc;--green:#00e676;--blue:#40c4ff;--teal:#1de9b6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(circle at 20% -10%,#17406b 0%,#081523 34%,#040912 72%);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.4}
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,27,45,.9);backdrop-filter:blur(7px);border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.nav .title{font-weight:800;color:var(--green);font-size:20px}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px}
+.wrap{max-width:1200px;margin:0 auto;padding:22px}
+.kicker{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.h1{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--muted);max-width:820px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.card{background:linear-gradient(180deg,rgba(20,41,64,.9),rgba(12,27,45,.95));border:1px solid var(--line);border-radius:12px;padding:16px}
+.card h2{font-size:24px;margin-bottom:8px}
+.card p{color:var(--muted);margin-bottom:12px}
+.btn{display:inline-block;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:#0d1d30;color:var(--text);text-decoration:none;font-weight:700}
+.btn:hover{border-color:var(--blue);color:var(--blue)}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="nav-header">
-  <div class="nav-title">Visual Management - Draft</div>
-  <a class="nav-back" href="index.html">Back to Hub</a>
+<div class="nav">
+  <div class="title">Digital Twin Drafts</div>
+  <a href="12-reporting-dashboard.html#tab-2">Back to Section 12</a>
 </div>
 <div class="wrap">
-  <div class="note"><strong>Draft Only:</strong> Layout and logic placeholders for factory-style visual management. No production data wiring yet.</div>
+  <div class="kicker">Choose View</div>
+  <div class="h1">2D and 3D Draft Modes</div>
+  <div class="sub">Both drafts use the same content-burndown model: 15 sections as lanes, tabs as stations, and groups as sub-groups.</div>
 
   <div class="grid">
-    <div class="card kpi"><div class="k-label">Program Completion</div><div class="k-val">42%</div><div class="k-sub">From section checkbox twin</div></div>
-    <div class="card kpi"><div class="k-label">Weekly Throughput</div><div class="k-val">+37</div><div class="k-sub">Groups completed this week</div></div>
-    <div class="card kpi"><div class="k-label">Active Blockers</div><div class="k-val">6</div><div class="k-sub">Items over SLA threshold</div></div>
-    <div class="card kpi"><div class="k-label">Forecast Finish</div><div class="k-val">18 Days</div><div class="k-sub">Velocity-based estimate</div></div>
-
-    <div class="card lines">
-      <div class="k-label">Line Status (Workstreams)</div>
-      <table class="tbl">
-        <thead><tr><th>Line</th><th>Status</th><th>Done/Total</th><th>WIP</th><th>Owner</th></tr></thead>
-        <tbody>
-          <tr><td>WS1 Summaries</td><td><span class="badge b-risk">At Risk</span></td><td>2/4</td><td>2</td><td>Comms</td></tr>
-          <tr><td>WS2 Foundation</td><td><span class="badge b-ok">Running</span></td><td>84/141</td><td>11</td><td>Architecture</td></tr>
-          <tr><td>WS3 Standards</td><td><span class="badge b-ok">Running</span></td><td>39/58</td><td>5</td><td>QMS</td></tr>
-          <tr><td>WS4 Visual Management</td><td><span class="badge b-risk">At Risk</span></td><td>14/30</td><td>7</td><td>Delivery</td></tr>
-          <tr><td>WS5 Vaults</td><td><span class="badge b-stop">Blocked</span></td><td>9/35</td><td>4</td><td>Build Team</td></tr>
-        </tbody>
-      </table>
+    <div class="card">
+      <h2>2D Draft</h2>
+      <p>Flat, dense operations view for fast reading and review sessions.</p>
+      <a class="btn" href="visual-management-draft-2d.html">Open 2D Draft</a>
     </div>
-
-    <div class="card alerts">
-      <div class="k-label">Alert Queue</div>
-      <table class="tbl">
-        <thead><tr><th>Age</th><th>Alert</th></tr></thead>
-        <tbody>
-          <tr><td>9d</td><td>WS5 blocked by seed definition gaps</td></tr>
-          <tr><td>6d</td><td>Section 10 queue growth > completion</td></tr>
-          <tr><td>4d</td><td>Summaries publish lag in Dark Factory tab</td></tr>
-          <tr><td>2d</td><td>QMS evidence link consistency check</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card burndown">
-      <div class="k-label">Burndown Twin View</div>
-      <div class="chart">[Burndown Chart Placeholder - Section + Workstream]</div>
-    </div>
-
-    <div class="card twin">
-      <div class="k-label">Digital Twin Event Stream</div>
-      <div class="chart">[Event Timeline Placeholder - checkbox events -> aggregate snapshots]</div>
-    </div>
-
-    <div class="card full">
-      <div class="k-label">Design Notes</div>
-      <table class="tbl">
-        <thead><tr><th>Layer</th><th>Role</th><th>Data Source</th></tr></thead>
-        <tbody>
-          <tr><td>Tracking Layer</td><td>Write progress facts at section/tab level</td><td>Per-page checkboxes</td></tr>
-          <tr><td>Twin Layer</td><td>Aggregate events into current state and trend</td><td>rtboss_content_review_progress_v1 + event log</td></tr>
-          <tr><td>Visual Layer</td><td>Factory-style operations board for leadership + client demos</td><td>Read-only from twin</td></tr>
-        </tbody>
-      </table>
+    <div class="card">
+      <h2>3D Draft</h2>
+      <p>Isometric software factory view with station blocks and depth.</p>
+      <a class="btn" href="visual-management-draft-3d.html">Open 3D Draft</a>
     </div>
   </div>
 </div>
 </body>
 </html>
-
-
-
-
-
