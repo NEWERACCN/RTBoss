@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss — Build Guides</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -14,6 +15,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+.no-checkboxes input[type="checkbox"]{display:none !important;}
 .nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
 .nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
@@ -80,7 +82,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .tag.violet{color:var(--violet);border-color:rgba(179,136,255,0.3);background:rgba(179,136,255,0.07);}
 
 /* Section labels */
-.section-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;margin-top:2.5rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+.section-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);margin-bottom:0.75rem;margin-top:2.5rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
 
 /* Gate box */
 .gate{background:var(--s2);border:2px solid var(--orange);border-radius:12px;padding:1.5rem;margin:1.5rem 0;}
@@ -117,10 +119,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .flow-item{background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.85rem;font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--mid);}
 .flow-arrow{color:var(--dim);font-size:0.85rem;}
 .flow-item.highlight{border-color:var(--orange);color:var(--orange);background:rgba(255,145,0,0.07);}
+.vault-frame-wrap{margin:1rem 0 2rem;background:var(--s1);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.vault-frame{width:100%;height:82vh;min-height:760px;border:0;background:#020408;display:block;}
+@media(max-width:800px){.vault-frame{height:74vh;min-height:620px;}}
 
 </style>
 </head>
-<body>
+<body class="no-checkboxes">
 
 <div class="nav-header">
   <div class="nav-title">Section 14 &middot; RTBoss Build Guides</div>
@@ -133,6 +138,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="tab" onclick="showTab(2)">03 &middot; How to Build a Stream</div>
   <div class="tab" onclick="showTab(3)">04 &middot; How to Activate a Value Engine</div>
   <div class="tab" onclick="showTab(4)">05 &middot; How to Test & Validate</div>
+  <div class="tab" onclick="showTab(5)">06 &middot; Vault Drafts</div>
 </div>
 
 <!-- ============================================================
@@ -145,14 +151,22 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <p class="ph-sub">A Genie is a discrete specialist agent that executes one bounded task, always within the rules of its Mini-OS. Every Genie in the RTBoss system — regardless of domain — is built using this same 8-step process. No shortcuts. No variations.</p>
   </div>
 
-  <div class="section-label">Prerequisites</div>
+    <div class="section-label">Vault Draft Pages (Major UI Changes)</div>
+  <div class="info-box blue">
+    <div class="info-box-title">Full Working Draft First</div>
+    <div style="color:var(--mid);font-size:0.9rem;line-height:1.75;">
+      For large layout changes, build and review a full working draft page before updating production sections.<br>
+      Working draft: <a href="14-vault-draft-workforce-overview.html" style="color:var(--blue);font-weight:600;text-decoration:none;">Workforce Overview UI Draft</a>
+    </div>
+  </div>
+<div class="section-label">Prerequisites</div>
   <div class="info-box amber">
     <div class="info-box-title">Before you start, you must have:</div>
     <div class="two-col">
       <ul class="checklist done">
         <li>Mini-OS is deployed and schema is live in Dataverse</li>
         <li>Power Platform environment provisioned (Dev/Test/Prod)</li>
-        <li>Copilot Studio licence active for the environment</li>
+        <li>Copilot Studio license active for the environment</li>
         <li>Service account created for this Genie's connections</li>
       </ul>
       <ul class="checklist done">
@@ -384,7 +398,7 @@ with patients, or perform any task outside the single job above.</span></div>
               <li>Null/missing required field ? correct rejection + error message</li>
               <li>Malformed input (wrong type, invalid format) ? handled gracefully</li>
               <li>External API unavailable ? failure route triggers correctly</li>
-              <li>Duplicate trigger (same input twice) ? idempotent behaviour</li>
+              <li>Duplicate trigger (same input twice) ? idempotent behavior</li>
             </ul>
           </div>
         </div>
@@ -393,7 +407,7 @@ with patients, or perform any task outside the single job above.</span></div>
             <div class="info-box-title">Security & Compliance Tests</div>
             <ul class="checklist">
               <li>PII fields are masked in AuditRecord logs</li>
-              <li>Genie rejects requests from unauthorised users</li>
+              <li>Genie rejects requests from unauthorized users</li>
               <li>Data classification enforced — no RESTRICTED data written to lower-classification entities</li>
               <li>ISO control block present and correct in system prompt</li>
             </ul>
@@ -425,7 +439,7 @@ with patients, or perform any task outside the single job above.</span></div>
       <div class="step-num">08</div>
       <div class="step-body">
         <div class="step-title">Register in the Factory Library & Promote to Production</div>
-        <div class="step-desc">A Genie that isn't registered doesn't exist for the organisation. Register in S10 (Agentic Factory Library) first, then promote Dev ? Test ? Prod using managed solutions.</div>
+        <div class="step-desc">A Genie that isn't registered doesn't exist for the organization. Register in S10 (Agentic Factory Library) first, then promote Dev ? Test ? Prod using managed solutions.</div>
         <div class="info-box">
           <div class="info-box-title">Factory Library Registration (S10 — ENT-003)</div>
           <div class="code-block" style="font-size:0.78rem;">
@@ -513,13 +527,13 @@ with patients, or perform any task outside the single job above.</span></div>
         <li>Client is onboarded — Delivery SOP (S08) Phases 1–3 complete</li>
         <li>Power Platform environment provisioned (Dev/Test/Prod)</li>
         <li>Dataverse database created in tenant</li>
-        <li>Microsoft 365 licences confirmed (all staff who will use the Mini-OS)</li>
+        <li>Microsoft 365 licenses confirmed (all staff who will use the Mini-OS)</li>
       </ul>
       <ul class="checklist done">
         <li>Entra ID groups created for this Mini-OS (roles defined in S05)</li>
         <li>Business domain mapped: what Facts exist, who owns them</li>
         <li>Domain owner confirmed (accountable for UAT and go-live approval)</li>
-        <li>Copilot Studio environment licences active</li>
+        <li>Copilot Studio environment licenses active</li>
       </ul>
     </div>
   </div>
@@ -1029,7 +1043,7 @@ with patients, or perform any task outside the single job above.</span></div>
     <ul class="checklist done">
       <li>Minimum 2 Mini-OS live in Production for =30 days</li>
       <li>All Fact tables have consistent status fields (PENDING/ACTIVE/COMPLETE/FLAG)</li>
-      <li>Power BI Pro licences assigned to business owners + executives</li>
+      <li>Power BI Pro licenses assigned to business owners + executives</li>
       <li>RTBI data classification confirmed (dashboards may aggregate CONFIDENTIAL data)</li>
     </ul>
   </div>
@@ -1111,7 +1125,7 @@ with patients, or perform any task outside the single job above.</span></div>
           <div class="info-box-title">Savings Calculation Formula</div>
           <div class="code-block" style="font-size:0.82rem;">
 <span class="comment">// EMS Example</span>
-<span class="key">Pre-RTBoss:</span>  <span class="val">45 min/prescription × $45/hr labour = $33.75/script</span>
+<span class="key">Pre-RTBoss:</span>  <span class="val">45 min/prescription × $45/hr labor = $33.75/script</span>
 <span class="key">Post-RTBoss:</span> <span class="val">8 min/prescription (human review only) = $6.00/script</span>
 <span class="key">Saving:</span>      <span class="val">$27.75/script</span>
 <span class="key">Volume:</span>      <span class="val">200 scripts/month</span>
@@ -1254,7 +1268,7 @@ with patients, or perform any task outside the single job above.</span></div>
 
 <span class="comment">## SECURITY TESTS</span>
 <span class="label">PII masking in audit log:</span>  ? Expected: fact ID only, no PII ? Actual: <span class="val">PASS/FAIL</span>
-<span class="label">Unauthorised user:</span>        ? Expected: 403 reject ? Actual: <span class="val">PASS/FAIL</span>
+<span class="label">Unauthorized user:</span>        ? Expected: 403 reject ? Actual: <span class="val">PASS/FAIL</span>
 
 <span class="comment">## SLA TEST</span>
 <span class="label">Average response time:</span>    <span class="val">[X] seconds</span> ? SLA target: <span class="val">[Y] seconds</span> ? <span class="val">PASS/FAIL</span>
@@ -1405,6 +1419,39 @@ I understand I am approving this for live operation with real data.</span>
 
 </div></div>
 
+<!-- ============================================================
+     TAB 06: VAULT DRAFTS
+     ============================================================ -->
+<div class="panel" id="tab-5"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Vault Draft Workflow</div>
+    <h1 class="ph-title">Workforce Overview Working Draft</h1>
+    <p class="ph-sub">This tab displays the full draft page directly. Work here first, then promote only after approval.</p>
+  </div>
+
+  <div class="section-label">Active Working Draft</div>
+  <div class="info-box blue">
+    <div class="info-box-title">Section 02 - Overview (Full Draft Copy)</div>
+    <div style="color:var(--mid);font-size:0.9rem;line-height:1.8;">
+      Embedded below for direct editing/review context. Open standalone if needed:
+      <a href="14-vault-draft-workforce-overview.html" style="color:var(--blue);font-weight:700;text-decoration:none;">Open working draft</a>
+    </div>
+  </div>
+  <div class="vault-frame-wrap">
+    <iframe class="vault-frame" src="14-vault-draft-workforce-overview.html" title="Workforce Overview Working Draft"></iframe>
+  </div>
+
+  <div class="section-label">Promotion Rule</div>
+  <div class="info-box amber">
+    <div class="info-box-title">Mandatory Sequence</div>
+    <div style="color:var(--mid);font-size:0.9rem;line-height:1.8;">
+      1) Build full draft in Vaults<br>
+      2) Review and approve visual hierarchy/readability<br>
+      3) Promote approved changes to production section
+    </div>
+  </div>
+</div></div>
+
 <script>
 function showTab(n){
   const tabs=document.querySelectorAll('.tab');
@@ -1417,7 +1464,7 @@ function showTab(n){
 function initGroupReviewSync_S11(){
   var SECTION_KEY='S11', stateKey='rtboss_content_review_11_build_guides_v1', progressKey='rtboss_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
-  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label,.section-label.done{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label,.section-label.done{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
   function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
   function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head')||cb.previousElementSibling; if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
@@ -1429,6 +1476,10 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S11);
 </script>
 </body>
 </html>
+
+
+
+
 
 
 

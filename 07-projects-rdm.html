@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss — RDM Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
@@ -29,7 +30,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
 .ph-sub{font-size:1.05rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
 .sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
-.sec-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--pink);letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-head-line{flex:1;height:1px;background:var(--border);}
 .content-block{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
 .content-block h3{font-size:1.05rem;font-weight:700;margin-bottom:0.75rem;color:var(--text);}
@@ -734,7 +735,7 @@ az cognitiveservices account deployment show \\
         'Go to <span class="nav-click">app.fabric.microsoft.com</span>',
         'Click <span class="click">Workspaces</span> in the left rail ? <span class="click">+ New workspace</span>',
         'Set <span class="field">Name</span>: <span class="val">ws-rtbos-pharmacy</span>',
-        'Expand <span class="click">Advanced</span> ? Licence mode: select <span class="val">Fabric capacity</span>',
+        'Expand <span class="click">Advanced</span> ? License mode: select <span class="val">Fabric capacity</span>',
         'Select your provisioned Fabric capacity from the dropdown',
         'Click <span class="click">Apply</span>',
         'Workspace is created and you are taken to it automatically'
@@ -973,7 +974,7 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
         'Add all 13 specialist agents as sub-agents',
         'Click <span class="click">Save</span>'
       ],
-      code:`You are the RTBossOrchestratorAgent — the Division of Labour (DOL) coordinator
+      code:`You are the RTBossOrchestratorAgent — the Division of Labor (DOL) coordinator
 for the RTBoss Pharmacy operating loop.
 
 Your role:
@@ -1643,12 +1644,12 @@ Return ONLY valid JSON:
   },
   {
     id:'AGT-007', name:'AddressValidationAgent',
-    role:'Validates and standardises the delivery address against AusPost PAF (Postal Address File) API. Writes the DPID and standardised address to the Digital Twin. Invalid addresses result in INCOMPLETE status.',
+    role:'Validates and standardizes the delivery address against AusPost PAF (Postal Address File) API. Writes the DPID and standardized address to the Digital Twin. Invalid addresses result in INCOMPLETE status.',
     model:'gpt-4o-rtbos (tool use)', memory:'Per-order context', trigger:'Called by Orchestrator after AGT-006',
     inputs:['raw_address (extracted from prescription by AGT-004)'],
     outputs:['address_valid: bool','std_address: string','dpid: string','state: string','postcode: string'],
     tools:['HTTP — AusPost PAF REST API (POST /postcode/search)','Key Vault — retrieve AusPost API key','CosmosDB Write — update twin address fields + append loop_trace'],
-    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — accesses delivery addresses',logging:'Fact: address_valid, standardised_address, auspost_result — loop_trace[]',personal_data:'YES — delivery address is personal information',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.8.1 · Cl.9.1 (PAF validation rate monitored)'},
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — accesses delivery addresses',logging:'Fact: address_valid, standardized_address, auspost_result — loop_trace[]',personal_data:'YES — delivery address is personal information',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.8.1 · Cl.9.1 (PAF validation rate monitored)'},
     prompt:`You are the AddressValidationAgent for an Australian compounding pharmacy.
 
 Validate the delivery address using the AusPost Address Validation (PAF) API:
@@ -1671,7 +1672,7 @@ Retry on 5xx: 3 times with 2 second delay between attempts.
 Return ONLY valid JSON:
 {
   "address_valid": true|false,
-  "std_address": "standardised address string",
+  "std_address": "standardized address string",
   "dpid": "8-digit string or null",
   "state": "NSW|VIC|QLD|...",
   "postcode": "4-digit string"
@@ -1732,7 +1733,7 @@ For each PROCESSED order received from Service Bus:
 
 2. Call the AusPost eParcel Shipping API:
    POST https://digitalapi.auspost.com.au/shipping/v1/shipments
-   with the standardised address, DPID, and selected product_id.
+   with the standardized address, DPID, and selected product_id.
 
 3. From the response: extract tracking_no, consignment_id, and label_url.
 
@@ -1990,6 +1991,8 @@ renderAgents();
 </script>
 </body>
 </html>
+
+
 
 
 

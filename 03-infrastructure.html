@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss - Technical Infrastructure</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -63,7 +64,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .phase-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .phase-name{font-weight:600;font-size:.9rem;color:#e8f4ff;}
 .phase-body{padding:1.1rem;display:flex;flex-direction:column;gap:.75rem;}
-.phase-section-label{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);}
+.phase-section-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 
 /* -- DECISIONS -- */
 .decisions-list{display:flex;flex-direction:column;gap:.5rem;}
@@ -113,7 +114,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .rtbi-metric:last-child{border-bottom:none;}
 .rm-label{color:var(--mid);} .rm-val{font-family:'Fira Code',monospace;font-weight:500;}
 
+.sec-head{display:flex;align-items:center;gap:.75rem;margin:2.5rem 0 1.1rem;}
 .sec-head-line{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sec-head.done .sec-label{color:var(--teal);}
+.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}
 .callout{display:flex;gap:.75rem;padding:.85rem 1.1rem;border-radius:8px;font-size:.8rem;line-height:1.7;margin:1rem 0;}
 .callout-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem;}
 .callout-body{color:var(--mid);} .callout-body strong{color:var(--text);font-weight:500;}
@@ -256,7 +261,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="rtbi-card" style="--rc:#40c4ff;">
       <div class="rtbi-card-head"><div class="rtbi-icon">??</div><div><div class="rtbi-card-title">Azure AI Foundry</div><div class="rtbi-card-type" style="color:#40c4ff;">Agent orchestration  DOL pattern  LLM</div></div></div>
       <div class="rtbi-card-body">
-        <p>Pro-code agent orchestration. Implements Division of Labour (DOL) pattern: Orchestrator + specialist agents. LLM model deployment, prompt flow, evaluation. Agentic Factory core engine.</p>
+        <p>Pro-code agent orchestration. Implements Division of Labor (DOL) pattern: Orchestrator + specialist agents. LLM model deployment, prompt flow, evaluation. Agentic Factory core engine.</p>
         <div class="tag-row"><span class="tag blue">Orchestrator pattern</span><span class="tag blue">DOL</span><span class="tag blue">Model deployment</span></div>
       </div>
     </div>
@@ -572,7 +577,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div class="config-item">Planner plan templates per Mini-OS</div>
         <div class="config-item">To Do integration for personal task management</div>
         <div class="config-item">Viva Goals activation for OKR tracking (Strategy OS)</div>
-        <div class="config-item">Microsoft 365 Copilot licence assignment (per-user, requires M365 E3/E5 base)</div>
+        <div class="config-item">Microsoft 365 Copilot license assignment (per-user, requires M365 E3/E5 base)</div>
         <div class="config-item">Copilot Studio connection to M365 Copilot (for Genie surfaces in Teams/Outlook)</div>
         <div class="config-item">Copilot Notebooks — one notebook per Mini-OS domain as the persistent AI workspace</div>
         <div class="config-item">Notebook access governance — scoped to domain team members, not org-wide</div>
@@ -583,7 +588,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="step-placeholder">
         <div class="step-placeholder-label">? STEP-BY-STEP PENDING</div>
-        <div class="step-placeholder-desc">Step-by-step: Loop workspace setup, Planner template deployment, Viva Goals configuration, M365 Copilot licence assignment, Notebook creation per Mini-OS domain, Copilot Studio integration</div>
+        <div class="step-placeholder-desc">Step-by-step: Loop workspace setup, Planner template deployment, Viva Goals configuration, M365 Copilot license assignment, Notebook creation per Mini-OS domain, Copilot Studio integration</div>
       </div>
     </div>
   </div>
@@ -609,7 +614,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="prereq-label">Prerequisites before starting this section</div>
     <div class="prereq-item">&middot; M365 tenant live</div>
     <div class="prereq-item">&middot; Power Platform environments created</div>
-    <div class="prereq-item">&middot; Dynamics licences assigned</div>
+    <div class="prereq-item">&middot; Dynamics licenses assigned</div>
   </div>
 
   <div class="feeds-block">
@@ -636,7 +641,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Licensing</div>
-        <div class="decision-desc">Dynamics 365 licences are per-user and module-specific. Team Member licences for read-only access. Full licences for users who write to the system.</div>
+        <div class="decision-desc">Dynamics 365 licenses are per-user and module-specific. Team Member licenses for read-only access. Full licenses for users who write to the system.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -838,7 +843,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Security model</div>
-        <div class="decision-desc">Column-level security for sensitive fields (salary, health data, financial data). Business unit hierarchy matches organisational structure. Table-level permissions enforced via security roles.</div>
+        <div class="decision-desc">Column-level security for sensitive fields (salary, health data, financial data). Business unit hierarchy matches organizational structure. Table-level permissions enforced via security roles.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1229,7 +1234,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div class="config-item">Cosmos DB account creation (AU East)</div>
         <div class="config-item">Database and container creation per Mini-OS</div>
         <div class="config-item">Partition key configuration</div>
-        <div class="config-item">Indexing policy (time-series optimised)</div>
+        <div class="config-item">Indexing policy (time-series optimized)</div>
         <div class="config-item">Append-only role assignment</div>
         <div class="config-item">Backup and replication configuration</div>
         <div class="config-item">Diagnostic logs to Log Analytics</div>
@@ -1363,7 +1368,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Integration tier</div>
-        <div class="decision-desc">API access required for RTBoss integration — ensure the licence tier includes API access. API is how Zero Touch AI telemetry becomes RTBoss Facts.</div>
+        <div class="decision-desc">API access required for RTBoss integration — ensure the license tier includes API access. API is how Zero Touch AI telemetry becomes RTBoss Facts.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1757,7 +1762,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Defender for Endpoint</div>
-        <div class="decision-desc">P2 licence for all managed devices. Attack surface reduction rules enabled. Tamper protection on. Defender alerts become security_alert Facts in RTBoss — routed to MIP Triage Genie.</div>
+        <div class="decision-desc">P2 license for all managed devices. Attack surface reduction rules enabled. Tamper protection on. Defender alerts become security_alert Facts in RTBoss — routed to MIP Triage Genie.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Defender for Identity</div>
@@ -1834,7 +1839,7 @@ function showTab(id){
 function initGroupReviewSync_S05(){
   var SECTION_KEY='S05', stateKey='rtboss_content_review_05_infrastructure_v1', progressKey='rtboss_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
-  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.phase-name.done,.phase-section-label.done,.sec-head.done .sec-label{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.phase-name.done,.phase-section-label.done,.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
   function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
   function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.previousElementSibling; if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
@@ -1846,6 +1851,12 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S05);
 </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

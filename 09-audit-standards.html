@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss - Section 09 - Audit Standards</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#020408;--s1:#0a1420;--s2:#12202e;--border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;--blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;--red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--cl:var(--violet);}
@@ -24,7 +25,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
 .ph-sub{font-size:1.1rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
 .sh{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.5rem;}
-.sl{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--cl);letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;}
+.sl{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sline{flex:1;height:1px;background:linear-gradient(90deg,rgba(179,136,255,0.3),transparent);}
 .callout{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--cl);border-radius:0 8px 8px 0;padding:1.2rem;margin-bottom:1.5rem;display:flex;gap:1rem;}
 .ci{font-size:1.4rem;flex-shrink:0;}
@@ -96,9 +97,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <table class="dt">
     <thead><tr><th>Level</th><th>When to Use</th><th>Examples</th><th>Requires</th></tr></thead>
     <tbody>
-      <tr><td class="mono" style="color:var(--dim);">PATCH (x.x.N)</td><td>Bug fix, typo correction, wording clarification — no behaviour or structure change</td><td>Fix typo in system prompt; correct broken link; update review date</td><td>Author review only. Log in Changelog. No re-testing unless output affected.</td></tr>
+      <tr><td class="mono" style="color:var(--dim);">PATCH (x.x.N)</td><td>Bug fix, typo correction, wording clarification — no behavior or structure change</td><td>Fix typo in system prompt; correct broken link; update review date</td><td>Author review only. Log in Changelog. No re-testing unless output affected.</td></tr>
       <tr><td class="mono" style="color:var(--amber);">MINOR (x.N.0)</td><td>New capability added, process extended, new entity property added — backward compatible</td><td>Add output field to Genie; add prompt instruction; extend a template</td><td>Author + peer review. Log in Changelog with diff summary. Re-run unit tests. Update ENT-004 registry.</td></tr>
-      <tr><td class="mono" style="color:var(--red);">MAJOR (N.0.0)</td><td>Breaking change — behaviour changes, ontology changes, entity removed/renamed, security control changed</td><td>Change Genie output schema; rename Dataverse entity; change classification level; alter auth method</td><td>Author + Tech Lead approval. Full test suite. Risk assessment updated. ISO control block re-reviewed. Changelog entry mandatory.</td></tr>
+      <tr><td class="mono" style="color:var(--red);">MAJOR (N.0.0)</td><td>Breaking change — behavior changes, ontology changes, entity removed/renamed, security control changed</td><td>Change Genie output schema; rename Dataverse entity; change classification level; alter auth method</td><td>Author + Tech Lead approval. Full test suite. Risk assessment updated. ISO control block re-reviewed. Changelog entry mandatory.</td></tr>
     </tbody>
   </table>
 
@@ -165,7 +166,7 @@ Review &amp; Approval:
     <div class="card" style="--ca:var(--red);"><h3>Agent Failure</h3><p>A Genie produces an incorrect, incomplete, or unsafe output. Confidence score below threshold. Output causes a downstream process failure.</p></div>
     <div class="card" style="--ca:var(--amber);"><h3>Process Deviation</h3><p>A defined RTBoss process was not followed. Sprint cycle skipped. Go-live gate not completed. Document classification not applied.</p></div>
     <div class="card" style="--ca:var(--orange);"><h3>Client Complaint</h3><p>A client raises a formal concern about RTBoss outputs, service delivery, or SLA performance. Any NPS below target. Outcome Bonus disputed.</p></div>
-    <div class="card" style="--ca:var(--violet);"><h3>Security Event</h3><p>Any event that may have compromised information confidentiality, integrity, or availability. Unauthorised access attempt. Data classification breach.</p></div>
+    <div class="card" style="--ca:var(--violet);"><h3>Security Event</h3><p>Any event that may have compromised information confidentiality, integrity, or availability. Unauthorized access attempt. Data classification breach.</p></div>
     <div class="card" style="--ca:var(--blue);"><h3>Audit Finding</h3><p>An internal or external audit finds a gap. An observation not corrected becomes a minor NC. An unaddressed minor NC becomes a major NC.</p></div>
     <div class="card" style="--ca:var(--teal);"><h3>Proactive Identification</h3><p>Team member identifies a process that could fail. "We should raise an NCR" is a cultural indicator of a mature QMS — it means the team owns quality.</p></div>
   </div>
@@ -209,7 +210,7 @@ Review &amp; Approval:
     <h1 class="ph-title">Lesson Capture &amp; Continual Improvement</h1>
     <p class="ph-sub">ISO 9001 Cl.10.3 requires continual improvement of the QMS. Lessons are captured at every sprint review, every project health review, and every NCR closure. The system must demonstrably improve over time — not just operate.</p>
   </div>
-  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>Continual improvement is mandatory under ISO 9001 Cl.10.3.</strong> The standard requires that the organisation continually improve the suitability, adequacy, and effectiveness of the QMS. "Things are working fine" is not evidence of continual improvement — it must be demonstrated through logged actions and their verified outcomes.</div></div>
+  <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>Continual improvement is mandatory under ISO 9001 Cl.10.3.</strong> The standard requires that the organization continually improve the suitability, adequacy, and effectiveness of the QMS. "Things are working fine" is not evidence of continual improvement — it must be demonstrated through logged actions and their verified outcomes.</div></div>
 
   <div class="sh"><div class="sl">Lesson Capture Triggers</div><div class="sline"></div></div>
   <div class="cg">
@@ -416,7 +417,7 @@ function showTab(n){
 function initGroupReviewSync_S12(){
   var SECTION_KEY='S12', stateKey='rtboss_content_review_12_changelog_audit_v1', progressKey='rtboss_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
-  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sh.done .sl,.sec-head.done .sec-label{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sh.done .sl,.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
   function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
   function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sh')||cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
@@ -428,6 +429,9 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S12);
 </script>
 </body>
 </html>
+
+
+
 
 
 

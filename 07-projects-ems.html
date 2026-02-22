@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss — EMS · Evergreen Medical Supplies</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
@@ -29,7 +30,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
 .ph-sub{font-size:1.05rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
 .sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
-.sec-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--pink);letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-head-line{flex:1;height:1px;background:var(--border);}
 .content-block{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
 .content-block h3{font-size:1.05rem;font-weight:700;margin-bottom:0.75rem;color:var(--text);}
@@ -378,7 +379,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="fact-card">
       <div class="fact-id">FACT-004</div>
       <div class="fact-name">ADDRESS_VALIDATED</div>
-      <div class="fact-desc">AGT-007 validates delivery address against AusPost PAF API. Standardises address before any human sees the order.</div>
+      <div class="fact-desc">AGT-007 validates delivery address against AusPost PAF API. Standardizes address before any human sees the order.</div>
       <div class="fact-payload">{ "address_raw": "42 Smith St Bris",
   "address_std": "42 Smith Street,
   Brisbane QLD 4000",
@@ -501,7 +502,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Agentic Factory — Layer 4 · Division of Labour</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Agentic Factory — Layer 4 · Division of Labor</span><div class="sec-head-line"></div></div>
 
   <div class="content-block">
     <h3>Orchestrator Pattern</h3>
@@ -518,7 +519,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <tr><td>AGT-004</td><td>PatientExtractorAgent</td><td>Extracts patient name, DOB, address from prescription PDF.</td><td style="color:var(--violet);">Digital</td></tr>
         <tr><td>AGT-005</td><td>OrderCreatorAgent</td><td>Creates order record in Cosmos DB. Initialises Digital Twin. Assigns order ID.</td><td style="color:var(--violet);">Digital</td></tr>
         <tr><td>AGT-006</td><td>DispensingRuleAgent</td><td>Applies Google Sheets-configured dispensing rules. Flags TESTOSTERONE for human review.</td><td style="color:var(--amber);">Hybrid</td></tr>
-        <tr><td>AGT-007</td><td>AddressValidatorAgent</td><td>Validates delivery address against AusPost PAF API. Standardises format.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-007</td><td>AddressValidatorAgent</td><td>Validates delivery address against AusPost PAF API. Standardizes format.</td><td style="color:var(--violet);">Digital</td></tr>
         <tr><td>AGT-008</td><td>OrderStatusClassifierAgent</td><td>Gate agent. Classifies order as PROCESSED or INCOMPLETE. Publishes to Service Bus topics.</td><td style="color:var(--violet);">Digital</td></tr>
         <tr><td>AGT-009</td><td>ShipmentAgent</td><td>Creates AusPost consignment, retrieves tracking number, stores label PDF in OneLake.</td><td style="color:var(--violet);">Digital</td></tr>
         <tr><td>AGT-010</td><td>LodgementCSVAgent</td><td>Generates AusPost bulk lodgement CSV. Emails to ops. Auto-uploads to AusPost portal.</td><td style="color:var(--violet);">Digital</td></tr>
@@ -537,7 +538,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="hw-side-sub">Azure AI Foundry Agents operating in the Agentic Factory. Autonomous, governed, traceable.</div>
       <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Email Classification</div><div class="hw-task-desc">AGT-002 classifies every inbound email as ORDER or NON_ORDER in &lt;3 seconds using GPT-4o. Handles 100% of volume with no human involvement unless confidence &lt; 0.85.</div></div></div>
       <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Prescription Parsing</div><div class="hw-task-desc">AGT-003 & AGT-004 extract drug name, dosage, and patient details from PDFs using Azure Document Intelligence. No manual data entry required.</div></div></div>
-      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Address Validation</div><div class="hw-task-desc">AGT-007 validates every delivery address against AusPost PAF API in real time. Standardises addresses before a human ever sees an order.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Address Validation</div><div class="hw-task-desc">AGT-007 validates every delivery address against AusPost PAF API in real time. Standardizes addresses before a human ever sees an order.</div></div></div>
       <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Shipment Creation</div><div class="hw-task-desc">AGT-009 creates AusPost consignments, retrieves tracking numbers, and stores label PDFs automatically for all PROCESSED orders.</div></div></div>
       <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">CSV Generation & Lodgement</div><div class="hw-task-desc">AGT-010 generates the AusPost bulk lodgement CSV, emails it to ops, and uploads it to the portal — all within minutes of shift cutoff.</div></div></div>
       <div class="hw-task"><div class="hw-task-icon">?</div><div><div class="hw-task-name">Cutoff Cycle Management</div><div class="hw-task-desc">AGT-012 monitors the clock, enforces the 11:00–12:00 deferral window, sends pre-cutoff warnings — zero human involvement.</div></div></div>
@@ -665,7 +666,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="sub-panel" id="build-p6">
     <div class="phase-header"><div class="phase-num">06</div><div class="phase-meta"><div class="phase-kicker">Microsoft Power Automate</div><div class="phase-title">Email Trigger Flow (Fact Ingestion)</div><div class="phase-sub">Power Automate monitors the pharmacy orders mailbox and fires the RTBoss loop by calling the Orchestrator Agent's HTTP endpoint. This is the bridge between email (physical world) and RTBoss (digital system).</div></div></div>
-    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Phase 05 Orchestrator endpoint live</span><span class="prereq-item">Shared mailbox created</span><span class="prereq-item">Power Automate Premium licence</span></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Phase 05 Orchestrator endpoint live</span><span class="prereq-item">Shared mailbox created</span><span class="prereq-item">Power Automate Premium license</span></div>
     <div id="steps-p6"></div>
     <div class="phase-summary"><div class="phase-summary-title">// PHASE 06 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Flow created + enabled</div><div class="summary-item">Mailbox trigger confirmed</div><div class="summary-item">Orchestrator HTTP call tested</div><div class="summary-item">Test email ? twin created</div></div></div>
   </div>
@@ -737,7 +738,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <tr><td>Phase 07</td><td>Service Bus Topics</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>RBAC configuration straightforward</td></tr>
         <tr><td>Phase 08</td><td>Key Vault + Secrets</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>API key procurement can be external dependency</td></tr>
         <tr><td>Phase 09</td><td>Cutoff Scheduler + EOD</td><td style="color:var(--green);">1.0</td><td style="color:var(--amber);">2.0</td><td>Time zone handling and Logic App testing</td></tr>
-        <tr><td>Phase 10</td><td>End-to-End Testing</td><td style="color:var(--green);">2.0</td><td style="color:var(--amber);">4.0</td><td>AusPost sandbox behaviour differs from production</td></tr>
+        <tr><td>Phase 10</td><td>End-to-End Testing</td><td style="color:var(--green);">2.0</td><td style="color:var(--amber);">4.0</td><td>AusPost sandbox behavior differs from production</td></tr>
         <tr><td colspan="2" style="font-weight:700;color:var(--text);">TOTAL</td><td style="color:var(--green);font-weight:700;">12 days</td><td style="color:var(--amber);font-weight:700;">23 days</td><td>~2.5 to 4.5 weeks for 1 senior engineer</td></tr>
       </tbody>
     </table>
@@ -838,7 +839,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div class="callout info">
     <div class="callout-icon">??</div>
-    <div class="callout-body"><strong>Reference Document.</strong> This tab consolidates the complete EMS specification in one place. Use it when onboarding new team members, scoping future clients against the EMS pattern, or auditing agent behaviour against the original design intent.</div>
+    <div class="callout-body"><strong>Reference Document.</strong> This tab consolidates the complete EMS specification in one place. Use it when onboarding new team members, scoping future clients against the EMS pattern, or auditing agent behavior against the original design intent.</div>
   </div>
 
   <div class="sec-head"><span class="sec-label">Agent Specifications — All 13</span><div class="sec-head-line"></div></div>
@@ -1240,7 +1241,7 @@ az cognitiveservices account deployment show \\
         'Go to <span class="nav-click">app.fabric.microsoft.com</span>',
         'Click <span class="click">Workspaces</span> in the left rail ? <span class="click">+ New workspace</span>',
         'Set <span class="field">Name</span>: <span class="val">ws-rtbos-pharmacy</span>',
-        'Expand <span class="click">Advanced</span> ? Licence mode: select <span class="val">Fabric capacity</span>',
+        'Expand <span class="click">Advanced</span> ? License mode: select <span class="val">Fabric capacity</span>',
         'Select your provisioned Fabric capacity from the dropdown',
         'Click <span class="click">Apply</span>',
         'Workspace is created and you are taken to it automatically'
@@ -1479,7 +1480,7 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
         'Add all 13 specialist agents as sub-agents',
         'Click <span class="click">Save</span>'
       ],
-      code:`You are the RTBossOrchestratorAgent — the Division of Labour (DOL) coordinator
+      code:`You are the RTBossOrchestratorAgent — the Division of Labor (DOL) coordinator
 for the RTBoss Pharmacy operating loop.
 
 Your role:
@@ -2149,12 +2150,12 @@ Return ONLY valid JSON:
   },
   {
     id:'AGT-007', name:'AddressValidationAgent',
-    role:'Validates and standardises the delivery address against AusPost PAF (Postal Address File) API. Writes the DPID and standardised address to the Digital Twin. Invalid addresses result in INCOMPLETE status.',
+    role:'Validates and standardizes the delivery address against AusPost PAF (Postal Address File) API. Writes the DPID and standardized address to the Digital Twin. Invalid addresses result in INCOMPLETE status.',
     model:'gpt-4o-rtbos (tool use)', memory:'Per-order context', trigger:'Called by Orchestrator after AGT-006',
     inputs:['raw_address (extracted from prescription by AGT-004)'],
     outputs:['address_valid: bool','std_address: string','dpid: string','state: string','postcode: string'],
     tools:['HTTP — AusPost PAF REST API (POST /postcode/search)','Key Vault — retrieve AusPost API key','CosmosDB Write — update twin address fields + append loop_trace'],
-    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — accesses delivery addresses',logging:'Fact: address_valid, standardised_address, auspost_result — loop_trace[]',personal_data:'YES — delivery address is personal information',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.8.1 · Cl.9.1 (PAF validation rate monitored)'},
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — accesses delivery addresses',logging:'Fact: address_valid, standardized_address, auspost_result — loop_trace[]',personal_data:'YES — delivery address is personal information',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.8.1 · Cl.9.1 (PAF validation rate monitored)'},
     prompt:`You are the AddressValidationAgent for an Australian compounding pharmacy.
 
 Validate the delivery address using the AusPost Address Validation (PAF) API:
@@ -2177,7 +2178,7 @@ Retry on 5xx: 3 times with 2 second delay between attempts.
 Return ONLY valid JSON:
 {
   "address_valid": true|false,
-  "std_address": "standardised address string",
+  "std_address": "standardized address string",
   "dpid": "8-digit string or null",
   "state": "NSW|VIC|QLD|...",
   "postcode": "4-digit string"
@@ -2238,7 +2239,7 @@ For each PROCESSED order received from Service Bus:
 
 2. Call the AusPost eParcel Shipping API:
    POST https://digitalapi.auspost.com.au/shipping/v1/shipments
-   with the standardised address, DPID, and selected product_id.
+   with the standardized address, DPID, and selected product_id.
 
 3. From the response: extract tracking_no, consignment_id, and label_url.
 
@@ -2496,6 +2497,8 @@ renderAgents();
 </script>
 </body>
 </html>
+
+
 
 
 

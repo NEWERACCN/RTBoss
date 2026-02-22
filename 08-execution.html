@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss - Section 08 - Execution Standards</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -35,7 +36,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 /* -- SECTION HEADS -- */
 .sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
-.sec-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:var(--border);}
 
 /* -- CALLOUTS -- */
@@ -571,7 +572,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="maturity-stage">
       <div class="ms-left"><div class="ms-pct" style="color:var(--teal);">70–80%</div><div class="ms-stage-label">Stage 4</div></div>
       <div class="ms-right">
-        <div class="ms-name">Optimised — Digital-First Operations</div>
+        <div class="ms-name">Optimized — Digital-First Operations</div>
         <div class="ms-desc">The majority of operational throughput runs through agents. Humans operate in oversight, innovation, and relationship roles. The business has structurally lower COGS, faster operations, and higher capacity without headcount growth. This is the RTBoss target state — the proof point for the fund narrative.</div>
         <div class="ms-tags"><span class="ms-tag">20+ Genies live</span><span class="ms-tag">all Value Engines active</span><span class="ms-tag">COGS reduction confirmed</span><span class="ms-tag">fund-ready data</span></div>
       </div>
@@ -1052,7 +1053,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
         <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">Anthropic  Opus 4.6</div>
         <div style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;">"Deep Thinker First"</div>
-        <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Opus 4.6 is built on a reliability-before-speed doctrine. Its core architectural bet  adaptive thinking  means the model decides when to reason deeply and when not to. This is Constitutional AI heritage made practical: safety and trustworthiness are baked into the model, not bolted on. It is optimised less for one-shot cleverness and more for robust, multi-turn, tool-using workflows.</p>
+        <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Opus 4.6 is built on a reliability-before-speed doctrine. Its core architectural bet  adaptive thinking  means the model decides when to reason deeply and when not to. This is Constitutional AI heritage made practical: safety and trustworthiness are baked into the model, not bolted on. It is optimized less for one-shot cleverness and more for robust, multi-turn, tool-using workflows.</p>
         <div style="font-size:0.74rem;color:var(--dim);line-height:1.85;">
           <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RTBoss</div>
           A pharmacy EMS making real dispatch decisions requires a model that checks its work, honours context across a long loop, and fails safely. Opus 4.6's caution is a feature, not a limitation. Its 1M token context holds an entire day's order history without degradation.
@@ -1109,7 +1110,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </div>
   <div style="background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:2rem;">
     <div style="font-size:0.88rem;font-weight:600;color:var(--green);margin-bottom:0.85rem;">RTBoss was designed for this model before either model existed.</div>
-    <p style="font-size:0.79rem;color:var(--mid);line-height:1.9;margin-bottom:1rem;">The Division of Labour pattern  specialist agents, clean context envelope, append-only audit trail, an orchestrator that routes but doesn't do  is precisely what both Foundry's Connected Agents primitive and Opus 4.6's parallel subagent capability were independently built to support. The architectural convergence is not coincidental: these are the patterns that work at scale for complex, multi-step, high-stakes workflows.</p>
+    <p style="font-size:0.79rem;color:var(--mid);line-height:1.9;margin-bottom:1rem;">The Division of Labor pattern  specialist agents, clean context envelope, append-only audit trail, an orchestrator that routes but doesn't do  is precisely what both Foundry's Connected Agents primitive and Opus 4.6's parallel subagent capability were independently built to support. The architectural convergence is not coincidental: these are the patterns that work at scale for complex, multi-step, high-stakes workflows.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
       <div>
         <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Validated by Platform Convergence</div>
@@ -1227,7 +1228,7 @@ document.addEventListener('DOMContentLoaded', function(){
 function initGroupReviewSync_S06(){
   var SECTION_KEY='S06', stateKey='rtboss_content_review_06_execution_v1', progressKey='rtboss_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
-  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
   function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
   function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
@@ -1238,6 +1239,8 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S06);
 </script>
 </body>
 </html>
+
+
 
 
 

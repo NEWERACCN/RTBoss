@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss - Enterprise Build Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -24,6 +25,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+.no-checkboxes input[type="checkbox"]{display:none !important;}
 .nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
 .nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
@@ -40,7 +42,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .ph-title{font-size:2.1rem;font-weight:800;letter-spacing:-.01em;margin-bottom:.7rem;}
 .ph-sub{font-size:1rem;color:var(--mid);max-width:900px;margin:0 auto;line-height:1.75;}
 .sec-head{display:flex;align-items:center;gap:1rem;margin:2.2rem 0 1.1rem;}
-.sec-label{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--violet);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:var(--border);}
 .callout{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--violet);border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin:1rem 0;}
 .callout strong{color:var(--text);}
@@ -92,7 +94,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 </style>
 </head>
-<body>
+<body class="no-checkboxes">
 
 <div class="nav-header">
   <div class="nav-title">Section 10 - RTBoss Project Management</div>
@@ -1176,6 +1178,8 @@ window.addEventListener('storage', function(e){
 
 </body>
 </html>
+
+
 
 
 

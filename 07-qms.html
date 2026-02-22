@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss — Quality Management System</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -41,7 +42,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .callout-body{font-size:0.9rem;color:var(--mid);line-height:1.8;}
 .callout-body strong{color:var(--text);}
 .sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
-.sec-label{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--qms);letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:var(--border);}
 .status-badge{display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.8rem;border-radius:6px;font-family:'Fira Code',monospace;font-size:0.7rem;font-weight:600;}
 .sb-complete{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.2);}
@@ -208,7 +209,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="callout-body"><strong>Two-layer brand model:</strong> NEIT master brand defines all system-level identity (agents, documents, dashboards). Client brand overlay applies to client-facing outputs only (reports, comms, portals). Never mix layers — RTBoss infrastructure always carries NEIT identity.</div>
   </div>
 
-  <div class="sec-head"><div class="sec-label">Colour System</div><div class="sec-line"></div></div>
+  <div class="sec-head"><div class="sec-label">Color System</div><div class="sec-line"></div></div>
 
   <div class="swatch-row">
     <div class="swatch">
@@ -264,7 +265,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="callout" style="--cc:var(--amber);">
     <div class="callout-icon">?</div>
-    <div class="callout-body"><strong>Colour-to-section mapping:</strong> Each playbook section has a locked accent colour. Blue = Architecture, Teal = QMS, Green = Delivery/Client, Amber = Strategy/Board, Violet = Audit/Knowledge, Orange = Infrastructure/Build Guides, Pink = Client Projects. Maintain consistency across all outputs.</div>
+    <div class="callout-body"><strong>Color-to-section mapping:</strong> Each playbook section has a locked accent color. Blue = Architecture, Teal = QMS, Green = Delivery/Client, Amber = Strategy/Board, Violet = Audit/Knowledge, Orange = Infrastructure/Build Guides, Pink = Client Projects. Maintain consistency across all outputs.</div>
   </div>
 
   <div class="sec-head"><div class="sec-label">Typography</div><div class="sec-line"></div></div>
@@ -338,14 +339,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <tr>
         <td style="color:var(--amber);font-weight:800;">CONFIDENTIAL</td>
         <td class="mono" style="color:var(--amber);">?? CONFIDENTIAL</td>
-        <td>Business sensitive. Authorised parties only. Not for general circulation.</td>
+        <td>Business sensitive. Authorized parties only. Not for general circulation.</td>
         <td>Encrypted in transit. RBAC enforced. Not forwarded externally without approval. Watermarked on print.</td>
         <td>Client SOWs, financial reports, agent system prompts, API credentials, HR performance data</td>
       </tr>
       <tr>
         <td style="color:var(--blue);font-weight:800;">INTERNAL</td>
         <td class="mono" style="color:var(--blue);">?? INTERNAL</td>
-        <td>NEIT and authorised client staff only. Low harm if disclosed but not for public release.</td>
+        <td>NEIT and authorized client staff only. Low harm if disclosed but not for public release.</td>
         <td>Standard RBAC. No external sharing without review.</td>
         <td>This playbook, sprint reports, process documentation, training materials</td>
       </tr>
@@ -384,7 +385,7 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
   <div class="sec-head"><div class="sec-label">Client Brand Overlay</div><div class="sec-line"></div></div>
   <div class="callout" style="--cc:var(--violet);">
     <div class="callout-icon">?</div>
-    <div class="callout-body"><strong>QMS instantiation per client:</strong> When deploying RTBoss to a new client, copy this QMS section, apply their logo, primary/secondary colours, approved fonts, and document header/footer templates. Their brand overlay governs all client-facing outputs. The underlying RTBoss system always runs on NEIT architecture standards. Classification scheme is inherited unchanged — client data classification follows NEIT rules.</div>
+    <div class="callout-body"><strong>QMS instantiation per client:</strong> When deploying RTBoss to a new client, copy this QMS section, apply their logo, primary/secondary colors, approved fonts, and document header/footer templates. Their brand overlay governs all client-facing outputs. The underlying RTBoss system always runs on NEIT architecture standards. Classification scheme is inherited unchanged — client data classification follows NEIT rules.</div>
   </div>
 
 </div></div>
@@ -694,7 +695,7 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
           <li>Exception alerts (Controller persona)</li>
           <li>Month-end commentary pack</li>
           <li>Board-level financial narrative</li>
-          <li>Scenario modelling responses</li>
+          <li>Scenario modeling responses</li>
         </ul>
       </div>
     </div>
@@ -757,7 +758,7 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
         <div class="advisor-col-label">Core Capabilities</div>
         <ul>
           <li>Pipeline velocity and conversion analysis</li>
-          <li>Pricing optimisation signals</li>
+          <li>Pricing optimization signals</li>
           <li>Client expansion opportunity mapping</li>
           <li>Competitive positioning intelligence</li>
           <li>Revenue mix and concentration risk</li>
@@ -792,7 +793,7 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
       <div class="advisor-meta">
         <div class="advisor-id">ADV-004 · Fulfillment Engine</div>
         <div class="advisor-title">Operations Advisor</div>
-        <div class="advisor-mandate">Operational intelligence for the Fulfillment Engine — capacity planning, COGS optimisation, delivery risk, and workforce efficiency. Identifies where operations can be further digitised and where human capacity is being wasted.</div>
+        <div class="advisor-mandate">Operational intelligence for the Fulfillment Engine — capacity planning, COGS optimization, delivery risk, and workforce efficiency. Identifies where operations can be further digitised and where human capacity is being wasted.</div>
       </div>
     </div>
     <div class="advisor-body">
@@ -800,7 +801,7 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
         <div class="advisor-col-label">Core Capabilities</div>
         <ul>
           <li>Capacity vs demand forecasting</li>
-          <li>COGS breakdown and optimisation</li>
+          <li>COGS breakdown and optimization</li>
           <li>Delivery SLA risk monitoring</li>
           <li>Workflow bottleneck identification</li>
           <li>Digital worker maturation recommendations</li>
@@ -821,8 +822,8 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
         <ul>
           <li>Weekly ops briefing (Ops Manager)</li>
           <li>Capacity risk alerts</li>
-          <li>Monthly COGS optimisation report</li>
-          <li>Sprint prioritisation recommendations</li>
+          <li>Monthly COGS optimization report</li>
+          <li>Sprint prioritization recommendations</li>
           <li>Maturation roadmap guidance</li>
         </ul>
       </div>
@@ -877,10 +878,10 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
   <div class="card-grid">
     <div class="card card-accent" style="--ca:var(--blue);">
       <h3>ADV-010 · Healthcare Advisor</h3>
-      <p>TGA compliance, Medicare billing optimisation, clinical workflow intelligence. Active for healthcare clients (EMS reference).</p>
+      <p>TGA compliance, Medicare billing optimization, clinical workflow intelligence. Active for healthcare clients (EMS reference).</p>
       <ul>
         <li>Prescription compliance monitoring</li>
-        <li>Medicare claim optimisation</li>
+        <li>Medicare claim optimization</li>
         <li>Clinical staff credentialing alerts</li>
         <li>Patient data governance (My Health Record)</li>
       </ul>
@@ -1201,7 +1202,7 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
   <div class="ph">
     <div class="ph-kicker">Authority · Accountability · Escalation</div>
     <h1 class="ph-title">Job Roles & Authority</h1>
-    <p class="ph-sub">Every action in RTBoss — whether taken by a human or an agent — must be authorised by a defined role. This tab defines which roles own which decisions, what authority levels govern financial and operational approvals, and how escalation paths work when something falls outside normal parameters.</p>
+    <p class="ph-sub">Every action in RTBoss — whether taken by a human or an agent — must be authorized by a defined role. This tab defines which roles own which decisions, what authority levels govern financial and operational approvals, and how escalation paths work when something falls outside normal parameters.</p>
   </div>
 
   <div class="callout" style="--cc:var(--amber);">
@@ -1239,7 +1240,7 @@ Related Docs:     [Doc IDs of related controlled documents]</div>
         <td class="mono" style="color:var(--violet);">ROL-004</td>
         <td style="font-weight:700;">QMS Manager</td>
         <td>ISO 27001 and ISO 9001 compliance. NCR management. Internal audit coordination. Risk register maintenance. Document control. Management review input.</td>
-        <td>Document status changes (DRAFT ? UNDER REVIEW ? APPROVED). NCR status updates. Risk register updates. Cannot authorise financial transactions.</td>
+        <td>Document status changes (DRAFT ? UNDER REVIEW ? APPROVED). NCR status updates. Risk register updates. Cannot authorize financial transactions.</td>
         <td>Receives NCRs from any source. Receives internal audit findings. Escalates critical/major NCs and unresolved risks to MD.</td>
       </tr>
       <tr>
@@ -1351,7 +1352,7 @@ ROUTING TABLE (extend per client deployment)
 
 ESCALATION RULES
 - Agent failure after 3 retries: notify ROL-002 via SKL-011
-- Unrecognised trigger type: log as NCR via SKL-018 + notify ROL-002
+- Unrecognized trigger type: log as NCR via SKL-018 + notify ROL-002
 - Approval timeout (>2h): escalate to next authority tier per Tab 09
 
 CONSTRAINTS — NEVER VIOLATE
@@ -1384,7 +1385,7 @@ MANDATE
 - Cash flow forecasting (30 / 60 / 90 day)
 - Budget variance analysis and root cause
 - Margin analysis by client / service line
-- Aged debtor risk identification and prioritisation
+- Aged debtor risk identification and prioritization
 - Month-end management account commentary
 - Exception alerts when any financial metric breaches threshold
 
@@ -1448,7 +1449,7 @@ HARD LIMITS — NEVER VIOLATE
   human legal review. Use: "This clause may create [risk] — 
   recommend legal review before signing."
 - Do not provide advice on matters involving RLAW clients that 
-  may constitute practising law without a licence.
+  may constitute practising law without a license.
 - Do not speculate on litigation outcomes.
 - For any RESTRICTED data matter: involve MD (ROL-001) immediately.
 
@@ -1571,7 +1572,7 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
     <tbody>
       <tr><td>Typo fix, minor wording</td><td>PATCH (x.x.1)</td><td>Section 12 Changelog entry. Re-run unit tests only.</td><td>ISO 9001 Cl.7.5.3</td></tr>
       <tr><td>Logic change, new constraint, output format change</td><td>MINOR (x.1.0)</td><td>Changelog entry. Re-run full test suite (Unit + Integration). Re-notify affected Genie owners.</td><td>ISO 9001 Cl.7.5.3 · Cl.8.1</td></tr>
-      <tr><td>New capability, identity change, routing table change (Master Orchestrator)</td><td>MAJOR (1.0.0)</td><td>Changelog entry. Full regression test of all downstream Genies. Staged rollout (staging ? production). Client notification if client-facing behaviour changes.</td><td>ISO 9001 Cl.8.1 · Cl.8.6 · ISO 27001 A.8.28</td></tr>
+      <tr><td>New capability, identity change, routing table change (Master Orchestrator)</td><td>MAJOR (1.0.0)</td><td>Changelog entry. Full regression test of all downstream Genies. Staged rollout (staging ? production). Client notification if client-facing behavior changes.</td><td>ISO 9001 Cl.8.1 · Cl.8.6 · ISO 27001 A.8.28</td></tr>
       <tr><td>Security-relevant change (data access, classification, escalation rules)</td><td>MAJOR + security review</td><td>All of MAJOR above plus: Tech Lead security review, ISO control block update, risk assessment update (ENT-005). MD sign-off before deployment.</td><td>ISO 27001 Cl.6.1 · A.8.28</td></tr>
     </tbody>
   </table>
@@ -1596,7 +1597,7 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
     <div class="ttile">
       <div class="ttile-icon">??</div>
       <div class="ttile-name">Discovery Report</div>
-      <div class="ttile-desc">Post-discovery workshop findings, current-state mapping, opportunity prioritisation, and recommended outcomes. Client-facing deliverable from the Discovery phase.</div>
+      <div class="ttile-desc">Post-discovery workshop findings, current-state mapping, opportunity prioritization, and recommended outcomes. Client-facing deliverable from the Discovery phase.</div>
       <div class="ttile-fields">
         <span class="ttile-field">[[AUTO]] Client Name</span>
         <span class="ttile-field">[[AUTO]] Date</span>
@@ -1835,9 +1836,9 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
   <div class="sec-head"><div class="sec-label">Core Entities</div><div class="sec-line"></div></div>
 
   <div class="entity-block">
-    <h3>Organisation</h3>
-    <div class="entity-id">ENT-001 · neit_organisation · The top-level client or business entity</div>
-    <p style="color:var(--mid);font-size:0.85rem;line-height:1.7;">The root entity for every RTBoss deployment. All other entities exist within the context of an Organisation. In a multi-tenant deployment, Organisation isolation is enforced at the Dataverse row level.</p>
+    <h3>Organization</h3>
+    <div class="entity-id">ENT-001 · neit_organization · The top-level client or business entity</div>
+    <p style="color:var(--mid);font-size:0.85rem;line-height:1.7;">The root entity for every RTBoss deployment. All other entities exist within the context of an Organization. In a multi-tenant deployment, Organization isolation is enforced at the Dataverse row level.</p>
     <div class="entity-props">
       <div class="eprop"><div class="eprop-key">org_id</div><div class="eprop-val">Unique identifier</div><div class="eprop-type">GUID · PK</div></div>
       <div class="eprop"><div class="eprop-key">org_code</div><div class="eprop-val">3-letter client code (EMS, RDM)</div><div class="eprop-type">TEXT(3) · UNIQUE</div></div>
@@ -1851,10 +1852,10 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
 
   <div class="entity-block">
     <h3>Contact</h3>
-    <div class="entity-id">ENT-002 · neit_contact · Any person associated with an Organisation (client, vendor, staff, lead)</div>
+    <div class="entity-id">ENT-002 · neit_contact · Any person associated with an Organization (client, vendor, staff, lead)</div>
     <div class="entity-props">
       <div class="eprop"><div class="eprop-key">contact_id</div><div class="eprop-val">Unique identifier</div><div class="eprop-type">GUID · PK</div></div>
-      <div class="eprop"><div class="eprop-key">org_id</div><div class="eprop-val">Parent organisation</div><div class="eprop-type">LOOKUP ? ENT-001</div></div>
+      <div class="eprop"><div class="eprop-key">org_id</div><div class="eprop-val">Parent organization</div><div class="eprop-type">LOOKUP ? ENT-001</div></div>
       <div class="eprop"><div class="eprop-key">contact_type</div><div class="eprop-val">client / vendor / employee / prospect</div><div class="eprop-type">CHOICE</div></div>
       <div class="eprop"><div class="eprop-key">first_name</div><div class="eprop-val">Given name</div><div class="eprop-type">TEXT(100)</div></div>
       <div class="eprop"><div class="eprop-key">last_name</div><div class="eprop-val">Family name</div><div class="eprop-type">TEXT(100)</div></div>
@@ -2056,7 +2057,7 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
 
   <div class="dict-entry" data-terms="maturation % digital worker percentage">
     <div class="dict-term">Maturation % <span class="dict-category">Metric</span></div>
-    <div class="dict-def">The percentage of total business task volume handled by digital workers (fully automated) vs hybrid workers (human-assisted AI) vs human workers (no AI). Calculated per domain and rolled up to an overall organisation maturation score. Tracked in Section 06 and reported in every maturation review. Target: 40% digital by Q3 2026 across active RTBoss clients.</div>
+    <div class="dict-def">The percentage of total business task volume handled by digital workers (fully automated) vs hybrid workers (human-assisted AI) vs human workers (no AI). Calculated per domain and rolled up to an overall organization maturation score. Tracked in Section 06 and reported in every maturation review. Target: 40% digital by Q3 2026 across active RTBoss clients.</div>
     <div class="dict-related">Related: <span>Digital Worker</span> · <span>Hybrid Worker</span></div>
   </div>
 
@@ -2206,8 +2207,8 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
 
   <div class="dict-entry" data-terms="cogs cost of goods sold cost reduction">
     <div class="dict-term">COGS (Cost of Goods Sold) <span class="dict-category">Commercial</span></div>
-    <div class="dict-def">The direct operational cost of delivering a service or product — wages, materials, processing time, error rework. COGS reduction is the primary commercial outcome RTBoss delivers for clients: as Digital Worker maturation increases and agents handle more volume, the human labour cost per unit of output decreases. COGS delta (before vs after RTBoss) is a core metric in every Maturation Review Pack and the primary basis for Outcome Bonus calculations.</div>
-    <div class="dict-example">Example: EMS processed prescriptions at $4.20/unit cost before RTBoss (labour + error handling). After Finance OS deployment, standard prescription cost dropped to $1.80/unit — 57% COGS reduction on that workflow.</div>
+    <div class="dict-def">The direct operational cost of delivering a service or product — wages, materials, processing time, error rework. COGS reduction is the primary commercial outcome RTBoss delivers for clients: as Digital Worker maturation increases and agents handle more volume, the human labor cost per unit of output decreases. COGS delta (before vs after RTBoss) is a core metric in every Maturation Review Pack and the primary basis for Outcome Bonus calculations.</div>
+    <div class="dict-example">Example: EMS processed prescriptions at $4.20/unit cost before RTBoss (labor + error handling). After Finance OS deployment, standard prescription cost dropped to $1.80/unit — 57% COGS reduction on that workflow.</div>
     <div class="dict-related">Related: <span>Digital Worker</span> · <span>Maturation %</span> · <span>Outcome Bonus</span></div>
   </div>
 
@@ -2341,7 +2342,7 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
     <tbody>
       <tr>
         <td class="mono">Cl.4</td>
-        <td>Context of organisation, interested parties, ISMS scope</td>
+        <td>Context of organization, interested parties, ISMS scope</td>
         <td>ISMS Scope Document (NEIT-POL-ISMS-001). Covers all RTBoss deployments, all client data, Brisbane HQ and remote operations.</td>
         <td>MD</td>
         <td>NEIT-POL-ISMS-001 · Annual review</td>
@@ -2433,7 +2434,7 @@ Retention:          [x days/years — per NEIT-POL-RET-001]
       <tr><td class="mono">A.8.2</td><td>Privileged access rights</td><td>Privileged accounts (Power Platform admin, Dataverse admin, Azure) managed in Entra ID with PIM (Privileged Identity Management). Just-in-time access. All privileged access logged.</td></tr>
       <tr><td class="mono">A.8.3</td><td>Information access restriction</td><td>Dataverse row-level security enforces org_id isolation. Entra ID RBAC governs all M365 and Power Platform access. All Genies operate under service principals with minimum required permissions.</td></tr>
       <tr><td class="mono">A.8.5</td><td>Secure authentication</td><td>MFA enforced for all NEIT staff via Entra ID Conditional Access. Client access to RTBoss interfaces requires MFA. Genie service principals use certificate-based authentication — no passwords.</td></tr>
-      <tr><td class="mono">A.8.7</td><td>Protection against malware</td><td>Microsoft Defender for 365 across all endpoints and email. Power Platform DLP policies block unauthorised connector usage. Genie inputs validated before processing — no execution of unvalidated content.</td></tr>
+      <tr><td class="mono">A.8.7</td><td>Protection against malware</td><td>Microsoft Defender for 365 across all endpoints and email. Power Platform DLP policies block unauthorized connector usage. Genie inputs validated before processing — no execution of unvalidated content.</td></tr>
       <tr><td class="mono">A.8.10</td><td>Information deletion</td><td>Data retention and deletion policy (NEIT-POL-RET-001). Dataverse records purged per retention schedule. Client data deletion procedure activated on contract termination. Deletion logged as a Fact.</td></tr>
       <tr><td class="mono">A.8.15</td><td>Logging</td><td>All Genie executions logged to Dataverse (Fact entity). Power Platform audit logging enabled. Azure Monitor captures infrastructure events. Section 12 Changelog covers application-level change logging.</td></tr>
       <tr><td class="mono">A.8.24</td><td>Use of cryptography</td><td>All data in transit: TLS 1.2+. All Dataverse storage: AES-256 at rest (Microsoft-managed keys). Secrets stored in Azure Key Vault. No plaintext credentials anywhere in the system.</td></tr>
@@ -2659,7 +2660,7 @@ function filterDict(){
 function initGroupReviewSync_S09(){
   var SECTION_KEY='S09', stateKey='rtboss_content_review_09_qms_v1', progressKey='rtboss_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
-  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);cursor:pointer;transform:translateY(1px);flex-shrink:0}'; document.head.appendChild(st); }
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
   function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
   function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
@@ -2670,6 +2671,8 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S09);
 </script>
 </body>
 </html>
+
+
 
 
 

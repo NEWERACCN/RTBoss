@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RTBoss - Section 12 - Reporting Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -19,6 +20,7 @@ body{
     linear-gradient(180deg,#020408 0%, #050b14 45%, #040912 100%);
   color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6
 }
+.no-checkboxes input[type="checkbox"]{display:none !important}
 .nav-header{
   background:linear-gradient(180deg,rgba(10,20,32,.96),rgba(10,20,32,.9));
   border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;
@@ -48,10 +50,7 @@ body{
   border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:1rem;color:var(--mid)
 }
 .sec-head{display:flex;align-items:center;gap:1rem;margin:1.75rem 0 .9rem}
-.sec-label{
-  font-family:'Fira Code',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
-  background:rgba(29,233,182,.08);border:1px solid rgba(29,233,182,.25);padding:.3rem .5rem;border-radius:6px
-}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(29,233,182,.35),transparent)}
 .metrics{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:1rem}
 .metric{
@@ -98,7 +97,7 @@ body{
 @keyframes fadeUp{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
-<body>
+<body class="no-checkboxes">
 <div class="nav-header">
   <div class="nav-title">Section 12 - Reporting Dashboard</div>
   <a href="index.html" class="nav-back">Back to Hub</a>
@@ -332,5 +331,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 </body>
 </html>
+
+
 
 

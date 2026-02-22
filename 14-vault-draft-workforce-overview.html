@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RTBoss - Vault Draft - Overview Tab (Full Copy)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg:#020408;--s1:#070d16;--s2:#0d1520;--s3:#111d2c;--s4:#162438;
+  --border:#182435;--border2:#1e3048;--border3:#243856;
+  --text:#c8d8e8;--mid:#6a8aaa;--dim:#2a4060;
+  --green:#00e676;--green2:#69f0ae;--blue:#40c4ff;--blue2:#82b1ff;
+  --amber:#ffca28;--amber2:#ffe082;--red:#ff5252;--violet:#b388ff;
+  --teal:#1de9b6;--teal2:#64ffda;--orange:#ff9100;--pink:#f48fb1;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
+
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:#00e676 !important;}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tabs::-webkit-scrollbar{height:3px;}
+.tabs::-webkit-scrollbar-thumb{background:var(--border);}
+.ntab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.ntab:hover{color:var(--mid);}
+.ntab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
+.panel{display:none;position:relative;z-index:1;}
+.panel.active{display:block;}
+.pw{max-width:1400px;margin:0 auto;padding:2rem 2rem 4rem;}
+
+.ph{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem;}
+.ph-title{font-size:1.65rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem;line-height:1.2;color:#e8f4ff;}
+.ph-sub{font-size:.83rem;color:var(--mid);line-height:1.75;max-width:720px;}
+
+.sec-head{display:flex;align-items:center;gap:.75rem;margin:2.5rem 0 1.1rem;}
+.sec-head-line{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sec-head.done .sec-label{color:var(--teal);}
+.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}
+
+
+.callout{display:flex;gap:.75rem;padding:.85rem 1.1rem;border-radius:8px;font-size:.8rem;line-height:1.7;margin:1rem 0;}
+.callout-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem;}
+.callout-body{color:var(--mid);}
+.callout-body strong{color:var(--text);font-weight:500;}
+.callout.info{background:rgba(64,196,255,.05);border:1px solid rgba(64,196,255,.15);}
+.callout.success{background:rgba(0,230,118,.05);border:1px solid rgba(0,230,118,.18);}
+.callout.warn{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.18);}
+.callout.violet{background:rgba(179,136,255,.05);border:1px solid rgba(179,136,255,.18);}
+.callout.amber{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.2);}
+
+.def-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--green2);line-height:1.65;margin:.75rem 0;}
+.def-block.violet{border-left-color:var(--violet);color:var(--violet);}
+.def-block.blue{border-left-color:var(--blue);color:var(--blue2);}
+.def-block.amber{border-left-color:var(--amber);color:var(--amber2);}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem;}
+.tag{font-family:'Fira Code',monospace;font-size:.58rem;padding:.15rem .55rem;border-radius:3px;letter-spacing:.04em;}
+.tag.green{background:rgba(0,230,118,.07);color:var(--green2);border:1px solid rgba(0,230,118,.2);}
+.tag.blue{background:rgba(64,196,255,.07);color:var(--blue);border:1px solid rgba(64,196,255,.2);}
+.tag.amber{background:rgba(255,202,40,.07);color:var(--amber);border:1px solid rgba(255,202,40,.2);}
+.tag.violet{background:rgba(179,136,255,.07);color:var(--violet);border:1px solid rgba(179,136,255,.2);}
+.tag.teal{background:rgba(29,233,182,.07);color:var(--teal);border:1px solid rgba(29,233,182,.2);}
+.tag.orange{background:rgba(255,145,0,.07);color:var(--orange);border:1px solid rgba(255,145,0,.2);}
+.tag.pink{background:rgba(244,143,177,.07);color:var(--pink);border:1px solid rgba(244,143,177,.2);}
+
+.rule-table{width:100%;border-collapse:collapse;font-size:.77rem;margin:1rem 0;}
+.rule-table th{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:.4rem .75rem;border-bottom:1px solid var(--border);text-align:left;}
+.rule-table td{padding:.5rem .75rem;border-bottom:1px solid rgba(24,36,53,.5);color:var(--mid);vertical-align:top;}
+.rule-table td:first-child{color:var(--text);font-weight:500;}
+.rule-table tr:last-child td{border-bottom:none;}
+.rule-table tr:hover td{background:rgba(255,255,255,.012);}
+
+/* -- OVERVIEW GRID (slide 1 layout) -- */
+.rtbos-overview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:2.5rem;}
+@media(max-width:860px){.rtbos-overview{grid-template-columns:1fr;}}
+.ov-col{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.ov-col-header{padding:.75rem 1.1rem;border-bottom:1px solid var(--border);background:var(--s2);display:flex;align-items:center;gap:.6rem;}
+.ov-col-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.ov-col-title{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;}
+.ov-col-count{font-size:.7rem;color:var(--dim);margin-left:auto;font-family:'Fira Code',monospace;}
+.ov-tiles{padding:10px;display:flex;flex-direction:column;gap:6px;}
+.ov-tile{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;font-size:.8rem;font-weight:500;color:var(--text);cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden;}
+.ov-tile::after{content:'';position:absolute;bottom:0;left:12px;right:12px;height:2px;background:var(--tile-bar,linear-gradient(to right,#40c4ff,#f48fb1));border-radius:1px;opacity:.6;}
+.ov-tile:hover{border-color:var(--border3);background:var(--s3);transform:translateX(2px);}
+.ov-tile:hover .tile-arrow{opacity:1;}
+.tile-arrow{font-size:.65rem;color:var(--dim);opacity:0;transition:opacity .15s;font-family:'Fira Code',monospace;}
+
+/* -- ACCORDION -- */
+.accordion{display:flex;flex-direction:column;gap:8px;margin-bottom:2rem;}
+.acc-block{background:var(--s1);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;}
+.acc-block:hover{border-color:var(--border2);}
+.acc-block.open{border-color:var(--blue);}
+.acc-header{display:grid;grid-template-columns:48px 1fr auto;align-items:stretch;}
+.acc-num{background:rgba(0,0,0,.25);border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);}
+.acc-block.open .acc-num{color:var(--blue);}
+.acc-title-group{padding:.8rem 1.1rem;}
+.acc-id{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;}
+.acc-block.open .acc-id{color:var(--blue);}
+.acc-name{font-weight:600;font-size:.92rem;color:#e8f4ff;}
+.acc-short{font-size:.73rem;color:var(--mid);margin-top:.12rem;}
+.acc-chevron{padding:0 1rem;display:flex;align-items:center;font-size:.75rem;color:var(--dim);transition:transform .2s,color .2s;}
+.acc-block.open .acc-chevron{transform:rotate(180deg);color:var(--blue);}
+.acc-body{display:none;border-top:1px solid var(--border);}
+.acc-block.open .acc-body{display:block;}
+
+/* -- DW GRID (Systems / Genies / Streams) -- */
+.dw-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+@media(max-width:720px){.dw-grid{grid-template-columns:1fr;}}
+.dw-col{border-right:1px solid var(--border);}
+.dw-col:last-child{border-right:none;}
+.dw-col-header{padding:.75rem 1.1rem;border-bottom:1px solid var(--border);font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;}
+.dw-items{padding:10px;display:flex;flex-direction:column;gap:6px;}
+.dw-item{background:var(--s2);border:1px solid var(--border);border-radius:7px;padding:.65rem .9rem;font-size:.78rem;color:var(--mid);position:relative;overflow:hidden;transition:all .18s;}
+.dw-item::after{content:'';position:absolute;bottom:0;left:10px;right:10px;height:2px;background:var(--item-bar,linear-gradient(to right,#40c4ff,#f48fb1));opacity:.5;border-radius:1px;}
+.dw-item:hover{background:var(--s3);color:var(--text);border-color:var(--border2);}
+.dw-item.tbd{color:var(--dim);font-style:italic;}
+
+/* -- VALUE ENGINE CARDS -- */
+.ve-list{display:flex;flex-direction:column;gap:10px;margin-bottom:2rem;}
+.ve-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;}
+.ve-card:hover{border-color:var(--border3);}
+.ve-card.open{border-color:var(--vc,var(--amber));}
+.ve-header{display:grid;grid-template-columns:52px 1fr auto;align-items:stretch;}
+.ve-num{background:rgba(0,0,0,.25);border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.7rem;font-weight:600;}
+.ve-title-group{padding:.8rem 1.1rem;}
+.ve-id{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;opacity:.7;}
+.ve-name{font-weight:600;font-size:.92rem;color:#e8f4ff;}
+.ve-short{font-size:.73rem;color:var(--mid);margin-top:.15rem;}
+.ve-toggle{padding:0 1rem;display:flex;align-items:center;font-size:.75rem;color:var(--dim);transition:transform .2s,color .2s;}
+.ve-card.open .ve-toggle{transform:rotate(180deg);}
+.ve-body{display:none;padding:1.1rem 1.25rem;border-top:1px solid var(--border);background:rgba(0,0,0,.12);grid-template-columns:1fr 1fr;gap:1.25rem;}
+.ve-card.open .ve-body{display:grid;}
+@media(max-width:640px){.ve-body{grid-template-columns:1fr;}}
+.ve-section h4{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;padding-bottom:.3rem;border-bottom:1px solid var(--border);}
+.ve-section p,.ve-section li{font-size:.78rem;color:var(--mid);line-height:1.75;}
+.ve-section ul{padding-left:1rem;}
+.ve-section li{margin-bottom:.2rem;}
+
+/* -- RTBI CARDS -- */
+.rtbi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:2rem;}
+.rtbi-card{background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--rc,var(--violet));border-radius:0 0 10px 10px;transition:border-color .2s,transform .2s;}
+.rtbi-card:hover{transform:translateY(-2px);}
+.rtbi-card-head{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);background:var(--s2);display:flex;align-items:center;gap:.75rem;}
+.rtbi-icon{font-size:1.2rem;flex-shrink:0;}
+.rtbi-card-title{font-weight:600;font-size:.88rem;color:#e8f4ff;}
+.rtbi-card-type{font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.08em;margin-top:.15rem;text-transform:uppercase;}
+.rtbi-card-body{padding:.9rem 1.1rem;}
+.rtbi-card-body p{font-size:.77rem;color:var(--mid);line-height:1.7;margin-bottom:.65rem;}
+.rtbi-metrics{display:flex;flex-direction:column;gap:5px;}
+.rtbi-metric{display:flex;justify-content:space-between;align-items:center;padding:.32rem 0;border-bottom:1px solid rgba(24,36,53,.6);font-size:.73rem;}
+.rtbi-metric:last-child{border-bottom:none;}
+.rm-label{color:var(--mid);}
+.rm-val{font-family:'Fira Code',monospace;font-weight:500;}
+
+/* -- BTS -- */
+.bts-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:2rem;}
+@media(max-width:760px){.bts-grid{grid-template-columns:1fr;}}
+.bts-col{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.bts-col-header{padding:.85rem 1.1rem;border-bottom:1px solid var(--border);background:var(--s2);}
+.bts-col-title{font-weight:700;font-size:.92rem;color:#e8f4ff;margin-bottom:.2rem;}
+.bts-col-sub{font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;}
+.bts-items{padding:10px;display:flex;flex-direction:column;gap:6px;}
+.bts-item{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-size:.8rem;font-weight:500;color:var(--text);display:flex;align-items:center;gap:.65rem;transition:all .18s;}
+.bts-item:hover{background:var(--s3);border-color:var(--border2);}
+.bts-item-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.bts-item-role{font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);margin-left:auto;text-transform:uppercase;letter-spacing:.06em;}
+.bts-col-footer{padding:.7rem 1.1rem;border-top:1px solid var(--border);font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);text-align:center;background:var(--s3);}
+
+/* -- STAT ROW -- */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:1.5rem 0;}
+.stat-box{background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1rem 1.1rem;text-align:center;}
+.stat-val{font-family:'Fira Code',monospace;font-size:1.6rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:.3rem;}
+.stat-val.amber{color:var(--amber);}
+.stat-val.blue{color:var(--blue);}
+.stat-val.violet{color:var(--violet);}
+.stat-label{font-size:.72rem;color:var(--mid);line-height:1.4;}
+
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
+@media(max-width:680px){.pw{padding:4.5rem 1rem 3rem;}}
+
+.tab-flowbar{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.06));border:1px solid rgba(0,230,118,.28);border-radius:10px;padding:.85rem 1rem;margin:0 0 1.25rem;}
+.tab-flowbar-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem;}
+.tab-flowbar-v{font-family:'Fira Code',monospace;font-size:.7rem;color:#d7ebff;line-height:1.6;}
+
+.os-flow{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.05));border:1px solid rgba(0,230,118,.28);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1.25rem;}
+.os-flow-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);text-align:center;margin-bottom:.55rem;}
+.os-flow-v{font-family:'Fira Code',monospace;font-size:.86rem;line-height:1.7;text-align:center;word-spacing:.05em;}
+.os-c1{color:#40c4ff;font-weight:600}.os-c2{color:#b388ff;font-weight:600}.os-c3{color:#1de9b6;font-weight:600}.os-c4{color:#82b1ff;font-weight:600}.os-c5{color:#ffca28;font-weight:600}.os-c6{color:#f48fb1;font-weight:600}.os-c7{color:#00e676;font-weight:700}
+.overview-sub{max-width:100%;}
+.flow-tiles{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:.55rem;margin:0 0 1.25rem;}
+.flow-tile{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:.55rem .6rem;text-align:center;position:relative;overflow:hidden;}
+.flow-tile::after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--ftc,#40c4ff);opacity:.75;}
+.flow-tile span{font-family:'Fira Code',monospace;font-size:.62rem;color:#d7ebff;letter-spacing:.04em;}
+.outcome-tiles{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:.55rem;margin:0 0 1.25rem;}
+.outcome-tile{background:linear-gradient(90deg,rgba(10,28,52,.82),rgba(18,42,72,.7));border:1px solid var(--border);border-radius:10px;padding:.65rem .7rem;position:relative;text-align:center;}
+.outcome-tile::after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--otc,#40c4ff);opacity:.85;}
+.outcome-tile span{font-family:'Fira Code',monospace;font-size:.62rem;color:#dff8ea;letter-spacing:.05em;text-transform:uppercase;display:block;}
+.panel#tab-overview .ov-tile-sub{display:block;font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:var(--mid);margin-top:.25rem;}
+.boss-layer{background:linear-gradient(90deg,rgba(179,136,255,.12),rgba(64,196,255,.08));border:1px solid var(--border);border-radius:12px;padding:.95rem 1rem;margin:0 0 1.1rem;text-align:center;}
+.boss-layer-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#b388ff;margin:0 0 .45rem;}
+.boss-layer-v{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#eaf4ff;letter-spacing:.01em;margin:0 0 .3rem;}
+.boss-layer-sub{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#b8d5ef;}
+.boss-layer-end{font-family:'Inter',sans-serif;font-size:1.12rem;font-weight:700;color:#e6f2ff;text-align:center;margin:0 0 1.25rem;letter-spacing:.02em;}
+.panel#tab-overview .ph-sub{font-size:1rem;line-height:1.78;color:#a6c4de;max-width:980px;}
+.panel#tab-overview .sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sec-head.done .sec-label{color:var(--teal);}
+.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}
+
+.panel#tab-overview .boss-layer{background:#0a1320;border:1px solid #2b4463;padding:1.2rem 1.1rem;box-shadow:0 10px 26px rgba(0,0,0,.24);}
+.panel#tab-overview .boss-layer-k{font-size:.66rem;color:#9cb2ff;}
+.panel#tab-overview .boss-layer-v{font-size:1.22rem;line-height:1.4;}
+.panel#tab-overview .boss-layer-sub{font-size:.75rem;letter-spacing:.09em;color:#c2d8ef;}
+.human-diagram{background:#061221;border:1px solid #203755;border-radius:12px;padding:1.1rem;margin:1rem 0 1.25rem;}
+.human-timeline{display:flex;flex-direction:column;gap:0;}
+.hf-step{display:grid;grid-template-columns:2.9rem 1fr;gap:0 .95rem;position:relative;padding-bottom:.85rem;}
+.hf-step:last-child{padding-bottom:0;}
+.hf-step:not(:last-child)::after{content:'';position:absolute;left:1.35rem;top:2.45rem;bottom:.1rem;width:2px;background:linear-gradient(to bottom,rgba(86,122,156,.85),rgba(86,122,156,.2));}
+.hf-num{width:2.7rem;height:2.7rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.83rem;font-weight:700;color:var(--step-color,#40c4ff);border:2px solid var(--step-color,#40c4ff);background:#0a1625;box-shadow:0 0 0 3px rgba(0,0,0,.2);}
+.hf-body{background:#0b1828;border:1px solid #233a57;border-left:4px solid var(--step-color,#40c4ff);border-radius:10px;padding:.85rem 1rem;}
+.hf-title{font-family:'DM Sans',sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.42rem;line-height:1.35;}
+.hf-copy{font-size:.95rem;line-height:1.72;color:#b9cfe3;}
+.worker-map{background:#061221;border:1px solid #203755;border-radius:12px;padding:1rem 1rem 1.2rem;margin:1rem 0 1.35rem;}
+.wm-head{display:grid;grid-template-columns:180px 1fr 1fr;gap:.75rem;align-items:end;margin-bottom:.75rem;}
+.wm-head div{font-family:'Fira Code',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#8eb1cf;}
+.wm-head .wm-left{color:var(--blue);}
+.wm-head .wm-right{color:var(--amber);}
+.wm-row{display:grid;grid-template-columns:180px 1fr;gap:.75rem;align-items:center;margin:.45rem 0;}
+.wm-role{font-size:.78rem;color:#d2e5f5;font-weight:600;line-height:1.4;}
+.wm-lane{position:relative;height:34px;border:1px solid #28415f;border-radius:8px;overflow:hidden;background:linear-gradient(to right,rgba(64,196,255,.08) 0%,rgba(64,196,255,.08) 50%,rgba(255,202,40,.08) 50%,rgba(255,202,40,.08) 100%);}
+.wm-center{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#33577b;}
+.wm-fill{position:absolute;top:6px;bottom:6px;border-radius:5px;animation:wmPulse 2.2s ease-in-out infinite;}
+.wm-fill.left{right:50%;background:linear-gradient(to left,rgba(64,196,255,.92),rgba(64,196,255,.45));}
+.wm-fill.right{left:50%;background:linear-gradient(to right,rgba(255,202,40,.92),rgba(255,202,40,.45));}
+.wm-bridge-dot{position:absolute;top:50%;left:50%;width:8px;height:8px;border-radius:50%;transform:translate(-50%,-50%);background:#ffffff;box-shadow:0 0 0 4px rgba(255,255,255,.12);animation:wmAreaFlow 45s ease-in-out infinite;}
+.wm-note{font-size:.78rem;color:#9ec0db;line-height:1.65;margin-top:.7rem;}
+.draft-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1rem;}
+.draft-tab{border:1px solid #2a4060;background:#0b1828;color:#9fc0dc;font-family:'Fira Code',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;padding:.55rem .85rem;cursor:pointer;}
+.draft-tab.active{background:rgba(0,230,118,.09);color:#dff8ea;border-color:rgba(0,230,118,.45);}
+.draft-panel{display:none;}
+.draft-panel.active{display:block;}
+.twin-map{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:1rem 0 1.35rem;}
+.twin-grid{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:.55rem;}
+.twin-step{background:#0d1c2b;border:2px solid #5d87b3;border-radius:9px;padding:.78rem .8rem;position:relative;animation:twinStepPulse 5.2s ease-in-out infinite;}
+.twin-step:nth-child(1){animation-delay:0s;}
+.twin-step:nth-child(2){animation-delay:1.2s;}
+.twin-step:nth-child(3){animation-delay:2.4s;}
+.twin-step:nth-child(4){animation-delay:3.6s;}
+.twin-step::after{content:'->';position:absolute;right:-.58rem;top:50%;transform:translateY(-50%);font-family:'Fira Code',monospace;color:#7da3c4;font-size:.78rem;}
+.twin-step:last-child::after{display:none;}
+.twin-k{font-family:'DM Sans',sans-serif;font-size:1.12rem;letter-spacing:.01em;color:#ffffff;margin-bottom:.34rem;text-align:center;font-weight:800;line-height:1.25;text-shadow:0 1px 0 rgba(0,0,0,.35);}
+.twin-v{font-size:.77rem;line-height:1.5;color:#a8c3da;text-align:center;font-weight:500;}
+.twin-detail{font-size:.69rem;line-height:1.5;color:#7f9ab3;text-align:center;margin-top:.28rem;}
+.twin-lane{margin-top:.75rem;position:relative;height:44px;background:#0b1a2a;border:1px solid #28415f;border-radius:9px;overflow:hidden;}
+.twin-track{position:absolute;left:14px;right:14px;top:50%;height:2px;transform:translateY(-50%);background:linear-gradient(to right,rgba(64,196,255,.35),rgba(255,202,40,.35));}
+.twin-fact{position:absolute;top:50%;left:14px;min-width:48px;height:18px;padding:0 7px;border-radius:4px;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:#ffffff;background:#c86a22;box-shadow:0 0 8px rgba(200,106,34,.18);animation:twinFlow 14.5s linear infinite;}
+.twin-fact::before{content:'FACT';}
+.twin-fact.f2{animation-delay:.68s;}
+.twin-fact.f3{animation-delay:1.36s;}
+.twin-fact.f4{animation-delay:3.20s;}
+.twin-fact.f5{animation-delay:3.90s;}
+.twin-fact.f6{animation-delay:6.00s;}
+.twin-fact.f7{animation-delay:7.80s;}
+.twin-lane-label{position:absolute;left:14px;bottom:4px;font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.08em;color:#7fa5c7;text-transform:uppercase;}
+.remember-strip{background:#071621;border:1px solid #223a54;border-radius:12px;padding:.9rem 1rem;margin:1rem 0 1.35rem;}
+.remember-grid{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:.55rem;}
+.remember-card{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.72rem .75rem;}
+.remember-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#b8d2ea;margin-bottom:.28rem;}
+.remember-v{font-size:.79rem;color:#d2e5f5;line-height:1.55;}
+@media(max-width:900px){.remember-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:620px){.remember-grid{grid-template-columns:1fr;}}
+@media(max-width:900px){.twin-grid{grid-template-columns:1fr 1fr;}.twin-step::after{display:none;}}
+@media(max-width:620px){.twin-grid{grid-template-columns:1fr;}}
+@keyframes wmPulse{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes wmAreaFlow{
+  0%,100%{left:var(--from,20%);opacity:.95;}
+  50%{left:var(--to,80%);opacity:.95;}
+}
+@keyframes twinFlow{0%{left:14px;}100%{left:calc(100% - 14px);}}
+@keyframes twinStepPulse{
+  0%,72%,100%{border-color:#5d87b3;box-shadow:none;}
+  12%{border-color:rgba(29,233,182,.9);box-shadow:0 0 0 2px rgba(29,233,182,.24) inset,0 0 16px rgba(29,233,182,.24);}
+}
+.panel#tab-overview .os-flow{background:#071a18;border:1px solid #1d5c50;}
+.panel#tab-overview .os-flow-k{font-size:.66rem;}
+.panel#tab-overview .os-flow-v{font-size:1.02rem;color:#eff7ff;line-height:1.95;}
+.panel#tab-overview .flow-tiles{grid-template-columns:repeat(4,minmax(170px,1fr));gap:.7rem;}
+.panel#tab-overview .flow-tile{padding:.72rem .75rem;}
+.panel#tab-overview .flow-tile span{font-size:.73rem;line-height:1.4;}
+.panel#tab-overview .outcome-tiles{gap:.7rem;}
+.panel#tab-overview .outcome-tile{padding:.8rem .8rem;}
+.panel#tab-overview .outcome-tile span{font-size:.72rem;}
+.panel#tab-overview .boss-layer-end{font-size:2rem;margin:.35rem 0 1.6rem;}
+@media(max-width:960px){.panel#tab-overview .flow-tiles{grid-template-columns:repeat(2,minmax(170px,1fr));}}
+@media(max-width:620px){
+  .panel#tab-overview .flow-tiles{grid-template-columns:1fr;}
+  .panel#tab-overview .boss-layer-v{font-size:1.02rem;}
+  .panel#tab-overview .boss-layer-end{font-size:1.5rem;}
+  .hf-title{font-family:'DM Sans',sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.42rem;line-height:1.35;}
+  .hf-copy{font-size:.88rem;}
+  .hf-step{grid-template-columns:2.45rem 1fr;gap:0 .7rem;}
+  .hf-step:not(:last-child)::after{left:1.14rem;}
+  .hf-num{width:2.3rem;height:2.3rem;font-size:.73rem;}
+}
+
+</style>
+</head>
+<body>
+<div class="nav-header">
+  <div class="nav-title">Vault Draft - Section 02 Overview (Full Copy)</div>
+  <a href="14-build-guides.html" class="nav-back">Back to Build Guides</a>
+</div>
+<!-- -- TAB 01  -  OVERVIEW -- -->
+<div class="panel active" id="tab-overview"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 02 - OS Framework - Overview</div>
+
+    <h1 class="ph-title">OS Framework Overview</h1>
+    <p class="ph-sub overview-sub">Always lead with humans: the Workforce Operating Model defines domain truth, constraints, escalation, and accountability before automation depth increases.</p>
+  </div>
+
+  <div class="draft-tabs">
+    <button class="draft-tab active" onclick="showDraftTab('human',this)">Human-First Flow</button>
+    <button class="draft-tab" onclick="showDraftTab('framework',this)">OS Framework Detail</button>
+  </div>
+
+  <div class="draft-panel active" id="draft-human">
+  <div class="sec-head"><span class="sec-label">Human-First Top-Down Flow</span><div class="sec-head-line"></div></div>
+  <div class="human-diagram">
+    <div class="human-timeline">
+      <div class="hf-step" style="--step-color:var(--pink);">
+        <div class="hf-num">01</div>
+        <div class="hf-body">
+          <div class="hf-title">Workforce Operating Model - Humans + Agents as one operating model.</div>
+          <div class="hf-copy">Human workers and digital workers operate together, creating a hybrid and increasingly digital workforce. This becomes the operating model, with people driving success.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--violet);">
+        <div class="hf-num">02</div>
+        <div class="hf-body">
+          <div class="hf-title">Identities - How human expertise is mirrored for agents.</div>
+          <div class="hf-copy">Mirror human expertise in digital form. Agents use Identities to apply domain knowledge consistently at scale.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--blue2);">
+        <div class="hf-num">03</div>
+        <div class="hf-body">
+          <div class="hf-title">Mini-OS - How the business is governed and administered day to day.</div>
+          <div class="hf-copy">Run governance, compliance, and admin control with clear human escalation and override boundaries.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--amber);">
+        <div class="hf-num">04</div>
+        <div class="hf-body">
+          <div class="hf-title">Value Engines - Where humans + agents deliver outcomes and create value.</div>
+          <div class="hf-copy">Create value where work happens. Humans + agents deliver fulfillment, service, and outcomes with faster flow and better consistency.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--teal);">
+        <div class="hf-num">05</div>
+        <div class="hf-body">
+          <div class="hf-title">Real-Time Business Intelligence - Real-time visibility into what happens in the business.</div>
+          <div class="hf-copy">Use live facts to see status, risk, and performance as operations happen.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--blue);">
+        <div class="hf-num">06</div>
+        <div class="hf-body">
+          <div class="hf-title">Flow of Work - How the Fact stream is executed.</div>
+          <div class="hf-copy">Run the Fact stream through routing, prioritization, and handoffs so each fact is acted on, completed, and closed correctly.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--green);">
+        <div class="hf-num">07</div>
+        <div class="hf-body">
+          <div class="hf-title">Cadence - The operating rhythm of the business.</div>
+          <div class="hf-copy">Use daily, weekly, and monthly cycles to run delivery and improvement in a steady, accountable rhythm.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Worker Activity Map</span><div class="sec-head-line"></div></div>
+  <div class="worker-map">
+    <div class="wm-head">
+      <div>Worker Type</div>
+      <div class="wm-left">Mini-OS (Governance + Admin)</div>
+      <div class="wm-right">Value Engines (Work + Value)</div>
+    </div>
+
+    <div class="wm-row">
+      <div class="wm-role">Executives + Domain Owners</div>
+      <div class="wm-lane">
+        <div class="wm-center"></div>
+        <div class="wm-fill left" style="width:42%;"></div>
+        <div class="wm-fill right" style="width:12%;"></div>
+        <div class="wm-bridge-dot" style="--from:8%;--to:62%;animation-delay:0s;"></div>
+      </div>
+    </div>
+    <div class="wm-row">
+      <div class="wm-role">Managers / Supervisors</div>
+      <div class="wm-lane">
+        <div class="wm-center"></div>
+        <div class="wm-fill left" style="width:26%;"></div>
+        <div class="wm-fill right" style="width:24%;"></div>
+        <div class="wm-bridge-dot" style="--from:24%;--to:74%;animation-delay:1.2s;"></div>
+      </div>
+    </div>
+    <div class="wm-row">
+      <div class="wm-role">Knowledge Workers</div>
+      <div class="wm-lane">
+        <div class="wm-center"></div>
+        <div class="wm-fill left" style="width:16%;"></div>
+        <div class="wm-fill right" style="width:38%;"></div>
+        <div class="wm-bridge-dot" style="--from:34%;--to:88%;animation-delay:2.4s;"></div>
+      </div>
+    </div>
+    <div class="wm-row">
+      <div class="wm-role">Frontline / Trade / Factory</div>
+      <div class="wm-lane">
+        <div class="wm-center"></div>
+        <div class="wm-fill left" style="width:12%;"></div>
+        <div class="wm-fill right" style="width:43%;"></div>
+        <div class="wm-bridge-dot" style="--from:38%;--to:93%;animation-delay:3.6s;"></div>
+      </div>
+    </div>
+
+    <div class="wm-note">This visual shows where each worker type spends most of the day. The animated bars connect the human layer to Flow of Work by showing how work moves between value creation and operating control.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Digital Twin Value Map</span><div class="sec-head-line"></div></div>
+  <div class="twin-map">
+    <div class="twin-grid">
+      <div class="twin-step">
+        <div class="twin-k">Event + Fact</div>
+        <div class="twin-v">Events become governed facts.</div>
+        <div class="twin-detail">Captured and structured for action.</div>
+      </div>
+      <div class="twin-step">
+        <div class="twin-k">Human + Agents</div>
+        <div class="twin-v">Humans and agents execute together.</div>
+        <div class="twin-detail">Work flows through control and value layers.</div>
+      </div>
+      <div class="twin-step">
+        <div class="twin-k">The Digital Twin</div>
+        <div class="twin-v">Business state updates in real time.</div>
+        <div class="twin-detail">Decisions and outcomes stay visible.</div>
+      </div>
+      <div class="twin-step">
+        <div class="twin-k">Peak Performance</div>
+        <div class="twin-v">Performance becomes measurable.</div>
+        <div class="twin-detail">Faster outcomes, lower cost, higher confidence.</div>
+      </div>
+    </div>
+    <div class="twin-lane">
+      <div class="twin-track"></div>
+      <div class="twin-fact f1"></div>
+      <div class="twin-fact f2"></div>
+      <div class="twin-fact f3"></div>
+      <div class="twin-fact f4"></div>
+      <div class="twin-fact f5"></div>
+      <div class="twin-fact f6"></div>
+      <div class="twin-fact f7"></div>
+      <div class="twin-lane-label">Fact Flow Lane</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">What to Remember</span><div class="sec-head-line"></div></div>
+  <div class="remember-strip">
+    <div class="remember-grid">
+      <div class="remember-card">
+        <div class="remember-k">People First</div>
+        <div class="remember-v">Humans + agents operate as one workforce model with clear ownership.</div>
+      </div>
+      <div class="remember-card">
+        <div class="remember-k">Facts First</div>
+        <div class="remember-v">Work starts from facts and stays traceable through execution.</div>
+      </div>
+      <div class="remember-card">
+        <div class="remember-k">Layered Operation</div>
+        <div class="remember-v">Mini-OS controls, Value Engines execute, and RTBI provides visibility.</div>
+      </div>
+      <div class="remember-card">
+        <div class="remember-k">Measured Results</div>
+        <div class="remember-v">Speed, quality, cost, and risk outcomes become visible and measurable.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="draft-panel" id="draft-framework">
+  <div class="os-flow">
+    <div class="os-flow-k">OS Framework Workflow</div>
+    <div class="os-flow-v"><span class="os-c4">Workforce Operating Model</span> -> <span class="os-c1">Identities</span> -> <span class="os-c3">Mini-OS</span> -> <span class="os-c5">Value Engines</span> -> <span class="os-c6">Real-Time Business Intelligence</span> -> <span class="os-c1">Flow of Work</span> -> <span class="os-c7">Cadence</span></div>
+  </div>
+  <div class="flow-tiles">
+    <div class="flow-tile" style="--ftc:#f48fb1;"><span>Workforce Operating Model</span></div>
+    <div class="flow-tile" style="--ftc:#b388ff;"><span>Identities</span></div>
+    <div class="flow-tile" style="--ftc:#82b1ff;"><span>Mini-OS</span></div>
+    <div class="flow-tile" style="--ftc:#ffca28;"><span>Value Engines</span></div>
+    <div class="flow-tile" style="--ftc:#1de9b6;"><span>Real-Time Business Intelligence</span></div>
+    <div class="flow-tile" style="--ftc:#40c4ff;"><span>Flow of Work</span></div>
+    <div class="flow-tile" style="--ftc:#00e676;"><span>Cadence</span></div>
+  </div>
+  <div class="outcome-tiles">
+    <div class="outcome-tile" style="--otc:#40c4ff;"><span>More Money</span></div>
+    <div class="outcome-tile" style="--otc:#ffca28;"><span>Lower Costs</span></div>
+    <div class="outcome-tile" style="--otc:#b388ff;"><span>Higher Value</span></div>
+    <div class="outcome-tile" style="--otc:#f48fb1;"><span>Lower Risk</span></div>
+  </div>
+  <div class="boss-layer-end">The Future of Work</div>
+
+  <div class="sec-head"><span class="sec-label">Section Map</span><div class="sec-head-line"></div></div>
+  <div class="callout info">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong>Simple explanation:</strong><br>
+      1) Humans lead through the Workforce Operating Model and define what is allowed, true, unsafe, and out-of-scope.<br>
+      2) RTBoss runs the business through Mini-OS (control), Value Engines (outcomes), and the Workforce Operating Model (execution).<br>
+      3) RTBI, Flow of Work, and Cadence turn every event into learning and improvement.
+    </div>
+  </div>
+
+  <div class="rtbos-overview">
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--blue);"></div>
+        <div class="ov-col-title" style="color:var(--blue);">Core Design</div>
+        <div class="ov-col-count">3 tabs</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="show('minios',document.querySelectorAll('.ntab')[3])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Mini-OS<span class="tile-arrow">?</span><span class="ov-tile-sub">Governance and Admin Controls.</span></div>
+        <div class="ov-tile" onclick="show('workers',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Workforce Operating Model<span class="tile-arrow">?</span><span class="ov-tile-sub">Human and digital execution patterns across all domains.</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[4])" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Value Engines<span class="tile-arrow">?</span><span class="ov-tile-sub">Core Workflows That Drive Outcomes.</span></div>
+      </div>
+    </div>
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--violet);"></div>
+        <div class="ov-col-title" style="color:var(--violet);">Intelligence + Identity</div>
+        <div class="ov-col-count">2 tabs</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">RTBI<span class="tile-arrow">?</span><span class="ov-tile-sub">Makes Facts Visible for Decisions.</span></div>
+        <div class="ov-tile" onclick="show('bts',document.querySelectorAll('.ntab')[2])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Identities<span class="tile-arrow">?</span><span class="ov-tile-sub">Who We Are, Roles, and Boundaries.</span></div>
+      </div>
+    </div>
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--amber);"></div>
+        <div class="ov-col-title" style="color:var(--amber);">Execution Rhythm</div>
+        <div class="ov-col-count">2 tabs</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="show('flow',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Flow of Work<span class="tile-arrow">?</span><span class="ov-tile-sub">How Work Is Routed and Completed.</span></div>
+        <div class="ov-tile" onclick="show('cadence',document.querySelectorAll('.ntab')[8])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Company Cadence<span class="tile-arrow">?</span><span class="ov-tile-sub">Review, Improve, and Scale Continuously.</span></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div></div>
+
+
+<script>
+function show(){ }
+function showDraftTab(id, el){
+  document.querySelectorAll('.draft-tab').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.draft-panel').forEach(function(p){ p.classList.remove('active'); });
+  if(el){ el.classList.add('active'); }
+  var panel=document.getElementById('draft-' + id);
+  if(panel){ panel.classList.add('active'); }
+}
+document.addEventListener('click', function(e){
+  var t=e.target.closest('.ov-tile');
+  if(t){ e.preventDefault(); }
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
