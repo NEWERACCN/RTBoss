@@ -214,15 +214,28 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .panel#tab-overview .boss-layer-v{font-size:1.22rem;line-height:1.4;}
 .panel#tab-overview .boss-layer-sub{font-size:.75rem;letter-spacing:.09em;color:#c2d8ef;}
 .human-diagram{background:#061221;border:1px solid #203755;border-radius:12px;padding:1.1rem;margin:1rem 0 1.25rem;}
+.hf-layout{display:grid;grid-template-columns:1fr 72px;gap:.9rem;align-items:start;}
 .human-timeline{display:flex;flex-direction:column;gap:0;}
 .hf-step{display:grid;grid-template-columns:2.9rem 1fr;gap:0 .95rem;position:relative;padding-bottom:.85rem;}
+.hf-step:nth-child(1){padding-bottom:1.7rem;}
+.hf-step:nth-child(2){padding-bottom:1.7rem;}
 .hf-step:last-child{padding-bottom:0;}
 .hf-step:not(:last-child)::after{content:'';position:absolute;left:1.35rem;top:2.45rem;bottom:.1rem;width:2px;background:linear-gradient(to bottom,rgba(86,122,156,.85),rgba(86,122,156,.2));}
 .hf-num{width:2.7rem;height:2.7rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.83rem;font-weight:700;color:var(--step-color,#40c4ff);border:2px solid var(--step-color,#40c4ff);background:#0a1625;box-shadow:0 0 0 3px rgba(0,0,0,.2);}
-.hf-body{background:#0b1828;border:1px solid #233a57;border-left:4px solid var(--step-color,#40c4ff);border-radius:10px;padding:.85rem 1rem;}
-.hf-title{font-family:'DM Sans',sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.42rem;line-height:1.35;}
-.hf-copy{font-size:1rem;line-height:1.72;color:#b9cfe3;}
+.hf-body{background:#0b1828;border:1px solid #233a57;border-left:4px solid var(--step-color,#40c4ff);border-radius:10px;padding:.62rem .8rem;}
+.hf-title{display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-family:'DM Sans',sans-serif;font-size:.96rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.3rem;line-height:1.3;}
+.hf-copy{font-size:.88rem;line-height:1.5;color:#b9cfe3;}
 .hf-copy strong{color:#eef5ff;font-weight:700;}
+.hf-side-icons{position:relative;display:grid;grid-template-rows:auto auto 1fr;gap:1.15rem;align-items:stretch;padding-top:0;min-height:100%;}
+.hf-side-icons::before{display:none;}
+.hf-side-item{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.18rem;background:transparent;border:none;padding:0;}
+.hf-side-item.human-vert,.hf-side-item.bridge-vert,.hf-side-item.tech-vert{width:100%;height:100%;min-height:0;background:#0b1828;border:1px solid #233a57;border-radius:10px;justify-content:center;align-items:center;padding:0;overflow:hidden;}
+.hf-side-item.human-vert .hf-side-t,.hf-side-item.bridge-vert .hf-side-t,.hf-side-item.tech-vert .hf-side-t{writing-mode:horizontal-tb;display:block;transform:rotate(90deg);transform-origin:center;white-space:nowrap;line-height:1;letter-spacing:.05em;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;color:#eef6ff;}
+.hf-side-item.human-vert{border-left:4px solid var(--pink);}
+.hf-side-item.bridge-vert{border-left:4px solid var(--blue);}
+.hf-side-item.tech-vert{border-left:4px solid var(--orange);}
+.hf-side-dot{display:none;}
+.hf-side-t{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:#eef6ff;line-height:1;text-align:center;}
 .role-merge-map{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:1rem 0 1.35rem;}
 .rm-head{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;align-items:end;margin-bottom:.7rem;}
 .rm-head div{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:#8eb1cf;}
@@ -244,6 +257,19 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .cx-role{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;color:#eef6ff;margin-bottom:.35rem;}
 .cx-line{font-size:.73rem;color:#cfe2f3;line-height:1.5;}
 .cx-line strong{color:#ffffff;}
+.role-group-nav{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:.85rem .9rem;margin:.9rem 0 1.1rem;}
+.role-group-title{font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:700;color:#eaf5ff;margin-bottom:.5rem;}
+.role-group-grid{display:grid;grid-template-columns:repeat(3,minmax(170px,1fr));gap:.55rem;}
+.role-group-btn{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.58rem .65rem;text-align:left;cursor:pointer;color:#d9e9f7;transition:border-color .18s,transform .18s,background .18s;}
+.role-group-btn:hover{border-color:#4a7099;background:#112134;transform:translateY(-1px);}
+.role-group-k{font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;color:#8eb1cf;margin-bottom:.2rem;}
+.role-group-v{font-size:.78rem;font-weight:600;line-height:1.35;color:#eef6ff;}
+.role-group-note{font-size:.75rem;color:#9ec0db;line-height:1.6;margin-top:.55rem;}
+.worker-split-nav{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.55rem 0 1rem;}
+.worker-split-btn{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.58rem .65rem;text-decoration:none;color:#eaf5ff;transition:border-color .18s,background .18s,transform .18s;}
+.worker-split-btn:hover{border-color:#4a7099;background:#112134;transform:translateY(-1px);}
+.worker-split-k{font-family:'Fira Code',monospace;font-size:.55rem;letter-spacing:.09em;text-transform:uppercase;color:#8eb1cf;margin-bottom:.18rem;}
+.worker-split-v{font-size:.78rem;font-weight:600;line-height:1.35;}
 .benefit-bridge{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:.85rem .9rem;margin:.95rem 0 1.1rem;}
 .benefit-title{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:700;color:#eaf5ff;margin-bottom:.45rem;}
 .benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;}
@@ -262,7 +288,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .cx-g-fill.after{background:linear-gradient(to right,#1de9b6,#00e676);}
 .panel#tab-overview .os-flow{background:#071a18;border:1px solid #1d5c50;}
 .panel#tab-overview .os-flow-k{font-size:.66rem;}
-.panel#tab-overview .os-flow-v{font-size:1.02rem;color:#eff7ff;line-height:1.95;}
+.panel#tab-overview .os-flow-v{font-size:.7rem;color:#eff7ff;line-height:1.95;}
 .panel#tab-overview .flow-tiles{grid-template-columns:repeat(4,minmax(170px,1fr));gap:.7rem;}
 .panel#tab-overview .flow-tile{padding:.72rem .75rem;}
 .panel#tab-overview .flow-tile span{font-size:.73rem;line-height:1.4;}
@@ -273,7 +299,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @media(max-width:960px){.panel#tab-overview .flow-tiles{grid-template-columns:repeat(2,minmax(170px,1fr));}}
 @media(max-width:620px){
   .panel#tab-overview .flow-tiles{grid-template-columns:1fr;}
-  .panel#tab-overview .boss-layer-v{font-size:1.02rem;}
+  .panel#tab-overview .boss-layer-v{font-size:.7rem;}
   .panel#tab-overview .boss-layer-end{font-size:1.5rem;}
   .hf-title{font-family:'DM Sans',sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.42rem;line-height:1.35;}
   .hf-copy{font-size:.88rem;}
@@ -281,6 +307,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   .hf-step:not(:last-child)::after{left:1.14rem;}
   .hf-num{width:2.3rem;height:2.3rem;font-size:.73rem;}
 }
+@media(max-width:980px){.hf-layout{grid-template-columns:1fr;}.hf-side-icons{order:-1;}}
 
 /* Overview publish: worker map + twin map + remember strip */
 .worker-map{background:#061221;border:1px solid #203755;border-radius:12px;padding:1rem 1rem 1.2rem;margin:1rem 0 1.35rem;}
@@ -340,6 +367,19 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .remember-card{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.72rem .75rem;}
 .remember-k{font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:.02em;text-transform:none;color:#eef6ff;margin-bottom:.22rem;font-weight:700;line-height:1.3;}
 .remember-v{font-size:.79rem;color:#d2e5f5;line-height:1.55;}
+.layer-bridge{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:.85rem .95rem;margin:.95rem 0 1.15rem;}
+.layer-bridge-title{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;color:#eaf5ff;margin-bottom:.45rem;}
+.layer-track{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;align-items:start;padding-top:.35rem;}
+.layer-track::before{content:'';position:absolute;left:6%;right:6%;top:1.15rem;height:2px;background:linear-gradient(to right,rgba(244,143,177,.7),rgba(179,136,255,.7),rgba(64,196,255,.7));z-index:0;}
+.layer-line{position:absolute;left:6%;right:6%;top:1.15rem;height:3px;background:linear-gradient(to right,rgba(244,143,177,.9),rgba(179,136,255,.9),rgba(64,196,255,.9));border-radius:3px;z-index:0;box-shadow:0 0 10px rgba(64,196,255,.18);}
+.layer-node{position:relative;z-index:1;background:transparent;border:none;padding:0 .2rem;text-align:center;}
+.layer-k{font-family:'Fira Code',monospace;font-size:.54rem;letter-spacing:.09em;text-transform:uppercase;color:#8eb1cf;margin-bottom:.16rem;}
+.layer-v{font-size:.76rem;font-weight:600;line-height:1.35;color:#eef6ff;background:#0d1c2b;border:1px solid #2a4461;border-radius:8px;padding:.4rem .5rem;}
+.layer-dot{width:12px;height:12px;border-radius:50%;margin:0 auto .35rem;border:2px solid #0b1624;box-shadow:0 0 0 3px rgba(8,22,36,.9);}
+.layer-node.human .layer-dot{background:var(--pink);}
+.layer-node.bridge .layer-dot{background:var(--violet);}
+.layer-node.tech .layer-dot{background:var(--blue);}
+@media(max-width:900px){.layer-track{grid-template-columns:1fr;}.layer-track::before{display:none;}.layer-line{display:none;}}
 @media(max-width:900px){.twin-grid{grid-template-columns:1fr 1fr;}.twin-step::after{display:none;}.remember-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:900px){.rm-head{grid-template-columns:1fr;}.rm-chip-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:620px){.rm-chip-grid{grid-template-columns:1fr;}}
@@ -349,6 +389,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @media(max-width:620px){.cx-grid{grid-template-columns:1fr;}}
 @media(max-width:860px){.cx-g-row{grid-template-columns:1fr;}.cx-g-bars{grid-template-columns:1fr;}}
 @media(max-width:860px){.benefit-grid{grid-template-columns:1fr;}}
+@media(max-width:860px){.role-group-grid{grid-template-columns:1fr;}}
+@media(max-width:860px){.worker-split-nav{grid-template-columns:1fr;}}
 @keyframes wmPulse{0%,100%{opacity:.7}50%{opacity:1}}
 @keyframes wmAreaFlow{0%,100%{left:var(--from,20%);opacity:.95;}50%{left:var(--to,80%);opacity:.95;}}
 @keyframes twinFlow{0%{left:14px;}100%{left:calc(100% - 14px);}}
@@ -366,83 +408,336 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 <div class="tabs">
-  <button class="ntab active" onclick="show('overview',this)">01 - Overview</button>
-  <button class="ntab" onclick="show('arch',this)">02 - OS Framework Architecture</button>
-  <button class="ntab" onclick="show('workers',this)">03 - Workforce Operating Model</button>
-  <button class="ntab" onclick="show('bts',this)">04 - Identities</button>
-  <button class="ntab" onclick="show('minios',this)">05 - Mini-OS</button>
-  <button class="ntab" onclick="show('ve',this)">06 - Value Engines</button>
-  <button class="ntab" onclick="show('rtbi',this)">07 - RTBI</button>
-  <button class="ntab" onclick="show('flow',this)">08 - Flow of Work</button>
-  <button class="ntab" onclick="show('cadence',this)">09 - Company Cadence</button>
+  <button class="ntab active" onclick="show('overview',this)">01 - OS Overview</button>
+  <button class="ntab" onclick="show('workers',this)">02 - Worker Roles Overview</button>
+  <button class="ntab" onclick="show('arch',this)">03 - Technical Overview</button>
+  <button class="ntab" onclick="show('wom',this)">04 - Workforce Operating Model</button>
+  <button class="ntab" onclick="show('bts',this)">05 - Identities</button>
+  <button class="ntab" onclick="show('minios',this)">06 - Mini-OS</button>
+  <button class="ntab" onclick="show('ve',this)">07 - Value Engines</button>
+  <button class="ntab" onclick="show('rtbi',this)">08 - RTBI</button>
+  <button class="ntab" onclick="show('flow',this)">09 - Flow of Work</button>
+  <button class="ntab" onclick="show('cadence',this)">10 - Company Cadence</button>
 </div>
 
 
 <!-- -- TAB 01  -  OVERVIEW -- -->
 <div class="panel active" id="tab-overview"><div class="pw">
   <div class="ph">
-    <div class="ph-kicker">Section 02 - OS Framework - Overview</div>
+    <div class="ph-kicker">Section 02 - OS Framework - OS Overview</div>
 
-    <h1 class="ph-title">OS Framework Overview</h1>
+    <h1 class="ph-title">OS Overview</h1>
     <p class="ph-sub overview-sub">Always lead with humans: the Workforce Operating Model defines domain truth, constraints, escalation, and accountability before automation depth increases.</p>
   </div>
 
   <div class="sec-head"><span class="sec-label">Human-First Top-Down Flow</span><div class="sec-head-line"></div></div>
   <div class="human-diagram">
+    <div class="hf-layout">
     <div class="human-timeline">
       <div class="hf-step" style="--step-color:var(--pink);">
         <div class="hf-num">01</div>
         <div class="hf-body">
           <div class="hf-title">Workforce Operating Model - Humans + Agents as one operating model.</div>
-          <div class="hf-copy">Human workers and digital workers operate together, creating a hybrid and increasingly digital workforce. This becomes the operating model, with people driving success.</div>
-        </div>
-      </div>
-      <div class="hf-step" style="--step-color:var(--violet);">
-        <div class="hf-num">02</div>
-        <div class="hf-body">
-          <div class="hf-title">Identities - How human expertise is mirrored for agents.</div>
-          <div class="hf-copy">Mirror human expertise in digital form. Agents use Identities to apply domain knowledge consistently at scale.</div>
-        </div>
-      </div>
-      <div class="hf-step" style="--step-color:var(--blue2);">
-        <div class="hf-num">03</div>
-        <div class="hf-body">
-          <div class="hf-title">Mini-OS - How the business is governed and administered day to day.</div>
-          <div class="hf-copy">Run governance, compliance, and admin control with clear human escalation and override boundaries.</div>
-        </div>
-      </div>
-      <div class="hf-step" style="--step-color:var(--amber);">
-        <div class="hf-num">04</div>
-        <div class="hf-body">
-          <div class="hf-title">Value Engines - Where humans + agents deliver outcomes and create value.</div>
-          <div class="hf-copy">Create value where work happens. Humans + agents deliver fulfillment, service, and outcomes with faster flow and better consistency.</div>
-        </div>
-      </div>
-      <div class="hf-step" style="--step-color:var(--teal);">
-        <div class="hf-num">05</div>
-        <div class="hf-body">
-          <div class="hf-title">Real-Time Business Intelligence - Real-time visibility into what happens in the business.</div>
-          <div class="hf-copy">Use live facts to see status, risk, and performance as operations happen.</div>
+          <div class="hf-copy">Human and digital workers operate together as one model.</div>
         </div>
       </div>
       <div class="hf-step" style="--step-color:var(--blue);">
+        <div class="hf-num">02</div>
+        <div class="hf-body">
+          <div class="hf-title">Identities - How human expertise is mirrored for agents.</div>
+          <div class="hf-copy">Human expertise is mirrored so agents execute with domain context.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--orange);">
+        <div class="hf-num">03</div>
+        <div class="hf-body">
+          <div class="hf-title">Mini-OS - How the business is governed and administered day to day.</div>
+          <div class="hf-copy">Governance, compliance, and control boundaries run here.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--orange);">
+        <div class="hf-num">04</div>
+        <div class="hf-body">
+          <div class="hf-title">Value Engines - Where humans + agents deliver outcomes and create value.</div>
+          <div class="hf-copy">Execution runs where value is created in day-to-day operations.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--orange);">
+        <div class="hf-num">05</div>
+        <div class="hf-body">
+          <div class="hf-title">Real-Time Business Intelligence - Real-time visibility into what happens in the business.</div>
+          <div class="hf-copy">Live facts provide real-time visibility of status, risk, and performance.</div>
+        </div>
+      </div>
+      <div class="hf-step" style="--step-color:var(--orange);">
         <div class="hf-num">06</div>
         <div class="hf-body">
           <div class="hf-title">Flow of Work - How the Fact stream is executed.</div>
-          <div class="hf-copy">Run the Fact stream through routing, prioritization, and handoffs so each fact is acted on, completed, and closed correctly.</div>
+          <div class="hf-copy">Facts are routed, prioritized, handed off, and closed with control.</div>
         </div>
       </div>
-      <div class="hf-step" style="--step-color:var(--green);">
+      <div class="hf-step" style="--step-color:var(--orange);">
         <div class="hf-num">07</div>
         <div class="hf-body">
           <div class="hf-title">Cadence - The operating rhythm of the business.</div>
-          <div class="hf-copy">Use daily, weekly, and monthly cycles to run delivery and improvement in a steady, accountable rhythm.</div>
+          <div class="hf-copy">Daily, weekly, and monthly cycles run accountable delivery and improvement.</div>
         </div>
+      </div>
+    </div>
+    <div class="hf-side-icons">
+      <div class="hf-side-item human-vert"><span class="hf-side-t">Human</span></div>
+      <div class="hf-side-item bridge-vert"><span class="hf-side-t">Bridge</span></div>
+      <div class="hf-side-item tech-vert"><span class="hf-side-t">Technical</span></div>
+    </div>
+    </div>
+  </div>
+
+    <div class="def-block violet">Overview framing := Workforce Operating Model explains how humans and agents operate together. Identities are the digital mirror bridge from workforce expertise into agent behavior. Steps 03 to 07 are the technical execution architecture.</div>
+<div class="sec-head"><span class="sec-label">Digital Twin Value Map</span><div class="sec-head-line"></div></div>
+  <div class="twin-map">
+    <div class="twin-grid">
+      <div class="twin-step"><div class="twin-k">Event + Fact</div><div class="twin-v">Events become governed facts.</div><div class="twin-detail">Captured and structured for action.</div></div>
+      <div class="twin-step"><div class="twin-k">Human + Agents</div><div class="twin-v">Humans and agents execute together.</div><div class="twin-detail">Work flows through control and value layers.</div></div>
+      <div class="twin-step"><div class="twin-k">The Digital Twin</div><div class="twin-v">Business state updates in real time.</div><div class="twin-detail">Decisions and outcomes stay visible.</div></div>
+      <div class="twin-step"><div class="twin-k">Peak Performance</div><div class="twin-v">Performance becomes measurable.</div><div class="twin-detail">Faster outcomes, lower cost, higher confidence.</div></div>
+    </div>
+    <div class="twin-lane">
+      <div class="twin-track"></div>
+      <div class="twin-fact f1"></div><div class="twin-fact f2"></div><div class="twin-fact f3"></div>
+      <div class="twin-fact f4"></div><div class="twin-fact f5"></div><div class="twin-fact f6"></div><div class="twin-fact f7"></div>
+      <div class="twin-lane-label">Fact Flow Lane</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">What to Remember</span><div class="sec-head-line"></div></div>
+  <div class="remember-strip">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">People First</div><div class="remember-v">Humans + agents operate as one workforce model with clear ownership.</div></div>
+      <div class="remember-card"><div class="remember-k">Facts First</div><div class="remember-v">Work starts from facts and stays traceable through execution.</div></div>
+      <div class="remember-card"><div class="remember-k">Layered Operation</div><div class="remember-v">Mini-OS controls, Value Engines execute, and RTBI provides visibility.</div></div>
+      <div class="remember-card"><div class="remember-k">Measured Results</div><div class="remember-v">Speed, quality, cost, and risk outcomes become visible and measurable.</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- -- TAB 02  -  OS FRAMEWORK ARCHITECTURE -- -->
+<div class="panel" id="tab-arch"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 02 - OS Framework - Technical</div>
+    <div class="tab-flowbar"><div class="tab-flowbar-k">Technical Scope</div><div class="tab-flowbar-v">Step 02 Identities -> Step 03 Mini-OS -> Step 04 Value Engines -> Step 05 RTBI -> Step 06 Flow of Work -> Step 07 Cadence</div></div>
+    <h1 class="ph-title">Technical Architecture</h1>
+    <p class="ph-sub">This tab is the technical architecture view for Steps 03 to 07. It defines the control plane, execution plane, intelligence plane, orchestration layer, and operating rhythm that run RTBoss day to day.</p>
+  </div>
+
+  <div class="def-block blue">Technical chain := Step 02 Identities (digital mirror) -> Step 03 Mini-OS (control) -> Step 04 Value Engines (execution) -> Step 05 RTBI (intelligence) -> Step 06 Flow of Work (routing and handoffs) -> Step 07 Cadence (operating rhythm and accountability).</div>
+
+  <div class="sec-head"><span class="sec-label">Steps 02-07 Technical Stack</span><div class="sec-head-line"></div></div>
+  <div class="flow-tiles" style="grid-template-columns:repeat(6,minmax(160px,1fr));">
+    <div class="flow-tile" style="--ftc:var(--violet);"><span>02 Identities<br>Digital Mirror</span></div>
+    <div class="flow-tile" style="--ftc:var(--blue2);"><span>03 Mini-OS<br>Control Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--amber);"><span>04 Value Engines<br>Execution Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--teal);"><span>05 RTBI<br>Intelligence Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--blue);"><span>06 Flow of Work<br>Orchestration</span></div>
+    <div class="flow-tile" style="--ftc:var(--green);"><span>07 Cadence<br>Operating Rhythm</span></div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Identity Mirror (Digital Foundation)</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
+    <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Identities mirror human domain expertise in digital form so agents can execute with consistent context, role authority, and terminology.</p>
+    <table class="rule-table">
+      <thead><tr><th>Identity Component</th><th>Technical Function</th><th>Output Artifact</th></tr></thead>
+      <tbody>
+        <tr><td>Personas</td><td>Role-specific context, authority boundaries, and decision views</td><td>Identity profile with role permissions</td></tr>
+        <tr><td>Advisors</td><td>Domain-specific guidance for legal, quality, safety, and risk</td><td>Reusable specialist agent behaviors</td></tr>
+        <tr><td>Skills</td><td>Standard language, taxonomy, and method consistency</td><td>Portable knowledge pack for execution</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Step 03 - Mini-OS (Control Plane)</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
+    <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Mini-OS defines policy boundaries, escalation rules, compliance logic, and override authority for each domain before execution runs.</p>
+    <table class="rule-table">
+      <thead><tr><th>Technical Element</th><th>What It Controls</th><th>Output Artifact</th></tr></thead>
+      <tbody>
+        <tr><td>Domain rule sets</td><td>Allowed actions, unsafe conditions, out-of-scope conditions</td><td>Policy bundle versioned by domain</td></tr>
+        <tr><td>Authority model</td><td>Who can approve, override, or escalate by risk tier</td><td>Role-to-authority matrix</td></tr>
+        <tr><td>Compliance logic</td><td>Mandatory fields, tolerances, evidence retention, audit trace</td><td>Control checklist and enforcement rules</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Step 04 - Value Engines (Execution Plane)</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
+    <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Value Engines execute work across domains. They apply Mini-OS constraints while coordinating humans, agents, and systems to deliver outcomes.</p>
+    <table class="rule-table">
+      <thead><tr><th>Execution Component</th><th>Technical Role</th><th>Output Artifact</th></tr></thead>
+      <tbody>
+        <tr><td>Systems</td><td>Enforce operating models and standard methods</td><td>Governed process template</td></tr>
+        <tr><td>Genies</td><td>Execute bounded tasks with deterministic inputs and outputs</td><td>Task completion fact with status</td></tr>
+        <tr><td>Streams</td><td>Run end-to-end workflows, invoking multiple Genies and systems</td><td>Closed-loop process record</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Step 05 - RTBI (Intelligence Plane)</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
+    <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">RTBI converts live facts into real-time visibility, forward planning, and decision support without batch reconciliation delays.</p>
+    <table class="rule-table">
+      <thead><tr><th>Intelligence Layer</th><th>Technical Function</th><th>Output Artifact</th></tr></thead>
+      <tbody>
+        <tr><td>Unified Data</td><td>Single live data substrate across domains</td><td>One-number source of truth</td></tr>
+        <tr><td>Digital Twin</td><td>State mirror of work, decisions, and outcomes</td><td>Replayable lifecycle record</td></tr>
+        <tr><td>Planning / Analytics / Decisions</td><td>Forecasting, pattern detection, and decision support</td><td>Decision packs and action recommendations</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Step 06 - Flow of Work (Orchestration Layer)</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
+    <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Flow of Work orchestrates fact intake, classification, routing, handoffs, escalation, and closure across human and digital executors.</p>
+    <table class="rule-table">
+      <thead><tr><th>Orchestration Stage</th><th>Technical Function</th><th>Output Artifact</th></tr></thead>
+      <tbody>
+        <tr><td>Fact intake and typing</td><td>Normalize events into typed, actionable facts</td><td>Fact record with required dimensions</td></tr>
+        <tr><td>Routing and prioritization</td><td>Apply policy, risk, and SLA logic to assign work</td><td>Assigned queue or executor with deadline</td></tr>
+        <tr><td>Escalation and closure</td><td>Trigger re-routing, approvals, and final closure evidence</td><td>Closed fact with traceable lifecycle</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Step 07 - Cadence (Operating Rhythm)</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.15rem;">
+    <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Cadence turns operational facts into recurring management loops so performance, risk, and improvement are governed on schedule.</p>
+    <table class="rule-table">
+      <thead><tr><th>Cadence Layer</th><th>Technical Function</th><th>Output Artifact</th></tr></thead>
+      <tbody>
+        <tr><td>Daily</td><td>Exception digest, SLA risk tracking, workload balancing</td><td>Daily actions and exception list</td></tr>
+        <tr><td>Weekly</td><td>Pattern review, automation opportunities, cross-domain decisions</td><td>Weekly review and action commitments</td></tr>
+        <tr><td>Monthly / Quarterly</td><td>Performance steering, investment priorities, policy updates</td><td>Updated controls and execution roadmap</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Implementation rule:</strong> each step must emit facts and artifacts that feed the next step. If a step cannot produce traceable output, it is not yet operational in RTBoss.</div></div>
+
+  <div class="outcome-tiles">
+    <div class="outcome-tile" style="--otc:#40c4ff;"><span>Controlled Execution</span></div>
+    <div class="outcome-tile" style="--otc:#ffca28;"><span>Faster Throughput</span></div>
+    <div class="outcome-tile" style="--otc:#b388ff;"><span>Better Decisions</span></div>
+    <div class="outcome-tile" style="--otc:#f48fb1;"><span>Lower Risk</span></div>
+  </div>
+</div></div>
+
+<!-- -- TAB 02  -  MINI-OS -- -->
+<div class="panel" id="tab-minios"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 02 - OS Framework - Mini-OS</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Mini-OS Registry -> Domain Composition -> Systems + Genies + Streams</div></div>
+
+    <h1 class="ph-title">Mini-OS  -  Domain Operating Systems</h1>
+    <p class="ph-sub">Each Mini-OS is RTBoss applied to a specific business domain. The same six-layer loop runs in every instance. Every Mini-OS contains its own Digital Workers  -  Systems (governing frameworks), Genies (specialist agents for discrete tasks), and Streams (end-to-end operational processes).</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">RTBoss Architecture  -  Three Pillars</span><div class="sec-head-line"></div></div>
+
+  <div class="rtbos-overview">
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--blue);"></div>
+        <div class="ov-col-title" style="color:var(--blue);">Mini-OS</div>
+        <div class="ov-col-count">14 domains</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="openMOS(0)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Strategy OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(1)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">HR OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(2)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Legal OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(3)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Sales OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(4)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Product OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(5)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Finance OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(6)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Admin OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(7)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">LEAN OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(8)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Marketing OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(9)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Productivity OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(10)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Manufacturing OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(11)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Operations OS<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="openMOS(12)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Innovation OS<span class="tile-arrow">?</span></div>
+      </div>
+    </div>
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--amber);"></div>
+        <div class="ov-col-title" style="color:var(--amber);">Value Engines</div>
+        <div class="ov-col-count">4 engines</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Growth Engine<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Fulfillment Engine<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Innovation Engine<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Logistics Engine<span class="tile-arrow">?</span></div>
+      </div>
+    </div>
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--violet);"></div>
+        <div class="ov-col-title" style="color:var(--violet);">RTBI</div>
+        <div class="ov-col-count">5 components</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Unified Data<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Digital Twin<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Planning<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Analytics<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Decisions<span class="tile-arrow">?</span></div>
       </div>
     </div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Worker Role Evolution (Before -> RTBoss)</span><div class="sec-head-line"></div></div>
+  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Click any Mini-OS tile above</strong> to jump to its detail below, or browse all 14 in the registry. Each Mini-OS runs the identical RTBoss six-layer loop with domain-specific Systems, Genies, and Streams.</div></div>
+
+  <div class="sec-head"><span class="sec-label">Mini-OS Registry  -  All 14 Domains</span><div class="sec-head-line"></div></div>
+  <div class="accordion" id="mosAccordion"></div>
+</div></div>
+
+
+<!-- -- TAB 02  -  WORKFORCE OPERATING MODEL -- -->
+<div class="panel" id="tab-workers"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 02 - OS Framework - Worker Roles</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Human Roles -> Work Types -> Boss Layer Governance -> RTBoss Execution -> Learning Loop</div></div>
+
+    <h1 class="ph-title">Worker Roles</h1>
+    <p class="ph-sub">The Workforce Operating Model starts with people, not agents. Humans set domain law and escalation authority, then route work across Human, Hybrid, and Digital execution modes through Mini-OS and Value Engines.</p>
+  </div>
+
+  <div class="role-group-nav">
+    <div class="role-group-title">Workforce Chain Scope (This Tab)</div>
+    <div class="role-group-grid" style="grid-template-columns:repeat(2,minmax(190px,1fr));">
+      <button class="role-group-btn" onclick="show('workers',document.querySelectorAll('.ntab')[1])">
+        <div class="role-group-k">Step 01</div>
+        <div class="role-group-v">Workforce Operating Model</div>
+      </button>
+      <button class="role-group-btn" onclick="show('bts',document.querySelectorAll('.ntab')[4])">
+        <div class="role-group-k">Step 02</div>
+        <div class="role-group-v">Identities (Digital Mirror)</div>
+      </button>
+    </div>
+    <div class="role-group-note">This tab focuses on Steps 01-02. Use the Technical tab for the agentic architecture chain from Step 02 to Step 07.</div>
+  </div>
+
+  <div class="worker-split-nav">
+    <a class="worker-split-btn" href="#workers-overview">
+      <div class="worker-split-k">Section A</div>
+      <div class="worker-split-v">Worker Roles Overview</div>
+    </a>
+    <button class="worker-split-btn" onclick="show('wom',document.querySelectorAll('.ntab')[3])">
+      <div class="worker-split-k">Section B</div>
+      <div class="worker-split-v">Workforce Operating Model Deep Dive</div>
+    </button>
+  </div>
+
+<div class="sec-head" id="workers-overview"><span class="sec-label">Worker Roles Overview</span><div class="sec-head-line"></div></div>
+<div class="sec-head"><span class="sec-label">Worker Role Evolution (Before -> RTBoss)</span><div class="sec-head-line"></div></div>
   <div class="role-merge-map">
     <div class="rm-inventory">
       <div class="rm-inventory-title">Before Inventory (Expanded Worker Types)</div>
@@ -538,23 +833,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   <div class="wm-note">This visual shows where each worker type spends most of the day. The animated motion connects the human layer to Flow of Work by showing work fluidity between value creation and operating control.</div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Digital Twin Value Map</span><div class="sec-head-line"></div></div>
-  <div class="twin-map">
-    <div class="twin-grid">
-      <div class="twin-step"><div class="twin-k">Event + Fact</div><div class="twin-v">Events become governed facts.</div><div class="twin-detail">Captured and structured for action.</div></div>
-      <div class="twin-step"><div class="twin-k">Human + Agents</div><div class="twin-v">Humans and agents execute together.</div><div class="twin-detail">Work flows through control and value layers.</div></div>
-      <div class="twin-step"><div class="twin-k">The Digital Twin</div><div class="twin-v">Business state updates in real time.</div><div class="twin-detail">Decisions and outcomes stay visible.</div></div>
-      <div class="twin-step"><div class="twin-k">Peak Performance</div><div class="twin-v">Performance becomes measurable.</div><div class="twin-detail">Faster outcomes, lower cost, higher confidence.</div></div>
-    </div>
-    <div class="twin-lane">
-      <div class="twin-track"></div>
-      <div class="twin-fact f1"></div><div class="twin-fact f2"></div><div class="twin-fact f3"></div>
-      <div class="twin-fact f4"></div><div class="twin-fact f5"></div><div class="twin-fact f6"></div><div class="twin-fact f7"></div>
-      <div class="twin-lane-label">Fact Flow Lane</div>
-    </div>
-  </div>
-
-  <div class="benefit-bridge">
+<div class="benefit-bridge">
     <div class="benefit-title">RTBoss Workforce Benefits - Two Time Shifts</div>
     <div class="benefit-grid">
       <div class="benefit-card">
@@ -685,126 +964,26 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <div class="ts-foot">RTBoss Benefit 02: it does not add hours, it shifts hours from admin burden and rework into productive physical value work. Mini-OS absorbs governance overhead, Value Engines automate repeatable facts, and RTBI reduces avoidable rework.</div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">What to Remember</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">People First</div><div class="remember-v">Humans + agents operate as one workforce model with clear ownership.</div></div>
-      <div class="remember-card"><div class="remember-k">Facts First</div><div class="remember-v">Work starts from facts and stays traceable through execution.</div></div>
-      <div class="remember-card"><div class="remember-k">Layered Operation</div><div class="remember-v">Mini-OS controls, Value Engines execute, and RTBI provides visibility.</div></div>
-      <div class="remember-card"><div class="remember-k">Measured Results</div><div class="remember-v">Speed, quality, cost, and risk outcomes become visible and measurable.</div></div>
-    </div>
-  </div>
-</div></div>
+<div class="sec-head" id="workers-deepdive-link"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
+  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Deep dive moved:</strong> detailed operating model governance, routing, and execution patterns are in <strong>Tab 04 - Workforce Operating Model</strong>.</div></div>
 
-<!-- -- TAB 02  -  OS FRAMEWORK ARCHITECTURE -- -->
-<div class="panel" id="tab-arch"><div class="pw">
-  <div class="ph">
-    <div class="ph-kicker">Section 02 - OS Framework - Architecture</div>
-    <h1 class="ph-title">OS Framework Architecture</h1>
-    <p class="ph-sub">The architecture defines how human governance, operating layers, and execution outcomes connect into one controlled system.</p>
-  </div>
-
-  <div class="boss-layer">
-    <div class="boss-layer-k">Human Governance Layer</div>
-    <div class="boss-layer-v">Executives + Domain Owners + Managers Define Operating Boundaries</div>
-    <div class="boss-layer-sub">Policy, escalation, tolerances, and accountability are set before automation executes</div>
-  </div>
-
-  <div class="os-flow">
-    <div class="os-flow-k">OS Framework Workflow</div>
-    <div class="os-flow-v"><span class="os-c1">Identities</span> -> <span class="os-c2">Mini-OS</span> -> <span class="os-c3">Value Engines</span> -> <span class="os-c4">Workforce Operating Model</span> -> <span class="os-c5">Real-Time Business Intelligence</span> -> <span class="os-c6">Flow of Work</span> -> <span class="os-c7">Cadence</span></div>
-  </div>
-
-  <div class="outcome-tiles">
-    <div class="outcome-tile" style="--otc:#40c4ff;"><span>More Money</span></div>
-    <div class="outcome-tile" style="--otc:#ffca28;"><span>Lower Costs</span></div>
-    <div class="outcome-tile" style="--otc:#b388ff;"><span>Higher Value</span></div>
-    <div class="outcome-tile" style="--otc:#f48fb1;"><span>Lower Risk</span></div>
-  </div>
-</div></div>
-
-<!-- -- TAB 02  -  MINI-OS -- -->
-<div class="panel" id="tab-minios"><div class="pw">
-  <div class="ph">
-    <div class="ph-kicker">Section 02 - OS Framework - Mini-OS</div>
-  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Mini-OS Registry -> Domain Composition -> Systems + Genies + Streams</div></div>
-
-    <h1 class="ph-title">Mini-OS  -  Domain Operating Systems</h1>
-    <p class="ph-sub">Each Mini-OS is RTBoss applied to a specific business domain. The same six-layer loop runs in every instance. Every Mini-OS contains its own Digital Workers  -  Systems (governing frameworks), Genies (specialist agents for discrete tasks), and Streams (end-to-end operational processes).</p>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">RTBoss Architecture  -  Three Pillars</span><div class="sec-head-line"></div></div>
-
-  <div class="rtbos-overview">
-    <div class="ov-col">
-      <div class="ov-col-header">
-        <div class="ov-col-dot" style="background:var(--blue);"></div>
-        <div class="ov-col-title" style="color:var(--blue);">Mini-OS</div>
-        <div class="ov-col-count">14 domains</div>
-      </div>
-      <div class="ov-tiles">
-        <div class="ov-tile" onclick="openMOS(0)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Strategy OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(1)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">HR OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(2)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Legal OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(3)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Sales OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(4)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Product OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(5)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Finance OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(6)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Admin OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(7)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">LEAN OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(8)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Marketing OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(9)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Productivity OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(10)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Manufacturing OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(11)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Operations OS<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="openMOS(12)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Innovation OS<span class="tile-arrow">?</span></div>
-      </div>
-    </div>
-    <div class="ov-col">
-      <div class="ov-col-header">
-        <div class="ov-col-dot" style="background:var(--amber);"></div>
-        <div class="ov-col-title" style="color:var(--amber);">Value Engines</div>
-        <div class="ov-col-count">4 engines</div>
-      </div>
-      <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Growth Engine<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Fulfillment Engine<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Innovation Engine<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[5])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Logistics Engine<span class="tile-arrow">?</span></div>
-      </div>
-    </div>
-    <div class="ov-col">
-      <div class="ov-col-header">
-        <div class="ov-col-dot" style="background:var(--violet);"></div>
-        <div class="ov-col-title" style="color:var(--violet);">RTBI</div>
-        <div class="ov-col-count">5 components</div>
-      </div>
-      <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Unified Data<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Digital Twin<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Planning<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Analytics<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Decisions<span class="tile-arrow">?</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Click any Mini-OS tile above</strong> to jump to its detail below, or browse all 14 in the registry. Each Mini-OS runs the identical RTBoss six-layer loop with domain-specific Systems, Genies, and Streams.</div></div>
-
-  <div class="sec-head"><span class="sec-label">Mini-OS Registry  -  All 14 Domains</span><div class="sec-head-line"></div></div>
-  <div class="accordion" id="mosAccordion"></div>
 </div></div>
 
 
-<!-- -- TAB 02  -  WORKFORCE OPERATING MODEL -- -->
-<div class="panel" id="tab-workers"><div class="pw">
+
+<!-- -- TAB 04  -  WORKFORCE OPERATING MODEL DEEP DIVE -- -->
+<div class="panel" id="tab-wom"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Workforce Operating Model</div>
-  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Human Roles -> Work Types -> Boss Layer Governance -> RTBoss Execution -> Learning Loop</div></div>
-
-    <h1 class="ph-title">Workforce Operating Model</h1>
-    <p class="ph-sub">The Workforce Operating Model starts with people, not agents. Humans set domain law and escalation authority, then route work across Human, Hybrid, and Digital execution modes through Mini-OS and Value Engines.</p>
+    <div class="tab-flowbar"><div class="tab-flowbar-k">Deep Dive Scope</div><div class="tab-flowbar-v">Governance -> Role Integration -> Work Routing -> Execution Modes</div></div>
+    <h1 class="ph-title">Workforce Operating Model Deep Dive</h1>
+    <p class="ph-sub">Detailed operating rules for how human, hybrid, and digital execution are governed and routed in RTBoss.</p>
   </div>
 
-  <div class="boss-layer">
+<div class="sec-head" id="workers-deepdive"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
+  <div class="def-block blue">Deep dive scope := governance roles, execution modes, routing rules, Systems/Genies/Streams composition, and reference implementation patterns for operating the workforce model at scale.</div>
+
+<div class="boss-layer">
     <div class="boss-layer-k">Human Governance First</div>
     <div class="boss-layer-v">Executives + Domain Owners Define Boundaries</div>
     <div class="boss-layer-sub">Humans define what is allowed, true, unsafe, and out of scope before agents execute</div>
@@ -980,134 +1159,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <p style="font-size:.78rem;color:var(--mid);line-height:1.7;"><strong>Key principle:</strong> Classification determines execution path, not arrival pattern. An urgent email might be Digital Worker (password reset) or Human Worker (CEO escalation). Work type is about <em>who executes</em>, not when it arrived or how urgent it is.</p>
   </div>
 
-  <!-- -- SECTION 2: BUILDING BLOCKS ----------------------------------- -->
-  <div class="sec-head" style="margin-top:2rem;margin-bottom:1.25rem;">
-    <span class="sec-label">The Three Building Blocks  -  How Each Mini-OS Is Composed</span>
-    <div class="sec-head-line"></div>
-  </div>
-
-  <p style="font-size:.8rem;color:var(--mid);line-height:1.8;margin-bottom:1.5rem;">Every Mini-OS is built from exactly three components  -  Systems, Genies, and Streams. These are not interchangeable. Each plays a distinct architectural role. Getting the distinction right is the difference between a well-structured Mini-OS and a pile of agents with no coherence.</p>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem;margin-bottom:2rem;">
-
-    <!-- SYSTEMS -->
-    <div style="background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:0 0 10px 10px;padding:1.4rem;">
-      <div style="font-family:'Fira Code',monospace;font-size:.58rem;color:var(--blue);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem;">Systems</div>
-      <div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.3rem;">Governing Models & Frameworks</div>
-      <div style="font-size:.72rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">The constitution of a Mini-OS domain</div>
-      <p style="font-size:.77rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Systems are the intelligence frameworks that define <em>how a domain operates</em>  -  the rules, methodologies, and operating models that all Genies and Streams must follow. They are not agents. They do not execute tasks. They govern.</p>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:.85rem;margin-bottom:1rem;">
-        <div style="font-family:'Fira Code',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;">Finance OS Examples</div>
-        <div style="font-size:.75rem;color:var(--mid);line-height:1.85;">
-          <strong style="color:var(--blue);">Profit First System</strong>  -  governs how money flows, budget allocation rules, account structures<br>
-          <strong style="color:var(--blue);">Forecasting System</strong>  -  defines methodology, inputs, confidence intervals<br>
-          <strong style="color:var(--blue);">Reporting System</strong>  -  standards for what gets reported, format, cadence
-        </div>
-      </div>
-      <div class="tag-row">
-        <span class="tag blue">Rules</span><span class="tag blue">Frameworks</span><span class="tag blue">Not agents</span>
-      </div>
-    </div>
-
-    <!-- GENIES -->
-    <div style="background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--green);border-radius:0 0 10px 10px;padding:1.4rem;">
-      <div style="font-family:'Fira Code',monospace;font-size:.58rem;color:var(--green);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem;">Genies</div>
-      <div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.3rem;">Single-Step Specialist Agents</div>
-      <div style="font-size:.72rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">The tactical workers of a Mini-OS</div>
-      <p style="font-size:.77rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Genies are specialist agents that execute discrete, bounded tasks. They operate <em>within the rules defined by Systems</em>  -  they don't invent the rules, they apply them. Each Genie does one thing well. Invoked on demand, either by a Stream or directly by a worker.</p>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:.85rem;margin-bottom:1rem;">
-        <div style="font-family:'Fira Code',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;">Finance OS Examples</div>
-        <div style="font-size:.75rem;color:var(--mid);line-height:1.85;">
-          <strong style="color:var(--green);">Budget Builder Genie</strong>  -  follows Profit First System rules to generate a budget<br>
-          <strong style="color:var(--green);">Tax Reporting Genie</strong>  -  uses the financial model to produce compliant reports<br>
-          <strong style="color:var(--green);">End of Month Genie</strong>  -  executes the close process per Reporting System standards
-        </div>
-      </div>
-      <div class="tag-row">
-        <span class="tag green">Agents</span><span class="tag green">Discrete tasks</span><span class="tag green">On-demand</span>
-      </div>
-    </div>
-
-    <!-- STREAMS -->
-    <div style="background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--pink);border-radius:0 0 10px 10px;padding:1.4rem;">
-      <div style="font-family:'Fira Code',monospace;font-size:.58rem;color:var(--pink);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem;">Streams</div>
-      <div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.3rem;">End-to-End Business Processes</div>
-      <div style="font-size:.72rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">The operational heartbeat of a Mini-OS</div>
-      <p style="font-size:.77rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Streams are ongoing operational workflows  -  not one-off outputs, but recurring processes with a defined start, sequence of steps, and end state. A Stream may invoke multiple Genies and follow System rules throughout. They are the engine that keeps a Mini-OS running.</p>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:.85rem;margin-bottom:1rem;">
-        <div style="font-family:'Fira Code',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;">Finance OS Examples</div>
-        <div style="font-size:.75rem;color:var(--mid);line-height:1.85;">
-          <strong style="color:var(--pink);">File Monthly Taxes (AU) Stream</strong>  -  recurring process: gather -> calculate -> validate -> lodge<br>
-          <strong style="color:var(--pink);">Annual Reports Stream</strong>  -  end-to-end: data consolidation -> drafting -> review -> publish<br>
-          <strong style="color:var(--pink);">EMS Order Management Stream</strong>  -  order received -> validated -> fulfilled -> delivered
-        </div>
-      </div>
-      <div class="tag-row">
-        <span class="tag" style="background:rgba(244,143,177,.07);color:var(--pink);border:1px solid rgba(244,143,177,.2);">Workflows</span>
-        <span class="tag" style="background:rgba(244,143,177,.07);color:var(--pink);border:1px solid rgba(244,143,177,.2);">Multi-step</span>
-        <span class="tag" style="background:rgba(244,143,177,.07);color:var(--pink);border:1px solid rgba(244,143,177,.2);">Recurring</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="def-block">Systems -> the constitution (rules &amp; frameworks Genies/Streams must follow)
-Genies  -> discrete specialist agents (execute bounded tasks within System rules)
-Streams -> end-to-end business processes (invoke Genies, follow Systems, run continuously)</div>
-
-  <!-- -- SECTION 3: FINANCE OS REFERENCE ------------------------------ -->
-  <div class="sec-head" style="margin-top:2rem;margin-bottom:1.25rem;">
-    <span class="sec-label">Reference Implementation  -  Finance OS</span>
-    <div class="sec-head-line"></div>
-  </div>
-
-  <div style="background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--amber);border-radius:0 0 12px 12px;margin-bottom:2rem;overflow:hidden;">
-    <div style="padding:1rem 1.25rem;background:var(--s2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;">
-      <div><div style="font-family:'Fira Code',monospace;font-size:.62rem;color:var(--amber);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.25rem;">MOS-06  -  FINANCE OS</div><div style="font-weight:700;font-size:1rem;color:#e8f4ff;">Finance OS  -  Digital Workers</div></div>
-      <div class="tag-row" style="margin:0;"><span class="tag amber">AP/AR</span><span class="tag amber">Forecasting</span><span class="tag amber">Compliance</span><span class="tag amber">AU Tax</span></div>
-    </div>
-    <div class="dw-grid">
-      <div class="dw-col">
-        <div class="dw-col-header" style="color:var(--blue);">Systems</div>
-        <div class="dw-items">
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#40c4ff,#b388ff)">Modeling System</div>
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#40c4ff,#b388ff)">Reporting System</div>
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#40c4ff,#b388ff)">Forecasting System</div>
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#40c4ff,#b388ff)">Profit First System</div>
-        </div>
-      </div>
-      <div class="dw-col">
-        <div class="dw-col-header" style="color:var(--green);">Genies</div>
-        <div class="dw-items">
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#00e676,#1de9b6)">Budget Builder</div>
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#00e676,#1de9b6)">End of Month</div>
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#00e676,#1de9b6)">Tax Reporting</div>
-          <div class="dw-item tbd">TBD</div>
-        </div>
-      </div>
-      <div class="dw-col">
-        <div class="dw-col-header" style="color:var(--pink);">Streams</div>
-        <div class="dw-items">
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#f48fb1,#b388ff)">Annual Reports</div>
-          <div class="dw-item" style="--item-bar:linear-gradient(to right,#f48fb1,#b388ff)">File monthly Taxes (AU)</div>
-          <div class="dw-item tbd">TBD</div>
-          <div class="dw-item tbd">TBD</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout warn"><div class="callout-icon">?</div><div class="callout-body"><strong>Pattern:</strong> Every Mini-OS follows this three-column structure. Finance OS is the reference implementation  -  Systems govern, Genies execute discrete tasks, Streams run the ongoing processes. All 14 Mini-OS follow the same pattern below.</div></div>
-
-  <!-- -- SECTION 4: ALL 14 MINI-OS ------------------------------------ -->
-  <div class="sec-head" style="margin-top:2rem;margin-bottom:1.25rem;">
-    <span class="sec-label">All 14 Mini-OS  -  Digital Worker Structure</span>
-    <div class="sec-head-line"></div>
-  </div>
-  <div class="accordion" id="dwAccordion"></div>
+  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Mini-OS structure moved to dedicated tabs:</strong> technical composition, domain registry, and detailed System/Genie/Stream patterns are in <strong>Tab 03 Technical</strong> and <strong>Tab 05 Mini-OS</strong>.</div></div>
 
 </div></div>
-
-
 <!-- -- TAB 04  -  DIGITAL WORKERS -- -->
 <div class="panel" id="tab-ve"><div class="pw">
   <div class="ph">
@@ -2683,8 +2737,14 @@ function buildAccordionItem(m, i, includeFacts) {
     </div>`;
 }
 
-document.getElementById('mosAccordion').innerHTML = mosData.map((m,i)=>buildAccordionItem(m,i,true)).join('');
-document.getElementById('dwAccordion').innerHTML  = mosData.map((m,i)=>buildAccordionItem(m,i,false)).join('');
+const mosAccordionEl = document.getElementById('mosAccordion');
+if (mosAccordionEl) {
+  mosAccordionEl.innerHTML = mosData.map((m,i)=>buildAccordionItem(m,i,true)).join('');
+}
+const dwAccordionEl = document.getElementById('dwAccordion');
+if (dwAccordionEl) {
+  dwAccordionEl.innerHTML = mosData.map((m,i)=>buildAccordionItem(m,i,false)).join('');
+}
 
 function show(id, btn) {
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
@@ -2694,7 +2754,7 @@ function show(id, btn) {
 }
 
 function openMOS(idx) {
-  show('minios', document.querySelectorAll('.ntab')[3]);
+  show('minios', document.querySelectorAll('.ntab')[5]);
   setTimeout(()=>{
     const blocks = document.querySelectorAll('#mosAccordion .acc-block');
     if(blocks[idx]){ blocks[idx].classList.add('open'); blocks[idx].scrollIntoView({behavior:'smooth',block:'center'}); }
@@ -2721,6 +2781,24 @@ function openMOS(idx) {
     try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){}
   }
 
+  function syncHumanVerticalMarkerHeight(){
+    var icons=document.querySelector('.hf-side-icons');
+    var steps=Array.from(document.querySelectorAll('.human-timeline .hf-step'));
+    if(!icons || steps.length < 7){ return; }
+
+    var r1=steps[0].getBoundingClientRect();
+    var r3=steps[2].getBoundingClientRect();
+    var r7=steps[6].getBoundingClientRect();
+
+    // Force Human + Bridge to identical pixel heights.
+    var topBand=Math.max(0, r3.top-r1.top);
+    var equal=Math.round(topBand/2);
+    var total=Math.max(0, r7.bottom-r1.top);
+    var h3=Math.max(0, total-(equal*2));
+
+    icons.style.setProperty('gap','0px','important');
+    icons.style.setProperty('grid-template-rows', equal + 'px ' + equal + 'px ' + h3 + 'px', 'important');
+  }
   function applyProgressToUI(){
     var external=readProgress()[SECTION_KEY];
     if(!external || !Array.isArray(external.groups)){ return; }
@@ -2759,12 +2837,35 @@ function openMOS(idx) {
   });
 
   applyProgressToUI();
+  syncHumanVerticalMarkerHeight();
   saveProgressFromUI();
-  window.addEventListener('storage', function(e){ if(e.key===progressKey){ applyProgressToUI(); } });
+  window.addEventListener('storage', function(e){ if(e.key===progressKey){ applyProgressToUI(); syncHumanVerticalMarkerHeight(); } });
+  window.addEventListener('resize', syncHumanVerticalMarkerHeight);
+  window.addEventListener('load', function(){
+    syncHumanVerticalMarkerHeight();
+    setTimeout(syncHumanVerticalMarkerHeight, 120);
+  });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(syncHumanVerticalMarkerHeight); }
+  document.querySelectorAll('.ntab').forEach(function(btn){ btn.addEventListener('click', function(){ setTimeout(syncHumanVerticalMarkerHeight, 40); }); });
 })();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
