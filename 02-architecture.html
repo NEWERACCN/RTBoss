@@ -223,6 +223,43 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .hf-title{font-family:'DM Sans',sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.42rem;line-height:1.35;}
 .hf-copy{font-size:1rem;line-height:1.72;color:#b9cfe3;}
 .hf-copy strong{color:#eef5ff;font-weight:700;}
+.role-merge-map{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:1rem 0 1.35rem;}
+.rm-head{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;align-items:end;margin-bottom:.7rem;}
+.rm-head div{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:#8eb1cf;}
+.rm-col{background:#0d1c2b;border:1px solid #2a4461;border-radius:10px;padding:.7rem;}
+.rm-title{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:700;color:#eaf5ff;margin-bottom:.55rem;}
+.rm-list{display:flex;flex-direction:column;gap:.42rem;}
+.rm-item{background:#0b1828;border:1px solid #233a57;border-radius:8px;padding:.5rem .6rem;font-size:.75rem;color:#cfe2f3;line-height:1.4;}
+.rm-item.future{border-left:3px solid var(--teal);padding-left:.52rem;}
+.rm-inventory{background:#0d1c2b;border:1px solid #2a4461;border-radius:10px;padding:.72rem;margin-bottom:.72rem;}
+.rm-inventory-title{font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;color:#eaf5ff;margin-bottom:.48rem;}
+.rm-chip-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:.42rem;}
+.rm-chip{background:#0b1828;border:1px solid #233a57;border-radius:8px;padding:.45rem .52rem;font-size:.72rem;color:#cfe2f3;line-height:1.35;}
+.rm-note{font-size:.78rem;color:#9ec0db;line-height:1.65;margin-top:.7rem;}
+.cx-shift{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:1rem 0 1.35rem;}
+.cx-shift-head{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;color:#eaf5ff;margin-bottom:.35rem;}
+.cx-shift-sub{font-size:.78rem;color:#9ec0db;line-height:1.6;margin-bottom:.65rem;}
+.cx-grid{display:grid;grid-template-columns:repeat(4,minmax(170px,1fr));gap:.55rem;}
+.cx-card{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.7rem;}
+.cx-role{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;color:#eef6ff;margin-bottom:.35rem;}
+.cx-line{font-size:.73rem;color:#cfe2f3;line-height:1.5;}
+.cx-line strong{color:#ffffff;}
+.benefit-bridge{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:.85rem .9rem;margin:.95rem 0 1.1rem;}
+.benefit-title{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:700;color:#eaf5ff;margin-bottom:.45rem;}
+.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;}
+.benefit-card{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.62rem .7rem;}
+.benefit-k{font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;color:#8eb1cf;margin-bottom:.2rem;}
+.benefit-v{font-size:.76rem;color:#cfe2f3;line-height:1.5;}
+.cx-graph{background:#0b1828;border:1px solid #233a57;border-radius:9px;padding:.75rem;margin-bottom:.65rem;}
+.cx-g-row{display:grid;grid-template-columns:180px 1fr;gap:.5rem;align-items:center;margin:.38rem 0;}
+.cx-g-label{font-size:.7rem;color:#cfe2f3;font-weight:600;line-height:1.35;}
+.cx-g-bars{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;}
+.cx-g-box{background:#0d1c2b;border:1px solid #2a4461;border-radius:7px;padding:.35rem .4rem;}
+.cx-g-k{font-family:'Fira Code',monospace;font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;color:#8eb1cf;margin-bottom:.2rem;}
+.cx-g-track{height:6px;background:#13263b;border-radius:4px;overflow:hidden;}
+.cx-g-fill{height:100%;border-radius:4px;}
+.cx-g-fill.before{background:linear-gradient(to right,#6b8aa7,#3f6488);}
+.cx-g-fill.after{background:linear-gradient(to right,#1de9b6,#00e676);}
 .panel#tab-overview .os-flow{background:#071a18;border:1px solid #1d5c50;}
 .panel#tab-overview .os-flow-k{font-size:.66rem;}
 .panel#tab-overview .os-flow-v{font-size:1.02rem;color:#eff7ff;line-height:1.95;}
@@ -260,6 +297,21 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .wm-fill.right{left:50%;background:linear-gradient(to right,rgba(255,202,40,.92),rgba(255,202,40,.45));}
 .wm-bridge-dot{position:absolute;top:50%;left:50%;width:8px;height:8px;border-radius:50%;transform:translate(-50%,-50%);background:#ffffff;box-shadow:0 0 0 4px rgba(255,255,255,.12);animation:wmAreaFlow 45s ease-in-out infinite;}
 .wm-note{font-size:.78rem;color:#9ec0db;line-height:1.65;margin-top:.7rem;}
+.time-shift-map{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:1rem 0 1.35rem;}
+.ts-head{display:grid;grid-template-columns:220px 1fr 1fr;gap:.65rem;align-items:end;margin-bottom:.6rem;}
+.ts-head div{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:#8eb1cf;}
+.ts-head .ts-current{color:#82b1ff;}
+.ts-head .ts-future{color:#00e676;}
+.ts-row{display:grid;grid-template-columns:220px 1fr;gap:.65rem;align-items:center;margin:.55rem 0;}
+.ts-role{font-size:.78rem;color:#d2e5f5;font-weight:600;line-height:1.4;}
+.ts-pair{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;}
+.ts-box{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.58rem .65rem;}
+.ts-box.current{border-color:#2f4e72;}
+.ts-box.future{border-color:#2d6d59;}
+.ts-line{margin:.22rem 0;}
+.ts-k{font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:#7fa5c7;display:inline-block;min-width:126px;}
+.ts-v{font-family:'Fira Code',monospace;font-size:.66rem;color:#e9f4ff;}
+.ts-foot{font-size:.78rem;color:#9ec0db;line-height:1.65;margin-top:.7rem;}
 .twin-map{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:1rem 0 1.35rem;}
 .twin-grid{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:.55rem;}
 .twin-step{background:#0d1c2b;border:2px solid #5d87b3;border-radius:9px;padding:.78rem .8rem;position:relative;animation:twinStepPulse 5.2s ease-in-out infinite;}
@@ -289,7 +341,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .remember-k{font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:.02em;text-transform:none;color:#eef6ff;margin-bottom:.22rem;font-weight:700;line-height:1.3;}
 .remember-v{font-size:.79rem;color:#d2e5f5;line-height:1.55;}
 @media(max-width:900px){.twin-grid{grid-template-columns:1fr 1fr;}.twin-step::after{display:none;}.remember-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){.rm-head{grid-template-columns:1fr;}.rm-chip-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:620px){.rm-chip-grid{grid-template-columns:1fr;}}
+@media(max-width:980px){.ts-head{grid-template-columns:1fr;}.ts-row{grid-template-columns:1fr;}.ts-pair{grid-template-columns:1fr;}}
+@media(max-width:980px){.cx-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:620px){.twin-grid{grid-template-columns:1fr;}.remember-grid{grid-template-columns:1fr;}}
+@media(max-width:620px){.cx-grid{grid-template-columns:1fr;}}
+@media(max-width:860px){.cx-g-row{grid-template-columns:1fr;}.cx-g-bars{grid-template-columns:1fr;}}
+@media(max-width:860px){.benefit-grid{grid-template-columns:1fr;}}
 @keyframes wmPulse{0%,100%{opacity:.7}50%{opacity:1}}
 @keyframes wmAreaFlow{0%,100%{left:var(--from,20%);opacity:.95;}50%{left:var(--to,80%);opacity:.95;}}
 @keyframes twinFlow{0%{left:14px;}100%{left:calc(100% - 14px);}}
@@ -383,6 +442,56 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 
+  <div class="sec-head"><span class="sec-label">Worker Role Evolution (Before -> RTBoss)</span><div class="sec-head-line"></div></div>
+  <div class="role-merge-map">
+    <div class="rm-inventory">
+      <div class="rm-inventory-title">Before Inventory (Expanded Worker Types)</div>
+      <div class="rm-chip-grid">
+        <div class="rm-chip">Executives</div>
+        <div class="rm-chip">Upper Management / BU Leaders</div>
+        <div class="rm-chip">Middle Managers / Supervisors</div>
+        <div class="rm-chip">Domain Leads / SMEs</div>
+        <div class="rm-chip">Knowledge Workers</div>
+        <div class="rm-chip">System Engineers</div>
+        <div class="rm-chip">Developers / Architects / QA</div>
+        <div class="rm-chip">Service Desk / Support / Success</div>
+        <div class="rm-chip">Sales</div>
+        <div class="rm-chip">Marketing</div>
+        <div class="rm-chip">Finance / Procurement / Compliance / HR / Legal</div>
+        <div class="rm-chip">Frontline Operations</div>
+        <div class="rm-chip">Licensed Trade Workers</div>
+        <div class="rm-chip">Factory / Line Workers</div>
+        <div class="rm-chip">Logistics / Warehouse / Fleet</div>
+        <div class="rm-chip">Owners / Investors / Board</div>
+      </div>
+    </div>
+    <div class="rm-head">
+      <div>Before RTBoss</div>
+      <div>RTBoss Role Cards</div>
+    </div>
+    <div class="ts-pair">
+      <div class="rm-col">
+        <div class="rm-title">Current Worker Labels</div>
+        <div class="rm-list">
+          <div class="rm-item">Frontline / Trade / Factory</div>
+          <div class="rm-item">Knowledge Workers</div>
+          <div class="rm-item">Managers / Supervisors</div>
+          <div class="rm-item">Executives</div>
+        </div>
+      </div>
+      <div class="rm-col">
+        <div class="rm-title">New Operating Roles</div>
+        <div class="rm-list">
+          <div class="rm-item future">Domain Operators</div>
+          <div class="rm-item future">Domain Orchestrators</div>
+          <div class="rm-item future">Domain Owners</div>
+          <div class="rm-item future">Stakeholders (Owners/Investors)</div>
+        </div>
+      </div>
+    </div>
+    <div class="rm-note">These four roles are the shared language for the Workforce Operating Model. The same people can span roles, but the operating responsibilities are now explicit.</div>
+  </div>
+
   <div class="sec-head"><span class="sec-label">Worker Activity Map</span><div class="sec-head-line"></div></div>
   <div class="worker-map">
     <div class="wm-head">
@@ -391,7 +500,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="wm-right">Value Engines (Work + Value)</div>
     </div>
     <div class="wm-row">
-      <div class="wm-role">Executives + Domain Owners</div>
+      <div class="wm-role">Stakeholders (Owners/Investors)</div>
       <div class="wm-lane">
         <div class="wm-center"></div>
         <div class="wm-fill left" style="width:42%;"></div>
@@ -400,7 +509,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       </div>
     </div>
     <div class="wm-row">
-      <div class="wm-role">Managers / Supervisors</div>
+      <div class="wm-role">Domain Owners</div>
       <div class="wm-lane">
         <div class="wm-center"></div>
         <div class="wm-fill left" style="width:26%;"></div>
@@ -409,7 +518,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       </div>
     </div>
     <div class="wm-row">
-      <div class="wm-role">Knowledge Workers</div>
+      <div class="wm-role">Domain Orchestrators</div>
       <div class="wm-lane">
         <div class="wm-center"></div>
         <div class="wm-fill left" style="width:16%;"></div>
@@ -418,7 +527,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       </div>
     </div>
     <div class="wm-row">
-      <div class="wm-role">Frontline / Trade / Factory</div>
+      <div class="wm-role">Domain Operators</div>
       <div class="wm-lane">
         <div class="wm-center"></div>
         <div class="wm-fill left" style="width:12%;"></div>
@@ -426,7 +535,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="wm-bridge-dot" style="--from:38%;--to:93%;animation-delay:3.6s;"></div>
       </div>
     </div>
-    <div class="wm-note">This visual shows where each worker type spends most of the day. The animated motion connects the human layer to Flow of Work by showing work fluidity between value creation and operating control.</div>
+  <div class="wm-note">This visual shows where each worker type spends most of the day. The animated motion connects the human layer to Flow of Work by showing work fluidity between value creation and operating control.</div>
   </div>
 
   <div class="sec-head"><span class="sec-label">Digital Twin Value Map</span><div class="sec-head-line"></div></div>
@@ -443,6 +552,137 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="twin-fact f4"></div><div class="twin-fact f5"></div><div class="twin-fact f6"></div><div class="twin-fact f7"></div>
       <div class="twin-lane-label">Fact Flow Lane</div>
     </div>
+  </div>
+
+  <div class="benefit-bridge">
+    <div class="benefit-title">RTBoss Workforce Benefits - Two Time Shifts</div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-k">Benefit 01</div>
+        <div class="benefit-v"><strong>More customer experience time:</strong> humans spend less time on manual transaction handling and more time on customer understanding, trust, and resolution quality.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-k">Benefit 02</div>
+        <div class="benefit-v"><strong>More productive physical time:</strong> domain operators and field roles spend more time on real delivery work while admin, compliance logging, and rework are reduced.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Customer Experience Shift (Secret Sauce)</span><div class="sec-head-line"></div></div>
+  <div class="cx-shift">
+    <div class="cx-shift-head">As routine execution is automated, human value moves toward customer trust and outcomes.</div>
+    <div class="cx-shift-sub">RTBoss Benefit 01: agents handle transaction flow, so humans spend more time on interpretation, reassurance, and high-value customer moments.</div>
+    <div class="cx-graph">
+      <div class="cx-g-row">
+        <div class="cx-g-label">Domain Operators</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:28%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:47%;"></div></div></div>
+        </div>
+      </div>
+      <div class="cx-g-row">
+        <div class="cx-g-label">Domain Orchestrators</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:34%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:56%;"></div></div></div>
+        </div>
+      </div>
+      <div class="cx-g-row">
+        <div class="cx-g-label">Domain Owners</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:25%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:42%;"></div></div></div>
+        </div>
+      </div>
+      <div class="cx-g-row">
+        <div class="cx-g-label">Stakeholders (Owners/Investors)</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:18%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:29%;"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cx-grid">
+      <div class="cx-card">
+        <div class="cx-role">Domain Operators</div>
+        <div class="cx-line"><strong>Before:</strong> heavy manual logging and process friction.</div>
+        <div class="cx-line"><strong>After:</strong> more face-to-face delivery, service quality, and issue prevention.</div>
+      </div>
+      <div class="cx-card">
+        <div class="cx-role">Domain Orchestrators</div>
+        <div class="cx-line"><strong>Before:</strong> status chasing, handoffs, and admin follow-up.</div>
+        <div class="cx-line"><strong>After:</strong> proactive customer coordination and faster exception resolution.</div>
+      </div>
+      <div class="cx-card">
+        <div class="cx-role">Domain Owners</div>
+        <div class="cx-line"><strong>Before:</strong> policy checks and reactive firefighting.</div>
+        <div class="cx-line"><strong>After:</strong> better service rules, escalation quality, and trust outcomes at scale.</div>
+      </div>
+      <div class="cx-card">
+        <div class="cx-role">Stakeholders (Owners/Investors)</div>
+        <div class="cx-line"><strong>Before:</strong> limited visibility into customer experience quality.</div>
+        <div class="cx-line"><strong>After:</strong> clearer trust signals, stronger loyalty, and healthier long-term value.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">How RTBoss Increases Productive Physical Time</span><div class="sec-head-line"></div></div>
+  <div class="time-shift-map">
+    <div class="cx-shift-sub">RTBoss Benefit 02: automated governance and execution increase productive work time for every role.</div>
+    <div class="cx-graph">
+      <div class="cx-g-row">
+        <div class="cx-g-label">Domain Operators</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:60%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:78%;"></div></div></div>
+        </div>
+      </div>
+      <div class="cx-g-row">
+        <div class="cx-g-label">Domain Orchestrators</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:55%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:74%;"></div></div></div>
+        </div>
+      </div>
+      <div class="cx-g-row">
+        <div class="cx-g-label">Domain Owners</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:50%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:69%;"></div></div></div>
+        </div>
+      </div>
+      <div class="cx-g-row">
+        <div class="cx-g-label">Stakeholders (Owners/Investors)</div>
+        <div class="cx-g-bars">
+          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:45%;"></div></div></div>
+          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:63%;"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cx-grid">
+      <div class="cx-card">
+        <div class="cx-role">Domain Operators</div>
+        <div class="cx-line"><strong>Before:</strong> stop-start execution with manual logging, compliance capture, and avoidable rework.</div>
+        <div class="cx-line"><strong>After:</strong> more continuous physical delivery time, fewer interruptions, and cleaner completion flow.</div>
+      </div>
+      <div class="cx-card">
+        <div class="cx-role">Domain Orchestrators</div>
+        <div class="cx-line"><strong>Before:</strong> high coordination overhead and fragmented handoffs across teams.</div>
+        <div class="cx-line"><strong>After:</strong> faster routing and fewer handoff gaps, increasing productive execution time across operations.</div>
+      </div>
+      <div class="cx-card">
+        <div class="cx-role">Domain Owners</div>
+        <div class="cx-line"><strong>Before:</strong> too much time spent on manual control checks and reactive exception handling.</div>
+        <div class="cx-line"><strong>After:</strong> more time improving standards and throughput while the system enforces routine controls.</div>
+      </div>
+      <div class="cx-card">
+        <div class="cx-role">Stakeholders (Owners/Investors)</div>
+        <div class="cx-line"><strong>Before:</strong> limited visibility into how much labor time is lost to admin and rework.</div>
+        <div class="cx-line"><strong>After:</strong> clearer productivity gain and stronger value output from the same workforce hours.</div>
+      </div>
+    </div>
+
+    <div class="ts-foot">RTBoss Benefit 02: it does not add hours, it shifts hours from admin burden and rework into productive physical value work. Mini-OS absorbs governance overhead, Value Engines automate repeatable facts, and RTBI reduces avoidable rework.</div>
   </div>
 
   <div class="sec-head"><span class="sec-label">What to Remember</span><div class="sec-head-line"></div></div>
