@@ -74,6 +74,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .rule-table td:first-child{color:var(--text);font-weight:500;}
 .rule-table tr:last-child td{border-bottom:none;}
 .rule-table tr:hover td{background:rgba(255,255,255,.012);}
+.panel#tab-workers .rule-table th{font-size:.64rem;font-weight:800;color:#d9ecff;background:rgba(10,24,40,.6);}
+.panel#tab-workers .rule-table td{font-size:.75rem;line-height:1.45;}
+.panel#tab-workers .rule-table tr:nth-child(even) td{background:rgba(7,20,31,.35);}
 
 /* -- OVERVIEW GRID (slide 1 layout) -- */
 .rtbos-overview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:2.5rem;}
@@ -188,6 +191,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .tab-flowbar{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.06));border:1px solid rgba(0,230,118,.28);border-radius:10px;padding:.85rem 1rem;margin:0 0 1.25rem;}
 .tab-flowbar-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem;}
 .tab-flowbar-v{font-family:'Fira Code',monospace;font-size:.7rem;color:#d7ebff;line-height:1.6;}
+.core-flow{background:#031719;border:1px solid rgba(0,230,118,.45);border-radius:14px;padding:1.2rem 1.1rem;margin:0 0 1.25rem;box-shadow:inset 0 0 0 1px rgba(0,230,118,.08);}
+.core-flow-k{font-family:'Fira Code',monospace;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:#e9fbff;text-align:center;margin:0 0 .65rem;}
+.core-flow-v{font-family:'Fira Code',monospace;font-size:1.08rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#e8f4ff;}
+.core-flow-v .c-facts{color:#40c4ff;font-weight:700;}
+.core-flow-v .c-dim{color:#b388ff;font-weight:700;}
+.core-flow-v .c-assets{color:#1de9b6;font-weight:700;}
+.core-flow-v .c-factory{color:#ff8fb1;font-weight:700;}
+.core-flow-v .c-workforce{color:#ff9100;font-weight:700;}
+.core-flow-v .c-twin{color:#38efc3;font-weight:700;}
+.core-flow-v .c-result{color:#ffca28;font-weight:700;}
+@media(max-width:900px){.core-flow-v{font-size:.9rem;line-height:1.85;}}
 
 .os-flow{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.05));border:1px solid rgba(0,230,118,.28);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1.25rem;}
 .os-flow-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);text-align:center;margin-bottom:.55rem;}
@@ -236,6 +250,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .hf-side-item.tech-vert{border-left:4px solid var(--orange);}
 .hf-side-dot{display:none;}
 .hf-side-t{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:#eef6ff;line-height:1;text-align:center;}
+.tech-diagram{background:#061221;border:1px solid #203755;border-radius:12px;padding:1.1rem;margin:0 0 1.25rem;}
+.tech-layout{display:grid;grid-template-columns:1fr 72px;gap:.9rem;align-items:stretch;}
+.tech-timeline{display:flex;flex-direction:column;gap:0;}
+.tech-step{display:grid;grid-template-columns:1fr;gap:0;position:relative;padding-bottom:.85rem;}
+.tech-step:last-child{padding-bottom:0;}
+.tech-step:not(:last-child)::after{content:'';position:absolute;left:.1rem;top:2.05rem;bottom:.1rem;width:2px;background:linear-gradient(to bottom,rgba(86,122,156,.55),rgba(86,122,156,.12));display:none;}
+.tech-side{display:flex;align-items:stretch;}
+.tech-side-item{width:100%;background:#0b1828;border:1px solid #233a57;border-left:4px solid var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.tech-side-item .tech-side-t{display:block;transform:rotate(90deg);transform-origin:center;white-space:nowrap;line-height:1;letter-spacing:.05em;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;color:#eef6ff;}
+.tech-cat{color:#ffd08a;font-weight:800;}
+@media(max-width:980px){.tech-layout{grid-template-columns:1fr;}.tech-side{order:-1;}}
 .role-merge-map{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:1rem 0 1.35rem;}
 .rm-head{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;align-items:end;margin-bottom:.7rem;}
 .rm-head div{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:#8eb1cf;}
@@ -258,6 +283,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .cx-line{font-size:.73rem;color:#cfe2f3;line-height:1.5;}
 .cx-line strong{color:#ffffff;}
 .role-group-nav{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:.85rem .9rem;margin:.9rem 0 1.1rem;}
+.role-group-nav.flow-mini{background:#031719;border-color:rgba(0,230,118,.4);box-shadow:inset 0 0 0 1px rgba(0,230,118,.08);}
 .role-group-title{font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:700;color:#eaf5ff;margin-bottom:.5rem;}
 .role-group-grid{display:grid;grid-template-columns:repeat(3,minmax(170px,1fr));gap:.55rem;}
 .role-group-btn{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.58rem .65rem;text-align:left;cursor:pointer;color:#d9e9f7;transition:border-color .18s,transform .18s,background .18s;}
@@ -265,6 +291,26 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .role-group-k{font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;color:#8eb1cf;margin-bottom:.2rem;}
 .role-group-v{font-size:.78rem;font-weight:600;line-height:1.35;color:#eef6ff;}
 .role-group-note{font-size:.75rem;color:#9ec0db;line-height:1.6;margin-top:.55rem;}
+.hf-scope{display:flex;flex-direction:column;gap:0;}
+.hf-scope-step{appearance:none;width:100%;border:none;background:transparent;display:grid;grid-template-columns:2.9rem 1fr 72px;gap:0 .95rem;align-items:stretch;position:relative;padding:0 0 1rem;cursor:pointer;text-align:left;}
+.hf-scope-step:last-child{padding-bottom:0;}
+.hf-scope-step:not(:last-child)::after{content:'';position:absolute;left:1.35rem;top:2.45rem;bottom:.1rem;width:2px;background:linear-gradient(to bottom,rgba(86,122,156,.85),rgba(86,122,156,.2));}
+.hf-scope-step .hf-body{padding:.62rem .8rem;transition:border-color .18s,background .18s;}
+.hf-scope-step:hover .hf-body{background:#102036;border-color:#2f4f73;}
+.hf-scope-tag{background:#0b1828;border:1px solid #233a57;border-left:4px solid var(--step-color,#40c4ff);border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hf-scope-tag span{display:block;transform:rotate(90deg);transform-origin:center;white-space:nowrap;line-height:1;letter-spacing:.05em;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;color:#eef6ff;}
+.role-bridge{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:1rem;margin:0 0 1rem;}
+.role-bridge-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.75rem;align-items:start;position:relative;}
+.role-bridge-col{position:relative;z-index:1;}
+.role-bridge-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:#9fc0dc;margin:0 0 .45rem;text-align:center;}
+.role-bridge-list{display:flex;flex-direction:column;gap:.42rem;}
+.role-bridge-item{background:#0d1c2b;border:1px solid #2a4461;border-radius:8px;padding:.5rem .6rem;font-size:.74rem;line-height:1.4;color:#d8e8f6;text-align:center;}
+.role-bridge-item.hr{border-left:3px solid var(--pink);}
+.role-bridge-item.id{border-left:3px solid var(--blue);}
+.role-bridge-item.adv{border-left:3px solid var(--green);}
+.role-bridge-item.op{border-left:3px solid var(--amber);}
+.virt-badge{display:inline-block;margin-left:.35rem;padding:.08rem .32rem;border-radius:999px;border:1px solid rgba(29,233,182,.45);background:rgba(29,233,182,.08);color:#9ff3dd;font-family:'Fira Code',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;vertical-align:middle;}
+@media(max-width:900px){.role-bridge-grid{grid-template-columns:1fr;}.role-bridge-grid::before{display:none;}}
 .worker-split-nav{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.55rem 0 1rem;}
 .worker-split-btn{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.58rem .65rem;text-decoration:none;color:#eaf5ff;transition:border-color .18s,background .18s,transform .18s;}
 .worker-split-btn:hover{border-color:#4a7099;background:#112134;transform:translateY(-1px);}
@@ -409,7 +455,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </div>
 <div class="tabs">
   <button class="ntab active" onclick="show('overview',this)">01 - OS Overview</button>
-  <button class="ntab" onclick="show('workers',this)">02 - Worker Roles Overview</button>
+  <button class="ntab" onclick="show('workers',this)">02 - Human Roles Overview</button>
   <button class="ntab" onclick="show('arch',this)">03 - Technical Overview</button>
   <button class="ntab" onclick="show('wom',this)">04 - Workforce Operating Model</button>
   <button class="ntab" onclick="show('bts',this)">05 - Identities</button>
@@ -432,7 +478,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
   <div class="sec-head"><span class="sec-label">Human-First Top-Down Flow</span><div class="sec-head-line"></div></div>
   <div class="human-diagram">
-    <div class="hf-layout">
+    <div class="hf-layout" data-sync-side-markers="true">
     <div class="human-timeline">
       <div class="hf-step" style="--step-color:var(--pink);">
         <div class="hf-num">01</div>
@@ -524,21 +570,63 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 <div class="panel" id="tab-arch"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Technical</div>
-    <div class="tab-flowbar"><div class="tab-flowbar-k">Technical Scope</div><div class="tab-flowbar-v">Step 02 Identities -> Step 03 Mini-OS -> Step 04 Value Engines -> Step 05 RTBI -> Step 06 Flow of Work -> Step 07 Cadence</div></div>
     <h1 class="ph-title">Technical Architecture</h1>
     <p class="ph-sub">This tab is the technical architecture view for Steps 03 to 07. It defines the control plane, execution plane, intelligence plane, orchestration layer, and operating rhythm that run RTBoss day to day.</p>
   </div>
 
-  <div class="def-block blue">Technical chain := Step 02 Identities (digital mirror) -> Step 03 Mini-OS (control) -> Step 04 Value Engines (execution) -> Step 05 RTBI (intelligence) -> Step 06 Flow of Work (routing and handoffs) -> Step 07 Cadence (operating rhythm and accountability).</div>
-
-  <div class="sec-head"><span class="sec-label">Steps 02-07 Technical Stack</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Technical Stack</span><div class="sec-head-line"></div></div>
+  <div class="core-flow">
+    <div class="core-flow-k">Technical Flow Ladder</div>
+    <div class="core-flow-v">
+      <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
+  </div>
+  <div class="tech-diagram">
+    <div class="tech-layout">
+      <div class="tech-timeline">
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Mini-OS:</span> Governance and control operations.</div>
+            <div class="hf-copy">Runs policy, compliance, and control boundaries.</div>
+          </div>
+        </div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Value Engines:</span> Outcome execution layer.</div>
+            <div class="hf-copy">Delivers day-to-day work and value outcomes.</div>
+          </div>
+        </div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Real-Time Business Intelligence:</span> Live intelligence and visibility.</div>
+            <div class="hf-copy">Shows real-time status, risk, and performance.</div>
+          </div>
+        </div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Flow of Work:</span> Fact routing and handoffs.</div>
+            <div class="hf-copy">Routes, prioritizes, hands off, and closes facts.</div>
+          </div>
+        </div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Cadence:</span> Operating rhythm and accountability.</div>
+            <div class="hf-copy">Runs daily, weekly, and monthly improvement cycles.</div>
+          </div>
+        </div>
+      </div>
+      <div class="tech-side">
+        <div class="tech-side-item"><span class="tech-side-t">Technical</span></div>
+      </div>
+    </div>
+  </div>
   <div class="flow-tiles" style="grid-template-columns:repeat(6,minmax(160px,1fr));">
     <div class="flow-tile" style="--ftc:var(--violet);"><span>02 Identities<br>Digital Mirror</span></div>
-    <div class="flow-tile" style="--ftc:var(--blue2);"><span>03 Mini-OS<br>Control Plane</span></div>
-    <div class="flow-tile" style="--ftc:var(--amber);"><span>04 Value Engines<br>Execution Plane</span></div>
-    <div class="flow-tile" style="--ftc:var(--teal);"><span>05 RTBI<br>Intelligence Plane</span></div>
-    <div class="flow-tile" style="--ftc:var(--blue);"><span>06 Flow of Work<br>Orchestration</span></div>
-    <div class="flow-tile" style="--ftc:var(--green);"><span>07 Cadence<br>Operating Rhythm</span></div>
+    <div class="flow-tile" style="--ftc:var(--blue2);"><span>Mini-OS<br>Control Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--amber);"><span>Value Engines<br>Execution Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--teal);"><span>Real-Time Business Intelligence<br>Intelligence Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--blue);"><span>Flow of Work<br>Orchestration</span></div>
+    <div class="flow-tile" style="--ftc:var(--green);"><span>Cadence<br>Operating Rhythm</span></div>
   </div>
 
   <div class="sec-head"><span class="sec-label">Identity Mirror (Digital Foundation)</span><div class="sec-head-line"></div></div>
@@ -554,7 +642,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </table>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Step 03 - Mini-OS (Control Plane)</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Mini-OS (Control Plane)</span><div class="sec-head-line"></div></div>
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
     <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Mini-OS defines policy boundaries, escalation rules, compliance logic, and override authority for each domain before execution runs.</p>
     <table class="rule-table">
@@ -567,7 +655,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </table>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Step 04 - Value Engines (Execution Plane)</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Value Engines (Execution Plane)</span><div class="sec-head-line"></div></div>
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
     <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Value Engines execute work across domains. They apply Mini-OS constraints while coordinating humans, agents, and systems to deliver outcomes.</p>
     <table class="rule-table">
@@ -580,7 +668,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </table>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Step 05 - RTBI (Intelligence Plane)</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Real-Time Business Intelligence (Intelligence Plane)</span><div class="sec-head-line"></div></div>
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
     <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">RTBI converts live facts into real-time visibility, forward planning, and decision support without batch reconciliation delays.</p>
     <table class="rule-table">
@@ -593,7 +681,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </table>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Step 06 - Flow of Work (Orchestration Layer)</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Flow of Work (Orchestration Layer)</span><div class="sec-head-line"></div></div>
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
     <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Flow of Work orchestrates fact intake, classification, routing, handoffs, escalation, and closure across human and digital executors.</p>
     <table class="rule-table">
@@ -606,7 +694,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </table>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Step 07 - Cadence (Operating Rhythm)</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Cadence (Operating Rhythm)</span><div class="sec-head-line"></div></div>
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.15rem;">
     <p style="font-size:.79rem;color:var(--mid);line-height:1.75;margin-bottom:.85rem;">Cadence turns operational facts into recurring management loops so performance, risk, and improvement are governed on schedule.</p>
     <table class="rule-table">
@@ -703,41 +791,273 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 <!-- -- TAB 02  -  WORKFORCE OPERATING MODEL -- -->
 <div class="panel" id="tab-workers"><div class="pw">
   <div class="ph">
-    <div class="ph-kicker">Section 02 - OS Framework - Worker Roles</div>
-  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Human Roles -> Work Types -> Boss Layer Governance -> RTBoss Execution -> Learning Loop</div></div>
+    <div class="ph-kicker">Section 02 - OS Framework - Human Roles</div>
 
-    <h1 class="ph-title">Worker Roles</h1>
+    <h1 class="ph-title">Human Roles</h1>
     <p class="ph-sub">The Workforce Operating Model starts with people, not agents. Humans set domain law and escalation authority, then route work across Human, Hybrid, and Digital execution modes through Mini-OS and Value Engines.</p>
   </div>
+  <div class="core-flow">
+    <div class="core-flow-k">Human-First Flow Ladder</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
+  </div>
+<div class="sec-head" id="workers-overview"><span class="sec-label">Human Roles Overview</span><div class="sec-head-line"></div></div>
 
-  <div class="role-group-nav">
-    <div class="role-group-title">Workforce Chain Scope (This Tab)</div>
-    <div class="role-group-grid" style="grid-template-columns:repeat(2,minmax(190px,1fr));">
-      <button class="role-group-btn" onclick="show('workers',document.querySelectorAll('.ntab')[1])">
-        <div class="role-group-k">Step 01</div>
-        <div class="role-group-v">Workforce Operating Model</div>
+  <div class="role-group-nav flow-mini">
+    <div class="role-group-title">Workforce Chain Scope</div>
+    <div class="hf-scope">
+      <button class="hf-scope-step" style="--step-color:var(--pink);" onclick="show('workers',document.querySelectorAll('.ntab')[1])">
+        <div class="hf-num">01</div>
+        <div class="hf-body">
+          <div class="hf-title">Workforce Operating Model - Humans + Agents as one operating model.</div>
+          <div class="hf-copy">Human and digital workers operate together as one model.</div>
+        </div>
+        <div class="hf-scope-tag"><span>Human</span></div>
       </button>
-      <button class="role-group-btn" onclick="show('bts',document.querySelectorAll('.ntab')[4])">
-        <div class="role-group-k">Step 02</div>
-        <div class="role-group-v">Identities (Digital Mirror)</div>
+      <button class="hf-scope-step" style="--step-color:var(--blue);" onclick="show('bts',document.querySelectorAll('.ntab')[4])">
+        <div class="hf-num">02</div>
+        <div class="hf-body">
+          <div class="hf-title">Identities - How human expertise is mirrored for agents.</div>
+          <div class="hf-copy">Human expertise is mirrored so agents execute with domain context.</div>
+        </div>
+        <div class="hf-scope-tag"><span>Bridge</span></div>
       </button>
     </div>
-    <div class="role-group-note">This tab focuses on Steps 01-02. Use the Technical tab for the agentic architecture chain from Step 02 to Step 07.</div>
+    <div class="role-group-note">This tab focuses on Workforce and Identities. Use the Technical tab for the agentic architecture chain from Identities through Cadence.</div>
+  </div>
+  <div class="sec-head"><span class="sec-label">What to Remember</span><div class="sec-head-line"></div></div>
+  <div class="remember-strip">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Human Model First</div><div class="remember-v">The Workforce Operating Model is the authority layer. Humans define domain truth, escalation, and accountability.</div></div>
+      <div class="remember-card"><div class="remember-k">Mirror Is Foundation</div><div class="remember-v">Identities mirror human expertise so agents can apply role-specific context consistently.</div></div>
+      <div class="remember-card"><div class="remember-k">Identity Types</div><div class="remember-v">Identities are structured as Personas, Advisors, and Skills. Policies and decisions are expressed inside those three types.</div></div>
+      <div class="remember-card"><div class="remember-k">Governance Location</div><div class="remember-v">Permissions, boundaries, and control constraints are governed in QMS and standards, then enforced through execution.</div></div>
+    </div>
   </div>
 
-  <div class="worker-split-nav">
-    <a class="worker-split-btn" href="#workers-overview">
-      <div class="worker-split-k">Section A</div>
-      <div class="worker-split-v">Worker Roles Overview</div>
-    </a>
-    <button class="worker-split-btn" onclick="show('wom',document.querySelectorAll('.ntab')[3])">
-      <div class="worker-split-k">Section B</div>
-      <div class="worker-split-v">Workforce Operating Model Deep Dive</div>
-    </button>
+  <div class="sec-head"><span class="sec-label">Human Roles  ->  Personas  ->  Advisors  ->  Operating Roles</span><div class="sec-head-line"></div></div>
+  <div class="role-bridge">
+    <div class="role-bridge-grid">
+      <div class="role-bridge-col">
+        <div class="role-bridge-k">Human Roles</div>
+        <div class="role-bridge-list">
+          <div class="role-bridge-item hr">Executives / Leaders</div>
+          <div class="role-bridge-item hr">Managers / Supervisors</div>
+          <div class="role-bridge-item hr">Knowledge Workers</div>
+          <div class="role-bridge-item hr">Frontline / Trade / Factory</div>
+          <div class="role-bridge-item hr">External Specialists</div>
+        </div>
+      </div>
+      <div class="role-bridge-col">
+        <div class="role-bridge-k">Personas <span class="virt-badge">Virtual-Capable</span></div>
+        <div class="role-bridge-list">
+          <div class="role-bridge-item id">Strategic Leadership Persona</div>
+          <div class="role-bridge-item id">Operational Leadership Persona</div>
+          <div class="role-bridge-item id">Specialist Execution Persona</div>
+          <div class="role-bridge-item id">Field Execution Persona</div>
+          <div class="role-bridge-item id">External Specialist Persona</div>
+        </div>
+      </div>
+      <div class="role-bridge-col">
+        <div class="role-bridge-k">Advisors <span class="virt-badge">Virtual-Capable</span></div>
+        <div class="role-bridge-list">
+          <div class="role-bridge-item adv">No Advisor (Default)</div>
+          <div class="role-bridge-item adv">No Advisor (Default)</div>
+          <div class="role-bridge-item adv">No Advisor (Default)</div>
+          <div class="role-bridge-item adv">No Advisor (Default)</div>
+          <div class="role-bridge-item adv">External Specialist Advisors (Invoked)</div>
+        </div>
+      </div>
+      <div class="role-bridge-col">
+        <div class="role-bridge-k">Operating Roles</div>
+        <div class="role-bridge-list">
+          <div class="role-bridge-item op">Stakeholders (Owners/Investors)</div>
+          <div class="role-bridge-item op">Domain Orchestrators</div>
+          <div class="role-bridge-item op">Domain Owners</div>
+          <div class="role-bridge-item op">Domain Operators</div>
+          <div class="role-bridge-item op">External Domain Partners</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="callout info" style="margin:.7rem 0 1rem;"><div class="callout-icon">i</div><div class="callout-body"><strong>Identity separation rule:</strong> Personas <span class="virt-badge">Virtual-Capable</span> and Advisors <span class="virt-badge">Virtual-Capable</span> are separate identity entities in the operating plan. They are not a direct match. A role can have a Persona with no Advisor (e.g., CEO), and Advisors are invoked only when needed. <span class="virt-badge">Virtual-Capable</span> means the identity can run as a fully digital role entity, not tied to a 1:1 active human seat.</div></div>
+  <div class="callout violet" style="margin:.7rem 0 1rem;"><div class="callout-icon">i</div><div class="callout-body"><strong>Persona scaling rule:</strong> Personas are not required to map 1:1 to human roles. In future operating states, one human executive (for example, CEO) can operate with multiple <span class="virt-badge">Virtual-Capable</span> executive personas (CFO, COO, CHRO, and others) as digital role entities.</div></div>
+  <div class="sec-head"><span class="sec-label">Human Roles  -  Identity Mirror Inputs</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1rem;">
+    <table class="rule-table" style="margin:.35rem 0 0;">
+      <thead>
+        <tr>
+          <th>Human Role</th>
+          <th>Persona (Mirror)</th>
+          <th>Advisor (Default)</th>
+          <th>Core Skills</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Executives / Leaders</td>
+          <td>Strategic Leadership Persona</td>
+          <td>None (invoke only when needed)</td>
+          <td>Decision Framing, Portfolio Metrics</td>
+        </tr>
+        <tr>
+          <td>Managers / Supervisors</td>
+          <td>Operational Leadership Persona</td>
+          <td>Optional (exceptions only)</td>
+          <td>Escalation Rules, Handoff Logic</td>
+        </tr>
+        <tr>
+          <td>Knowledge Workers</td>
+          <td>Specialist Execution Persona</td>
+          <td>Optional (domain-specific)</td>
+          <td>Taxonomy, Method Templates</td>
+        </tr>
+        <tr>
+          <td>Frontline / Trade / Factory</td>
+          <td>Field Execution Persona</td>
+          <td>Optional (safety/exception)</td>
+          <td>Guided Work, Work Confirmation</td>
+        </tr>
+        <tr>
+          <td>External Specialists (Outside Counsel, Tax Advisory, Accountant, Consultant, IT)</td>
+          <td>External Specialist Persona</td>
+          <td>Optional (specialist guidance)</td>
+          <td>Standards Interpretation, Risk Review, Control Validation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin:.65rem 0 1rem;">
+    <table class="rule-table" style="margin:.35rem 0 0;">
+      <thead>
+        <tr>
+          <th>Mode</th>
+          <th>Human Seat</th>
+          <th>Persona Model</th>
+          <th>When Used</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1:1 Mirror</td>
+          <td>One active human role</td>
+          <td>One matching persona</td>
+          <td>Direct role mirror in current operations.</td>
+        </tr>
+        <tr>
+          <td>1:Many Persona Expansion</td>
+          <td>One active human role</td>
+          <td>Multiple virtual personas</td>
+          <td>Future state, e.g., CEO + virtual CFO/COO/CHRO.</td>
+        </tr>
+        <tr>
+          <td>Advisory Invocation</td>
+          <td>Optional human requester</td>
+          <td>Advisor entity only when invoked</td>
+          <td>No default assignment; advisor activates on demand.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-<div class="sec-head" id="workers-overview"><span class="sec-label">Worker Roles Overview</span><div class="sec-head-line"></div></div>
-<div class="sec-head"><span class="sec-label">Worker Role Evolution (Before -> RTBoss)</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Identities Model  -  Overview</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1rem;">
+    <table class="rule-table" style="margin:.35rem 0 0;">
+      <thead>
+        <tr>
+          <th>Identity Entity</th>
+          <th>Purpose</th>
+          <th>Carries</th>
+          <th>Governance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Personas</td>
+          <td>Role-facing interaction model.</td>
+          <td>Views, context, escalation paths, communication style.</td>
+          <td>Policy and decision expression in role behavior.</td>
+        </tr>
+        <tr>
+          <td>Advisors</td>
+          <td>Specialist intelligence entity.</td>
+          <td>Playbooks, recommendations, exception guidance.</td>
+          <td>Must align to QMS and standards.</td>
+        </tr>
+        <tr>
+          <td>Skills</td>
+          <td>Execution and knowledge capability.</td>
+          <td>Taxonomy, dictionary, templates, task logic.</td>
+          <td>Guardrails inherited from QMS and standards.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Advisors  -  What They Are</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1rem;">
+    <table class="rule-table" style="margin:.35rem 0 0;">
+      <thead>
+        <tr>
+          <th>Advisor Entity</th>
+          <th>Is</th>
+          <th>Is Not</th>
+          <th>Governance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Domain specialist identity</td>
+          <td>Specialist guidance for facts and exceptions.</td>
+          <td>Not a replacement for human accountability.</td>
+          <td>Aligned to QMS, policy, and audit rules.</td>
+        </tr>
+        <tr>
+          <td>Cross-domain advisory entity</td>
+          <td>Specialist capability across multiple contexts.</td>
+          <td>Not owned by one department hierarchy.</td>
+          <td>Boundaries and authority anchored in QMS/standards.</td>
+        </tr>
+        <tr>
+          <td>Internal + external role mirror</td>
+          <td>Mirrors inside/outside specialist roles.</td>
+          <td>Not constrained to employee-only roles.</td>
+          <td>Definitions and boundaries anchored to QMS/standards.</td>
+        </tr>
+        <tr>
+          <td>Advisor identity instance</td>
+          <td>Attached to a workflow when specialist input is required.</td>
+          <td>Not always-on; not mandatory for every persona.</td>
+          <td>Invocation and accountability stay with operating roles.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout info" style="margin:.85rem 0 0;"><div class="callout-icon">i</div><div class="callout-body"><strong>Advisor mirror rule:</strong> Advisors represent both internal and external specialist roles so the operating model can apply the same guidance consistently across legal, accounting, tax, compliance, and related domains.</div></div>
+  </div>
+
+  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Overview boundary:</strong> Human Activity Map, customer experience shift, and productive time-shift analysis are in <strong>Tab 04 - Workforce Operating Model</strong>.</div></div>
+
+<div class="sec-head" id="workers-deepdive-link"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
+  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Deep dive moved:</strong> detailed operating model governance, routing, and execution patterns are in <strong>Tab 04 - Workforce Operating Model</strong>.</div></div>
+
+</div></div>
+
+
+
+<!-- -- TAB 04  -  WORKFORCE OPERATING MODEL DEEP DIVE -- -->
+<div class="panel" id="tab-wom"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Section 02 - OS Framework - Workforce Operating Model</div>
+    <div class="tab-flowbar"><div class="tab-flowbar-k">Deep Dive Scope</div><div class="tab-flowbar-v">Governance -> Role Integration -> Work Routing -> Execution Modes</div></div>
+    <h1 class="ph-title">Workforce Operating Model Deep Dive</h1>
+    <p class="ph-sub">Detailed operating rules for how human, hybrid, and digital execution are governed and routed in RTBoss.</p>
+  </div>
+
+<div class="sec-head" id="workers-deepdive"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
+  <div class="def-block blue">Deep dive scope := governance roles, execution modes, routing rules, Systems/Genies/Streams composition, and reference implementation patterns for operating the workforce model at scale.</div>
+
+  <div class="sec-head"><span class="sec-label">Human Role Evolution (Before -> RTBoss)</span><div class="sec-head-line"></div></div>
   <div class="role-merge-map">
     <div class="rm-inventory">
       <div class="rm-inventory-title">Before Inventory (Expanded Worker Types)</div>
@@ -786,202 +1106,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
     <div class="rm-note">These four roles are the shared language for the Workforce Operating Model. The same people can span roles, but the operating responsibilities are now explicit.</div>
   </div>
-
-  <div class="sec-head"><span class="sec-label">Worker Activity Map</span><div class="sec-head-line"></div></div>
-  <div class="worker-map">
-    <div class="wm-head">
-      <div>Worker Type</div>
-      <div class="wm-left">Mini-OS (Governance + Admin)</div>
-      <div class="wm-right">Value Engines (Work + Value)</div>
-    </div>
-    <div class="wm-row">
-      <div class="wm-role">Stakeholders (Owners/Investors)</div>
-      <div class="wm-lane">
-        <div class="wm-center"></div>
-        <div class="wm-fill left" style="width:42%;"></div>
-        <div class="wm-fill right" style="width:12%;"></div>
-        <div class="wm-bridge-dot" style="--from:8%;--to:62%;animation-delay:0s;"></div>
-      </div>
-    </div>
-    <div class="wm-row">
-      <div class="wm-role">Domain Owners</div>
-      <div class="wm-lane">
-        <div class="wm-center"></div>
-        <div class="wm-fill left" style="width:26%;"></div>
-        <div class="wm-fill right" style="width:24%;"></div>
-        <div class="wm-bridge-dot" style="--from:24%;--to:74%;animation-delay:1.2s;"></div>
-      </div>
-    </div>
-    <div class="wm-row">
-      <div class="wm-role">Domain Orchestrators</div>
-      <div class="wm-lane">
-        <div class="wm-center"></div>
-        <div class="wm-fill left" style="width:16%;"></div>
-        <div class="wm-fill right" style="width:38%;"></div>
-        <div class="wm-bridge-dot" style="--from:34%;--to:88%;animation-delay:2.4s;"></div>
-      </div>
-    </div>
-    <div class="wm-row">
-      <div class="wm-role">Domain Operators</div>
-      <div class="wm-lane">
-        <div class="wm-center"></div>
-        <div class="wm-fill left" style="width:12%;"></div>
-        <div class="wm-fill right" style="width:43%;"></div>
-        <div class="wm-bridge-dot" style="--from:38%;--to:93%;animation-delay:3.6s;"></div>
-      </div>
-    </div>
-  <div class="wm-note">This visual shows where each worker type spends most of the day. The animated motion connects the human layer to Flow of Work by showing work fluidity between value creation and operating control.</div>
-  </div>
-
-<div class="benefit-bridge">
-    <div class="benefit-title">RTBoss Workforce Benefits - Two Time Shifts</div>
-    <div class="benefit-grid">
-      <div class="benefit-card">
-        <div class="benefit-k">Benefit 01</div>
-        <div class="benefit-v"><strong>More customer experience time:</strong> humans spend less time on manual transaction handling and more time on customer understanding, trust, and resolution quality.</div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-k">Benefit 02</div>
-        <div class="benefit-v"><strong>More productive physical time:</strong> domain operators and field roles spend more time on real delivery work while admin, compliance logging, and rework are reduced.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Customer Experience Shift (Secret Sauce)</span><div class="sec-head-line"></div></div>
-  <div class="cx-shift">
-    <div class="cx-shift-head">As routine execution is automated, human value moves toward customer trust and outcomes.</div>
-    <div class="cx-shift-sub">RTBoss Benefit 01: agents handle transaction flow, so humans spend more time on interpretation, reassurance, and high-value customer moments.</div>
-    <div class="cx-graph">
-      <div class="cx-g-row">
-        <div class="cx-g-label">Domain Operators</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:28%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:47%;"></div></div></div>
-        </div>
-      </div>
-      <div class="cx-g-row">
-        <div class="cx-g-label">Domain Orchestrators</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:34%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:56%;"></div></div></div>
-        </div>
-      </div>
-      <div class="cx-g-row">
-        <div class="cx-g-label">Domain Owners</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:25%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:42%;"></div></div></div>
-        </div>
-      </div>
-      <div class="cx-g-row">
-        <div class="cx-g-label">Stakeholders (Owners/Investors)</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before CX Time</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:18%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After CX Time</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:29%;"></div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="cx-grid">
-      <div class="cx-card">
-        <div class="cx-role">Domain Operators</div>
-        <div class="cx-line"><strong>Before:</strong> heavy manual logging and process friction.</div>
-        <div class="cx-line"><strong>After:</strong> more face-to-face delivery, service quality, and issue prevention.</div>
-      </div>
-      <div class="cx-card">
-        <div class="cx-role">Domain Orchestrators</div>
-        <div class="cx-line"><strong>Before:</strong> status chasing, handoffs, and admin follow-up.</div>
-        <div class="cx-line"><strong>After:</strong> proactive customer coordination and faster exception resolution.</div>
-      </div>
-      <div class="cx-card">
-        <div class="cx-role">Domain Owners</div>
-        <div class="cx-line"><strong>Before:</strong> policy checks and reactive firefighting.</div>
-        <div class="cx-line"><strong>After:</strong> better service rules, escalation quality, and trust outcomes at scale.</div>
-      </div>
-      <div class="cx-card">
-        <div class="cx-role">Stakeholders (Owners/Investors)</div>
-        <div class="cx-line"><strong>Before:</strong> limited visibility into customer experience quality.</div>
-        <div class="cx-line"><strong>After:</strong> clearer trust signals, stronger loyalty, and healthier long-term value.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">How RTBoss Increases Productive Physical Time</span><div class="sec-head-line"></div></div>
-  <div class="time-shift-map">
-    <div class="cx-shift-sub">RTBoss Benefit 02: automated governance and execution increase productive work time for every role.</div>
-    <div class="cx-graph">
-      <div class="cx-g-row">
-        <div class="cx-g-label">Domain Operators</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:60%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:78%;"></div></div></div>
-        </div>
-      </div>
-      <div class="cx-g-row">
-        <div class="cx-g-label">Domain Orchestrators</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:55%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:74%;"></div></div></div>
-        </div>
-      </div>
-      <div class="cx-g-row">
-        <div class="cx-g-label">Domain Owners</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:50%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:69%;"></div></div></div>
-        </div>
-      </div>
-      <div class="cx-g-row">
-        <div class="cx-g-label">Stakeholders (Owners/Investors)</div>
-        <div class="cx-g-bars">
-          <div class="cx-g-box"><div class="cx-g-k">Before Productive Work</div><div class="cx-g-track"><div class="cx-g-fill before" style="width:45%;"></div></div></div>
-          <div class="cx-g-box"><div class="cx-g-k">After Productive Work</div><div class="cx-g-track"><div class="cx-g-fill after" style="width:63%;"></div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="cx-grid">
-      <div class="cx-card">
-        <div class="cx-role">Domain Operators</div>
-        <div class="cx-line"><strong>Before:</strong> stop-start execution with manual logging, compliance capture, and avoidable rework.</div>
-        <div class="cx-line"><strong>After:</strong> more continuous physical delivery time, fewer interruptions, and cleaner completion flow.</div>
-      </div>
-      <div class="cx-card">
-        <div class="cx-role">Domain Orchestrators</div>
-        <div class="cx-line"><strong>Before:</strong> high coordination overhead and fragmented handoffs across teams.</div>
-        <div class="cx-line"><strong>After:</strong> faster routing and fewer handoff gaps, increasing productive execution time across operations.</div>
-      </div>
-      <div class="cx-card">
-        <div class="cx-role">Domain Owners</div>
-        <div class="cx-line"><strong>Before:</strong> too much time spent on manual control checks and reactive exception handling.</div>
-        <div class="cx-line"><strong>After:</strong> more time improving standards and throughput while the system enforces routine controls.</div>
-      </div>
-      <div class="cx-card">
-        <div class="cx-role">Stakeholders (Owners/Investors)</div>
-        <div class="cx-line"><strong>Before:</strong> limited visibility into how much labor time is lost to admin and rework.</div>
-        <div class="cx-line"><strong>After:</strong> clearer productivity gain and stronger value output from the same workforce hours.</div>
-      </div>
-    </div>
-
-    <div class="ts-foot">RTBoss Benefit 02: it does not add hours, it shifts hours from admin burden and rework into productive physical value work. Mini-OS absorbs governance overhead, Value Engines automate repeatable facts, and RTBI reduces avoidable rework.</div>
-  </div>
-
-<div class="sec-head" id="workers-deepdive-link"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
-  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Deep dive moved:</strong> detailed operating model governance, routing, and execution patterns are in <strong>Tab 04 - Workforce Operating Model</strong>.</div></div>
-
-</div></div>
-
-
-
-<!-- -- TAB 04  -  WORKFORCE OPERATING MODEL DEEP DIVE -- -->
-<div class="panel" id="tab-wom"><div class="pw">
-  <div class="ph">
-    <div class="ph-kicker">Section 02 - OS Framework - Workforce Operating Model</div>
-    <div class="tab-flowbar"><div class="tab-flowbar-k">Deep Dive Scope</div><div class="tab-flowbar-v">Governance -> Role Integration -> Work Routing -> Execution Modes</div></div>
-    <h1 class="ph-title">Workforce Operating Model Deep Dive</h1>
-    <p class="ph-sub">Detailed operating rules for how human, hybrid, and digital execution are governed and routed in RTBoss.</p>
-  </div>
-
-<div class="sec-head" id="workers-deepdive"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
-  <div class="def-block blue">Deep dive scope := governance roles, execution modes, routing rules, Systems/Genies/Streams composition, and reference implementation patterns for operating the workforce model at scale.</div>
 
 <div class="boss-layer">
     <div class="boss-layer-k">Human Governance First</div>
@@ -2781,24 +2905,74 @@ function openMOS(idx) {
     try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){}
   }
 
-  function syncHumanVerticalMarkerHeight(){
-    var icons=document.querySelector('.hf-side-icons');
-    var steps=Array.from(document.querySelectorAll('.human-timeline .hf-step'));
-    if(!icons || steps.length < 7){ return; }
+  function syncFlowSideMarkers(root){
+    var scope=root||document;
+    var layouts=Array.from(scope.querySelectorAll('.hf-layout[data-sync-side-markers="true"]'));
+    layouts.forEach(function(layout){
+      var icons=layout.querySelector('.hf-side-icons');
+      var timeline=layout.querySelector('.human-timeline');
+      var steps=timeline?Array.from(timeline.querySelectorAll('.hf-step')):[];
+      var bodies=timeline?Array.from(timeline.querySelectorAll('.hf-step .hf-body')):[];
+      var human=icons?icons.querySelector('.human-vert'):null;
+      var bridge=icons?icons.querySelector('.bridge-vert'):null;
+      var tech=icons?icons.querySelector('.tech-vert'):null;
+      if(!icons || !timeline || !human || !bridge || !tech || steps.length < 7 || bodies.length < 7){ return; }
 
-    var r1=steps[0].getBoundingClientRect();
-    var r3=steps[2].getBoundingClientRect();
-    var r7=steps[6].getBoundingClientRect();
+      if(window.matchMedia('(max-width: 980px)').matches){
+        icons.style.removeProperty('display');
+        icons.style.removeProperty('position');
+        icons.style.removeProperty('min-height');
+        icons.style.removeProperty('grid-template-rows');
+        icons.style.removeProperty('gap');
+        [human, bridge, tech].forEach(function(el){
+          el.style.removeProperty('position');
+          el.style.removeProperty('left');
+          el.style.removeProperty('right');
+          el.style.removeProperty('top');
+          el.style.removeProperty('height');
+        });
+        return;
+      }
 
-    // Force Human + Bridge to identical pixel heights.
-    var topBand=Math.max(0, r3.top-r1.top);
-    var equal=Math.round(topBand/2);
-    var total=Math.max(0, r7.bottom-r1.top);
-    var h3=Math.max(0, total-(equal*2));
+      var r1=bodies[0].getBoundingClientRect();
+      var r2=bodies[1].getBoundingClientRect();
+      var r3=bodies[2].getBoundingClientRect();
+      var r7=bodies[6].getBoundingClientRect();
+      var rt=timeline.getBoundingClientRect();
 
-    icons.style.setProperty('gap','0px','important');
-    icons.style.setProperty('grid-template-rows', equal + 'px ' + equal + 'px ' + h3 + 'px', 'important');
+      var top1=Math.max(0, r1.top-rt.top);
+      var top2=Math.max(0, r2.top-rt.top);
+      var top3=Math.max(0, r3.top-rt.top);
+      var h1=Math.max(0, r1.height);
+      var h2=Math.max(0, r2.height);
+      var h3=Math.max(0, r7.bottom-r3.top);
+
+      icons.style.setProperty('display','block','important');
+      icons.style.setProperty('position','relative','important');
+      icons.style.setProperty('gap','0px','important');
+      icons.style.setProperty('min-height', Math.round(rt.height) + 'px', 'important');
+      icons.style.setProperty('grid-template-rows','none','important');
+
+      human.style.setProperty('position','absolute','important');
+      human.style.setProperty('left','0','important');
+      human.style.setProperty('right','0','important');
+      human.style.setProperty('top', Math.round(top1) + 'px','important');
+      human.style.setProperty('height', Math.round(h1) + 'px','important');
+
+      bridge.style.setProperty('position','absolute','important');
+      bridge.style.setProperty('left','0','important');
+      bridge.style.setProperty('right','0','important');
+      bridge.style.setProperty('top', Math.round(top2) + 'px','important');
+      bridge.style.setProperty('height', Math.round(h2) + 'px','important');
+
+      tech.style.setProperty('position','absolute','important');
+      tech.style.setProperty('left','0','important');
+      tech.style.setProperty('right','0','important');
+      tech.style.setProperty('top', Math.round(top3) + 'px','important');
+      tech.style.setProperty('height', Math.round(h3) + 'px','important');
+    });
   }
+  function syncHumanVerticalMarkerHeight(){ syncFlowSideMarkers(document); }
   function applyProgressToUI(){
     var external=readProgress()[SECTION_KEY];
     if(!external || !Array.isArray(external.groups)){ return; }
