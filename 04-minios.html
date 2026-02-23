@@ -97,6 +97,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .dw-item{background:var(--s2);border:1px solid var(--border);border-radius:7px;padding:.65rem .9rem;font-size:.78rem;color:var(--mid);position:relative;overflow:hidden;transition:all .18s;}
 .dw-item::after{content:'';position:absolute;bottom:0;left:10px;right:10px;height:2px;background:var(--item-bar,linear-gradient(to right,#40c4ff,#f48fb1));opacity:.5;border-radius:1px;}
 .dw-item:hover{background:var(--s3);color:var(--text);}
+.dw-status{display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;margin-bottom:.35rem;}
+.dw-pill{font-family:'Fira Code',monospace;font-size:.55rem;letter-spacing:.05em;text-transform:uppercase;padding:.08rem .34rem;border-radius:999px;border:1px solid var(--border);color:var(--dim);background:var(--s3);}
+.dw-pill.active.dw-placeholder{color:#ffca28;border-color:rgba(255,202,40,.35);background:rgba(255,202,40,.1);}
+.dw-pill.active.dw-live{color:#00e676;border-color:rgba(0,230,118,.35);background:rgba(0,230,118,.1);}
+.dw-link{font-family:'Fira Code',monospace;font-size:.55rem;letter-spacing:.04em;text-decoration:none;padding:.08rem .34rem;border-radius:4px;border:1px solid rgba(64,196,255,.25);color:#40c4ff;background:transparent;}
+.dw-link:hover{background:rgba(64,196,255,.08);}
+.dw-link.pending{color:var(--dim);border-color:var(--border);cursor:default;pointer-events:none;}
+.dw-item-name{display:block;font-weight:600;color:var(--text);}
+.dw-item-sub{display:block;margin-top:.16rem;font-size:.66rem;color:var(--dim);line-height:1.45;}
 
 /* -- DETAIL CARDS -- */
 .detail-grid-1{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:2rem;}
@@ -107,6 +116,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .detail-card-label{font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem;}
 .detail-card p{font-size:.76rem;color:var(--mid);line-height:1.75;margin-bottom:.6rem;}
 .step-list{font-size:.72rem;color:var(--mid);line-height:2.1;margin-bottom:.6rem;}
+.card-status{display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;margin:.1rem 0 .55rem;}
 
 /* -- TOOL TABLE -- */
 .tool-table{width:100%;border-collapse:collapse;font-size:.78rem;margin-bottom:2rem;}
@@ -3093,6 +3103,20 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 </div></div>
 
+<div class="pw">
+  <div class="callout info" style="margin:2rem 0 1rem;">
+    <div class="callout-icon">?</div>
+    <div class="callout-body">
+      <strong>Two-pass mode (Section 04 only):</strong> Content pass and Master pass are separate.
+      <span class="tag blue" style="margin-left:.35rem;">Content Review Checkbox</span>
+      <span class="tag amber">Temporary</span>
+      <span class="tag green" style="margin-left:.35rem;">Master Pass</span>
+      <span class="tag green">Operational</span>
+      <div style="margin-top:.35rem;">When content is fully locked and in production, remove the Content Review checkboxes. Track Master pass in build packs and registry records.</div>
+    </div>
+  </div>
+</div>
+
 <script>
 function showTab(id) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -3114,10 +3138,109 @@ function initGroupReviewSync_S03(){
   function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
   function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
   function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
-  document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
+  document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } if(/digital workers/i.test(title)){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
   applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
 }
-document.addEventListener('DOMContentLoaded', initGroupReviewSync_S03);
+function initMiniOsStatusTiles(){
+  function kindFromItem(item){
+    var col=item.closest('.dw-col');
+    if(!col){ return 'stream'; }
+    var header=(col.querySelector('.dw-col-header')?.textContent||'').toLowerCase();
+    if(header.indexOf('system')>=0){ return 'system'; }
+    if(header.indexOf('genie')>=0){ return 'genie'; }
+    return 'stream';
+  }
+  function brief(kind){
+    if(kind==='system'){ return 'Governing framework for this domain.'; }
+    if(kind==='genie'){ return 'Discrete task agent used by workflows.'; }
+    return 'Recurring end-to-end process flow.';
+  }
+  document.querySelectorAll('.dw-item').forEach(function(item){
+    if(item.querySelector('.dw-item-sub')){ return; }
+    var raw=(item.textContent||'').trim();
+    var kind=(item.dataset.kind||kindFromItem(item));
+
+    item.textContent='';
+
+    var name=document.createElement('span');
+    name.className='dw-item-name';
+    name.textContent=raw;
+    var sub=document.createElement('span');
+    sub.className='dw-item-sub';
+    sub.textContent=item.dataset.brief || brief(kind);
+    item.appendChild(name);
+    item.appendChild(sub);
+  });
+}
+function initMiniOsDetailCardStatus(){
+  function sectionKindFromCard(card){
+    var holder=card.parentElement;
+    while(holder){
+      var prev=holder.previousElementSibling;
+      while(prev){
+        if(prev.classList && prev.classList.contains('sec-head')){
+          var label=(prev.querySelector('.sec-label')?.textContent||'').toLowerCase();
+          if(label.indexOf('system definitions')>=0){ return 'system'; }
+          if(label.indexOf('genie detail')>=0){ return 'genie'; }
+          if(label.indexOf('stream detail')>=0){ return 'stream'; }
+          break;
+        }
+        prev=prev.previousElementSibling;
+      }
+      holder=holder.parentElement;
+    }
+    return 'system';
+  }
+  function defaultLink(kind){
+    if(kind==='genie'){ return '14-build-guides.html#tab-0'; }
+    if(kind==='system'){ return '14-build-guides.html#tab-1'; }
+    return '14-build-guides.html#tab-6';
+  }
+  document.querySelectorAll('.detail-card').forEach(function(card){
+    if(card.querySelector('.card-status')){ return; }
+    var kind=(card.dataset.kind||sectionKindFromCard(card));
+    var state=((card.dataset.state||'placeholder').toLowerCase()==='locked-live')?'locked-live':'placeholder';
+    var link=(card.dataset.link||defaultLink(kind)||'').trim();
+    var anchor=card.querySelector('.detail-card-label');
+    if(!anchor){ return; }
+
+    var bar=document.createElement('div');
+    bar.className='card-status';
+
+    var p=document.createElement('span');
+    p.className='dw-pill dw-placeholder'+(state==='placeholder'?' active':'');
+    p.textContent='Placeholder';
+    bar.appendChild(p);
+
+    var l=document.createElement('span');
+    l.className='dw-pill dw-live'+(state==='locked-live'?' active':'');
+    l.textContent='Locked Live';
+    bar.appendChild(l);
+
+    if(link){
+      var a=document.createElement('a');
+      a.className='dw-link';
+      a.href=link;
+      a.textContent='Build Guide';
+      bar.appendChild(a);
+    } else {
+      var pending=document.createElement('span');
+      pending.className='dw-link pending';
+      pending.textContent='Link Pending';
+      bar.appendChild(pending);
+    }
+    anchor.insertAdjacentElement('afterend', bar);
+  });
+}
+function simplifyMiniOsOverview(){
+  // Intentionally no-op: keep Digital Workers overview visible.
+}
+document.addEventListener('DOMContentLoaded', function(){
+  initGroupReviewSync_S03();
+  simplifyMiniOsOverview();
+  initMiniOsStatusTiles();
+  initMiniOsDetailCardStatus();
+});
 </script>
 </body>
 </html>

@@ -119,6 +119,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .flow-item{background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.85rem;font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--mid);}
 .flow-arrow{color:var(--dim);font-size:0.85rem;}
 .flow-item.highlight{border-color:var(--orange);color:var(--orange);background:rgba(255,145,0,0.07);}
+.bp-shell{display:grid;grid-template-columns:280px 1fr;gap:1rem;margin-top:1rem;}
+.bp-nav{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:.8rem;}
+.bp-nav-head{font-family:'Fira Code',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.55rem;}
+.bp-subtab{width:100%;text-align:left;padding:.55rem .65rem;background:transparent;color:var(--mid);border:1px solid transparent;border-radius:8px;cursor:pointer;font-size:.82rem;}
+.bp-subtab:hover{background:rgba(64,196,255,.06);border-color:rgba(64,196,255,.2);}
+.bp-subtab.active{color:var(--green);background:rgba(0,230,118,.06);border-color:rgba(0,230,118,.25);}
+.bp-pane{display:none;}
+.bp-pane.active{display:block;}
+.bp-status{display:flex;flex-wrap:wrap;gap:.35rem;margin:.75rem 0 1rem;}
+.bp-stage{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;padding:.16rem .5rem;border-radius:999px;border:1px solid var(--border);color:var(--dim);background:var(--s2);}
+.bp-stage.active{color:var(--green);border-color:rgba(0,230,118,.35);background:rgba(0,230,118,.1);}
+@media(max-width:900px){.bp-shell{grid-template-columns:1fr;}}
 .vault-frame-wrap{margin:1rem 0 2rem;background:var(--s1);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
 .vault-frame{width:100%;height:82vh;min-height:760px;border:0;background:#020408;display:block;}
 @media(max-width:800px){.vault-frame{height:74vh;min-height:620px;}}
@@ -139,6 +151,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="tab" onclick="showTab(3)">04 &middot; How to Activate a Value Engine</div>
   <div class="tab" onclick="showTab(4)">05 &middot; How to Test & Validate</div>
   <div class="tab" onclick="showTab(5)">06 &middot; Vault Drafts</div>
+  <div class="tab" onclick="showTab(6)">07 &middot; Build Packs</div>
 </div>
 
 <!-- ============================================================
@@ -1009,6 +1022,18 @@ with patients, or perform any task outside the single job above.</span></div>
       </div>
     </div>
 
+    <div class="step">
+      <div class="step-num">07</div>
+      <div class="step-body">
+        <div class="step-title">Build Packs Moved to Tab 07</div>
+        <div class="step-desc">For volume operations, all stream-specific build packs now live in <strong>07 · Build Packs</strong> with their own indexed sub-tabs and lifecycle stages.</div>
+        <div class="info-box blue">
+          <div class="info-box-title">Navigation</div>
+          <div style="color:var(--mid);font-size:0.88rem;">Open Tab 07 -> select a Build Pack from the left index -> follow the click-by-click guide. Deep-link example: <a href="#bp-str-005" style="color:var(--blue);text-decoration:none;">STR-005</a>.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div></div>
 
@@ -1452,6 +1477,95 @@ I understand I am approving this for live operation with real data.</span>
   </div>
 </div></div>
 
+<!-- ============================================================
+     TAB 07: BUILD PACKS
+     ============================================================ -->
+<div class="panel" id="tab-6"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Operational Playbook · Build Pack System</div>
+    <h1 class="ph-title">Build Packs</h1>
+    <p class="ph-sub">Master tab for high-volume stream implementation packs. Each Build Pack is isolated, versioned, and moved through a common lifecycle: Design -> Codex -> UAT -> Publish -> Locked.</p>
+  </div>
+
+  <div class="section-label">Build Pack Onboarding Plan</div>
+  <div class="info-box blue">
+    <div class="info-box-title">Standard Lifecycle (All Build Packs)</div>
+    <div class="bp-status">
+      <span class="bp-stage">Design</span>
+      <span class="bp-stage active">Codex</span>
+      <span class="bp-stage">UAT</span>
+      <span class="bp-stage">Publish</span>
+      <span class="bp-stage">Locked</span>
+    </div>
+    <div style="color:var(--mid);font-size:.88rem;line-height:1.8;">Gate rule: a pack cannot move to next stage until all prior stage checks pass and evidence is attached in the pack record.</div>
+  </div>
+
+  <div class="bp-shell">
+    <aside class="bp-nav">
+      <div class="bp-nav-head">Build Pack Index</div>
+      <button class="bp-subtab active" onclick="showBuildPack(0)">STR-005 · MIP Baseline Intake</button>
+      <button class="bp-subtab" onclick="showBuildPack(1)">Template · New Build Pack</button>
+    </aside>
+
+    <section>
+      <div class="bp-pane active" id="bp-str-005">
+        <div class="section-label" style="margin-top:0;">STR-005 · MIP Baseline Intake Stream (No AI)</div>
+        <div class="info-box green">
+          <div class="info-box-title">Current Status</div>
+          <div class="bp-status">
+            <span class="bp-stage">Design</span>
+            <span class="bp-stage active">Codex</span>
+            <span class="bp-stage">UAT</span>
+            <span class="bp-stage">Publish</span>
+            <span class="bp-stage">Locked</span>
+          </div>
+        </div>
+        <div class="info-box blue">
+          <div class="info-box-title">Outcome Statement</div>
+          <div style="color:var(--mid);font-size:0.88rem;">Starting from a new MIP onboarding request, this Stream captures and validates baseline infrastructure data, writes normalized Facts to Dataverse, and completes handoff readiness for MIP delivery.</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-title">Click-by-Click Build (Power Automate + Dataverse)</div>
+          <ol style="color:var(--mid);font-size:0.85rem;line-height:1.8;padding-left:1.15rem;">
+            <li>Open Power Automate -> Create -> Automated cloud flow -> name it <code>STR-005 MIP Baseline Intake Stream</code>.</li>
+            <li>Select trigger <code>Dataverse: When a row is added</code> on onboarding request table (or equivalent intake table).</li>
+            <li>Initialize variables: <code>stream_id</code>, <code>client_id</code>, <code>onboarding_id</code>, <code>error_flag</code> (default <code>false</code>).</li>
+            <li>Add <code>Dataverse: Add a new row</code> for Fact <code>client_onboarding_started</code> with status <code>PENDING</code>.</li>
+            <li>Add seven capture scopes (Microsoft, website, domain, network, Wi-Fi, ISP, cameras). In each scope: validate required fields -> write one Fact row -> set Fact status <code>ACTIVE</code> or <code>FLAG</code>.</li>
+            <li>Fact names to write: <code>microsoft_profile_captured</code>, <code>website_profile_captured</code>, <code>domain_profile_captured</code>, <code>network_profile_captured</code>, <code>wifi_profile_captured</code>, <code>isp_profile_captured</code>, <code>camera_profile_captured</code>.</li>
+            <li>For each scope, configure run-after on failure: set <code>error_flag=true</code>, write <code>AuditRecord</code> (ENT-007), notify owner channel in Teams.</li>
+            <li>Add branch: if <code>error_flag=false</code> -> write <code>client_onboarding_baseline_complete</code> and update onboarding status to <code>COMPLETE</code>; else update status to <code>FLAG</code> and terminate.</li>
+            <li>Add final action for successful runs: invoke <code>SKL-015 d365_write</code> to auto-create ENT-004 draft registration for <code>STR-005</code> (status <code>building</code>), with Teams notify to PRS-006 via <code>SKL-011</code>.</li>
+            <li>Export flow in managed solution and promote Dev -> Test -> Prod after gate pass.</li>
+          </ol>
+        </div>
+        <div class="gate">
+          <div class="gate-title">STR-005 Gate - All Must Pass</div>
+          <div class="gate-rule"><span>?</span> 7/7 domain Facts captured with required fields populated</div>
+          <div class="gate-rule"><span>?</span> <code>client_onboarding_baseline_complete</code> written on happy path</div>
+          <div class="gate-rule"><span>?</span> Failure path sets onboarding status to <code>FLAG</code> and writes ENT-007 AuditRecord</div>
+          <div class="gate-rule"><span>?</span> ENT-004 draft registration posted for STR-005 on first successful run</div>
+          <div class="gate-rule"><span>?</span> UAT passed with 3 real client onboarding cases</div>
+        </div>
+      </div>
+
+      <div class="bp-pane" id="bp-template">
+        <div class="section-label" style="margin-top:0;">Template · New Build Pack</div>
+        <div class="info-box amber">
+          <div class="info-box-title">Use This Skeleton for Pack STR-XXX</div>
+          <div class="code-block" style="font-size:.78rem;">
+<span class="key">Build Pack ID:</span> <span class="val">STR-XXX</span>
+<span class="key">Stream Name:</span>  <span class="val">[Name]</span>
+<span class="key">Mini-OS:</span>      <span class="val">[Owner]</span>
+<span class="key">Lifecycle:</span>    <span class="val">Design -> Codex -> UAT -> Publish -> Locked</span>
+<span class="key">Linkages:</span>     <span class="val">S05 stream tile + S13 STR registry row</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div></div>
+
 <script>
 function showTab(n){
   const tabs=document.querySelectorAll('.tab');
@@ -1460,6 +1574,29 @@ function showTab(n){
     if(i===n){t.classList.add('active');panels[i].classList.add('active');}
     else{t.classList.remove('active');panels[i].classList.remove('active');}
   });
+}
+function showBuildPack(n){
+  const tabs=document.querySelectorAll('.bp-subtab');
+  const panes=document.querySelectorAll('.bp-pane');
+  tabs.forEach((t,i)=>{ t.classList.toggle('active', i===n); });
+  panes.forEach((p,i)=>{ p.classList.toggle('active', i===n); });
+}
+function openHashTarget(){
+  var hash=(window.location.hash||'').replace(/^#/,'').trim();
+  if(!hash){ return; }
+  var target=document.getElementById(decodeURIComponent(hash));
+  if(!target){ return; }
+  if(target.classList.contains('bp-pane')){
+    var panes=Array.from(document.querySelectorAll('.bp-pane'));
+    var idx=panes.indexOf(target);
+    if(idx>=0){ showBuildPack(idx); }
+  }
+  var panel=target.closest('.panel');
+  if(panel){
+    var m=(panel.id||'').match(/^tab-(\d+)$/);
+    if(m){ showTab(parseInt(m[1],10)); }
+  }
+  setTimeout(function(){ target.scrollIntoView({behavior:'smooth',block:'start'}); }, 40);
 }
 function initGroupReviewSync_S11(){
   var SECTION_KEY='S11', stateKey='rtboss_content_review_11_build_guides_v1', progressKey='rtboss_content_review_progress_v1';
@@ -1472,7 +1609,11 @@ function initGroupReviewSync_S11(){
   targets.forEach((label, idx)=>{ var holder=label.closest('.sec-head')||label.parentElement; if(!label||holder.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=label.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); label.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); label.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
   applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
 }
-document.addEventListener('DOMContentLoaded', initGroupReviewSync_S11);
+document.addEventListener('DOMContentLoaded', function(){
+  initGroupReviewSync_S11();
+  openHashTarget();
+});
+window.addEventListener('hashchange', openHashTarget);
 </script>
 </body>
 </html>

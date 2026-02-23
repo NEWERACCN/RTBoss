@@ -105,6 +105,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .stream-item{background:var(--s2);border:1px solid var(--border);border-left:2px solid var(--ec,#f48fb1);border-radius:0 6px 6px 0;padding:.7rem .9rem;}
 .stream-name{font-size:.74rem;font-weight:600;margin-bottom:.25rem;}
 .stream-desc{font-size:.72rem;color:var(--mid);line-height:1.65;}
+.stream-link{font-family:'Fira Code',monospace;font-size:.62rem;color:#40c4ff;text-decoration:none;border:1px solid rgba(64,196,255,.25);padding:.08rem .45rem;border-radius:4px;}
+.stream-link:hover{background:rgba(64,196,255,.08);}
+.stream-status{display:flex;align-items:center;gap:.3rem;margin-bottom:.38rem;}
+.status-pill{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;padding:.1rem .38rem;border-radius:999px;border:1px solid var(--border);color:var(--dim);background:var(--s3);}
+.status-pill.active.status-placeholder{color:#ffca28;border-color:rgba(255,202,40,.35);background:rgba(255,202,40,.1);}
+.status-pill.active.status-live{color:#00e676;border-color:rgba(0,230,118,.35);background:rgba(0,230,118,.1);}
+.genie-status{display:flex;align-items:center;gap:.3rem;margin-bottom:.38rem;}
 
 /* -- GENIES -- */
 .genie-list{display:flex;flex-direction:column;gap:.5rem;}
@@ -161,6 +168,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div class="stream-item">
           <div class="stream-name" style="color:#00e676;">MIP Trial Onboarding Stream</div>
           <div class="stream-desc">New client enrolled at Trial tier ? RMM agent deployed ? first monitoring dashboard live within 48 hours ? value demonstrated before invoice 2</div>
+        </div>
+        <div class="stream-item" data-stream-state="locked-live" data-stream-link="14-build-guides.html#bp-str-005">
+          <div class="stream-name" style="color:#00e676;">MIP Baseline Intake Stream</div>
+          <div class="stream-desc">Client onboarding started ? Microsoft, website, domain, network, Wi-Fi, ISP, and camera baseline captured as Facts ? data validated and normalized in Dataverse ? onboarding baseline complete for delivery handoff (no AI path)</div>
         </div>
         <div class="stream-item">
           <div class="stream-name" style="color:#00e676;">MIP Tier Expansion Stream</div>
@@ -1017,7 +1028,61 @@ function initGroupReviewSync_S04(){
   document.querySelectorAll('.sec-head .sec-label, .engine-section-label').forEach((label, idx)=>{ if(!label||label.parentElement.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=label.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); label.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); label.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
   applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
 }
-document.addEventListener('DOMContentLoaded', initGroupReviewSync_S04);
+function initStreamStatusBars(){
+  document.querySelectorAll('.stream-item').forEach((item)=>{
+    if(item.querySelector('.stream-status')){ return; }
+    var state=((item.dataset.streamState||'placeholder').toLowerCase().trim()==='locked-live')?'locked-live':'placeholder';
+    var link=item.dataset.streamLink||'';
+    var bar=document.createElement('div');
+    bar.className='stream-status';
+    var placeholder=document.createElement('span');
+    placeholder.className='status-pill status-placeholder'+(state==='placeholder'?' active':'');
+    placeholder.textContent='Placeholder';
+    var live=document.createElement('span');
+    live.className='status-pill status-live'+(state==='locked-live'?' active':'');
+    live.textContent='Locked Live';
+    bar.appendChild(placeholder);
+    bar.appendChild(live);
+    if(link){
+      var a=document.createElement('a');
+      a.className='stream-link';
+      a.href=link;
+      a.textContent='Build Guide';
+      bar.appendChild(a);
+    }
+    item.insertBefore(bar,item.firstChild);
+  });
+}
+function initGenieStatusBars(){
+  document.querySelectorAll('.genie-item').forEach((item)=>{
+    if(item.querySelector('.genie-status')){ return; }
+    var state=((item.dataset.genieState||item.dataset.streamState||'placeholder').toLowerCase().trim()==='locked-live')?'locked-live':'placeholder';
+    var link=item.dataset.genieLink||item.dataset.streamLink||'';
+    var bar=document.createElement('div');
+    bar.className='genie-status';
+    var placeholder=document.createElement('span');
+    placeholder.className='status-pill status-placeholder'+(state==='placeholder'?' active':'');
+    placeholder.textContent='Placeholder';
+    var live=document.createElement('span');
+    live.className='status-pill status-live'+(state==='locked-live'?' active':'');
+    live.textContent='Locked Live';
+    bar.appendChild(placeholder);
+    bar.appendChild(live);
+    if(link){
+      var a=document.createElement('a');
+      a.className='stream-link';
+      a.href=link;
+      a.textContent='Build Guide';
+      bar.appendChild(a);
+    }
+    item.insertBefore(bar,item.firstChild);
+  });
+}
+document.addEventListener('DOMContentLoaded', function(){
+  initGroupReviewSync_S04();
+  initStreamStatusBars();
+  initGenieStatusBars();
+});
 </script>
 </body>
 </html>
