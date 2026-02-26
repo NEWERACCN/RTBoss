@@ -74,9 +74,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .rule-table td:first-child{color:var(--text);font-weight:500;}
 .rule-table tr:last-child td{border-bottom:none;}
 .rule-table tr:hover td{background:rgba(255,255,255,.012);}
-.panel#tab-workers .rule-table th{font-size:.64rem;font-weight:800;color:#d9ecff;background:rgba(10,24,40,.6);}
-.panel#tab-workers .rule-table td{font-size:.75rem;line-height:1.45;}
-.panel#tab-workers .rule-table tr:nth-child(even) td{background:rgba(7,20,31,.35);}
+.panel#tab-02-workers .rule-table th{font-size:.64rem;font-weight:800;color:#d9ecff;background:rgba(10,24,40,.6);}
+.panel#tab-02-workers .rule-table td{font-size:.75rem;line-height:1.45;}
+.panel#tab-02-workers .rule-table tr:nth-child(even) td{background:rgba(7,20,31,.35);}
 
 /* -- OVERVIEW GRID (slide 1 layout) -- */
 .rtbos-overview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:2.5rem;}
@@ -219,17 +219,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .outcome-tile{background:linear-gradient(90deg,rgba(10,28,52,.82),rgba(18,42,72,.7));border:1px solid var(--border);border-radius:10px;padding:.65rem .7rem;position:relative;text-align:center;}
 .outcome-tile::after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--otc,#40c4ff);opacity:.85;}
 .outcome-tile span{font-family:'Fira Code',monospace;font-size:.62rem;color:#dff8ea;letter-spacing:.05em;text-transform:uppercase;display:block;}
-.panel#tab-overview .ov-tile-sub{display:block;font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:var(--mid);margin-top:.25rem;}
+.panel#tab-01-overview .ov-tile-sub{display:block;font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:var(--mid);margin-top:.25rem;}
 .boss-layer{background:linear-gradient(90deg,rgba(179,136,255,.12),rgba(64,196,255,.08));border:1px solid var(--border);border-radius:12px;padding:.95rem 1rem;margin:0 0 1.1rem;text-align:center;}
 .boss-layer-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#b388ff;margin:0 0 .45rem;}
 .boss-layer-v{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#eaf4ff;letter-spacing:.01em;margin:0 0 .3rem;}
 .boss-layer-sub{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#b8d5ef;}
 .boss-layer-end{font-family:'Inter',sans-serif;font-size:1.12rem;font-weight:700;color:#e6f2ff;text-align:center;margin:0 0 1.25rem;letter-spacing:.02em;}
-.panel#tab-overview .ph-sub{font-size:1rem;line-height:1.78;color:#a6c4de;max-width:980px;}
-.panel#tab-overview .boss-layer{background:#0a1320;border:1px solid #2b4463;padding:1.2rem 1.1rem;box-shadow:0 10px 26px rgba(0,0,0,.24);}
-.panel#tab-overview .boss-layer-k{font-size:.66rem;color:#9cb2ff;}
-.panel#tab-overview .boss-layer-v{font-size:1.22rem;line-height:1.4;}
-.panel#tab-overview .boss-layer-sub{font-size:.75rem;letter-spacing:.09em;color:#c2d8ef;}
+.panel#tab-01-overview .ph-sub{font-size:1rem;line-height:1.78;color:#a6c4de;max-width:980px;}
+.panel#tab-01-overview .boss-layer{background:#0a1320;border:1px solid #2b4463;padding:1.2rem 1.1rem;box-shadow:0 10px 26px rgba(0,0,0,.24);}
+.panel#tab-01-overview .boss-layer-k{font-size:.66rem;color:#9cb2ff;}
+.panel#tab-01-overview .boss-layer-v{font-size:1.22rem;line-height:1.4;}
+.panel#tab-01-overview .boss-layer-sub{font-size:.75rem;letter-spacing:.09em;color:#c2d8ef;}
 .human-diagram{background:#061221;border:1px solid #203755;border-radius:12px;padding:1.1rem;margin:1rem 0 1.25rem;}
 .hf-layout{display:grid;grid-template-columns:1fr 72px;gap:.9rem;align-items:start;}
 .human-timeline{display:flex;flex-direction:column;gap:0;}
@@ -335,21 +335,21 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .cx-g-fill{height:100%;border-radius:4px;}
 .cx-g-fill.before{background:linear-gradient(to right,#6b8aa7,#3f6488);}
 .cx-g-fill.after{background:linear-gradient(to right,#1de9b6,#00e676);}
-.panel#tab-overview .os-flow{background:#071a18;border:1px solid #1d5c50;}
-.panel#tab-overview .os-flow-k{font-size:.66rem;}
-.panel#tab-overview .os-flow-v{font-size:.7rem;color:#eff7ff;line-height:1.95;}
-.panel#tab-overview .flow-tiles{grid-template-columns:repeat(4,minmax(170px,1fr));gap:.7rem;}
-.panel#tab-overview .flow-tile{padding:.72rem .75rem;}
-.panel#tab-overview .flow-tile span{font-size:.73rem;line-height:1.4;}
-.panel#tab-overview .outcome-tiles{gap:.7rem;}
-.panel#tab-overview .outcome-tile{padding:.8rem .8rem;}
-.panel#tab-overview .outcome-tile span{font-size:.72rem;}
-.panel#tab-overview .boss-layer-end{font-size:2rem;margin:.35rem 0 1.6rem;}
-@media(max-width:960px){.panel#tab-overview .flow-tiles{grid-template-columns:repeat(2,minmax(170px,1fr));}}
+.panel#tab-01-overview .os-flow{background:#071a18;border:1px solid #1d5c50;}
+.panel#tab-01-overview .os-flow-k{font-size:.66rem;}
+.panel#tab-01-overview .os-flow-v{font-size:.7rem;color:#eff7ff;line-height:1.95;}
+.panel#tab-01-overview .flow-tiles{grid-template-columns:repeat(4,minmax(170px,1fr));gap:.7rem;}
+.panel#tab-01-overview .flow-tile{padding:.72rem .75rem;}
+.panel#tab-01-overview .flow-tile span{font-size:.73rem;line-height:1.4;}
+.panel#tab-01-overview .outcome-tiles{gap:.7rem;}
+.panel#tab-01-overview .outcome-tile{padding:.8rem .8rem;}
+.panel#tab-01-overview .outcome-tile span{font-size:.72rem;}
+.panel#tab-01-overview .boss-layer-end{font-size:2rem;margin:.35rem 0 1.6rem;}
+@media(max-width:960px){.panel#tab-01-overview .flow-tiles{grid-template-columns:repeat(2,minmax(170px,1fr));}}
 @media(max-width:620px){
-  .panel#tab-overview .flow-tiles{grid-template-columns:1fr;}
-  .panel#tab-overview .boss-layer-v{font-size:.7rem;}
-  .panel#tab-overview .boss-layer-end{font-size:1.5rem;}
+  .panel#tab-01-overview .flow-tiles{grid-template-columns:1fr;}
+  .panel#tab-01-overview .boss-layer-v{font-size:.7rem;}
+  .panel#tab-01-overview .boss-layer-end{font-size:1.5rem;}
   .hf-title{font-family:'DM Sans',sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.42rem;line-height:1.35;}
   .hf-copy{font-size:.88rem;}
   .hf-step{grid-template-columns:2.45rem 1fr;gap:0 .7rem;}
@@ -444,7 +444,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @keyframes wmAreaFlow{0%,100%{left:var(--from,20%);opacity:.95;}50%{left:var(--to,80%);opacity:.95;}}
 @keyframes twinFlow{0%{left:14px;}100%{left:calc(100% - 14px);}}
 @keyframes twinStepPulse{0%,72%,100%{border-color:#5d87b3;box-shadow:none;}12%{border-color:rgba(29,233,182,.9);box-shadow:0 0 0 2px rgba(29,233,182,.24) inset,0 0 16px rgba(29,233,182,.24);}}
-.panel#tab-overview .sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.panel#tab-01-overview .sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-head.done .sec-label{color:var(--teal);}
 .sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}
 
@@ -457,21 +457,21 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 <div class="tabs">
-  <button class="ntab active" onclick="show('overview',this)">01 - OS Overview</button>
-  <button class="ntab" onclick="show('workers',this)">02 - Human Roles Overview</button>
-  <button class="ntab" onclick="show('arch',this)">03 - Technical Overview</button>
-  <button class="ntab" onclick="show('wom',this)">04 - Workforce Operating Model</button>
-  <button class="ntab" onclick="show('bts',this)">05 - Identities</button>
-  <button class="ntab" onclick="show('minios',this)">06 - Mini-OS</button>
-  <button class="ntab" onclick="show('ve',this)">07 - Value Engines</button>
-  <button class="ntab" onclick="show('rtbi',this)">08 - RTBI</button>
-  <button class="ntab" onclick="show('flow',this)">09 - Flow of Work</button>
-  <button class="ntab" onclick="show('cadence',this)">10 - Company Cadence</button>
+  <button class="ntab active" onclick="show('01-overview',this)">01 - OS Overview</button>
+  <button class="ntab" onclick="show('02-workers',this)">02 - Human Roles Overview</button>
+  <button class="ntab" onclick="show('03-arch',this)">03 - Technical Overview</button>
+  <button class="ntab" onclick="show('04-wom',this)">04 - Workforce Operating Model</button>
+  <button class="ntab" onclick="show('05-bts',this)">05 - Identities</button>
+  <button class="ntab" onclick="show('06-minios',this)">06 - Mini-OS</button>
+  <button class="ntab" onclick="show('07-ve',this)">07 - Value Engines</button>
+  <button class="ntab" onclick="show('08-rtbi',this)">08 - RTBI</button>
+  <button class="ntab" onclick="show('09-flow',this)">09 - Flow of Work</button>
+  <button class="ntab" onclick="show('10-cadence',this)">10 - Company Cadence</button>
 </div>
 
 
 <!-- -- TAB 01  -  OVERVIEW -- -->
-<div class="panel active" id="tab-overview"><div class="pw">
+<div class="panel active" id="tab-01-overview"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - OS Overview</div>
 
@@ -578,7 +578,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </div></div>
 
 <!-- -- TAB 02  -  OS FRAMEWORK ARCHITECTURE -- -->
-<div class="panel" id="tab-arch"><div class="pw">
+<div class="panel" id="tab-03-arch"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Technical</div>
     <h1 class="ph-title">Technical Architecture</h1>
@@ -754,12 +754,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </div></div>
 
 <!-- -- TAB 02  -  MINI-OS -- -->
-<div class="panel" id="tab-minios"><div class="pw">
+<div class="panel" id="tab-06-minios"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Mini-OS</div>
 
-    <h1 class="ph-title">Mini-OS  -  Domain Operating Systems</h1>
-    <p class="ph-sub">Each Mini-OS is RTBoss applied to a specific business domain. The same six-layer loop runs in every instance. Every Mini-OS contains its own Digital Workers  -  Systems (governing frameworks), Genies (specialist agents for discrete tasks), and Streams (end-to-end operational processes).</p>
+    <h1 class="ph-title">Mini Operating Systems  -  Governance and Strategic Control Layer</h1>
+    <p class="ph-sub">Mini-OS are domain operating systems that provide administrative, governance, and strategic Agentic Factory components. Each Mini-OS applies RTBoss to a specific domain and runs systems, genies, and streams inside clear control boundaries.</p>
   </div>
 
   <div class="core-flow chain-core">
@@ -776,6 +776,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 
+  <div class="sec-head"><span class="sec-label">Overview</span><div class="sec-head-line"></div></div>
   <div class="role-group-nav flow-mini">
     <div class="role-group-title">Human-First Operating Chain Scope</div>
     <div class="hf-scope">
@@ -788,7 +789,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="hf-scope-tag"><span>Control</span></div>
       </button>
     </div>
-    <div class="role-group-note">This tab focuses on Mini-OS control boundaries and governed domain execution.</div>
+    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
+    <div class="remember-grid overview-remember-grid">
+      <div class="remember-card"><div class="remember-k">Where It Sits</div><div class="remember-v">Mini-OS is Step 03 in the chain. It sits between Identities and Value Engines.</div></div>
+      <div class="remember-card"><div class="remember-k">Why It Matters</div><div class="remember-v">If Mini-OS rules are weak, execution breaks. If rules are clear, agents run safely.</div></div>
+      <div class="remember-card"><div class="remember-k">Why This Tab Exists</div><div class="remember-v">This tab defines admin, governance, and strategy rules before work moves into execution.</div></div>
+      <div class="remember-card"><div class="remember-k">Big Outcome</div><div class="remember-v">Every domain runs with the same control logic, so results are consistent and traceable.</div></div>
+    </div>
   </div>
 
   <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
@@ -801,7 +808,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">RTBoss Architecture  -  Three Pillars</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Model Definition</span><div class="sec-head-line"></div></div>
+  <div class="remember-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">System</div><div class="remember-v">Defines policy, risk boundaries, and domain control logic.</div></div>
+      <div class="remember-card"><div class="remember-k">Genie</div><div class="remember-v">Specialist digital worker for discrete, repeatable tasks.</div></div>
+      <div class="remember-card"><div class="remember-k">Stream</div><div class="remember-v">End-to-end workflow that routes and closes facts.</div></div>
+      <div class="remember-card"><div class="remember-k">Domain OS</div><div class="remember-v">A governed operating system for one business domain.</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Infrastructure Layers</span><div class="sec-head-line"></div></div>
 
   <div class="rtbos-overview">
     <div class="ov-col">
@@ -826,44 +843,82 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="ov-tile" onclick="openMOS(12)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Innovation OS<span class="tile-arrow">?</span></div>
       </div>
     </div>
-    <div class="ov-col">
-      <div class="ov-col-header">
-        <div class="ov-col-dot" style="background:var(--amber);"></div>
-        <div class="ov-col-title" style="color:var(--amber);">Value Engines</div>
-        <div class="ov-col-count">4 engines</div>
-      </div>
-      <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Growth Engine<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Fulfillment Engine<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Innovation Engine<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Logistics Engine<span class="tile-arrow">?</span></div>
-      </div>
-    </div>
-    <div class="ov-col">
-      <div class="ov-col-header">
-        <div class="ov-col-dot" style="background:var(--violet);"></div>
-        <div class="ov-col-title" style="color:var(--violet);">RTBI</div>
-        <div class="ov-col-count">5 components</div>
-      </div>
-      <div class="ov-tiles">
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Unified Data<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Digital Twin<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Planning<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Analytics<span class="tile-arrow">?</span></div>
-        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Decisions<span class="tile-arrow">?</span></div>
-      </div>
+  </div>
+
+  <div class="remember-strip" style="margin-top:.8rem; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-v"><strong>Mini-OS</strong> is the control layer where domain rules are defined and enforced.</div></div>
+      <div class="remember-card"><div class="remember-v"><strong>Each domain</strong> runs its own governed systems, genies, and streams.</div></div>
+      <div class="remember-card"><div class="remember-v"><strong>Control first</strong> keeps all downstream execution in-policy.</div></div>
     </div>
   </div>
 
-  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Click any Mini-OS tile above</strong> to jump to its detail below, or browse all 14 in the registry. Each Mini-OS runs the identical RTBoss six-layer loop with domain-specific Systems, Genies, and Streams.</div></div>
+  <div class="sec-head"><span class="sec-label">Design Rationale</span><div class="sec-head-line"></div></div>
+  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
+    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
+      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
+    </div>
+  </div>
+  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Prompt -> Domain Outcome</div><div class="remember-v">Each Mini-OS starts from a clear domain outcome and target.</div></div>
+      <div class="remember-card"><div class="remember-k">Context -> Domain Facts</div><div class="remember-v">Execution uses live domain facts and operating state.</div></div>
+      <div class="remember-card"><div class="remember-k">Intent -> Guardrails</div><div class="remember-v">Policy boundaries keep systems, genies, and streams in-bounds.</div></div>
+      <div class="remember-card"><div class="remember-k">RTBoss Alignment</div><div class="remember-v">All Mini-OS instances follow the same control logic.</div></div>
+    </div>
+  </div>
 
+  <div class="sec-head"><span class="sec-label">Future-State Model</span><div class="sec-head-line"></div></div>
+  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
+    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
+      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
+    </div>
+  </div>
+  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Mini-OS Everywhere</div><div class="remember-v">Every domain runs as a governed Mini-OS.</div></div>
+      <div class="remember-card"><div class="remember-k">Faster Domain Setup</div><div class="remember-v">New domains launch faster with reusable control patterns.</div></div>
+      <div class="remember-card"><div class="remember-k">Same Rules Everywhere</div><div class="remember-v">Policy and risk boundaries stay consistent across domains.</div></div>
+      <div class="remember-card"><div class="remember-k">Intent-Correct Factory</div><div class="remember-v">Agentic tools stay aligned with operating intent by default.</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Execution in Chain</span><div class="sec-head-line"></div></div>
+  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
+    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
+      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
+    </div>
+  </div>
+  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Define Domain Rules</div><div class="remember-v">Set policy and risk boundaries first.</div></div>
+      <div class="remember-card"><div class="remember-k">Create Agentic Tools</div><div class="remember-v">Build systems, genies, and streams to complete domain work.</div></div>
+      <div class="remember-card"><div class="remember-k">Run With Live Context</div><div class="remember-v">Execution always uses current facts and role context.</div></div>
+      <div class="remember-card"><div class="remember-k">Log Governed Outcome</div><div class="remember-v">Each result is captured as a governed fact in the loop.</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Tiny Habits</span><div class="sec-head-line"></div></div>
+  <div class="remember-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Think Intent</div></div>
+      <div class="remember-card"><div class="remember-k">Lead with Facts</div></div>
+      <div class="remember-card"><div class="remember-k">Build Skills</div></div>
+      <div class="remember-card"><div class="remember-k">Keep Identities Up to Date</div></div>
+      <div class="remember-card"><div class="remember-k">Apply Lessons Learned</div></div>
+      <div class="remember-card"><div class="remember-k">Capture Everything</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Control Dictionary</span><div class="sec-head-line"></div></div>
+  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Click any Mini-OS tile below</strong> to open domain detail. This registry is the Mini-OS control dictionary.</div></div>
   <div class="sec-head"><span class="sec-label">Mini-OS Registry  -  All 14 Domains</span><div class="sec-head-line"></div></div>
   <div class="accordion" id="mosAccordion"></div>
 </div></div>
 
 
 <!-- -- TAB 02  -  WORKFORCE OPERATING MODEL -- -->
-<div class="panel" id="tab-workers"><div class="pw">
+<div class="panel" id="tab-02-workers"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Human Roles</div>
 
@@ -1124,7 +1179,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 
 <!-- -- TAB 04  -  WORKFORCE OPERATING MODEL -- -->
-<div class="panel" id="tab-wom"><div class="pw">
+<div class="panel" id="tab-04-wom"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Workforce Operating Model</div>
     <h1 class="ph-title">Workforce Operating Model</h1>
@@ -1318,7 +1373,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 </div></div>
 <!-- -- TAB 04  -  DIGITAL WORKERS -- -->
-<div class="panel" id="tab-ve"><div class="pw">
+<div class="panel" id="tab-07-ve"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Value Engines</div>
 
@@ -1492,7 +1547,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 
 <!-- -- TAB 05  -  VALUE ENGINES -- -->
-<div class="panel" id="tab-rtbi"><div class="pw">
+<div class="panel" id="tab-08-rtbi"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - RTBI</div>
 
@@ -1631,11 +1686,122 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
   <div class="callout violet"><div class="callout-icon">?</div><div class="callout-body"><strong>RTBI is not a product add-on.</strong> It is the natural emergent capability of running operations correctly on RTBoss. Because every event is a Fact and the Digital Twin holds the complete record, intelligence is simply what happens when operations are done right. You don't buy RTBI  -  you build it by operating correctly.</div></div>
 
+  <div class="sec-head" style="margin-top:2rem;"><span class="sec-label">Health Dashboard  -  The Real-Time Operations Engine</span><div class="sec-head-line"></div></div>
+
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+    <p style="font-size:.85rem;color:var(--mid);line-height:1.8;margin-bottom:1.5rem;">In a live‑operations environment, RTBI is not a reporting tool you check at scheduled intervals  -  it is a <strong>continuous, event-driven system</strong> that watches what's happening RIGHT NOW and automatically triggers the operating cadence whenever attention is required. The Health Dashboard is this system's eyes and ears.</p>
+
+    <h4 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;">What the Health Dashboard Does</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">? Live System State</div>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Real-time view of all active Facts: RED incidents (blocked), YELLOW facts (degraded), GREEN work (routine). Updated constantly. Shows age, assignment, and escalation countdown.</p>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">⚡ Incident & Change Events</div>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Captures any anomaly: alert from Zero Touch AI, Azure Monitor, UniFi. Any deployment, configuration change, or maintenance window. Feeds both as Facts AND as cadence triggers.</p>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">? Threshold Violation Detection</div>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Monitors real-time metrics: error rates, response times, queue depths, client response times, team velocity. When a threshold is crossed, auto-escalates the associated fact or spawns a new one.</p>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">Pattern & Trend Signals</div>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Watches for secondary patterns: 3 similar incidents in 1 hour, unusual traffic spike, multiple failed transactions from one client, shift handoff gaps. Feeds directly into the Daily Digest and cadence triggers.</p>
+      </div>
+    </div>
+
+    <h4 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;padding-top:1rem;border-top:1px solid var(--border);">Real-Time Cadence Triggers  (Not Calendar-Based)</h4>
+    <p style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:1rem;">Instead of "check the dashboard at 8:30am", the dashboard itself drives cadence. Here's how events automatically trigger responses:</p>
+
+    <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;">
+      <h4 style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--green);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;">Incident Event (RED Fact Created)</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">What Happens</div>
+          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
+            <li>Alert fired (Zero Touch, Azure, etc.)</li>
+            <li>Auto-classified as RED (blocked)</li>
+            <li>Assigned to on-call rotation</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">Cadence Response</div>
+          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
+            <li>Teams ping to on-call</li>
+            <li>T+0: Response initiated</li>
+            <li>T+5: Diagnostic summary added to fact</li>
+            <li>T+15: "Status?" check-in if not resolved</li>
+            <li>T+30: Escalation if not progressing</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:.75rem;font-size:.73rem;color:var(--dim);font-style:italic;">The "cadence" is not a meeting  -  it's a series of system-driven time-bounded checkpoints.</p>
+    </div>
+
+    <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;">
+      <h4 style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;">Change Event (Deploy / Config Change)</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">What Happens</div>
+          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
+            <li>Deployment webhook received</li>
+            <li>Config change tracked</li>
+            <li>Post-deploy monitoring armed</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">Cadence Response</div>
+          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
+            <li>T+0: Change logged to dashboard timeline</li>
+            <li>T+2min: "Smoke check" – any RED facts spawned by this change?</li>
+            <li>T+5min: Metrics delta check – error rate, latency, throughput</li>
+            <li>T+30min: "Still healthy?" dashboard marker</li>
+            <li>If any YELLOW: flag in next Daily Digest</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:.75rem;font-size:.73rem;color:var(--dim);font-style:italic;">Post-deploy cadence is event-driven, not scheduled. It tightens at +0 to +5min, then relaxes if all green.</p>
+    </div>
+
+    <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;">
+      <h4 style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;">Threshold Crossing (Metric Violates SLO)</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">What Happens</div>
+          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
+            <li>Error rate hits 2% (threshold)</li>
+            <li>Response time > 500ms</li>
+            <li>Queue depth > capacity</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">Cadence Response</div>
+          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
+            <li>Dashboard fact created (YELLOW or RED)</li>
+            <li>Trend dashboard shows 5-min window</li>
+            <li>Assigned to domain owner for investigation</li>
+            <li>If sustained > 5min: escalates to incident</li>
+            <li>Auto-logs pattern for Weekly analysis</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:.75rem;font-size:.73rem;color:var(--dim);font-style:italic;">Metrics-to-cadence: threshold breach = automatic entry into the flow-of-work, not a separate alerting system.</p>
+    </div>
+
+    <div class="callout success" style="margin-top:1.5rem;"><div class="callout-icon">?</div><div class="callout-body"><strong>The key insight:</strong> Unlike traditional cadence which is scheduled (daily standup at 9am, weekly review Friday afternoon), Real-Time cadence is <strong>event-driven and time-bounded</strong>. Incidents auto-trigger checkpoints at T+5, T+15, T+30. Changes spawn post-deploy watches at T+2, T+5, T+30. Metrics that breach thresholds spawn investigation facts. The system enforces these touches automatically based on what's actually happening.</div></div>
+
+    <div style="background:var(--s3);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1.5rem;border-left:3px solid var(--blue);">
+      <div style="font-weight:700;font-size:.8rem;color:#e8f4ff;margin-bottom:.5rem;">? Implementation: Analytics + Visual Management</div>
+      <p style="font-size:.76rem;color:var(--mid);line-height:1.7;">The Health Dashboard is powered by the <strong>Analytics</strong> component described above  -  running directly on the Unified Data layer. The <strong>actual live dashboard</strong> with embedded widgets, real-time updates, and drill-down capability lives in the <strong>Visual Management</strong> section. This section explains the *why* and *how*; Visual Management shows the *what-it-looks-like*.</p>
+    </div>
+  </div>
+
 </div></div>
 
 
 <!-- -- TAB 06  -  RTBI -- -->
-<div class="panel" id="tab-bts"><div class="pw">
+<div class="panel" id="tab-05-bts"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Operating Identity</div>
 
@@ -1895,7 +2061,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </div></div>
 
 <!-- -- TAB 07  -  FLOW OF WORK -- -->
-<div class="panel" id="tab-flow"><div class="pw">
+<div class="panel" id="tab-09-flow"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Flow of Work</div>
 
@@ -2791,7 +2957,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 
 <!-- -- TAB 08  -  COMPANY CADENCE -- -->
-<div class="panel" id="tab-cadence"><div class="pw">
+<div class="panel" id="tab-10-cadence"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Company Cadence</div>
 
@@ -3226,9 +3392,17 @@ if (dwAccordionEl) {
 }
 
 function show(id, btn) {
+  const alias = {
+    overview:'01-overview', workers:'02-workers', arch:'03-arch', wom:'04-wom', bts:'05-bts',
+    minios:'06-minios', ve:'07-ve', rtbi:'08-rtbi', flow:'09-flow', cadence:'10-cadence'
+  };
+  const resolved = alias[id] || id;
+  const targetId = 'tab-' + resolved;
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.ntab').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
+  const panel = document.getElementById(targetId);
+  if (!panel) return;
+  panel.classList.add('active');
   if(btn) btn.classList.add('active');
 }
 
