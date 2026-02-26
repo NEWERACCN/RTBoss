@@ -119,6 +119,36 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .genie-name{font-size:.74rem;font-weight:600;color:var(--green2);margin-bottom:.25rem;}
 .genie-desc{font-size:.72rem;color:var(--mid);line-height:1.65;}
 
+/* RTBOSS TEMPLATE HEADER */
+.pw{padding-top:1.25rem !important;}
+.ph-kicker{color:var(--green) !important;}
+.rtboss-title-template{margin:0 0 1.35rem;}
+.tpl-tech-core-flow{background:linear-gradient(90deg,rgba(10,31,56,.85),rgba(9,42,60,.78));border:1px solid rgba(64,196,255,.35);border-radius:12px;padding:1rem 1.05rem;margin:0 0 .85rem;}
+.tpl-tech-core-flow-k{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#9edbff;text-align:center;margin:0 0 .72rem;text-shadow:0 0 12px rgba(64,196,255,.22);}
+.tpl-tech-core-flow-v{font-family:'Fira Code',monospace;font-size:1.02rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#dff0ff;}
+.tpl-tech-core-flow-v .t1{color:#40c4ff;font-weight:700;}
+.tpl-tech-core-flow-v .t2{color:#b388ff;font-weight:700;}
+.tpl-tech-core-flow-v .t3{color:#1de9b6;font-weight:700;}
+.tpl-tech-core-flow-v .t4{color:#f48fb1;font-weight:700;}
+.tpl-tech-core-flow-v .t5{color:#ff9100;font-weight:700;}
+.tpl-tech-core-flow-v .t6{color:#38efc3;font-weight:700;}
+.tpl-tech-core-flow-v .t7{color:#ffca28;font-weight:700;}
+.tpl-core-flow{background:#031719;border:1px solid rgba(0,230,118,.45);border-radius:14px;padding:1.2rem 1.1rem;margin:0 0 1rem;box-shadow:inset 0 0 0 1px rgba(0,230,118,.08);}
+.tpl-core-flow-k{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#7fffcf;text-align:center;margin:0 0 .72rem;text-shadow:0 0 12px rgba(0,230,118,.25);}
+.tpl-core-flow-v{font-family:'Fira Code',monospace;font-size:1.02rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#e8fff3;}
+.tpl-core-flow-v .c1{color:#40c4ff;font-weight:700;}
+.tpl-core-flow-v .c2{color:#b388ff;font-weight:700;}
+.tpl-core-flow-v .c3{color:#1de9b6;font-weight:700;}
+.tpl-core-flow-v .c4{color:#f48fb1;font-weight:700;}
+.tpl-core-flow-v .c5{color:#ff9100;font-weight:700;}
+.tpl-core-flow-v .c6{color:#38efc3;font-weight:700;}
+.tpl-core-flow-v .c7{color:#ffca28;font-weight:700;}
+.top-group-wrap{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:12px;margin:0 0 1.4rem;}
+.top-group-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.top-group-tile{background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--tg,#40c4ff);border-radius:0 10px 10px 0;padding:.9rem 1rem;}
+.top-group-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.45rem;}
+.top-group-v{font-size:.79rem;color:var(--mid);line-height:1.75;}
+@media(max-width:860px){.top-group-grid{grid-template-columns:1fr;}.tpl-core-flow-v,.tpl-tech-core-flow-v{font-size:.88rem;line-height:1.85;}}
 </style>
 </head>
 <body>
@@ -1079,13 +1109,79 @@ function initGenieStatusBars(){
   });
 }
 document.addEventListener('DOMContentLoaded', function(){
+  initRtbossTemplateHeader_05();
   initGroupReviewSync_S04();
   initStreamStatusBars();
   initGenieStatusBars();
 });
+
+function initRtbossTemplateHeader_05(){
+  var sectionNum='05';
+  var sectionLabel='Value Engines';
+  var roleText='Value Engines turn Mini-OS capability into commercial outcomes across growth, fulfillment, innovation, and logistics.';
+
+  function firstSentence(text){
+    if(!text){ return ''; }
+    var clean=(text||'').replace(/\s+/g,' ').trim();
+    if(!clean){ return ''; }
+    var i=clean.indexOf('. ');
+    if(i===-1){ return clean; }
+    return clean.slice(0,i+1);
+  }
+
+  document.querySelectorAll('.panel .pw').forEach(function(pw){
+    var ph=pw.querySelector('.ph');
+    if(!ph){ return; }
+
+    var titleEl=ph.querySelector('.ph-title');
+    var subEl=ph.querySelector('.ph-sub');
+    var kickerEl=ph.querySelector('.ph-kicker');
+
+    var title=(titleEl && titleEl.textContent ? titleEl.textContent : '').replace(/\s+/g,' ').trim();
+    var sub=(subEl && subEl.textContent ? subEl.textContent : '').replace(/\s+/g,' ').trim();
+
+    if(kickerEl){
+      kickerEl.textContent='Section '+sectionNum+' - '+sectionLabel+' - '+(title||'Overview');
+    }
+
+    if(pw.querySelector('.rtboss-title-template')){ return; }
+
+    var overview=firstSentence(sub);
+    if(!overview){
+      overview='Purpose of this tab: define how '+(title||'this capability')+' supports the RTBoss Core Operating Chain and Human-First Operating Chain.';
+    }
+
+    var wrap=document.createElement('div');
+    wrap.className='rtboss-title-template';
+    wrap.innerHTML=''
+      + '<div class="tpl-tech-core-flow">'
+      + '  <div class="tpl-tech-core-flow-k">RTBoss Operating Chain - Core</div>'
+      + '  <div class="tpl-tech-core-flow-v"><span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span></div>'
+      + '</div>'
+      + '<div class="tpl-core-flow">'
+      + '  <div class="tpl-core-flow-k">RTBoss Operating Chain - Human-First</div>'
+      + '  <div class="tpl-core-flow-v"><span class="c1">Workforce</span> -> <span class="c2">Identities</span> -> <span class="c3">Mini-OS</span> -> <span class="c4">Value Engines</span> -> <span class="c5">RTBI</span> -> <span class="c6">Flow of Work</span> -> <span class="c7">Cadence</span></div>'
+      + '</div>'
+      + '<div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>'
+      + '<div class="top-group-wrap">'
+      + '  <div class="top-group-grid">'
+      + '    <div class="top-group-tile" style="--tg:#40c4ff;"><div class="top-group-k">Role in RTBoss</div><div class="top-group-v">'+roleText+'</div></div>'
+      + '    <div class="top-group-tile" style="--tg:#1de9b6;"><div class="top-group-k">Overview</div><div class="top-group-v">'+overview+'</div></div>'
+      + '  </div>'
+      + '</div>';
+
+    ph.insertAdjacentElement('afterend', wrap);
+  });
+}
 </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -33,29 +33,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
 .panel{display:none;}
 .panel.active{display:block;}
-.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
+.pw{max-width:1400px;margin:0 auto;padding-top:1.25rem;padding-left:2rem;padding-right:2rem;}
 
 /* -- PAGE HEADER -- */
 .ph{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
-.ph-kicker{font-family:'Fira Code',monospace;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem;}
 .ph-title{font-size:1.65rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem;color:#e8f4ff;}
 .ph-sub{font-size:.83rem;color:var(--mid);line-height:1.75;max-width:760px;}
-
-/* -- ROLE BLOCK -- */
-.role-block{background:var(--s1);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:.9rem 1.1rem;margin-bottom:1rem;}
-.role-label{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.35rem;}
-.role-text{font-size:.8rem;color:var(--mid);line-height:1.75;}
-
-/* -- PREREQS -- */
-.prereq-block{background:rgba(255,202,40,.04);border:1px solid rgba(255,202,40,.15);border-radius:8px;padding:.85rem 1.1rem;margin-bottom:1rem;}
-.prereq-label{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;}
-.prereq-item{font-size:.76rem;color:var(--mid);line-height:1.9;}
-
-/* -- FEEDS -- */
-.feeds-block{margin-bottom:2rem;}
-.feeds-label{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem;}
-.feeds-tags{display:flex;flex-wrap:wrap;gap:.35rem;}
-.feed-tag{background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:.2rem .65rem;font-family:'Fira Code',monospace;font-size:.62rem;color:var(--mid);}
 
 /* -- PHASE CARDS -- */
 .phases-list{display:flex;flex-direction:column;gap:1rem;}
@@ -119,6 +103,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-head.done .sec-label{color:var(--teal);}
 .sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}
+.top-group-wrap{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:12px;margin:0 0 1.4rem;}
+.top-group-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.top-group-tile{background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--tg,#40c4ff);border-radius:0 10px 10px 0;padding:.9rem 1rem;}
+.top-group-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.45rem;}
+.top-group-v{font-size:.79rem;color:var(--mid);line-height:1.75;}
 .callout{display:flex;gap:.75rem;padding:.85rem 1.1rem;border-radius:8px;font-size:.8rem;line-height:1.7;margin:1rem 0;}
 .callout-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem;}
 .callout-body{color:var(--mid);} .callout-body strong{color:var(--text);font-weight:500;}
@@ -127,6 +116,29 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .callout.warn{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.18);}
 .callout.violet{background:rgba(179,136,255,.05);border:1px solid rgba(179,136,255,.18);}
 .callout.amber{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.2);}
+
+.core-flow{background:#031719;border:1px solid rgba(0,230,118,.45);border-radius:14px;padding:1.2rem 1.1rem;margin:0 0 1rem;box-shadow:inset 0 0 0 1px rgba(0,230,118,.08);}
+.core-flow-k{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#7fffcf;text-align:center;margin:0 0 .72rem;text-shadow:0 0 12px rgba(0,230,118,.25);}
+.core-flow-v{font-family:'Fira Code',monospace;font-size:1.02rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#e8fff3;}
+.core-flow-v .c-facts{color:#40c4ff;font-weight:700;}
+.core-flow-v .c-dim{color:#b388ff;font-weight:700;}
+.core-flow-v .c-assets{color:#1de9b6;font-weight:700;}
+.core-flow-v .c-factory{color:#ff8fb1;font-weight:700;}
+.core-flow-v .c-workforce{color:#ff9100;font-weight:700;}
+.core-flow-v .c-twin{color:#38efc3;font-weight:700;}
+.core-flow-v .c-result{color:#ffca28;font-weight:700;}
+.tech-core-flow{background:linear-gradient(90deg,rgba(10,31,56,.85),rgba(9,42,60,.78));border:1px solid rgba(64,196,255,.35);border-radius:12px;padding:1rem 1.05rem;margin:0 0 1.25rem;}
+.tech-core-flow-k{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#9edbff;text-align:center;margin:0 0 .72rem;text-shadow:0 0 12px rgba(64,196,255,.22);}
+.tech-core-flow-v{font-family:'Fira Code',monospace;font-size:1.02rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#dff0ff;}
+.tech-core-flow-v .t1{color:#40c4ff;font-weight:700;}
+.tech-core-flow-v .t2{color:#b388ff;font-weight:700;}
+.tech-core-flow-v .t3{color:#1de9b6;font-weight:700;}
+.tech-core-flow-v .t4{color:#f48fb1;font-weight:700;}
+.tech-core-flow-v .t5{color:#ff9100;font-weight:700;}
+.tech-core-flow-v .t6{color:#38efc3;font-weight:700;}
+.tech-core-flow-v .t7{color:#ffca28;font-weight:700;}
+@media(max-width:900px){.core-flow-v{font-size:.88rem;line-height:1.85;}.tech-core-flow-v{font-size:.88rem;line-height:1.85;}}
+@media(max-width:860px){.top-group-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -152,38 +164,34 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <!-- -- TAB 01 &middot; TECH STACK -- -->
 <div class="panel active" id="tab-00"><div class="pw">
   <div class="ph">
-    <div class="ph-kicker">RTBoss  Foundation  Technology Stack</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Overview</div>
     <h1 class="ph-title">Tech Stack  Microsoft Ecosystem</h1>
     <p class="ph-sub">High-level view: the OS runs on one unified stack, and every action emits facts into one stream. This page shows the architecture at a glance; each tab below covers the implementation detail.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="stack-overview-grid">
-    <div class="stack-overview-card" style="--sc:#b388ff;">
-      <div class="stack-overview-title">Identity + Access</div>
-      <div class="stack-overview-desc">Entra ID, role controls, and security boundaries define who can trigger, approve, and change work.</div>
-    </div>
-    <div class="stack-overview-card" style="--sc:#40c4ff;">
-      <div class="stack-overview-title">Mini-OS Control Layer</div>
-      <div class="stack-overview-desc">Domain rules and governance decide routing, ownership, and escalation before execution starts.</div>
-    </div>
-    <div class="stack-overview-card" style="--sc:#ffca28;">
-      <div class="stack-overview-title">Value Engines</div>
-      <div class="stack-overview-desc">Core workflows run end-to-end for growth, fulfillment, innovation, and logistics outcomes.</div>
-    </div>
-    <div class="stack-overview-card" style="--sc:#f48fb1;">
-      <div class="stack-overview-title">Digital Workforce</div>
-      <div class="stack-overview-desc">Systems, genies, and automation execute work and emit events as they complete each step.</div>
-    </div>
-    <div class="stack-overview-card" style="--sc:#1de9b6;">
-      <div class="stack-overview-title">Facts Stream</div>
-      <div class="stack-overview-desc">Events are normalized into facts with context, ownership, and timestamp for one auditable operating record.</div>
-    </div>
-    <div class="stack-overview-card" style="--sc:#82b1ff;">
-      <div class="stack-overview-title">RTBI + Cadence</div>
-      <div class="stack-overview-desc">Dashboards and review rhythm convert live facts into decisions, checkpoints, and continuous improvement.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
     </div>
   </div>
-  <div class="stack-overview-note">Summary first. Depth is in tabs 02 through 09.</div>
+
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">The tech stack is the shared operating substrate for every RTBoss domain: one identity layer, one data backbone, one orchestration surface, and one security model across all execution contexts.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define the full technical foundation and how each platform component supports the Core Operating Chain and Human-First Operating Chain across all tabs.</div>
+      </div>
+    </div>
+  </div>
 
   <div class="def-block">Microsoft-only constraint: No third-party SaaS except where unavoidable. All data stays in AU regions. Zero-trust via Entra ID + Intune.</div>
 
@@ -431,26 +439,32 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-01"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">Foundation Infrastructure &middot; Microsoft 365</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Microsoft 365</div>
     <h1 class="ph-title">Microsoft 365</h1>
-    <p class="ph-sub">Tenant configuration, licensing, and core app deployment. M365 is the workspace layer for every RTBoss deployment — Teams is the human interface, SharePoint is the document layer, Loop is the living knowledge base, and the admin centre governs identity and access across everything.</p>
+    <p class="ph-sub">Tenant configuration, licensing, and core app deployment. M365 is the workspace layer for every RTBoss deployment â€” Teams is the human interface, SharePoint is the document layer, Loop is the living knowledge base, and the admin centre governs identity and access across everything.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#40c4ff;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">Every human worker in every Mini-OS operates through M365. Approval cards surface in Teams. Documents live in SharePoint. Tasks track in Planner and To Do. Loop holds the knowledge base. M365 is not optional — it is the human layer of RTBoss.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; Domain ownership verified</div>
-    <div class="prereq-item">&middot; Billing account established</div>
-    <div class="prereq-item">&middot; Admin credentials secured in password manager</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">All Mini-OS (human interface layer)</span> <span class="feed-tag">Productivity OS (Tasks, Focus Blocks, Loop KB)</span> <span class="feed-tag">Strategy OS (Viva Goals, OKR tracking)</span> <span class="feed-tag">HR OS (Viva, onboarding journeys)</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">Every human worker in every Mini-OS operates through M365. Approval cards surface in Teams. Documents live in SharePoint. Tasks track in Planner and To Do. Loop holds the knowledge base. M365 is not optional â€” it is the human layer of RTBoss.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how Microsoft 365 provides the human workspace layer for collaboration, approvals, knowledge, and controlled access.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
@@ -468,7 +482,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Licensing tier</div>
-        <div class="decision-desc">Microsoft 365 Business Premium recommended as baseline — includes Intune, Defender, Entra ID P1. Upgrade to E3/E5 for enterprise clients requiring Purview or advanced compliance.</div>
+        <div class="decision-desc">Microsoft 365 Business Premium recommended as baseline â€” includes Intune, Defender, Entra ID P1. Upgrade to E3/E5 for enterprise clients requiring Purview or advanced compliance.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Data residency</div>
@@ -506,7 +520,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">Approval workflows</div>
-        <div class="decision-desc">Teams Approvals app enabled — this is how Hybrid Worker approval cards surface to human approvers across Finance OS, HR OS, Legal OS, and Admin OS.</div>
+        <div class="decision-desc">Teams Approvals app enabled â€” this is how Hybrid Worker approval cards surface to human approvers across Finance OS, HR OS, Legal OS, and Admin OS.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -537,7 +551,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Permissions model</div>
-        <div class="decision-desc">Inherit from Entra ID groups — never assign permissions directly to individuals. Group-based access ensures RTBoss Digital Asset security follows the person, not the document.</div>
+        <div class="decision-desc">Inherit from Entra ID groups â€” never assign permissions directly to individuals. Group-based access ensures RTBoss Digital Asset security follows the person, not the document.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -568,7 +582,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#ffca28;">Planner environments</div>
-        <div class="decision-desc">Planner plans linked to Dataverse via Power Automate — task completion events become Facts in the RTBoss loop.</div>
+        <div class="decision-desc">Planner plans linked to Dataverse via Power Automate â€” task completion events become Facts in the RTBoss loop.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -579,12 +593,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div class="config-item">Viva Goals activation for OKR tracking (Strategy OS)</div>
         <div class="config-item">Microsoft 365 Copilot license assignment (per-user, requires M365 E3/E5 base)</div>
         <div class="config-item">Copilot Studio connection to M365 Copilot (for Genie surfaces in Teams/Outlook)</div>
-        <div class="config-item">Copilot Notebooks — one notebook per Mini-OS domain as the persistent AI workspace</div>
-        <div class="config-item">Notebook access governance — scoped to domain team members, not org-wide</div>
+        <div class="config-item">Copilot Notebooks â€” one notebook per Mini-OS domain as the persistent AI workspace</div>
+        <div class="config-item">Notebook access governance â€” scoped to domain team members, not org-wide</div>
       </div>
       <div class="decision-item" style="margin-top:.5rem;">
         <div class="decision-name" style="color:#b388ff;">M365 Copilot & Notebooks</div>
-        <div class="decision-desc">M365 Copilot is the AI layer across all M365 apps — drafting in Outlook, summarising in Teams, analysing in Excel. Copilot Notebooks are persistent AI workspaces that retain context across sessions — one per Mini-OS domain. Notebooks become the living knowledge base for each domain team, always in context with the latest Dataverse and Loop data.</div>
+        <div class="decision-desc">M365 Copilot is the AI layer across all M365 apps â€” drafting in Outlook, summarising in Teams, analysing in Excel. Copilot Notebooks are persistent AI workspaces that retain context across sessions â€” one per Mini-OS domain. Notebooks become the living knowledge base for each domain team, always in context with the latest Dataverse and Loop data.</div>
       </div>
       <div class="step-placeholder">
         <div class="step-placeholder-label">? STEP-BY-STEP PENDING</div>
@@ -600,26 +614,32 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-02"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">Business Application Layer &middot; Dynamics 365</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Dynamics 365</div>
     <h1 class="ph-title">Dynamics 365</h1>
-    <p class="ph-sub">Business Central, Contact Center, Customer Service, Field Service, and Sales. Dynamics 365 is the system of record for business transactions — every invoice, ticket, deal, work order, and contact center interaction lives here. Mini-OS Digital Assets are built on the Dynamics data model, extended via Dataverse.</p>
+    <p class="ph-sub">Business Central, Contact Center, Customer Service, Field Service, and Sales. Dynamics 365 is the system of record for business transactions â€” every invoice, ticket, deal, work order, and contact center interaction lives here. Mini-OS Digital Assets are built on the Dynamics data model, extended via Dataverse.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#00e676;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">Dynamics 365 is where business operations are executed and recorded. Finance OS runs on Business Central. Sales OS runs on D365 Sales. Services OS and MIP run on Customer Service. LiveOps runs on D365 Contact Center. Intelligent Buildings field operations run on Field Service. All transaction data flows to the Digital Twin.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; M365 tenant live</div>
-    <div class="prereq-item">&middot; Power Platform environments created</div>
-    <div class="prereq-item">&middot; Dynamics licenses assigned</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">Finance OS (Business Central)</span> <span class="feed-tag">Sales OS (D365 Sales)</span> <span class="feed-tag">Services OS + MIP (Customer Service)</span> <span class="feed-tag">LiveOps (Contact Center)</span> <span class="feed-tag">Intelligent Buildings (Field Service)</span> <span class="feed-tag">Admin OS (Business Central procurement)</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">Dynamics 365 is where business operations are executed and recorded. Finance OS runs on Business Central. Sales OS runs on D365 Sales. Services OS and MIP run on Customer Service. LiveOps runs on D365 Contact Center. Intelligent Buildings field operations run on Field Service. All transaction data flows to the Digital Twin.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how Dynamics 365 runs transactional systems of record across finance, sales, service, and field execution.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
@@ -633,7 +653,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Environment strategy</div>
-        <div class="decision-desc">Minimum three environments: Production, UAT, Development. Power Platform environments map 1:1 with Dynamics — never share environments between pillars in production.</div>
+        <div class="decision-desc">Minimum three environments: Production, UAT, Development. Power Platform environments map 1:1 with Dynamics â€” never share environments between pillars in production.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Module selection</div>
@@ -660,18 +680,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#00e676;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#00e676;"></div>
-      <div class="phase-name">Business Central — Finance OS Foundation</div>
+      <div class="phase-name">Business Central â€” Finance OS Foundation</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">Chart of accounts</div>
-        <div class="decision-desc">Must align with Profit First System account structure — Income, OpEx, Tax, Owner Pay, Profit. Set up before any transactions are posted.</div>
+        <div class="decision-desc">Must align with Profit First System account structure â€” Income, OpEx, Tax, Owner Pay, Profit. Set up before any transactions are posted.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">AU localisation</div>
-        <div class="decision-desc">Australian localisation pack required — GST configuration, BAS reporting, ATO lodgement integration, AU bank formats.</div>
+        <div class="decision-desc">Australian localisation pack required â€” GST configuration, BAS reporting, ATO lodgement integration, AU bank formats.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">Integration prep</div>
@@ -696,7 +716,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#b388ff;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#b388ff;"></div>
-      <div class="phase-name">D365 Customer Service — MIP & Services OS</div>
+      <div class="phase-name">D365 Customer Service â€” MIP & Services OS</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -707,7 +727,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">SLA configuration</div>
-        <div class="decision-desc">SLA policies defined per client tier (Trial, Standard, Strategic). First response and resolution time targets encoded here — the SLA Monitoring System reads these.</div>
+        <div class="decision-desc">SLA policies defined per client tier (Trial, Standard, Strategic). First response and resolution time targets encoded here â€” the SLA Monitoring System reads these.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Queue design</div>
@@ -732,22 +752,22 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#ff9100;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#ff9100;"></div>
-      <div class="phase-name">D365 Contact Center — LiveOps</div>
+      <div class="phase-name">D365 Contact Center â€” LiveOps</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#ff9100;">Channel configuration</div>
-        <div class="decision-desc">D365 Contact Center is the omnichannel layer for LiveOps — voice, chat, email, and Teams channels all unified. Every inbound interaction becomes a contact_received Fact entering the RTBoss loop. Channel selection driven by client tier and volume.</div>
+        <div class="decision-desc">D365 Contact Center is the omnichannel layer for LiveOps â€” voice, chat, email, and Teams channels all unified. Every inbound interaction becomes a contact_received Fact entering the RTBoss loop. Channel selection driven by client tier and volume.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#ff9100;">Unified routing</div>
-        <div class="decision-desc">Unified routing engine classifies and routes every inbound contact. Routing rules map to LiveOps Situation Genie logic — digital worker handles routine, hybrid worker handles judgment calls, human agent handles exceptions. Configure routing rules before going live.</div>
+        <div class="decision-desc">Unified routing engine classifies and routes every inbound contact. Routing rules map to LiveOps Situation Genie logic â€” digital worker handles routine, hybrid worker handles judgment calls, human agent handles exceptions. Configure routing rules before going live.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#ff9100;">Voice channel</div>
-        <div class="decision-desc">Azure Communication Services powers the voice channel. Phone numbers provisioned in AU region. Call recording enabled by default — recordings stored in Azure Blob Storage, linked to Digital Twin as conversation_recorded Facts.</div>
+        <div class="decision-desc">Azure Communication Services powers the voice channel. Phone numbers provisioned in AU region. Call recording enabled by default â€” recordings stored in Azure Blob Storage, linked to Digital Twin as conversation_recorded Facts.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -770,7 +790,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#1de9b6;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#1de9b6;"></div>
-      <div class="phase-name">D365 Field Service — Intelligent Buildings</div>
+      <div class="phase-name">D365 Field Service â€” Intelligent Buildings</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -806,26 +826,32 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-03"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">Digital Asset Layer &middot; Dataverse</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Dataverse</div>
     <h1 class="ph-title">Dataverse</h1>
-    <p class="ph-sub">The unified data layer for all RTBoss Digital Assets. Every CLIENT, INVOICE, EMPLOYEE, CONTRACT, CAMPAIGN, and OPPORTUNITY record lives in Dataverse — structured, governed, and accessible to every Genie and Stream in the Agentic Factory. Dataverse is what makes Digital Assets persistent across the entire RTBoss loop.</p>
+    <p class="ph-sub">The unified data layer for all RTBoss Digital Assets. Every CLIENT, INVOICE, EMPLOYEE, CONTRACT, CAMPAIGN, and OPPORTUNITY record lives in Dataverse â€” structured, governed, and accessible to every Genie and Stream in the Agentic Factory. Dataverse is what makes Digital Assets persistent across the entire RTBoss loop.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#b388ff;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">Dataverse is the single source of truth for all Digital Assets. When a Genie reads client history, when a Stream updates an asset state, when RTBI queries current asset status — all of it reads from and writes to Dataverse. The schema design here determines what every downstream component can see.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; Power Platform environments created</div>
-    <div class="prereq-item">&middot; Security model designed</div>
-    <div class="prereq-item">&middot; Naming convention agreed before any tables created</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">All Mini-OS (Digital Asset storage)</span> <span class="feed-tag">All Value Engines (cross-OS asset reads)</span> <span class="feed-tag">RTBI (Analytics queries Dataverse for current asset state)</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">Dataverse is the single source of truth for all Digital Assets. When a Genie reads client history, when a Stream updates an asset state, when RTBI queries current asset status â€” all of it reads from and writes to Dataverse. The schema design here determines what every downstream component can see.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how Dataverse structures and governs Digital Assets as the shared operational data layer.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
@@ -906,7 +932,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Application users</div>
-        <div class="decision-desc">Each Genie and Stream gets its own application user in Dataverse — never use human credentials for automated access. Application users are tied to Entra ID app registrations.</div>
+        <div class="decision-desc">Each Genie and Stream gets its own application user in Dataverse â€” never use human credentials for automated access. Application users are tied to Entra ID app registrations.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Web API</div>
@@ -935,26 +961,32 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-04"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">Agentic Factory Orchestration &middot; Power Platform</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Power Platform</div>
     <h1 class="ph-title">Power Platform</h1>
-    <p class="ph-sub">Power Automate, Power Apps, and Copilot Studio. Power Platform is the orchestration layer of the Agentic Factory — Streams are built in Power Automate, approval interfaces are built in Power Apps, and Hybrid Worker Genies are configured in Copilot Studio. This is where the RTBoss loop is wired together.</p>
+    <p class="ph-sub">Power Automate, Power Apps, and Copilot Studio. Power Platform is the orchestration layer of the Agentic Factory â€” Streams are built in Power Automate, approval interfaces are built in Power Apps, and Hybrid Worker Genies are configured in Copilot Studio. This is where the RTBoss loop is wired together.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#ffca28;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">Power Platform connects everything: Dataverse Digital Assets, Dynamics 365 business records, Teams human interfaces, Azure AI Foundry Genies, and external APIs. Every Stream is a Power Automate flow. Every Hybrid Worker approval card is a Power Apps or Teams Adaptive Card. Every Genie conversation surface is a Copilot Studio agent.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; Dataverse environments live</div>
-    <div class="prereq-item">&middot; DLP policies defined before first flow is built</div>
-    <div class="prereq-item">&middot; Azure AI Foundry provisioned (for Copilot Studio ? Foundry connection)</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">All Mini-OS (Streams built in Power Automate)</span> <span class="feed-tag">All Hybrid Worker Genies (Copilot Studio)</span> <span class="feed-tag">Finance OS approval workflows</span> <span class="feed-tag">HR OS onboarding flows</span> <span class="feed-tag">Legal OS deadline monitoring</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">Power Platform connects everything: Dataverse Digital Assets, Dynamics 365 business records, Teams human interfaces, Azure AI Foundry Genies, and external APIs. Every Stream is a Power Automate flow. Every Hybrid Worker approval card is a Power Apps or Teams Adaptive Card. Every Genie conversation surface is a Copilot Studio agent.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how Power Platform orchestrates Streams, app surfaces, and agent interactions across RTBoss.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
@@ -972,11 +1004,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Environment strategy</div>
-        <div class="decision-desc">Default environment never used for production. Dedicated environments: Production, UAT, Dev. Solution-based ALM (Application Lifecycle Management) for all flows — no ad-hoc flows in production.</div>
+        <div class="decision-desc">Default environment never used for production. Dedicated environments: Production, UAT, Dev. Solution-based ALM (Application Lifecycle Management) for all flows â€” no ad-hoc flows in production.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Managed environments</div>
-        <div class="decision-desc">Managed Environments enabled in production — adds governance controls, usage analytics, and maker onboarding. Required for ISO 27001 compliance posture.</div>
+        <div class="decision-desc">Managed Environments enabled in production â€” adds governance controls, usage analytics, and maker onboarding. Required for ISO 27001 compliance posture.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -996,7 +1028,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#00e676;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#00e676;"></div>
-      <div class="phase-name">Power Automate — Stream Deployment</div>
+      <div class="phase-name">Power Automate â€” Stream Deployment</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1007,7 +1039,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">Connection references</div>
-        <div class="decision-desc">Connection references used instead of hardcoded connections — allows solution transport between environments without breaking connections.</div>
+        <div class="decision-desc">Connection references used instead of hardcoded connections â€” allows solution transport between environments without breaking connections.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">Error handling</div>
@@ -1031,7 +1063,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#b388ff;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#b388ff;"></div>
-      <div class="phase-name">Copilot Studio — Hybrid Worker Genies</div>
+      <div class="phase-name">Copilot Studio â€” Hybrid Worker Genies</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1042,7 +1074,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Authentication</div>
-        <div class="decision-desc">Agents use service principal authentication — not user credentials. Scoped to minimum required Dataverse tables.</div>
+        <div class="decision-desc">Agents use service principal authentication â€” not user credentials. Scoped to minimum required Dataverse tables.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Handoff protocol</div>
@@ -1067,7 +1099,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#1de9b6;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#1de9b6;"></div>
-      <div class="phase-name">Power Apps — Approval Interfaces</div>
+      <div class="phase-name">Power Apps â€” Approval Interfaces</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1078,7 +1110,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#1de9b6;">Teams integration</div>
-        <div class="decision-desc">Canvas apps embedded in Teams tabs for seamless Hybrid Worker experience. App opens in context — no separate browser window required.</div>
+        <div class="decision-desc">Canvas apps embedded in Teams tabs for seamless Hybrid Worker experience. App opens in context â€” no separate browser window required.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1103,27 +1135,32 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-05"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">Intelligence & Physical Layer &middot; Azure</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Azure</div>
     <h1 class="ph-title">Azure</h1>
-    <p class="ph-sub">AI Foundry, Microsoft Fabric, Cosmos DB, IoT Hub, and supporting services. Azure is where the intelligence happens — Genies run in AI Foundry, the Digital Twin lives in Cosmos DB, Unified Data flows through Fabric, and physical world Facts enter via IoT Hub.</p>
+    <p class="ph-sub">AI Foundry, Microsoft Fabric, Cosmos DB, IoT Hub, and supporting services. Azure is where the intelligence happens â€” Genies run in AI Foundry, the Digital Twin lives in Cosmos DB, Unified Data flows through Fabric, and physical world Facts enter via IoT Hub.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#1de9b6;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">Azure is the backend intelligence layer that Power Platform and Dynamics 365 both depend on. Without Azure: no Digital Twin, no real-time Unified Data, no LLM-powered Genies, no IoT-driven physical Facts. Every RTBoss deployment of any scale requires Azure services.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; Azure subscription active</div>
-    <div class="prereq-item">&middot; Entra ID tenant connected</div>
-    <div class="prereq-item">&middot; Power Platform environments live (for AI Foundry ? Copilot Studio connection)</div>
-    <div class="prereq-item">&middot; AU region confirmed</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">All Mini-OS (Digital Twin via Cosmos DB)</span> <span class="feed-tag">All Mini-OS (Unified Data via Fabric)</span> <span class="feed-tag">All Genies (AI Foundry runtime)</span> <span class="feed-tag">Intelligent Buildings (IoT Hub)</span> <span class="feed-tag">RTBI (Fabric + Power BI)</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">Azure is the backend intelligence layer that Power Platform and Dynamics 365 both depend on. Without Azure: no Digital Twin, no real-time Unified Data, no LLM-powered Genies, no IoT-driven physical Facts. Every RTBoss deployment of any scale requires Azure services.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how Azure delivers AI runtime, Unified Data, Digital Twin, and IoT ingestion services.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
@@ -1170,7 +1207,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#00e676;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#00e676;"></div>
-      <div class="phase-name">Azure AI Foundry — Genie Runtime</div>
+      <div class="phase-name">Azure AI Foundry â€” Genie Runtime</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1207,18 +1244,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#b388ff;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#b388ff;"></div>
-      <div class="phase-name">Azure Cosmos DB — Digital Twin</div>
+      <div class="phase-name">Azure Cosmos DB â€” Digital Twin</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">API choice</div>
-        <div class="decision-desc">NoSQL API for the Digital Twin. Document model maps naturally to Fact records — each document is one Fact with all enrichment data.</div>
+        <div class="decision-desc">NoSQL API for the Digital Twin. Document model maps naturally to Fact records â€” each document is one Fact with all enrichment data.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Append-only design</div>
-        <div class="decision-desc">Digital Twin is append-only. No document is ever updated or deleted — only new documents added. Immutability enforced via Cosmos DB stored procedures and role permissions. No write role includes delete.</div>
+        <div class="decision-desc">Digital Twin is append-only. No document is ever updated or deleted â€” only new documents added. Immutability enforced via Cosmos DB stored procedures and role permissions. No write role includes delete.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Partition strategy</div>
@@ -1248,7 +1285,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#ffca28;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#ffca28;"></div>
-      <div class="phase-name">Microsoft Fabric — Unified Data</div>
+      <div class="phase-name">Microsoft Fabric â€” Unified Data</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1289,14 +1326,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#f48fb1;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#f48fb1;"></div>
-      <div class="phase-name">Azure IoT Hub — Physical Facts</div>
+      <div class="phase-name">Azure IoT Hub â€” Physical Facts</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#f48fb1;">Tier</div>
-        <div class="decision-desc">Standard tier required for full IoT Hub capabilities. Basic tier insufficient — lacks cloud-to-device messaging needed for building automation commands.</div>
+        <div class="decision-desc">Standard tier required for full IoT Hub capabilities. Basic tier insufficient â€” lacks cloud-to-device messaging needed for building automation commands.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#f48fb1;">Device registry</div>
@@ -1331,26 +1368,32 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-06"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">RMM & Auto-Remediation &middot; Zero Touch AI</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Zero Touch AI</div>
     <h1 class="ph-title">Zero Touch AI</h1>
-    <p class="ph-sub">The RMM platform that turns every device, server, and endpoint into a source of Facts for the RTBoss loop. Zero Touch AI agents capture telemetry, detect anomalies, and execute auto-remediation — feeding the MIP Mini-OS with a continuous, structured stream of IT infrastructure events.</p>
+    <p class="ph-sub">The RMM platform that turns every device, server, and endpoint into a source of Facts for the RTBoss loop. Zero Touch AI agents capture telemetry, detect anomalies, and execute auto-remediation â€” feeding the MIP Mini-OS with a continuous, structured stream of IT infrastructure events.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#ff9100;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">Zero Touch AI is the fact-capture layer for MIP. Without it, MIP has no visibility into client infrastructure. Every monitoring alert, patch event, performance threshold, and auto-remediation action it generates becomes a Fact that enters the RTBoss loop — enriched, routed, actioned, and logged.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; Zero Touch AI account created</div>
-    <div class="prereq-item">&middot; Intune configured (for agent deployment)</div>
-    <div class="prereq-item">&middot; Power Automate webhook endpoint ready before agent deployment</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">MIP (primary — all IT infrastructure Facts)</span> <span class="feed-tag">Operations OS (device capacity and performance data)</span> <span class="feed-tag">LEAN OS (auto-remediation pattern analysis)</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">Zero Touch AI is the fact-capture layer for MIP. Without it, MIP has no visibility into client infrastructure. Every monitoring alert, patch event, performance threshold, and auto-remediation action it generates becomes a Fact that enters the RTBoss loop â€” enriched, routed, actioned, and logged.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how Zero Touch AI captures endpoint telemetry and auto-remediation events for MIP workflows.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
@@ -1368,7 +1411,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Integration tier</div>
-        <div class="decision-desc">API access required for RTBoss integration — ensure the license tier includes API access. API is how Zero Touch AI telemetry becomes RTBoss Facts.</div>
+        <div class="decision-desc">API access required for RTBoss integration â€” ensure the license tier includes API access. API is how Zero Touch AI telemetry becomes RTBoss Facts.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1395,7 +1438,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">Deployment method</div>
-        <div class="decision-desc">Group Policy, Intune, or manual install depending on client environment maturity. Intune preferred — aligns with M365 device management and enables Entra ID device registration simultaneously.</div>
+        <div class="decision-desc">Group Policy, Intune, or manual install depending on client environment maturity. Intune preferred â€” aligns with M365 device management and enables Entra ID device registration simultaneously.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">Agent scope</div>
@@ -1497,26 +1540,32 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-07"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">Physical Infrastructure &middot; UniFi Network & Buildings</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - UniFi</div>
     <h1 class="ph-title">UniFi</h1>
-    <p class="ph-sub">Ubiquiti UniFi ecosystem for network, WiFi, cameras, and access control. UniFi is the physical infrastructure layer for Intelligent Buildings deployments — every device generates telemetry that enters RTBoss as a Fact via Azure IoT Hub or direct API integration.</p>
+    <p class="ph-sub">Ubiquiti UniFi ecosystem for network, WiFi, cameras, and access control. UniFi is the physical infrastructure layer for Intelligent Buildings deployments â€” every device generates telemetry that enters RTBoss as a Fact via Azure IoT Hub or direct API integration.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#1de9b6;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">UniFi is the physical fact-capture layer for Intelligent Buildings. Network health events, camera detections, access control events, and device status changes all become Facts. The UniFi Controller API is the integration point — events are forwarded to Azure IoT Hub and then into the RTBoss loop.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; Azure IoT Hub provisioned</div>
-    <div class="prereq-item">&middot; Dataverse FACILITY Digital Asset tables created</div>
-    <div class="prereq-item">&middot; Physical site survey completed before device procurement</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">Intelligent Buildings (primary — all physical infrastructure Facts)</span> <span class="feed-tag">Services OS (access events for client site visits)</span> <span class="feed-tag">Operations OS (network health as operational Facts)</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">UniFi is the physical fact-capture layer for Intelligent Buildings. Network health events, camera detections, access control events, and device status changes all become Facts. The UniFi Controller API is the integration point â€” events are forwarded to Azure IoT Hub and then into the RTBoss loop.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how UniFi provides physical infrastructure telemetry for intelligent-building operations.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
@@ -1561,7 +1610,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">VLAN segmentation</div>
-        <div class="decision-desc">Minimum four VLANs: Management (controllers, servers), IoT (sensors, building devices), User (staff devices), Guest (visitor WiFi). IoT VLAN isolated — no direct internet access, proxy via controller.</div>
+        <div class="decision-desc">Minimum four VLANs: Management (controllers, servers), IoT (sensors, building devices), User (staff devices), Guest (visitor WiFi). IoT VLAN isolated â€” no direct internet access, proxy via controller.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">WiFi SSIDs</div>
@@ -1597,11 +1646,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Access control</div>
-        <div class="decision-desc">UniFi Access for door control. Door events (door_unlocked, access_granted, access_denied, door_held_open) become Facts in RTBoss — linked to FACILITY and EMPLOYEE Digital Assets.</div>
+        <div class="decision-desc">UniFi Access for door control. Door events (door_unlocked, access_granted, access_denied, door_held_open) become Facts in RTBoss â€” linked to FACILITY and EMPLOYEE Digital Assets.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Retention</div>
-        <div class="decision-desc">Camera footage retention policy: 30 days standard, 90 days for high-security areas. Footage stored on local NVR — not cloud. Privacy policy acknowledgement required.</div>
+        <div class="decision-desc">Camera footage retention policy: 30 days standard, 90 days for high-security areas. Footage stored on local NVR â€” not cloud. Privacy policy acknowledgement required.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1659,31 +1708,39 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <div class="panel" id="tab-08"><div class="pw">
 
   <div class="ph">
-    <div class="ph-kicker">Security Foundation &middot; Zero-Trust & Compliance</div>
+    <div class="ph-kicker">Section 03 - Tech Stack - Security & Compliance</div>
     <h1 class="ph-title">Security & Compliance</h1>
-    <p class="ph-sub">Entra ID, Intune, Defender, and Purview. The security layer that underpins every RTBoss deployment. Zero-trust architecture, Australia data residency, ISO 27001 alignment, and complete audit trail from every Fact to every Digital Asset. Security is not a layer added later — it is configured before the first user is provisioned.</p>
+    <p class="ph-sub">Entra ID, Intune, Defender, and Purview. The security layer that underpins every RTBoss deployment. Zero-trust architecture, Australia data residency, ISO 27001 alignment, and complete audit trail from every Fact to every Digital Asset. Security is not a layer added later â€” it is configured before the first user is provisioned.</p>
   </div>
+  <div class="tech-core-flow">
+    <div class="tech-core-flow-k">RTBoss Operating Chain - Core</div>
+    <div class="tech-core-flow-v">      <span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span>    </div>  </div>
 
-  <div class="role-block" style="border-left-color:#ff5252;">
-    <div class="role-label">Role in RTBoss</div>
-    <div class="role-text">Security is the foundation everything else sits on. Identity (Entra ID), device compliance (Intune), threat protection (Defender), and data governance (Purview) must all be configured before any Mini-OS, Genie, or Stream goes live. Every security event is itself a Fact — breach_detected, policy_violation, access_anomaly — that enters the RTBoss loop.</div>
+  <div class="core-flow">
+    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-v">
+      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+    </div>
   </div>
-
-  <div class="prereq-block">
-    <div class="prereq-label">Prerequisites before starting this section</div>
-    <div class="prereq-item">&middot; This section has no prerequisites — it IS the prerequisite for everything else. Configure security before provisioning users, before deploying apps, before building any Stream.</div>
-  </div>
-
-  <div class="feeds-block">
-    <div class="feeds-label">Feeds into</div>
-    <div class="feeds-tags"><span class="feed-tag">All Mini-OS (identity and access for all digital workers)</span> <span class="feed-tag">MIP (Defender alerts as security_alert Facts)</span> <span class="feed-tag">LiveOps (security incidents surface to command center)</span> <span class="feed-tag">HR OS (employee lifecycle events trigger access changes)</span> <span class="feed-tag">Legal OS (retention policies enforce document governance)</span></div>
+  <div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>
+  <div class="top-group-wrap">
+    <div class="top-group-grid">
+      <div class="top-group-tile" style="--tg:#40c4ff;">
+        <div class="top-group-k">Role in RTBoss</div>
+        <div class="top-group-v">Security is the foundation everything else sits on. Identity (Entra ID), device compliance (Intune), threat protection (Defender), and data governance (Purview) must all be configured before any Mini-OS, Genie, or Stream goes live. Every security event is itself a Fact â€” breach_detected, policy_violation, access_anomaly â€” that enters the RTBoss loop.</div>
+      </div>
+      <div class="top-group-tile" style="--tg:#1de9b6;">
+        <div class="top-group-k">Overview</div>
+        <div class="top-group-v">Purpose of this tab: define how security controls enforce zero-trust identity, device compliance, threat protection, and governance.</div>
+      </div>
+    </div>
   </div>
 
   <div class="phases-list">
   <div class="phase-card" style="--pc:#40c4ff;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#40c4ff;"></div>
-      <div class="phase-name">Entra ID — Identity Foundation</div>
+      <div class="phase-name">Entra ID â€” Identity Foundation</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1694,11 +1751,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">Privileged Identity Management</div>
-        <div class="decision-desc">PIM enabled for all admin roles. No standing admin access — just-in-time elevation with approval and time limit. Every elevation is a Fact in the Digital Twin.</div>
+        <div class="decision-desc">PIM enabled for all admin roles. No standing admin access â€” just-in-time elevation with approval and time limit. Every elevation is a Fact in the Digital Twin.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#40c4ff;">External identities</div>
-        <div class="decision-desc">Guest users for client collaboration via B2B. Guest access scoped to specific Teams and SharePoint sites only — never to Dataverse or Azure resources.</div>
+        <div class="decision-desc">Guest users for client collaboration via B2B. Guest access scoped to specific Teams and SharePoint sites only â€” never to Dataverse or Azure resources.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1719,7 +1776,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#00e676;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#00e676;"></div>
-      <div class="phase-name">Intune — Device Compliance</div>
+      <div class="phase-name">Intune â€” Device Compliance</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1734,7 +1791,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#00e676;">BYOD policy</div>
-        <div class="decision-desc">BYOD enrolled in Intune MAM (Mobile App Management) without MDM — corporate data in M365 apps is protected without full device management. Personal devices never get full MDM unless contractually required.</div>
+        <div class="decision-desc">BYOD enrolled in Intune MAM (Mobile App Management) without MDM â€” corporate data in M365 apps is protected without full device management. Personal devices never get full MDM unless contractually required.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1755,18 +1812,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#b388ff;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#b388ff;"></div>
-      <div class="phase-name">Microsoft Defender — Threat Protection</div>
+      <div class="phase-name">Microsoft Defender â€” Threat Protection</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
       <div class="decisions-list">
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Defender for Endpoint</div>
-        <div class="decision-desc">P2 license for all managed devices. Attack surface reduction rules enabled. Tamper protection on. Defender alerts become security_alert Facts in RTBoss — routed to MIP Triage Genie.</div>
+        <div class="decision-desc">P2 license for all managed devices. Attack surface reduction rules enabled. Tamper protection on. Defender alerts become security_alert Facts in RTBoss â€” routed to MIP Triage Genie.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Defender for Identity</div>
-        <div class="decision-desc">Monitors Entra ID for identity-based attacks — lateral movement, pass-the-hash, DCSync. Alerts surface to LiveOps command center as security_incident Facts.</div>
+        <div class="decision-desc">Monitors Entra ID for identity-based attacks â€” lateral movement, pass-the-hash, DCSync. Alerts surface to LiveOps command center as security_incident Facts.</div>
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#b388ff;">Defender for Cloud Apps</div>
@@ -1791,7 +1848,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="phase-card" style="--pc:#ffca28;">
     <div class="phase-header">
       <div class="phase-dot" style="background:#ffca28;"></div>
-      <div class="phase-name">Microsoft Purview — Data Governance</div>
+      <div class="phase-name">Microsoft Purview â€” Data Governance</div>
     </div>
     <div class="phase-body">
       <div class="phase-section-label">Key Decisions</div>
@@ -1806,7 +1863,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       </div>
       <div class="decision-item">
         <div class="decision-name" style="color:#ffca28;">Audit log</div>
-        <div class="decision-desc">Unified audit log enabled and retained for minimum 12 months (90 days default — extend via Purview Audit Premium). Every admin action, every file access, every permission change is logged. This is the compliance Digital Twin.</div>
+        <div class="decision-desc">Unified audit log enabled and retained for minimum 12 months (90 days default â€” extend via Purview Audit Premium). Every admin action, every file access, every permission change is logged. This is the compliance Digital Twin.</div>
       </div>
       </div>
       <div class="phase-section-label" style="margin-top:.85rem;">Configuration Areas</div>
@@ -1851,6 +1908,19 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S05);
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
