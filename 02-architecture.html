@@ -1657,6 +1657,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 
+  <div class="sec-head"><span class="sec-label">Overview</span><div class="sec-head-line"></div></div>
   <div class="role-group-nav flow-mini">
     <div class="role-group-title">Human-First Operating Chain Scope</div>
     <div class="hf-scope">
@@ -1669,7 +1670,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="hf-scope-tag"><span>Bridge</span></div>
       </button>
     </div>
-    <div class="role-group-note">This tab focuses on Identities as the bridge from human authority to consistent agent execution.</div>
+    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
+    <div class="remember-grid overview-remember-grid">
+      <div class="remember-card"><div class="remember-k">Role Mirror</div><div class="remember-v">Identities translate human roles into agent-ready context.</div></div>
+      <div class="remember-card"><div class="remember-k">Intent Enforcement</div><div class="remember-v">Personas, Advisors, and Skills keep execution in-bounds.</div></div>
+      <div class="remember-card"><div class="remember-k">Same Language</div><div class="remember-v">Shared dictionary and taxonomy keep outputs aligned.</div></div>
+      <div class="remember-card"><div class="remember-k">Controlled Autonomy</div><div class="remember-v">Agents run with bounded authority and traceable decisions.</div></div>
+    </div>
   </div>
 
   <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
@@ -1682,31 +1689,30 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Intent Enforcement Cards</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Model Definition</span><div class="sec-head-line"></div></div>
   <div class="bts-grid" style="margin-bottom:1rem;">
-    <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Intent Engineering</div><div class="bts-col-sub">Why and limits</div></div>
-      <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--pink);"></div>Policy, risk, brand, compliance boundaries</div></div>
-      <div class="bts-col-footer" style="color:var(--pink);">Why</div>
-    </div>
-    <div class="bts-col">
+    <div class="bts-col model-step" style="--bts-accent:var(--blue);">
       <div class="bts-col-header"><div class="bts-col-title">Prompt Engineering</div><div class="bts-col-sub">Task and target</div></div>
       <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--blue);"></div>What work is requested and expected output</div></div>
-      <div class="bts-col-footer" style="color:var(--blue);">What</div>
+      <div class="bts-col-footer" style="color:var(--blue);">Prompt</div>
     </div>
-    <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Context Engineering</div><div class="bts-col-sub">Execution context</div></div>
-      <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--teal);"></div>Facts, role context, state, and constraints</div></div>
-      <div class="bts-col-footer" style="color:var(--teal);">How</div>
+    <div class="bts-col model-step" style="--bts-accent:var(--teal);">
+      <div class="bts-col-header"><div class="bts-col-title">Context Engineering</div><div class="bts-col-sub">Execution state</div></div>
+      <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--teal);"></div>Facts, role context, and current operating conditions</div></div>
+      <div class="bts-col-footer" style="color:var(--teal);">Context</div>
+    </div>
+    <div class="bts-col model-step" style="--bts-accent:var(--pink);">
+      <div class="bts-col-header"><div class="bts-col-title">Intent Engineering</div><div class="bts-col-sub">Why and boundaries</div></div>
+      <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--pink);"></div>Policy, risk, accountability, and guardrail boundaries</div></div>
+      <div class="bts-col-footer" style="color:var(--pink);">Intent</div>
     </div>
   </div>
-  <div class="callout violet" style="margin-top:.35rem;"><div class="callout-icon">i</div><div class="callout-body"><strong>Enforcement mechanism:</strong> Personas carry accountability, Advisors carry policy guidance, and Skills carry reusable guardrails so intent is enforced consistently across RTBoss.</div></div>
 
-  <div class="sec-head"><span class="sec-label">Three Infrastructure Layers</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Infrastructure Layers</span><div class="sec-head-line"></div></div>
 
   <div class="bts-grid">
     <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Personas</div><div class="bts-col-sub">Human roles the system models &amp; serves</div></div>
+      <div class="bts-col-header"><div class="bts-col-title">Personas</div><div class="bts-col-sub" style="color:#9bc8ff;font-weight:700;">HUMAN ROLES THE SYSTEM MODELS &amp; SERVES</div></div>
       <div class="bts-items">
         <div class="bts-item"><div class="bts-item-dot" style="background:#40c4ff;"></div>CEO<span class="bts-item-role">Executive</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:#40c4ff;"></div>COO<span class="bts-item-role">Executive</span></div>
@@ -1717,7 +1723,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="bts-col-footer" style="color:var(--blue);">Personas</div>
     </div>
     <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Advisors</div><div class="bts-col-sub">Specialist AI agents  -  domain expertise</div></div>
+      <div class="bts-col-header"><div class="bts-col-title">Advisors</div><div class="bts-col-sub" style="color:#ffd67a;font-weight:700;">SPECIALIST GUIDANCE LAYER</div></div>
       <div class="bts-items">
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--amber);"></div>Legal Advisor<span class="bts-item-role">Legal</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--amber);"></div>Compliance Advisor<span class="bts-item-role">Risk</span></div>
@@ -1728,41 +1734,164 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="bts-col-footer" style="color:var(--amber);">Advisors</div>
     </div>
     <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Skills</div><div class="bts-col-sub">Reusable knowledge assets</div></div>
+      <div class="bts-col-header"><div class="bts-col-title">Skills</div><div class="bts-col-sub" style="color:#ffb6d5;font-weight:700;">REUSABLE EXECUTION MEMORY</div></div>
       <div class="bts-items">
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--pink);"></div>Brand Identity<span class="bts-item-role">Brand</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--violet);"></div>Dictionary<span class="bts-item-role">Language</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--violet);"></div>Taxonomy<span class="bts-item-role">Structure</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--teal);"></div>Job Roles<span class="bts-item-role">HR</span></div>
+        <div class="bts-item"><div class="bts-item-dot" style="background:var(--green);"></div>Playbooks<span class="bts-item-role">Method</span></div>
       </div>
       <div class="bts-col-footer" style="color:var(--pink);">Skills</div>
     </div>
   </div>
 
-  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Personas</strong> define how the system presents information and what decisions each role is empowered to make. A CEO sees strategic dashboards. An Ops Manager sees operational queues and SLA status. Same data  -  role-appropriate view.</div></div>
-  <div class="callout amber"><div class="callout-icon">?</div><div class="callout-body"><strong>Advisors</strong> are specialist AI agents providing domain expertise across any Mini-OS instance. The Legal Advisor can be invoked from Finance OS, HR OS, or Sales OS. The LEAN Advisor can surface waste from Operations OS, Manufacturing OS, or Services OS. Advisors travel with the system, not with the department.</div></div>
-  <div class="callout violet"><div class="callout-icon">?</div><div class="callout-body"><strong>Skills</strong> are the organizational memory of RTBoss. The Dictionary enforces common language. The Taxonomy structures every entity consistently. Brand Identity ensures every output is on-brand. Job Roles defines authority and accountability across all Personas and Domain Orchestrators/Operators.</div></div>
+  <div class="remember-strip" style="margin-top:.8rem; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-v"><strong>Personas</strong> define how the system presents information and what decisions each role can make. <strong>Same data, role-specific view.</strong></div></div>
+      <div class="remember-card"><div class="remember-v"><strong>Advisors</strong> are specialist agents invoked across any Mini-OS. <strong>They travel with the operating system, not a department.</strong></div></div>
+      <div class="remember-card"><div class="remember-v"><strong>Skills</strong> are reusable organizational memory. <strong>They enforce shared language, structure, and methods.</strong></div></div>
+    </div>
+  </div>
 
-  <div class="sec-head"><span class="sec-label">Complete Infrastructure Reference</span><div class="sec-head-line"></div></div>
-  <table class="rule-table">
-    <thead><tr><th>Type</th><th>Name</th><th>Function</th><th>Available to</th></tr></thead>
-    <tbody>
-      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>CEO</td><td>Strategic oversight, cross-OS decisions, board reporting</td><td>Strategy OS, RTBI, all Value Engines</td></tr>
-      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>COO</td><td>Operational delivery, fulfillment, team performance</td><td>Operations OS, Fulfillment Engine, LiveOps</td></tr>
-      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>CFO</td><td>Financial governance, forecasting, tax/compliance</td><td>Finance OS, RTBI Planning, Logistics Engine</td></tr>
-      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>Ops Manager</td><td>Day-to-day operational queue management and SLA</td><td>Operations OS, Fulfillment Engine, MIP</td></tr>
-      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>Warehouse Manager</td><td>Inventory, dispatch, inbound/outbound logistics</td><td>Logistics Engine, Manufacturing OS</td></tr>
-      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>Legal Advisor</td><td>Contract review, terms guidance, risk flagging</td><td>All Mini-OS instances</td></tr>
-      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>Compliance Advisor</td><td>Regulatory compliance, audit readiness, policy enforcement</td><td>All Mini-OS instances</td></tr>
-      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>ISO 9001 Advisor</td><td>Quality management, process compliance, audit trail</td><td>All Mini-OS + Value Engines</td></tr>
-      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>LEAN Advisor</td><td>Waste identification, process efficiency, cycle time</td><td>LEAN OS, Operations OS, Manufacturing OS</td></tr>
-      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>Closing Advisor</td><td>Deal strategy, negotiation support, close sequencing</td><td>Sales OS, Growth Engine</td></tr>
-      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Brand Identity</td><td>Ensures all outputs are on-brand  -  tone, visual, language</td><td>All digital workers + Streams</td></tr>
-      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Dictionary</td><td>Common language  -  enforces precise, shared terminology</td><td>All agents, Advisors, Personas</td></tr>
-      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Taxonomy</td><td>Consistent entity classification across all Mini-OS domains</td><td>All Mini-OS + Unified Data</td></tr>
-      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Job Roles</td><td>Authority, accountability, and escalation path definitions</td><td>All Personas + Domain Orchestrator/Operator Workforce</td></tr>
-    </tbody>
-  </table>
+  <div class="sec-head"><span class="sec-label">Design Rationale</span><div class="sec-head-line"></div></div>
+  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
+    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
+      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
+    </div>
+  </div>
+  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Intent -> Personas</div><div class="remember-v">Intent defines role posture, decision rights, and accountability by persona.</div></div>
+      <div class="remember-card"><div class="remember-k">Intent -> Advisors</div><div class="remember-v">Intent sets when specialist guidance is invoked and what policy boundaries apply.</div></div>
+      <div class="remember-card"><div class="remember-k">Intent -> Skills</div><div class="remember-v">Intent enforces shared language, methods, and guardrails in reusable execution skills.</div></div>
+      <div class="remember-card"><div class="remember-k">RTBoss Alignment</div><div class="remember-v">This is how intent works through RTBoss: Personas, Advisors, Skills.</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Future-State Model</span><div class="sec-head-line"></div></div>
+  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
+    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
+      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
+    </div>
+  </div>
+  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Identity -> Uses Identities</div><div class="remember-v">Every Mini-OS and Value Engine is built on Personas, Advisors, and Skills.</div></div>
+      <div class="remember-card"><div class="remember-k">Intent -> Follows Intent</div><div class="remember-v">Each System, Genie, and Stream inherits policy, risk, and role boundaries from identities.</div></div>
+      <div class="remember-card"><div class="remember-k">Domains -> Same Rules Everywhere</div><div class="remember-v">The same intent logic applies across domains, so execution stays predictable and auditable.</div></div>
+      <div class="remember-card"><div class="remember-k">Agentic Factory Alignment</div><div class="remember-v">RTBoss produces an intent-correct Agentic Factory by default, not by manual exception.</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Execution in Chain</span><div class="sec-head-line"></div></div>
+  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
+    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
+      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
+    </div>
+  </div>
+  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Build Identities</div><div class="remember-v">Define Personas, Advisors, and Skills first.</div></div>
+      <div class="remember-card"><div class="remember-k">Build Systems/Genies/Streams</div><div class="remember-v">Create the agentic tools that complete the work.</div></div>
+      <div class="remember-card"><div class="remember-k">Identities Are Constant Reference</div><div class="remember-v">The work always references identities while it runs.</div></div>
+      <div class="remember-card"><div class="remember-k">Intent-Driven Agentic Factory</div><div class="remember-v">The outcome is an intent-driven Agentic Factory by default.</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Tiny Habits</span><div class="sec-head-line"></div></div>
+  <div class="remember-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Think Intent</div></div>
+      <div class="remember-card"><div class="remember-k">Lead with Facts</div></div>
+      <div class="remember-card"><div class="remember-k">Build Skills</div></div>
+      <div class="remember-card"><div class="remember-k">Keep Identities Up to Date</div></div>
+      <div class="remember-card"><div class="remember-k">Apply Lessons Learned</div></div>
+      <div class="remember-card"><div class="remember-k">Capture Everything</div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Control Dictionary</span><div class="sec-head-line"></div></div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:1.2rem;">
+        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Persona</h4>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">Role identity that defines decision rights, accountability, and the view of work.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Intent set -> Persona loaded -> Role-safe decisions and outputs</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
+        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
+          <li>CEO persona (strategic decisions)</li>
+          <li>CFO persona (financial controls)</li>
+          <li>Ops Manager persona (daily queue control)</li>
+        </ul>
+        <div class="tag-row" style="margin-top:.65rem;"><span class="tag blue">Decision rights</span><span class="tag blue">Accountability</span></div>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:1.2rem;">
+        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Advisor</h4>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">Specialist identity that provides policy, legal, quality, or risk guidance when invoked.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Boundary detected -> Advisor invoked -> Guidance applied -> Trace logged</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
+        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
+          <li>Legal Advisor for contract exception</li>
+          <li>Compliance Advisor for policy check</li>
+          <li>ISO 9001 Advisor for quality evidence</li>
+        </ul>
+        <div class="tag-row" style="margin-top:.65rem;"><span class="tag amber">Specialist</span><span class="tag amber">Boundary check</span></div>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 10px 10px 0;padding:1.2rem;">
+        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Skill</h4>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">Reusable execution memory that enforces language, structure, and method consistency.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Task starts -> Skill pack applied -> Standardized output produced</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
+        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
+          <li>Dictionary skill for term consistency</li>
+          <li>Taxonomy skill for entity structure</li>
+          <li>Brand skill for approved voice</li>
+        </ul>
+        <div class="tag-row" style="margin-top:.65rem;"><span class="tag pink">Reusable</span><span class="tag pink">Standardized</span></div>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:1.2rem;">
+        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Prompt</h4>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">The requested task and expected output.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Request captured -> Output target defined -> Work initiated</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
+        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
+          <li>Classify this incoming issue</li>
+          <li>Draft a compliant response</li>
+          <li>Prepare closure summary</li>
+        </ul>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:0 10px 10px 0;padding:1.2rem;">
+        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Context</h4>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">The facts, role state, policy state, and operating conditions for execution.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Facts loaded -> Role context applied -> Boundary checks run</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
+        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
+          <li>Open facts and current priority</li>
+          <li>Role authority and escalation path</li>
+          <li>Applicable risk policy set</li>
+        </ul>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 10px 10px 0;padding:1.2rem;">
+        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Intent</h4>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">The reason for the work and the non-negotiable boundaries around how it is done.</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
+        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Intent loaded -> Personas/Advisors/Skills enforced -> Outcome validated</p>
+        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
+        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
+          <li>Protect compliance and legal boundaries</li>
+          <li>Preserve brand and communication tone</li>
+          <li>Escalate above approved risk threshold</li>
+        </ul>
+        <div class="tag-row" style="margin-top:.65rem;"><span class="tag pink">Why</span><span class="tag pink">Boundaries</span></div>
+      </div>
+    </div>
+  </div>
 </div></div>
 
 <!-- -- TAB 07  -  FLOW OF WORK -- -->
@@ -3251,8 +3380,6 @@ function openMOS(idx) {
 </script>
 </body>
 </html>
-
-
 
 
 
