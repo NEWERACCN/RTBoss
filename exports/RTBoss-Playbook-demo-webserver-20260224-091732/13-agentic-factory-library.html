@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss – Agentic Factory Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;
+  --red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--pink:#f48fb1;
+  --qms:#b388ff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+
+/* -- NAV -- */
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:#00e676 !important;}
+
+/* -- TABS -- */
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
+.panel{display:none;}
+.panel.active{display:block;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
+
+/* -- PAGE HEADER -- */
+.ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
+.ph-sub{font-size:1rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
+
+/* -- CALLOUT -- */
+.callout{background:var(--s1);border:1px solid var(--border);border-left:3px solid var(--cc,var(--amber));border-radius:8px;padding:1rem 1.25rem;display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem;}
+.callout-icon{font-size:1.1rem;flex-shrink:0;margin-top:.1rem;}
+.callout-body{font-size:0.82rem;color:var(--mid);line-height:1.7;}
+.callout-body strong{color:var(--text);}
+.callout-body code{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--amber);background:rgba(255,202,40,.07);padding:.1rem .35rem;border-radius:3px;}
+
+/* -- STORE ROW -- */
+.store-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;}
+.store-badge{font-family:'Fira Code',monospace;font-size:0.65rem;padding:.3rem .75rem;border-radius:4px;border:1px solid var(--border);color:var(--mid);}
+.sb-dv{background:rgba(29,233,182,.05);color:var(--teal);border-color:rgba(29,233,182,.2);}
+.sb-gh{background:rgba(179,136,255,.05);color:var(--violet);border-color:rgba(179,136,255,.2);}
+.sb-cs{background:rgba(64,196,255,.05);color:var(--blue);border-color:rgba(64,196,255,.2);}
+.sb-pa{background:rgba(255,145,0,.05);color:var(--orange);border-color:rgba(255,145,0,.2);}
+
+/* -- SECTION HEADER -- */
+.sec-head{display:flex;align-items:center;gap:1rem;margin:2rem 0 1rem;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:var(--border);}
+
+/* -- ENT SCHEMA CARD -- */
+.ent-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:2rem;}
+.ent-card-head{padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.75rem;}
+.ent-card-id{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--teal);font-weight:600;}
+.ent-card-name{font-size:1rem;font-weight:700;}
+.ent-card-desc{font-size:.78rem;color:var(--mid);margin-top:.2rem;}
+.ent-fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0;border-top:1px solid var(--border);}
+.ent-field{padding:.7rem 1.1rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.ent-field:nth-child(even){border-right:none;}
+@media(max-width:600px){.ent-fields{grid-template-columns:1fr;}.ent-field{border-right:none;}}
+.ent-field-name{font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);margin-bottom:.2rem;}
+.ent-field-type{font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);margin-bottom:.25rem;}
+.ent-field-desc{font-size:.72rem;color:var(--mid);line-height:1.55;}
+
+/* -- AUTO-POST SCHEMA -- */
+.schema-block{background:var(--s2);border-radius:8px;padding:1rem 1.25rem;font-family:'Fira Code',monospace;font-size:.7rem;color:var(--mid);line-height:2;overflow-x:auto;}
+.schema-block .k{color:var(--teal);}
+.schema-block .v{color:var(--amber);}
+.schema-block .c{color:var(--dim);}
+
+/* -- TYPE GROUP HEADER -- */
+.type-group{margin-bottom:2.5rem;}
+.type-group-header{display:flex;align-items:center;gap:1rem;padding:.85rem 1.25rem;border-radius:10px;border:1px solid var(--border);margin-bottom:1rem;}
+.type-group-badge{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;padding:.3rem .7rem;border-radius:5px;flex-shrink:0;}
+.type-group-title{font-size:.95rem;font-weight:700;}
+.type-group-sub{font-size:.76rem;color:var(--mid);margin-top:.1rem;}
+.type-group-count{margin-left:auto;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);}
+
+/* -- REGISTRY TABLE -- */
+.reg-table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border);}
+.reg-table{width:100%;border-collapse:collapse;font-size:.76rem;}
+.reg-table thead tr{background:var(--s2);border-bottom:1px solid var(--border);}
+.reg-table th{padding:.65rem .9rem;text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;font-weight:500;}
+.reg-table tbody tr{border-bottom:1px solid var(--border);transition:background .15s;}
+.reg-table tbody tr:last-child{border-bottom:none;}
+.reg-table tbody tr:hover{background:var(--s1);}
+.reg-table td{padding:.65rem .9rem;vertical-align:top;color:var(--mid);}
+.reg-table td.dw-id{font-family:'Fira Code',monospace;font-size:.68rem;font-weight:600;white-space:nowrap;}
+.reg-table td.dw-name{color:var(--text);font-weight:600;}
+.reg-table td.mono{font-family:'Fira Code',monospace;font-size:.66rem;}
+.reg-table td.notes-cell{font-size:.72rem;color:var(--dim);max-width:220px;}
+
+/* -- STATUS BADGES -- */
+.st{display:inline-flex;align-items:center;gap:.3rem;font-family:'Fira Code',monospace;font-size:.6rem;font-weight:700;padding:.2rem .55rem;border-radius:4px;white-space:nowrap;}
+.st-planned{background:rgba(96,120,144,.1);color:var(--dim);border:1px solid rgba(96,120,144,.3);}
+.st-building{background:rgba(255,202,40,.08);color:var(--amber);border:1px solid rgba(255,202,40,.25);}
+.st-deployed{background:rgba(64,196,255,.08);color:var(--blue);border:1px solid rgba(64,196,255,.25);}
+.st-proven{background:rgba(0,230,118,.08);color:var(--green);border:1px solid rgba(0,230,118,.25);}
+
+/* -- CLIENT TAGS -- */
+.client-tags{display:flex;flex-wrap:wrap;gap:.25rem;}
+.ctag{font-family:'Fira Code',monospace;font-size:.6rem;padding:.15rem .45rem;border-radius:3px;border:1px solid var(--border);color:var(--mid);}
+.ctag.live{border-color:rgba(0,230,118,.25);color:var(--green);}
+.ctag.building{border-color:rgba(255,202,40,.25);color:var(--amber);}
+
+/* -- RUNTIME TAG -- */
+.rt{font-family:'Fira Code',monospace;font-size:.6rem;padding:.15rem .45rem;border-radius:3px;white-space:nowrap;}
+.rt-cs{background:rgba(64,196,255,.06);color:var(--blue);border:1px solid rgba(64,196,255,.2);}
+.rt-pa{background:rgba(255,145,0,.06);color:var(--orange);border:1px solid rgba(255,145,0,.2);}
+.rt-az{background:rgba(179,136,255,.06);color:var(--violet);border:1px solid rgba(179,136,255,.2);}
+.rt-gh{background:rgba(29,233,182,.06);color:var(--teal);border:1px solid rgba(29,233,182,.2);}
+.rt-man{background:rgba(96,120,144,.06);color:var(--dim);border:1px solid rgba(96,120,144,.2);}
+
+/* -- FILTER BAR -- */
+.filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center;}
+.filter-label{font-family:'Fira Code',monospace;font-size:.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;}
+.filter-btn{font-family:'Fira Code',monospace;font-size:.62rem;padding:.25rem .65rem;border-radius:4px;border:1px solid var(--border);color:var(--dim);background:transparent;cursor:pointer;transition:all .15s;}
+.filter-btn:hover{color:var(--mid);border-color:var(--mid);}
+.filter-btn.active{color:var(--amber);border-color:var(--amber);background:rgba(255,202,40,.06);}
+.filter-search{font-family:'Fira Code',monospace;font-size:.7rem;padding:.3rem .75rem;border-radius:4px;border:1px solid var(--border);color:var(--text);background:var(--s2);outline:none;width:220px;margin-left:auto;}
+.filter-search::placeholder{color:var(--dim);}
+.filter-search:focus{border-color:var(--amber);}
+
+/* -- EMPTY ROW -- */
+.reg-empty-row td{color:var(--dim);font-style:italic;font-size:.72rem;text-align:center;padding:1.5rem;}
+
+/* -- GITHUB PATH -- */
+.gh-path{font-family:'Fira Code',monospace;font-size:.62rem;color:var(--violet);word-break:break-all;}
+
+</style>
+</head>
+<body>
+
+<div class="nav-header">
+  <div class="nav-title">Section 13 &middot; Agentic Factory Library</div>
+  <a href="index.html" class="nav-back">Back to Hub</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 &middot; Overview</div>
+  <div class="tab" onclick="showTab(1)">02 &middot; Registry</div>
+  <div class="tab" onclick="showTab(2)">03 &middot; Deployment Map</div>
+</div>
+
+<!-- ------------------------------------------
+     TAB 0 · OVERVIEW
+------------------------------------------ -->
+<div class="panel active" id="tab-0"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Canonical Deployment Registry</div>
+    <h1 class="ph-title">Agentic Factory Library</h1>
+    <p class="ph-sub">The single source of truth for every Digital Worker across the RTBoss platform. Genies, Streams, Skills, Advisors, Flows, Code modules, and composite Digital Workers are all registered here. Agents post to this registry automatically on first successful deployment — a human confirms to promote status to <strong>deployed</strong>.</p>
+  </div>
+
+  <div class="store-row">
+    <span class="store-badge sb-dv">??? Dataverse · ENT-004 Digital Worker Registry — master record store</span>
+    <span class="store-badge sb-gh">?? GitHub · neit-rtboss — system prompts, configs, skill definitions</span>
+    <span class="store-badge sb-cs">?? Copilot Studio — Genie + Advisor runtime</span>
+    <span class="store-badge sb-pa">? Power Automate — Stream + Flow runtime</span>
+  </div>
+
+  <div class="callout" style="--cc:var(--teal);">
+    <div class="callout-icon">???</div>
+    <div class="callout-body"><strong>One master database.</strong> Every Digital Worker type — regardless of what it is or where it runs — has a single record in Dataverse <code>ENT-004</code>. The <code>dw_type</code> field distinguishes what it is. The <code>runtime</code> field says where it runs. GitHub stores the source. Copilot Studio or Power Automate is the execution environment. Dataverse is the registry. Nothing is deployed without a registry record.</div>
+  </div>
+
+  <div class="callout" style="--cc:var(--amber);">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Auto-post on publish.</strong> When a Digital Worker completes its first successful run, it writes a draft record to <code>ENT-004</code> with status <code>building</code>. A Tech Lead or CSM reviews and promotes to <code>deployed</code>. Status advances to <code>proven</code> after 30 days of successful operation across at least one client. No manual data entry required — the agent registers itself.</div>
+  </div>
+
+  <!-- ENTITY SCHEMA -->
+  <div class="sec-head"><div class="sec-label">ENT-004 · Digital Worker Registry — Dataverse Schema</div><div class="sec-line"></div></div>
+
+  <div class="ent-card">
+    <div class="ent-card-head">
+      <div>
+        <div class="ent-card-id">ENT-004</div>
+        <div class="ent-card-name">Digital Worker Registry</div>
+        <div class="ent-card-desc">Master record for every deployed or planned Digital Worker. Written by agents on first run, confirmed by humans. The registry this page reads from.</div>
+      </div>
+    </div>
+    <div class="ent-fields">
+      <div class="ent-field">
+        <div class="ent-field-name">dw_id</div>
+        <div class="ent-field-type">Text · Primary Key · Auto-assigned</div>
+        <div class="ent-field-desc">Unique identifier. Prefix determines type: GNI-, STR-, SKL-, ADV-, FLW-, COD-, DWK-. Sequential within type e.g. GNI-001, GNI-002.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">dw_name</div>
+        <div class="ent-field-type">Text · Required</div>
+        <div class="ent-field-desc">Canonical name matching the definition in Section 09 &middot; Used as display label across all registry views.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">dw_type</div>
+        <div class="ent-field-type">Choice · Required</div>
+        <div class="ent-field-desc">Genie / Stream / Skill / Advisor / Flow / Code / Worker. Determines which group the record appears in on the Registry tab.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">dw_status</div>
+        <div class="ent-field-type">Choice · Required · Default: planned</div>
+        <div class="ent-field-desc">planned ? building ? deployed ? proven. Agent auto-sets to building on first run. Human promotes to deployed. System promotes to proven after 30 days.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">dw_version</div>
+        <div class="ent-field-type">Text · Required · Default: 1.0</div>
+        <div class="ent-field-desc">Semantic version of the current deployment. Bumped on any system prompt, config, or flow change. Matches GitHub tag.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">mini_os</div>
+        <div class="ent-field-type">Text · Required</div>
+        <div class="ent-field-desc">Owning Mini-OS e.g. Finance OS, HR OS, Strategy OS. Use "All" for cross-cutting workers. Matches Mini-OS definitions in Section 03 &middot; </div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">owning_system</div>
+        <div class="ent-field-type">Text · Optional</div>
+        <div class="ent-field-desc">The System within the Mini-OS that governs this worker e.g. AP System, Client Context System. Blank if cross-system.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">runtime</div>
+        <div class="ent-field-type">Choice · Required</div>
+        <div class="ent-field-desc">Where the worker executes: Copilot Studio / Power Automate / Azure Function / GitHub Actions / Manual. Determines which runtime reference fields are populated.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">github_repo</div>
+        <div class="ent-field-type">Text · Optional</div>
+        <div class="ent-field-desc">GitHub repository name e.g. neit-rtboss or client-specific repo. Source of truth for all configs and system prompts.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">github_path</div>
+        <div class="ent-field-type">Text · Optional</div>
+        <div class="ent-field-desc">Path within the repo to the worker's definition folder e.g. /genies/GNI-001-invoice-approval/ or /skills/SKL-001-pdf-extract/.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">cs_agent_name</div>
+        <div class="ent-field-type">Text · Optional</div>
+        <div class="ent-field-desc">Copilot Studio agent name if runtime = Copilot Studio. Used by other agents to invoke this worker via the Copilot Studio API.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">pa_flow_name</div>
+        <div class="ent-field-type">Text · Optional</div>
+        <div class="ent-field-desc">Power Automate flow display name if runtime = Power Automate. Streams and Flows populate this field.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">clients</div>
+        <div class="ent-field-type">Text · Multi-value · Optional</div>
+        <div class="ent-field-desc">Comma-separated client codes with deployment status e.g. EMS:deployed, RDM:building, RLAW:planned. Updated by the worker on each new client deployment.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">last_published</div>
+        <div class="ent-field-type">DateTime · Auto</div>
+        <div class="ent-field-desc">Timestamp of the last deployment event — version bump, new client deployment, or status change. Set by the agent, not by humans.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">published_by</div>
+        <div class="ent-field-type">Text · Auto</div>
+        <div class="ent-field-desc">ID of the agent or human who triggered the last status change. Format: agent ID (e.g. GNI-003) or Entra UPN for human confirmations.</div>
+      </div>
+      <div class="ent-field">
+        <div class="ent-field-name">notes</div>
+        <div class="ent-field-type">Text (Long) · Optional</div>
+        <div class="ent-field-desc">Free-text notes — known limitations, client-specific config overrides, deprecation notices, or links to related NCRs.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTO-POST SCHEMA -->
+  <div class="sec-head"><div class="sec-label">Auto-Post Payload — What an Agent Writes on First Successful Run</div><div class="sec-line"></div></div>
+
+  <div class="callout" style="--cc:var(--violet);">
+    <div class="callout-icon">??</div>
+    <div class="callout-body"><strong>Registration flow:</strong> On first successful completion, the agent invokes <code>SKL-015 d365_write</code> with the payload below. Status is set to <code>building</code>. A notification fires to PRS-006 (Tech Lead) via <code>SKL-011</code>. Tech Lead reviews and updates status to <code>deployed</code> via the confirmation UI. After 30 days of clean operation, the system auto-promotes to <code>proven</code>.</div>
+  </div>
+
+  <div class="schema-block">
+<span class="c">// Auto-post payload written by agent on first successful run</span>
+{
+  <span class="k">"entity"</span>: <span class="v">"ENT-004_DigitalWorkerRegistry"</span>,
+  <span class="k">"action"</span>: <span class="v">"create_draft"</span>,
+  <span class="k">"payload"</span>: {
+    <span class="k">"dw_id"</span>:          <span class="v">"{{auto_assigned}}"</span>,            <span class="c">// assigned by Dataverse on create</span>
+    <span class="k">"dw_name"</span>:        <span class="v">"{{canonical_name}}"</span>,           <span class="c">// from system prompt header</span>
+    <span class="k">"dw_type"</span>:        <span class="v">"{{Genie|Stream|Skill|...}}"</span>,   <span class="c">// declared in config</span>
+    <span class="k">"dw_status"</span>:      <span class="v">"building"</span>,                    <span class="c">// always building on auto-post</span>
+    <span class="k">"dw_version"</span>:     <span class="v">"{{version_from_github_tag}}"</span>,  <span class="c">// e.g. "1.0"</span>
+    <span class="k">"mini_os"</span>:        <span class="v">"{{owning_mini_os}}"</span>,           <span class="c">// declared in config</span>
+    <span class="k">"owning_system"</span>:  <span class="v">"{{owning_system}}"</span>,            <span class="c">// declared in config</span>
+    <span class="k">"runtime"</span>:        <span class="v">"{{runtime_environment}}"</span>,      <span class="c">// Copilot Studio | Power Automate | etc</span>
+    <span class="k">"github_repo"</span>:    <span class="v">"{{repo_name}}"</span>,                <span class="c">// from deployment config</span>
+    <span class="k">"github_path"</span>:    <span class="v">"{{repo_path}}"</span>,                <span class="c">// from deployment config</span>
+    <span class="k">"cs_agent_name"</span>:  <span class="v">"{{cs_agent_name|null}}"</span>,       <span class="c">// null if not Copilot Studio</span>
+    <span class="k">"pa_flow_name"</span>:   <span class="v">"{{pa_flow_name|null}}"</span>,        <span class="c">// null if not Power Automate</span>
+    <span class="k">"clients"</span>:        <span class="v">"{{client_id}}:building"</span>,       <span class="c">// first client, status building</span>
+    <span class="k">"last_published"</span>: <span class="v">"{{utc_timestamp}}"</span>,            <span class="c">// auto</span>
+    <span class="k">"published_by"</span>:   <span class="v">"{{self_dw_id}}"</span>,               <span class="c">// the agent registering itself</span>
+    <span class="k">"notes"</span>:          <span class="v">"Auto-registered on first run. Awaiting Tech Lead confirmation."</span>
+  },
+  <span class="k">"notify"</span>: {
+    <span class="k">"persona"</span>: <span class="v">"PRS-006"</span>,
+    <span class="k">"channel"</span>: <span class="v">"teams"</span>,
+    <span class="k">"message"</span>: <span class="v">"New Digital Worker registered — {{dw_name}}. Review and confirm deployment status."</span>
+  }
+}
+  </div>
+
+  <!-- ID PREFIX TABLE -->
+  <div class="sec-head"><div class="sec-label">ID Prefix Reference</div><div class="sec-line"></div></div>
+  <div style="overflow-x:auto;border-radius:8px;border:1px solid var(--border);margin-bottom:2rem;">
+    <table style="width:100%;border-collapse:collapse;font-size:.78rem;">
+      <thead>
+        <tr style="background:var(--s2);border-bottom:1px solid var(--border);">
+          <th style="padding:.65rem 1rem;text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;">Prefix</th>
+          <th style="padding:.65rem 1rem;text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;">Type</th>
+          <th style="padding:.65rem 1rem;text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;">Runtime</th>
+          <th style="padding:.65rem 1rem;text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:.6rem 1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--blue);font-weight:700;">GNI-</td><td style="padding:.6rem 1rem;color:var(--mid);">Genie</td><td style="padding:.6rem 1rem;"><span class="rt rt-cs">Copilot Studio</span></td><td style="padding:.6rem 1rem;font-size:.74rem;color:var(--dim);">Conversational AI agent with a role, mandate, and system prompt. Invokes Skills to complete work.</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:.6rem 1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--orange);font-weight:700;">STR-</td><td style="padding:.6rem 1rem;color:var(--mid);">Stream</td><td style="padding:.6rem 1rem;"><span class="rt rt-pa">Power Automate</span></td><td style="padding:.6rem 1rem;font-size:.74rem;color:var(--dim);">Orchestrated multi-Genie workflow. End-to-end business process automation with defined trigger and output.</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:.6rem 1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--teal);font-weight:700;">SKL-</td><td style="padding:.6rem 1rem;color:var(--mid);">Skill</td><td style="padding:.6rem 1rem;"><span class="rt rt-cs">Copilot Studio</span></td><td style="padding:.6rem 1rem;font-size:.74rem;color:var(--dim);">Bounded capability module invoked by Genies. Single input ? single output. No persona or mandate.</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:.6rem 1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--violet);font-weight:700;">ADV-</td><td style="padding:.6rem 1rem;color:var(--mid);">Advisor</td><td style="padding:.6rem 1rem;"><span class="rt rt-cs">Copilot Studio</span></td><td style="padding:.6rem 1rem;font-size:.74rem;color:var(--dim);">Methodology lens consulted by Genies and Streams. Advise-only — never executes or writes data.</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:.6rem 1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--orange);font-weight:700;">FLW-</td><td style="padding:.6rem 1rem;color:var(--mid);">Flow</td><td style="padding:.6rem 1rem;"><span class="rt rt-pa">Power Automate</span></td><td style="padding:.6rem 1rem;font-size:.74rem;color:var(--dim);">Standalone Power Automate flow — not a Stream. Single-purpose automation, no Genie chain.</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:.6rem 1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--violet);font-weight:700;">COD-</td><td style="padding:.6rem 1rem;color:var(--mid);">Code</td><td style="padding:.6rem 1rem;"><span class="rt rt-az">Azure Function</span></td><td style="padding:.6rem 1rem;font-size:.74rem;color:var(--dim);">Azure Function, script, or custom connector. Custom logic that can't be handled by PA or Copilot Studio natively.</td></tr>
+        <tr><td style="padding:.6rem 1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--green);font-weight:700;">DWK-</td><td style="padding:.6rem 1rem;color:var(--mid);">Digital Worker</td><td style="padding:.6rem 1rem;"><span class="rt rt-cs">Copilot Studio</span> <span class="rt rt-pa" style="margin-left:.25rem;">Power Automate</span></td><td style="padding:.6rem 1rem;font-size:.74rem;color:var(--dim);">Full composite Digital Worker — a named, configured bundle of Genies + Streams + Skills operating as a unit for a specific role.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div></div>
+
+<!-- ------------------------------------------
+     TAB 1 · REGISTRY
+------------------------------------------ -->
+<div class="panel" id="tab-1"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Master Digital Worker Registry</div>
+    <h1 class="ph-title">Registry</h1>
+    <p class="ph-sub">Every Digital Worker registered in Dataverse ENT-004. Grouped by type. Rows are written by agents on first deployment and confirmed by a Tech Lead. Filter by status or search by name or ID.</p>
+  </div>
+
+  <div class="store-row">
+    <span class="store-badge sb-dv">??? Source: Dataverse ENT-004 · Digital Worker Registry</span>
+    <span class="store-badge" style="color:var(--green);border-color:rgba(0,230,118,.2);background:rgba(0,230,118,.04);">? proven — 30+ days clean operation</span>
+    <span class="store-badge sb-cs">? deployed — confirmed by Tech Lead</span>
+    <span class="store-badge" style="color:var(--amber);border-color:rgba(255,202,40,.2);background:rgba(255,202,40,.04);">? building — auto-posted, awaiting confirmation</span>
+    <span class="store-badge" style="color:var(--dim);border-color:rgba(96,120,144,.2);background:rgba(96,120,144,.04);">? planned — defined, not yet built</span>
+  </div>
+
+  <!-- GLOBAL FILTER -->
+  <div class="filter-bar">
+    <span class="filter-label">Status:</span>
+    <button class="filter-btn active" onclick="filterStatus('all',this)">All</button>
+    <button class="filter-btn" onclick="filterStatus('planned',this)">Planned</button>
+    <button class="filter-btn" onclick="filterStatus('building',this)">Building</button>
+    <button class="filter-btn" onclick="filterStatus('deployed',this)">Deployed</button>
+    <button class="filter-btn" onclick="filterStatus('proven',this)">Proven</button>
+    <input class="filter-search" type="text" placeholder="Search ID or name..." oninput="searchRegistry(this.value)">
+  </div>
+
+  <!-- -- GENIES -- -->
+  <div class="type-group" data-group="genies">
+    <div class="type-group-header" style="background:rgba(64,196,255,.03);border-color:rgba(64,196,255,.15);">
+      <span class="type-group-badge" style="background:rgba(64,196,255,.1);color:var(--blue);border:1px solid rgba(64,196,255,.2);">GNI</span>
+      <div>
+        <div class="type-group-title" style="color:var(--blue);">Genies</div>
+        <div class="type-group-sub">Conversational AI agents · Runtime: Copilot Studio</div>
+      </div>
+      <span class="type-group-count" id="count-gni">— records</span>
+    </div>
+    <div class="reg-table-wrap">
+      <table class="reg-table" id="tbl-gni">
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Status</th><th>Ver</th><th>Mini-OS</th><th>System</th><th>Runtime</th><th>GitHub Path</th><th>CS Agent</th><th>Clients</th><th>Last Published</th><th>Published By</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="dw-row" data-status="planned" data-id="GNI-001" data-name="Invoice Approval Genie">
+            <td class="dw-id" style="color:var(--blue);">GNI-001</td>
+            <td class="dw-name">Invoice Approval Genie</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Finance OS</td>
+            <td class="mono">AP System</td>
+            <td><span class="rt rt-cs">Copilot Studio</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">EMS</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Defined in QMS Bootstrap Spec.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="GNI-002" data-name="QMS Bootstrap Genie">
+            <td class="dw-id" style="color:var(--blue);">GNI-002</td>
+            <td class="dw-name">QMS Bootstrap Genie</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Strategy OS</td>
+            <td class="mono">Client Context System</td>
+            <td><span class="rt rt-cs">Copilot Studio</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">All</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Stage 1 bootstrap agent. System prompt in Tab 08 of Section 09 &middot; </td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="GNI-003" data-name="Persona Mapping Genie">
+            <td class="dw-id" style="color:var(--blue);">GNI-003</td>
+            <td class="dw-name">Persona Mapping Genie</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Strategy OS</td>
+            <td class="mono">Client Context System</td>
+            <td><span class="rt rt-cs">Copilot Studio</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">All</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Maps contacts to PRS-xxx at bootstrap.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="GNI-004" data-name="Template Population Genie">
+            <td class="dw-id" style="color:var(--blue);">GNI-004</td>
+            <td class="dw-name">Template Population Genie</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Productivity OS</td>
+            <td class="mono">Template &amp; Skills System</td>
+            <td><span class="rt rt-cs">Copilot Studio</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">All</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Populates [[AUTO]] fields. Never touches [[REVIEW]].</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="GNI-005" data-name="Skills Loader Genie">
+            <td class="dw-id" style="color:var(--blue);">GNI-005</td>
+            <td class="dw-name">Skills Loader Genie</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Productivity OS</td>
+            <td class="mono">Template &amp; Skills System</td>
+            <td><span class="rt rt-cs">Copilot Studio</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">All</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Assembles available_skills[] at bootstrap from 19-skill catalogue.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -- STREAMS -- -->
+  <div class="type-group" data-group="streams">
+    <div class="type-group-header" style="background:rgba(255,145,0,.03);border-color:rgba(255,145,0,.15);">
+      <span class="type-group-badge" style="background:rgba(255,145,0,.1);color:var(--orange);border:1px solid rgba(255,145,0,.2);">STR</span>
+      <div>
+        <div class="type-group-title" style="color:var(--orange);">Streams</div>
+        <div class="type-group-sub">Orchestrated multi-Genie workflows · Runtime: Power Automate</div>
+      </div>
+      <span class="type-group-count" id="count-str">— records</span>
+    </div>
+    <div class="reg-table-wrap">
+      <table class="reg-table" id="tbl-str">
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Status</th><th>Ver</th><th>Mini-OS</th><th>System</th><th>Runtime</th><th>GitHub Path</th><th>PA Flow</th><th>Clients</th><th>Last Published</th><th>Published By</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="dw-row" data-status="planned" data-id="STR-001" data-name="Client Onboarding Stream">
+            <td class="dw-id" style="color:var(--orange);">STR-001</td>
+            <td class="dw-name">Client Onboarding Stream</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Strategy OS</td>
+            <td class="mono">Client Context System</td>
+            <td><span class="rt rt-pa">Power Automate</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">All</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Triggers QMS Bootstrap Genie ? Persona Mapping ? context_ready.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="STR-002" data-name="Document Generation Stream">
+            <td class="dw-id" style="color:var(--orange);">STR-002</td>
+            <td class="dw-name">Document Generation Stream</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Productivity OS</td>
+            <td class="mono">Template &amp; Skills System</td>
+            <td><span class="rt rt-pa">Power Automate</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">All</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">9-step flow: trigger ? validate ? retrieve ? populate ? review ? approve ? version lock ? SharePoint ? QSToolbox.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="STR-003" data-name="Payment Run Stream">
+            <td class="dw-id" style="color:var(--orange);">STR-003</td>
+            <td class="dw-name">Payment Run Stream</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Finance OS</td>
+            <td class="mono">AP System</td>
+            <td><span class="rt rt-pa">Power Automate</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">EMS</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Consults ADV-001 (Profit First) before bc_write. Double approval above threshold.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="STR-004" data-name="Month-End Stream">
+            <td class="dw-id" style="color:var(--orange);">STR-004</td>
+            <td class="dw-name">Month-End Stream</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">Finance OS</td>
+            <td class="mono">AP System</td>
+            <td><span class="rt rt-pa">Power Automate</span></td>
+            <td class="gh-path">—</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">EMS</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">Runs last business day of month. Generates management accounts.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="STR-005" data-name="MIP Baseline Intake Stream">
+            <td class="dw-id" style="color:var(--orange);">STR-005</td>
+            <td class="dw-name">MIP Baseline Intake Stream</td>
+            <td><span class="st st-planned">? planned</span></td>
+            <td class="mono">—</td>
+            <td class="mono">MIP</td>
+            <td class="mono">MIP Growth</td>
+            <td><span class="rt rt-pa">Power Automate</span></td>
+            <td class="gh-path">/streams/STR-005-mip-baseline-intake/</td>
+            <td class="mono">—</td>
+            <td><div class="client-tags"><span class="ctag">All</span></div></td>
+            <td class="mono">—</td>
+            <td class="mono">—</td>
+            <td class="notes-cell">No-AI fact capture stream for Microsoft, website, domain, network, Wi-Fi, ISP, and cameras. Auto-registers to ENT-004 on first successful run.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -- SKILLS -- -->
+  <div class="type-group" data-group="skills">
+    <div class="type-group-header" style="background:rgba(29,233,182,.03);border-color:rgba(29,233,182,.15);">
+      <span class="type-group-badge" style="background:rgba(29,233,182,.1);color:var(--teal);border:1px solid rgba(29,233,182,.2);">SKL</span>
+      <div>
+        <div class="type-group-title" style="color:var(--teal);">Skills</div>
+        <div class="type-group-sub">Bounded capability modules · Runtime: Copilot Studio actions</div>
+      </div>
+      <span class="type-group-count" id="count-skl">— records</span>
+    </div>
+    <div class="reg-table-wrap">
+      <table class="reg-table" id="tbl-skl">
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Status</th><th>Ver</th><th>Mini-OS</th><th>Risk</th><th>Runtime</th><th>GitHub Path</th><th>Clients</th><th>Last Published</th><th>Published By</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="dw-row" data-status="planned" data-id="SKL-001" data-name="pdf_extract">
+            <td class="dw-id" style="color:var(--teal);">SKL-001</td><td class="dw-name">pdf_extract</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Azure AI Document Intelligence.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-002" data-name="excel_parse">
+            <td class="dw-id" style="color:var(--teal);">SKL-002</td><td class="dw-name">excel_parse</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Finance OS · Ops OS</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">—</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-003" data-name="email_draft">
+            <td class="dw-id" style="color:var(--teal);">SKL-003</td><td class="dw-name">email_draft</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(255,202,40,.06);color:var(--amber);border:1px solid rgba(255,202,40,.2);font-size:.58rem;">MED</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Always [[REVIEW]] before send.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-004" data-name="report_gen">
+            <td class="dw-id" style="color:var(--teal);">SKL-004</td><td class="dw-name">report_gen</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(255,202,40,.06);color:var(--amber);border:1px solid rgba(255,202,40,.2);font-size:.58rem;">MED</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">—</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-005" data-name="web_search">
+            <td class="dw-id" style="color:var(--teal);">SKL-005</td><td class="dw-name">web_search</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Strategy OS · Sales OS</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Rate-limited per client per day.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-006" data-name="data_format">
+            <td class="dw-id" style="color:var(--teal);">SKL-006</td><td class="dw-name">data_format</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">—</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-007" data-name="document_summarise">
+            <td class="dw-id" style="color:var(--teal);">SKL-007</td><td class="dw-name">document_summarise</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Output shaped to persona_id.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-008" data-name="table_extract">
+            <td class="dw-id" style="color:var(--teal);">SKL-008</td><td class="dw-name">table_extract</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Finance OS · Services OS</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">—</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-009" data-name="image_ocr">
+            <td class="dw-id" style="color:var(--teal);">SKL-009</td><td class="dw-name">image_ocr</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Finance OS · HR OS</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Azure Cognitive Services.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-010" data-name="approval_workflow">
+            <td class="dw-id" style="color:var(--teal);">SKL-010</td><td class="dw-name">approval_workflow</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(255,202,40,.06);color:var(--amber);border:1px solid rgba(255,202,40,.2);font-size:.58rem;">MED</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Gate skill. Required before all write skills. Token expires 1hr.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-011" data-name="notification_send">
+            <td class="dw-id" style="color:var(--teal);">SKL-011</td><td class="dw-name">notification_send</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(255,202,40,.06);color:var(--amber);border:1px solid rgba(255,202,40,.2);font-size:.58rem;">MED</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">—</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-012" data-name="bc_read">
+            <td class="dw-id" style="color:var(--teal);">SKL-012</td><td class="dw-name">bc_read</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Finance OS</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">EMS</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">BC connector. Read-only.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-013" data-name="bc_write">
+            <td class="dw-id" style="color:var(--teal);">SKL-013</td><td class="dw-name">bc_write</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Finance OS</td><td><span class="st" style="background:rgba(255,82,82,.06);color:#ff5252;border:1px solid rgba(255,82,82,.2);font-size:.58rem;">HIGH</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">EMS</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Double sign-off for payment_run above threshold.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-014" data-name="d365_read">
+            <td class="dw-id" style="color:var(--teal);">SKL-014</td><td class="dw-name">d365_read</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Sales OS · HR OS</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">—</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-015" data-name="d365_write">
+            <td class="dw-id" style="color:var(--teal);">SKL-015</td><td class="dw-name">d365_write</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">Sales OS · HR OS</td><td><span class="st" style="background:rgba(255,82,82,.06);color:#ff5252;border:1px solid rgba(255,82,82,.2);font-size:.58rem;">HIGH</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Snapshots prior_state{} before write.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-016" data-name="sharepoint_read">
+            <td class="dw-id" style="color:var(--teal);">SKL-016</td><td class="dw-name">sharepoint_read</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(0,230,118,.06);color:var(--green);border:1px solid rgba(0,230,118,.2);font-size:.58rem;">LOW</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">—</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-017" data-name="sharepoint_write">
+            <td class="dw-id" style="color:var(--teal);">SKL-017</td><td class="dw-name">sharepoint_write</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(255,82,82,.06);color:#ff5252;border:1px solid rgba(255,82,82,.2);font-size:.58rem;">HIGH</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Always includes ISO doc control header.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-018" data-name="qstoolbox_ncr">
+            <td class="dw-id" style="color:var(--teal);">SKL-018</td><td class="dw-name">qstoolbox_ncr</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(255,82,82,.06);color:#ff5252;border:1px solid rgba(255,82,82,.2);font-size:.58rem;">HIGH</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Requires human confirmation. Never autonomous.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="SKL-019" data-name="qstoolbox_doc">
+            <td class="dw-id" style="color:var(--teal);">SKL-019</td><td class="dw-name">qstoolbox_doc</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">All</td><td><span class="st" style="background:rgba(255,82,82,.06);color:#ff5252;border:1px solid rgba(255,82,82,.2);font-size:.58rem;">HIGH</span></td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Final step in Document Generation Stream. SKL-017 must complete first.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -- ADVISORS -- -->
+  <div class="type-group" data-group="advisors">
+    <div class="type-group-header" style="background:rgba(179,136,255,.03);border-color:rgba(179,136,255,.15);">
+      <span class="type-group-badge" style="background:rgba(179,136,255,.1);color:var(--violet);border:1px solid rgba(179,136,255,.2);">ADV</span>
+      <div>
+        <div class="type-group-title" style="color:var(--violet);">Advisors</div>
+        <div class="type-group-sub">Methodology lenses · Runtime: Copilot Studio · advise_only</div>
+      </div>
+      <span class="type-group-count" id="count-adv">— records</span>
+    </div>
+    <div class="reg-table-wrap">
+      <table class="reg-table" id="tbl-adv">
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Status</th><th>Ver</th><th>Lens</th><th>KB Type</th><th>Runtime</th><th>GitHub Path</th><th>CS Agent</th><th>Clients</th><th>Last Published</th><th>Published By</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="dw-row" data-status="planned" data-id="ADV-001" data-name="Profit First Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-001</td><td class="dw-name">Profit First Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">profit_first</td><td class="mono">Local KB + BC live</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Core advisor. Always-on.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-002" data-name="LEAN Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-002</td><td class="dw-name">LEAN Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">lean_methodology</td><td class="mono">Local KB + Web</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Core advisor. Always-on.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-003" data-name="HR &amp; Employment Law Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-003</td><td class="dw-name">HR &amp; Employment Law Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">hr_employment_law_au</td><td class="mono">Local KB + Web</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Escalates when legal exposure identified.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-004" data-name="Legal &amp; Contracts Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-004</td><td class="dw-name">Legal &amp; Contracts Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">legal_contracts_au_qld</td><td class="mono">Local KB + Web</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">QLD jurisdiction. Escalates material risk.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-005" data-name="ISO &amp; Compliance Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-005</td><td class="dw-name">ISO &amp; Compliance Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">iso_9001_27001</td><td class="mono">Local KB + QSToolbox</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Compliance gatekeeper. NCR creation requires human confirmation.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-010" data-name="Healthcare Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-010</td><td class="dw-name">Healthcare Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">healthcare_au</td><td class="mono">Local KB + Web</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">EMS</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Industry conditional. Activated by Bootstrap Genie if industry = healthcare.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-011" data-name="Property Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-011</td><td class="dw-name">Property Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">property_mgmt_qld</td><td class="mono">Local KB + Web</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">RDM</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Industry conditional. Activated if industry = property.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-012" data-name="Legal Practice Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-012</td><td class="dw-name">Legal Practice Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">legal_practice_qld</td><td class="mono">Local KB + Web</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">RLAW</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Industry conditional. Activated if industry = legal.practice.</td>
+          </tr>
+          <tr class="dw-row" data-status="planned" data-id="ADV-013" data-name="RTBoss Tracking Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-013</td><td class="dw-name">RTBoss Tracking Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">execution_tracking</td><td class="mono">Local KB + ENT-004 + Fact Stream</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">/advisors/ADV-013-rtboss-tracking/</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Researches, critiques, and posts improvements/opportunities into Section 06 RTBoss Tracking.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -- FLOWS -- -->
+  <div class="type-group" data-group="flows">
+    <div class="type-group-header" style="background:rgba(255,145,0,.03);border-color:rgba(255,145,0,.12);">
+      <span class="type-group-badge" style="background:rgba(255,145,0,.08);color:var(--orange);border:1px solid rgba(255,145,0,.18);">FLW</span>
+      <div>
+        <div class="type-group-title" style="color:var(--orange);">Flows</div>
+        <div class="type-group-sub">Standalone Power Automate flows · Not part of a Stream</div>
+      </div>
+      <span class="type-group-count" id="count-flw">— records</span>
+    </div>
+    <div class="reg-table-wrap">
+      <table class="reg-table" id="tbl-flw">
+        <thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Ver</th><th>Mini-OS</th><th>System</th><th>Runtime</th><th>PA Flow Name</th><th>GitHub Path</th><th>Clients</th><th>Last Published</th><th>Published By</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="dw-row reg-empty-row"><td colspan="13">No Flows registered yet. Flows will auto-post on first successful run.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -- CODE -- -->
+  <div class="type-group" data-group="code">
+    <div class="type-group-header" style="background:rgba(179,136,255,.03);border-color:rgba(179,136,255,.12);">
+      <span class="type-group-badge" style="background:rgba(179,136,255,.08);color:var(--violet);border:1px solid rgba(179,136,255,.18);">COD</span>
+      <div>
+        <div class="type-group-title" style="color:var(--violet);">Code</div>
+        <div class="type-group-sub">Azure Functions, scripts, custom connectors · Runtime: Azure</div>
+      </div>
+      <span class="type-group-count" id="count-cod">— records</span>
+    </div>
+    <div class="reg-table-wrap">
+      <table class="reg-table" id="tbl-cod">
+        <thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Ver</th><th>Mini-OS</th><th>System</th><th>Runtime</th><th>GitHub Path</th><th>Clients</th><th>Last Published</th><th>Published By</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="dw-row reg-empty-row"><td colspan="12">No Code modules registered yet. Code modules will auto-post on first successful run.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -- DIGITAL WORKERS -- -->
+  <div class="type-group" data-group="workers">
+    <div class="type-group-header" style="background:rgba(0,230,118,.03);border-color:rgba(0,230,118,.15);">
+      <span class="type-group-badge" style="background:rgba(0,230,118,.08);color:var(--green);border:1px solid rgba(0,230,118,.2);">DWK</span>
+      <div>
+        <div class="type-group-title" style="color:var(--green);">Digital Workers</div>
+        <div class="type-group-sub">Composite worker units · Full Genie + Stream + Skill bundles configured for a role</div>
+      </div>
+      <span class="type-group-count" id="count-dwk">— records</span>
+    </div>
+    <div class="reg-table-wrap">
+      <table class="reg-table" id="tbl-dwk">
+        <thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Ver</th><th>Mini-OS</th><th>Runtime</th><th>GitHub Path</th><th>Components</th><th>Clients</th><th>Last Published</th><th>Published By</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="dw-row reg-empty-row"><td colspan="12">No Digital Workers registered yet. Digital Workers will auto-post on first successful deployment.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div></div>
+
+<!-- ------------------------------------------
+     TAB 2 · DEPLOYMENT MAP
+------------------------------------------ -->
+<div class="panel" id="tab-2"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Portfolio View</div>
+    <h1 class="ph-title">Deployment Map</h1>
+    <p class="ph-sub">Cross-client view of which Digital Workers are deployed where. Identifies proven reusable workers vs client-specific builds. Populated automatically from Dataverse ENT-004 as workers register.</p>
+  </div>
+
+  <div class="callout" style="--cc:var(--amber);">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>This view is populated by the registry.</strong> As Digital Workers auto-post to ENT-004 and Tech Leads confirm deployments, this matrix fills in automatically. The legend below shows what each status indicator means. Currently showing placeholder structure — will populate as workers are deployed.</div>
+  </div>
+
+  <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center;">
+    <span style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">Legend:</span>
+    <span class="st st-proven" style="font-size:.65rem;">? proven</span>
+    <span class="st st-deployed" style="font-size:.65rem;">? deployed</span>
+    <span class="st st-building" style="font-size:.65rem;">? building</span>
+    <span class="st st-planned" style="font-size:.65rem;">? planned</span>
+    <span style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);margin-left:.5rem;">— not applicable</span>
+  </div>
+
+  <div style="overflow-x:auto;border-radius:10px;border:1px solid var(--border);">
+    <table style="width:100%;border-collapse:collapse;font-size:.74rem;">
+      <thead>
+        <tr style="background:var(--s2);border-bottom:1px solid var(--border);">
+          <th style="padding:.7rem 1rem;text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;min-width:200px;">Digital Worker</th>
+          <th style="padding:.7rem 1rem;text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;">Type</th>
+          <th style="padding:.7rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;">EMS</th>
+          <th style="padding:.7rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;">RDM</th>
+          <th style="padding:.7rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--violet);text-transform:uppercase;letter-spacing:.08em;">RLAW</th>
+          <th style="padding:.7rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;">New Client</th>
+        </tr>
+      </thead>
+      <tbody id="deployment-map-body">
+        <tr style="border-bottom:1px solid var(--border);background:rgba(29,233,182,.02);">
+          <td style="padding:.6rem 1rem;font-weight:600;color:var(--text);">QMS Bootstrap Genie</td>
+          <td style="padding:.6rem 1rem;"><span class="rt rt-cs" style="font-size:.6rem;">GNI-002</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--green);">? reusable</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:.6rem 1rem;font-weight:600;color:var(--text);">Client Onboarding Stream</td>
+          <td style="padding:.6rem 1rem;"><span class="rt rt-pa" style="font-size:.6rem;">STR-001</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--green);">? reusable</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:.6rem 1rem;font-weight:600;color:var(--text);">Invoice Approval Genie</td>
+          <td style="padding:.6rem 1rem;"><span class="rt rt-cs" style="font-size:.6rem;">GNI-001</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);">? scope</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(29,233,182,.02);">
+          <td style="padding:.6rem 1rem;font-weight:600;color:var(--text);">Profit First Advisor</td>
+          <td style="padding:.6rem 1rem;"><span class="rt rt-cs" style="font-size:.6rem;">ADV-001</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--green);">? reusable</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:.6rem 1rem;font-weight:600;color:var(--text);">Healthcare Advisor</td>
+          <td style="padding:.6rem 1rem;"><span class="rt rt-cs" style="font-size:.6rem;">ADV-010</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);">? industry</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:.6rem 1rem;font-weight:600;color:var(--text);">Property Advisor</td>
+          <td style="padding:.6rem 1rem;"><span class="rt rt-cs" style="font-size:.6rem;">ADV-011</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);">? industry</td>
+        </tr>
+        <tr>
+          <td style="padding:.6rem 1rem;font-weight:600;color:var(--text);">Legal Practice Advisor</td>
+          <td style="padding:.6rem 1rem;"><span class="rt rt-cs" style="font-size:.6rem;">ADV-012</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">—</td>
+          <td style="padding:.6rem 1rem;text-align:center;"><span class="st st-planned" style="font-size:.6rem;">? planned</span></td>
+          <td style="padding:.6rem 1rem;text-align:center;font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);">? industry</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:1rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <span style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--green);">? reusable — deploys to any client without modification</span>
+    <span style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);">? scope — Finance/Sales/HR scope dependent</span>
+    <span style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);">? industry — activated by Bootstrap Genie based on client industry</span>
+    <span style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--dim);">— not applicable for this client</span>
+  </div>
+
+</div></div>
+
+<script>
+function showTab(n){
+  const tabs=document.querySelectorAll('.tab');
+  const panels=document.querySelectorAll('.panel');
+  tabs.forEach((t,i)=>{
+    if(i===n){t.classList.add('active');panels[i].classList.add('active');}
+    else{t.classList.remove('active');panels[i].classList.remove('active');}
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Count rows per group on load
+function updateCounts(){
+  const groups=[
+    {countId:'count-gni',tblId:'tbl-gni'},
+    {countId:'count-str',tblId:'tbl-str'},
+    {countId:'count-skl',tblId:'tbl-skl'},
+    {countId:'count-adv',tblId:'tbl-adv'},
+    {countId:'count-flw',tblId:'tbl-flw'},
+    {countId:'count-cod',tblId:'tbl-cod'},
+    {countId:'count-dwk',tblId:'tbl-dwk'},
+  ];
+  groups.forEach(g=>{
+    const tbl=document.getElementById(g.tblId);
+    if(!tbl) return;
+    const rows=tbl.querySelectorAll('tbody tr.dw-row:not(.reg-empty-row)');
+    const el=document.getElementById(g.countId);
+    if(el) el.textContent=rows.length+' record'+(rows.length!==1?'s':'');
+  });
+}
+
+function filterStatus(status, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.dw-row').forEach(row=>{
+    if(row.classList.contains('reg-empty-row')) return;
+    if(status==='all'||row.dataset.status===status){
+      row.style.display='';
+    } else {
+      row.style.display='none';
+    }
+  });
+}
+
+function searchRegistry(val){
+  const q=val.toLowerCase().trim();
+  document.querySelectorAll('.dw-row').forEach(row=>{
+    if(row.classList.contains('reg-empty-row')) return;
+    const id=(row.dataset.id||'').toLowerCase();
+    const name=(row.dataset.name||'').toLowerCase();
+    row.style.display=(!q||id.includes(q)||name.includes(q))?'':'none';
+  });
+}
+
+updateCounts();
+
+function initGroupReviewSync_S10(){
+  var SECTION_KEY='S10', stateKey='rtboss_content_review_10_factory_library_v1', progressKey='rtboss_content_review_progress_v1';
+  var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
+  function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
+  function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
+  function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
+  document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
+  applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
+}
+document.addEventListener('DOMContentLoaded', initGroupReviewSync_S10);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

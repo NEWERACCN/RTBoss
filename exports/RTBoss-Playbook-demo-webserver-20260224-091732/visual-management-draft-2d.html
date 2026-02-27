@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss - Digital Twin Draft (2D Content Burndown)</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#03070f;--s1:#0b1624;--line:#2f4763;--text:#e9f3ff;--muted:#9ab3cc;--green:#00e676;--amber:#ffca28;--red:#ff5252;--teal:#1de9b6;--blue:#40c4ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(circle at 20% -10%,#13304f 0%,#07111d 35%,#03070f 70%);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.4}
+.nav{position:sticky;top:0;z-index:100;background:rgba(11,22,36,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.nav .title{font-weight:800;color:var(--green);font-size:20px}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px}
+.wrap{max-width:1700px;margin:0 auto;padding:18px 22px 26px}
+.hero{display:grid;grid-template-columns:2.2fr 1fr;gap:14px;margin-bottom:14px}
+.panel{background:linear-gradient(180deg,rgba(17,34,52,.92),rgba(11,22,36,.97));border:1px solid var(--line);border-radius:12px;padding:14px}
+.kicker{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.sub{color:var(--muted)}
+.milestone-wrap{margin-top:8px}
+.milestone-bar{height:10px;border-radius:999px;background:#09131e;border:1px solid #1b2f44;overflow:hidden}
+.milestone-bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:width .25s ease}
+.milestones{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:6px;margin-top:8px}
+.mile{height:24px;border-radius:6px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:10px;color:var(--muted);background:#0a1726}
+.mile.done{border-color:rgba(0,230,118,.45);color:var(--green);background:rgba(0,230,118,.08)}
+.milestone-meta{margin-top:8px;font-size:12px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:2.2fr 1fr;gap:14px}
+.floor{background:linear-gradient(180deg,rgba(10,23,38,.95),rgba(7,15,24,.95));border:1px solid var(--line);border-radius:12px;padding:14px}
+.floor-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.floor-title{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.12em;color:var(--teal);text-transform:uppercase}
+.lanes{display:grid;gap:10px;max-height:74vh;overflow:auto;padding-right:4px}
+.lane{background:rgba(6,14,23,.66);border:1px solid rgba(47,71,99,.8);border-radius:10px;padding:10px}
+.lane-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.lane-name{font-weight:700;font-size:14px}
+.lane-meta{font-size:12px;color:var(--muted)}
+.progress{height:8px;border-radius:999px;background:#09131e;border:1px solid #1b2f44;overflow:hidden;margin-bottom:9px}
+.progress > span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--green));}
+.stations{display:grid;grid-template-columns:repeat(8,minmax(90px,1fr));gap:8px}
+.station{background:linear-gradient(180deg,#112334,#0d1d2d);border:1px solid #2f4763;border-radius:9px;padding:8px;min-height:78px;position:relative}
+.station h4{font-size:11px;margin-bottom:6px}
+.station p{font-size:11px;color:var(--muted)}
+.tag{position:absolute;top:6px;right:6px;font-family:'Fira Code',monospace;font-size:10px;padding:1px 5px;border-radius:999px}
+.run{color:var(--green);border:1px solid rgba(0,230,118,.4);background:rgba(0,230,118,.1)}
+.risk{color:var(--amber);border:1px solid rgba(255,202,40,.45);background:rgba(255,202,40,.1)}
+.stop{color:var(--red);border:1px solid rgba(255,82,82,.45);background:rgba(255,82,82,.1)}
+.right{display:grid;gap:14px}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th,.tbl td{padding:8px 6px;border-bottom:1px solid rgba(47,71,99,.6);text-align:left}
+.tbl th{font-family:'Fira Code',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.badge{padding:2px 7px;border-radius:999px;font-family:'Fira Code',monospace;font-size:10px}
+.b-run{color:var(--green);border:1px solid rgba(0,230,118,.4);background:rgba(0,230,118,.1)}
+.b-risk{color:var(--amber);border:1px solid rgba(255,202,40,.45);background:rgba(255,202,40,.1)}
+.b-stop{color:var(--red);border:1px solid rgba(255,82,82,.45);background:rgba(255,82,82,.1)}
+.note{font-size:12px;color:var(--muted)}
+.event-head{font-family:'Fira Code',monospace;font-size:11px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.event-latest{background:#0a1726;border:1px solid var(--line);border-radius:8px;padding:8px;margin-bottom:8px}
+.event-latest .t{font-family:'Fira Code',monospace;font-size:11px;color:var(--teal)}
+.event-latest .m{font-size:12px;color:var(--text);margin-top:3px}
+.event-list{max-height:220px;overflow:auto}
+.event-row{padding:7px 0;border-bottom:1px solid rgba(47,71,99,.45)}
+.event-row:last-child{border-bottom:none}
+.event-row .t{font-family:'Fira Code',monospace;font-size:10px;color:var(--muted)}
+.event-row .m{font-size:12px;color:var(--muted)}
+@media(max-width:1400px){.layout{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.stations{grid-template-columns:repeat(5,minmax(90px,1fr))}.milestones{grid-template-columns:repeat(8,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="title">Digital Twin Draft - 2D Software Floor</div>
+  <a href="visual-management-draft.html">Back to Draft Selector</a>
+</div>
+<div class="wrap">
+  <div class="hero">
+    <div class="panel">
+      <div class="kicker">Overall Burn Down</div>
+      <div class="milestone-wrap">
+        <div class="milestone-bar"><span id="projectBarFill"></span></div>
+        <div class="milestones" id="milestones"></div>
+      </div>
+      <div class="milestone-meta"><span id="milestoneDone">0</span>/<span id="milestoneTotal">0</span> milestones complete · <span id="sDone">0</span>/<span id="sTotal">0</span> groups · <span id="sPct">0%</span></div>
+    </div>
+    <div class="panel">
+      <div class="kicker">Content-Only Twin</div>
+      <div class="h1">2D Floor: Sections, Tabs, Sub-Groups</div>
+      <div class="sub">Flat operational view for content burn down. Same data as 3D draft, easier for dense scanning.</div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="floor">
+      <div class="floor-head"><div class="floor-title">2D Factory Floor - Content Burndown</div></div>
+      <div class="lanes" id="lanes"></div>
+    </div>
+    <div class="right">
+      <div class="panel">
+        <div class="kicker">Section Health</div>
+        <table class="tbl" id="healthTable"><thead><tr><th>Section</th><th>Status</th><th>Done/Total</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="panel">
+        <div class="kicker">Event Log</div>
+        <div class="event-head">Latest Checkbox Event</div>
+        <div class="event-latest" id="eventLatest"><div class="t">No events yet</div><div class="m">Check a content box to create the first fact event.</div></div>
+        <div class="event-list" id="eventList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const meta=[{key:'IDX',num:'00',name:'Index (Hub)',tabs:1,groups:1},{key:'S01',num:'01',name:'Strategic Framework',tabs:5,groups:5},{key:'S02',num:'02',name:'OS Framework',tabs:10,groups:10},{key:'S03',num:'03',name:'Tech Infrastructure',tabs:8,groups:8},{key:'S04',num:'04',name:'Mini-OS Guides',tabs:14,groups:14},{key:'S05',num:'05',name:'Value Engine Guides',tabs:5,groups:5},{key:'S06',num:'06',name:'Agentic Factory',tabs:9,groups:9},{key:'S07',num:'07',name:'Quality Management System',tabs:7,groups:7},{key:'S08',num:'08',name:'Execution Standards',tabs:6,groups:6},{key:'S09',num:'09',name:'Audit Standards',tabs:9,groups:9},{key:'S10',num:'10',name:'Project Management',tabs:9,groups:9},{key:'S11',num:'11',name:'Client Projects',tabs:3,groups:3},{key:'S12',num:'12',name:'Reporting Dashboard',tabs:3,groups:3},{key:'S13',num:'13',name:'Factory Library',tabs:4,groups:4},{key:'S14',num:'14',name:'Build Guides',tabs:4,groups:4},{key:'S15',num:'15',name:'Change Log',tabs:3,groups:3}];
+function readProgress(){try{return JSON.parse(localStorage.getItem('rtboss_content_review_progress_v1')||'{}');}catch(e){return{};}}
+const tabShortNames={IDX:['Hub'],S01:['Core','Pillars','Fund','Revenue','Flywheel'],S02:['Overview','Mini-OS','Workforce','Value Eng','RTBI','Behind','Tech','Flow','Cadence','Ops'],S03:['M365','D365','Dataverse','Power Platform','Azure','Zero Touch','UniFi','Security'],S04:['Guide Map','Playbook','Templates','Routines','Roles','Inputs','Outputs','Controls','Cadence','Metrics','Triggers','Escalation','Examples','Review'],S05:['Overview','Value Design','Offer Model','Pricing','Delivery Ops'],S06:['Engage','Discover','Outcome','Infra','QMS','Deliver','Activate','Measure','Improve'],S07:['Brand','Personas','Advisors','Skills','Roles','Prompts','Templates'],S08:['System','Fact Flow','Maturity','Oppty','Client','Tracking'],S09:['Version','NCR','Lessons','Audit','Review','Controls','Records','Evidence','Actions'],S10:['Charter','Canon','Lifecycle','Build','Map','Reuse','Sweep','Delivery','Register'],S12:['Overview','Dash','Twin'],S13:['Library','Agents','Roles','Patterns'],S14:['Genie','Mini-OS','Stream','Validate'],S15:['Overview','Register','Publish']};
+function shortTabName(sectionKey, tabIndex){var arr=tabShortNames[sectionKey]; if(arr && arr[tabIndex]) return arr[tabIndex]; return 'Tab '+String(tabIndex+1).padStart(2,'0');}
+function distribute(total,count){if(count<=0)return[];const b=Math.floor(total/count);let r=total%count;const a=Array.from({length:count},()=>b);for(let i=0;i<count;i++){if(r>0){a[i]++;r--;}}return a;}
+function state(m,p){const row=p[m.key]||{};const total=(Array.isArray(row.groups)&&row.groups.length)?row.groups.length:m.groups;const done=(typeof row.done==='number')?Math.max(0,Math.min(total,row.done)):(Array.isArray(row.groups)?row.groups.filter(Boolean).length:0);return{done,total,pct:total?done/total:0};}
+function cls(pct){if(pct===0)return'stop';if(pct<0.8)return'risk';return'run';}
+function txt(pct){if(pct===0)return'Not Started';if(pct<0.8)return'Partial';return'Healthy';}
+
+const EVENT_KEY='rtboss_fact_event_log_v1';
+const SNAP_KEY='rtboss_twin_prev_progress_v1';
+function safeReadObj(key){ try{return JSON.parse(localStorage.getItem(key)||'{}');}catch(e){return{};} }
+function safeReadArr(key){ try{var v=JSON.parse(localStorage.getItem(key)||'[]'); return Array.isArray(v)?v:[];}catch(e){return[];} }
+function fmtTs(ts){ return new Date(ts).toLocaleString(); }
+
+function diffAndLog(progress){
+  const prev=safeReadObj(SNAP_KEY);
+  let events=safeReadArr(EVENT_KEY);
+  meta.forEach(function(m){
+    const nowRow=progress[m.key]||{};
+    const prevRow=prev[m.key]||{};
+    const nowDone=(typeof nowRow.done==='number')?nowRow.done:(Array.isArray(nowRow.groups)?nowRow.groups.filter(Boolean).length:0);
+    const prevDone=(typeof prevRow.done==='number')?prevRow.done:(Array.isArray(prevRow.groups)?prevRow.groups.filter(Boolean).length:0);
+    if(nowDone!==prevDone){
+      const delta=nowDone-prevDone;
+      events.unshift({ts:Date.now(),section:m.num,message:'Section '+m.num+' '+m.name+' checkbox update: '+(delta>0?'+':'')+delta+' groups ('+prevDone+' -> '+nowDone+')'});
+    }
+  });
+  if(events.length>120){ events=events.slice(0,120); }
+  localStorage.setItem(EVENT_KEY, JSON.stringify(events));
+  localStorage.setItem(SNAP_KEY, JSON.stringify(progress));
+}
+
+function renderEvents(){
+  const events=safeReadArr(EVENT_KEY);
+  const latest=document.getElementById('eventLatest');
+  const list=document.getElementById('eventList');
+  if(!latest || !list){ return; }
+  if(!events.length){
+    latest.innerHTML='<div class="t">No events yet</div><div class="m">Check a content box to create the first fact event.</div>';
+    list.innerHTML='';
+    return;
+  }
+  latest.innerHTML='<div class="t">'+fmtTs(events[0].ts)+'</div><div class="m">'+events[0].message+'</div>';
+  list.innerHTML=events.slice(0,12).map(function(e){ return '<div class="event-row"><div class="t">'+fmtTs(e.ts)+'</div><div class="m">'+e.message+'</div></div>'; }).join('');
+}
+
+function render(){
+  const p=readProgress();
+  diffAndLog(p);
+
+  const lanes=document.getElementById('lanes');
+  const tbody=document.querySelector('#healthTable tbody');
+  const mileHost=document.getElementById('milestones');
+  lanes.innerHTML=''; tbody.innerHTML='';
+  if(mileHost && mileHost.children.length===0){ for(let i=0;i<meta.length;i++){ const n=document.createElement('div'); n.className='mile'; n.textContent=String(i+1).padStart(2,'0'); mileHost.appendChild(n);} }
+
+  let gd=0,gt=0,mDone=0;
+  meta.forEach((m,idx)=>{
+    const s=state(m,p);
+    gd+=s.done; gt+=s.total;
+    const complete=(s.total>0 && s.done>=s.total);
+    if(complete){ mDone++; }
+
+    const lane=document.createElement('div');
+    lane.className='lane';
+    lane.innerHTML='<div class="lane-top"><div class="lane-name">Section '+m.num+' - '+m.name+'</div><div class="lane-meta">'+s.done+'/'+s.total+' groups</div></div><div class="progress"><span style="width:'+(s.pct*100).toFixed(1)+'%"></span></div>';
+    const stations=document.createElement('div');
+    stations.className='stations';
+    const perTab=distribute(s.total,m.tabs);
+    let rem=s.done;
+    for(let i=0;i<m.tabs;i++){
+      const g=perTab[i]||0;
+      const d=Math.min(g,Math.max(0,rem));
+      rem-=d;
+      const c=cls(g?d/g:0);
+      const st=document.createElement('div');
+      st.className='station';
+      st.innerHTML='<span class="tag '+c+'">T'+String(i+1).padStart(2,'0')+'</span><h4>'+shortTabName(m.key,i)+'</h4><p>Sub-Groups: '+d+'/'+g+'</p>';
+      stations.appendChild(st);
+    }
+    lane.appendChild(stations);
+    lanes.appendChild(lane);
+
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td>S'+m.num+'</td><td><span class="badge b-'+cls(s.pct)+'">'+txt(s.pct)+'</span></td><td>'+s.done+'/'+s.total+'</td>';
+    tbody.appendChild(tr);
+    if(mileHost && mileHost.children[idx]){ mileHost.children[idx].classList.toggle('done',complete); }
+  });
+
+  const pct=gt?Math.round((gd/gt)*100):0;
+  document.getElementById('sDone').textContent=String(gd);
+  document.getElementById('sTotal').textContent=String(gt);
+  document.getElementById('sPct').textContent=pct+'%';
+  document.getElementById('milestoneDone').textContent=String(mDone);
+  document.getElementById('milestoneTotal').textContent=String(meta.length);
+  const fill=document.getElementById('projectBarFill'); if(fill){ fill.style.width=(mDone/meta.length*100).toFixed(1)+'%'; }
+  renderEvents();
+}
+
+render();
+window.addEventListener('storage',function(e){ if(e.key==='rtboss_content_review_progress_v1' || e.key===EVENT_KEY){ render(); }});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss — EMS Complete Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;
+  --red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:#00e676 !important;}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
+.panel{display:none;}
+.panel.active{display:block;}
+.pw{max-width:1400px;margin:0 auto;padding:2rem;}
+.ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
+.ph-sub{font-size:1.1rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
+.status-badge{display:inline-block;padding:0.5rem 1rem;border-radius:6px;font-size:0.85rem;font-weight:600;margin:2rem 0;background:rgba(255,202,40,0.1);color:var(--amber);border:1px solid var(--amber);}
+.placeholder-content{background:var(--s1);border:1px dashed var(--border);border-radius:12px;padding:3rem;text-align:center;margin:2rem 0;}
+.placeholder-content h3{font-size:1.3rem;color:var(--mid);margin-bottom:1rem;}
+.placeholder-content p{color:var(--dim);line-height:1.8;max-width:600px;margin:0 auto;}
+</style>
+</head>
+<body>
+
+<div class="nav-header">
+  <div class="nav-title">EMS · Complete Reference</div>
+  <a href="index.html" class="nav-back">? Back to Hub</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 · Build Roadmap</div>
+  <div class="tab" onclick="showTab(1)">02 · Progress Dashboard</div>
+  <div class="tab" onclick="showTab(2)">03 · Workforce Maturity Metrics</div>
+  <div class="tab" onclick="showTab(3)">04 · Deployment Timeline</div>
+</div>
+
+<div class="panel active" id="tab-0"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">2026 Execution Plan</div>
+    <h1 class="ph-title">Build Roadmap</h1>
+    <p class="ph-sub">Placeholder — Will contain Q1–Q4 2026 sequencing, Mini-OS priorities, Value Engine activation timeline, and client onboarding pipeline.</p>
+  </div>
+  <div class="status-badge">STATUS: PLACEHOLDER — Content Pending</div>
+  <div class="placeholder-content">
+    <h3>Build Roadmap Content</h3>
+    <p>This tab will show the complete 2026 execution roadmap including Mini-OS build sequence, Genie deployment priorities, Value Engine activation milestones, and client portfolio growth targets. Will be populated as execution strategy is finalized.</p>
+  </div>
+</div></div>
+
+<div class="panel" id="tab-1"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Live Tracking</div>
+    <h1 class="ph-title">Progress Dashboard</h1>
+    <p class="ph-sub">Placeholder — Will contain live metrics on MRR, client count, Digital Worker workforce maturity %, Genies deployed, and Mini-OS completion status.</p>
+  </div>
+  <div class="status-badge">STATUS: PLACEHOLDER — Content Pending</div>
+  <div class="placeholder-content">
+    <h3>Progress Dashboard Content</h3>
+    <p>This tab will display real-time progress metrics with visual indicators: revenue vs targets, client portfolio health, Workforce Maturity percentage, Genie deployment count, Mini-OS completion status, and Fund preparation progress. Designed to provide at-a-glance executive visibility.</p>
+  </div>
+</div></div>
+
+<div class="panel" id="tab-2"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Outcome Tracking</div>
+    <h1 class="ph-title">Workforce Maturity Metrics</h1>
+    <p class="ph-sub">Placeholder — Will contain the Digital/Hybrid/Human worker ratio tracking, COGS reduction measurements, and outcome achievement verification.</p>
+  </div>
+  <div class="status-badge">STATUS: PLACEHOLDER — Content Pending</div>
+  <div class="placeholder-content">
+    <h3>Workforce Maturity Metrics Content</h3>
+    <p>This tab will track the workforce maturity model across all clients: Digital Worker % vs Hybrid vs Human, COGS reduction achieved, time saved per domain, revenue impact from faster operations, and ROI calculations. The compounding effect of agent deployment visualized over time.</p>
+  </div>
+</div></div>
+
+<div class="panel" id="tab-3"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">Milestone Tracking</div>
+    <h1 class="ph-title">Deployment Timeline</h1>
+    <p class="ph-sub">Placeholder — Will contain Gantt-style visualization of deployment milestones, dependencies, and critical path for all active projects.</p>
+  </div>
+  <div class="status-badge">STATUS: PLACEHOLDER — Content Pending</div>
+  <div class="placeholder-content">
+    <h3>Deployment Timeline Content</h3>
+    <p>This tab will show a visual timeline of all deployment activities: which client is in which stage (Discovery, Onboarding, QMS Setup, Continuous Delivery, Workflow Activation), blockers and dependencies, critical path visualization, and projected completion dates. Enables portfolio-level planning and resource allocation.</p>
+  </div>
+</div></div>
+
+<script>
+function showTab(n){
+  const tabs=document.querySelectorAll('.tab');
+  const panels=document.querySelectorAll('.panel');
+  tabs.forEach((t,i)=>{
+    if(i===n){t.classList.add('active');panels[i].classList.add('active');}
+    else{t.classList.remove('active');panels[i].classList.remove('active');}
+  });
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

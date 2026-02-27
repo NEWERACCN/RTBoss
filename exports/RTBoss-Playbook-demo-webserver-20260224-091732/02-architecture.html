@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -74,9 +74,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .rule-table td:first-child{color:var(--text);font-weight:500;}
 .rule-table tr:last-child td{border-bottom:none;}
 .rule-table tr:hover td{background:rgba(255,255,255,.012);}
-.panel#tab-02-workers .rule-table th{font-size:.64rem;font-weight:800;color:#d9ecff;background:rgba(10,24,40,.6);}
-.panel#tab-02-workers .rule-table td{font-size:.75rem;line-height:1.45;}
-.panel#tab-02-workers .rule-table tr:nth-child(even) td{background:rgba(7,20,31,.35);}
+.panel#tab-workers .rule-table th{font-size:.64rem;font-weight:800;color:#d9ecff;background:rgba(10,24,40,.6);}
+.panel#tab-workers .rule-table td{font-size:.75rem;line-height:1.45;}
+.panel#tab-workers .rule-table tr:nth-child(even) td{background:rgba(7,20,31,.35);}
 
 /* -- OVERVIEW GRID (slide 1 layout) -- */
 .rtbos-overview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:2.5rem;}
@@ -191,9 +191,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .tab-flowbar{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.06));border:1px solid rgba(0,230,118,.28);border-radius:10px;padding:.85rem 1rem;margin:0 0 1.25rem;}
 .tab-flowbar-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem;}
 .tab-flowbar-v{font-family:'Fira Code',monospace;font-size:.7rem;color:#d7ebff;line-height:1.6;}
-.core-flow{background:#031719;border:1px solid rgba(0,230,118,.45);border-radius:14px;padding:1.2rem 1.1rem;margin:0 0 1rem;box-shadow:inset 0 0 0 1px rgba(0,230,118,.08);}
-.core-flow-k{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#7fffcf;text-align:center;margin:0 0 .72rem;text-shadow:0 0 12px rgba(0,230,118,.25);}
-.core-flow-v{font-family:'Fira Code',monospace;font-size:1.02rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#e8fff3;}
+.core-flow{background:#031719;border:1px solid rgba(0,230,118,.45);border-radius:14px;padding:1.2rem 1.1rem;margin:0 0 1.25rem;box-shadow:inset 0 0 0 1px rgba(0,230,118,.08);}
+.core-flow-k{font-family:'Fira Code',monospace;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:#e9fbff;text-align:center;margin:0 0 .65rem;}
+.core-flow-v{font-family:'Fira Code',monospace;font-size:1.08rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#e8f4ff;}
 .core-flow-v .c-facts{color:#40c4ff;font-weight:700;}
 .core-flow-v .c-dim{color:#b388ff;font-weight:700;}
 .core-flow-v .c-assets{color:#1de9b6;font-weight:700;}
@@ -201,9 +201,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .core-flow-v .c-workforce{color:#ff9100;font-weight:700;}
 .core-flow-v .c-twin{color:#38efc3;font-weight:700;}
 .core-flow-v .c-result{color:#ffca28;font-weight:700;}
-.core-flow.chain-core{background:linear-gradient(90deg,rgba(10,31,56,.85),rgba(9,42,60,.78));border:1px solid rgba(64,196,255,.35);box-shadow:inset 0 0 0 1px rgba(64,196,255,.08);}
-.core-flow.chain-core .core-flow-k{color:#9edbff;text-shadow:0 0 12px rgba(64,196,255,.22);}
-.core-flow.chain-core .core-flow-v{color:#dff0ff;}
 @media(max-width:900px){.core-flow-v{font-size:.9rem;line-height:1.85;}}
 
 .os-flow{background:linear-gradient(90deg,rgba(0,230,118,.08),rgba(64,196,255,.05));border:1px solid rgba(0,230,118,.28);border-radius:12px;padding:1rem 1.1rem;margin:0 0 1.25rem;}
@@ -219,17 +216,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .outcome-tile{background:linear-gradient(90deg,rgba(10,28,52,.82),rgba(18,42,72,.7));border:1px solid var(--border);border-radius:10px;padding:.65rem .7rem;position:relative;text-align:center;}
 .outcome-tile::after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--otc,#40c4ff);opacity:.85;}
 .outcome-tile span{font-family:'Fira Code',monospace;font-size:.62rem;color:#dff8ea;letter-spacing:.05em;text-transform:uppercase;display:block;}
-.panel#tab-01-overview .ov-tile-sub{display:block;font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:var(--mid);margin-top:.25rem;}
+.panel#tab-overview .ov-tile-sub{display:block;font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:var(--mid);margin-top:.25rem;}
 .boss-layer{background:linear-gradient(90deg,rgba(179,136,255,.12),rgba(64,196,255,.08));border:1px solid var(--border);border-radius:12px;padding:.95rem 1rem;margin:0 0 1.1rem;text-align:center;}
 .boss-layer-k{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#b388ff;margin:0 0 .45rem;}
 .boss-layer-v{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#eaf4ff;letter-spacing:.01em;margin:0 0 .3rem;}
 .boss-layer-sub{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#b8d5ef;}
 .boss-layer-end{font-family:'Inter',sans-serif;font-size:1.12rem;font-weight:700;color:#e6f2ff;text-align:center;margin:0 0 1.25rem;letter-spacing:.02em;}
-.panel#tab-01-overview .ph-sub{font-size:1rem;line-height:1.78;color:#a6c4de;max-width:980px;}
-.panel#tab-01-overview .boss-layer{background:#0a1320;border:1px solid #2b4463;padding:1.2rem 1.1rem;box-shadow:0 10px 26px rgba(0,0,0,.24);}
-.panel#tab-01-overview .boss-layer-k{font-size:.66rem;color:#9cb2ff;}
-.panel#tab-01-overview .boss-layer-v{font-size:1.22rem;line-height:1.4;}
-.panel#tab-01-overview .boss-layer-sub{font-size:.75rem;letter-spacing:.09em;color:#c2d8ef;}
+.panel#tab-overview .ph-sub{font-size:1rem;line-height:1.78;color:#a6c4de;max-width:980px;}
+.panel#tab-overview .boss-layer{background:#0a1320;border:1px solid #2b4463;padding:1.2rem 1.1rem;box-shadow:0 10px 26px rgba(0,0,0,.24);}
+.panel#tab-overview .boss-layer-k{font-size:.66rem;color:#9cb2ff;}
+.panel#tab-overview .boss-layer-v{font-size:1.22rem;line-height:1.4;}
+.panel#tab-overview .boss-layer-sub{font-size:.75rem;letter-spacing:.09em;color:#c2d8ef;}
 .human-diagram{background:#061221;border:1px solid #203755;border-radius:12px;padding:1.1rem;margin:1rem 0 1.25rem;}
 .hf-layout{display:grid;grid-template-columns:1fr 72px;gap:.9rem;align-items:start;}
 .human-timeline{display:flex;flex-direction:column;gap:0;}
@@ -335,21 +332,21 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .cx-g-fill{height:100%;border-radius:4px;}
 .cx-g-fill.before{background:linear-gradient(to right,#6b8aa7,#3f6488);}
 .cx-g-fill.after{background:linear-gradient(to right,#1de9b6,#00e676);}
-.panel#tab-01-overview .os-flow{background:#071a18;border:1px solid #1d5c50;}
-.panel#tab-01-overview .os-flow-k{font-size:.66rem;}
-.panel#tab-01-overview .os-flow-v{font-size:.7rem;color:#eff7ff;line-height:1.95;}
-.panel#tab-01-overview .flow-tiles{grid-template-columns:repeat(4,minmax(170px,1fr));gap:.7rem;}
-.panel#tab-01-overview .flow-tile{padding:.72rem .75rem;}
-.panel#tab-01-overview .flow-tile span{font-size:.73rem;line-height:1.4;}
-.panel#tab-01-overview .outcome-tiles{gap:.7rem;}
-.panel#tab-01-overview .outcome-tile{padding:.8rem .8rem;}
-.panel#tab-01-overview .outcome-tile span{font-size:.72rem;}
-.panel#tab-01-overview .boss-layer-end{font-size:2rem;margin:.35rem 0 1.6rem;}
-@media(max-width:960px){.panel#tab-01-overview .flow-tiles{grid-template-columns:repeat(2,minmax(170px,1fr));}}
+.panel#tab-overview .os-flow{background:#071a18;border:1px solid #1d5c50;}
+.panel#tab-overview .os-flow-k{font-size:.66rem;}
+.panel#tab-overview .os-flow-v{font-size:.7rem;color:#eff7ff;line-height:1.95;}
+.panel#tab-overview .flow-tiles{grid-template-columns:repeat(4,minmax(170px,1fr));gap:.7rem;}
+.panel#tab-overview .flow-tile{padding:.72rem .75rem;}
+.panel#tab-overview .flow-tile span{font-size:.73rem;line-height:1.4;}
+.panel#tab-overview .outcome-tiles{gap:.7rem;}
+.panel#tab-overview .outcome-tile{padding:.8rem .8rem;}
+.panel#tab-overview .outcome-tile span{font-size:.72rem;}
+.panel#tab-overview .boss-layer-end{font-size:2rem;margin:.35rem 0 1.6rem;}
+@media(max-width:960px){.panel#tab-overview .flow-tiles{grid-template-columns:repeat(2,minmax(170px,1fr));}}
 @media(max-width:620px){
-  .panel#tab-01-overview .flow-tiles{grid-template-columns:1fr;}
-  .panel#tab-01-overview .boss-layer-v{font-size:.7rem;}
-  .panel#tab-01-overview .boss-layer-end{font-size:1.5rem;}
+  .panel#tab-overview .flow-tiles{grid-template-columns:1fr;}
+  .panel#tab-overview .boss-layer-v{font-size:.7rem;}
+  .panel#tab-overview .boss-layer-end{font-size:1.5rem;}
   .hf-title{font-family:'DM Sans',sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.01em;text-transform:none;color:#eef6ff;margin-bottom:.42rem;line-height:1.35;}
   .hf-copy{font-size:.88rem;}
   .hf-step{grid-template-columns:2.45rem 1fr;gap:0 .7rem;}
@@ -416,16 +413,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .remember-card{background:#0d1c2b;border:1px solid #2a4461;border-radius:9px;padding:.72rem .75rem;}
 .remember-k{font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:.02em;text-transform:none;color:#eef6ff;margin-bottom:.22rem;font-weight:700;line-height:1.3;}
 .remember-v{font-size:.79rem;color:#d2e5f5;line-height:1.55;}
-.remember-v strong{display:block;font-weight:800;line-height:1.2;margin:0;}
-.remember-v strong + br{display:none;}
-.mantra-label{display:block;margin-top:.38rem;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;font-weight:700;}
-.mantra-text{display:block;margin-top:.12rem;padding:.28rem .46rem;border-left:2px solid #38bdf8;background:rgba(56,189,248,.12);border-radius:4px;color:#eaf6ff;font-weight:800;line-height:1.45;}
-.intent-map-strip .remember-card{display:flex;flex-direction:column;}
-.intent-map-strip .remember-v{display:flex;flex-direction:column;height:100%;}
-.intent-map-strip .mantra-label{margin-top:auto;}
-.overview-remember-grid .remember-card{display:flex;flex-direction:column;height:100%;}
-.overview-remember-grid .remember-v{display:flex;flex-direction:column;height:100%;}
-.overview-remember-grid .mantra-label{margin-top:auto;}
 .layer-bridge{background:#07141f;border:1px solid #21374f;border-radius:12px;padding:.85rem .95rem;margin:.95rem 0 1.15rem;}
 .layer-bridge-title{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;color:#eaf5ff;margin-bottom:.45rem;}
 .layer-track{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;align-items:start;padding-top:.35rem;}
@@ -454,7 +441,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @keyframes wmAreaFlow{0%,100%{left:var(--from,20%);opacity:.95;}50%{left:var(--to,80%);opacity:.95;}}
 @keyframes twinFlow{0%{left:14px;}100%{left:calc(100% - 14px);}}
 @keyframes twinStepPulse{0%,72%,100%{border-color:#5d87b3;box-shadow:none;}12%{border-color:rgba(29,233,182,.9);box-shadow:0 0 0 2px rgba(29,233,182,.24) inset,0 0 16px rgba(29,233,182,.24);}}
-.panel#tab-01-overview .sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.panel#tab-overview .sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
 .sec-head.done .sec-label{color:var(--teal);}
 .sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}
 
@@ -467,34 +454,34 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 <div class="tabs">
-  <button class="ntab active" onclick="show('01-overview',this)">01 - OS Overview</button>
-  <button class="ntab" onclick="show('02-workers',this)">02 - Human Roles Overview</button>
-  <button class="ntab" onclick="show('03-arch',this)">03 - Technical Overview</button>
-  <button class="ntab" onclick="show('04-wom',this)">04 - Workforce Operating Model</button>
-  <button class="ntab" onclick="show('05-bts',this)">05 - Identities</button>
-  <button class="ntab" onclick="show('06-minios',this)">06 - Mini-OS</button>
-  <button class="ntab" onclick="show('07-ve',this)">07 - Value Engines</button>
-  <button class="ntab" onclick="show('08-rtbi',this)">08 - RTBI</button>
-  <button class="ntab" onclick="show('09-flow',this)">09 - Flow of Work</button>
-  <button class="ntab" onclick="show('10-cadence',this)">10 - Company Cadence</button>
+  <button class="ntab active" onclick="show('overview',this)">01 - OS Overview</button>
+  <button class="ntab" onclick="show('workers',this)">02 - Human Roles Overview</button>
+  <button class="ntab" onclick="show('arch',this)">03 - Technical Overview</button>
+  <button class="ntab" onclick="show('wom',this)">04 - Workforce Operating Model</button>
+  <button class="ntab" onclick="show('bts',this)">05 - Identities</button>
+  <button class="ntab" onclick="show('minios',this)">06 - Mini-OS</button>
+  <button class="ntab" onclick="show('ve',this)">07 - Value Engines</button>
+  <button class="ntab" onclick="show('rtbi',this)">08 - RTBI</button>
+  <button class="ntab" onclick="show('flow',this)">09 - Flow of Work</button>
+  <button class="ntab" onclick="show('cadence',this)">10 - Company Cadence</button>
 </div>
 
 
 <!-- -- TAB 01  -  OVERVIEW -- -->
-<div class="panel active" id="tab-01-overview"><div class="pw">
+<div class="panel active" id="tab-overview"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - OS Overview</div>
 
     <h1 class="ph-title">OS Overview</h1>
-    <p class="ph-sub overview-sub">Always lead with humans: prompt engineering defines what to do, context engineering defines how to do it, and intent engineering defines why it must be done, including policy, guardrails, and company boundaries. The Workforce Operating Model turns that intent into accountable execution before automation depth increases.</p>
+    <p class="ph-sub overview-sub">Always lead with humans: the Workforce Operating Model defines domain truth, constraints, escalation, and accountability before automation depth increases.</p>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Human-First Operating Chain</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Human-First Top-Down Flow</span><div class="sec-head-line"></div></div>
   <div class="human-diagram">
     <div class="hf-layout" data-sync-side-markers="true">
     <div class="human-timeline">
       <div class="hf-step" style="--step-color:var(--pink);">
-        <div class="hf-num">03</div>
+        <div class="hf-num">01</div>
         <div class="hf-body">
           <div class="hf-title">Workforce Operating Model - Humans + Agents as one operating model.</div>
           <div class="hf-copy">Human and digital workers operate together as one model.</div>
@@ -515,7 +502,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         </div>
       </div>
       <div class="hf-step" style="--step-color:var(--orange);">
-        <div class="hf-num">03</div>
+        <div class="hf-num">04</div>
         <div class="hf-body">
           <div class="hf-title">Value Engines - Where humans + agents deliver outcomes and create value.</div>
           <div class="hf-copy">Execution runs where value is created in day-to-day operations.</div>
@@ -529,14 +516,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         </div>
       </div>
       <div class="hf-step" style="--step-color:var(--orange);">
-        <div class="hf-num">04</div>
+        <div class="hf-num">06</div>
         <div class="hf-body">
           <div class="hf-title">Flow of Work - How the Fact stream is executed.</div>
           <div class="hf-copy">Facts are routed, prioritized, handed off, and closed with control.</div>
         </div>
       </div>
       <div class="hf-step" style="--step-color:var(--orange);">
-        <div class="hf-num">05</div>
+        <div class="hf-num">07</div>
         <div class="hf-body">
           <div class="hf-title">Cadence - The operating rhythm of the business.</div>
           <div class="hf-copy">Daily, weekly, and monthly cycles run accountable delivery and improvement.</div>
@@ -551,15 +538,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Intent Design Cards</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines the requested task and expected outcome.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Provides facts, role context, and current state for execution.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Sets policy, risk limits, guardrails, and company boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Workforce Operating Model</strong><br>Turns intent into accountable, role-safe execution.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
-    </div>
-  </div>
+    <div class="def-block violet">Overview framing := Workforce Operating Model explains how humans and agents operate together. Identities are the digital mirror bridge from workforce expertise into agent behavior. Steps 03 to 07 are the technical execution architecture.</div>
 <div class="sec-head"><span class="sec-label">Digital Twin Value Map</span><div class="sec-head-line"></div></div>
   <div class="twin-map">
     <div class="twin-grid">
@@ -578,7 +557,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
   <div class="sec-head"><span class="sec-label">What to Remember</span><div class="sec-head-line"></div></div>
   <div class="remember-strip">
-    <div class="remember-grid overview-remember-grid">
+    <div class="remember-grid">
       <div class="remember-card"><div class="remember-k">People First</div><div class="remember-v">Humans + agents operate as one workforce model with clear ownership.</div></div>
       <div class="remember-card"><div class="remember-k">Facts First</div><div class="remember-v">Work starts from facts and stays traceable through execution.</div></div>
       <div class="remember-card"><div class="remember-k">Layered Operation</div><div class="remember-v">Mini-OS controls, Value Engines execute, and RTBI provides visibility.</div></div>
@@ -588,7 +567,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </div></div>
 
 <!-- -- TAB 02  -  OS FRAMEWORK ARCHITECTURE -- -->
-<div class="panel" id="tab-03-arch"><div class="pw">
+<div class="panel" id="tab-arch"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Technical</div>
     <h1 class="ph-title">Technical Architecture</h1>
@@ -596,82 +575,58 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   </div>
 
   <div class="sec-head"><span class="sec-label">Technical Stack</span><div class="sec-head-line"></div></div>
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
-
   <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-k">Technical Flow Ladder</div>
     <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
+      <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
     </div>
   </div>
-  <div class="sec-head"><span class="sec-label">Technical Overview</span><div class="sec-head-line"></div></div>
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Technical Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--violet);" onclick="show('bts',document.querySelectorAll('.ntab')[4])">
-        <div class="hf-num">02</div>
-        <div class="hf-body">
-          <div class="hf-title">Identities - Digital mirror for role context and authority.</div>
-          <div class="hf-copy">Translates human expertise into reusable execution context.</div>
+  <div class="tech-diagram">
+    <div class="tech-layout">
+      <div class="tech-timeline">
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Mini-OS:</span> Governance and control operations.</div>
+            <div class="hf-copy">Runs policy, compliance, and control boundaries.</div>
+          </div>
         </div>
-        <div class="hf-scope-tag"><span>Mirror</span></div>
-      </button>
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('minios',document.querySelectorAll('.ntab')[5])">
-        <div class="hf-num">03</div>
-        <div class="hf-body">
-          <div class="hf-title">Mini-OS - Control plane for policy and compliance boundaries.</div>
-          <div class="hf-copy">Defines domain controls before execution runs.</div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Value Engines:</span> Outcome execution layer.</div>
+            <div class="hf-copy">Delivers day-to-day work and value outcomes.</div>
+          </div>
         </div>
-        <div class="hf-scope-tag"><span>Control</span></div>
-      </button>
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('ve',document.querySelectorAll('.ntab')[6])">
-        <div class="hf-num">04</div>
-        <div class="hf-body">
-          <div class="hf-title">Value Engines - Execution plane that delivers outcomes.</div>
-          <div class="hf-copy">Coordinates systems, genies, and streams for business output.</div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Real-Time Business Intelligence:</span> Live intelligence and visibility.</div>
+            <div class="hf-copy">Shows real-time status, risk, and performance.</div>
+          </div>
         </div>
-        <div class="hf-scope-tag"><span>Execute</span></div>
-      </button>
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])">
-        <div class="hf-num">05</div>
-        <div class="hf-body">
-          <div class="hf-title">RTBI - Intelligence plane with live visibility.</div>
-          <div class="hf-copy">Converts live facts into planning, analytics, and decisions.</div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Flow of Work:</span> Fact routing and handoffs.</div>
+            <div class="hf-copy">Routes, prioritizes, hands off, and closes facts.</div>
+          </div>
         </div>
-        <div class="hf-scope-tag"><span>Intelligence</span></div>
-      </button>
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('flow',document.querySelectorAll('.ntab')[8])">
-        <div class="hf-num">06</div>
-        <div class="hf-body">
-          <div class="hf-title">Flow of Work - Orchestration layer for routing and handoffs.</div>
-          <div class="hf-copy">Assigns, escalates, and closes work with full traceability.</div>
+        <div class="tech-step" style="--step-color:var(--orange);">
+          <div class="hf-body" style="--step-color:var(--orange);">
+            <div class="hf-title"><span class="tech-cat">Cadence:</span> Operating rhythm and accountability.</div>
+            <div class="hf-copy">Runs daily, weekly, and monthly improvement cycles.</div>
+          </div>
         </div>
-        <div class="hf-scope-tag"><span>Orchestrate</span></div>
-      </button>
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('cadence',document.querySelectorAll('.ntab')[9])">
-        <div class="hf-num">07</div>
-        <div class="hf-body">
-          <div class="hf-title">Cadence - Operating rhythm and accountability loop.</div>
-          <div class="hf-copy">Runs daily, weekly, and monthly control cycles.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Rhythm</span></div>
-      </button>
-    </div>
-    <div class="role-group-note">This tab focuses on the technical operating chain from Identities through Cadence.</div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Identities First</strong><br>Execution quality depends on mirrored role context and authority.<span class="mantra-label">Mantra:</span><span class="mantra-text">Start with role context.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Controlled Execution</strong><br>Mini-OS and Value Engines enforce policy before and during delivery.<span class="mantra-label">Mantra:</span><span class="mantra-text">Control before speed.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Live Intelligence</strong><br>RTBI and Digital Twin keep status, risk, and decisions current.<span class="mantra-label">Mantra:</span><span class="mantra-text">See risk in real time.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Measured Rhythm</strong><br>Flow of Work and Cadence convert execution into accountable loops.<span class="mantra-label">Mantra:</span><span class="mantra-text">Run work on cadence.</span></div></div>
+      </div>
+      <div class="tech-side">
+        <div class="tech-side-item"><span class="tech-side-t">Technical</span></div>
       </div>
     </div>
+  </div>
+  <div class="flow-tiles" style="grid-template-columns:repeat(6,minmax(160px,1fr));">
+    <div class="flow-tile" style="--ftc:var(--violet);"><span>02 Identities<br>Digital Mirror</span></div>
+    <div class="flow-tile" style="--ftc:var(--blue2);"><span>Mini-OS<br>Control Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--amber);"><span>Value Engines<br>Execution Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--teal);"><span>Real-Time Business Intelligence<br>Intelligence Plane</span></div>
+    <div class="flow-tile" style="--ftc:var(--blue);"><span>Flow of Work<br>Orchestration</span></div>
+    <div class="flow-tile" style="--ftc:var(--green);"><span>Cadence<br>Operating Rhythm</span></div>
   </div>
 
   <div class="sec-head"><span class="sec-label">Identity Mirror (Digital Foundation)</span><div class="sec-head-line"></div></div>
@@ -763,90 +718,16 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 </div></div>
 
 <!-- -- TAB 02  -  MINI-OS -- -->
-<div class="panel" id="tab-06-minios"><div class="pw">
+<div class="panel" id="tab-minios"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Mini-OS</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Mini-OS Registry -> Domain Composition -> Systems + Genies + Streams</div></div>
 
-    <h1 class="ph-title">Mini Operating Systems  -  Domain Operating Systems</h1>
-    <p class="ph-sub">Each Mini-OS is a complete operating system for a business domain. It governs policy and compliance, executes domain-specific processes via Systems and Genies, runs ongoing operational Streams, and generates the facts that Value Engines consume and orchestrate.</p>
+    <h1 class="ph-title">Mini-OS  -  Domain Operating Systems</h1>
+    <p class="ph-sub">Each Mini-OS is RTBoss applied to a specific business domain. The same six-layer loop runs in every instance. Every Mini-OS contains its own Digital Workers  -  Systems (governing frameworks), Genies (specialist agents for discrete tasks), and Streams (end-to-end operational processes).</p>
   </div>
 
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
-
-  <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Overview</span><div class="sec-head-line"></div></div>
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('minios',document.querySelectorAll('.ntab')[5])">
-        <div class="hf-num">03</div>
-        <div class="hf-body">
-          <div class="hf-title">Mini-OS - Domain operating systems that enforce policy and control.</div>
-          <div class="hf-copy">Each domain runs with governed systems, genies, and streams.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Control</span></div>
-      </button>
-    </div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Where It Sits</strong><br>The domain OS. Controls work, runs processes, feeds facts.<span class="mantra-label">Mantra:</span><span class="mantra-text">Domain controls everything.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Why It Matters</strong><br>Mini-OS is the foundation for the Agentic Factory. It keeps domain capabilities reusable, traceable, and ready to scale.<span class="mantra-label">Mantra:</span><span class="mantra-text">Domain first, execution second.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Why This Tab Exists</strong><br>Defines how a domain works (Systems, Genies, Streams) and stays in-policy. <span class="mantra-label">Mantra:</span><span class="mantra-text">One domain pattern. Many uses.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Big Outcome</strong><br>Same patterns ? consistent work. Same blocks ? standalone or orchestrated. No duplication. <span class="mantra-label">Mantra:</span><span class="mantra-text">Build once, use everywhere.</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines what to do and the expected output.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Defines how execution runs using facts, role context, and current state.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Defines why the work exists and the policy/guardrail boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Personas + Advisors + Skills</strong><br>Enforce intent consistently in the Workforce Operating Model.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Model Definition</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">System</div><div class="remember-v">Defines policy, risk boundaries, and domain control logic.</div></div>
-      <div class="remember-card"><div class="remember-k">Genie</div><div class="remember-v">Specialist digital worker for discrete, repeatable tasks.</div></div>
-      <div class="remember-card"><div class="remember-k">Stream</div><div class="remember-v">End-to-end workflow that routes and closes facts.</div></div>
-      <div class="remember-card"><div class="remember-k">Domain OS</div><div class="remember-v">A governed operating system for one business domain.</div></div>
-    </div>
-  </div>
-
-  <div class="callout info" style="margin:1rem 0;">
-    <div class="callout-icon">→</div>
-    <div class="callout-body"><strong>Mini-OS as building blocks for Value Engines:</strong> Each Mini-OS operates independently (e.g., Finance-OS runs month-end close, HR-OS runs payroll). Value Engines compose Mini-OS capabilities across domains to drive business outcomes (e.g., Order-to-Cash orchestrates Sales-OS, Operations-OS, and Finance-OS).</div>
-  </div>
-
-  <div style="background:rgba(0,230,118,.06);border:1px solid rgba(0,230,118,.2);border-radius:10px;padding:1rem;margin:.8rem 0 1.1rem;">
-    <div style="font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:700;color:#eaf5ff;margin-bottom:.65rem;">Example: Order-to-Cash Value Engine Composition</div>
-    <div style="font-size:.78rem;color:#d2e5f5;line-height:1.8;">
-      <div style="margin-bottom:.5rem;"><span style="color:#00e676;font-weight:600;">Sales-OS</span> – Create Order (Genie) + order eligibility checks (System)</div>
-      <div style="margin-bottom:.5rem;"><span style="color:#00e676;font-weight:600;">Operations-OS</span> – Check Inventory (Genie) + allocation logic (System)</div>
-      <div style="margin-bottom:.5rem;"><span style="color:#00e676;font-weight:600;">Finance-OS</span> – Process Invoice (Genie, can run standalone or in Stream) + receivables system (System)</div>
-      <div style="margin-bottom:.5rem;"><span style="color:#00e676;font-weight:600;">Finance-OS</span> – Reconcile Payment (Genie) + cash accounting (System)</div>
-      <div><span style="color:#00e676;font-weight:600;">RTBI</span> – Update Order-to-Cash Dashboard (visibility across all domains)</div>
-    </div>
-    <div style="font-size:.73rem;color:#9ec0db;margin-top:.75rem;font-style:italic;">Each Mini-OS Genie/Stream can execute standalone in its domain OR be orchestrated by the Value Engine. No duplication; reusable building blocks.</div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Infrastructure Layers</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">RTBoss Architecture  -  Three Pillars</span><div class="sec-head-line"></div></div>
 
   <div class="rtbos-overview">
     <div class="ov-col">
@@ -871,97 +752,52 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <div class="ov-tile" onclick="openMOS(12)" style="--tile-bar:linear-gradient(to right,#40c4ff,#f48fb1)">Innovation OS<span class="tile-arrow">?</span></div>
       </div>
     </div>
-  </div>
-
-  <div class="remember-strip" style="margin-top:.8rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Mini-OS</strong> is the control layer where domain rules are defined and enforced.</div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Each domain</strong> runs its own governed systems, genies, and streams.</div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Control first</strong> keeps all downstream execution in-policy.</div></div>
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--amber);"></div>
+        <div class="ov-col-title" style="color:var(--amber);">Value Engines</div>
+        <div class="ov-col-count">4 engines</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Growth Engine<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Fulfillment Engine<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Innovation Engine<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('ve',document.querySelectorAll('.ntab')[6])" style="--tile-bar:linear-gradient(to right,#ffca28,#ff9100)">Logistics Engine<span class="tile-arrow">?</span></div>
+      </div>
+    </div>
+    <div class="ov-col">
+      <div class="ov-col-header">
+        <div class="ov-col-dot" style="background:var(--violet);"></div>
+        <div class="ov-col-title" style="color:var(--violet);">RTBI</div>
+        <div class="ov-col-count">5 components</div>
+      </div>
+      <div class="ov-tiles">
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Unified Data<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Digital Twin<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Planning<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Analytics<span class="tile-arrow">?</span></div>
+        <div class="ov-tile" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])" style="--tile-bar:linear-gradient(to right,#b388ff,#1de9b6)">Decisions<span class="tile-arrow">?</span></div>
+      </div>
     </div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Design Rationale</span><div class="sec-head-line"></div></div>
-  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
-    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
-      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
-    </div>
-  </div>
-  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Prompt -> Domain Outcome</div><div class="remember-v">Each Mini-OS starts from a clear domain outcome and target.</div></div>
-      <div class="remember-card"><div class="remember-k">Context -> Domain Facts</div><div class="remember-v">Execution uses live domain facts and operating state.</div></div>
-      <div class="remember-card"><div class="remember-k">Intent -> Guardrails</div><div class="remember-v">Policy boundaries keep systems, genies, and streams in-bounds.</div></div>
-      <div class="remember-card"><div class="remember-k">RTBoss Alignment</div><div class="remember-v">All Mini-OS instances follow the same control logic.</div></div>
-    </div>
-  </div>
+  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Click any Mini-OS tile above</strong> to jump to its detail below, or browse all 14 in the registry. Each Mini-OS runs the identical RTBoss six-layer loop with domain-specific Systems, Genies, and Streams.</div></div>
 
-  <div class="sec-head"><span class="sec-label">Future-State Model</span><div class="sec-head-line"></div></div>
-  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
-    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
-      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
-    </div>
-  </div>
-  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Mini-OS Everywhere</div><div class="remember-v">Every domain runs as a governed Mini-OS.</div></div>
-      <div class="remember-card"><div class="remember-k">Faster Domain Setup</div><div class="remember-v">New domains launch faster with reusable control patterns.</div></div>
-      <div class="remember-card"><div class="remember-k">Same Rules Everywhere</div><div class="remember-v">Policy and risk boundaries stay consistent across domains.</div></div>
-      <div class="remember-card"><div class="remember-k">Intent-Correct Factory</div><div class="remember-v">Agentic tools stay aligned with operating intent by default.</div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Execution in Chain</span><div class="sec-head-line"></div></div>
-  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
-    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
-      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
-    </div>
-  </div>
-  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Define Domain Rules</div><div class="remember-v">Set policy and risk boundaries first.</div></div>
-      <div class="remember-card"><div class="remember-k">Create Agentic Tools</div><div class="remember-v">Build systems, genies, and streams to complete domain work.</div></div>
-      <div class="remember-card"><div class="remember-k">Run With Live Context</div><div class="remember-v">Execution always uses current facts and role context.</div></div>
-      <div class="remember-card"><div class="remember-k">Log Governed Outcome</div><div class="remember-v">Each result is captured as a governed fact in the loop.</div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Tiny Habits</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Think Intent</div></div>
-      <div class="remember-card"><div class="remember-k">Lead with Facts</div></div>
-      <div class="remember-card"><div class="remember-k">Build Skills</div></div>
-      <div class="remember-card"><div class="remember-k">Keep Identities Up to Date</div></div>
-      <div class="remember-card"><div class="remember-k">Apply Lessons Learned</div></div>
-      <div class="remember-card"><div class="remember-k">Capture Everything</div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Control Dictionary</span><div class="sec-head-line"></div></div>
-  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Click any Mini-OS tile below</strong> to open domain detail. This registry is the Mini-OS control dictionary.</div></div>
   <div class="sec-head"><span class="sec-label">Mini-OS Registry  -  All 14 Domains</span><div class="sec-head-line"></div></div>
   <div class="accordion" id="mosAccordion"></div>
 </div></div>
 
 
 <!-- -- TAB 02  -  WORKFORCE OPERATING MODEL -- -->
-<div class="panel" id="tab-02-workers"><div class="pw">
+<div class="panel" id="tab-workers"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Human Roles</div>
 
     <h1 class="ph-title">Human Roles</h1>
-    <p class="ph-sub">The Workforce Operating Model starts with people, not agents. Humans set domain law and escalation authority, then route work across Human, Domain Orchestrator/Operator, and Digital execution modes through Mini-OS and Value Engines.</p>
+    <p class="ph-sub">The Workforce Operating Model starts with people, not agents. Humans set domain law and escalation authority, then route work across Human, Hybrid, and Digital execution modes through Mini-OS and Value Engines.</p>
   </div>
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
-
   <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
+    <div class="core-flow-k">Human-First Flow Ladder</div>
     <div class="core-flow-v">
       <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
     </div>
@@ -969,10 +805,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 <div class="sec-head" id="workers-overview"><span class="sec-label">Human Roles Overview</span><div class="sec-head-line"></div></div>
 
   <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
+    <div class="role-group-title">Workforce Chain Scope</div>
     <div class="hf-scope">
       <button class="hf-scope-step" style="--step-color:var(--pink);" onclick="show('workers',document.querySelectorAll('.ntab')[1])">
-        <div class="hf-num">05</div>
+        <div class="hf-num">01</div>
         <div class="hf-body">
           <div class="hf-title">Workforce Operating Model - Humans + Agents as one operating model.</div>
           <div class="hf-copy">Human and digital workers operate together as one model.</div>
@@ -989,14 +825,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       </button>
     </div>
     <div class="role-group-note">This tab focuses on Workforce and Identities. Use the Technical tab for the agentic architecture chain from Identities through Cadence.</div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Human Model First</strong><br>The Workforce Operating Model is the authority layer. Humans define domain truth, escalation, and accountability.<span class="mantra-label">Mantra:</span><span class="mantra-text">Human authority sets execution boundaries.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Mirror Is Foundation</strong><br>Identities mirror human expertise so agents can apply role-specific context consistently.<span class="mantra-label">Mantra:</span><span class="mantra-text">Mirror expertise before automation.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Identity Types</strong><br>Identities are structured as Personas, Advisors, and Skills. Policies and decisions are expressed inside those three types.<span class="mantra-label">Mantra:</span><span class="mantra-text">Roles, advisors, and skills stay aligned.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Governance Location</strong><br>Permissions, boundaries, and control constraints are governed in QMS and standards, then enforced through execution.<span class="mantra-label">Mantra:</span><span class="mantra-text">Govern once, enforce everywhere.</span></div></div>
-      </div>
+  </div>
+  <div class="sec-head"><span class="sec-label">What to Remember</span><div class="sec-head-line"></div></div>
+  <div class="remember-strip">
+    <div class="remember-grid">
+      <div class="remember-card"><div class="remember-k">Human Model First</div><div class="remember-v">The Workforce Operating Model is the authority layer. Humans define domain truth, escalation, and accountability.</div></div>
+      <div class="remember-card"><div class="remember-k">Mirror Is Foundation</div><div class="remember-v">Identities mirror human expertise so agents can apply role-specific context consistently.</div></div>
+      <div class="remember-card"><div class="remember-k">Identity Types</div><div class="remember-v">Identities are structured as Personas, Advisors, and Skills. Policies and decisions are expressed inside those three types.</div></div>
+      <div class="remember-card"><div class="remember-k">Governance Location</div><div class="remember-v">Permissions, boundaries, and control constraints are governed in QMS and standards, then enforced through execution.</div></div>
     </div>
   </div>
 
@@ -1202,135 +1038,176 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
   <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Overview boundary:</strong> Human Activity Map, customer experience shift, and productive time-shift analysis are in <strong>Tab 04 - Workforce Operating Model</strong>.</div></div>
 
+<div class="sec-head" id="workers-deepdive-link"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
+  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Deep dive moved:</strong> detailed operating model governance, routing, and execution patterns are in <strong>Tab 04 - Workforce Operating Model</strong>.</div></div>
+
 </div></div>
 
 
 
-<!-- -- TAB 04  -  WORKFORCE OPERATING MODEL -- -->
-<div class="panel" id="tab-04-wom"><div class="pw">
+<!-- -- TAB 04  -  WORKFORCE OPERATING MODEL DEEP DIVE -- -->
+<div class="panel" id="tab-wom"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Workforce Operating Model</div>
-    <h1 class="ph-title">Workforce Operating Model</h1>
-    <p class="ph-sub">Operating rules for <strong>Human Worker</strong>, <strong>Domain Orchestrator/Operator</strong>, and <strong>Digital Worker</strong> execution in RTBoss.</p>
+    <div class="tab-flowbar"><div class="tab-flowbar-k">Deep Dive Scope</div><div class="tab-flowbar-v">Governance -> Role Integration -> Work Routing -> Execution Modes</div></div>
+    <h1 class="ph-title">Workforce Operating Model Deep Dive</h1>
+    <p class="ph-sub">Detailed operating rules for how human, hybrid, and digital execution are governed and routed in RTBoss.</p>
   </div>
 
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
+<div class="sec-head" id="workers-deepdive"><span class="sec-label">Workforce Operating Model Deep Dive</span><div class="sec-head-line"></div></div>
+  <div class="def-block blue">Deep dive scope := governance roles, execution modes, routing rules, Systems/Genies/Streams composition, and reference implementation patterns for operating the workforce model at scale.</div>
 
-  <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
-    </div>
-  </div>
-
-  <div class="sec-head" id="workers-overview"><span class="sec-label">Human Roles Overview</span><div class="sec-head-line"></div></div>
-
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--pink);" onclick="show('workers',document.querySelectorAll('.ntab')[1])">
-        <div class="hf-num">02</div>
-        <div class="hf-body">
-          <div class="hf-title">Workforce Operating Model - Humans + Agents as one operating model.</div>
-          <div class="hf-copy">Human and digital workers operate together as one model.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Human</span></div>
-      </button>
-      <button class="hf-scope-step" style="--step-color:var(--blue);" onclick="show('bts',document.querySelectorAll('.ntab')[4])">
-        <div class="hf-num">02</div>
-        <div class="hf-body">
-          <div class="hf-title">Identities - How human expertise is mirrored for agents.</div>
-          <div class="hf-copy">Human expertise is mirrored so agents execute with domain context.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Bridge</span></div>
-      </button>
-    </div>
-    <div class="role-group-note">This tab focuses on Workforce and Identities. Use the Technical tab for the agentic architecture chain from Identities through Cadence.</div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Placeholder Tile 01</strong><br>Placeholder supporting sentence for the first operating-chain reminder.<span class="mantra-label">Mantra:</span><span class="mantra-text">Placeholder mantra one.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Placeholder Tile 02</strong><br>Placeholder supporting sentence for the second operating-chain reminder.<span class="mantra-label">Mantra:</span><span class="mantra-text">Placeholder mantra two.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Placeholder Tile 03</strong><br>Placeholder supporting sentence for the third operating-chain reminder.<span class="mantra-label">Mantra:</span><span class="mantra-text">Placeholder mantra three.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Placeholder Tile 04</strong><br>Placeholder supporting sentence for the fourth operating-chain reminder.<span class="mantra-label">Mantra:</span><span class="mantra-text">Placeholder mantra four.</span></div></div>
+  <div class="sec-head"><span class="sec-label">Human Role Evolution (Before -> RTBoss)</span><div class="sec-head-line"></div></div>
+  <div class="role-merge-map">
+    <div class="rm-inventory">
+      <div class="rm-inventory-title">Before Inventory (Expanded Worker Types)</div>
+      <div class="rm-chip-grid">
+        <div class="rm-chip">Executives</div>
+        <div class="rm-chip">Upper Management / BU Leaders</div>
+        <div class="rm-chip">Middle Managers / Supervisors</div>
+        <div class="rm-chip">Domain Leads / SMEs</div>
+        <div class="rm-chip">Knowledge Workers</div>
+        <div class="rm-chip">System Engineers</div>
+        <div class="rm-chip">Developers / Architects / QA</div>
+        <div class="rm-chip">Service Desk / Support / Success</div>
+        <div class="rm-chip">Sales</div>
+        <div class="rm-chip">Marketing</div>
+        <div class="rm-chip">Finance / Procurement / Compliance / HR / Legal</div>
+        <div class="rm-chip">Frontline Operations</div>
+        <div class="rm-chip">Licensed Trade Workers</div>
+        <div class="rm-chip">Factory / Line Workers</div>
+        <div class="rm-chip">Logistics / Warehouse / Fleet</div>
+        <div class="rm-chip">Owners / Investors / Board</div>
       </div>
     </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines what to do and the expected output.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Defines how execution runs using facts, role context, and current state.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Defines why the work exists and the policy/guardrail boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Personas + Advisors + Skills</strong><br>Enforce intent consistently in the Workforce Operating Model.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
+    <div class="rm-head">
+      <div>Before RTBoss</div>
+      <div>RTBoss Role Cards</div>
     </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Introduction</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Human-First Authority</div><div class="remember-v"><strong>Human Worker</strong> sets the rules and owns escalation.</div></div>
-      <div class="remember-card"><div class="remember-k">Identity Bridge</div><div class="remember-v">Identities mirror roles so agents act with the right context.</div></div>
-      <div class="remember-card"><div class="remember-k">Execution Routing</div><div class="remember-v">Work is routed to <strong>Human Worker</strong>, <strong>Domain Orchestrator/Operator</strong>, or <strong>Digital Worker</strong> by risk and policy.</div></div>
-      <div class="remember-card"><div class="remember-k">Operating Outcome</div><div class="remember-v"><strong>Flow of Work</strong> is smooth and <strong>Cadence</strong> is met. Mini-OS + Value Engines are execution layers.</div></div>
-      <div class="remember-card"><div class="remember-k">Human Workforce</div><div class="remember-v">Sets truth, risk boundaries, and escalation authority.</div></div>
-      <div class="remember-card"><div class="remember-k">Domain Operators</div><div class="remember-v">Run day-to-day execution and handoffs across systems.</div></div>
-      <div class="remember-card"><div class="remember-k">Digital Workforce</div><div class="remember-v">Executes deterministic flow, assists judgment work, logs everything.</div></div>
-      <div class="remember-card"><div class="remember-k">Bridge to Modes</div><div class="remember-v">Execution Modes define when work is <strong>Human Worker</strong>, <strong>Domain Orchestrator/Operator</strong>, or <strong>Digital Worker</strong>.</div></div>
+    <div class="ts-pair">
+      <div class="rm-col">
+        <div class="rm-title">Current Worker Labels</div>
+        <div class="rm-list">
+          <div class="rm-item">Frontline / Trade / Factory</div>
+          <div class="rm-item">Knowledge Workers</div>
+          <div class="rm-item">Managers / Supervisors</div>
+          <div class="rm-item">Executives</div>
+        </div>
+      </div>
+      <div class="rm-col">
+        <div class="rm-title">New Operating Roles</div>
+        <div class="rm-list">
+          <div class="rm-item future">Domain Operators</div>
+          <div class="rm-item future">Domain Orchestrators</div>
+          <div class="rm-item future">Domain Owners</div>
+          <div class="rm-item future">Stakeholders (Owners/Investors)</div>
+        </div>
+      </div>
     </div>
+    <div class="rm-note">These four roles are the shared language for the Workforce Operating Model. The same people can span roles, but the operating responsibilities are now explicit.</div>
   </div>
 
-  <div class="sec-head"><span class="sec-label">Human Workforce + Identity Mirror (Single View)</span><div class="sec-head-line"></div></div>
+<div class="boss-layer">
+    <div class="boss-layer-k">Human Governance First</div>
+    <div class="boss-layer-v">Executives + Domain Owners Define Boundaries</div>
+    <div class="boss-layer-sub">Humans define what is allowed, true, unsafe, and out of scope before agents execute</div>
+  </div>
+
+  <div class="sec-head" style="margin-bottom:1.25rem;">
+    <span class="sec-label">Human Workforce Playbook - Role Integration</span>
+    <div class="sec-head-line"></div>
+  </div>
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.1rem;">
     <table class="rule-table">
       <thead>
         <tr>
-          <th>Human Workforce Role</th>
-          <th>Domain Operating Role</th>
-          <th>Persona Mirror (1:1 Base)</th>
-          <th>Advisor Default</th>
-          <th>When Advisor Is Invoked</th>
+          <th>Worker Type</th>
+          <th>Primary Work</th>
+          <th>RTBoss Layer Integration</th>
+          <th>Boss Layer Accountability</th>
+          <th>Primary AI Interface</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Executives / Leaders</td>
-          <td>Stakeholders</td>
-          <td>Strategic Leadership Persona</td>
-          <td>None</td>
-          <td>High-risk commitments, external specialist validation, board-sensitive decisions</td>
+          <td>Capital allocation, risk appetite, strategic direction</td>
+          <td>Mini-OS policy approvals + Innovation investment decisions</td>
+          <td>Appoint domain owners and authorize robot/agent operating boundaries</td>
+          <td>Decision dashboards, scenario models, quarterly review packs</td>
         </tr>
         <tr>
-          <td>Domain Leads / Managers</td>
-          <td>Domain Owners / Domain Orchestrators</td>
-          <td>Operational Leadership Persona</td>
-          <td>Optional</td>
-          <td>Policy interpretation, compliance edge cases, cross-domain conflicts</td>
+          <td>Domain Owners</td>
+          <td>Define what is allowed, true, unsafe, out-of-scope, and high quality</td>
+          <td>Mini-OS rule sets + Value Engine constraints + Innovation safe-to-fail zones</td>
+          <td>Sign off on domain law, tolerances, escalation thresholds, and audit logic</td>
+          <td>Policy editors, approval queues, exception pattern reviews</td>
+        </tr>
+        <tr>
+          <td>Managers / Supervisors</td>
+          <td>Daily orchestration, exception arbitration, cross-team decisions</td>
+          <td>Bridge Mini-OS controls with Value Engine execution flow</td>
+          <td>Own handoffs between humans, agents, robots, and customer commitments</td>
+          <td>Alert queues, workflow boards, escalation cockpit</td>
         </tr>
         <tr>
           <td>Knowledge Workers</td>
-          <td>Domain Operators</td>
-          <td>Specialist Execution Persona</td>
-          <td>Optional</td>
-          <td>Complex analysis, specialist review, non-standard scenario design</td>
+          <td>Analysis, coordination, complex interpretation, system design</td>
+          <td>Value Engine optimization + Innovation experimentation support</td>
+          <td>Translate domain intent into reusable agent workflows</td>
+          <td>Workbench copilots, drafting agents, research and simulation tools</td>
         </tr>
         <tr>
-          <td>Frontline / Field / Trade</td>
-          <td>Domain Operators</td>
-          <td>Field Execution Persona</td>
-          <td>Optional</td>
-          <td>Safety exceptions, customer-critical recovery, unusual on-site conditions</td>
+          <td>Frontline / Trade / Factory Workers</td>
+          <td>Physical execution, safety decisions, in-field exception handling</td>
+          <td>Value Engine execution with Mini-OS quality/safety/compliance checkpoints</td>
+          <td>Provide ground-truth signals and execute safe escalation when conditions deviate</td>
+          <td>Voice, image, scan, and guided mobile workflows at point of work</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="callout info"><div class="callout-icon">i</div><div class="callout-body"><strong>Mirror rule:</strong> Start with 1:1 persona mirrors for role clarity. Scale to multi-persona per human only after stable operations are proven.</div></div>
+  <div class="callout success">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Design rule:</strong> Agents handle transaction flow. Humans handle meaning, ambiguity, trust repair, and non-routine exceptions.</div>
+  </div>
+
+  <div class="sec-head" style="margin-top:2rem;margin-bottom:1.25rem;">
+    <span class="sec-label">Work Type Routing Playbook</span>
+    <div class="sec-head-line"></div>
+  </div>
+  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.2rem;">
+    <table class="rule-table">
+      <thead>
+        <tr>
+          <th>Work Type</th>
+          <th>Default Executor</th>
+          <th>Escalation Trigger</th>
+          <th>Boss Layer Control</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Routine, deterministic, in-policy</td>
+          <td>Digital Worker</td>
+          <td>Confidence drop, policy mismatch, failed validation</td>
+          <td>Domain owner defines policy envelope and auto-approval limits</td>
+        </tr>
+        <tr>
+          <td>Contextual, variable, moderate risk</td>
+          <td>Hybrid Worker</td>
+          <td>Ambiguity, risk threshold crossing, customer sensitivity</td>
+          <td>Manager and domain owner define decision gates and SLA windows</td>
+        </tr>
+        <tr>
+          <td>Novel, emotional, high-risk, high-value</td>
+          <td>Human Worker</td>
+          <td>Not applicable - starts human-led by design</td>
+          <td>Executive and domain owner define authority for overrides and commitments</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- -- SECTION 1: WORKER TYPES --------------------------------------- -->
   <div class="sec-head" style="margin-bottom:1.25rem;">
@@ -1339,7 +1216,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
   </div>
 
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;">
-    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;">Work is classified by <strong>who executes it</strong>. This sets routing, automation depth, and SLA. Over time, work moves from <strong>Human Worker</strong> -> <strong>Domain Orchestrator/Operator</strong> -> <strong>Digital Worker</strong> as the Agentic Factory matures.</p>
+    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;">Work is classified by <strong>who or what executes it</strong>. Classification determines routing, automation potential, and SLA. It is not static  -  work progresses from Human -> Hybrid -> Digital as the Agentic Factory is built out.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
 
       <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:1.2rem;">
@@ -1365,9 +1242,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:1.2rem;">
         <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;">
           <span style="font-size:1.3rem;"></span>
-          <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Domain Orchestrator/Operator</h4>
+          <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Hybrid Worker</h4>
         </div>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin-bottom:.75rem;">Agent does most execution; human provides judgment or approval at key gates.</p>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin-bottom:.75rem;">Agent does the heavy lifting, human provides judgment or approval at the gate. True collaboration between digital and human.</p>
         <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;">Execution Pattern</div>
         <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.75rem;">Fact arrives -> Genie/Stream prepares work -> Surfaces decision to human -> Human decides -> Agent completes -> Outcome logged</p>
         <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;">Examples</div>
@@ -1387,7 +1264,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
           <span style="font-size:1.3rem;"></span>
           <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Human Worker</h4>
         </div>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin-bottom:.75rem;">Human drives end-to-end execution when judgment, relationships, or creativity are required.</p>
+        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin-bottom:.75rem;">Human drives execution end-to-end. Requires expertise, creativity, relationships, or strategic judgment that cannot be systematised.</p>
         <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;">Execution Pattern</div>
         <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.75rem;">Fact arrives -> Assigned to human -> Human executes (may invoke Genies for research or drafting support) -> Outcome logged</p>
         <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;">Examples</div>
@@ -1410,60 +1287,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 </div></div>
 <!-- -- TAB 04  -  DIGITAL WORKERS -- -->
-<div class="panel" id="tab-07-ve"><div class="pw">
+<div class="panel" id="tab-ve"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Value Engines</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Growth -> Fulfillment -> Innovation -> Logistics</div></div>
 
     <h1 class="ph-title">Value Engines</h1>
     <p class="ph-sub">Value Engines are cross-cutting commercial capabilities that run across multiple Mini-OS instances simultaneously  -  driving growth, fulfillment, innovation, and logistics. Where a Mini-OS governs a domain, a Value Engine generates outcomes across domains.</p>
-  </div>
-
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
-
-  <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
-    </div>
-  </div>
-
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('ve',document.querySelectorAll('.ntab')[6])">
-        <div class="hf-num">04</div>
-        <div class="hf-body">
-          <div class="hf-title">Value Engines - Cross-domain outcome execution capability.</div>
-          <div class="hf-copy">Growth, fulfillment, innovation, and logistics run across Mini-OS domains.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Execute</span></div>
-      </button>
-    </div>
-    <div class="role-group-note">This tab focuses on outcome execution across domains through Value Engines.</div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Cross-Domain Engine</strong><br>Value Engines run outcomes across multiple Mini-OS domains.<span class="mantra-label">Mantra:</span><span class="mantra-text">One outcome, many domains.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Outcome First</strong><br>Each engine is measured by business results, not activity.<span class="mantra-label">Mantra:</span><span class="mantra-text">Measure results, not motion.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Shared Building Blocks</strong><br>One capability can be reused across multiple engines.<span class="mantra-label">Mantra:</span><span class="mantra-text">Build once, reuse everywhere.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Always Traceable</strong><br>Every step logs facts for visibility, control, and learning.<span class="mantra-label">Mantra:</span><span class="mantra-text">If it happened, we can prove it.</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines what to do and the expected output.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Defines how execution runs using facts, role context, and current state.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Defines why the work exists and the policy/guardrail boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Personas + Advisors + Skills</strong><br>Enforce intent consistently in the Workforce Operating Model.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
-    </div>
   </div>
 
   <div class="stat-row">
@@ -1593,61 +1423,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 
 <!-- -- TAB 05  -  VALUE ENGINES -- -->
-<div class="panel" id="tab-08-rtbi"><div class="pw">
+<div class="panel" id="tab-rtbi"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - RTBI</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Unified Data -> Digital Twin -> Planning -> Analytics -> Decisions</div></div>
 
     <h1 class="ph-title">RTBI  -  Real-Time Business Intelligence</h1>
     <p class="ph-sub">RTBI is not a reporting tool bolted onto operations  -  it is what operations look like when they run correctly on RTBoss. Two foundational components (Unified Data and the Digital Twin) make three intelligence components possible (Planning, Analytics, Decisions). You cannot have the top without the bottom.</p>
   </div>
 
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
-
-  <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
-    </div>
-  </div>
-
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('rtbi',document.querySelectorAll('.ntab')[7])">
-        <div class="hf-num">05</div>
-        <div class="hf-body">
-          <div class="hf-title">RTBI - Real-time intelligence powered by Unified Data and Digital Twin.</div>
-          <div class="hf-copy">Planning, analytics, and decisions run from live operational facts.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Intelligence</span></div>
-      </button>
-    </div>
-    <div class="role-group-note">This tab focuses on real-time business intelligence as the live decision layer.</div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Live Data</strong><br>RTBI runs on live facts, not delayed reports.<span class="mantra-label">Mantra:</span><span class="mantra-text">See it now, act now.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>One Data Source</strong><br>Unified Data keeps every team on the same numbers.<span class="mantra-label">Mantra:</span><span class="mantra-text">One business, one number.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Full History</strong><br>The Digital Twin stores what happened and why.<span class="mantra-label">Mantra:</span><span class="mantra-text">History explains every decision.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Decision Support</strong><br>Planning, analytics, and decisions run from the same source.<span class="mantra-label">Mantra:</span><span class="mantra-text">Plan, analyze, decide from facts.</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines what to do and the expected output.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Defines how execution runs using facts, role context, and current state.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Defines why the work exists and the policy/guardrail boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Personas + Advisors + Skills</strong><br>Enforce intent consistently in the Workforce Operating Model.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
-    </div>
-  </div>
+  <div class="def-block violet">Foundation: Unified Data  -  Digital Twin -> these make possible -> Intelligence: Planning  -  Analytics  -  Decisions
+Every metric, forecast, and recommendation is a direct expression of live Fact data  -  not a report compiled after the fact.</div>
 
   <!-- -- FOUNDATION LAYER -------------------------------------------- -->
   <div class="sec-head" style="margin-bottom:1.25rem;">
@@ -1741,201 +1527,28 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
   <div class="callout violet"><div class="callout-icon">?</div><div class="callout-body"><strong>RTBI is not a product add-on.</strong> It is the natural emergent capability of running operations correctly on RTBoss. Because every event is a Fact and the Digital Twin holds the complete record, intelligence is simply what happens when operations are done right. You don't buy RTBI  -  you build it by operating correctly.</div></div>
 
-  <div class="sec-head" style="margin-top:2rem;"><span class="sec-label">Health Dashboard  -  The Real-Time Operations Engine</span><div class="sec-head-line"></div></div>
-
-  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
-    <p style="font-size:.85rem;color:var(--mid);line-height:1.8;margin-bottom:1.5rem;">In a live‑operations environment, RTBI is not a reporting tool you check at scheduled intervals  -  it is a <strong>continuous, event-driven system</strong> that watches what's happening RIGHT NOW and automatically triggers the operating cadence whenever attention is required. The Health Dashboard is this system's eyes and ears.</p>
-
-    <h4 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;">What the Health Dashboard Does</h4>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
-        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">? Live System State</div>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Real-time view of all active Facts: RED incidents (blocked), YELLOW facts (degraded), GREEN work (routine). Updated constantly. Shows age, assignment, and escalation countdown.</p>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
-        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">⚡ Incident & Change Events</div>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Captures any anomaly: alert from Zero Touch AI, Azure Monitor, UniFi. Any deployment, configuration change, or maintenance window. Feeds both as Facts AND as cadence triggers.</p>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
-        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">? Threshold Violation Detection</div>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Monitors real-time metrics: error rates, response times, queue depths, client response times, team velocity. When a threshold is crossed, auto-escalates the associated fact or spawns a new one.</p>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
-        <div style="font-weight:600;font-size:.85rem;color:#e8f4ff;margin-bottom:.5rem;">Pattern & Trend Signals</div>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.6;">Watches for secondary patterns: 3 similar incidents in 1 hour, unusual traffic spike, multiple failed transactions from one client, shift handoff gaps. Feeds directly into the Daily Digest and cadence triggers.</p>
-      </div>
-    </div>
-
-    <h4 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;padding-top:1rem;border-top:1px solid var(--border);">Real-Time Cadence Triggers  (Not Calendar-Based)</h4>
-    <p style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:1rem;">Instead of "check the dashboard at 8:30am", the dashboard itself drives cadence. Here's how events automatically trigger responses:</p>
-
-    <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;">
-      <h4 style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--green);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;">Incident Event (RED Fact Created)</h4>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-        <div>
-          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">What Happens</div>
-          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
-            <li>Alert fired (Zero Touch, Azure, etc.)</li>
-            <li>Auto-classified as RED (blocked)</li>
-            <li>Assigned to on-call rotation</li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">Cadence Response</div>
-          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
-            <li>Teams ping to on-call</li>
-            <li>T+0: Response initiated</li>
-            <li>T+5: Diagnostic summary added to fact</li>
-            <li>T+15: "Status?" check-in if not resolved</li>
-            <li>T+30: Escalation if not progressing</li>
-          </ul>
-        </div>
-      </div>
-      <p style="margin-top:.75rem;font-size:.73rem;color:var(--dim);font-style:italic;">The "cadence" is not a meeting  -  it's a series of system-driven time-bounded checkpoints.</p>
-    </div>
-
-    <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;">
-      <h4 style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--amber);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;">Change Event (Deploy / Config Change)</h4>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-        <div>
-          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">What Happens</div>
-          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
-            <li>Deployment webhook received</li>
-            <li>Config change tracked</li>
-            <li>Post-deploy monitoring armed</li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">Cadence Response</div>
-          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
-            <li>T+0: Change logged to dashboard timeline</li>
-            <li>T+2min: "Smoke check" – any RED facts spawned by this change?</li>
-            <li>T+5min: Metrics delta check – error rate, latency, throughput</li>
-            <li>T+30min: "Still healthy?" dashboard marker</li>
-            <li>If any YELLOW: flag in next Daily Digest</li>
-          </ul>
-        </div>
-      </div>
-      <p style="margin-top:.75rem;font-size:.73rem;color:var(--dim);font-style:italic;">Post-deploy cadence is event-driven, not scheduled. It tightens at +0 to +5min, then relaxes if all green.</p>
-    </div>
-
-    <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;">
-      <h4 style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;">Threshold Crossing (Metric Violates SLO)</h4>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-        <div>
-          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">What Happens</div>
-          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
-            <li>Error rate hits 2% (threshold)</li>
-            <li>Response time > 500ms</li>
-            <li>Queue depth > capacity</li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-weight:600;font-size:.8rem;color:var(--mid);margin-bottom:.4rem;">Cadence Response</div>
-          <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.6;">
-            <li>Dashboard fact created (YELLOW or RED)</li>
-            <li>Trend dashboard shows 5-min window</li>
-            <li>Assigned to domain owner for investigation</li>
-            <li>If sustained > 5min: escalates to incident</li>
-            <li>Auto-logs pattern for Weekly analysis</li>
-          </ul>
-        </div>
-      </div>
-      <p style="margin-top:.75rem;font-size:.73rem;color:var(--dim);font-style:italic;">Metrics-to-cadence: threshold breach = automatic entry into the flow-of-work, not a separate alerting system.</p>
-    </div>
-
-    <div class="callout success" style="margin-top:1.5rem;"><div class="callout-icon">?</div><div class="callout-body"><strong>The key insight:</strong> Unlike traditional cadence which is scheduled (daily standup at 9am, weekly review Friday afternoon), Real-Time cadence is <strong>event-driven and time-bounded</strong>. Incidents auto-trigger checkpoints at T+5, T+15, T+30. Changes spawn post-deploy watches at T+2, T+5, T+30. Metrics that breach thresholds spawn investigation facts. The system enforces these touches automatically based on what's actually happening.</div></div>
-
-    <div style="background:var(--s3);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1.5rem;border-left:3px solid var(--blue);">
-      <div style="font-weight:700;font-size:.8rem;color:#e8f4ff;margin-bottom:.5rem;">? Implementation: Analytics + Visual Management</div>
-      <p style="font-size:.76rem;color:var(--mid);line-height:1.7;">The Health Dashboard is powered by the <strong>Analytics</strong> component described above  -  running directly on the Unified Data layer. The <strong>actual live dashboard</strong> with embedded widgets, real-time updates, and drill-down capability lives in the <strong>Visual Management</strong> section. This section explains the *why* and *how*; Visual Management shows the *what-it-looks-like*.</p>
-    </div>
-  </div>
-
 </div></div>
 
 
 <!-- -- TAB 06  -  RTBI -- -->
-<div class="panel" id="tab-05-bts"><div class="pw">
+<div class="panel" id="tab-bts"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Operating Identity</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Personas -> Advisors -> Skills -> Governance Consistency</div></div>
 
     <h1 class="ph-title">Operating Identity  -  Personas  -  Advisors  -  Skills</h1>
-    <p class="ph-sub">The hidden infrastructure powering every Mini-OS and Value Engine. This is where intent engineering becomes operational: Personas carry decision rights and accountability, Advisors carry policy and specialist guidance, and Skills carry reusable methods and guardrails so execution stays consistent and in-bounds.</p>
+    <p class="ph-sub">The hidden infrastructure powering every Mini-OS and Value Engine. Personas define the human roles the system models and serves. Advisors are specialist AI agents with domain expertise. Skills are reusable knowledge assets ensuring consistent, high-quality outputs across the whole system.</p>
   </div>
 
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
+  <div class="def-block">Personas  -> human roles RTBoss models, serves, and enables (CEO, CFO, Ops Manager...)
+Advisors  -> specialist AI agents providing domain expertise (Legal, Compliance, LEAN...)
+Skills    -> reusable knowledge assets ensuring consistent outputs (Brand, Dictionary, Taxonomy...)</div>
 
-  <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Overview</span><div class="sec-head-line"></div></div>
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--blue);" onclick="show('bts',document.querySelectorAll('.ntab')[4])">
-        <div class="hf-num">02</div>
-        <div class="hf-body">
-          <div class="hf-title">Identities - How human expertise is mirrored for agents.</div>
-          <div class="hf-copy">Human expertise is mirrored so agents execute with domain context.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Bridge</span></div>
-      </button>
-    </div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Role Mirror</strong><br>Identities translate human roles into agent-ready context.<span class="mantra-label">Mantra:</span><span class="mantra-text">Mirror the real role.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Intent Enforcement</strong><br>Personas, Advisors, and Skills keep execution in-bounds.<span class="mantra-label">Mantra:</span><span class="mantra-text">Rules stay in every step.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Same Language</strong><br>Shared dictionary and taxonomy keep outputs aligned.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use one shared language.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Controlled Autonomy</strong><br>Agents run with bounded authority and traceable decisions.<span class="mantra-label">Mantra:</span><span class="mantra-text">Autonomy with clear limits.</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines what to do and the expected output.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Defines how execution runs using facts, role context, and current state.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Defines why the work exists and the policy/guardrail boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Personas + Advisors + Skills</strong><br>Enforce intent consistently in the Workforce Operating Model.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Model Definition</span><div class="sec-head-line"></div></div>
-  <div class="bts-grid" style="margin-bottom:1rem;">
-    <div class="bts-col model-step" style="--bts-accent:var(--blue);">
-      <div class="bts-col-header"><div class="bts-col-title">Prompt Engineering</div><div class="bts-col-sub">Task and target</div></div>
-      <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--blue);"></div>What work is requested and expected output</div></div>
-      <div class="bts-col-footer" style="color:var(--blue);">Prompt</div>
-    </div>
-    <div class="bts-col model-step" style="--bts-accent:var(--teal);">
-      <div class="bts-col-header"><div class="bts-col-title">Context Engineering</div><div class="bts-col-sub">Execution state</div></div>
-      <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--teal);"></div>Facts, role context, and current operating conditions</div></div>
-      <div class="bts-col-footer" style="color:var(--teal);">Context</div>
-    </div>
-    <div class="bts-col model-step" style="--bts-accent:var(--pink);">
-      <div class="bts-col-header"><div class="bts-col-title">Intent Engineering</div><div class="bts-col-sub">Why and boundaries</div></div>
-      <div class="bts-items"><div class="bts-item"><div class="bts-item-dot" style="background:var(--pink);"></div>Policy, risk, accountability, and guardrail boundaries</div></div>
-      <div class="bts-col-footer" style="color:var(--pink);">Intent</div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Infrastructure Layers</span><div class="sec-head-line"></div></div>
+  <div class="sec-head"><span class="sec-label">Three Infrastructure Layers</span><div class="sec-head-line"></div></div>
 
   <div class="bts-grid">
     <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Personas</div><div class="bts-col-sub" style="color:#9bc8ff;font-weight:700;">HUMAN ROLES THE SYSTEM MODELS &amp; SERVES</div></div>
+      <div class="bts-col-header"><div class="bts-col-title">Personas</div><div class="bts-col-sub">Human roles the system models &amp; serves</div></div>
       <div class="bts-items">
         <div class="bts-item"><div class="bts-item-dot" style="background:#40c4ff;"></div>CEO<span class="bts-item-role">Executive</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:#40c4ff;"></div>COO<span class="bts-item-role">Executive</span></div>
@@ -1946,7 +1559,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="bts-col-footer" style="color:var(--blue);">Personas</div>
     </div>
     <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Advisors</div><div class="bts-col-sub" style="color:#ffd67a;font-weight:700;">SPECIALIST GUIDANCE LAYER</div></div>
+      <div class="bts-col-header"><div class="bts-col-title">Advisors</div><div class="bts-col-sub">Specialist AI agents  -  domain expertise</div></div>
       <div class="bts-items">
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--amber);"></div>Legal Advisor<span class="bts-item-role">Legal</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--amber);"></div>Compliance Advisor<span class="bts-item-role">Risk</span></div>
@@ -1957,230 +1570,64 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="bts-col-footer" style="color:var(--amber);">Advisors</div>
     </div>
     <div class="bts-col">
-      <div class="bts-col-header"><div class="bts-col-title">Skills</div><div class="bts-col-sub" style="color:#ffb6d5;font-weight:700;">REUSABLE EXECUTION MEMORY</div></div>
+      <div class="bts-col-header"><div class="bts-col-title">Skills</div><div class="bts-col-sub">Reusable knowledge assets</div></div>
       <div class="bts-items">
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--pink);"></div>Brand Identity<span class="bts-item-role">Brand</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--violet);"></div>Dictionary<span class="bts-item-role">Language</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--violet);"></div>Taxonomy<span class="bts-item-role">Structure</span></div>
         <div class="bts-item"><div class="bts-item-dot" style="background:var(--teal);"></div>Job Roles<span class="bts-item-role">HR</span></div>
-        <div class="bts-item"><div class="bts-item-dot" style="background:var(--green);"></div>Playbooks<span class="bts-item-role">Method</span></div>
       </div>
       <div class="bts-col-footer" style="color:var(--pink);">Skills</div>
     </div>
   </div>
 
-  <div class="remember-strip" style="margin-top:.8rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Personas</strong> define how the system presents information and what decisions each role can make. <strong>Same data, role-specific view.</strong></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Advisors</strong> are specialist agents invoked across any Mini-OS. <strong>They travel with the operating system, not a department.</strong></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Skills</strong> are reusable organizational memory. <strong>They enforce shared language, structure, and methods.</strong></div></div>
-    </div>
-  </div>
+  <div class="callout info"><div class="callout-icon">?</div><div class="callout-body"><strong>Personas</strong> define how the system presents information and what decisions each role is empowered to make. A CEO sees strategic dashboards. An Ops Manager sees operational queues and SLA status. Same data  -  role-appropriate view.</div></div>
+  <div class="callout amber"><div class="callout-icon">?</div><div class="callout-body"><strong>Advisors</strong> are specialist AI agents providing domain expertise across any Mini-OS instance. The Legal Advisor can be invoked from Finance OS, HR OS, or Sales OS. The LEAN Advisor can surface waste from Operations OS, Manufacturing OS, or Services OS. Advisors travel with the system, not with the department.</div></div>
+  <div class="callout violet"><div class="callout-icon">?</div><div class="callout-body"><strong>Skills</strong> are the organizational memory of RTBoss. The Dictionary enforces common language. The Taxonomy structures every entity consistently. Brand Identity ensures every output is on-brand. Job Roles defines authority and accountability across all Personas and Hybrid Workers.</div></div>
 
-  <div class="sec-head"><span class="sec-label">Design Rationale</span><div class="sec-head-line"></div></div>
-  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
-    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
-      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
-    </div>
-  </div>
-  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Intent -> Personas</div><div class="remember-v">Intent defines role posture, decision rights, and accountability by persona.</div></div>
-      <div class="remember-card"><div class="remember-k">Intent -> Advisors</div><div class="remember-v">Intent sets when specialist guidance is invoked and what policy boundaries apply.</div></div>
-      <div class="remember-card"><div class="remember-k">Intent -> Skills</div><div class="remember-v">Intent enforces shared language, methods, and guardrails in reusable execution skills.</div></div>
-      <div class="remember-card"><div class="remember-k">RTBoss Alignment</div><div class="remember-v">This is how intent works through RTBoss: Personas, Advisors, Skills.</div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Future-State Model</span><div class="sec-head-line"></div></div>
-  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
-    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
-      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
-    </div>
-  </div>
-  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Identity -> Uses Identities</div><div class="remember-v">Every Mini-OS and Value Engine is built on Personas, Advisors, and Skills.</div></div>
-      <div class="remember-card"><div class="remember-k">Intent -> Follows Intent</div><div class="remember-v">Each System, Genie, and Stream inherits policy, risk, and role boundaries from identities.</div></div>
-      <div class="remember-card"><div class="remember-k">Domains -> Same Rules Everywhere</div><div class="remember-v">The same intent logic applies across domains, so execution stays predictable and auditable.</div></div>
-      <div class="remember-card"><div class="remember-k">Agentic Factory Alignment</div><div class="remember-v">RTBoss produces an intent-correct Agentic Factory by default, not by manual exception.</div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Execution in Chain</span><div class="sec-head-line"></div></div>
-  <div style="background:#0b1828;border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin:.2rem 0 .85rem;">
-    <div style="font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.5;text-align:center;color:#dff0ff;">
-      <span style="color:var(--blue);font-weight:700;">Prompt</span> -> <span style="color:var(--teal);font-weight:700;">Context</span> -> <span style="color:var(--pink);font-weight:700;">Intent</span>
-    </div>
-  </div>
-  <div class="remember-strip" style="margin-top:0; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Build Identities</div><div class="remember-v">Define Personas, Advisors, and Skills first.</div></div>
-      <div class="remember-card"><div class="remember-k">Build Systems/Genies/Streams</div><div class="remember-v">Create the agentic tools that complete the work.</div></div>
-      <div class="remember-card"><div class="remember-k">Identities Are Constant Reference</div><div class="remember-v">The work always references identities while it runs.</div></div>
-      <div class="remember-card"><div class="remember-k">Intent-Driven Agentic Factory</div><div class="remember-v">The outcome is an intent-driven Agentic Factory by default.</div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Tiny Habits</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-k">Think Intent</div></div>
-      <div class="remember-card"><div class="remember-k">Lead with Facts</div></div>
-      <div class="remember-card"><div class="remember-k">Build Skills</div></div>
-      <div class="remember-card"><div class="remember-k">Keep Identities Up to Date</div></div>
-      <div class="remember-card"><div class="remember-k">Apply Lessons Learned</div></div>
-      <div class="remember-card"><div class="remember-k">Capture Everything</div></div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Control Dictionary</span><div class="sec-head-line"></div></div>
-  <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
-      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:1.2rem;">
-        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Persona</h4>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">Role identity that defines decision rights, accountability, and the view of work.</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
-        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Intent set -> Persona loaded -> Role-safe decisions and outputs</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
-        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
-          <li>CEO persona (strategic decisions)</li>
-          <li>CFO persona (financial controls)</li>
-          <li>Ops Manager persona (daily queue control)</li>
-        </ul>
-        <div class="tag-row" style="margin-top:.65rem;"><span class="tag blue">Decision rights</span><span class="tag blue">Accountability</span></div>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:1.2rem;">
-        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Advisor</h4>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">Specialist identity that provides policy, legal, quality, or risk guidance when invoked.</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
-        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Boundary detected -> Advisor invoked -> Guidance applied -> Trace logged</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
-        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
-          <li>Legal Advisor for contract exception</li>
-          <li>Compliance Advisor for policy check</li>
-          <li>ISO 9001 Advisor for quality evidence</li>
-        </ul>
-        <div class="tag-row" style="margin-top:.65rem;"><span class="tag amber">Specialist</span><span class="tag amber">Boundary check</span></div>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 10px 10px 0;padding:1.2rem;">
-        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Skill</h4>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">Reusable execution memory that enforces language, structure, and method consistency.</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
-        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Task starts -> Skill pack applied -> Standardized output produced</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
-        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
-          <li>Dictionary skill for term consistency</li>
-          <li>Taxonomy skill for entity structure</li>
-          <li>Brand skill for approved voice</li>
-        </ul>
-        <div class="tag-row" style="margin-top:.65rem;"><span class="tag pink">Reusable</span><span class="tag pink">Standardized</span></div>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:1.2rem;">
-        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Prompt</h4>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">The requested task and expected output.</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
-        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Request captured -> Output target defined -> Work initiated</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
-        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
-          <li>Classify this incoming issue</li>
-          <li>Draft a compliant response</li>
-          <li>Prepare closure summary</li>
-        </ul>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:0 10px 10px 0;padding:1.2rem;">
-        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Context</h4>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">The facts, role state, policy state, and operating conditions for execution.</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
-        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Facts loaded -> Role context applied -> Boundary checks run</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
-        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
-          <li>Open facts and current priority</li>
-          <li>Role authority and escalation path</li>
-          <li>Applicable risk policy set</li>
-        </ul>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 10px 10px 0;padding:1.2rem;">
-        <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Intent</h4>
-        <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin:.6rem 0;">The reason for the work and the non-negotiable boundaries around how it is done.</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Execution Pattern</div>
-        <p style="font-size:.74rem;color:var(--mid);line-height:1.6;margin-bottom:.6rem;">Intent loaded -> Personas/Advisors/Skills enforced -> Outcome validated</p>
-        <div style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;">Examples</div>
-        <ul style="padding-left:1rem;font-size:.74rem;color:var(--mid);line-height:1.55;margin:0;">
-          <li>Protect compliance and legal boundaries</li>
-          <li>Preserve brand and communication tone</li>
-          <li>Escalate above approved risk threshold</li>
-        </ul>
-        <div class="tag-row" style="margin-top:.65rem;"><span class="tag pink">Why</span><span class="tag pink">Boundaries</span></div>
-      </div>
-    </div>
-  </div>
+  <div class="sec-head"><span class="sec-label">Complete Infrastructure Reference</span><div class="sec-head-line"></div></div>
+  <table class="rule-table">
+    <thead><tr><th>Type</th><th>Name</th><th>Function</th><th>Available to</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>CEO</td><td>Strategic oversight, cross-OS decisions, board reporting</td><td>Strategy OS, RTBI, all Value Engines</td></tr>
+      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>COO</td><td>Operational delivery, fulfillment, team performance</td><td>Operations OS, Fulfillment Engine, LiveOps</td></tr>
+      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>CFO</td><td>Financial governance, forecasting, tax/compliance</td><td>Finance OS, RTBI Planning, Logistics Engine</td></tr>
+      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>Ops Manager</td><td>Day-to-day operational queue management and SLA</td><td>Operations OS, Fulfillment Engine, MIP</td></tr>
+      <tr><td style="color:var(--blue);font-family:'Fira Code',monospace;">PERSONA</td><td>Warehouse Manager</td><td>Inventory, dispatch, inbound/outbound logistics</td><td>Logistics Engine, Manufacturing OS</td></tr>
+      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>Legal Advisor</td><td>Contract review, terms guidance, risk flagging</td><td>All Mini-OS instances</td></tr>
+      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>Compliance Advisor</td><td>Regulatory compliance, audit readiness, policy enforcement</td><td>All Mini-OS instances</td></tr>
+      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>ISO 9001 Advisor</td><td>Quality management, process compliance, audit trail</td><td>All Mini-OS + Value Engines</td></tr>
+      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>LEAN Advisor</td><td>Waste identification, process efficiency, cycle time</td><td>LEAN OS, Operations OS, Manufacturing OS</td></tr>
+      <tr><td style="color:var(--amber);font-family:'Fira Code',monospace;">ADVISOR</td><td>Closing Advisor</td><td>Deal strategy, negotiation support, close sequencing</td><td>Sales OS, Growth Engine</td></tr>
+      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Brand Identity</td><td>Ensures all outputs are on-brand  -  tone, visual, language</td><td>All digital workers + Streams</td></tr>
+      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Dictionary</td><td>Common language  -  enforces precise, shared terminology</td><td>All agents, Advisors, Personas</td></tr>
+      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Taxonomy</td><td>Consistent entity classification across all Mini-OS domains</td><td>All Mini-OS + Unified Data</td></tr>
+      <tr><td style="color:var(--pink);font-family:'Fira Code',monospace;">SKILL</td><td>Job Roles</td><td>Authority, accountability, and escalation path definitions</td><td>All Personas + Hybrid Workforce</td></tr>
+    </tbody>
+  </table>
 </div></div>
 
 <!-- -- TAB 07  -  FLOW OF WORK -- -->
-<div class="panel" id="tab-09-flow"><div class="pw">
+<div class="panel" id="tab-flow"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Flow of Work</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Fact Capture -> Classification -> Dimension Enrichment -> Execution</div></div>
 
     <h1 class="ph-title">Flow of Work</h1>
     <p class="ph-sub">How work enters the system, gets classified by worker type, gets enriched with dimensions, and flows through execution. This documents both our current manual state and our target agentic state  -  the workforce maturity path from human-heavy to agent-enabled operations.</p>
   </div>
 
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
+  <div class="def-block">Flow of Work := Fact Capture (how work enters) -> Work Classification (Digital/Hybrid/Human Worker) -> Dimension Enrichment (priority, domain, SLA) -> Execution (routed to appropriate Systems/Genies/Streams or humans). Every fact follows this pattern.</div>
 
-  <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
-    </div>
-  </div>
-
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('flow',document.querySelectorAll('.ntab')[8])">
-        <div class="hf-num">06</div>
-        <div class="hf-body">
-          <div class="hf-title">Flow of Work - Classification, routing, handoffs, and closure.</div>
-          <div class="hf-copy">Work enters as facts and is orchestrated to the right execution mode.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Orchestrate</span></div>
-      </button>
-    </div>
-    <div class="role-group-note">This tab focuses on orchestration logic across human and digital execution.</div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Facts Enter First</strong><br>Work starts as facts and is classified before routing.<span class="mantra-label">Mantra:</span><span class="mantra-text">No routing without facts.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Right Route, Right Worker</strong><br>Flow sends work to digital, orchestrator, or human execution.<span class="mantra-label">Mantra:</span><span class="mantra-text">Match work to executor.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Clear Handoffs</strong><br>Each step has ownership, status, and next action.<span class="mantra-label">Mantra:</span><span class="mantra-text">No owner, no progress.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Closed-Loop Flow</strong><br>Completed work returns as new facts for the next cycle.<span class="mantra-label">Mantra:</span><span class="mantra-text">Finish work, feed the loop.</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines what to do and the expected output.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Defines how execution runs using facts, role context, and current state.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Defines why the work exists and the policy/guardrail boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Personas + Advisors + Skills</strong><br>Enforce intent consistently in the Workforce Operating Model.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
-    </div>
-  </div>
+  <div class="callout warn"><div class="callout-icon">?</div><div class="callout-body"><strong>Meta principle:</strong> We eat our own dog food. New Era IT runs on RTBoss. Every workflow pattern we document becomes a template for client Mini-OS deployments. Every agent we build for ourselves becomes a reusable Genie for clients.</div></div>
 
   <div class="sec-head"><span class="sec-label">Work Classification Framework  -  Three Worker Types</span><div class="sec-head-line"></div></div>
 
   <div class="callout info" style="margin-bottom:1.25rem;"><div class="callout-icon">?</div><div class="callout-body"><strong>Full definitions in Workforce Operating Model (Tab 06).</strong> Worker types, building block definitions (Systems / Genies / Streams), and all 14 Mini-OS structures are documented there. This section shows how classification drives the flow of work.</div></div>
 
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
-    <h3 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;">Digital Worker  -  Domain Orchestrator/Operator  -  Human Worker</h3>
-    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;">Work is classified by <strong>who/what executes it</strong>. This determines routing, automation potential, and SLA expectations. Classification is not static  -  work progresses from Human -> Domain Orchestrator/Operator -> Digital as the Agentic Factory is built.</p>
+    <h3 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;">Digital Worker  -  Hybrid Worker  -  Human Worker</h3>
+    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;">Work is classified by <strong>who/what executes it</strong>. This determines routing, automation potential, and SLA expectations. Classification is not static  -  work progresses from Human -> Hybrid -> Digital as the Agentic Factory is built.</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
       
@@ -2209,11 +1656,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         </div>
       </div>
 
-      <!-- Domain Orchestrator/Operator -->
+      <!-- HYBRID WORKER -->
       <div style="background:var(--s2);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:1.2rem;">
         <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;">
           <span style="font-size:1.3rem;"></span>
-          <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Domain Orchestrator/Operator</h4>
+          <h4 style="font-weight:700;font-size:.95rem;color:#e8f4ff;">Hybrid Worker</h4>
         </div>
         <p style="font-size:.76rem;color:var(--mid);line-height:1.7;margin-bottom:.75rem;">Agent does heavy lifting, human provides judgment or approval. Collaboration between digital and human workers.</p>
         <div style="margin-top:.75rem;">
@@ -2269,7 +1716,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
     <h3 style="font-weight:700;font-size:1rem;margin-bottom:1rem;color:#e8f4ff;">The Path from Manual to Agentic</h3>
-    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;"><strong>Reality check:</strong> Today, most work is classified as Human Worker because the Agentic Factory isn't built yet. We're capturing Facts, enriching Dimensions manually, and routing to humans. As we build Genies and Streams, work progresses from Human -> Domain Orchestrator/Operator -> Digital. This workforce maturity model is our agent build roadmap.</p>
+    <p style="font-size:.8rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem;"><strong>Reality check:</strong> Today, most work is classified as Human Worker because the Agentic Factory isn't built yet. We're capturing Facts, enriching Dimensions manually, and routing to humans. As we build Genies and Streams, work progresses from Human -> Hybrid -> Digital. This workforce maturity model is our agent build roadmap.</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
       <div style="background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:1.2rem;">
@@ -2294,7 +1741,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         </div>
         <div style="margin-bottom:1rem;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;">
-            <span style="font-size:.76rem;color:var(--mid);">Domain Orchestrator/Operator</span>
+            <span style="font-size:.76rem;color:var(--mid);">Hybrid Worker</span>
             <span style="font-family:'Fira Code',monospace;font-size:.7rem;color:var(--blue);font-weight:600;">~0%</span>
           </div>
           <div style="height:8px;background:var(--s3);border-radius:4px;overflow:hidden;">
@@ -2317,7 +1764,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         </div>
         <div style="margin-bottom:1rem;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;">
-            <span style="font-size:.76rem;color:var(--mid);">Domain Orchestrator/Operator</span>
+            <span style="font-size:.76rem;color:var(--mid);">Hybrid Worker</span>
             <span style="font-family:'Fira Code',monospace;font-size:.7rem;color:var(--blue);font-weight:600;">~30%</span>
           </div>
           <div style="height:8px;background:var(--s3);border-radius:4px;overflow:hidden;">
@@ -2337,7 +1784,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       </div>
     </div>
 
-    <div class="callout violet" style="margin-bottom:1.5rem;"><div class="callout-icon">?</div><div class="callout-body"><strong>Target metric (Q3 2026):</strong> 40% of facts handled by Digital Workers, 30% by Domain Orchestrators/Operators, 30% remain Human Workers. This represents significant progress from current ~95% manual state.</div></div>
+    <div class="callout violet" style="margin-bottom:1.5rem;"><div class="callout-icon">?</div><div class="callout-body"><strong>Target metric (Q3 2026):</strong> 40% of facts handled by Digital Workers, 30% by Hybrid Workers, 30% remain Human Workers. This represents significant progress from current ~95% manual state.</div></div>
 
     <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.3rem;border-bottom:1px solid var(--border);">Workforce Maturity Paths - Example Fact Types</h4>
     
@@ -2354,7 +1801,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <tr>
           <td>Client email inquiry</td>
           <td style="color:var(--amber);">Human Worker</td>
-          <td style="color:var(--blue);">Domain Orchestrator/Operator</td>
+          <td style="color:var(--blue);">Hybrid Worker</td>
           <td>Build Email Classification Genie + Response Drafter Genie -> human reviews before send</td>
           <td style="color:var(--green);">HIGH</td>
         </tr>
@@ -2368,14 +1815,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <tr>
           <td>Invoice over $5k</td>
           <td style="color:var(--amber);">Human Worker</td>
-          <td style="color:var(--blue);">Domain Orchestrator/Operator</td>
+          <td style="color:var(--blue);">Hybrid Worker</td>
           <td>Build Invoice Validation Genie + Business Central workflow -> human approval required</td>
           <td style="color:var(--amber);">MEDIUM</td>
         </tr>
         <tr>
           <td>Server outage alert</td>
           <td style="color:var(--amber);">Human Worker</td>
-          <td style="color:var(--blue);">Domain Orchestrator/Operator</td>
+          <td style="color:var(--blue);">Hybrid Worker</td>
           <td>Build Diagnostic Stream (gather logs, run health checks) -> surface findings -> human decides recovery action</td>
           <td style="color:var(--green);">HIGH</td>
         </tr>
@@ -2417,21 +1864,21 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <tr>
           <td>Sales proposal request</td>
           <td style="color:var(--amber);">Human Worker</td>
-          <td style="color:var(--blue);">Domain Orchestrator/Operator</td>
+          <td style="color:var(--blue);">Hybrid Worker</td>
           <td>Build Proposal Generation Genie (template + client data + pricing rules) -> human reviews/customizes -> send</td>
           <td style="color:var(--dim);">LOW</td>
         </tr>
         <tr>
           <td>Network device disconnected</td>
           <td style="color:var(--amber);">Human Worker</td>
-          <td style="color:var(--blue);">Domain Orchestrator/Operator</td>
+          <td style="color:var(--blue);">Hybrid Worker</td>
           <td>Build Network Diagnostic Genie (Unifi API check, ping test, log review) -> escalate with context if not auto-resolved</td>
           <td style="color:var(--amber);">MEDIUM</td>
         </tr>
       </tbody>
     </table>
 
-    <p style="margin-top:1rem;font-size:.78rem;color:var(--mid);line-height:1.7;"><strong>How to use this table:</strong> This is the agent build backlog. Start with HIGH priority items that have clear automation paths and high volume. Build the Genie or Stream, test, deploy. Measure: did this fact type migrate from Human -> Digital/Domain Orchestrator/Operator? Track the % distribution monthly to measure Agentic Factory workforce maturity.</p>
+    <p style="margin-top:1rem;font-size:.78rem;color:var(--mid);line-height:1.7;"><strong>How to use this table:</strong> This is the agent build backlog. Start with HIGH priority items that have clear automation paths and high volume. Build the Genie or Stream, test, deploy. Measure: did this fact type migrate from Human -> Digital/Hybrid? Track the % distribution monthly to measure Agentic Factory workforce maturity.</p>
   </div>
 
   <div class="sec-head"><span class="sec-label">Event Stream vs Fact Stream  -  Critical Distinction</span><div class="sec-head-line"></div></div>
@@ -2507,7 +1954,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--blue);">EMAIL</td>
           <td>Written correspondence requiring response</td>
-          <td>Domain Orchestrator/Operator</td>
+          <td>Hybrid Worker</td>
           <td>client_inquiry  -  support_request  -  vendor_communication</td>
         </tr>
         <tr>
@@ -2525,31 +1972,31 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--blue);">CHAT_MESSAGE</td>
           <td>Instant message requiring response or action</td>
-          <td>Domain Orchestrator/Operator</td>
+          <td>Hybrid Worker</td>
           <td>internal_question  -  quick_request  -  urgent_notification</td>
         </tr>
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--red);">ALERT</td>
           <td>System threshold crossed, requires attention or remediation</td>
-          <td>Digital / Domain Orchestrator/Operator</td>
+          <td>Digital / Hybrid Worker</td>
           <td>device_offline  -  disk_full  -  threshold_exceeded  -  security_alert</td>
         </tr>
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--amber);">FORM_SUBMISSION</td>
           <td>Structured data entry requiring processing</td>
-          <td>Digital / Domain Orchestrator/Operator</td>
+          <td>Digital / Hybrid Worker</td>
           <td>lead_inquiry  -  feedback  -  service_request  -  signup</td>
         </tr>
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--green);">TRANSACTION</td>
           <td>Business event requiring processing or approval</td>
-          <td>Digital (if in-policy) / Domain Orchestrator/Operator</td>
+          <td>Digital (if in-policy) / Hybrid</td>
           <td>invoice_received  -  payment_due  -  order_placed  -  po_approval</td>
         </tr>
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--violet);">APPROVAL_REQUEST</td>
           <td>Explicit request for human authorization</td>
-          <td>Domain Orchestrator/Operator (always)</td>
+          <td>Hybrid Worker (always)</td>
           <td>expense_approval  -  contract_signature  -  budget_allocation</td>
         </tr>
         <tr>
@@ -2573,7 +2020,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--pink);">DOCUMENT</td>
           <td>File upload or receipt requiring review/processing</td>
-          <td>Domain Orchestrator/Operator</td>
+          <td>Hybrid Worker</td>
           <td>contract_upload  -  report_submitted  -  invoice_pdf</td>
         </tr>
         <tr>
@@ -2609,7 +2056,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
           <td>~50-200 emails/day</td>
           <td>EMAIL, DOCUMENT</td>
           <td>Manual triage</td>
-          <td>Classification Genie + Response Drafter -> Domain Orchestrator/Operator</td>
+          <td>Classification Genie + Response Drafter -> Hybrid Worker</td>
         </tr>
         <tr>
           <td><strong>Shared Mailboxes</strong></td>
@@ -2673,7 +2120,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
           <td>~20-100 transactions/day</td>
           <td>TRANSACTION, APPROVAL_REQUEST, ALERT</td>
           <td>Workflow -> email -> manual approval</td>
-          <td>Auto-approve if in-policy, Domain Orchestrator/Operator if exception</td>
+          <td>Auto-approve if in-policy, Hybrid Worker if exception</td>
         </tr>
         <tr>
           <td><strong>Zero Touch AI</strong></td>
@@ -2681,7 +2128,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
           <td style="color:var(--amber);">~100k events/day</td>
           <td>ALERT (20-100 facts/day)</td>
           <td>Email alert -> manual investigation</td>
-          <td>Auto-remediate (Digital) or escalate with diagnostic log (Domain Orchestrator/Operator)</td>
+          <td>Auto-remediate (Digital) or escalate with diagnostic log (Hybrid)</td>
         </tr>
         <tr>
           <td><strong>UniFi Controller</strong></td>
@@ -2960,7 +2407,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
         </tr>
         <tr>
           <td style="font-family:'Fira Code',monospace;color:var(--green);"><strong>Worker Type</strong></td>
-          <td>Digital Worker  -  Domain Orchestrator/Operator  -  Human Worker</td>
+          <td>Digital Worker  -  Hybrid Worker  -  Human Worker</td>
           <td>Based on fact type + workforce maturity state (current vs target)</td>
           <td style="color:var(--green);font-weight:600;">? Always</td>
         </tr>
@@ -3023,61 +2470,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 
 <!-- -- TAB 08  -  COMPANY CADENCE -- -->
-<div class="panel" id="tab-10-cadence"><div class="pw">
+<div class="panel" id="tab-cadence"><div class="pw">
   <div class="ph">
     <div class="ph-kicker">Section 02 - OS Framework - Company Cadence</div>
+  <div class="tab-flowbar"><div class="tab-flowbar-k">Section 02 Flow</div><div class="tab-flowbar-v">Daily Digest -> Exception Sync -> Weekly Review -> Monthly / Quarterly / Annual</div></div>
 
     <h1 class="ph-title">Company Cadence  -  Agentic Operating Rhythm</h1>
     <p class="ph-sub">The regular rhythm that keeps New Era IT synchronized  -  but reimagined for an agentic world. Automated summaries replace status meetings. Humans focus on decisions, learning, and strategy. The system tells us what happened; we decide what to do about it.</p>
   </div>
 
-  <div class="core-flow chain-core">
-    <div class="core-flow-k">RTBoss Operating Chain - Core</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Facts</span> -> <span class="c-dim">Dimensions</span> -> <span class="c-assets">Digital Assets</span> -> <span class="c-factory">Agentic Factory</span> -> <span class="c-workforce">Digital Workforce</span> -> <span class="c-twin">Digital Twin</span> -> <span class="c-result">New Fact</span>
-    </div>
-  </div>
+  <div class="def-block">Company Cadence := the fixed schedule of automated summaries and decision meetings. Daily digests. Weekly retrospectives. Monthly business reviews. Quarterly planning. Annual strategy. No manual status reporting  -  the system knows what's happening in real-time.</div>
 
-  <div class="core-flow">
-    <div class="core-flow-k">RTBoss Operating Chain - Human-First</div>
-    <div class="core-flow-v">
-      <span class="c-facts">Workforce</span> -> <span class="c-dim">Identities</span> -> <span class="c-assets">Mini-OS</span> -> <span class="c-factory">Value Engines</span> -> <span class="c-workforce">RTBI</span> -> <span class="c-twin">Flow of Work</span> -> <span class="c-result">Cadence</span>
-    </div>
-  </div>
-
-  <div class="role-group-nav flow-mini">
-    <div class="role-group-title">Human-First Operating Chain Scope</div>
-    <div class="hf-scope">
-      <button class="hf-scope-step" style="--step-color:var(--orange);" onclick="show('cadence',document.querySelectorAll('.ntab')[9])">
-        <div class="hf-num">07</div>
-        <div class="hf-body">
-          <div class="hf-title">Cadence - Daily, weekly, and monthly operating rhythm.</div>
-          <div class="hf-copy">Automated summaries and decision loops replace manual status overhead.</div>
-        </div>
-        <div class="hf-scope-tag"><span>Rhythm</span></div>
-      </button>
-    </div>
-    <div class="role-group-note">This tab focuses on recurring operating rhythm and accountable decision cycles.</div>
-    <div class="role-group-title" style="margin-top:.65rem;">What to Remember</div>
-    <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-      <div class="remember-grid">
-        <div class="remember-card"><div class="remember-v"><strong>Rhythm Creates Control</strong><br>Cadence turns daily work into repeatable operating discipline.<span class="mantra-label">Mantra:</span><span class="mantra-text">Rhythm keeps the system stable.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Automation First</strong><br>Summaries and signals are generated before meetings start.<span class="mantra-label">Mantra:</span><span class="mantra-text">Automate status, protect focus.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Decision Time Matters</strong><br>People spend time on decisions, not status collection.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use people for judgment.</span></div></div>
-        <div class="remember-card"><div class="remember-v"><strong>Learn Every Cycle</strong><br>Each cycle captures lessons and improves the next one.<span class="mantra-label">Mantra:</span><span class="mantra-text">Every cycle should improve.</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec-head"><span class="sec-label">Framework Intent Map</span><div class="sec-head-line"></div></div>
-  <div class="remember-strip intent-map-strip" style="margin-top:.2rem; margin-bottom:1.1rem;">
-    <div class="remember-grid">
-      <div class="remember-card"><div class="remember-v"><strong>Prompt Engineering</strong><br>Defines what to do and the expected output.<span class="mantra-label">Mantra:</span><span class="mantra-text">Say the task clearly.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Context Engineering</strong><br>Defines how execution runs using facts, role context, and current state.<span class="mantra-label">Mantra:</span><span class="mantra-text">Use the right facts.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Intent Engineering</strong><br>Defines why the work exists and the policy/guardrail boundaries.<span class="mantra-label">Mantra:</span><span class="mantra-text">Set the rules first.</span></div></div>
-      <div class="remember-card"><div class="remember-v"><strong>Personas + Advisors + Skills</strong><br>Enforce intent consistently in the Workforce Operating Model.<span class="mantra-label">Mantra:</span><span class="mantra-text">Everyone works the same way.</span></div></div>
-    </div>
-  </div>
+  <div class="callout warn"><div class="callout-icon">?</div><div class="callout-body"><strong>Philosophy shift:</strong> Traditional standups exist because humans need to manually synchronize status. But in RTBoss, the system already knows what everyone is working on (Facts assigned), what's been completed (Facts closed), and what's blocked (Blocker dimension). So we don't have status meetings  -  we have automated summaries + human decision meetings.</div></div>
 
   <div class="sec-head"><span class="sec-label">Daily Cadence  -  Automated Digest + Exception Sync</span><div class="sec-head-line"></div></div>
 
@@ -3086,7 +2490,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
       <div>
         <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--green);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;">What</h4>
-        <p style="font-size:.78rem;color:var(--mid);line-height:1.7;">Automated summary of current system state delivered to Teams channel + email. Generated by Daily Summary Genie (Domain Orchestrator/Operator).</p>
+        <p style="font-size:.78rem;color:var(--mid);line-height:1.7;">Automated summary of current system state delivered to Teams channel + email. Generated by Daily Summary Genie (Hybrid Worker).</p>
       </div>
       <div>
         <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;">When & Where</h4>
@@ -3099,7 +2503,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <ul style="padding-left:1.2rem;">
         <li style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem;"><strong>RED Facts</strong>  -  All currently blocked facts (count, assigned to, age)</li>
         <li style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem;"><strong>YELLOW Facts escalating soon</strong>  -  Facts that will become RED today if not addressed (with countdown timers)</li>
-        <li style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem;"><strong>? Closed yesterday</strong>  -  Count by Worker Type (Digital/Domain Orchestrator/Operator/Human)</li>
+        <li style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem;"><strong>? Closed yesterday</strong>  -  Count by Worker Type (Digital/Hybrid/Human)</li>
         <li style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem;"><strong>Blockers requiring coordination</strong>  -  Facts tagged with blockers that need team help (not just "waiting on external")</li>
         <li style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem;"><strong>Trends</strong>  -  Pattern detection (e.g., "password resets up 40% this week", "3 network slow reports from same location")</li>
         <li style="font-size:.78rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem;"><strong>System Opportunities</strong>  -  Repeated exception and process-pattern signals detected for automation and hardening</li>
@@ -3139,7 +2543,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
       <div>
         <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--green);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;">What</h4>
-        <p style="font-size:.78rem;color:var(--mid);line-height:1.7;">Comprehensive weekly retrospective with metrics, patterns, lessons learned, and system opportunities. Generated by Weekly Summary Genie (Domain Orchestrator/Operator).</p>
+        <p style="font-size:.78rem;color:var(--mid);line-height:1.7;">Comprehensive weekly retrospective with metrics, patterns, lessons learned, and system opportunities. Generated by Weekly Summary Genie (Hybrid Worker).</p>
       </div>
       <div>
         <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;">When & Where</h4>
@@ -3206,7 +2610,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
       <div>
         <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--green);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;">What</h4>
-        <p style="font-size:.78rem;color:var(--mid);line-height:1.7;">Comprehensive business review with financials, client portfolio health, RTBoss workforce maturity metrics, and system opportunities. Generated by Monthly Summary Genie (Domain Orchestrator/Operator).</p>
+        <p style="font-size:.78rem;color:var(--mid);line-height:1.7;">Comprehensive business review with financials, client portfolio health, RTBoss workforce maturity metrics, and system opportunities. Generated by Monthly Summary Genie (Hybrid Worker).</p>
       </div>
       <div>
         <h4 style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;">When & Where</h4>
@@ -3467,17 +2871,9 @@ if (dwAccordionEl) {
 }
 
 function show(id, btn) {
-  const alias = {
-    overview:'01-overview', workers:'02-workers', arch:'03-arch', wom:'04-wom', bts:'05-bts',
-    minios:'06-minios', ve:'07-ve', rtbi:'08-rtbi', flow:'09-flow', cadence:'10-cadence'
-  };
-  const resolved = alias[id] || id;
-  const targetId = 'tab-' + resolved;
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.ntab').forEach(b=>b.classList.remove('active'));
-  const panel = document.getElementById(targetId);
-  if (!panel) return;
-  panel.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
   if(btn) btn.classList.add('active');
 }
 
@@ -3629,48 +3025,6 @@ function openMOS(idx) {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

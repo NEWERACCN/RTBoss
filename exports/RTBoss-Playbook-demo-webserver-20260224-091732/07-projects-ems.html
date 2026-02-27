@@ -1,0 +1,2516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss — EMS · Evergreen Medical Supplies</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;
+  --red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:var(--green);}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:var(--green);}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:var(--green);border-bottom-color:var(--green);}
+.tab-divider{width:1px;background:var(--border);margin:0.5rem 0.5rem;}
+.panel{display:none;}.panel.active{display:block;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
+.ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--pink);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
+.ph-sub{font-size:1.05rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
+.sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sec-head-line{flex:1;height:1px;background:var(--border);}
+.content-block{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+.content-block h3{font-size:1.05rem;font-weight:700;margin-bottom:0.75rem;color:var(--text);}
+.content-block p{color:var(--mid);line-height:1.8;margin-bottom:0.75rem;font-size:0.9rem;}
+.content-block ul{padding-left:1.5rem;color:var(--mid);line-height:1.8;font-size:0.9rem;}
+.content-block li{margin-bottom:0.4rem;}
+/* Loop nodes */
+.loop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;}
+.loop-node{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.4rem;border-top:3px solid var(--accent);}
+.loop-node-num{font-family:'Fira Code',monospace;font-size:2rem;font-weight:700;color:var(--accent);opacity:0.2;float:right;}
+.loop-node-layer{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;}
+.loop-node-title{font-weight:700;font-size:1rem;margin-bottom:0.5rem;}
+.loop-node-body{font-size:0.8rem;color:var(--mid);line-height:1.7;margin-bottom:0.75rem;}
+.ex-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.ex-tag{font-family:'Fira Code',monospace;font-size:0.6rem;padding:0.2rem 0.5rem;border-radius:3px;background:rgba(255,255,255,0.04);color:var(--mid);border:1px solid var(--border);}
+/* Facts grid */
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;}
+.fact-card{background:var(--s1);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:1.2rem;}
+.fact-id{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);margin-bottom:0.2rem;}
+.fact-name{font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;}
+.fact-desc{font-size:0.78rem;color:var(--mid);line-height:1.65;margin-bottom:0.6rem;}
+.fact-payload{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem;font-family:'Fira Code',monospace;font-size:0.62rem;color:var(--green);line-height:1.6;overflow-x:auto;white-space:pre;}
+/* Dimensions */
+.dim-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem;margin-bottom:2rem;}
+.dim-card{background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--blue);border-radius:0 0 10px 10px;padding:1rem;}
+.dim-name{font-weight:700;font-size:0.85rem;margin-bottom:0.2rem;}
+.dim-type{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--blue);margin-bottom:0.4rem;}
+.dim-desc{font-size:0.75rem;color:var(--mid);line-height:1.6;margin-bottom:0.5rem;}
+.dim-vals{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.dim-val{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.12rem 0.45rem;border-radius:3px;background:rgba(64,196,255,0.07);color:var(--blue);border:1px solid rgba(64,196,255,0.18);}
+/* Assets */
+.asset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:2rem;}
+.asset-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.4rem;}
+.asset-icon{width:36px;height:36px;border-radius:8px;background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:0.75rem;}
+.asset-id{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);margin-bottom:0.2rem;}
+.asset-name{font-weight:700;font-size:1rem;margin-bottom:0.3rem;}
+.asset-desc{font-size:0.78rem;color:var(--mid);line-height:1.65;margin-bottom:0.75rem;}
+.asset-label{font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;}
+.asset-storage{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--green);}
+/* Hybrid workforce */
+.hw-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;}
+@media(max-width:800px){.hw-grid{grid-template-columns:1fr;}}
+.hw-side{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;}
+.hw-side-title{font-weight:700;font-size:1.1rem;margin-bottom:0.3rem;}
+.hw-side-sub{font-size:0.8rem;color:var(--mid);margin-bottom:1.2rem;line-height:1.6;}
+.hw-task{display:flex;gap:0.75rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.hw-task:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.hw-task-icon{font-size:1.2rem;flex-shrink:0;}
+.hw-task-name{font-weight:600;font-size:0.85rem;margin-bottom:0.2rem;}
+.hw-task-desc{font-size:0.78rem;color:var(--mid);line-height:1.6;}
+/* Digital Twin */
+.schema-block{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.2rem;font-family:'Fira Code',monospace;font-size:0.68rem;line-height:1.8;overflow-x:auto;margin-bottom:1.5rem;}
+.schema-key{color:var(--blue);}
+.schema-str{color:var(--green);}
+.schema-num{color:var(--amber);}
+.schema-com{color:var(--dim);}
+/* Build guide phases */
+.phase-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+.phase-num-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:2rem;font-weight:700;color:var(--green);opacity:0.3;float:right;}
+.phase-kicker{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--green);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.3rem;}
+.phase-title{font-weight:700;font-size:1.2rem;margin-bottom:0.5rem;}
+.phase-sub{font-size:0.85rem;color:var(--mid);line-height:1.7;margin-bottom:1rem;}
+.prereq-bar{background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.6rem 1rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}
+.prereq-label{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;}
+.prereq-item{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--amber);background:rgba(255,202,40,0.07);border:1px solid rgba(255,202,40,0.2);padding:0.2rem 0.5rem;border-radius:3px;}
+.checklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.5rem;margin-top:1rem;}
+.check-item{background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:0.5rem 0.75rem;font-size:0.78rem;color:var(--mid);display:flex;align-items:center;gap:0.5rem;}
+.check-item::before{content:'?';font-family:'Fira Code',monospace;color:var(--green);font-size:0.8rem;}
+/* Agent cards */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:2rem;}
+.agent-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.2rem;border-left:3px solid var(--violet);}
+.agent-id{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);margin-bottom:0.2rem;}
+.agent-name{font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;}
+.agent-desc{font-size:0.78rem;color:var(--mid);line-height:1.65;}
+/* Estimates table */
+.rule-table{width:100%;border-collapse:collapse;margin-bottom:2rem;font-size:0.82rem;}
+.rule-table th{background:var(--s2);font-family:'Fira Code',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);padding:0.65rem 0.9rem;text-align:left;border-bottom:2px solid var(--border);}
+.rule-table td{padding:0.65rem 0.9rem;border-bottom:1px solid rgba(42,64,96,0.5);color:var(--mid);vertical-align:top;line-height:1.6;}
+.rule-table td:first-child{font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--text);}
+.rule-table tr:hover td{background:rgba(255,255,255,0.01);}
+/* Callout */
+.callout{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:1.2rem;margin-bottom:2rem;display:flex;gap:1rem;}
+.callout.success{--accent:var(--green);}
+.callout.info{--accent:var(--blue);}
+.callout.warn{--accent:var(--amber);}
+.callout-icon{font-size:1.4rem;flex-shrink:0;}
+.callout-body{font-size:0.85rem;line-height:1.7;color:var(--mid);}
+/* Placeholder */
+.status-badge{display:inline-block;padding:0.5rem 1rem;border-radius:6px;font-size:0.85rem;font-weight:600;margin:2rem 0;}
+.status-badge.placeholder{background:rgba(96,120,144,0.1);color:var(--dim);border:1px solid var(--dim);}
+.placeholder-content{background:var(--s1);border:1px dashed var(--border);border-radius:12px;padding:3rem;text-align:center;margin:2rem 0;}
+.placeholder-content h3{font-size:1.2rem;color:var(--mid);margin-bottom:1rem;}
+.placeholder-content p{color:var(--dim);line-height:1.8;max-width:600px;margin:0 auto;font-size:0.9rem;}
+
+/* -- SUB-NAV (EMS Build Guide & Agents sub-tabs) -- */
+.sub-nav{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:0.5rem;display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:2rem;}
+.sub-tab{padding:0.45rem 0.9rem;cursor:pointer;color:var(--dim);border-radius:6px;font-size:0.75rem;font-weight:500;transition:all 0.2s;font-family:'Fira Code',monospace;letter-spacing:0.03em;white-space:nowrap;}
+.sub-tab:hover{color:var(--mid);background:rgba(255,255,255,0.04);}
+.sub-tab.active{color:var(--green);background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.2);}
+.sub-panel{display:none;}.sub-panel.active{display:block;}
+/* Phase header */
+.phase-header{display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.phase-num{font-family:'Fira Code',monospace;font-size:2.5rem;font-weight:500;color:var(--green);opacity:0.15;line-height:1;flex-shrink:0;}
+.phase-meta{}
+.phase-kicker{font-family:'Fira Code',monospace;font-size:0.62rem;color:var(--green);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem;}
+.phase-title{font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;margin-bottom:0.4rem;}
+.phase-sub{font-size:0.82rem;color:var(--mid);line-height:1.75;max-width:700px;}
+.phase-summary{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:1.1rem;margin-top:2rem;}
+.phase-summary-title{font-family:'Fira Code',monospace;font-size:0.62rem;color:var(--green);letter-spacing:0.15em;margin-bottom:0.6rem;}
+.summary-grid{display:flex;flex-wrap:wrap;gap:0.6rem;}
+.summary-item{font-family:'Fira Code',monospace;font-size:0.65rem;padding:0.25rem 0.6rem;border-radius:4px;background:rgba(0,230,118,0.06);color:var(--green);border:1px solid rgba(0,230,118,0.15);}
+/* Steps */
+.step{display:grid;grid-template-columns:44px 1fr;gap:0;margin-bottom:0.65rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.step:hover{border-color:var(--border);}
+.step.done{border-color:rgba(0,230,118,0.25);}
+.step-num-col{background:var(--s1);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:0.9rem 0.35rem;gap:0.4rem;}
+.step-num{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--green);background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.2);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.step-check{width:18px;height:18px;border:1px solid var(--dim);border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.65rem;transition:all 0.15s;color:transparent;background:transparent;flex-shrink:0;}
+.step-check:hover{border-color:var(--green);}
+.step.done .step-check{background:var(--green);border-color:var(--green);color:#000;}
+.step-body{background:var(--s1);padding:0.9rem 1.1rem;}
+.step-header{display:flex;align-items:center;gap:0.65rem;margin-bottom:0.4rem;flex-wrap:wrap;}
+.step-title{font-weight:700;font-size:0.9rem;}
+.step-where{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.12rem 0.45rem;border-radius:3px;background:rgba(64,196,255,0.07);color:var(--blue);border:1px solid rgba(64,196,255,0.2);}
+.step-where.cli{background:rgba(0,230,118,0.07);color:var(--green);border-color:rgba(0,230,118,0.2);}
+.step-where.portal{background:rgba(179,136,255,0.07);color:var(--violet);border-color:rgba(179,136,255,0.2);}
+.step-where.config{background:rgba(29,233,182,0.07);color:var(--teal);border-color:rgba(29,233,182,0.2);}
+.step-desc{font-size:0.79rem;color:var(--mid);line-height:1.75;margin-bottom:0.65rem;}
+.instructions{counter-reset:inst;list-style:none;margin-bottom:0.65rem;}
+.instructions li{counter-increment:inst;display:flex;gap:0.6rem;align-items:flex-start;padding:0.4rem 0;border-bottom:1px solid rgba(24,36,53,0.7);font-size:0.79rem;color:var(--text);line-height:1.6;}
+.instructions li:last-child{border-bottom:none;}
+.instructions li::before{content:counter(inst);font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--green);background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.2);border-radius:3px;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.05rem;}
+.click{font-weight:600;color:var(--text);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;padding:0.03rem 0.35rem;font-size:0.77rem;}
+.nav-click{color:var(--blue);font-weight:600;}
+.field{color:var(--teal);font-weight:500;}
+.val{color:var(--amber);font-family:'Fira Code',monospace;font-size:0.77rem;}
+.code-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:0.75rem 1rem;font-family:'Fira Code',monospace;font-size:0.68rem;color:var(--green);line-height:1.7;overflow-x:auto;white-space:pre;margin:0.45rem 0;position:relative;}
+.copy-btn{position:absolute;top:0.4rem;right:0.4rem;background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:0.15rem 0.45rem;font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);cursor:pointer;transition:all 0.15s;}
+.copy-btn:hover{color:var(--green);border-color:var(--green);}
+.s-div{display:flex;align-items:center;gap:0.75rem;margin:1.25rem 0 0.9rem;font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;}
+.s-div::before,.s-div::after{content:'';flex:1;height:1px;background:var(--border);}
+/* Agent accordion */
+.agent-block{background:var(--s1);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:0.65rem;}
+.agent-block-header{display:grid;grid-template-columns:48px 1fr auto;align-items:stretch;cursor:pointer;}
+.agent-block-header:hover{background:rgba(255,255,255,0.01);}
+.agent-block.open{border-color:var(--violet);}
+.agent-num{background:rgba(0,0,0,0.25);border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--dim);}
+.agent-block.open .agent-num{color:var(--violet);}
+.agent-title-group{padding:0.75rem 1rem;}
+.agent-id{font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.2rem;}
+.agent-block.open .agent-id{color:var(--violet);}
+.agent-name{font-weight:600;font-size:0.9rem;color:#e8f4ff;}
+.agent-short{font-size:0.72rem;color:var(--mid);margin-top:0.1rem;}
+.agent-toggle{padding:0 0.9rem;display:flex;align-items:center;font-size:0.75rem;color:var(--dim);transition:transform 0.2s;}
+.agent-block.open .agent-toggle{transform:rotate(180deg);color:var(--violet);}
+.agent-body{display:none;border-top:1px solid var(--border);padding:1.1rem;}
+.agent-block.open .agent-body{display:block;}
+.agent-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.9rem;}
+@media(max-width:640px){.agent-grid-2{grid-template-columns:1fr;}}
+.agent-section h4{font-family:'Fira Code',monospace;font-size:0.57rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;padding-bottom:0.25rem;border-bottom:1px solid var(--border);}
+.agent-section p,.agent-section li{font-size:0.77rem;color:var(--mid);line-height:1.75;}
+.agent-section ul{padding-left:1rem;}
+.agent-section li{margin-bottom:0.2rem;}
+.prompt-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--violet);border-radius:0 8px 8px 0;padding:0.75rem 1rem;font-family:'Fira Code',monospace;font-size:0.67rem;color:var(--mid);line-height:1.7;white-space:pre-wrap;word-break:break-word;position:relative;margin-top:0.45rem;}
+/* agent body classes used by renderAgents() */
+.iso-section{background:rgba(29,233,182,0.04);border:1px solid rgba(29,233,182,0.15);border-radius:8px;padding:1rem 1.25rem;}
+.iso-section h4{color:var(--teal)!important;}
+.iso-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-top:0.5rem;}
+.iso-row{display:flex;flex-direction:column;gap:0.1rem;}
+.iso-key{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em;}
+.iso-val{font-size:0.75rem;color:var(--mid);line-height:1.4;}
+.iso-restricted{color:var(--red)!important;font-weight:700;}
+.iso-confidential{color:var(--amber)!important;font-weight:700;}
+.iso-internal{color:var(--blue)!important;font-weight:700;}
+.agent-block-body{display:none;border-top:1px solid var(--border);padding:1.1rem;grid-template-columns:1fr 1fr;gap:1.25rem;}
+@media(max-width:700px){.iso-section{background:rgba(29,233,182,0.04);border:1px solid rgba(29,233,182,0.15);border-radius:8px;padding:1rem 1.25rem;}
+.iso-section h4{color:var(--teal)!important;}
+.iso-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-top:0.5rem;}
+.iso-row{display:flex;flex-direction:column;gap:0.1rem;}
+.iso-key{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em;}
+.iso-val{font-size:0.75rem;color:var(--mid);line-height:1.4;}
+.iso-restricted{color:var(--red)!important;font-weight:700;}
+.iso-confidential{color:var(--amber)!important;font-weight:700;}
+.iso-internal{color:var(--blue)!important;font-weight:700;}
+.agent-block-body{grid-template-columns:1fr;}}
+.agent-block.open .iso-section{background:rgba(29,233,182,0.04);border:1px solid rgba(29,233,182,0.15);border-radius:8px;padding:1rem 1.25rem;}
+.iso-section h4{color:var(--teal)!important;}
+.iso-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-top:0.5rem;}
+.iso-row{display:flex;flex-direction:column;gap:0.1rem;}
+.iso-key{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em;}
+.iso-val{font-size:0.75rem;color:var(--mid);line-height:1.4;}
+.iso-restricted{color:var(--red)!important;font-weight:700;}
+.iso-confidential{color:var(--amber)!important;font-weight:700;}
+.iso-internal{color:var(--blue)!important;font-weight:700;}
+.agent-block-body{display:grid;}
+.ab-section{margin-bottom:1rem;}
+.ab-section h4{font-family:'Fira Code',monospace;font-size:0.57rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;padding-bottom:0.25rem;border-bottom:1px solid var(--border);}
+.ab-section p,.ab-section li{font-size:0.78rem;color:var(--mid);line-height:1.75;}
+.ab-section ul{padding-left:1rem;}
+.ab-section li{margin-bottom:0.2rem;}
+.agent-id-badge{font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.15rem;}
+.agent-block.open .agent-id-badge{color:var(--violet);}
+.agent-role-short{font-size:0.72rem;color:var(--mid);margin-top:0.1rem;}
+.tool-pill{display:inline-block;font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.15rem 0.5rem;border-radius:3px;background:rgba(64,196,255,0.07);color:var(--blue);border:1px solid rgba(64,196,255,0.2);margin:0.15rem 0.2rem 0.15rem 0;}
+
+</style>
+</head>
+
+<body>
+<div class="nav-header">
+  <div class="nav-title">Section 11 &middot; Client Projects &middot; EMS</div>
+  <a href="11-client-projects.html" class="nav-back">? Back to Client Projects</a>
+</div>
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 &middot; Architecture</div>
+  <div class="tab" onclick="showTab(1)">02 &middot; Build Guide</div>
+  <div class="tab" onclick="showTab(2)">03 &middot; Agents &amp; Estimates</div>
+  <div class="tab" onclick="showTab(3)">04 &middot; Complete Reference</div>
+</div>
+<div style="max-width:1400px;margin:0.8rem auto 0 auto;padding:0 2rem;display:flex;justify-content:flex-end;"><a href="11-ems-twin-draft.html" style="display:inline-block;padding:0.55rem 0.9rem;border:1px solid var(--border);border-radius:8px;background:var(--s1);color:var(--text);text-decoration:none;font-family:Fira Code,monospace;font-size:0.72rem;letter-spacing:0.04em;">Open EMS Digital Twin Simulator</a></div>
+<!-- -- EMS · TAB 1 · ARCHITECTURE -- -->
+<div class="panel active" id="tab-0"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">EMS Project · Reference Template · Pharmacy Operations</div>
+    <h1 class="ph-title">Architecture & Overview</h1>
+    <p class="ph-sub">RTBoss deployed for a compounding pharmacy. A single, closed, continuous pipeline processing every prescription order from email receipt to AusPost dispatch. Six layers, 13 agents, zero drift.</p>
+  </div>
+
+    <div class="callout success">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>This is the reference implementation.</strong> EMS is the first complete RTBoss deployment. Every pattern established here — facts, dimensions, digital assets, agentic factory, hybrid workforce, digital twin — becomes the template for all future client projects.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">The Operating Loop — 6 Layers</span><div class="sec-head-line"></div></div>
+
+  <div class="loop-grid">
+    <div class="loop-node" style="--accent:var(--amber);">
+      <div class="loop-node-num">1</div>
+      <div class="loop-node-layer">? Fact</div>
+      <div class="loop-node-title">Real Event Becomes a Fact</div>
+      <div class="loop-node-body">An objective, timestamped, indisputable signal enters the system. If it is not captured as a fact, it does not exist operationally. Facts are atomic and immutable — they never change after creation.</div>
+      <div class="ex-tags">
+        <span class="ex-tag">EMAIL_RECEIVED</span>
+        <span class="ex-tag">ORDER_CREATED</span>
+        <span class="ex-tag">ADDRESS_VALIDATED</span>
+        <span class="ex-tag">CUTOFF_INITIATED</span>
+        <span class="ex-tag">PARCEL_DISPATCHED</span>
+      </div>
+    </div>
+    <div class="loop-node" style="--accent:var(--blue);">
+      <div class="loop-node-num">2</div>
+      <div class="loop-node-layer">? Dimension</div>
+      <div class="loop-node-title">Dimensions Add Context</div>
+      <div class="loop-node-body">Essential context applied to the raw fact — who, what, where, urgency, risk, value, jurisdiction. Dimensions transform a signal into a prioritised, actionable situation the Agentic Factory can reason about.</div>
+      <div class="ex-tags">
+        <span class="ex-tag">drug_type=TESTOSTERONE</span>
+        <span class="ex-tag">order_status=INCOMPLETE</span>
+        <span class="ex-tag">shipment=EXPRESS</span>
+        <span class="ex-tag">cutoff_window=TRUE</span>
+      </div>
+    </div>
+    <div class="loop-node" style="--accent:var(--green);">
+      <div class="loop-node-num">3</div>
+      <div class="loop-node-layer">? Digital Asset</div>
+      <div class="loop-node-title">Fact Links to Digital Asset</div>
+      <div class="loop-node-body">The dimensioned fact attaches to one or more persistent, versioned Digital Assets. Change becomes visible, governable, and measurable. Every asset's state evolves with every fact that touches it — version-tracked and auditable.</div>
+      <div class="ex-tags">
+        <span class="ex-tag">Order Twin</span>
+        <span class="ex-tag">Patient Record</span>
+        <span class="ex-tag">Prescription PDF</span>
+        <span class="ex-tag">Shipment Manifest</span>
+      </div>
+    </div>
+    <div class="loop-node" style="--accent:var(--violet);">
+      <div class="loop-node-num">4</div>
+      <div class="loop-node-layer">? Agentic Factory</div>
+      <div class="loop-node-title">Factory Decides & Assigns</div>
+      <div class="loop-node-body">The Agentic Factory (DOL) interprets fact + dimensions, determines the correct response, applies rules/policy, assigns work to the right actor, and enforces governance and traceability at every step.</div>
+      <div class="ex-tags">
+        <span class="ex-tag">OrchestratorAgent</span>
+        <span class="ex-tag">ClassifierAgent</span>
+        <span class="ex-tag">RuleEngine</span>
+        <span class="ex-tag">ShipmentAgent</span>
+      </div>
+    </div>
+    <div class="loop-node" style="--accent:var(--orange);">
+      <div class="loop-node-num">5</div>
+      <div class="loop-node-layer">? Hybrid Worker</div>
+      <div class="loop-node-title">Hybrid Worker Executes</div>
+      <div class="loop-node-body">Digital workers handle deterministic tasks automatically. Humans set intent, define policy, resolve ambiguity, approve sensitive actions, and retain accountability. Neither works alone.</div>
+      <div class="ex-tags">
+        <span class="ex-tag">AGT: Auto-classify</span>
+        <span class="ex-tag">AGT: AusPost upload</span>
+        <span class="ex-tag">Human: Review Testosterone</span>
+        <span class="ex-tag">Human: Sign-off</span>
+      </div>
+    </div>
+    <div class="loop-node" style="--accent:var(--pink);">
+      <div class="loop-node-num">6</div>
+      <div class="loop-node-layer">? New Fact</div>
+      <div class="loop-node-title">Outcome Becomes New Fact</div>
+      <div class="loop-node-body">The execution outcome is recorded as a new immutable fact — restarting the loop. The system is observable, adaptive, and intelligent in real time. No state is lost. No drift accumulates.</div>
+      <div class="ex-tags">
+        <span class="ex-tag">SHIPMENT_CREATED</span>
+        <span class="ex-tag">ORDER_PROCESSED</span>
+        <span class="ex-tag">REPORT_SENT</span>
+        <span class="ex-tag">ORDER_DEFERRED</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Facts — Layer 1 · Immutable Events</span><div class="sec-head-line"></div></div>
+  <p style="color:var(--mid);font-size:0.9rem;margin-bottom:1.5rem;line-height:1.8;">Every pharmacy order generates a chain of facts. Each is atomic, immutable, timestamped, and appended to the Cosmos DB Digital Twin with a SHA-256 input hash for tamper evidence.</p>
+
+  <div class="facts-grid">
+    <div class="fact-card">
+      <div class="fact-id">FACT-001</div>
+      <div class="fact-name">EMAIL_RECEIVED</div>
+      <div class="fact-desc">Inbound email arrives at the pharmacy orders mailbox. Power Automate captures raw email metadata and attachment references.</div>
+      <div class="fact-payload">{ "source": "outlook",
+  "from": "<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="730312071a161d0733161e121a1f5d101c1e">[email&#160;protected]</a>",
+  "subject": "Order Request",
+  "has_attachment": true,
+  "ts": "2026-02-17T08:28:01Z" }</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-id">FACT-002</div>
+      <div class="fact-name">ORDER_CREATED</div>
+      <div class="fact-desc">Email classified as ORDER by AGT-002. Order record initialised in Cosmos DB Digital Twin. Loop cycle begins.</div>
+      <div class="fact-payload">{ "order_id": "ORD-20260217-0042",
+  "classification": "ORDER",
+  "confidence": 0.97,
+  "agent": "AGT-002",
+  "ts": "2026-02-17T08:28:11Z" }</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-id">FACT-003</div>
+      <div class="fact-name">PRESCRIPTION_PARSED</div>
+      <div class="fact-desc">AGT-003 & AGT-004 extract drug name, dosage, patient details from prescription PDF using Azure Document Intelligence.</div>
+      <div class="fact-payload">{ "drug": "TIRZEPATIDE",
+  "dosage": "2.5mg",
+  "patient_id": "PAT-0891",
+  "confidence": 0.94,
+  "agent": "AGT-003" }</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-id">FACT-004</div>
+      <div class="fact-name">ADDRESS_VALIDATED</div>
+      <div class="fact-desc">AGT-007 validates delivery address against AusPost PAF API. Standardizes address before any human sees the order.</div>
+      <div class="fact-payload">{ "address_raw": "42 Smith St Bris",
+  "address_std": "42 Smith Street,
+  Brisbane QLD 4000",
+  "valid": true,
+  "agent": "AGT-007" }</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-id">FACT-005</div>
+      <div class="fact-name">SHIPMENT_CREATED</div>
+      <div class="fact-desc">AGT-009 creates AusPost consignment, retrieves tracking number, stores label PDF in OneLake. Fully automated.</div>
+      <div class="fact-payload">{ "tracking_no": "7E1234567890",
+  "carrier": "AusPost",
+  "service": "EXPRESS",
+  "label_path": "onelake://labels/0042.pdf",
+  "agent": "AGT-009" }</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-id">FACT-006</div>
+      <div class="fact-name">ORDER_DISPATCHED</div>
+      <div class="fact-desc">Pharmacy technician scans barcode at packaging. Scan creates ORDER_PACKAGED fact, linking physical reality to digital twin in real time.</div>
+      <div class="fact-payload">{ "order_id": "ORD-20260217-0042",
+  "status": "DISPATCHED",
+  "scanned_by": "TECH-03",
+  "ts": "2026-02-17T13:14:22Z" }</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Dimensions — Layer 2 · Contextual Intelligence</span><div class="sec-head-line"></div></div>
+  <p style="color:var(--mid);font-size:0.9rem;margin-bottom:1.5rem;line-height:1.8;">Dimensions add essential context to raw facts — turning signals into prioritised, actionable situations.</p>
+
+  <div class="dim-grid">
+    <div class="dim-card">
+      <div class="dim-name">drug_type</div>
+      <div class="dim-type">ENUM · Classification</div>
+      <div class="dim-desc">Determines dispensing rules, human review requirements, and regulatory obligations.</div>
+      <div class="dim-vals"><span class="dim-val">TIRZEPATIDE</span><span class="dim-val">TESTOSTERONE</span><span class="dim-val">SEMAGLUTIDE</span><span class="dim-val">OTHER</span></div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-name">order_status</div>
+      <div class="dim-type">ENUM · Routing</div>
+      <div class="dim-desc">Primary routing dimension. Determines which agent chain and which human queue receives the order.</div>
+      <div class="dim-vals"><span class="dim-val">PROCESSED</span><span class="dim-val">INCOMPLETE</span><span class="dim-val">REQUIRES_REVIEW</span><span class="dim-val">DEFERRED</span></div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-name">shipment_type</div>
+      <div class="dim-type">ENUM · Logistics</div>
+      <div class="dim-desc">Determines AusPost service tier, label format, and cutoff window priority.</div>
+      <div class="dim-vals"><span class="dim-val">EXPRESS</span><span class="dim-val">STANDARD</span><span class="dim-val">PRIORITY</span></div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-name">cutoff_window</div>
+      <div class="dim-type">BOOL · Time</div>
+      <div class="dim-desc">TRUE when order arrives between 11:00–12:00 AEST. Triggers deferral logic via AGT-012.</div>
+      <div class="dim-vals"><span class="dim-val">TRUE</span><span class="dim-val">FALSE</span></div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-name">confidence_score</div>
+      <div class="dim-type">FLOAT · Quality</div>
+      <div class="dim-desc">Document Intelligence extraction confidence. Below 0.85 triggers human review queue.</div>
+      <div class="dim-vals"><span class="dim-val">0.00–0.84 ? REVIEW</span><span class="dim-val">0.85–1.00 ? AUTO</span></div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-name">jurisdiction</div>
+      <div class="dim-type">ENUM · Compliance</div>
+      <div class="dim-desc">Australian state/territory. Determines dispensing regulations applicable to the order.</div>
+      <div class="dim-vals"><span class="dim-val">NSW_AU</span><span class="dim-val">QLD_AU</span><span class="dim-val">VIC_AU</span><span class="dim-val">WA_AU</span></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Digital Assets — Layer 3 · Persistent Entities</span><div class="sec-head-line"></div></div>
+
+  <div class="asset-grid">
+    <div class="asset-card">
+      <div class="asset-icon">??</div>
+      <div class="asset-id">ASSET-001</div>
+      <div class="asset-name">Order Digital Twin</div>
+      <div class="asset-desc">The living, versioned record of every fact, dimension, agent decision, and mutation for a single order. Stored in Azure Cosmos DB. Immutable append-only loop_trace[] for full audit trail.</div>
+      <div class="asset-label">Storage</div>
+      <div class="asset-storage">cosmos://rtbos_pharmacy/order_twins</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-icon">?????</div>
+      <div class="asset-id">ASSET-002</div>
+      <div class="asset-name">Patient Record</div>
+      <div class="asset-desc">Patient demographics, prescription history, and communication preferences. Referenced by every order. Updated when patient details change.</div>
+      <div class="asset-label">Storage</div>
+      <div class="asset-storage">fabric://lakehouse/patients</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-icon">??</div>
+      <div class="asset-id">ASSET-003</div>
+      <div class="asset-name">Prescription PDF</div>
+      <div class="asset-desc">Original prescription document uploaded by patient or generated by prescriber. Parsed by AGT-003 & AGT-004. Stored permanently in OneLake for compliance.</div>
+      <div class="asset-label">Storage</div>
+      <div class="asset-storage">onelake://rx/{year}/{order_id}.pdf</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-icon">??</div>
+      <div class="asset-id">ASSET-004</div>
+      <div class="asset-name">Shipment Manifest</div>
+      <div class="asset-desc">AusPost consignment details, tracking number, label PDF path. Created by AGT-009. Updated when scan events arrive from AusPost tracking API.</div>
+      <div class="asset-label">Storage</div>
+      <div class="asset-storage">onelake://labels/{date}/{order_id}.pdf</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-icon">??</div>
+      <div class="asset-id">ASSET-005</div>
+      <div class="asset-name">Daily Operations Report</div>
+      <div class="asset-desc">Auto-generated by AGT-011 at shift close. Full day summary: orders processed, incomplete, dispatched, revenue, reconciliation. Posted to Teams + emailed.</div>
+      <div class="asset-label">Storage</div>
+      <div class="asset-storage">onelake://reports/{date}/daily_report.xlsx</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-icon">??</div>
+      <div class="asset-id">ASSET-006</div>
+      <div class="asset-name">AusPost Lodgement CSV</div>
+      <div class="asset-desc">Bulk lodgement file generated by AGT-010 at shift cutoff. All PROCESSED orders included. Auto-uploaded to AusPost portal. Eliminates manual CSV wrangling.</div>
+      <div class="asset-label">Storage</div>
+      <div class="asset-storage">onelake://auspost/{date}/lodgement.csv</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Agentic Factory — Layer 4 · Division of Labor</span><div class="sec-head-line"></div></div>
+
+  <div class="content-block">
+    <h3>Orchestrator Pattern</h3>
+    <p>A root Orchestrator Agent receives every fact+dimension payload and routes it to the correct specialist agent chain. The Orchestrator holds the shared context envelope and enforces the operating loop sequence. It never performs domain work itself — it coordinates, routes, and governs.</p>
+  </div>
+
+  <div class="rule-table" style="display:table;">
+    <table class="rule-table">
+      <thead><tr><th>Agent</th><th>Name</th><th>Role</th><th>Worker Type</th></tr></thead>
+      <tbody>
+        <tr><td>AGT-001</td><td>OrchestratorAgent</td><td>Root router. Receives every fact+dimension payload. Routes to specialist chain. Enforces loop sequence.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-002</td><td>EmailClassifierAgent</td><td>Classifies inbound emails as ORDER or NON_ORDER. Confidence threshold 0.85.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-003</td><td>PDFExtractorAgent</td><td>Extracts drug name, dosage from prescription PDF via Azure Document Intelligence.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-004</td><td>PatientExtractorAgent</td><td>Extracts patient name, DOB, address from prescription PDF.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-005</td><td>OrderCreatorAgent</td><td>Creates order record in Cosmos DB. Initialises Digital Twin. Assigns order ID.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-006</td><td>DispensingRuleAgent</td><td>Applies Google Sheets-configured dispensing rules. Flags TESTOSTERONE for human review.</td><td style="color:var(--amber);">Hybrid</td></tr>
+        <tr><td>AGT-007</td><td>AddressValidatorAgent</td><td>Validates delivery address against AusPost PAF API. Standardizes format.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-008</td><td>OrderStatusClassifierAgent</td><td>Gate agent. Classifies order as PROCESSED or INCOMPLETE. Publishes to Service Bus topics.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-009</td><td>ShipmentAgent</td><td>Creates AusPost consignment, retrieves tracking number, stores label PDF in OneLake.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-010</td><td>LodgementCSVAgent</td><td>Generates AusPost bulk lodgement CSV. Emails to ops. Auto-uploads to AusPost portal.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-011</td><td>ReportingAgent</td><td>Generates daily operations report at shift close. Posts to Teams. Emails to manager.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-012</td><td>CutoffOrchestratorAgent</td><td>Monitors clock. Enforces 11:00–12:00 deferral window. Triggers incomplete file at 11:05 AM.</td><td style="color:var(--violet);">Digital</td></tr>
+        <tr><td>AGT-013</td><td>IncompleteFileAgent</td><td>Generates incomplete orders file with reasons. Delivers to pharmacy manager for follow-up.</td><td style="color:var(--amber);">Hybrid</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Hybrid Workforce — Layer 5 · Execution</span><div class="sec-head-line"></div></div>
+
+  <div class="hw-grid">
+    <div class="hw-side" style="border-top:3px solid var(--violet);">
+      <div class="hw-side-title" style="color:var(--violet);">?? Digital Workers</div>
+      <div class="hw-side-sub">Azure AI Foundry Agents operating in the Agentic Factory. Autonomous, governed, traceable.</div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Email Classification</div><div class="hw-task-desc">AGT-002 classifies every inbound email as ORDER or NON_ORDER in &lt;3 seconds using GPT-4o. Handles 100% of volume with no human involvement unless confidence &lt; 0.85.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Prescription Parsing</div><div class="hw-task-desc">AGT-003 & AGT-004 extract drug name, dosage, and patient details from PDFs using Azure Document Intelligence. No manual data entry required.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Address Validation</div><div class="hw-task-desc">AGT-007 validates every delivery address against AusPost PAF API in real time. Standardizes addresses before a human ever sees an order.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Shipment Creation</div><div class="hw-task-desc">AGT-009 creates AusPost consignments, retrieves tracking numbers, and stores label PDFs automatically for all PROCESSED orders.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">CSV Generation & Lodgement</div><div class="hw-task-desc">AGT-010 generates the AusPost bulk lodgement CSV, emails it to ops, and uploads it to the portal — all within minutes of shift cutoff.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">?</div><div><div class="hw-task-name">Cutoff Cycle Management</div><div class="hw-task-desc">AGT-012 monitors the clock, enforces the 11:00–12:00 deferral window, sends pre-cutoff warnings — zero human involvement.</div></div></div>
+    </div>
+    <div class="hw-side" style="border-top:3px solid var(--orange);">
+      <div class="hw-side-title" style="color:var(--orange);">?? Human Workers</div>
+      <div class="hw-side-sub">Pharmacists and technicians at the boundaries of policy, ambiguity, and physical reality. Empowered — not replaced — by digital workers.</div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Testosterone Order Approval</div><div class="hw-task-desc">When AGT-006 flags REQUIRES_MANUAL_REVIEW, a pharmacist receives a Teams task with full order context. Human approves or rejects — decision becomes a new Fact.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Unclassified Order Review</div><div class="hw-task-desc">Orders where Document Intelligence confidence &lt; 0.85 are routed to a human pharmacist queue. The agent has done as much as it can — the human resolves the ambiguity.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Packaging & Barcode Scan</div><div class="hw-task-desc">Pharmacy technicians physically package each order and scan the label barcode. The scan creates the ORDER_PACKAGED fact, linking physical reality to the digital twin.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Reconciliation Sign-Off</div><div class="hw-task-desc">The pharmacist reviews the reconciliation report generated by AGT-011. Discrepancies highlighted. Human signs off — their decision creates a RECONCILIATION_COMPLETE fact.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Incomplete Order Follow-Up</div><div class="hw-task-desc">The pharmacy manager receives the 11:05 AM incomplete orders file. Each blocked order has a clear reason. Manager contacts patients — actions create new facts that restart the loop.</div></div></div>
+      <div class="hw-task"><div class="hw-task-icon">??</div><div><div class="hw-task-name">Policy & Rule Authorship</div><div class="hw-task-desc">The head pharmacist owns the Google Sheets dispensing rule configuration. By editing a cell, they instantly update the rule set consumed by AGT-006. Intent flows from human to system.</div></div></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Digital Twin — Layer 6 · Living Record · ISO 27001 A.8.15 + A.5.33</span><div class="sec-head-line"></div></div>
+
+  <p style="color:var(--mid);font-size:0.9rem;margin-bottom:1.5rem;line-height:1.8;">The Digital Twin is the living, versioned record of every fact, dimension, agent decision, and asset mutation for a single order. Stored in Azure Cosmos DB. Every RTBoss loop cycle appends to the immutable loop_trace[] — a complete, observable history of how reality became a result.</p>
+
+  <div class="schema-block">
+<span class="schema-com">// Order Twin Document — Cosmos DB</span>
+<span class="schema-com">// Container: order_twins · Partition: /order_id</span>
+{
+  <span class="schema-key">"order_id"</span>:      <span class="schema-str">"ORD-20260217-0042"</span>,
+  <span class="schema-key">"twin_version"</span>:  <span class="schema-num">9</span>,    <span class="schema-com">// bumped on each mutation</span>
+  <span class="schema-key">"loop_cycle"</span>:    <span class="schema-num">9</span>,    <span class="schema-com">// current RTBoss loop count</span>
+
+  <span class="schema-com">// -- FACTS ----------------------------------</span>
+  <span class="schema-key">"facts"</span>: [
+    { <span class="schema-key">"fact"</span>: <span class="schema-str">"EMAIL_RECEIVED"</span>,    <span class="schema-key">"ts"</span>: <span class="schema-str">"08:28:01Z"</span> },
+    { <span class="schema-key">"fact"</span>: <span class="schema-str">"ORDER_CREATED"</span>,      <span class="schema-key">"ts"</span>: <span class="schema-str">"08:28:11Z"</span> },
+    { <span class="schema-key">"fact"</span>: <span class="schema-str">"ADDRESS_VALIDATED"</span>,  <span class="schema-key">"ts"</span>: <span class="schema-str">"08:28:14Z"</span> },
+    { <span class="schema-key">"fact"</span>: <span class="schema-str">"SHIPMENT_CREATED"</span>,   <span class="schema-key">"ts"</span>: <span class="schema-str">"08:31:00Z"</span> },
+    { <span class="schema-key">"fact"</span>: <span class="schema-str">"ORDER_DISPATCHED"</span>,   <span class="schema-key">"ts"</span>: <span class="schema-str">"13:14:22Z"</span> }
+  ],
+
+  <span class="schema-com">// -- DIMENSIONS -----------------------------</span>
+  <span class="schema-key">"dimensions"</span>: {
+    <span class="schema-key">"drug_type"</span>:      <span class="schema-str">"TIRZEPATIDE"</span>,
+    <span class="schema-key">"dosage"</span>:         <span class="schema-str">"2.5mg"</span>,
+    <span class="schema-key">"shipment_type"</span>:  <span class="schema-str">"EXPRESS"</span>,
+    <span class="schema-key">"risk_level"</span>:     <span class="schema-str">"LOW"</span>,
+    <span class="schema-key">"jurisdiction"</span>:   <span class="schema-str">"QLD_AU"</span>
+  },
+
+  <span class="schema-com">// -- DIGITAL ASSETS -------------------------</span>
+  <span class="schema-key">"assets"</span>: {
+    <span class="schema-key">"prescription"</span>:  <span class="schema-str">"onelake://rx/2026/0042.pdf"</span>,
+    <span class="schema-key">"label"</span>:         <span class="schema-str">"onelake://labels/0042.pdf"</span>,
+    <span class="schema-key">"csv_ref"</span>:       <span class="schema-str">"lodgement_20260217.csv"</span>
+  },
+
+  <span class="schema-com">// -- STATUS ----------------------------------</span>
+  <span class="schema-key">"status"</span>:       <span class="schema-str">"DISPATCHED"</span>,
+  <span class="schema-key">"tracking_no"</span>:  <span class="schema-str">"7E1234567890"</span>,
+  <span class="schema-key">"loop_trace"</span>:  [...] <span class="schema-com">// append-only audit trail</span>
+}</div>
+
+</div></div>
+<div style="max-width:1400px;margin:0.8rem auto 0 auto;padding:0 2rem;display:flex;justify-content:flex-end;"><a href="11-ems-twin-draft.html" style="display:inline-block;padding:0.55rem 0.9rem;border:1px solid var(--border);border-radius:8px;background:var(--s1);color:var(--text);text-decoration:none;font-family:Fira Code,monospace;font-size:0.72rem;letter-spacing:0.04em;">Open EMS Digital Twin Simulator</a></div>
+
+<!-- -- EMS · TAB 2 · BUILD GUIDE -- -->
+<div class="panel" id="tab-1"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">EMS Project · Azure AI Foundry · Click-by-Click</div>
+    <h1 class="ph-title">Build Guide — 11 Phases</h1>
+    <p class="ph-sub">Complete deployment guide for the EMS RTBoss infrastructure. Work through every phase in order — later phases depend on earlier ones being correctly configured. Use the checkboxes to track progress.</p>
+  </div>
+
+  <div class="sub-nav" id="buildSubNav">
+    <div class="sub-tab active" onclick="showSubPanel('build','p0',this)">00 · Prerequisites</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p1',this)">01 · Foundry Hub</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p2',this)">02 · Cosmos DB</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p3',this)">03 · Fabric + OneLake</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p4',this)">04 · Create Agents</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p5',this)">05 · Orchestrator</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p6',this)">06 · Power Automate</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p7',this)">07 · Service Bus</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p8',this)">08 · Key Vault</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p9',this)">09 · Cutoff Scheduler</div>
+    <div class="sub-tab" onclick="showSubPanel('build','p10',this)">10 · Test & Verify</div>
+  </div>
+
+  <div class="sub-panel active" id="build-p0">
+    <div class="phase-header"><div class="phase-num">00</div><div class="phase-meta"><div class="phase-kicker">Before You Start</div><div class="phase-title">Prerequisites & Account Setup</div><div class="phase-sub">Everything you need provisioned and confirmed before touching Azure AI Foundry. Skipping these will cause hard failures mid-build. Complete every item and tick it off.</div></div></div>
+    <div id="steps-p0"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 00 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Azure subscription active</div><div class="summary-item">Owner role confirmed</div><div class="summary-item">Azure CLI authenticated</div><div class="summary-item">Resource group created</div><div class="summary-item">OpenAI quota confirmed</div><div class="summary-item">AusPost API keys in hand</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p1">
+    <div class="phase-header"><div class="phase-num">01</div><div class="phase-meta"><div class="phase-kicker">Azure AI Foundry</div><div class="phase-title">Create Hub, Project & Deploy Models</div><div class="phase-sub">The AI Foundry Hub is the root container for all agents, connections, and deployments. One Hub per environment. All 13 agents live inside a single Foundry Project within this Hub.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Phase 00 complete</span><span class="prereq-item">Resource group created</span><span class="prereq-item">Azure OpenAI access approved</span></div>
+    <div id="steps-p1"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 01 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Hub created + healthy</div><div class="summary-item">Project created inside Hub</div><div class="summary-item">gpt-4o deployed</div><div class="summary-item">Doc Intelligence connected</div><div class="summary-item">Managed Identity enabled</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p2">
+    <div class="phase-header"><div class="phase-num">02</div><div class="phase-meta"><div class="phase-kicker">Azure Cosmos DB</div><div class="phase-title">Digital Twin & Audit Trail Store</div><div class="phase-sub">Cosmos DB is the state backbone — holds all Order Digital Twins, append-only loop_trace audit entries, and the singleton pipeline_state document. NoSQL Core API with strong consistency on twin mutations.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Resource group ready</span><span class="prereq-item">Phase 01 Hub created</span></div>
+    <div id="steps-p2"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 02 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Cosmos account provisioned</div><div class="summary-item">rtbos_pharmacy DB created</div><div class="summary-item">order_twins container ready</div><div class="summary-item">pipeline_state container ready</div><div class="summary-item">Stored proc deployed</div><div class="summary-item">Connection string saved</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p3">
+    <div class="phase-header"><div class="phase-num">03</div><div class="phase-meta"><div class="phase-kicker">Microsoft Fabric + OneLake</div><div class="phase-title">Lakehouse, Delta Tables & File Storage</div><div class="phase-sub">Fabric hosts the orders Delta table, drug_lookup reference data, error_log, and all file assets (prescription PDFs, CSVs, labels, reports). OneLake is the unified storage layer.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">M365 tenant with Fabric enabled</span><span class="prereq-item">Fabric capacity F2 minimum</span></div>
+    <div id="steps-p3"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 03 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Fabric workspace created</div><div class="summary-item">Lakehouse provisioned</div><div class="summary-item">orders Delta table created</div><div class="summary-item">drug_lookup table seeded</div><div class="summary-item">OneLake folders created</div><div class="summary-item">Foundry linked service connected</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p4">
+    <div class="phase-header"><div class="phase-num">04</div><div class="phase-meta"><div class="phase-kicker">Azure AI Foundry — Agent Studio</div><div class="phase-title">Create All 13 Specialist Agents</div><div class="phase-sub">Each RTBoss loop step becomes a dedicated Foundry Agent with its own system prompt, tool bindings, and output schema. Create them in the order listed — later agents depend on earlier ones.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Phase 01 Project created</span><span class="prereq-item">Phase 02 Cosmos ready</span><span class="prereq-item">Phase 03 Fabric ready</span><span class="prereq-item">Phase 08 Key Vault ready</span></div>
+    <div id="steps-p4"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 04 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">13 agents created</div><div class="summary-item">All system prompts saved</div><div class="summary-item">Tool bindings configured</div><div class="summary-item">Each agent test-invoked</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p5">
+    <div class="phase-header"><div class="phase-num">05</div><div class="phase-meta"><div class="phase-kicker">Azure AI Foundry — Multi-Agent</div><div class="phase-title">Build the Orchestrator & Agent Chain</div><div class="phase-sub">The Orchestrator Agent is the DOL coordinator — routes the context envelope through the specialist chain, handles branching at classification gates, and enforces the RTBoss loop sequence.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">All 13 agents from Phase 04</span><span class="prereq-item">Service Bus from Phase 07</span></div>
+    <div id="steps-p5"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 05 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Orchestrator agent created</div><div class="summary-item">Agent chain wired</div><div class="summary-item">Branch logic verified</div><div class="summary-item">Context envelope flowing</div><div class="summary-item">End-to-end test pass</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p6">
+    <div class="phase-header"><div class="phase-num">06</div><div class="phase-meta"><div class="phase-kicker">Microsoft Power Automate</div><div class="phase-title">Email Trigger Flow (Fact Ingestion)</div><div class="phase-sub">Power Automate monitors the pharmacy orders mailbox and fires the RTBoss loop by calling the Orchestrator Agent's HTTP endpoint. This is the bridge between email (physical world) and RTBoss (digital system).</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Phase 05 Orchestrator endpoint live</span><span class="prereq-item">Shared mailbox created</span><span class="prereq-item">Power Automate Premium license</span></div>
+    <div id="steps-p6"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 06 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Flow created + enabled</div><div class="summary-item">Mailbox trigger confirmed</div><div class="summary-item">Orchestrator HTTP call tested</div><div class="summary-item">Test email ? twin created</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p7">
+    <div class="phase-header"><div class="phase-num">07</div><div class="phase-meta"><div class="phase-kicker">Azure Service Bus</div><div class="phase-title">Async Agent Handoff Topics</div><div class="phase-sub">Service Bus decouples gate agents from downstream processing. OrderStatusClassifier publishes to processed-orders or incomplete-orders topics. Agents subscribe. Prevents blocking and handles volume spikes gracefully.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Resource group ready</span><span class="prereq-item">Phase 01 Hub for Managed Identity</span></div>
+    <div id="steps-p7"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 07 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Namespace created</div><div class="summary-item">processed-orders topic ready</div><div class="summary-item">incomplete-orders topic ready</div><div class="summary-item">Subscriptions created</div><div class="summary-item">Agents granted RBAC</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p8">
+    <div class="phase-header"><div class="phase-num">08</div><div class="phase-meta"><div class="phase-kicker">Azure Key Vault</div><div class="phase-title">Secrets, API Keys & Credentials</div><div class="phase-sub">All external API keys, connection strings, and credentials stored in Key Vault. Agents access secrets at runtime via Managed Identity — no hard-coded credentials anywhere. Set up before creating agents.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">AusPost API keys in hand</span><span class="prereq-item">Google Sheets service account JSON</span><span class="prereq-item">Phase 01 Managed Identity object ID</span></div>
+    <div id="steps-p8"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 08 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Key Vault provisioned</div><div class="summary-item">5 secrets stored</div><div class="summary-item">Managed Identity access set</div><div class="summary-item">Secret URIs documented</div><div class="summary-item">Test get-secret succeeds</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p9">
+    <div class="phase-header"><div class="phase-num">09</div><div class="phase-meta"><div class="phase-kicker">Azure AI Foundry + Logic Apps</div><div class="phase-title">Cutoff Scheduler & EOD Cycle</div><div class="phase-sub">A Logic App fires at 10:55 AM and 11:00 AM AEST daily, invoking the CutoffOrchestratorAgent. A Fabric Scheduler runs the EOD pipeline after shift close.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">Phase 04 AGT-012 + AGT-013 created</span><span class="prereq-item">Phase 03 Fabric ready</span><span class="prereq-item">Phase 07 Service Bus ready</span></div>
+    <div id="steps-p9"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 09 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Logic App created</div><div class="summary-item">10:55 trigger fires</div><div class="summary-item">11:00 cutoff trigger fires</div><div class="summary-item">Incomplete file generated in test</div><div class="summary-item">EOD Fabric pipeline scheduled</div></div></div>
+  </div>
+
+  <div class="sub-panel" id="build-p10">
+    <div class="phase-header"><div class="phase-num">10</div><div class="phase-meta"><div class="phase-kicker">End-to-End Validation</div><div class="phase-title">Test, Verify & Go-Live Checklist</div><div class="phase-sub">Run four test scenarios end-to-end before go-live. Verify each RTBoss loop cycle completes, the Digital Twin is correctly populated, and the audit trail is intact. Do not go live until all scenarios pass.</div></div></div>
+    <div class="prereq-bar"><span class="prereq-label">REQUIRES:</span><span class="prereq-item">All phases 01–09 complete</span><span class="prereq-item">Test prescription PDFs prepared</span><span class="prereq-item">AusPost sandbox credentials</span></div>
+    <div id="steps-p10"></div>
+    <div class="phase-summary"><div class="phase-summary-title">// PHASE 10 COMPLETE WHEN</div><div class="summary-grid"><div class="summary-item">Scenario A: TIRZEPATIDE ?</div><div class="summary-item">Scenario B: TESTOSTERONE ?</div><div class="summary-item">Scenario C: INVALID ADDRESS ?</div><div class="summary-item">Scenario D: CUTOFF DEFERRAL ?</div><div class="summary-item">All twins complete in Cosmos ?</div><div class="summary-item">All audit trails intact ?</div></div></div>
+  </div>
+
+</div></div>
+<div style="max-width:1400px;margin:0.8rem auto 0 auto;padding:0 2rem;display:flex;justify-content:flex-end;"><a href="11-ems-twin-draft.html" style="display:inline-block;padding:0.55rem 0.9rem;border:1px solid var(--border);border-radius:8px;background:var(--s1);color:var(--text);text-decoration:none;font-family:Fira Code,monospace;font-size:0.72rem;letter-spacing:0.04em;">Open EMS Digital Twin Simulator</a></div>
+
+<!-- -- EMS · TAB 3 · AGENTS & ESTIMATES -- -->
+<div class="panel" id="tab-2"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">EMS Project · Agentic Factory · Full Specification</div>
+    <h1 class="ph-title">Agents, Estimates & Power BI</h1>
+    <p class="ph-sub">All 13 RTBoss agents with full specifications and system prompts, build time estimates, cost comparison (traditional vs RTBoss), and Power BI report structure.</p>
+  </div>
+
+  <div class="sub-nav">
+    <div class="sub-tab active" onclick="showSubPanel('agents','all',this)">All 13 Agents</div>
+    <div class="sub-tab" onclick="showSubPanel('agents','estimates',this)">Time Estimates</div>
+    <div class="sub-tab" onclick="showSubPanel('agents','cost',this)">Cost Comparison</div>
+    <div class="sub-tab" onclick="showSubPanel('agents','pbi',this)">Power BI Report</div>
+  </div>
+
+  <div class="sub-panel active" id="agents-all">
+    <div class="sec-head"><span class="sec-label">All 13 Agents — Click to expand full specification & system prompt</span><div class="sec-head-line"></div></div>
+    <div id="agentAccordion"></div>
+  </div>
+
+  <div class="sub-panel" id="agents-estimates">
+    <div class="sec-head"><span class="sec-label">Build Time Estimates</span><div class="sec-head-line"></div></div>
+    <p style="color:var(--mid);font-size:0.85rem;margin-bottom:1.5rem;line-height:1.8;">Estimates for a single mid-senior Azure/AI engineer with existing Azure familiarity. Ranges reflect complexity variance. Does not include UAT, change management, or go-live support.</p>
+    <table class="rule-table">
+      <thead><tr><th>Phase</th><th>Component</th><th>Low (days)</th><th>High (days)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Phase 00</td><td>Prerequisites & Account Setup</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>Depends on Azure subscription provisioning speed</td></tr>
+        <tr><td>Phase 01</td><td>Azure AI Foundry Hub + Project</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>Model deployment quota approval can add delays</td></tr>
+        <tr><td>Phase 02</td><td>Cosmos DB Setup</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>Stored procedure testing adds time</td></tr>
+        <tr><td>Phase 03</td><td>Fabric + OneLake</td><td style="color:var(--green);">1.0</td><td style="color:var(--amber);">2.0</td><td>Delta table schema design requires domain knowledge</td></tr>
+        <tr><td>Phase 04</td><td>All 13 Agents (prompts + tools)</td><td style="color:var(--green);">3.0</td><td style="color:var(--amber);">5.0</td><td>Prompt engineering per agent, tool binding testing</td></tr>
+        <tr><td>Phase 05</td><td>Orchestrator + Agent Chain</td><td style="color:var(--green);">2.0</td><td style="color:var(--amber);">4.0</td><td>Branch logic and context envelope most complex phase</td></tr>
+        <tr><td>Phase 06</td><td>Power Automate Flow</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>Attachment handling edge cases add time</td></tr>
+        <tr><td>Phase 07</td><td>Service Bus Topics</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>RBAC configuration straightforward</td></tr>
+        <tr><td>Phase 08</td><td>Key Vault + Secrets</td><td style="color:var(--green);">0.5</td><td style="color:var(--amber);">1.0</td><td>API key procurement can be external dependency</td></tr>
+        <tr><td>Phase 09</td><td>Cutoff Scheduler + EOD</td><td style="color:var(--green);">1.0</td><td style="color:var(--amber);">2.0</td><td>Time zone handling and Logic App testing</td></tr>
+        <tr><td>Phase 10</td><td>End-to-End Testing</td><td style="color:var(--green);">2.0</td><td style="color:var(--amber);">4.0</td><td>AusPost sandbox behavior differs from production</td></tr>
+        <tr><td colspan="2" style="font-weight:700;color:var(--text);">TOTAL</td><td style="color:var(--green);font-weight:700;">12 days</td><td style="color:var(--amber);font-weight:700;">23 days</td><td>~2.5 to 4.5 weeks for 1 senior engineer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-panel" id="agents-cost">
+    <div class="sec-head"><span class="sec-label">Cost Comparison — Traditional vs RTBoss</span><div class="sec-head-line"></div></div>
+    <p style="color:var(--mid);font-size:0.85rem;margin-bottom:1.5rem;line-height:1.8;">Like-for-like comparison building the same pharmacy order automation pipeline. Traditional enterprise development vs the RTBoss + Azure AI Foundry approach. All figures in AUD.</p>
+    <table class="rule-table">
+      <thead><tr><th>Component</th><th>Traditional Approach</th><th>RTBoss Approach</th><th>Saving</th></tr></thead>
+      <tbody>
+        <tr><td>Email processing + classification</td><td style="color:var(--red);">$25,000–$40,000</td><td style="color:var(--green);">$3,000–$5,000</td><td style="color:var(--teal);">~$30,000</td></tr>
+        <tr><td>PDF extraction (custom OCR)</td><td style="color:var(--red);">$40,000–$80,000</td><td style="color:var(--green);">$5,000–$8,000</td><td style="color:var(--teal);">~$55,000</td></tr>
+        <tr><td>AusPost integration</td><td style="color:var(--red);">$20,000–$35,000</td><td style="color:var(--green);">$3,000–$5,000</td><td style="color:var(--teal);">~$25,000</td></tr>
+        <tr><td>Dispensing rules engine</td><td style="color:var(--red);">$30,000–$50,000</td><td style="color:var(--green);">$2,000–$4,000</td><td style="color:var(--teal);">~$37,000</td></tr>
+        <tr><td>Reporting + dashboards</td><td style="color:var(--red);">$20,000–$35,000</td><td style="color:var(--green);">$3,000–$6,000</td><td style="color:var(--teal);">~$25,000</td></tr>
+        <tr><td>Cutoff scheduler + EOD</td><td style="color:var(--red);">$15,000–$25,000</td><td style="color:var(--green);">$2,000–$3,000</td><td style="color:var(--teal);">~$17,500</td></tr>
+        <tr><td>Integration + orchestration</td><td style="color:var(--red);">$50,000–$100,000</td><td style="color:var(--green);">$5,000–$10,000</td><td style="color:var(--teal);">~$67,500</td></tr>
+        <tr><td colspan="1" style="font-weight:700;color:var(--text);">TOTAL BUILD COST</td><td style="color:var(--red);font-weight:700;">$200,000–$365,000</td><td style="color:var(--green);font-weight:700;">$23,000–$41,000</td><td style="color:var(--teal);font-weight:700;">~$257,000</td></tr>
+      </tbody>
+    </table>
+      <div class="callout success">
+      <div class="callout-icon">?</div>
+      <div class="callout-body"><strong>First-year saving: ~$257,000 AUD</strong> on build costs alone. Add ongoing operational savings from automation (eliminating ~3–4 hours/day of manual processing at pharmacy technician rates) and the ROI is achieved within weeks of go-live.</div>
+    </div>
+    <div class="sec-head"><span class="sec-label">Monthly Infrastructure Costs (Post Go-Live)</span><div class="sec-head-line"></div></div>
+    <table class="rule-table">
+      <thead><tr><th>Service</th><th>Tier / Config</th><th>Est. Monthly Cost (AUD)</th></tr></thead>
+      <tbody>
+        <tr><td>Azure AI Foundry (GPT-4o)</td><td>~500K tokens/month</td><td style="color:var(--green);">$80–$150</td></tr>
+        <tr><td>Azure Cosmos DB</td><td>Serverless, ~50GB</td><td style="color:var(--green);">$30–$60</td></tr>
+        <tr><td>Microsoft Fabric</td><td>F2 capacity</td><td style="color:var(--green);">$260</td></tr>
+        <tr><td>Azure Service Bus</td><td>Standard tier</td><td style="color:var(--green);">$10–$20</td></tr>
+        <tr><td>Azure Key Vault + Logic Apps</td><td>Standard</td><td style="color:var(--green);">$10–$20</td></tr>
+        <tr><td>Power Automate Premium</td><td>Per-user plan</td><td style="color:var(--green);">$30</td></tr>
+        <tr><td colspan="2" style="font-weight:700;color:var(--text);">TOTAL MONTHLY INFRA</td><td style="color:var(--green);font-weight:700;">~$420–$540/month</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-panel" id="agents-pbi">
+    <div class="sec-head"><span class="sec-label">Power BI Report — 4 Pages</span><div class="sec-head-line"></div></div>
+    <p style="color:var(--mid);font-size:0.85rem;margin-bottom:1.5rem;line-height:1.8;">Four report pages connected to Cosmos DB (Digital Twins) and Microsoft Fabric (Lakehouse Delta tables) via DirectQuery. Refreshes in real time during operating hours.</p>
+    <div class="content-block">
+      <h3>Page 1 — Operations Overview (Daily Dashboard)</h3>
+      <ul>
+        <li><strong>KPI cards:</strong> Total orders today, Processed count, Incomplete count, Dispatched count</li>
+        <li><strong>Orders by status:</strong> Donut chart (PROCESSED / INCOMPLETE / DEFERRED / REVIEW)</li>
+        <li><strong>Orders by drug type:</strong> Bar chart (TIRZEPATIDE / TESTOSTERONE / SEMAGLUTIDE / OTHER)</li>
+        <li><strong>Hourly order volume:</strong> Line chart showing arrival rate throughout the day</li>
+        <li><strong>Shipment types breakdown:</strong> EXPRESS vs STANDARD split</li>
+      </ul>
+    </div>
+    <div class="content-block">
+      <h3>Page 2 — Agent Performance (Agentic Factory Monitor)</h3>
+      <ul>
+        <li><strong>Agent invocation count:</strong> How many times each of the 13 agents fired today</li>
+        <li><strong>Average latency per agent:</strong> Bar chart (target: &lt;5 seconds per agent)</li>
+        <li><strong>Confidence score distribution:</strong> Histogram for AGT-002 EMAIL and AGT-003/004 PDF extraction</li>
+        <li><strong>Human review rate:</strong> % of orders requiring manual intervention (target: &lt;15%)</li>
+        <li><strong>Error rate by agent:</strong> Error counts and last error timestamp</li>
+      </ul>
+    </div>
+    <div class="content-block">
+      <h3>Page 3 — Dispatch & AusPost (Shipment Operations)</h3>
+      <ul>
+        <li><strong>Shipments created today:</strong> Count with tracking number list</li>
+        <li><strong>Lodgement CSV status:</strong> Generated / Uploaded / Confirmed</li>
+        <li><strong>Address validation pass rate:</strong> % valid vs invalid today</li>
+        <li><strong>Express vs standard split:</strong> Revenue impact calculation</li>
+        <li><strong>Cutoff compliance:</strong> % of orders dispatched before cutoff</li>
+      </ul>
+    </div>
+    <div class="content-block">
+      <h3>Page 4 — Cutoff & Compliance (EOD Audit View)</h3>
+      <ul>
+        <li><strong>Incomplete orders by reason:</strong> Bar chart (Invalid address / Missing data / Rule violation / Deferred)</li>
+        <li><strong>Reconciliation status:</strong> Signed off / Pending / Discrepancy count</li>
+        <li><strong>Digital Twin completeness:</strong> % of twins with complete loop_trace[]</li>
+        <li><strong>Audit trail integrity:</strong> SHA-256 hash verification pass rate</li>
+        <li><strong>Regulatory compliance score:</strong> % of TESTOSTERONE orders with human sign-off documented</li>
+        <li><strong>ISO 27001 control status:</strong> Agent ISO Control Block currency — any overdue reviews flagged</li>
+        <li><strong>NCR open count:</strong> Active non-conformances from neit_nonconformance, linked to agent or process</li>
+        <li><strong>Data classification compliance:</strong> % of Dataverse records carrying correct classification label</li>
+      </ul>
+    </div>
+  </div>
+
+</div></div>
+<div style="max-width:1400px;margin:0.8rem auto 0 auto;padding:0 2rem;display:flex;justify-content:flex-end;"><a href="11-ems-twin-draft.html" style="display:inline-block;padding:0.55rem 0.9rem;border:1px solid var(--border);border-radius:8px;background:var(--s1);color:var(--text);text-decoration:none;font-family:Fira Code,monospace;font-size:0.72rem;letter-spacing:0.04em;">Open EMS Digital Twin Simulator</a></div>
+
+<!-- -- EMS · TAB 4 · COMPLETE REFERENCE -- -->
+<div class="panel" id="tab-3"><div class="pw">
+  <div class="ph">
+    <div class="ph-kicker">EMS · Canonical Source of Truth</div>
+    <h1 class="ph-title">EMS Complete Reference</h1>
+    <p class="ph-sub">Full EMS project specification — all 13 agent specs, architecture diagrams, data flows, integration points, and the Dataverse entity model. The canonical EMS source of truth for all future builds.</p>
+  </div>
+  <div class="callout info">
+    <div class="callout-icon">??</div>
+    <div class="callout-body"><strong>Reference Document.</strong> This tab consolidates the complete EMS specification in one place. Use it when onboarding new team members, scoping future clients against the EMS pattern, or auditing agent behavior against the original design intent.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Agent Specifications — All 13</span><div class="sec-head-line"></div></div>
+  <div class="content-block">
+    <p>The complete agent specification for all 13 EMS agents is documented in the Agents &amp; Estimates tab (Tab 03). Refer to that tab for full system prompts, tool configurations, ISO control blocks, and build estimates per agent.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Architecture &amp; Data Flow</span><div class="sec-head-line"></div></div>
+  <div class="content-block">
+    <p>The six-layer operating loop and full pipeline architecture is documented in the Architecture &amp; Overview tab (Tab 01). This covers the complete fact flow from EMAIL_RECEIVED through to PARCEL_DISPATCHED, all Digital Twin schema fields, and the hybrid workforce breakdown.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Dataverse Entity Model</span><div class="sec-head-line"></div></div>
+  <div class="content-block">
+    <h3>Core Tables</h3>
+    <ul>
+      <li><strong>neit_Order</strong> — Master order record. One row per prescription. Carries all fact references, current status, and Digital Twin state.</li>
+      <li><strong>neit_Fact</strong> — Immutable event log. Every Genie writes one fact per action. Never updated after creation.</li>
+      <li><strong>neit_Agent</strong> — Registry of all deployed agents with version, status, and ISO control metadata.</li>
+      <li><strong>neit_Dimension</strong> — Reference data (Postcode zones, Priority levels, Pharmacy types, Compliance flags).</li>
+      <li><strong>neit_DigitalTwin</strong> — Running state of each order. Updated by each Genie as the order progresses through the pipeline.</li>
+      <li><strong>neit_AuditLog</strong> — ISO 27001 A.8.15 compliant log. Every agent action, every data access, every exception captured.</li>
+    </ul>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Integration Points</span><div class="sec-head-line"></div></div>
+  <div class="content-block">
+    <h3>External Connections</h3>
+    <ul>
+      <li><strong>Microsoft 365 / Exchange</strong> — Inbound email capture (prescription orders). Agent 01 (Email Intake Genie) monitors shared mailbox.</li>
+      <li><strong>AusPost API</strong> — Label generation, tracking number retrieval, dispatch confirmation. Agent 11 (Dispatch Genie).</li>
+      <li><strong>Copilot Studio</strong> — All 13 agents hosted here. Orchestrator routes via Service Bus topics.</li>
+      <li><strong>Azure Service Bus</strong> — Async message passing between agents. Decouples pipeline stages. Enables retry logic.</li>
+      <li><strong>Azure Key Vault</strong> — All secrets, API keys, connection strings. Never hardcoded. Rotated per ISO 27001 A.8.24.</li>
+      <li><strong>Power Automate</strong> — Cutoff scheduler, escalation flows, notification triggers.</li>
+      <li><strong>Power BI</strong> — Operational dashboard. Live feed from Dataverse. Used by pharmacy manager daily.</li>
+    </ul>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Build Guide Reference</span><div class="sec-head-line"></div></div>
+  <div class="content-block">
+    <p>The click-by-click 11-phase deployment guide is in the Build Guide tab (Tab 02). It covers: Prerequisites ? AI Foundry Hub ? Cosmos DB ? Fabric + OneLake ? Create Agents ? Orchestrator ? Power Automate ? Service Bus ? Key Vault ? Cutoff Scheduler ? Test &amp; Verify. Each phase has checkboxes, exact configuration values, and gate criteria before proceeding.</p>
+  </div>
+</div></div>
+
+<script>
+// -- TAB NAV ------------------------------------------------------------------
+function showTab(n){
+  document.querySelectorAll('.tab:not(.sub-tab)').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('.panel:not(.sub-panel)').forEach((p,i)=>p.classList.toggle('active',i===n));
+}
+
+function showSubPanel(group,id,btn){
+  btn.closest('.sub-nav').querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  const pw = btn.closest('.pw');
+  pw.querySelectorAll('.sub-panel').forEach(p=>p.classList.toggle('active', p.id===group+'-'+id));
+}
+
+// -- STEP DONE ----------------------------------------------------------------
+function toggleDone(phaseKey,idx){
+  const el=document.getElementById('step-'+phaseKey+'-'+idx);
+  if(el) el.classList.toggle('done');
+}
+
+// -- COPY ---------------------------------------------------------------------
+function copyCode(btn){
+  const block=btn.closest('.code-block');
+  const text=block.innerText.replace(/^copy\n?/,'').trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='? copied'; btn.style.color='var(--green)';
+    setTimeout(()=>{btn.textContent='copy';btn.style.color='';},2000);
+  });
+}
+
+function copyPrompt(idx,e){
+  e.stopPropagation();
+  const btn=e.target;
+  const text=AGENTS[idx]?AGENTS[idx].prompt:'';
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='? copied';
+    setTimeout(()=>btn.textContent='copy',2000);
+  });
+}
+
+// -- AGENT ACCORDION ----------------------------------------------------------
+function toggleAgent(idx){
+  const el=document.getElementById('ab-'+idx);
+  if(el) el.classList.toggle('open');
+}
+
+const PHASES = {
+  p0: [
+    {
+      title:'Confirm Azure subscription & permissions',
+      where:'portal', whereLabel:'Azure Portal',
+      desc:'You need a subscription with Owner role at the subscription level. Contributor is not sufficient — you need to assign RBAC roles to Managed Identities later.',
+      instructions:[
+        'Go to <span class="nav-click">portal.azure.com</span>',
+        'Click <span class="click">Subscriptions</span> in the top search bar',
+        'Select your target subscription',
+        'Click <span class="click">Access control (IAM)</span> in the left sidebar',
+        'Click <span class="click">View my access</span>',
+        'Confirm your account shows <span class="val">Owner</span> or <span class="val">User Access Administrator</span> role',
+        'If not — contact your Azure admin to grant Owner before proceeding'
+      ]
+    },
+    {
+      title:'Install & authenticate Azure CLI',
+      where:'cli', whereLabel:'Terminal / CLI',
+      desc:'The Azure CLI is required for Key Vault setup, RBAC assignments, and Cosmos DB stored procedure deployment. Use version 2.55+ for AI Foundry support.',
+      instructions:[
+        'Install: <span class="val">winget install Microsoft.AzureCLI</span> (Windows) or <span class="val">brew install azure-cli</span> (Mac)',
+        'Run <span class="val">az --version</span> — confirm 2.55 or higher',
+        'Run <span class="val">az login</span> — browser window opens',
+        'Sign in with your Azure admin account',
+        'Run <span class="val">az account show</span> — confirm correct subscription is selected',
+        'If wrong subscription: <span class="val">az account set --subscription "YOUR_SUB_ID"</span>'
+      ],
+      code:`az login
+az account show --query "{name:name, id:id, state:state}"
+# Expected: your subscription name + state: Enabled`
+    },
+    {
+      title:'Create Resource Group',
+      where:'cli', whereLabel:'CLI',
+      desc:'All RTBoss resources live in one resource group. Use a consistent naming convention. Australasia East is recommended for AU pharmacy operations (lowest latency to AusPost APIs).',
+      instructions:[
+        'Choose a name — recommended: <span class="val">rg-rtbos-pharmacy-prod</span>',
+        'Run the CLI command below',
+        'Confirm output shows <span class="val">"provisioningState": "Succeeded"</span>'
+      ],
+      code:`az group create \\
+  --name rg-rtbos-pharmacy-prod \\
+  --location australiaeast \\
+  --tags project=rtbos env=prod team=pharmacy`
+    },
+    {
+      title:'Request Azure OpenAI access & confirm GPT-4o quota',
+      where:'portal', whereLabel:'Azure Portal',
+      desc:'Azure OpenAI requires explicit access approval and a quota increase for GPT-4o. This can take 1–3 business days. Do this first — it is the most common blocker.',
+      instructions:[
+        'Go to <span class="nav-click">aka.ms/oai/access</span> and submit the access request form',
+        'Once approved, go to <span class="nav-click">portal.azure.com</span> ? <span class="click">Azure OpenAI</span>',
+        'Click <span class="click">+ Create</span>',
+        'Select resource group: <span class="val">rg-rtbos-pharmacy-prod</span>',
+        'Region: <span class="val">Australia East</span>, Name: <span class="val">oai-rtbos-pharmacy</span>, Pricing: <span class="val">S0</span>',
+        'Click <span class="click">Review + create</span> ? <span class="click">Create</span>',
+        'Once deployed, go to the resource ? <span class="click">Quotas</span>',
+        'Confirm <span class="val">gpt-4o</span> is available. If quota is 0, click <span class="click">Request Quota Increase</span>'
+      ]
+    },
+    {
+      title:'Obtain AusPost API credentials',
+      where:'config', whereLabel:'External',
+      desc:'You need two AusPost API credentials: one for Address Validation (PAF) and one for eParcel (Shipping + Lodgement). These come from the AusPost Developer Portal.',
+      instructions:[
+        'Go to <span class="nav-click">developers.auspost.com.au</span>',
+        'Sign in or create a developer account',
+        'Navigate to <span class="click">My Apps</span> ? <span class="click">Create App</span>',
+        'Add products: <span class="val">Address Validation API</span> and <span class="val">Shipping & Tracking API</span>',
+        'Copy <span class="field">API_KEY</span> and <span class="field">API_PASSWORD</span> — save to a secure notepad for Key Vault (Phase 08)',
+        'For production: request eParcel merchant account via your AusPost Business account manager'
+      ],
+      callout:{ type:'warn', icon:'??', body:'<strong>Sandbox vs Production:</strong> Use AusPost sandbox credentials for all testing (Phases 04–09). Switch to production credentials only after full end-to-end test passes in Phase 10.' }
+    },
+    {
+      title:'Create Google Sheets service account',
+      where:'config', whereLabel:'Google Cloud Console',
+      desc:'AGT-006 (PrescriptionRuleAgent) reads the TESTOSTERONE dispensing rules from a Google Sheet. You need a service account with Sheets read access.',
+      instructions:[
+        'Go to <span class="nav-click">console.cloud.google.com</span>',
+        'Create a new project or select existing: <span class="val">rtbos-pharmacy</span>',
+        'Navigate to <span class="click">APIs & Services</span> ? <span class="click">Enable APIs</span>',
+        'Search and enable <span class="val">Google Sheets API</span>',
+        'Go to <span class="click">Credentials</span> ? <span class="click">Create Credentials</span> ? <span class="click">Service Account</span>',
+        'Name: <span class="val">rtbos-sheets-reader</span>, Role: <span class="val">Viewer</span>',
+        'Click the service account ? <span class="click">Keys</span> ? <span class="click">Add Key</span> ? <span class="click">JSON</span>',
+        'Download the JSON key file — store securely for Key Vault (Phase 08)',
+        'Share your TESTOSTERONE rules Google Sheet with the service account email'
+      ]
+    }
+  ],
+
+  p1: [
+    {
+      title:'Create Azure AI Foundry Hub',
+      where:'portal', whereLabel:'Azure Portal',
+      desc:'The Hub is the top-level container. One Hub per environment. It provisions a storage account, Key Vault reference, Application Insights, and a container registry automatically.',
+      instructions:[
+        'Go to <span class="nav-click">ai.azure.com</span>',
+        'Click <span class="click">+ New hub</span> in the top toolbar',
+        'Set <span class="field">Hub name</span>: <span class="val">hub-rtbos-pharmacy-prod</span>',
+        'Set <span class="field">Subscription</span>: your subscription',
+        'Set <span class="field">Resource group</span>: <span class="val">rg-rtbos-pharmacy-prod</span>',
+        'Set <span class="field">Location</span>: <span class="val">Australia East</span>',
+        'Under <span class="click">Azure AI Services</span> — select <span class="val">oai-rtbos-pharmacy</span> (created in Phase 00)',
+        'Leave storage, Key Vault, and App Insights as auto-create',
+        'Click <span class="click">Next</span> ? <span class="click">Review + create</span> ? <span class="click">Create</span>',
+        'Wait ~3 minutes for provisioning to complete'
+      ],
+      callout:{ type:'info', icon:'??', body:'The Hub auto-creates a managed storage account and Key Vault. <strong>Do not use these for RTBoss secrets</strong> — create a dedicated Key Vault in Phase 08 for explicit control.' }
+    },
+    {
+      title:'Create Foundry Project inside the Hub',
+      where:'portal', whereLabel:'ai.azure.com',
+      desc:'A Project is the working container for agents, deployments, and connections. All 13 RTBoss agents will be created inside this single project.',
+      instructions:[
+        'Inside <span class="nav-click">ai.azure.com</span>, open the Hub you just created',
+        'Click <span class="click">+ New project</span>',
+        'Set <span class="field">Project name</span>: <span class="val">proj-pharmacy-rtbos</span>',
+        'Confirm Hub: <span class="val">hub-rtbos-pharmacy-prod</span>',
+        'Click <span class="click">Create project</span>',
+        'Wait for the project to initialise — you will be redirected to the project overview',
+        'Note the <span class="field">Project connection string</span> — you will need it for the Python SDK'
+      ]
+    },
+    {
+      title:'Deploy GPT-4o model',
+      where:'portal', whereLabel:'ai.azure.com ? Deployments',
+      desc:'All 13 agents use GPT-4o. Deploy it once at the Hub level and all agents in the project reference the same deployment.',
+      instructions:[
+        'Inside your project, click <span class="click">Deployments</span> in the left sidebar',
+        'Click <span class="click">+ Deploy model</span> ? <span class="click">Deploy base model</span>',
+        'Search for <span class="val">gpt-4o</span>, select the latest version',
+        'Set <span class="field">Deployment name</span>: <span class="val">gpt-4o-rtbos</span>',
+        'Set <span class="field">Tokens per minute</span>: <span class="val">100K</span> (increase if order volume demands)',
+        'Set <span class="field">Content filter</span>: <span class="val">Default</span>',
+        'Click <span class="click">Deploy</span>',
+        'Confirm deployment status shows <span class="val">Succeeded</span>'
+      ],
+      code:`# Verify deployment via CLI
+az cognitiveservices account deployment show \\
+  --name oai-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod \\
+  --deployment-name gpt-4o-rtbos`
+    },
+    {
+      title:'Add Azure Document Intelligence connection',
+      where:'portal', whereLabel:'ai.azure.com ? Settings ? Connections',
+      desc:'AGT-004 (OrderTypeClassifierAgent) uses Azure Document Intelligence to parse prescription PDFs. Add it as a connected service in the Foundry project.',
+      instructions:[
+        'First, create a Document Intelligence resource in the Azure Portal: search <span class="val">Document Intelligence</span> ? <span class="click">+ Create</span>',
+        'Name: <span class="val">docintel-rtbos</span>, Resource group: <span class="val">rg-rtbos-pharmacy-prod</span>, Region: <span class="val">Australia East</span>, Tier: <span class="val">S0</span>',
+        'Click <span class="click">Create</span> and wait for deployment',
+        'Back in <span class="nav-click">ai.azure.com</span>, open your project',
+        'Click <span class="click">Settings</span> ? <span class="click">Connections</span> ? <span class="click">+ New connection</span>',
+        'Select <span class="click">Azure AI Document Intelligence</span>',
+        'Select <span class="val">docintel-rtbos</span> from the dropdown',
+        'Click <span class="click">Add connection</span>',
+        'Connection name will be: <span class="val">docintel-rtbos</span>'
+      ]
+    },
+    {
+      title:'Enable System-Assigned Managed Identity on the Hub',
+      where:'portal', whereLabel:'Azure Portal ? Hub resource',
+      desc:'Managed Identity is how agents authenticate to Key Vault, Cosmos DB, and Service Bus without stored credentials. Enable it on the Hub resource.',
+      instructions:[
+        'Go to <span class="nav-click">portal.azure.com</span> ? search for <span class="val">hub-rtbos-pharmacy-prod</span>',
+        'Open the Hub resource (type: Azure Machine Learning workspace)',
+        'In the left sidebar click <span class="click">Identity</span>',
+        'Under <span class="click">System assigned</span>, toggle Status to <span class="val">On</span>',
+        'Click <span class="click">Save</span> ? confirm the dialog',
+        'Copy the <span class="field">Object (principal) ID</span> — save it. You will use this in every RBAC assignment in Phase 08.'
+      ],
+      callout:{ type:'success', icon:'?', body:'<strong>Note the Object ID carefully.</strong> It looks like a GUID: <span style="font-family:monospace;color:var(--teal)">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>. This is the identity that all agents run as.' }
+    }
+  ],
+
+  p2: [
+    {
+      title:'Create Cosmos DB account (NoSQL / Core API)',
+      where:'portal', whereLabel:'Azure Portal',
+      desc:'Use the NoSQL (Core SQL) API for flexible JSON documents with strong consistency. The RTBoss pharmacy system requires strong consistency for twin version increments.',
+      instructions:[
+        'Go to <span class="nav-click">portal.azure.com</span> ? search <span class="val">Azure Cosmos DB</span> ? <span class="click">+ Create</span>',
+        'Select <span class="click">Azure Cosmos DB for NoSQL</span>',
+        'Resource group: <span class="val">rg-rtbos-pharmacy-prod</span>',
+        'Account name: <span class="val">cosmos-rtbos-pharmacy</span>',
+        'Location: <span class="val">Australia East</span>',
+        'Capacity mode: <span class="val">Provisioned throughput</span>',
+        'Apply Free Tier: only if dev/test. For prod: <span class="val">No</span>',
+        'Click <span class="click">Review + create</span> ? <span class="click">Create</span>',
+        'Wait ~5 minutes for provisioning'
+      ]
+    },
+    {
+      title:'Create the rtbos_pharmacy database',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
+      desc:'All RTBoss containers live in a single database. Use shared throughput at the database level for cost efficiency across containers.',
+      instructions:[
+        'Open <span class="val">cosmos-rtbos-pharmacy</span> in the Azure Portal',
+        'Click <span class="click">Data Explorer</span> in the left sidebar',
+        'Click <span class="click">New Database</span>',
+        'Set <span class="field">Database id</span>: <span class="val">rtbos_pharmacy</span>',
+        'Check <span class="click">Share throughput across containers</span>',
+        'Set <span class="field">Database throughput</span>: <span class="val">1000 RU/s</span> (autoscale recommended for prod)',
+        'Click <span class="click">OK</span>'
+      ]
+    },
+    {
+      title:'Create order_twins container',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
+      desc:'The primary container. Every pharmacy order gets one document here — the Digital Twin. Partitioned by order_id for even distribution.',
+      instructions:[
+        'In Data Explorer, expand <span class="val">rtbos_pharmacy</span>',
+        'Click <span class="click">New Container</span>',
+        'Set <span class="field">Container id</span>: <span class="val">order_twins</span>',
+        'Set <span class="field">Partition key</span>: <span class="val">/order_id</span>',
+        'Indexing policy: leave as <span class="val">Automatic</span>',
+        'Click <span class="click">OK</span>'
+      ]
+    },
+    {
+      title:'Create pipeline_state container',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
+      desc:'A singleton container holding one document per shift day — the cutoff_active flag, shift_id, and daily cycle state read by all agents.',
+      instructions:[
+        'Click <span class="click">New Container</span> again',
+        'Set <span class="field">Container id</span>: <span class="val">pipeline_state</span>',
+        'Set <span class="field">Partition key</span>: <span class="val">/shift_id</span>',
+        'Click <span class="click">OK</span>',
+        'Click into <span class="val">pipeline_state</span> ? <span class="click">Items</span> ? <span class="click">New Item</span>',
+        'Paste the seed document from the code block below',
+        'Click <span class="click">Save</span>'
+      ],
+      code:`{
+  "id": "state-20240318",
+  "shift_id": "SHIFT-20240318-AM",
+  "cutoff_active": false,
+  "cutoff_initiated_at": null,
+  "current_date": "2024-03-18",
+  "shift_status": "OPEN",
+  "pipeline_version": 1
+}`
+    },
+    {
+      title:'Deploy append-only stored procedure for audit trail',
+      where:'code', whereLabel:'Cosmos DB ? Data Explorer',
+      desc:'The RTBoss audit trail relies on an append-only stored procedure — agents call it to add loop_trace entries without being able to modify existing ones.',
+      instructions:[
+        'In Data Explorer, click on <span class="val">order_twins</span> container',
+        'Click <span class="click">Stored Procedures</span> ? <span class="click">New Stored Procedure</span>',
+        'Set <span class="field">Stored procedure id</span>: <span class="val">appendLoopTrace</span>',
+        'Paste the stored procedure code below',
+        'Click <span class="click">Save</span>'
+      ],
+      code:`function appendLoopTrace(orderId, traceEntry) {
+  var ctx = getContext();
+  var container = ctx.getCollection();
+  var resp = ctx.getResponse();
+
+  // Read the existing twin
+  var query = "SELECT * FROM c WHERE c.order_id = @id";
+  var params = [{ name: "@id", value: orderId }];
+
+  var accepted = container.queryDocuments(
+    container.getSelfLink(), query, { parameters: params },
+    function(err, docs) {
+      if (err) throw err;
+      if (!docs || docs.length === 0) throw "Twin not found: " + orderId;
+
+      var twin = docs[0];
+
+      // Enforce immutability: only append, never modify
+      if (!twin.loop_trace) twin.loop_trace = [];
+      traceEntry.seq = twin.loop_trace.length + 1;
+      traceEntry.appended_at = new Date().toISOString();
+      twin.loop_trace.push(traceEntry);
+      twin.twin_version = (twin.twin_version || 0) + 1;
+
+      container.replaceDocument(twin._self, twin,
+        function(err2) { if (err2) throw err2; });
+    }
+  );
+  if (!accepted) throw "Transaction not accepted";
+}`
+    },
+    {
+      title:'Copy Cosmos DB connection string to notepad',
+      where:'portal', whereLabel:'Cosmos DB ? Keys',
+      desc:'Agents reference Cosmos DB via a connection string stored in Key Vault. Get the primary connection string now.',
+      instructions:[
+        'Open <span class="val">cosmos-rtbos-pharmacy</span>',
+        'Click <span class="click">Keys</span> in the left sidebar',
+        'Under <span class="click">Read-write Keys</span>, copy <span class="field">PRIMARY CONNECTION STRING</span>',
+        'Save it securely — you will enter it into Key Vault in Phase 08'
+      ],
+      callout:{ type:'danger', icon:'??', body:'<strong>Never commit this string to source control.</strong> Treat it like a password. It goes into Key Vault only.' }
+    }
+  ],
+
+  p3: [
+    {
+      title:'Create Microsoft Fabric workspace',
+      where:'portal', whereLabel:'app.fabric.microsoft.com',
+      desc:'The Fabric workspace hosts the Lakehouse, Delta tables, and Notebooks. Requires a Fabric capacity assigned (F2 minimum for agent workloads).',
+      instructions:[
+        'Go to <span class="nav-click">app.fabric.microsoft.com</span>',
+        'Click <span class="click">Workspaces</span> in the left rail ? <span class="click">+ New workspace</span>',
+        'Set <span class="field">Name</span>: <span class="val">ws-rtbos-pharmacy</span>',
+        'Expand <span class="click">Advanced</span> ? License mode: select <span class="val">Fabric capacity</span>',
+        'Select your provisioned Fabric capacity from the dropdown',
+        'Click <span class="click">Apply</span>',
+        'Workspace is created and you are taken to it automatically'
+      ]
+    },
+    {
+      title:'Create Lakehouse',
+      where:'portal', whereLabel:'Fabric Workspace',
+      desc:'The Lakehouse is the Delta table store and OneLake file root. All agent-generated files (CSVs, PDFs, reports) land here.',
+      instructions:[
+        'Inside <span class="val">ws-rtbos-pharmacy</span>, click <span class="click">+ New item</span>',
+        'Select <span class="click">Lakehouse</span>',
+        'Set <span class="field">Name</span>: <span class="val">lh_pharmacy_rtbos</span>',
+        'Click <span class="click">Create</span>',
+        'You are taken to the Lakehouse explorer — you should see <span class="val">Tables</span> and <span class="val">Files</span> sections'
+      ]
+    },
+    {
+      title:'Create orders Delta table',
+      where:'portal', whereLabel:'Fabric Lakehouse ? Notebooks',
+      desc:'Create the orders Delta table using a Fabric Notebook. This is the persistent order record store read by the ReportingAgent and CSVDispatchAgent.',
+      instructions:[
+        'In your workspace, click <span class="click">+ New item</span> ? <span class="click">Notebook</span>',
+        'Attach to Lakehouse: click <span class="click">Add Lakehouse</span> ? select <span class="val">lh_pharmacy_rtbos</span>',
+        'Paste the PySpark code below into a cell',
+        'Click <span class="click">Run cell</span> (?)',
+        'Confirm in the Lakehouse explorer that <span class="val">orders</span> appears under Tables'
+      ],
+      code:`from pyspark.sql.types import *
+
+schema = StructType([
+  StructField("order_id",           StringType(), False),
+  StructField("email_id",           StringType(), True),
+  StructField("email_class",        StringType(), True),
+  StructField("rx_link_type",       StringType(), True),
+  StructField("rx_file_path",       StringType(), True),
+  StructField("order_type",         StringType(), True),
+  StructField("drug_name",          StringType(), True),
+  StructField("dosage",             StringType(), True),
+  StructField("patient_id",         StringType(), True),
+  StructField("status",             StringType(), True),
+  StructField("order_status",       StringType(), True),
+  StructField("tracking_no",        StringType(), True),
+  StructField("shipment_type",      StringType(), True),
+  StructField("address_valid",      BooleanType(), True),
+  StructField("std_address",        StringType(), True),
+  StructField("dpid",               StringType(), True),
+  StructField("rule_pass",          BooleanType(), True),
+  StructField("shift_id",           StringType(), True),
+  StructField("created_at",         TimestampType(), True),
+  StructField("updated_at",         TimestampType(), True)
+])
+
+df = spark.createDataFrame([], schema)
+df.write.format("delta").mode("overwrite") \\
+  .saveAsTable("orders")`
+    },
+    {
+      title:'Seed drug_lookup reference table',
+      where:'portal', whereLabel:'Fabric Notebook',
+      desc:'The drug_lookup table maps drug names (as parsed by Document Intelligence) to canonical order_type slugs. Seed it with your pharmacy formulary.',
+      instructions:[
+        'In the same notebook, add a new cell',
+        'Paste and run the code below',
+        'Confirm <span class="val">drug_lookup</span> appears in Lakehouse Tables',
+        'Add additional drugs by appending rows to this DataFrame'
+      ],
+      code:`drug_data = [
+  ("anastrozole",    "ANASTROZOLE",   "S4"),
+  ("anastrozol",     "ANASTROZOLE",   "S4"),
+  ("tirzepatide",    "TIRZEPATIDE",   "S4"),
+  ("testosterone",   "TESTOSTERONE",  "S8"),
+  ("testosterone cypionate", "TESTOSTERONE", "S8"),
+  ("testosterone enanthate", "TESTOSTERONE", "S8"),
+]
+
+from pyspark.sql import Row
+df = spark.createDataFrame(
+  [Row(drug_name=d[0], order_type=d[1], schedule=d[2])
+   for d in drug_data]
+)
+df.write.format("delta").mode("overwrite") \\
+  .saveAsTable("drug_lookup")`
+    },
+    {
+      title:'Create OneLake file folders',
+      where:'portal', whereLabel:'Fabric Lakehouse ? Files',
+      desc:'Agents write prescription PDFs, labels, CSVs, and reports to specific OneLake folder paths. Create the folder structure now.',
+      instructions:[
+        'In the Lakehouse explorer, click <span class="click">Files</span> section (not Tables)',
+        'Click <span class="click">...</span> next to Files ? <span class="click">New subfolder</span>',
+        'Create these folders one by one: <span class="val">rx</span>, <span class="val">labels</span>, <span class="val">csvs</span>, <span class="val">reports</span>, <span class="val">incomplete</span>',
+        'Inside <span class="val">rx</span>, create a subfolder for the current year: e.g. <span class="val">2024</span>'
+      ]
+    },
+    {
+      title:'Create Foundry linked service to Fabric OneLake',
+      where:'portal', whereLabel:'ai.azure.com ? Settings ? Connections',
+      desc:'Agents access OneLake files and Delta tables via a Foundry connection. Use the OneLake endpoint URL from your Fabric workspace.',
+      instructions:[
+        'In <span class="nav-click">app.fabric.microsoft.com</span>, open your workspace',
+        'Click the <span class="click">...</span> on <span class="val">lh_pharmacy_rtbos</span> ? <span class="click">Properties</span>',
+        'Copy the <span class="field">OneLake URL</span> (format: <span class="val">https://onelake.dfs.fabric.microsoft.com/...</span>)',
+        'Go to <span class="nav-click">ai.azure.com</span> ? your project ? <span class="click">Settings</span> ? <span class="click">Connections</span>',
+        'Click <span class="click">+ New connection</span> ? <span class="click">Azure Data Lake Storage Gen2</span>',
+        'Account URL: paste the OneLake URL',
+        'Auth: select <span class="val">System-assigned managed identity</span>',
+        'Name: <span class="val">onelake-pharmacy</span>',
+        'Click <span class="click">Add connection</span>'
+      ]
+    }
+  ],
+
+  p4: [
+    {
+      title:'Navigate to Agent Studio in your Foundry project',
+      where:'portal', whereLabel:'ai.azure.com',
+      desc:'All agents are created in the Foundry Agent Studio. You will repeat the create flow 13 times — one per RTBoss loop step.',
+      instructions:[
+        'Go to <span class="nav-click">ai.azure.com</span> ? open <span class="val">proj-pharmacy-rtbos</span>',
+        'In the left sidebar, click <span class="click">Agents</span>',
+        'You should see an empty agent list — this is where all 13 agents will appear'
+      ]
+    },
+    {
+      title:'Create AGT-001: EmailIngestionAgent',
+      where:'portal', whereLabel:'Foundry ? Agents ? + New agent',
+      desc:'The gateway agent. Stateless — extracts email fields and produces a structured JSON payload. No tools needed, output contract only.',
+      instructions:[
+        'Click <span class="click">+ New agent</span>',
+        'Set <span class="field">Name</span>: <span class="val">EmailIngestionAgent</span>',
+        'Set <span class="field">Deployment</span>: <span class="val">gpt-4o-rtbos</span>',
+        'In <span class="click">Instructions</span> (system prompt), paste the prompt below',
+        'Under <span class="click">Tools</span>: no tools needed for this agent',
+        'Click <span class="click">Save</span>'
+      ],
+      code:`You are the EmailIngestionAgent for an Australian compounding pharmacy.
+Your ONLY job is to extract structured fields from a raw email payload.
+
+Extract and return JSON with these exact fields:
+- email_id: generate a UUID
+- subject: email subject line
+- sender: sender email address
+- body_text: plain text of the email body
+- attachment_names: array of attachment filenames (empty array if none)
+- body_links: array of URLs found in the email body (empty array if none)
+- has_attachment: boolean - true if any PDF attachment present
+- received_at: ISO 8601 timestamp
+
+Return ONLY valid JSON. No explanation. No markdown. No preamble.`
+    },
+    {
+      title:'Create AGT-002: EmailClassifierAgent',
+      where:'portal', whereLabel:'Foundry ? Agents ? + New agent',
+      desc:'Classifies emails as ORDER or NON_ORDER. Routes to audit trail via Cosmos DB write tool.',
+      instructions:[
+        'Click <span class="click">+ New agent</span>',
+        'Set <span class="field">Name</span>: <span class="val">EmailClassifierAgent</span>',
+        'Set <span class="field">Deployment</span>: <span class="val">gpt-4o-rtbos</span>',
+        'Paste system prompt below into <span class="click">Instructions</span>',
+        'Under <span class="click">Tools</span>: add <span class="val">CosmosDB Write</span> function tool (you will define the function schema)',
+        'Click <span class="click">Save</span>'
+      ],
+      code:`You are the EmailClassifierAgent for an Australian compounding pharmacy.
+
+Classify the incoming email as ORDER or NON_ORDER.
+- ORDER: requests dispensing, supply, or prescription fill of a medication
+- NON_ORDER: administrative, spam, auto-reply, internal, or unrelated
+
+Threshold: classify as ORDER only if confidence >= 0.85.
+
+Return ONLY valid JSON:
+{
+  "email_class": "ORDER" | "NON_ORDER",
+  "confidence": 0.0-1.0,
+  "reason": "brief explanation"
+}
+
+If NON_ORDER: the orchestrator will log and exit. Do not attempt further processing.`
+    },
+    {
+      title:'Create AGT-003 through AGT-013 — repeat pattern',
+      where:'portal', whereLabel:'Foundry ? Agents',
+      desc:'Repeat the New Agent creation flow for each remaining agent. The pattern is identical: Name ? Deployment ? System Prompt ? Tools ? Save. Use the system prompts from the Agents tab of the RTBoss Architecture document.',
+      instructions:[
+        'For each agent, click <span class="click">+ New agent</span>',
+        'Set <span class="field">Name</span> exactly as specified (AGT-003 RxLinkClassifierAgent, AGT-004 OrderTypeClassifierAgent, etc.)',
+        'Set <span class="field">Deployment</span>: always <span class="val">gpt-4o-rtbos</span>',
+        'Paste the corresponding system prompt',
+        'Add tools as specified per agent (HTTP, Cosmos Write, Lakehouse Query, OneLake Write, Mail)',
+        'Click <span class="click">Save</span> after each one',
+        'After all 13 are created, verify the Agents list shows all 13 with status <span class="val">Active</span>'
+      ],
+      callout:{ type:'info', icon:'??', body:'<strong>Tool schemas:</strong> For each HTTP tool (AusPost, Google Sheets), you must define the OpenAPI-style function schema. Use the RTBoss Architecture document ? Agents tab ? each agent\'s "Tools & Connectors" section for the exact API endpoint and parameters.' }
+    },
+    {
+      title:'Configure tool definitions for HTTP agents',
+      where:'portal', whereLabel:'Foundry ? Agent ? Tools',
+      desc:'Agents that call external APIs (AusPost, Google Sheets) use HTTP function tools. Each tool needs an OpenAPI-style JSON schema. Example for AusPost Address Validation shown below.',
+      instructions:[
+        'Open <span class="val">AddressValidationAgent</span> (AGT-007)',
+        'Click <span class="click">Tools</span> ? <span class="click">+ Add tool</span> ? <span class="click">Function</span>',
+        'Set <span class="field">Function name</span>: <span class="val">validate_address</span>',
+        'Paste the schema below into the <span class="click">Definition</span> field',
+        'Click <span class="click">Save</span>',
+        'Repeat for each agent that calls an external API'
+      ],
+      code:`{
+  "name": "validate_address",
+  "description": "Validate a delivery address against AusPost PAF API",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "q": {
+        "type": "string",
+        "description": "Raw address string to validate"
+      }
+    },
+    "required": ["q"]
+  }
+}`
+    }
+  ],
+
+  p5: [
+    {
+      title:'Create the Orchestrator Agent',
+      where:'portal', whereLabel:'Foundry ? Agents ? + New agent',
+      desc:'The Orchestrator is the DOL coordinator — the master agent that routes the context envelope through all specialist agents in sequence. It uses the multi-agent "handoff" pattern.',
+      instructions:[
+        'Click <span class="click">+ New agent</span>',
+        'Set <span class="field">Name</span>: <span class="val">RTBossOrchestratorAgent</span>',
+        'Set <span class="field">Deployment</span>: <span class="val">gpt-4o-rtbos</span>',
+        'Paste orchestrator system prompt below',
+        'Under <span class="click">Tools</span> ? <span class="click">+ Add tool</span> ? <span class="click">Agent</span>',
+        'Add all 13 specialist agents as sub-agents',
+        'Click <span class="click">Save</span>'
+      ],
+      code:`You are the RTBossOrchestratorAgent — the Division of Labor (DOL) coordinator
+for the RTBoss Pharmacy operating loop.
+
+Your role:
+1. Receive the trigger payload (email ingestion event)
+2. Call each specialist agent in sequence, passing the context envelope
+3. Route based on classification results:
+   - If email_class = NON_ORDER: log to audit, return immediately
+   - If order_status = INCOMPLETE: publish to incomplete queue, stop shipment chain
+4. Enforce governance: every agent call must produce an audit entry
+5. Never perform domain work yourself — coordinate only
+
+Context envelope fields you maintain:
+email_id, order_id, email_class, rx_link_type, order_type,
+rule_pass, address_valid, order_status, shipment_type, tracking_no
+
+Always pass the full context envelope to each agent. Return the final
+envelope state when the loop cycle completes.`
+    },
+    {
+      title:'Wire the agent chain in Python (orchestration function)',
+      where:'code', whereLabel:'Python SDK',
+      desc:'The Foundry multi-agent framework uses a Python orchestration function to wire the agent handoff sequence. Deploy this as an Azure Function or run inside a Fabric Notebook.',
+      instructions:[
+        'Install the SDK: <span class="val">pip install azure-ai-projects azure-identity</span>',
+        'Create a new file: <span class="val">orchestrator.py</span>',
+        'Paste the orchestration scaffold below',
+        'Replace <span class="field">PROJECT_CONNECTION_STRING</span> with your project connection string from Phase 01',
+        'Deploy to Azure Functions or run as a Fabric Notebook activity'
+      ],
+      code:`from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential
+
+client = AIProjectClient.from_connection_string(
+    credential=DefaultAzureCredential(),
+    conn_str="<span class="c-amber">PROJECT_CONNECTION_STRING</span>"
+)
+
+def run_rtbos_loop(email_payload: dict) -> dict:
+    <span class="c-dim"># Step 1: Ingest</span>
+    ctx = client.agents.run(
+        agent_name="EmailIngestionAgent",
+        messages=[{"role": "user", "content": str(email_payload)}]
+    ).output_as_json()
+
+    <span class="c-dim"># Step 2: Classify email</span>
+    ctx.update(client.agents.run(
+        agent_name="EmailClassifierAgent",
+        messages=[{"role": "user", "content": str(ctx)}]
+    ).output_as_json())
+
+    <span class="c-dim"># Branch: exit if NON_ORDER</span>
+    if ctx.get("email_class") == "NON_ORDER":
+        return {"status": "NON_ORDER", "exited_at": "step_2"}
+
+    <span class="c-dim"># Steps 3–8: Classification + validation chain</span>
+    for agent in [
+        "RxLinkClassifierAgent",
+        "OrderTypeClassifierAgent",
+        "OrderCreatorAgent",
+        "PrescriptionRuleAgent",
+        "AddressValidationAgent",
+        "OrderStatusClassifierAgent"
+    ]:
+        ctx.update(client.agents.run(
+            agent_name=agent,
+            messages=[{"role": "user", "content": str(ctx)}]
+        ).output_as_json())
+
+    <span class="c-dim"># Branch: stop if INCOMPLETE</span>
+    if ctx.get("order_status") == "INCOMPLETE":
+        <span class="c-dim"># Publish to Service Bus incomplete topic</span>
+        publish_to_service_bus("incomplete-orders", ctx)
+        return ctx
+
+    <span class="c-dim"># Steps 9–11: Shipment + dispatch + reporting</span>
+    for agent in [
+        "ShipmentAgent",
+        "CSVDispatchAgent",
+        "ReportingAgent"
+    ]:
+        ctx.update(client.agents.run(
+            agent_name=agent,
+            messages=[{"role": "user", "content": str(ctx)}]
+        ).output_as_json())
+
+    return ctx`
+    },
+    {
+      title:'Test the orchestrator with a dry-run payload',
+      where:'code', whereLabel:'Python / Foundry Playground',
+      desc:'Before connecting Power Automate, verify the chain works end-to-end with a synthetic payload. Use the Foundry playground or a local Python run.',
+      instructions:[
+        'In <span class="nav-click">ai.azure.com</span>, open <span class="val">RTBossOrchestratorAgent</span>',
+        'Click <span class="click">Try in playground</span>',
+        'Paste the test payload below into the chat',
+        'Observe: each sub-agent should be called in sequence',
+        'Confirm final response contains <span class="val">order_status</span> field',
+        'Check Cosmos DB <span class="val">order_twins</span> container — a new twin document should have appeared'
+      ],
+      code:`{
+  "trigger": "test",
+  "email_id": "test-001",
+  "subject": "Test Rx Order — Tirzepatide 2.5mg",
+  "sender": "testpatient@email.com",
+  "body_text": "Please find attached prescription for Tirzepatide 2.5mg weekly injection.",
+  "attachment_names": ["rx_tirzepatide_test.pdf"],
+  "body_links": [],
+  "has_attachment": true,
+  "received_at": "2024-03-18T08:28:01Z"
+}`
+    }
+  ],
+
+  p6: [
+    {
+      title:'Create shared pharmacy orders mailbox in Exchange',
+      where:'portal', whereLabel:'Microsoft 365 Admin Center',
+      desc:'Power Automate monitors a shared mailbox — not a personal inbox. Create a dedicated shared mailbox for all inbound orders.',
+      instructions:[
+        'Go to <span class="nav-click">admin.microsoft.com</span>',
+        'Navigate to <span class="click">Teams & groups</span> ? <span class="click">Shared mailboxes</span>',
+        'Click <span class="click">+ Add a shared mailbox</span>',
+        'Set <span class="field">Name</span>: <span class="val">Pharmacy Orders</span>',
+        'Set <span class="field">Email</span>: <span class="val">orders@yourdomain.com.au</span>',
+        'Click <span class="click">Save changes</span>',
+        'Add your service account as a member with <span class="val">Full Access</span> and <span class="val">Send As</span>'
+      ]
+    },
+    {
+      title:'Create Power Automate flow — email trigger',
+      where:'portal', whereLabel:'make.powerautomate.com',
+      desc:'The Power Automate flow is the RTBoss fact ingestion point. When email arrives, it calls the Orchestrator Agent HTTP endpoint to start the operating loop.',
+      instructions:[
+        'Go to <span class="nav-click">make.powerautomate.com</span>',
+        'Click <span class="click">+ Create</span> ? <span class="click">Automated cloud flow</span>',
+        'Name: <span class="val">RTBoss-EmailTrigger</span>',
+        'Search for trigger: <span class="val">When a new email arrives in a shared mailbox (V2)</span>',
+        'Click <span class="click">Create</span>'
+      ]
+    },
+    {
+      title:'Configure the email trigger',
+      where:'portal', whereLabel:'Power Automate flow editor',
+      desc:'Configure the trigger to monitor the pharmacy orders mailbox and capture all fields needed by AGT-001.',
+      instructions:[
+        'In the trigger, click <span class="click">Original Mailbox Address</span> field',
+        'Type: <span class="val">orders@yourdomain.com.au</span>',
+        'Expand <span class="click">Show advanced options</span>',
+        'Set <span class="field">Include Attachments</span>: <span class="val">Yes</span>',
+        'Set <span class="field">Subject Filter</span>: leave blank (capture all)',
+        'Set <span class="field">Folder</span>: <span class="val">Inbox</span>'
+      ]
+    },
+    {
+      title:'Add HTTP action to call Orchestrator Agent',
+      where:'portal', whereLabel:'Power Automate flow editor',
+      desc:'After the trigger, add an HTTP action that POSTs the email payload to the Orchestrator Agent\'s HTTP endpoint.',
+      instructions:[
+        'Click <span class="click">+ New step</span>',
+        'Search for: <span class="val">HTTP</span> ? select <span class="click">HTTP</span> action',
+        'Set <span class="field">Method</span>: <span class="val">POST</span>',
+        'Set <span class="field">URI</span>: paste your Orchestrator Agent endpoint URL from Foundry',
+        'Set <span class="field">Headers</span>: <span class="val">Content-Type: application/json</span>',
+        'Set <span class="field">Body</span>: paste the dynamic content expression below',
+        'Add <span class="click">Authentication</span>: <span class="val">Managed Identity</span>, resource: <span class="val">https://ml.azure.com</span>',
+        'Click <span class="click">Save</span>'
+      ],
+      code:`{
+  "trigger": "email",
+  "subject": "@{triggerOutputs()?['body/subject']}",
+  "sender": "@{triggerOutputs()?['body/from']}",
+  "body_text": "@{triggerOutputs()?['body/body']}",
+  "has_attachment": @{if(empty(triggerOutputs()?['body/attachments']), false, true)},
+  "attachment_names": @{triggerOutputs()?['body/attachments']},
+  "received_at": "@{triggerOutputs()?['body/receivedDateTime']}"
+}`
+    },
+    {
+      title:'Test the Power Automate flow',
+      where:'portal', whereLabel:'Power Automate + Outlook',
+      desc:'Send a test email to the shared mailbox and verify the entire chain fires — flow triggers, Orchestrator is called, Digital Twin created in Cosmos DB.',
+      instructions:[
+        'Click <span class="click">Test</span> in Power Automate ? <span class="val">Manually</span>',
+        'Send an email to <span class="val">orders@yourdomain.com.au</span> with subject: <span class="val">Test Rx Order — Tirzepatide</span>',
+        'Watch the flow run in real time in the Power Automate run history',
+        'Confirm HTTP action returns <span class="val">200 OK</span>',
+        'Go to Cosmos DB ? Data Explorer ? <span class="val">order_twins</span> — a new document should appear'
+      ]
+    }
+  ],
+
+  p7: [
+    {
+      title:'Create Service Bus namespace',
+      where:'cli', whereLabel:'Azure CLI',
+      desc:'A single Service Bus namespace hosts all RTBoss topics. Use the Standard tier — it includes topics and subscriptions (Basic tier does not support topics).',
+      instructions:[
+        'Run the CLI command below',
+        'Wait ~1 minute for provisioning',
+        'Confirm <span class="val">provisioningState: Succeeded</span>'
+      ],
+      code:`az servicebus namespace create \\
+  --name sb-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod \\
+  --location australiaeast \\
+  --sku Standard`
+    },
+    {
+      title:'Create processed-orders topic + subscription',
+      where:'cli', whereLabel:'Azure CLI',
+      desc:'The OrderStatusClassifierAgent publishes PROCESSED orders here. The ShipmentAgent subscribes.',
+      instructions:[
+        'Run both CLI commands below',
+        'Confirm topic and subscription are created'
+      ],
+      code:`# Create topic
+az servicebus topic create \\
+  --name processed-orders \\
+  --namespace-name sb-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod
+
+# Create subscription for ShipmentAgent
+az servicebus topic subscription create \\
+  --name shipment-agent-sub \\
+  --topic-name processed-orders \\
+  --namespace-name sb-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod`
+    },
+    {
+      title:'Create incomplete-orders topic + subscription',
+      where:'cli', whereLabel:'Azure CLI',
+      desc:'INCOMPLETE orders are published here by AGT-008. The IncompleteFileAgent and a Teams alert function subscribe.',
+      instructions:[
+        'Run the CLI commands below'
+      ],
+      code:`az servicebus topic create \\
+  --name incomplete-orders \\
+  --namespace-name sb-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod
+
+az servicebus topic subscription create \\
+  --name incomplete-file-sub \\
+  --topic-name incomplete-orders \\
+  --namespace-name sb-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod`
+    },
+    {
+      title:'Grant Foundry Managed Identity RBAC on Service Bus',
+      where:'cli', whereLabel:'Azure CLI',
+      desc:'Agents publish and subscribe using Managed Identity — no connection strings. Assign the Azure Service Bus Data Sender and Data Receiver roles.',
+      instructions:[
+        'Replace <span class="field">YOUR_MANAGED_IDENTITY_OBJECT_ID</span> with the Object ID from Phase 01 Step 5',
+        'Run both CLI commands below'
+      ],
+      code:`# Get Service Bus resource ID
+SB_ID=$(az servicebus namespace show \\
+  --name sb-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod \\
+  --query id -o tsv)
+
+# Grant Sender role (for AGT-008)
+az role assignment create \\
+  --assignee <span class="c-amber">YOUR_MANAGED_IDENTITY_OBJECT_ID</span> \\
+  --role "Azure Service Bus Data Sender" \\
+  --scope $SB_ID
+
+# Grant Receiver role (for AGT-009, AGT-013)
+az role assignment create \\
+  --assignee <span class="c-amber">YOUR_MANAGED_IDENTITY_OBJECT_ID</span> \\
+  --role "Azure Service Bus Data Receiver" \\
+  --scope $SB_ID`
+    }
+  ],
+
+  p8: [
+    {
+      title:'Create dedicated Key Vault for RTBoss secrets',
+      where:'cli', whereLabel:'Azure CLI',
+      desc:'A dedicated Key Vault separate from the one auto-created by Foundry. This gives you explicit control over access policies and audit logs.',
+      instructions:[
+        'Run the command below',
+        'Confirm provisioning succeeds'
+      ],
+      code:`az keyvault create \\
+  --name kv-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod \\
+  --location australiaeast \\
+  --sku standard \\
+  --enable-rbac-authorization true`
+    },
+    {
+      title:'Store all secrets',
+      where:'cli', whereLabel:'Azure CLI',
+      desc:'Store all five RTBoss secrets. Replace placeholder values with your real credentials gathered in Phase 00.',
+      instructions:[
+        'Run each command below — replace all <span class="field">YOUR_*</span> values with real credentials',
+        'Confirm each returns the secret URI'
+      ],
+      code:`# AusPost Address Validation API key
+az keyvault secret set --vault-name kv-rtbos-pharmacy \\
+  --name auspost-paf-api-key --value "<span class="c-amber">YOUR_AUSPOST_PAF_KEY</span>"
+
+# AusPost eParcel API credentials
+az keyvault secret set --vault-name kv-rtbos-pharmacy \\
+  --name auspost-eparcel-api-key --value "<span class="c-amber">YOUR_EPARCEL_KEY</span>"
+az keyvault secret set --vault-name kv-rtbos-pharmacy \\
+  --name auspost-eparcel-api-password --value "<span class="c-amber">YOUR_EPARCEL_PWD</span>"
+
+# Cosmos DB connection string
+az keyvault secret set --vault-name kv-rtbos-pharmacy \\
+  --name cosmos-connection-string --value "<span class="c-amber">YOUR_COSMOS_CONN_STR</span>"
+
+# Google Sheets service account JSON (base64 encoded)
+az keyvault secret set --vault-name kv-rtbos-pharmacy \\
+  --name google-sheets-sa-json \\
+  --value "$(base64 -i /path/to/service-account.json)"`
+    },
+    {
+      title:'Grant Managed Identity access to Key Vault',
+      where:'cli', whereLabel:'Azure CLI',
+      desc:'The Foundry Managed Identity needs Key Vault Secrets User role to read secrets at agent runtime.',
+      instructions:[
+        'Replace <span class="field">YOUR_MANAGED_IDENTITY_OBJECT_ID</span> with the Object ID from Phase 01 Step 5',
+        'Run the command below',
+        'Verify with a test secret get at the end'
+      ],
+      code:`KV_ID=$(az keyvault show \\
+  --name kv-rtbos-pharmacy \\
+  --resource-group rg-rtbos-pharmacy-prod \\
+  --query id -o tsv)
+
+az role assignment create \\
+  --assignee <span class="c-amber">YOUR_MANAGED_IDENTITY_OBJECT_ID</span> \\
+  --role "Key Vault Secrets User" \\
+  --scope $KV_ID
+
+# Test: read a secret (run as the service principal, not your personal account)
+az keyvault secret show \\
+  --vault-name kv-rtbos-pharmacy \\
+  --name auspost-paf-api-key \\
+  --query value -o tsv`
+    }
+  ],
+
+  p9: [
+    {
+      title:'Create Azure Logic App for cutoff triggers',
+      where:'portal', whereLabel:'Azure Portal',
+      desc:'A Logic App provides reliable CRON scheduling for the 10:55 AM warning and 11:00 AM cutoff. Logic Apps have better reliability guarantees than Fabric schedulers for time-critical triggers.',
+      instructions:[
+        'Go to <span class="nav-click">portal.azure.com</span> ? search <span class="val">Logic Apps</span> ? <span class="click">+ Create</span>',
+        'Select <span class="click">Consumption</span> plan',
+        'Resource group: <span class="val">rg-rtbos-pharmacy-prod</span>',
+        'Name: <span class="val">la-rtbos-cutoff</span>',
+        'Region: <span class="val">Australia East</span>',
+        'Click <span class="click">Review + create</span> ? <span class="click">Create</span>',
+        'After deployment, click <span class="click">Go to resource</span>',
+        'Click <span class="click">Logic app designer</span>'
+      ]
+    },
+    {
+      title:'Add 10:55 AM pre-cutoff warning trigger',
+      where:'portal', whereLabel:'Logic Apps Designer',
+      desc:'This trigger fires at 10:55 AM AEST daily and posts a warning to the pharmacy Teams channel via AGT-012.',
+      instructions:[
+        'In Logic Apps Designer, search for <span class="val">Recurrence</span> trigger',
+        'Set <span class="field">Interval</span>: <span class="val">1</span>, <span class="field">Frequency</span>: <span class="val">Day</span>',
+        'Click <span class="click">Add new parameter</span> ? check <span class="val">At these hours</span> and <span class="val">At these minutes</span>',
+        'Set <span class="field">Hours</span>: <span class="val">0</span> (UTC = 10:55 AEST = 00:55 UTC in summer / 00:55 AEDT)',
+        'Set <span class="field">Minutes</span>: <span class="val">55</span>',
+        'Add next step: <span class="click">HTTP</span> ? POST to AGT-012 (CutoffOrchestratorAgent) with body <span class="val">{"event":"PRE_CUTOFF_WARNING"}</span>',
+        'Click <span class="click">Save</span>'
+      ],
+      callout:{ type:'warn', icon:'??', body:'<strong>AEST vs UTC:</strong> Australia East is UTC+10 (AEST) or UTC+11 (AEDT). Set your Logic App UTC times to always fire at 11:00 AM local time. Use a timezone-aware CRON or adjust each daylight savings season.' }
+    },
+    {
+      title:'Add 11:00 AM cutoff trigger',
+      where:'portal', whereLabel:'Logic Apps Designer',
+      desc:'The primary cutoff trigger. Fires daily at 11:00 AM AEST, calls AGT-012 to set cutoff_active=true and trigger AGT-013.',
+      instructions:[
+        'Add a second trigger in the same Logic App (or create a separate one)',
+        'Recurrence: <span class="val">Daily</span>, <span class="field">Hours</span>: <span class="val">1</span>, <span class="field">Minutes</span>: <span class="val">0</span> (01:00 UTC = 11:00 AEST)',
+        'Add HTTP step: POST to AGT-012 with body: <span class="val">{"event":"CUTOFF_INITIATED","cutoff_active":true}</span>',
+        'Add second HTTP step: POST to AGT-013 (IncompleteFileAgent) with body: <span class="val">{"event":"GENERATE_INCOMPLETE_FILE"}</span>',
+        'Click <span class="click">Save</span>',
+        'Click <span class="click">Run Trigger</span> ? <span class="click">Run</span> to test immediately'
+      ]
+    },
+    {
+      title:'Configure Fabric EOD pipeline scheduler',
+      where:'portal', whereLabel:'app.fabric.microsoft.com',
+      desc:'The End-of-Day Fabric pipeline archives the day\'s Delta table partition and generates daily metrics. Schedule it to run after the last shift closes.',
+      instructions:[
+        'In <span class="nav-click">app.fabric.microsoft.com</span> ? <span class="val">ws-rtbos-pharmacy</span>',
+        'Click <span class="click">+ New item</span> ? <span class="click">Data pipeline</span>',
+        'Name: <span class="val">pl-rtbos-eod</span>',
+        'Add a <span class="click">Notebook activity</span> pointing to your EOD aggregation notebook',
+        'Click the pipeline canvas (not an activity) ? <span class="click">Schedule</span>',
+        'Toggle <span class="click">Scheduled run</span>: <span class="val">On</span>',
+        'Set <span class="field">Repeat</span>: <span class="val">Daily</span>',
+        'Set <span class="field">Time</span>: <span class="val">17:00 AEST</span> (end of shift)',
+        'Set <span class="field">Timezone</span>: <span class="val">AUS Eastern Standard Time</span>',
+        'Click <span class="click">Apply</span>'
+      ]
+    }
+  ],
+
+  p10: [
+    {
+      title:'Scenario A: Standard TIRZEPATIDE order — full PROCESSED path',
+      where:'config', whereLabel:'End-to-End Test',
+      desc:'The happy path. A valid prescription email arrives, is classified, processed, shipped, and the Digital Twin reaches DISPATCHED status.',
+      instructions:[
+        'Send a test email to <span class="val">orders@yourdomain.com.au</span> with subject: <span class="val">Rx Order — Tirzepatide 2.5mg</span>',
+        'Attach a test prescription PDF (or use the sample from your test fixtures folder)',
+        'Watch Power Automate flow run ? confirm HTTP 200 to Orchestrator',
+        'In Cosmos DB ? <span class="val">order_twins</span>: confirm new document with <span class="val">status: PROCESSED</span> appears within 60 seconds',
+        'Confirm <span class="val">loop_trace[]</span> has entries from AGT-001 through AGT-009',
+        'Confirm <span class="val">shipment.tracking_no</span> is populated',
+        'In OneLake ? <span class="val">labels/</span> folder: confirm label PDF exists',
+        'Check Teams #pharmacy-ops channel: confirm shipment notification posted',
+        '? Pass criteria: twin status = PROCESSED, tracking_no present, loop_trace has 9+ entries'
+      ]
+    },
+    {
+      title:'Scenario B: TESTOSTERONE order requiring manual review',
+      where:'config', whereLabel:'End-to-End Test',
+      desc:'Tests the human-in-the-loop branch. The rule engine should flag the order and halt dispatch pending pharmacist approval.',
+      instructions:[
+        'Send email with subject: <span class="val">Rx Order — Testosterone Cypionate 200mg</span>',
+        'Use a test prescription PDF with dosage exceeding the Google Sheets rule cap',
+        'Confirm AGT-006 fires and sets <span class="val">requires_manual_review: true</span>',
+        'Confirm order twin status = <span class="val">REQUIRES_REVIEW</span> (not PROCESSED)',
+        'Confirm a Teams task/alert was posted to the pharmacist',
+        'Confirm shipment chain did NOT fire (no tracking_no in twin)',
+        '? Pass criteria: status = REQUIRES_REVIEW, no shipment, Teams alert sent'
+      ]
+    },
+    {
+      title:'Scenario C: Invalid address ? INCOMPLETE',
+      where:'config', whereLabel:'End-to-End Test',
+      desc:'Tests the address validation failure branch. A deliberate invalid address should result in INCOMPLETE status and entry in the incomplete queue.',
+      instructions:[
+        'Send email with a prescription that has address: <span class="val">99 Fake Street, Faketown NSW 9999</span>',
+        'Confirm AGT-007 calls AusPost PAF and gets <span class="val">address_valid: false</span>',
+        'Confirm AGT-008 sets <span class="val">order_status: INCOMPLETE</span>',
+        'Confirm Service Bus <span class="val">incomplete-orders</span> topic has a message',
+        'Confirm order does NOT appear in shipment batch',
+        '? Pass criteria: status = INCOMPLETE, published to Service Bus, no shipment'
+      ]
+    },
+    {
+      title:'Scenario D: Order received in cutoff window ? DEFERRED',
+      where:'config', whereLabel:'End-to-End Test',
+      desc:'Tests the cutoff deferral logic. Manually set cutoff_active=true in pipeline_state, then send an order and verify it is tagged DEFERRED_NEXT_DAY.',
+      instructions:[
+        'In Cosmos DB ? <span class="val">pipeline_state</span> ? edit the document: set <span class="val">"cutoff_active": true</span>',
+        'Send a valid test email to the orders mailbox',
+        'Confirm the Orchestrator reads pipeline_state and tags the order <span class="val">DEFERRED_NEXT_DAY</span>',
+        'Confirm order twin has <span class="val">status: DEFERRED_NEXT_DAY</span> and <span class="val">deferral_reason: CUTOFF_WINDOW</span>',
+        'Confirm no shipment was created',
+        'After test: reset Cosmos DB pipeline_state <span class="val">cutoff_active</span> back to <span class="val">false</span>',
+        '? Pass criteria: status = DEFERRED_NEXT_DAY, no shipment, audit entry from AGT-012'
+      ]
+    },
+    {
+      title:'Verify audit trail completeness for all scenarios',
+      where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
+      desc:'Every scenario must produce a complete, tamper-evident loop_trace. Run this verification query against all four test twins.',
+      instructions:[
+        'In Cosmos DB ? Data Explorer ? <span class="val">order_twins</span> container',
+        'Click <span class="click">New SQL Query</span>',
+        'Paste and run the query below',
+        'Verify: Scenario A has 9+ entries, Scenario B stops at seq 6, Scenario C stops at seq 8, Scenario D stops at seq 1–2',
+        'Confirm every entry has <span class="val">agent_id</span>, <span class="val">fact</span>, <span class="val">new_fact</span>, <span class="val">input_hash</span>, and <span class="val">timestamp</span>'
+      ],
+      code:`SELECT c.order_id,
+       c.status,
+       ARRAY_LENGTH(c.loop_trace) as trace_entries,
+       c.loop_trace[0].agent_id as first_agent,
+       c.loop_trace[ARRAY_LENGTH(c.loop_trace)-1].new_fact as final_fact
+FROM c
+WHERE c._ts > (GetCurrentTimestamp() / 1000) - 86400
+ORDER BY c._ts DESC`
+    },
+    {
+      title:'Application Insights — verify observability',
+      where:'portal', whereLabel:'Azure Portal ? Application Insights',
+      desc:'All agent runs should emit telemetry to Application Insights. Verify you have end-to-end request tracing before go-live.',
+      instructions:[
+        'Go to <span class="nav-click">portal.azure.com</span> ? navigate to the Application Insights instance auto-created with your Hub',
+        'Click <span class="click">Transaction search</span>',
+        'Set time range: <span class="val">Last 1 hour</span>',
+        'You should see traces for each agent invocation from your test scenarios',
+        'Click any trace ? verify you can see the full dependency chain (Orchestrator ? specialist agents)',
+        'Click <span class="click">Failures</span> — confirm no unexpected errors from your test runs',
+        '? All 4 scenarios traced. Zero unexpected failures. You are ready for go-live.'
+      ],
+      callout:{ type:'success', icon:'??', body:'<strong>Go-live checklist complete.</strong> All 4 test scenarios pass. Digital Twins are accurate. Audit trails are intact. Cutoff cycle fires correctly. Application Insights is observing. Switch AusPost credentials from sandbox to production and enable the Power Automate flow on the live mailbox.' }
+    }
+  ]
+};
+
+const AGENTS = [
+  {
+    id:'AGT-001', name:'EmailIngestionAgent',
+    role:'Gateway agent. Extracts structured fields from raw email payload. Stateless — no tools, no writes. Produces the seed context envelope.',
+    model:'gpt-4o-rtbos', memory:'Stateless', trigger:'Called by Orchestrator from Power Automate payload',
+    inputs:['Raw email JSON from Power Automate'],
+    outputs:['email_id (UUID)','subject','sender','body_text','attachment_names[]','body_links[]','has_attachment','received_at'],
+    tools:['None — pure extraction only'],
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff (Entra ID group)',logging:'Fact written to Dataverse on every execution — fields: email_id, agent, timestamp',personal_data:'YES — email sender identity',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.8.1 · Cl.7.5'},
+    prompt:`You are the EmailIngestionAgent for an Australian compounding pharmacy.
+Your ONLY job is to extract structured fields from a raw email payload.
+
+Extract and return JSON with these exact fields:
+- email_id: generate a UUID
+- subject: email subject line
+- sender: sender email address
+- body_text: plain text of the email body
+- attachment_names: array of attachment filenames (empty array if none)
+- body_links: array of URLs found in the body (empty if none)
+- has_attachment: boolean — true if any PDF attachment present
+- received_at: ISO 8601 timestamp
+
+Return ONLY valid JSON. No explanation. No markdown. No preamble.`
+  },
+  {
+    id:'AGT-002', name:'EmailClassifierAgent',
+    role:'Classifies inbound email as ORDER or NON_ORDER using keyword rules + GPT-4o intent detection. Threshold: confidence = 0.85 required for ORDER.',
+    model:'gpt-4o-rtbos', memory:'Per-order context', trigger:'Called by Orchestrator after AGT-001',
+    inputs:['subject','body_text','sender'],
+    outputs:['email_class: ORDER|NON_ORDER','confidence: 0–1','reason: string'],
+    tools:['CosmosDB Write — append loop_trace audit entry'],
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff (Entra ID group)',logging:'Fact: email_class, confidence, reason — appended to loop_trace[]',personal_data:'NO — classifies email intent only',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.8.28',controls_9001:'Cl.8.1 · Cl.9.1 (confidence threshold monitored)'},
+    prompt:`You are the EmailClassifierAgent for an Australian compounding pharmacy.
+
+Classify the incoming email as ORDER or NON_ORDER.
+ORDER: requests dispensing, supply, or prescription fill of a medication.
+NON_ORDER: administrative, spam, auto-reply, internal, or unrelated.
+
+Threshold: classify as ORDER only if confidence >= 0.85.
+Below 0.85: set email_class = "MANUAL_REVIEW".
+
+Return ONLY valid JSON:
+{
+  "email_class": "ORDER" | "NON_ORDER" | "MANUAL_REVIEW",
+  "confidence": 0.0–1.0,
+  "reason": "brief explanation max 20 words"
+}`
+  },
+  {
+    id:'AGT-003', name:'RxLinkClassifierAgent',
+    role:'Determines whether the prescription is a PDF attachment or a URL link. Downloads and stores the PDF to OneLake in both cases. Produces the rx_file_path for all downstream agents.',
+    model:'gpt-4o-rtbos', memory:'Per-order context', trigger:'Called by Orchestrator (ORDER path only)',
+    inputs:['attachment_names[]','body_links[]','order_id'],
+    outputs:['rx_link_type: ATTACHMENT|LINK','rx_file_path (OneLake path)','error: null|string'],
+    tools:['HTTP Fetch — retrieve URL prescription PDFs','OneLake Write — save PDF to rx/{YYYY}/{order_id}.pdf','MIME validator function'],
+    iso:{classification:'RESTRICTED',access_control:'EMS-PharmacyStaff only — prescription data',logging:'Fact: rx_link_type, file_path, confidence — loop_trace[]',personal_data:'YES — prescription document (health information)',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.8.24 (OneLake AES-256)',controls_9001:'Cl.8.1 · Cl.8.6 (UAT sign-off required before go-live)'},
+    prompt:`You are the RxLinkClassifierAgent for an Australian compounding pharmacy.
+
+Given an email payload, determine how the prescription document was delivered:
+(a) ATTACHMENT — a PDF file is directly attached to the email
+(b) LINK — the body contains a URL pointing to a prescription portal
+
+Rules:
+- If ATTACHMENT: save the PDF attachment to OneLake path: rx/{YYYY}/{order_id}.pdf
+- If LINK: use the fetch tool to retrieve the URL, validate it is a PDF, save to the same OneLake path
+- If neither: set error = "NO_PRESCRIPTION_FOUND"
+
+Allowed portal domains are in the config. Unknown URLs: set error = "UNVERIFIED_SOURCE".
+
+Return ONLY valid JSON:
+{
+  "rx_link_type": "ATTACHMENT" | "LINK",
+  "rx_file_path": "onelake://rx/...",
+  "file_size_kb": number,
+  "error": null
+}`
+  },
+  {
+    id:'AGT-004', name:'OrderTypeClassifierAgent',
+    role:'Parses the prescription PDF using Azure Document Intelligence and maps the drug name to a canonical order_type slug. Queries the drug_lookup Delta table for the mapping.',
+    model:'gpt-4o-rtbos + Azure Doc Intelligence', memory:'Per-order context', trigger:'Called by Orchestrator after AGT-003',
+    inputs:['rx_file_path (OneLake)','drug_lookup Delta table'],
+    outputs:['order_type: ANASTROZOLE|TIRZEPATIDE|TESTOSTERONE|OTHER|UNCLASSIFIED','drug_name','dosage','prescriber','confidence: 0–1'],
+    tools:['Azure Document Intelligence — extract prescription fields','Lakehouse Query — SELECT from drug_lookup','CosmosDB Write — append loop_trace entry'],
+    iso:{classification:'RESTRICTED',access_control:'EMS-PharmacyStaff only — patient PII',logging:'Fact: drug_name, dosage, patient_id (not DOB/address) — loop_trace[]',personal_data:'YES — patient name, DOB, address (health record)',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.8.24 · A.6.1 (staff screening)',controls_9001:'Cl.8.1 · Cl.8.6 · Privacy Act 1988 assessment required'},
+    prompt:`You are the OrderTypeClassifierAgent for an Australian compounding pharmacy.
+
+You receive a prescription PDF file path. Use the Document Intelligence tool to extract:
+- drug_name: the medication name as written on the prescription
+- dosage: dose and frequency (e.g., "2.5mg weekly")
+- prescriber: prescriber name and provider number
+- patient_ref: patient reference or MRN
+
+Then use the Lakehouse query tool to look up drug_name in the drug_lookup table
+to get the canonical order_type slug.
+
+If Document Intelligence confidence < 0.85: set order_type = "UNCLASSIFIED".
+
+Return ONLY valid JSON:
+{
+  "order_type": "ANASTROZOLE"|"TIRZEPATIDE"|"TESTOSTERONE"|"OTHER"|"UNCLASSIFIED",
+  "drug_name": "string",
+  "dosage": "string",
+  "prescriber": "string",
+  "confidence": 0.0–1.0
+}`
+  },
+  {
+    id:'AGT-005', name:'OrderCreatorAgent',
+    role:'Creates the canonical order record in the Fabric Lakehouse orders Delta table and initialises the Cosmos DB Digital Twin at version 1. This is the first persistent state write — the birth of the Order Digital Asset.',
+    model:'gpt-4o-rtbos (structured output)', memory:'Writes persistent state', trigger:'Called by Orchestrator after AGT-004',
+    inputs:['All context envelope fields from AGT-001 through AGT-004'],
+    outputs:['order_id (UUID)','twin_version=1 (Cosmos DB)','Lakehouse row created','status=PENDING'],
+    tools:['Lakehouse Write — INSERT to orders Delta table','CosmosDB Write — CREATE twin document v1','UUID generator'],
+    iso:{classification:'RESTRICTED',access_control:'EMS-PharmacyStaff — writes to Cosmos DB order record',logging:'Fact: order_id created — full Digital Twin initialised',personal_data:'YES — order contains patient PII and health data',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.5.33 (immutable order record)',controls_9001:'Cl.8.1 · Cl.7.5 (order record is controlled document)'},
+    prompt:`You are the OrderCreatorAgent for an Australian compounding pharmacy.
+
+Given a fully classified order context envelope, perform two writes:
+
+1. Write a new row to the orders Delta table via the Lakehouse write tool.
+2. Create a new Digital Twin document in Cosmos DB (container: order_twins)
+   with twin_version=1 and status=PENDING.
+
+The twin document must include: order_id (new UUID), email_id, order_type,
+drug_name, dosage, rx_file_path, patient_id, status=PENDING,
+created_at=now(), loop_trace=[], facts=["ORDER_CREATED"], dimensions={}.
+
+Return ONLY valid JSON:
+{
+  "order_id": "ORD-{YYYYMMDD}-{seq}",
+  "twin_created": true,
+  "lakehouse_row_written": true,
+  "status": "PENDING"
+}`
+  },
+  {
+    id:'AGT-006', name:'PrescriptionRuleAgent',
+    role:'Evaluates TESTOSTERONE orders against dispensing rules fetched from Google Sheets. All other order types pass through with a SKIP audit entry. Rule failures flag the order as REQUIRES_MANUAL_REVIEW and halt dispatch.',
+    model:'gpt-4o-rtbos', memory:'Per-order context', trigger:'Called by Orchestrator for all orders (SKIP for non-TESTOSTERONE)',
+    inputs:['order_id','order_type','dosage','patient.dob_year','Google Sheets config (sheet_id, range)'],
+    outputs:['rule_check_required: bool','rule_pass: bool','requires_manual_review: bool','rule_flags: string[]'],
+    tools:['HTTP — Google Sheets API v4 (read dispensing rules)','Key Vault — retrieve Google Sheets service account','CosmosDB Write — append loop_trace entry'],
+    iso:{classification:'RESTRICTED',access_control:'EMS-PharmacyStaff + EMS-Pharmacist (for TESTOSTERONE review)',logging:'Fact: rule applied, result, human_review_required — loop_trace[]',personal_data:'YES — accesses drug type and patient health data',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.8.28 (Google Sheets injection review)',controls_9001:'Cl.8.1 · Cl.8.2 (TESTOSTERONE requires documented human approval)'},
+    prompt:`You are the PrescriptionRuleAgent for an Australian compounding pharmacy.
+
+Check the order_type:
+- If NOT TESTOSTERONE: return {"rule_check_required": false, "rule_pass": true,
+  "requires_manual_review": false, "rule_flags": []}. Do not call Google Sheets.
+
+- If TESTOSTERONE:
+  1. Use the HTTP tool to GET the dispensing rules from Google Sheets
+     (sheet_id and range are in the Key Vault config).
+  2. Evaluate each rule against: dosage, patient age (derived from dob_year), order_type.
+  3. Flag any violations in rule_flags (e.g., MAX_DOSE_EXCEEDED, FREQUENCY_VIOLATION).
+  4. If any rule fails: set rule_pass=false, requires_manual_review=true.
+
+Return ONLY valid JSON:
+{
+  "rule_check_required": true,
+  "rule_pass": true|false,
+  "requires_manual_review": false|true,
+  "rule_flags": []
+}`
+  },
+  {
+    id:'AGT-007', name:'AddressValidationAgent',
+    role:'Validates and standardizes the delivery address against AusPost PAF (Postal Address File) API. Writes the DPID and standardized address to the Digital Twin. Invalid addresses result in INCOMPLETE status.',
+    model:'gpt-4o-rtbos (tool use)', memory:'Per-order context', trigger:'Called by Orchestrator after AGT-006',
+    inputs:['raw_address (extracted from prescription by AGT-004)'],
+    outputs:['address_valid: bool','std_address: string','dpid: string','state: string','postcode: string'],
+    tools:['HTTP — AusPost PAF REST API (POST /postcode/search)','Key Vault — retrieve AusPost API key','CosmosDB Write — update twin address fields + append loop_trace'],
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — accesses delivery addresses',logging:'Fact: address_valid, standardized_address, auspost_result — loop_trace[]',personal_data:'YES — delivery address is personal information',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.8.1 · Cl.9.1 (PAF validation rate monitored)'},
+    prompt:`You are the AddressValidationAgent for an Australian compounding pharmacy.
+
+Validate the delivery address using the AusPost Address Validation (PAF) API:
+POST https://digitalapi.auspost.com.au/postcode/search
+Header: AUTH-KEY {auspost_api_key from Key Vault}
+Body: { "q": "{raw_address}" }
+
+If the API returns a valid match:
+- Set address_valid = true
+- Extract: std_address, dpid (delivery point ID), state, postcode
+- Write these to the order twin via the CosmosDB update tool
+
+If the API returns no match or error:
+- Set address_valid = false
+- Set std_address = raw_address
+- dpid = null
+
+Retry on 5xx: 3 times with 2 second delay between attempts.
+
+Return ONLY valid JSON:
+{
+  "address_valid": true|false,
+  "std_address": "standardized address string",
+  "dpid": "8-digit string or null",
+  "state": "NSW|VIC|QLD|...",
+  "postcode": "4-digit string"
+}`
+  },
+  {
+    id:'AGT-008', name:'OrderStatusClassifierAgent',
+    role:'The gate agent. Makes the final PROCESSED vs INCOMPLETE determination. Publishes to Service Bus. PROCESSED orders continue to shipment. INCOMPLETE orders are routed to the remediation queue with a Teams alert.',
+    model:'gpt-4o-rtbos (deterministic rules)', memory:'Per-order context', trigger:'Called by Orchestrator after AGT-007',
+    inputs:['address_valid','rule_pass','requires_manual_review','order_type','confidence (from AGT-004)'],
+    outputs:['order_status: PROCESSED|INCOMPLETE|REQUIRES_REVIEW','blocking_reasons: string[]'],
+    tools:['CosmosDB Write — update twin.status + append loop_trace','Service Bus Publish — processed-orders or incomplete-orders topic','Teams Webhook — alert on INCOMPLETE'],
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — gate agent, publishes to Service Bus',logging:'Fact: order_status, reason, service_bus_topic — loop_trace[]',personal_data:'NO — classifies order status only, no PII in output',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.8.7 (Service Bus RBAC)',controls_9001:'Cl.8.1 · Cl.9.1 (INCOMPLETE rate monitored)'},
+    prompt:`You are the OrderStatusClassifierAgent for an Australian compounding pharmacy.
+
+Apply these rules to determine the final order status:
+
+PROCESSED if ALL of the following are true:
+  - address_valid = true
+  - rule_pass = true
+  - requires_manual_review = false
+  - order_type != "UNCLASSIFIED"
+  - All upstream agents completed without error
+
+REQUIRES_REVIEW if:
+  - requires_manual_review = true (TESTOSTERONE rule failure)
+
+INCOMPLETE if:
+  - address_valid = false, OR
+  - order_type = "UNCLASSIFIED", OR
+  - Any upstream agent returned an error
+
+Then:
+- Publish to the appropriate Service Bus topic via the publish tool
+- If INCOMPLETE or REQUIRES_REVIEW: call the Teams webhook tool to alert the pharmacist
+
+Return ONLY valid JSON:
+{
+  "order_status": "PROCESSED"|"INCOMPLETE"|"REQUIRES_REVIEW",
+  "blocking_reasons": ["array of reason strings or empty"],
+  "service_bus_published": true
+}`
+  },
+  {
+    id:'AGT-009', name:'ShipmentAgent',
+    role:'Creates AusPost consignments for PROCESSED orders. Subscribes to the processed-orders Service Bus topic. Selects shipment type from the rules table, calls the eParcel API, and stores tracking number and label PDF in OneLake.',
+    model:'gpt-4o-rtbos (tool use)', memory:'Per-order + batch context', trigger:'Service Bus: processed-orders topic subscription',
+    inputs:['order_id','std_address','dpid','order_type','shipment_rules table'],
+    outputs:['tracking_no','consignment_id','shipment_type','label_path (OneLake)'],
+    tools:['Lakehouse Query — read shipment_rules table','HTTP — AusPost eParcel Shipping API (POST /shipments)','OneLake Write — save label PDF to labels/{order_id}.pdf','CosmosDB Write — update twin.shipment + loop_trace'],
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — creates AusPost consignments',logging:'Fact: tracking_number, consignment_id, label_path — loop_trace[]',personal_data:'YES — delivery address transmitted to AusPost (DPA required)',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.8.4 (AusPost supplier assessed)',controls_9001:'Cl.8.4 (AusPost = external provider, NEIT-DOC-SUPP-001)'},
+    prompt:`You are the ShipmentAgent for an Australian compounding pharmacy.
+
+For each PROCESSED order received from Service Bus:
+
+1. Query the Lakehouse shipment_rules table to determine shipment_type
+   based on order_type (STANDARD, EXPRESS, or REGISTERED).
+
+2. Call the AusPost eParcel Shipping API:
+   POST https://digitalapi.auspost.com.au/shipping/v1/shipments
+   with the standardized address, DPID, and selected product_id.
+
+3. From the response: extract tracking_no, consignment_id, and label_url.
+
+4. Download the label PDF from label_url and save to OneLake:
+   path: labels/{order_id}.pdf
+
+5. Update the order twin shipment fields and append a loop_trace entry.
+
+Retry on 5xx: 3 times. On persistent failure: publish error to error_log.
+
+Return ONLY valid JSON per order:
+{
+  "tracking_no": "string",
+  "consignment_id": "string",
+  "shipment_type": "STANDARD|EXPRESS|REGISTERED",
+  "label_path": "onelake://labels/{order_id}.pdf"
+}`
+  },
+  {
+    id:'AGT-010', name:'CSVDispatchAgent',
+    role:'Aggregates all PROCESSED orders for the current shift into an AusPost eParcel v3 bulk lodgement CSV. Sends the CSV to pharmacy ops via email and uploads it to the AusPost eParcel portal. Handles both PO send and portal upload in a single coordinated action.',
+    model:'gpt-4o-rtbos (structured output)', memory:'Batch scope (shift)', trigger:'Called by Orchestrator after ShipmentAgent batch completes',
+    inputs:['PROCESSED orders for current shift_id','shift_id','recipient_list','AusPost merchant credentials'],
+    outputs:['csv_path (OneLake)','lodgement_id','accepted_count','rejected_count','email_sent: bool'],
+    tools:['Lakehouse Query — SELECT PROCESSED orders for shift','OneLake Write — CSV file to csvs/orders_{date}_{shift}.csv','M365 Mail — send email with CSV attachment','HTTP — AusPost batch lodgement API (POST /orders)','CosmosDB Write — append batch audit entry'],
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-PharmacyStaff — generates lodgement CSV',logging:'Fact: csv_path, record_count, upload_status — loop_trace[]',personal_data:'YES — CSV contains addresses (shared with AusPost)',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.8.24 (CSV encrypted in transit)',controls_9001:'Cl.8.1 · Cl.8.6 (manual upload step verified before completion)'},
+    prompt:`You are the CSVDispatchAgent for an Australian compounding pharmacy.
+
+Execute these steps in order:
+
+1. Query Lakehouse: SELECT all orders WHERE status='PROCESSED' AND shift_id='{shift_id}'
+2. Generate CSV in AusPost eParcel v3 format. Required columns:
+   order_id, tracking_no, consignment_id, shipment_type, std_address,
+   dpid, state, postcode, drug_name, dosage, order_type
+3. Save to OneLake: csvs/orders_{YYYYMMDD}_{shift}.csv
+4. Send email via M365 mail tool with CSV attached to recipient_list
+5. Upload CSV to AusPost eParcel portal via batch lodgement API.
+   Retry 3x on 5xx. Record accepted and rejected counts.
+6. Append a batch audit entry to the pipeline_state document in CosmosDB.
+
+Return ONLY valid JSON:
+{
+  "csv_path": "onelake://csvs/...",
+  "order_count": number,
+  "email_sent": true,
+  "lodgement_id": "string",
+  "accepted": number,
+  "rejected": number
+}`
+  },
+  {
+    id:'AGT-011', name:'ReportingAgent',
+    role:'End-of-shift agent. Aggregates daily KPIs, generates Excel and HTML reports, posts a Teams adaptive card summary, emails the manager distribution list, and queues all label PDFs for the label printer.',
+    model:'gpt-4o-rtbos', memory:'Daily scope', trigger:'Called by Orchestrator at end of shift (after CSVDispatchAgent)',
+    inputs:['orders Delta table (today)','lodgement_log','error_log','recipient_config','teams_webhook_url','printer_config'],
+    outputs:['daily_report_{date}.xlsx (OneLake)','daily_report_{date}.html (OneLake)','email_sent: bool','teams_posted: bool','labels_queued: int'],
+    tools:['Lakehouse Query — aggregate daily metrics','OneLake Write — Excel + HTML report','M365 Mail — send report with Excel attachment','Teams Webhook — post adaptive card with KPI summary','HTTP/printer — queue label PDFs for physical printer'],
+    iso:{classification:'INTERNAL',access_control:'EMS-PharmacyStaff — reads Digital Twins, no PII in output',logging:'Fact: report_generated, metrics_snapshot — EOD record',personal_data:'NO — aggregated metrics only, no individual patient data',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.9.1 (report satisfies daily performance monitoring requirement)'},
+    prompt:`You are the ReportingAgent for an Australian compounding pharmacy.
+
+Execute these steps in order:
+
+1. Query Lakehouse for today's metrics:
+   - total_orders, processed_count, incomplete_count, deferred_count
+   - by_order_type breakdown
+   - avg_processing_time_mins
+   - auspost_lodgement_status (from pipeline_state)
+   - error_count (from error_log)
+
+2. Generate an Excel workbook with these sheets:
+   Summary (KPIs), Order Detail (full order list), Incomplete (blocked orders)
+
+3. Generate an HTML email summary with the same KPIs
+
+4. Save both files to OneLake: reports/daily_{YYYYMMDD}.xlsx and .html
+
+5. Send email to recipient_list with Excel attached
+
+6. Post Teams adaptive card with: total orders, dispatch rate %, incomplete
+   count, any error flags, and a link to the Power BI report
+
+7. Queue all label PDFs from OneLake labels/ folder to the printer
+
+Return ONLY valid JSON:
+{
+  "report_path_xlsx": "onelake://reports/...",
+  "report_path_html": "onelake://reports/...",
+  "email_sent": true,
+  "teams_posted": true,
+  "labels_queued": number
+}`
+  },
+  {
+    id:'AGT-012', name:'CutoffOrchestratorAgent',
+    role:'Manages the entire end-of-day cutoff cycle. Fires at 10:55 AM and 11:00 AM AEST via Logic App. Sets the cutoff_active flag in pipeline_state, posts Teams warnings, enforces the 11:00–12:00 deferral window, and triggers the IncompleteFileAgent.',
+    model:'gpt-4o-rtbos + timer tools', memory:'Daily state (pipeline_state in Cosmos DB)', trigger:'Logic App scheduled trigger — 10:55 AM and 11:00 AM AEST',
+    inputs:['event: PRE_CUTOFF_WARNING|CUTOFF_INITIATED','current_time','pipeline_state document','CUTOFF_TIME=11:00','WINDOW_END=12:00'],
+    outputs:['cutoff_active state updated','Teams warning posted','IncompleteFileAgent triggered','deferred orders tagged'],
+    tools:['CosmosDB Read/Write — pipeline_state document','Service Bus Publish — cutoff-event','Teams Webhook — pre-cutoff warning','HTTP — trigger AGT-013 (IncompleteFileAgent)','CosmosDB Write — tag DEFERRED_NEXT_DAY orders'],
+    iso:{classification:'INTERNAL',access_control:'EMS-PharmacyStaff — schedules jobs, no data processing',logging:'Fact: cutoff_triggered, timestamp, orders_processed_count',personal_data:'NO — scheduler only, no data access',controls_27001:'A.5.12 · A.8.3 · A.8.15',controls_9001:'Cl.8.1 · Cl.9.1 (cutoff compliance rate monitored)'},
+    prompt:`You are the CutoffOrchestratorAgent for an Australian compounding pharmacy.
+
+Handle the event received:
+
+IF event = "PRE_CUTOFF_WARNING":
+  Post Teams webhook: "?? CUTOFF in 5 minutes — finalise all orders before 11:00 AM AEST"
+  Append entry to pipeline_state audit log.
+
+IF event = "CUTOFF_INITIATED":
+  1. Update pipeline_state: set cutoff_active=true, cutoff_initiated_at=now()
+  2. Post Teams: "?? CUTOFF ACTIVE — orders received after 11:00 AM will be deferred to next business day"
+  3. Call AGT-013 (IncompleteFileAgent) HTTP endpoint to start incomplete file generation
+  4. Tag all PENDING orders received after 11:00 AM as DEFERRED_NEXT_DAY
+
+For all orders received while cutoff_active=true AND current_time < 12:00:
+  Set deferral_reason = "CUTOFF_WINDOW"
+
+For orders received while cutoff_active=true AND current_time >= 12:00:
+  Set deferral_reason = "AFTER_HOURS"
+
+At 12:00: update pipeline_state cutoff_active=false.
+
+Return ONLY valid JSON:
+{
+  "cutoff_active": true|false,
+  "action_taken": "string",
+  "teams_posted": true,
+  "incomplete_agent_triggered": true
+}`
+  },
+  {
+    id:'AGT-013', name:'IncompleteFileAgent',
+    role:'Generates the incomplete orders file within the 11:00–11:05 AM execution window. Queries all INCOMPLETE orders for today, exports a CSV with blocking reasons, and emails it to the pharmacy manager. Has a hard 5-minute timeout.',
+    model:'gpt-4o-rtbos (structured output)', memory:'Daily scope', trigger:'Triggered by AGT-012 at 11:00 AM AEST',
+    inputs:['orders Delta table (status=INCOMPLETE, date=today)','manager_email','WINDOW_START=11:00','WINDOW_END=11:05'],
+    outputs:['incomplete_orders_{date}.csv (OneLake)','email_sent: bool','incomplete_count: int'],
+    tools:['Lakehouse Query — SELECT INCOMPLETE orders for today','OneLake Write — CSV to incomplete/incomplete_{date}.csv','M365 Mail — urgent email to manager','CosmosDB Write — append daily audit entry'],
+    iso:{classification:'CONFIDENTIAL',access_control:'EMS-Pharmacist only — human review queue',logging:'Fact: human_decision, reviewer_id, timestamp — mandatory audit trail',personal_data:'YES — accesses full order record including patient and drug data',controls_27001:'A.5.12 · A.8.3 · A.8.15 · A.6.1 (pharmacist credentialing verified)',controls_9001:'Cl.8.2 · Cl.8.6 (human approval = mandatory release gate for TESTOSTERONE)'},
+    prompt:`You are the IncompleteFileAgent for an Australian compounding pharmacy.
+You have a strict 5-minute execution window (11:00–11:05 AM AEST). Complete all steps within this window.
+
+1. Query Lakehouse:
+   SELECT order_id, patient_id, order_type, blocking_reasons, created_at, std_address
+   FROM orders
+   WHERE order_status = 'INCOMPLETE' AND DATE(created_at) = TODAY()
+
+2. Generate a CSV with these columns:
+   order_id | patient_id | order_type | blocking_reasons | created_at | raw_address
+
+3. Save to OneLake: incomplete/incomplete_{YYYYMMDD}.csv
+
+4. Send email via M365 mail tool:
+   To: manager_email
+   Subject: "[ACTION REQUIRED] {n} Incomplete Orders — {date}"
+   Body: "Please review the attached incomplete orders file. Each order requires follow-up action before processing can complete."
+   Attachment: the CSV file
+
+5. Append an audit entry to the pipeline_state document.
+
+If incomplete_count = 0: send confirmation email "All orders processed successfully today ?"
+
+Return ONLY valid JSON:
+{
+  "incomplete_count": number,
+  "csv_path": "onelake://incomplete/...",
+  "email_sent": true,
+  "elapsed_ms": number
+}`
+  }
+];
+
+// -- RENDER PHASES (steps-pX containers in build guide sub-panels) -------------
+function renderPhase(key){
+  const c=document.getElementById('steps-'+key);
+  if(!c||!PHASES[key]) return;
+  c.innerHTML=PHASES[key].map((s,i)=>{
+    const wc=s.where||'portal';
+    const inst=(s.instructions||[]).map(x=>`<li><span>${x}</span></li>`).join('');
+    const code=s.code?`<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>${s.code}</div>`:'';
+    const cl=s.callout?`<div class="callout ${s.callout.type||'info'}"><div class="callout-icon">${s.callout.icon||'??'}</div><div class="callout-body">${s.callout.body}</div></div>`:'';
+    return `<div class="step" id="step-${key}-${i}">
+      <div class="step-num-col">
+        <div class="step-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="step-check" onclick="toggleDone('${key}',${i})" title="Mark complete">?</div>
+      </div>
+      <div class="step-body">
+        <div class="step-header">
+          <div class="step-title">${s.title}</div>
+          <span class="step-where ${wc}">${s.whereLabel||s.where||''}</span>
+        </div>
+        ${s.desc?`<div class="step-desc">${s.desc}</div>`:''}
+        ${inst?`<ul class="instructions">${inst}</ul>`:''}
+        ${code}${cl}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// -- RENDER AGENTS (agentAccordion container) ----------------------------------
+function renderAgents(){
+  const c=document.getElementById('agentAccordion');
+  if(!c) return;
+  c.innerHTML=AGENTS.map((a,i)=>{
+    const tools=(a.tools||[]).map(t=>`<span class="tool-pill">${t}</span>`).join('');
+    const inputs=(a.inputs||[]).map(x=>`<li>${x}</li>`).join('');
+    const outputs=(a.outputs||[]).map(x=>`<li>${x}</li>`).join('');
+    const safePrompt=(a.prompt||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return `<div class="agent-block" id="ab-${i}">
+      <div class="agent-block-header" onclick="toggleAgent(${i})">
+        <div class="agent-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="agent-title-group">
+          <div class="agent-id-badge">${a.id}</div>
+          <div class="agent-name">${a.name}</div>
+          <div class="agent-role-short">${(a.role||'').substring(0,90)}${(a.role||'').length>90?'…':''}</div>
+        </div>
+        <div class="agent-toggle">?</div>
+      </div>
+      <div class="agent-block-body">
+        <div>
+          <div class="ab-section"><h4>Role</h4><p>${a.role||''}</p></div>
+          <div class="ab-section"><h4>Configuration</h4>
+            <p><strong style="color:var(--text)">Model:</strong> ${a.model||''}<br>
+            <strong style="color:var(--text)">Memory scope:</strong> ${a.memory||''}<br>
+            <strong style="color:var(--text)">Trigger:</strong> ${a.trigger||''}</p>
+          </div>
+          ${inputs?`<div class="ab-section"><h4>Inputs</h4><ul>${inputs}</ul></div>`:''}
+          ${outputs?`<div class="ab-section"><h4>Outputs</h4><ul>${outputs}</ul></div>`:''}
+          ${tools?`<div class="ab-section"><h4>Tools &amp; Connectors</h4><div>${tools}</div></div>`:''}
+          ${a.iso?`<div class="ab-section iso-section">
+            <h4>ISO Control Block</h4>
+            <div class="iso-grid">
+              <div class="iso-row"><span class="iso-key">Classification</span><span class="iso-val ${a.iso.classification==='RESTRICTED'?'iso-restricted':a.iso.classification==='CONFIDENTIAL'?'iso-confidential':'iso-internal'}">${a.iso.classification}</span></div>
+              <div class="iso-row"><span class="iso-key">Access Control</span><span class="iso-val">${a.iso.access_control}</span></div>
+              <div class="iso-row"><span class="iso-key">Logging</span><span class="iso-val">${a.iso.logging}</span></div>
+              <div class="iso-row"><span class="iso-key">Personal Data</span><span class="iso-val">${a.iso.personal_data}</span></div>
+              <div class="iso-row"><span class="iso-key">27001 Controls</span><span class="iso-val">${a.iso.controls_27001}</span></div>
+              <div class="iso-row"><span class="iso-key">9001 Controls</span><span class="iso-val">${a.iso.controls_9001}</span></div>
+            </div>
+          </div>`:''}
+        </div>
+        <div>
+          <div class="ab-section">
+            <h4>System Prompt — paste into Foundry Agent Studio ? Instructions</h4>
+            <div class="prompt-block"><button class="copy-btn" onclick="copyPrompt(${i},event)">copy</button>${safePrompt}</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// -- INIT ----------------------------------------------------------------------
+['p0','p1','p2','p3','p4','p5','p6','p7','p8','p9','p10'].forEach(renderPhase);
+renderAgents();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss - Digital Twin Draft (3D Floor Scene)</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141a24;--grid:#2c3545;--text:#eaf3ff;--muted:#9fb3cf;--line:#6f85a5;--green:#00e676;--amber:#ffca28;--red:#ff5252;--blue:#40c4ff;--teal:#1de9b6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:radial-gradient(circle at 20% 0%,#232f42 0%,#171e2a 40%,#111722 100%);min-height:100vh}
+.nav{position:sticky;top:0;z-index:50;background:rgba(18,24,34,.88);backdrop-filter:blur(8px);border-bottom:1px solid rgba(121,146,180,.35);padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.nav .title{font-weight:800;color:var(--green);font-size:20px}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px}
+.wrap{max-width:1700px;margin:0 auto;padding:16px 18px 24px}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px}
+.hero .kicker{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.12em;color:var(--teal);text-transform:uppercase}
+.hero .h1{font-size:30px;font-weight:800}
+.hero .sub{color:var(--muted);max-width:950px}
+.stats{display:grid;grid-template-columns:repeat(4,160px);gap:8px}
+.stat{background:rgba(21,34,52,.85);border:1px solid rgba(111,133,165,.45);border-radius:8px;padding:8px}
+.stat .k{font-family:'Fira Code',monospace;font-size:10px;color:var(--muted);text-transform:uppercase}
+.stat .v{font-size:23px;font-weight:800}
+.stat .s{font-size:11px;color:var(--muted)}
+.scene-wrap{position:relative;border:1px solid rgba(111,133,165,.5);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#232e40 0%,#1a2434 100%);min-height:820px}
+.gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(198,216,242,.08) 1px, transparent 1px),linear-gradient(90deg,rgba(198,216,242,.08) 1px, transparent 1px);background-size:38px 38px;opacity:.35}
+.floor{position:absolute;left:7%;right:7%;top:16%;bottom:10%;transform:skewY(-8deg) rotateX(54deg);transform-origin:top center;background:linear-gradient(180deg,#cfd3da 0%,#b9bfc8 100%);border:1px solid rgba(60,72,94,.55);box-shadow:0 28px 60px rgba(0,0,0,.45)}
+.lane-line{position:absolute;height:2px;background:#ffd81a;opacity:.75}
+.machine{position:absolute;border:1px solid rgba(40,52,70,.65);background:linear-gradient(180deg,#f7f8fb,#d8dde6);box-shadow:0 10px 20px rgba(0,0,0,.25)}
+.machine .head{position:absolute;left:0;right:0;top:0;height:20%;background:rgba(19,34,53,.12)}
+.machine.orange{background:linear-gradient(180deg,#ffb061,#f18822)}
+.machine.dark{background:linear-gradient(180deg,#667285,#414d62)}
+.machine.blue{background:linear-gradient(180deg,#9ec8ff,#5f8fcb)}
+.machine.green{background:linear-gradient(180deg,#9cf9cf,#2bb978)}
+.mlbl{position:absolute;padding:6px 10px;border-radius:999px;background:rgba(20,26,36,.85);border:1px solid rgba(131,154,184,.45);font-weight:700;font-size:14px;white-space:nowrap}
+.mlbl .p{font-family:'Fira Code',monospace;font-size:12px;color:#d7e7ff}
+.mlbl.good::before,.mlbl.warn::before,.mlbl.bad::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.mlbl.good::before{background:var(--green)}
+.mlbl.warn::before{background:var(--amber)}
+.mlbl.bad::before{background:var(--red)}
+.callout{position:absolute;background:rgba(14,20,30,.88);border:1px solid rgba(116,136,163,.55);padding:14px 16px;min-width:260px}
+.callout .t{font-size:34px;font-weight:800;margin-bottom:2px}
+.callout .k{font-family:'Fira Code',monospace;font-size:11px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase}
+.callout .d{font-size:12px;color:var(--muted);margin-top:5px}
+.callout:after{content:'';position:absolute;width:2px;background:rgba(173,196,230,.65)}
+#c-maint{top:6%;left:59%} #c-maint:after{height:100px;left:46%;top:100%}
+#c-live{top:6%;right:9%} #c-live:after{height:120px;left:30%;top:100%}
+#c-util{right:4%;bottom:5%;min-width:420px}
+.chart{margin-top:10px;height:170px;border:1px solid rgba(118,142,174,.45);background:rgba(13,20,30,.6);display:flex;align-items:flex-end;gap:8px;padding:10px}
+.bar{width:14px;background:linear-gradient(180deg,#84a8ff,#3f5dab)}
+.bar.hi{background:linear-gradient(180deg,#d3dbeb,#8ea1be)}
+.pane{position:absolute;left:3%;top:7%;width:300px;background:rgba(14,20,30,.82);border:1px solid rgba(116,136,163,.5);padding:10px}
+.pane h4{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.1em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.pane ul{list-style:none;font-size:12px;color:var(--muted)}
+.pane li{padding:6px 0;border-bottom:1px solid rgba(116,136,163,.25)}
+.pane li:last-child{border-bottom:none}
+@media(max-width:1400px){.scene-wrap{min-height:740px}.hero{flex-direction:column;align-items:flex-start}.stats{grid-template-columns:repeat(2,160px)}#c-util{position:relative;right:auto;bottom:auto;margin:12px;min-width:280px}}
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="title">Digital Twin Draft - 3D Factory Scene</div>
+  <a href="visual-management-draft.html">Back to Draft Selector</a>
+</div>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="kicker">Real-Time Software Floor</div>
+      <div class="h1">EMS-Style 3D Operations Twin (Content Focus)</div>
+      <div class="sub">Modeled like an industrial digital twin: floor scene, machine stations, live status overlays, and utilization monitoring. Stations represent tabs; status reflects content burndown.</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">Sections</div><div class="v" id="vSec">15</div><div class="s">lanes</div></div>
+      <div class="stat"><div class="k">Groups Done</div><div class="v" id="vDone">0</div><div class="s">content facts</div></div>
+      <div class="stat"><div class="k">Groups Total</div><div class="v" id="vTotal">0</div><div class="s">all groups</div></div>
+      <div class="stat"><div class="k">Burndown</div><div class="v" id="vPct">0%</div><div class="s">completion</div></div>
+    </div>
+  </div>
+
+  <div class="scene-wrap">
+    <div class="gridbg"></div>
+    <div class="floor"></div>
+
+    <div class="pane">
+      <h4>Section Lanes</h4>
+      <ul id="laneList"></ul>
+    </div>
+
+    <div class="callout" id="c-maint">
+      <div class="k">Maintenance Notifications</div>
+      <div class="t" id="warnCount">4</div>
+      <div class="d">Stations needing review</div>
+    </div>
+
+    <div class="callout" id="c-live">
+      <div class="k">Real-Time Status</div>
+      <div class="t" id="livePct">0%</div>
+      <div class="d">Healthy station ratio</div>
+    </div>
+
+    <div class="callout" id="c-util">
+      <div class="k">Utilization Rate Monitoring</div>
+      <div class="chart" id="utilChart"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const sections=[
+  {k:'S01',n:'01',name:'Strategic',tabs:5,groups:5},
+  {k:'S02',n:'02',name:'OS Framework',tabs:10,groups:10},
+  {k:'S03',n:'03',name:'Tech Infra',tabs:8,groups:8},
+  {k:'S04',n:'04',name:'Mini-OS',tabs:14,groups:14},
+  {k:'S05',n:'05',name:'Value Engines',tabs:5,groups:5},
+  {k:'S06',n:'06',name:'Agentic Factory',tabs:9,groups:9},
+  {k:'S07',n:'07',name:'QMS',tabs:7,groups:7},
+  {k:'S08',n:'08',name:'Execution',tabs:6,groups:6},
+  {k:'S09',n:'09',name:'Audit',tabs:9,groups:9},
+  {k:'S10',n:'10',name:'Project Mgmt',tabs:9,groups:9},
+  {k:'S11',n:'11',name:'Client Projects',tabs:3,groups:3},
+  {k:'S12',n:'12',name:'Reporting',tabs:3,groups:3},
+  {k:'S13',n:'13',name:'Factory Library',tabs:4,groups:4},
+  {k:'S14',n:'14',name:'Build Guides',tabs:4,groups:4},
+  {k:'S15',n:'15',name:'Change Log',tabs:3,groups:3}
+];
+
+function readProgress(){
+  try{return JSON.parse(localStorage.getItem('rtboss_content_review_progress_v1')||'{}');}
+  catch(e){return{};}
+}
+function status(p){ if(p===0) return 'bad'; if(p<0.8) return 'warn'; return 'good'; }
+function pct(done,total){ return total?done/total:0; }
+
+function drawScene(){
+  document.querySelectorAll('.machine,.mlbl,.lane-line').forEach(n=>n.remove());
+  const scene=document.querySelector('.scene-wrap');
+  const p=readProgress();
+  let gDone=0,gTotal=0,warn=0,healthy=0,totalStations=0;
+  const laneList=document.getElementById('laneList'); laneList.innerHTML='';
+
+  sections.forEach((s,idx)=>{
+    const row=p[s.k]||{};
+    const total=(Array.isArray(row.groups)&&row.groups.length)?row.groups.length:s.groups;
+    const done=(typeof row.done==='number')?Math.max(0,Math.min(total,row.done)):(Array.isArray(row.groups)?row.groups.filter(Boolean).length:0);
+    const sp=pct(done,total);
+    gDone+=done; gTotal+=total;
+
+    const li=document.createElement('li');
+    li.textContent=`S${s.n} ${s.name}: ${done}/${total}`;
+    laneList.appendChild(li);
+
+    const line=document.createElement('div');
+    line.className='lane-line';
+    line.style.left=(22 + (idx%5)*13)+'%';
+    line.style.top=(38 + Math.floor(idx/5)*16)+'%';
+    line.style.width='26%';
+    scene.appendChild(line);
+
+    const machines=Math.max(2,Math.min(4,s.tabs));
+    for(let m=0;m<machines;m++){
+      const mp=Math.max(0,Math.min(1,sp + (m-1.5)*0.08));
+      const cls=status(mp);
+      totalStations++;
+      if(cls==='good') healthy++;
+      if(cls!=='good') warn++;
+
+      const box=document.createElement('div');
+      box.className='machine '+(cls==='good'?'green':cls==='warn'?'orange':'dark');
+      box.style.left=(20 + (idx%5)*13 + m*5.5)+'%';
+      box.style.top=(34 + Math.floor(idx/5)*16 + (m%2?1.3:0))+'%';
+      box.style.width='4.8%';
+      box.style.height=(6 + mp*3)+'%';
+      box.innerHTML='<div class="head"></div>';
+      scene.appendChild(box);
+
+      const lbl=document.createElement('div');
+      lbl.className='mlbl '+cls;
+      lbl.style.left=(20 + (idx%5)*13 + m*5.2)+'%';
+      lbl.style.top=(31 + Math.floor(idx/5)*16 - (m%2?0:1.4))+'%';
+      lbl.innerHTML=`S${s.n} T${String(m+1).padStart(2,'0')} <span class="p">(${Math.round(mp*100)}%)</span>`;
+      scene.appendChild(lbl);
+    }
+  });
+
+  const burndown = gTotal?Math.round((gDone/gTotal)*100):0;
+  const live = totalStations?Math.round((healthy/totalStations)*100):0;
+  document.getElementById('vDone').textContent=String(gDone);
+  document.getElementById('vTotal').textContent=String(gTotal);
+  document.getElementById('vPct').textContent=burndown+'%';
+  document.getElementById('warnCount').textContent=String(warn);
+  document.getElementById('livePct').textContent=live+'%';
+
+  const chart=document.getElementById('utilChart');
+  chart.innerHTML='';
+  for(let i=0;i<16;i++){
+    const b=document.createElement('div');
+    const h=40 + Math.round(55*Math.abs(Math.sin((i+1)/3 + burndown/30)));
+    b.className='bar'+(i%4===0?' hi':'');
+    b.style.height=h+'%';
+    chart.appendChild(b);
+  }
+}
+
+drawScene();
+window.addEventListener('storage', e=>{ if(e.key==='rtboss_content_review_progress_v1'){ drawScene(); } });
+</script>
+</body>
+</html>
+

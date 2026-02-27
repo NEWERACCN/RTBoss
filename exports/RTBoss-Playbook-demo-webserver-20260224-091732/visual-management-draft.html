@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss - Digital Twin Draft Selector</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#040912;--s1:#0c1b2d;--line:#2c4868;--text:#e9f3ff;--muted:#9ab3cc;--green:#00e676;--blue:#40c4ff;--teal:#1de9b6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(circle at 20% -10%,#17406b 0%,#081523 34%,#040912 72%);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.4}
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,27,45,.9);backdrop-filter:blur(7px);border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.nav .title{font-weight:800;color:var(--green);font-size:20px}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px}
+.wrap{max-width:1200px;margin:0 auto;padding:22px}
+.kicker{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.h1{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--muted);max-width:820px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.card{background:linear-gradient(180deg,rgba(20,41,64,.9),rgba(12,27,45,.95));border:1px solid var(--line);border-radius:12px;padding:16px}
+.card h2{font-size:24px;margin-bottom:8px}
+.card p{color:var(--muted);margin-bottom:12px}
+.btn{display:inline-block;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:#0d1d30;color:var(--text);text-decoration:none;font-weight:700}
+.btn:hover{border-color:var(--blue);color:var(--blue)}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="title">Digital Twin Drafts</div>
+  <a href="12-reporting-dashboard.html#tab-2">Back to Section 12</a>
+</div>
+<div class="wrap">
+  <div class="kicker">Choose View</div>
+  <div class="h1">2D and 3D Draft Modes</div>
+  <div class="sub">Both drafts use the same content-burndown model: 15 sections as lanes, tabs as stations, and groups as sub-groups.</div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>2D Draft</h2>
+      <p>Flat, dense operations view for fast reading and review sessions.</p>
+      <a class="btn" href="visual-management-draft-2d.html">Open 2D Draft</a>
+    </div>
+    <div class="card">
+      <h2>3D Draft</h2>
+      <p>Isometric software factory view with station blocks and depth.</p>
+      <a class="btn" href="visual-management-draft-3d.html">Open 3D Draft</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

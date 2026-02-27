@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss - Agentic Factory</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;
+  --s1:#0a1420;
+  --s2:#12202e;
+  --s3:#1a2c3e;
+  --border:#2a4060;
+  --text:#e8f4ff;
+  --mid:#a0b8d0;
+  --dim:#607890;
+  --blue:#40c4ff;
+  --green:#00e676;
+  --amber:#ffca28;
+  --violet:#b388ff;
+  --red:#ff5252;
+  --teal:#1de9b6;
+  --orange:#ff9100;
+  --pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+
+/* NAV */
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:#00e676 !important;}
+
+/* TABS */
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
+.panel{display:none;}
+.panel.active{display:block;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
+
+/* PAGE HEADER */
+.ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--pink);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
+.ph-sub{font-size:1.1rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
+
+/* SECTION HEADS */
+.sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:var(--border);}
+
+/* CALLOUTS */
+.callout{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;display:flex;gap:0.75rem;}
+.callout.pink{border-left-color:var(--pink);}
+.callout.amber{border-left-color:var(--amber);}
+.callout.green{border-left-color:var(--green);}
+.callout.teal{border-left-color:var(--teal);}
+.callout.violet{border-left-color:var(--violet);}
+.callout-icon{font-size:1.2rem;flex-shrink:0;margin-top:0.1rem;}
+.callout-body{font-size:0.88rem;color:var(--mid);line-height:1.75;}
+.callout-body strong{color:var(--text);}
+
+/* STAGE FLOW */
+.stage-flow{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin:2rem 0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+@media(max-width:1000px){.stage-flow{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:600px){.stage-flow{grid-template-columns:1fr;}}
+.stage-card{padding:1.5rem 1.25rem;border-right:1px solid var(--border);position:relative;}
+.stage-card:last-child{border-right:none;}
+@media(max-width:1000px){.stage-card:nth-child(3){border-right:none;}}
+@media(max-width:600px){.stage-card{border-right:none;border-bottom:1px solid var(--border);}}
+.stage-num{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--dim);letter-spacing:0.1em;margin-bottom:0.5rem;}
+.stage-name{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;}
+.stage-duration{font-family:'Fira Code',monospace;font-size:0.65rem;padding:0.15rem 0.5rem;border-radius:3px;display:inline-block;margin-bottom:0.75rem;}
+.stage-output{font-size:0.75rem;color:var(--mid);line-height:1.6;}
+.stage-output strong{color:var(--text);display:block;margin-bottom:0.25rem;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;font-family:'Fira Code',monospace;}
+
+/* PLAYBOOK STEPS */
+.pb-step{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:1.5rem;position:relative;}
+.pb-step-num{position:absolute;top:-12px;left:1.5rem;background:var(--pink);color:var(--bg);font-family:'Fira Code',monospace;font-size:0.7rem;font-weight:700;padding:0.2rem 0.75rem;border-radius:12px;letter-spacing:0.08em;}
+.pb-step-num.amber{background:var(--amber);}
+.pb-step-num.green{background:var(--green);}
+.pb-step-num.teal{background:var(--teal);}
+.pb-step-num.blue{background:var(--blue);}
+.pb-step-num.violet{background:var(--violet);}
+.pb-step-title{font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;margin-top:0.25rem;}
+.pb-step-body{color:var(--mid);line-height:1.8;font-size:0.9rem;}
+.pb-step-body p{margin-bottom:0.75rem;}
+.pb-step-body ul{padding-left:1.25rem;margin-bottom:0.75rem;}
+.pb-step-body li{margin-bottom:0.4rem;}
+.pb-step-body strong{color:var(--text);}
+
+/* OUTCOME CARDS */
+.outcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:2rem 0;}
+@media(max-width:750px){.outcome-grid{grid-template-columns:1fr;}}
+.outcome-card{background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--o-color);border-radius:0 0 12px 12px;padding:1.5rem;}
+.outcome-type{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--o-color);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+.outcome-title{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
+.outcome-metric{background:var(--s2);border-radius:6px;padding:0.75rem;margin-bottom:0.75rem;}
+.outcome-metric-label{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--dim);margin-bottom:0.25rem;}
+.outcome-metric-value{font-size:1.3rem;font-weight:700;color:var(--o-color);}
+.outcome-agents{font-size:0.8rem;color:var(--mid);line-height:1.6;}
+.outcome-agents strong{color:var(--text);display:block;margin-bottom:0.4rem;}
+
+/* AGENT MAPPING */
+.agent-map{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0;}
+.agent-map-title{font-size:0.9rem;font-weight:700;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.agent-map-title .badge{font-family:'Fira Code',monospace;font-size:0.6rem;padding:0.15rem 0.5rem;border-radius:3px;background:rgba(244,143,177,0.1);color:var(--pink);border:1px solid rgba(244,143,177,0.2);}
+.agent-flow{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+.agent-node{background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;font-size:0.8rem;white-space:nowrap;}
+.agent-node.outcome{border-color:var(--pink);color:var(--pink);font-weight:600;}
+.agent-node.genie{border-color:var(--teal);color:var(--teal);}
+.agent-node.advisor{border-color:var(--violet);color:var(--violet);}
+.agent-arrow{color:var(--dim);font-size:1rem;}
+
+/* TABLES */
+.std-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.85rem;}
+.std-table th{font-family:'Fira Code',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);padding:0.6rem 1rem;border-bottom:1px solid var(--border);text-align:left;}
+.std-table td{padding:0.65rem 1rem;border-bottom:1px solid rgba(42,64,96,0.4);color:var(--mid);vertical-align:top;line-height:1.6;}
+.std-table td:first-child{color:var(--text);font-weight:600;}
+.std-table tr:last-child td{border-bottom:none;}
+.std-table tr:hover td{background:rgba(42,64,96,0.15);}
+
+/* CHECKLIST */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin:1rem 0;}
+@media(max-width:650px){.check-grid{grid-template-columns:1fr;}}
+.check-item{display:flex;gap:0.6rem;align-items:flex-start;background:var(--s2);border-radius:6px;padding:0.6rem 0.85rem;}
+.check-box{width:16px;height:16px;border:2px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:0.2rem;}
+.check-text{font-size:0.82rem;color:var(--mid);line-height:1.5;}
+.check-text strong{color:var(--text);}
+
+/* SPRINT CARDS */
+.sprint-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0;}
+.sprint-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;position:relative;}
+.sprint-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sp-color);border-radius:10px 10px 0 0;}
+.sprint-week{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--dim);margin-bottom:0.5rem;}
+.sprint-title{font-size:0.88rem;font-weight:700;margin-bottom:0.75rem;}
+.sprint-activities{font-size:0.78rem;color:var(--mid);line-height:1.65;}
+.sprint-activities li{margin-bottom:0.3rem;padding-left:0.1rem;}
+
+/* WORKFLOW CARDS */
+.workflow-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0;}
+@media(max-width:800px){.workflow-grid{grid-template-columns:1fr;}}
+.workflow-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.workflow-header{padding:1.25rem;background:var(--s2);border-bottom:1px solid var(--border);}
+.workflow-type{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--w-color);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+.workflow-name{font-size:1.05rem;font-weight:700;}
+.workflow-body{padding:1.25rem;}
+.workflow-step{display:flex;gap:0.75rem;padding:0.75rem 0;border-bottom:1px solid rgba(42,64,96,0.3);}
+.workflow-step:last-child{border-bottom:none;}
+.workflow-step-num{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--w-color);flex-shrink:0;width:24px;}
+.workflow-step-content{flex:1;}
+.workflow-step-name{font-size:0.85rem;font-weight:600;margin-bottom:0.25rem;}
+.workflow-step-agents{font-size:0.75rem;color:var(--mid);}
+
+/* CONTRACT BLOCK */
+.contract-block{background:var(--s2);border:2px solid var(--border);border-radius:12px;padding:2rem;margin:2rem 0;}
+.contract-title{font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;text-align:center;color:var(--pink);}
+.contract-section{margin-bottom:1.5rem;}
+.contract-section:last-child{margin-bottom:0;}
+.contract-label{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+.contract-value{font-size:0.9rem;color:var(--mid);line-height:1.7;}
+.contract-value strong{color:var(--text);}
+.bonus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;margin-top:0.75rem;}
+.bonus-item{background:var(--s1);border-radius:6px;padding:0.75rem;}
+.bonus-trigger{font-size:0.75rem;color:var(--mid);margin-bottom:0.25rem;}
+.bonus-amount{font-size:1.1rem;font-weight:700;color:var(--green);}
+
+/* QMS TILES */
+.qms-config{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0;}
+@media(max-width:700px){.qms-config{grid-template-columns:1fr;}}
+.qms-tile{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.qms-tile-head{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.85rem;}
+.qms-tile-icon{font-size:1.3rem;}
+.qms-tile-title{font-size:0.92rem;font-weight:700;}
+.qms-tile-body{font-size:0.82rem;color:var(--mid);line-height:1.7;}
+.qms-tile-body ul{padding-left:1rem;}
+.qms-tile-body li{margin-bottom:0.3rem;}
+.config-badge{font-family:'Fira Code',monospace;font-size:0.6rem;padding:0.12rem 0.45rem;border-radius:3px;margin-left:0.5rem;}
+.badge-first{background:rgba(255,82,82,0.1);color:var(--red);border:1px solid rgba(255,82,82,0.2);}
+.badge-core{background:rgba(64,196,255,0.1);color:var(--blue);border:1px solid rgba(64,196,255,0.2);}
+.badge-context{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.2);}
+
+</style>
+</head>
+<body>
+
+<div class="nav-header">
+  <div class="nav-title">Section 06 &middot; Agentic Factory</div>
+  <a href="index.html" class="nav-back">Back to Hub</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">01 &middot; Engagement Model</div>
+  <div class="tab" onclick="showTab(1)">02 &middot; Discovery</div>
+  <div class="tab" onclick="showTab(2)">03 &middot; Outcome Mapping</div>
+  <div class="tab" onclick="showTab(3)">04 &middot; Infrastructure</div>
+  <div class="tab" onclick="showTab(4)">05 &middot; QMS Setup</div>
+  <div class="tab" onclick="showTab(5)">06 &middot; Continuous Delivery</div>
+  <div class="tab" onclick="showTab(6)">07 &middot; Workflow Activation</div>
+</div>
+
+<!-- --------------------------------------
+     TAB 01 · ENGAGEMENT MODEL
+---------------------------------------- -->
+<div class="panel active" id="tab-0"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Agentic RTBoss Delivery</div>
+    <h1 class="ph-title">Engagement Model</h1>
+    <p class="ph-sub">Every RTBoss engagement follows a six-stage continuous delivery model. We deploy infrastructure and QMS first, then build agents iteratively based on client-defined outcomes. No fixed-scope SOWs — we contract on business results and deliver whatever agents achieve them.</p>
+  </div>
+
+  <div class="callout pink">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>The agentic shift:</strong> Traditional delivery = "build these 12 specified things." Agentic delivery = "achieve these 3 business outcomes — we'll build whatever agents are needed, learn what works, and deploy continuously." The client buys outcomes. We deliver agents. The system learns and compounds.</div>
+  </div>
+
+  <div class="stage-flow">
+    <div class="stage-card" style="background:rgba(0,230,118,0.03);">
+      <div class="stage-num">STAGE 01</div>
+      <div class="stage-name" style="color:var(--green);">Discovery</div>
+      <div class="stage-duration" style="background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.2);">2 weeks</div>
+      <div class="stage-output">
+        <strong>Activities</strong>
+        Current state mapping, problem identification, outcome definition workshop
+      </div>
+      <div class="stage-output" style="margin-top:0.75rem;">
+        <strong>Gate Output</strong>
+        Discovery Report + Outcome Map
+      </div>
+    </div>
+    <div class="stage-card" style="background:rgba(64,196,255,0.03);">
+      <div class="stage-num">STAGE 02</div>
+      <div class="stage-name" style="color:var(--blue);">Outcome Mapping</div>
+      <div class="stage-duration" style="background:rgba(64,196,255,0.1);color:var(--blue);border:1px solid rgba(64,196,255,0.2);">1 week</div>
+      <div class="stage-output">
+        <strong>Activities</strong>
+        Outcome ? Agent mapping, pilot workflow selection, pricing, contract drafting
+      </div>
+      <div class="stage-output" style="margin-top:0.75rem;">
+        <strong>Gate Output</strong>
+        Signed Outcome Contract
+      </div>
+    </div>
+    <div class="stage-card" style="background:rgba(255,202,40,0.03);">
+      <div class="stage-num">STAGE 03</div>
+      <div class="stage-name" style="color:var(--amber);">Infrastructure</div>
+      <div class="stage-duration" style="background:rgba(255,202,40,0.1);color:var(--amber);border:1px solid rgba(255,202,40,0.2);">2 weeks</div>
+      <div class="stage-output">
+        <strong>Activities</strong>
+        Security baseline, M365 + Dataverse setup, Power Platform config
+      </div>
+      <div class="stage-output" style="margin-top:0.75rem;">
+        <strong>Gate Output</strong>
+        Verified environment
+      </div>
+    </div>
+    <div class="stage-card" style="background:rgba(29,233,182,0.03);">
+      <div class="stage-num">STAGE 04</div>
+      <div class="stage-name" style="color:var(--teal);">QMS Setup</div>
+      <div class="stage-duration" style="background:rgba(29,233,182,0.1);color:var(--teal);border:1px solid rgba(29,233,182,0.2);">1 week</div>
+      <div class="stage-output">
+        <strong>Activities</strong>
+        Brand, ontology, dictionary, persona, advisor config
+      </div>
+      <div class="stage-output" style="margin-top:0.75rem;">
+        <strong>Gate Output</strong>
+        QMS instantiated
+      </div>
+    </div>
+    <div class="stage-card" style="background:rgba(179,136,255,0.03);">
+      <div class="stage-num">STAGE 05</div>
+      <div class="stage-name" style="color:var(--violet);">Continuous Delivery</div>
+      <div class="stage-duration" style="background:rgba(179,136,255,0.1);color:var(--violet);border:1px solid rgba(179,136,255,0.2);">Ongoing</div>
+      <div class="stage-output">
+        <strong>Activities</strong>
+        2-week sprints, agent builds, testing, deployment, outcome tracking
+      </div>
+      <div class="stage-output" style="margin-top:0.75rem;">
+        <strong>Gate Output</strong>
+        Sprint reports
+      </div>
+    </div>
+    <div class="stage-card" style="background:rgba(244,143,177,0.03);">
+      <div class="stage-num">STAGE 06</div>
+      <div class="stage-name" style="color:var(--pink);">Workflow Activation</div>
+      <div class="stage-duration" style="background:rgba(244,143,177,0.1);color:var(--pink);border:1px solid rgba(244,143,177,0.2);">When ready</div>
+      <div class="stage-output">
+        <strong>Activities</strong>
+        First Growth or Fulfillment workflow live, outcome proof, expansion
+      </div>
+      <div class="stage-output" style="margin-top:0.75rem;">
+        <strong>Gate Output</strong>
+        Workflow Certificate
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Key Principles</span><div class="sec-line"></div></div>
+
+  <div class="callout green">
+    <div class="callout-icon">01</div>
+    <div class="callout-body"><strong>Outcomes, not features:</strong> Clients don't buy "12 Genies and 3 Streams" — they buy measurable business results. We map outcomes to agents, not the other way around. The build queue emerges from what the business needs to achieve, not what we think they should have.</div>
+  </div>
+
+  <div class="callout blue">
+    <div class="callout-icon">02</div>
+    <div class="callout-body"><strong>QMS before agents:</strong> The QMS (identity, standards, ontology, dictionary) must exist before any agent is built. Agents with no context produce generic outputs. Agents grounded in the client's QMS sound like they belong to that business. QMS is the foundation — agents are the tools.</div>
+  </div>
+
+  <div class="callout amber">
+    <div class="callout-icon">03</div>
+    <div class="callout-body"><strong>Continuous delivery, not big bang:</strong> Agents are built in 2-week sprints. Each sprint: design 1 agent ? build ? test ? deploy. The system learns incrementally. What works compounds. What doesn't gets refined or replaced. No "go-live day" — the system is always live and always improving.</div>
+  </div>
+
+  <div class="callout violet">
+    <div class="callout-icon">04</div>
+    <div class="callout-body"><strong>Workflow as proof:</strong> The first Growth or Fulfillment workflow is the proof point — not the end state. When 3+ agents are live and one end-to-end workflow runs with <15% human intervention, the model is proven. Then we expand to the next workflow. Workflows compound on agents.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Commercial Model</span><div class="sec-line"></div></div>
+
+  <table class="std-table">
+    <thead>
+      <tr><th>Component</th><th>What Client Pays For</th><th>What NEIT Delivers</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fixed MRR</td>
+        <td>Platform access, infrastructure, QMS, continuous agent deployment</td>
+        <td>Ongoing 2-week sprint cadence, agent builds from outcome queue, support, monitoring</td>
+      </tr>
+      <tr>
+        <td>Outcome Bonuses</td>
+        <td>Measurable business results (COGS reduction %, revenue lift, time saved)</td>
+        <td>Whatever agents are needed to achieve the outcome — no limit on agent count</td>
+      </tr>
+      <tr>
+        <td>Project Fee</td>
+        <td>Infrastructure setup, QMS instantiation, first workflow activation</td>
+        <td>Weeks 1–6: foundation build. One-time cost, then MRR commences.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout teal">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Why this works:</strong> Fixed MRR removes scope anxiety — client knows their monthly cost. Outcome bonuses align incentives — we only earn extra when they see real results. Project fee covers setup. Then continuous delivery begins and never stops. The system compounds value every sprint.</div>
+  </div>
+
+</div></div>
+
+<!-- --------------------------------------
+     TAB 02 · DISCOVERY
+---------------------------------------- -->
+<div class="panel" id="tab-1"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Stage 01</div>
+    <h1 class="ph-title">Discovery</h1>
+    <p class="ph-sub">Discovery in the agentic model is outcome-focused, not system-focused. We're not mapping which Mini-OS to deploy — we're identifying business problems and defining measurable outcomes. The output is an Outcome Map, not a technical spec.</p>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Discovery mindset shift:</strong> Don't ask "what systems do you use?" Ask "what keeps you up at night?" Don't ask "how many invoices per month?" Ask "what would change if invoice processing took 2 days instead of 2 weeks?" Listen for pain, frustration, and aspiration — these are the outcomes agents will deliver.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Discovery Sessions</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num green">SESSION 1</div>
+    <div class="pb-step-title">Leadership Interview — Outcomes & Strategy</div>
+    <div class="pb-step-body">
+      <p><strong>Duration:</strong> 90 minutes<br><strong>Attendees:</strong> Client sponsor, CSM, Technical Lead (observer)</p>
+      <p>The goal is to understand what success looks like and what's blocking it. Questions to ask:</p>
+      <ul>
+        <li><strong>Big picture:</strong> What does this business look like in 3 years if everything goes right? What's the single biggest thing standing between you and that vision?</li>
+        <li><strong>Cost & efficiency:</strong> Where do you feel like you're spending money you shouldn't have to? What's your biggest uncontrolled cost?</li>
+        <li><strong>Revenue & growth:</strong> What would it take to double revenue without doubling headcount? Where does the sales process slow down or leak?</li>
+        <li><strong>People & capacity:</strong> If you could give your team back 10 hours a week, what would they do with it? What do they complain about?</li>
+        <li><strong>Risk & compliance:</strong> What keeps you up at night from a legal, financial, or operational risk perspective?</li>
+      </ul>
+      <p><strong>Output:</strong> 3–5 high-level business outcomes the client cares about. Write them in their language, not technical language.</p>
+    </div>
+  </div>
+
+  <div class="pb-step">
+    <div class="pb-step-num green">SESSION 2</div>
+    <div class="pb-step-title">Operations Interview — Problems & Workflows</div>
+    <div class="pb-step-body">
+      <p><strong>Duration:</strong> 90 minutes<br><strong>Attendees:</strong> Operations lead, CSM, Technical Lead</p>
+      <p>The goal is to understand daily reality — where the friction actually is. Questions to ask:</p>
+      <ul>
+        <li><strong>Daily operations:</strong> Walk me through your Monday morning. What are the first five things you do? What lands in your inbox that you wish didn't?</li>
+        <li><strong>Repetitive work:</strong> What's the most repetitive task your team does? How long does it take per week? What would happen if it was automated?</li>
+        <li><strong>Escalations & failures:</strong> When something goes wrong — a missed deadline, a client complaint, a compliance issue — how do you find out? How long does it take to fix?</li>
+        <li><strong>Information gaps:</strong> Where does critical information live that it shouldn't? (Spreadsheets, email threads, people's heads) What breaks if a key person is sick for a week?</li>
+        <li><strong>Growth blockers:</strong> If you got 50% more customers tomorrow, what would break first? What doesn't scale?</li>
+      </ul>
+      <p><strong>Output:</strong> List of specific problems mapped to workflows (e.g., "Invoice processing takes 10 days, causes cash flow issues")</p>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Outcome Definition Workshop</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num green">WORKSHOP</div>
+    <div class="pb-step-title">Defining Measurable Outcomes</div>
+    <div class="pb-step-body">
+      <p><strong>Duration:</strong> 2 hours<br><strong>Attendees:</strong> Sponsor, Ops Lead, CSM, Technical Lead</p>
+      <p>Take the outputs from Sessions 1 and 2 and turn them into 3–5 measurable outcomes. Use this structure:</p>
+      <p><strong>Outcome format:</strong> [Action] + [Metric] + [Timeframe] + [Current vs Target]</p>
+      <p>Examples:</p>
+      <ul>
+        <li><strong>Cost reduction:</strong> "Reduce invoice processing cost by 40% within 90 days" (Current: $12k/month ? Target: $7.2k/month)</li>
+        <li><strong>Time saved:</strong> "Free up 20 hours per week of Finance team time within 60 days" (Current: 60 hrs/week manual work ? Target: 40 hrs/week)</li>
+        <li><strong>Revenue growth:</strong> "Increase lead-to-close rate by 25% within 120 days" (Current: 8% ? Target: 10%)</li>
+        <li><strong>Compliance:</strong> "Achieve 100% on-time regulatory reporting within 30 days" (Current: 70% on-time ? Target: 100%)</li>
+        <li><strong>Customer satisfaction:</strong> "Reduce support ticket resolution time by 50% within 90 days" (Current: 48 hrs ? Target: 24 hrs)</li>
+      </ul>
+      <p>Outcomes must be:</p>
+      <ul>
+        <li><strong>Measurable:</strong> Can be tracked with a number (%, hours, dollars, count)</li>
+        <li><strong>Attributable:</strong> The system can prove the outcome was achieved (before/after baseline)</li>
+        <li><strong>Valuable:</strong> The client would pay a bonus to achieve it</li>
+        <li><strong>Timebound:</strong> Has a target date (30/60/90/120 days typical)</li>
+      </ul>
+      <p><strong>Output:</strong> Outcome Map — the 3–5 prioritized outcomes that will form the basis of the Outcome Contract</p>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Discovery Report Structure</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num green">REPORT</div>
+    <div class="pb-step-title">Producing the Discovery Report</div>
+    <div class="pb-step-body">
+      <p>The Discovery Report is the gate output for Stage 01. Delivered within 3 business days of the Outcome Workshop. Use the QMS template. Contains:</p>
+      <ul>
+        <li><strong>Executive Summary</strong> — 1 page. Current state in client's language. Top 3 pain points. The opportunity (what changes if outcomes are achieved).</li>
+        <li><strong>Outcome Map</strong> — The 3–5 defined outcomes with current state, target state, timeframe, and measurement method.</li>
+        <li><strong>Problem Inventory</strong> — List of specific operational problems identified, grouped by workflow (e.g., Finance, Sales, Operations)</li>
+        <li><strong>Workflow Candidates</strong> — Which Growth or Fulfillment workflows are most relevant to the client based on their problems (pick 2–3 for next stage consideration)</li>
+        <li><strong>Preliminary Agent Hypothesis</strong> — High-level guess at which agent types might deliver the outcomes (Genies, Advisors, Streams). Not a commitment — just directional.</li>
+        <li><strong>Risks & Dependencies</strong> — What could prevent outcome achievement (data quality, change resistance, integration complexity)</li>
+      </ul>
+      <p><strong>Deliver to sponsor, schedule 30-min review call, get sign-off before proceeding to Outcome Mapping.</strong></p>
+    </div>
+  </div>
+
+</div></div>
+
+<!-- --------------------------------------
+     TAB 03 · OUTCOME MAPPING
+---------------------------------------- -->
+<div class="panel" id="tab-2"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Stage 02</div>
+    <h1 class="ph-title">Outcome Mapping & Contract</h1>
+    <p class="ph-sub">Turn the Outcome Map into an Outcome Contract — the commercial agreement that defines what business results the client will achieve and what they pay when those results are delivered. This replaces the traditional fixed-scope SOW.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">From Outcomes to Agents</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num amber">MAPPING</div>
+    <div class="pb-step-title">Outcome ? Agent Mapping Process</div>
+    <div class="pb-step-body">
+      <p>For each outcome in the Outcome Map, define which agent types are needed to deliver it. Use this logic:</p>
+      <ul>
+        <li><strong>If the outcome requires classification or routing decisions ?</strong> Genies (discrete specialist agents)</li>
+        <li><strong>If the outcome requires strategic guidance or recommendations ?</strong> Advisors (senior-scope AI with broader domain knowledge)</li>
+        <li><strong>If the outcome requires end-to-end process automation ?</strong> Streams (multi-Genie workflows)</li>
+        <li><strong>If the outcome requires real-time monitoring and alerts ?</strong> Systems (governing frameworks that watch fact streams)</li>
+      </ul>
+      <p>Example mapping:</p>
+    </div>
+  </div>
+
+  <div class="agent-map">
+    <div class="agent-map-title">Outcome: Reduce invoice processing cost by 40% in 90 days <span class="badge">Example</span></div>
+    <div class="agent-flow">
+      <div class="agent-node outcome">Invoice cost -40%</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node genie">Invoice Extraction Genie</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node genie">AP Approval Genie</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node genie">Payment Scheduling Genie</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node advisor">CFO Advisor</div>
+    </div>
+  </div>
+
+  <div class="agent-map">
+    <div class="agent-map-title">Outcome: Increase lead-to-close rate by 25% in 120 days <span class="badge">Example</span></div>
+    <div class="agent-flow">
+      <div class="agent-node outcome">Lead conversion +25%</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node genie">Lead Qualifier Genie</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node genie">Nurture Sequencing Genie</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node genie">Follow-up Reminder Genie</div>
+      <div class="agent-arrow">?</div>
+      <div class="agent-node advisor">Sales Advisor</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Pilot Workflow Selection</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num amber">PILOT</div>
+    <div class="pb-step-title">Choose the First Workflow to Prove</div>
+    <div class="pb-step-body">
+      <p>From the 2–3 workflow candidates identified in Discovery, select ONE to be the pilot. Use these criteria:</p>
+      <ul>
+        <li><strong>Highest outcome impact:</strong> Which workflow, if automated, delivers the most measurable outcome value?</li>
+        <li><strong>Clearest success metric:</strong> Can we prove it worked with data we can access?</li>
+        <li><strong>Fewest dependencies:</strong> Which workflow requires the least integration with legacy systems or manual processes we don't control?</li>
+        <li><strong>Sponsor visibility:</strong> Which workflow does the client sponsor see and care about most?</li>
+      </ul>
+      <p>The pilot workflow will be activated in Stage 06 once the required agents are built. It is the proof point that validates the entire engagement.</p>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Outcome Contract Structure</span><div class="sec-line"></div></div>
+
+  <div class="contract-block">
+    <div class="contract-title">Outcome Contract — Template Structure</div>
+    
+    <div class="contract-section">
+      <div class="contract-label">Section 1 · Engagement Scope</div>
+      <div class="contract-value">
+        <strong>Client:</strong> [Client Name]<br>
+        <strong>Engagement Type:</strong> RTBoss Agentic Delivery — [Pillar] ([Growth / Fulfillment / Innovation / Logistics] Engine)<br>
+        <strong>Start Date:</strong> [Date]<br>
+        <strong>Primary Contacts:</strong> [Sponsor, Ops Lead, NEIT CSM, NEIT Tech Lead]
+      </div>
+    </div>
+
+    <div class="contract-section">
+      <div class="contract-label">Section 2 · Outcome Commitments</div>
+      <div class="contract-value">
+        The following measurable outcomes will be achieved through continuous agent deployment:
+      </div>
+      <div class="outcome-grid" style="margin-top:1rem;">
+        <div class="outcome-card" style="--o-color:var(--green);">
+          <div class="outcome-type">Outcome 01</div>
+          <div class="outcome-title">Invoice Processing Cost Reduction</div>
+          <div class="outcome-metric">
+            <div class="outcome-metric-label">Target</div>
+            <div class="outcome-metric-value">-40%</div>
+          </div>
+          <div class="outcome-metric">
+            <div class="outcome-metric-label">Current ? Target</div>
+            <div class="outcome-metric-value" style="font-size:0.9rem;">$12k/mo ? $7.2k/mo</div>
+          </div>
+          <div class="outcome-metric">
+            <div class="outcome-metric-label">Timeframe</div>
+            <div class="outcome-metric-value" style="font-size:0.9rem;">90 days</div>
+          </div>
+        </div>
+        <div class="outcome-card" style="--o-color:var(--blue);">
+          <div class="outcome-type">Outcome 02</div>
+          <div class="outcome-title">Lead Conversion Rate Increase</div>
+          <div class="outcome-metric">
+            <div class="outcome-metric-label">Target</div>
+            <div class="outcome-metric-value">+25%</div>
+          </div>
+          <div class="outcome-metric">
+            <div class="outcome-metric-label">Current ? Target</div>
+            <div class="outcome-metric-value" style="font-size:0.9rem;">8% ? 10%</div>
+          </div>
+          <div class="outcome-metric">
+            <div class="outcome-metric-label">Timeframe</div>
+            <div class="outcome-metric-value" style="font-size:0.9rem;">120 days</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contract-section">
+      <div class="contract-label">Section 3 · Commercial Terms</div>
+      <div class="contract-value">
+        <strong>Project Fee:</strong> $[amount] — covers Infrastructure (2 weeks) + QMS Setup (1 week) + first 4 sprints of agent builds<br>
+        <strong>Monthly MRR:</strong> $[amount] — commences after Project Fee phase. Includes continuous 2-week sprint cadence, unlimited agent builds from outcome queue, monitoring, support.<br>
+        <strong>Outcome Bonuses:</strong> Paid when measurable outcomes are achieved and verified:
+      </div>
+      <div class="bonus-grid">
+        <div class="bonus-item">
+          <div class="bonus-trigger">When Outcome 01 achieved (verified by data)</div>
+          <div class="bonus-amount">$2,500</div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-trigger">When Outcome 02 achieved (verified by data)</div>
+          <div class="bonus-amount">$3,000</div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-trigger">When Pilot Workflow certified (<15% human intervention)</div>
+          <div class="bonus-amount">$2,000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contract-section">
+      <div class="contract-label">Section 4 · Pilot Workflow</div>
+      <div class="contract-value">
+        <strong>Selected Workflow:</strong> [Growth / Fulfillment] — [Workflow Name]<br>
+        <strong>Workflow Goal:</strong> [End-to-end automation target]<br>
+        <strong>Success Criteria:</strong> Workflow running with <15% human intervention for 2 consecutive weeks, measured via Digital Twin logs
+      </div>
+    </div>
+
+    <div class="contract-section">
+      <div class="contract-label">Section 5 · Client Responsibilities</div>
+      <div class="contract-value">
+        Client must provide: (1) Access to necessary systems and data, (2) Stakeholder availability for weekly sprint reviews, (3) Timely approval of QMS configuration, (4) Designation of Ops Lead for escalation handling. Delays caused by client = timeline adjustment, not fee adjustment.
+      </div>
+    </div>
+
+    <div class="contract-section">
+      <div class="contract-label">Section 6 · Change & Expansion</div>
+      <div class="contract-value">
+        New outcomes can be added at any time via Change Request. New outcome = revised Outcome Bonus structure. Agent builds are unlimited within the continuous delivery model — no per-agent fees. Workflow expansions (activating 2nd, 3rd workflows) are included in MRR.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Why this contract structure works:</strong> It removes scope anxiety (no arguing over whether a 13th Genie is "in scope"). It aligns incentives (we only earn bonuses when outcomes are achieved). It enables continuous improvement (the agent build queue evolves as we learn). And it's universal across all pillars — Growth, Fulfillment, Innovation, Logistics all use the same contract template.</div>
+  </div>
+
+</div></div>
+
+<!-- --------------------------------------
+     TAB 04 · INFRASTRUCTURE
+---------------------------------------- -->
+<div class="panel" id="tab-3"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Stage 03</div>
+    <h1 class="ph-title">Infrastructure Setup</h1>
+    <p class="ph-sub">Infrastructure must be live before QMS or agents. This stage is identical across all pillars and all clients — Security baseline (week 1), Workspace + Dataverse (week 2). No shortcuts. No exceptions.</p>
+  </div>
+
+  <div class="callout teal">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Infrastructure is pillar-agnostic:</strong> Whether the client is deploying a Growth Engine or a Fulfillment Engine, the foundation is identical. Security, M365, Dataverse, Power Platform — these are prerequisites for any RTBoss deployment. Build them once, build them correctly, never revisit.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Week 1 · Security Baseline</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num teal">W1</div>
+    <div class="pb-step-title">Security & Identity Foundation</div>
+    <div class="pb-step-body">
+      <p>Reference: <strong>Section 05 &middot; Tab 08 · Security & Compliance</strong>. Complete in this exact order:</p>
+      <ul>
+        <li><strong>Entra ID:</strong> Conditional access policies, MFA for all users, Privileged Identity Management for admin roles</li>
+        <li><strong>Intune:</strong> Device enrollment, compliance policies, app protection. All RTBoss-accessing devices must be compliant.</li>
+        <li><strong>Defender:</strong> Defender for Business or E3/E5. Enable attack surface reduction, endpoint detection.</li>
+        <li><strong>Purview:</strong> Data classification labels, DLP policies. Required before any business data enters Dataverse.</li>
+        <li><strong>Admin accounts:</strong> Break-glass accounts created, documented, stored in vault. Never use global admin for routine work.</li>
+      </ul>
+      <p><strong>Do not proceed to Week 2 until all items verified and signed off.</strong></p>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Week 2 · Workspace & Data Layer</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num teal">W2</div>
+    <div class="pb-step-title">Microsoft 365 + Dataverse Configuration</div>
+    <div class="pb-step-body">
+      <ul>
+        <li><strong>Microsoft 365:</strong> Teams channels (one per workflow or domain), SharePoint sites, Loop workspaces, M365 Copilot Notebooks</li>
+        <li><strong>Dataverse environment:</strong> Create production environment, deploy NEIT core solution (<code>neit_rtbos_core</code>), configure security roles</li>
+        <li><strong>Power Platform:</strong> Power Automate environment, Copilot Studio environment, both linked to Dataverse</li>
+        <li><strong>Azure foundations:</strong> Resource group, AI Foundry project (for Advisors), Cosmos DB (Digital Twin), Fabric workspace (if RTBI in scope)</li>
+      </ul>
+      <p><strong>Verification checklist:</strong> All items in Section 06 &middot; Tab 04 · Onboarding Verification must be green before proceeding to QMS.</p>
+    </div>
+  </div>
+
+  <div class="check-grid">
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Entra ID:</strong> Conditional access + MFA active</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Intune:</strong> All devices enrolled and compliant</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Defender:</strong> Endpoint protection active</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Purview:</strong> Data labels deployed</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Teams:</strong> Channels created, naming applied</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>SharePoint:</strong> Sites created, Notebooks configured</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Dataverse:</strong> neit_ tables deployed</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Power Automate:</strong> Environment ready</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Copilot Studio:</strong> Environment ready</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Azure:</strong> AI Foundry + Cosmos DB live</div></div>
+  </div>
+
+</div></div>
+
+<!-- --------------------------------------
+     TAB 05 · QMS SETUP
+---------------------------------------- -->
+<div class="panel" id="tab-4"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Stage 04</div>
+    <h1 class="ph-title">QMS Setup</h1>
+    <p class="ph-sub">The QMS (Quality Management System) is the identity and standards layer that grounds all agents in the client's context. It must be instantiated BEFORE any agents are built. Without QMS, agents are generic. With QMS, agents sound like they belong to this business.</p>
+  </div>
+
+  <div class="callout pink">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>QMS is not optional:</strong> In the agentic model, QMS comes before agents — not in parallel, not after. Agents built without QMS context produce generic outputs that clients reject. QMS is the difference between "an AI did this" and "my business did this." It is the foundation agents build on.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">QMS Components — What Gets Built</span><div class="sec-line"></div></div>
+
+  <div class="qms-config">
+    <div class="qms-tile">
+      <div class="qms-tile-head">
+        <div class="qms-tile-icon">??</div>
+        <div class="qms-tile-title">Brand & Identity <span class="config-badge badge-first">First</span></div>
+      </div>
+      <div class="qms-tile-body">
+        <ul>
+          <li>Logo files uploaded to SharePoint brand library</li>
+          <li>Color palette, typography documented</li>
+          <li>Voice & tone guidelines — formal/informal register, words to avoid</li>
+          <li>Email signature, document templates configured</li>
+        </ul>
+      </div>
+    </div>
+    <div class="qms-tile">
+      <div class="qms-tile-head">
+        <div class="qms-tile-icon">??</div>
+        <div class="qms-tile-title">Dictionary <span class="config-badge badge-core">Core</span></div>
+      </div>
+      <div class="qms-tile-body">
+        <ul>
+          <li>RTBoss master dictionary as base layer</li>
+          <li>Client-specific terms added (jargon, product names, process names)</li>
+          <li>Terms with different meanings in their industry vs. generic usage</li>
+          <li>Published to Notebook — grounding doc for all agents</li>
+        </ul>
+      </div>
+    </div>
+    <div class="qms-tile">
+      <div class="qms-tile-head">
+        <div class="qms-tile-icon">???</div>
+        <div class="qms-tile-title">Ontology <span class="config-badge badge-core">Core</span></div>
+      </div>
+      <div class="qms-tile-body">
+        <ul>
+          <li>NEIT master ontology as base</li>
+          <li>Client entity types added (products, services, client segments)</li>
+          <li>Classification trees for their industry</li>
+          <li>Canonical terms mapped to client terminology</li>
+        </ul>
+      </div>
+    </div>
+    <div class="qms-tile">
+      <div class="qms-tile-head">
+        <div class="qms-tile-icon">??</div>
+        <div class="qms-tile-title">Personas <span class="config-badge badge-context">Context</span></div>
+      </div>
+      <div class="qms-tile-body">
+        <ul>
+          <li>Map org structure to RTBoss Persona types</li>
+          <li>For each role: domain, skills, RTBoss interaction model</li>
+          <li>Define escalation personas — who gets what alerts</li>
+          <li>Configure in Copilot Studio (notification preferences, communication style)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="qms-tile">
+      <div class="qms-tile-head">
+        <div class="qms-tile-icon">??</div>
+        <div class="qms-tile-title">Advisors <span class="config-badge badge-context">Context</span></div>
+      </div>
+      <div class="qms-tile-body">
+        <ul>
+          <li>Select which Advisors are in scope from master QMS</li>
+          <li>Configure with client context (industry, terminology, key contacts)</li>
+          <li>Set authority boundaries — recommend vs. require human sign-off</li>
+          <li>Test with 5 domain questions before activation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="qms-tile">
+      <div class="qms-tile-head">
+        <div class="qms-tile-icon">??</div>
+        <div class="qms-tile-title">Templates <span class="config-badge badge-context">Context</span></div>
+      </div>
+      <div class="qms-tile-body">
+        <ul>
+          <li>Copy master templates from NEIT QMS</li>
+          <li>Apply client brand (logo, colors, fonts)</li>
+          <li>Configure invoice, SOW, report templates</li>
+          <li>Publish to M365 template gallery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">QMS Build Sequence</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num teal">ORDER</div>
+    <div class="pb-step-title">QMS Must Be Built In This Order</div>
+    <div class="pb-step-body">
+      <p>The sequence matters. Each layer builds on the previous:</p>
+      <ul>
+        <li><strong>Day 1–2: Brand & Identity</strong> — This grounds everything else. Agents need to know what the client sounds like before they can write anything.</li>
+        <li><strong>Day 2–3: Dictionary + Ontology</strong> — The canonical vocabulary and entity model. Agents need to know what words mean in this business context.</li>
+        <li><strong>Day 4: Personas</strong> — Who the agents interact with, how they communicate, who escalates to whom.</li>
+        <li><strong>Day 5: Advisors + Templates</strong> — Higher-level context that builds on the foundation. Advisors use the dictionary and ontology. Templates use the brand.</li>
+      </ul>
+      <p><strong>Total duration: 1 week (5 business days). Output: QMS instantiated and published to the client Notebook.</strong></p>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>QMS as a living system:</strong> QMS is not "set and forget." As agents are deployed and workflows are activated, the Dictionary and Ontology evolve. New terms are added. New personas emerge. The QMS compounds knowledge over time — every sprint refines it. This is why it must exist before agents, not after.</div>
+  </div>
+
+</div></div>
+
+<!-- --------------------------------------
+     TAB 06 · CONTINUOUS DELIVERY
+---------------------------------------- -->
+<div class="panel" id="tab-5"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Stage 05 · Ongoing</div>
+    <h1 class="ph-title">Continuous Agent Delivery</h1>
+    <p class="ph-sub">Agents are built in 2-week sprints. Each sprint: design 1 agent ? build ? test ? deploy. The build queue is prioritized by outcome impact. The system learns incrementally. This stage never ends — continuous delivery is the operating model.</p>
+  </div>
+
+  <div class="callout violet">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Continuous delivery mindset:</strong> There is no "go-live day" where all agents deploy at once. Instead, agents are deployed one at a time, every 2 weeks, as soon as they pass testing. The system is always live. The system is always improving. Outcomes compound as more agents activate.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Sprint Cadence — 2-Week Cycles</span><div class="sec-line"></div></div>
+
+  <div class="sprint-timeline">
+    <div class="sprint-card" style="--sp-color:var(--green);">
+      <div class="sprint-week">Week 1 · Sprint N</div>
+      <div class="sprint-title">Design & Build</div>
+      <ul class="sprint-activities">
+        <li>Select next agent from outcome queue</li>
+        <li>Define trigger, inputs, outputs, tools</li>
+        <li>Build in Copilot Studio or AI Foundry</li>
+        <li>Wire to QMS grounding docs</li>
+        <li>Internal testing (5 test cases minimum)</li>
+      </ul>
+    </div>
+    <div class="sprint-card" style="--sp-color:var(--blue);">
+      <div class="sprint-week">Week 2 · Sprint N</div>
+      <div class="sprint-title">Test & Deploy</div>
+      <ul class="sprint-activities">
+        <li>Client UAT (3 real-world test cases)</li>
+        <li>Refinement based on UAT feedback</li>
+        <li>Deploy to Production environment</li>
+        <li>Monitor for 48 hours (hypercare)</li>
+        <li>Sprint review with client stakeholders</li>
+      </ul>
+    </div>
+    <div class="sprint-card" style="--sp-color:var(--amber);">
+      <div class="sprint-week">Week 1 · Sprint N+1</div>
+      <div class="sprint-title">Monitor & Iterate</div>
+      <ul class="sprint-activities">
+        <li>Previous agent now in steady state</li>
+        <li>Outcome metrics tracked daily</li>
+        <li>Next agent selected from queue</li>
+        <li>Build queue re-prioritized based on learnings</li>
+        <li>Repeat cycle</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Build Queue Prioritization</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num violet">QUEUE</div>
+    <div class="pb-step-title">How to Prioritize the Next Agent</div>
+    <div class="pb-step-body">
+      <p>At the start of each sprint, the build queue is re-evaluated. Use this decision tree:</p>
+      <ul>
+        <li><strong>Priority 1: Blocked outcomes</strong> — If an outcome is not progressing because a specific agent is missing, build that agent next.</li>
+        <li><strong>Priority 2: Highest outcome impact</strong> — Which agent, if deployed, moves the needle most on a committed outcome?</li>
+        <li><strong>Priority 3: Workflow enablement</strong> — Which agent is needed to complete the pilot workflow end-to-end?</li>
+        <li><strong>Priority 4: Dependency resolution</strong> — Which agent is a prerequisite for 2+ other agents (e.g., a classifier that feeds multiple downstream Genies)?</li>
+        <li><strong>Priority 5: Quick wins</strong> — If all else is equal, build the simplest agent (prove momentum, build confidence)</li>
+      </ul>
+      <p>The build queue is visible to the client. The client can request re-prioritization. But the final call is NEIT's — we optimize for outcome delivery, not feature requests.</p>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Weekly Stakeholder Check-In</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num violet">WEEKLY</div>
+    <div class="pb-step-title">Sprint Review Cadence</div>
+    <div class="pb-step-body">
+      <p><strong>Every Friday, 30 minutes, standing agenda:</strong></p>
+      <ul>
+        <li><strong>Deployed this sprint:</strong> Which agent went live? What does it do? Show it working on a real Fact.</li>
+        <li><strong>Outcome tracking:</strong> Current state vs. target for each committed outcome. Are we on track?</li>
+        <li><strong>Next sprint preview:</strong> Which agent is queued next? Why? When will it be ready?</li>
+        <li><strong>Blockers & dependencies:</strong> Anything preventing progress? Data access, stakeholder availability, integration issues?</li>
+        <li><strong>Build queue adjustment:</strong> Client can request re-prioritization. NEIT confirms or explains why not.</li>
+      </ul>
+      <p><strong>Attendees:</strong> Client sponsor or delegate, NEIT CSM, NEIT Tech Lead. Operations lead joins when their domain is impacted.</p>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">When to Build vs. Refine</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num violet">DECISION</div>
+    <div class="pb-step-title">Build New Agent vs. Improve Existing Agent</div>
+    <div class="pb-step-body">
+      <p>Not every sprint builds a new agent. Sometimes the best use of a sprint is refining an existing agent. Use this logic:</p>
+      <ul>
+        <li><strong>Build new if:</strong> An outcome is blocked and no existing agent can deliver it. Or the pilot workflow has a missing step.</li>
+        <li><strong>Refine existing if:</strong> An agent's error rate is >5%. Or escalation rate is >25% after 4 weeks. Or client feedback says "this agent doesn't understand our business."</li>
+      </ul>
+      <p>Refinement sprints are not wasted sprints. An agent that goes from 70% accuracy to 95% accuracy often delivers more outcome value than deploying a new 80% accurate agent.</p>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Continuous delivery compounds:</strong> Sprint 1 deploys 1 agent. Sprint 2 deploys agent 2, which uses agent 1's output. Sprint 3 refines agent 1 based on what agent 2 revealed. Sprint 4 deploys agent 3, which orchestrates 1 and 2. By sprint 10, the system is doing things no individual agent could do alone. This is the compounding effect.</div>
+  </div>
+
+</div></div>
+
+<!-- --------------------------------------
+     TAB 07 · WORKFLOW ACTIVATION
+---------------------------------------- -->
+<div class="panel" id="tab-6"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Stage 06 · Proof Point</div>
+    <h1 class="ph-title">Workflow Activation</h1>
+    <p class="ph-sub">The first Growth or Fulfillment workflow is the proof point — not the end state. When the workflow runs end-to-end with <15% human intervention for 2 consecutive weeks, the agentic model is validated. Then we expand to the next workflow.</p>
+  </div>
+
+  <div class="callout pink">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>Workflow as proof:</strong> A single deployed agent proves the agent works. A workflow proves the *system* works — that agents can orchestrate, that the QMS grounds them correctly, that outcomes compound. The workflow is where RTBoss transitions from "automation" to "operating system."</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Workflow Readiness Criteria</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num blue">READY</div>
+    <div class="pb-step-title">When Is a Workflow Ready to Activate?</div>
+    <div class="pb-step-body">
+      <p>A workflow can be activated when ALL of these are true:</p>
+      <ul>
+        <li><strong>All workflow steps have an agent:</strong> Every step in the workflow (capture ? classify ? route ? action ? verify) has a deployed Genie or Advisor assigned.</li>
+        <li><strong>Agent error rate <5%:</strong> Each agent in the workflow is processing Facts with <5% error rate in standalone testing.</li>
+        <li><strong>End-to-end test passed:</strong> A real Fact has been manually injected and successfully flowed through all workflow steps without human intervention.</li>
+        <li><strong>Escalation paths verified:</strong> When an agent can't proceed, it escalates correctly to the right Persona.</li>
+        <li><strong>Digital Twin logging verified:</strong> Every agent decision in the workflow writes to Cosmos DB.</li>
+      </ul>
+      <p><strong>Do not activate a workflow if any of these are false. Fix the gaps first.</strong></p>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Example Workflows — Growth & Fulfillment</span><div class="sec-line"></div></div>
+
+  <div class="workflow-grid">
+    <div class="workflow-card">
+      <div class="workflow-header">
+        <div class="workflow-type" style="color:var(--green);">Growth Engine</div>
+        <div class="workflow-name">Lead to Close Workflow</div>
+      </div>
+      <div class="workflow-body">
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--green);">01</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Lead Capture</div>
+            <div class="workflow-step-agents">Form submission, email, LinkedIn ? Lead Fact created in Dataverse</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--green);">02</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Lead Qualification</div>
+            <div class="workflow-step-agents"><strong>Lead Qualifier Genie</strong> scores lead, assigns tier (A/B/C)</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--green);">03</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Nurture Sequencing</div>
+            <div class="workflow-step-agents"><strong>Nurture Genie</strong> selects email sequence based on tier, industry, pain points</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--green);">04</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Follow-Up Scheduling</div>
+            <div class="workflow-step-agents"><strong>Follow-Up Genie</strong> monitors engagement, schedules reminders for sales rep</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--green);">05</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Close Monitoring</div>
+            <div class="workflow-step-agents"><strong>Sales Advisor</strong> flags stalled deals, recommends actions to rep</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="workflow-card">
+      <div class="workflow-header">
+        <div class="workflow-type" style="color:var(--blue);">Fulfillment Engine</div>
+        <div class="workflow-name">Order to Delivery Workflow</div>
+      </div>
+      <div class="workflow-body">
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--blue);">01</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Order Capture</div>
+            <div class="workflow-step-agents">Sales order, email, portal ? Order Fact created</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--blue);">02</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Inventory Check</div>
+            <div class="workflow-step-agents"><strong>Inventory Genie</strong> verifies stock, flags backorders, suggests alternatives</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--blue);">03</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Dispatch Scheduling</div>
+            <div class="workflow-step-agents"><strong>Dispatch Genie</strong> assigns warehouse, generates pick list, schedules shipment</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--blue);">04</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Delivery Tracking</div>
+            <div class="workflow-step-agents"><strong>Tracking Genie</strong> monitors shipment, sends customer updates, flags delays</div>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-step-num" style="color:var(--blue);">05</div>
+          <div class="workflow-step-content">
+            <div class="workflow-step-name">Completion Verification</div>
+            <div class="workflow-step-agents"><strong>Operations Advisor</strong> confirms delivery, triggers invoice, logs to Digital Twin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Workflow Certification</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num blue">CERT</div>
+    <div class="pb-step-title">How to Certify a Workflow</div>
+    <div class="pb-step-body">
+      <p>A workflow is certified when it meets this standard for 2 consecutive weeks:</p>
+      <ul>
+        <li><strong><15% human intervention:</strong> Of all Facts that enter the workflow, 85%+ complete end-to-end without a human touching them. Measured via Digital Twin logs.</li>
+        <li><strong><3% error rate:</strong> Of all Facts processed, <3% result in an error (wrong classification, incorrect action, system failure).</li>
+        <li><strong>No critical failures:</strong> No data loss, no compliance violations, no client-facing errors that require apology or remediation.</li>
+      </ul>
+      <p><strong>When certified:</strong></p>
+      <ul>
+        <li>Issue a Workflow Certificate (document stored in client SharePoint + QMS)</li>
+        <li>Trigger outcome bonus if the workflow delivered a contracted outcome</li>
+        <li>Select the next workflow from the backlog to activate</li>
+        <li>Celebrate with the client — this is the proof that the agentic model works</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Expansion Path</span><div class="sec-line"></div></div>
+
+  <div class="pb-step">
+    <div class="pb-step-num blue">EXPAND</div>
+    <div class="pb-step-title">From First Workflow to Full RTBoss</div>
+    <div class="pb-step-body">
+      <p>Once the first workflow is certified, the expansion path is clear:</p>
+      <ul>
+        <li><strong>Workflow 2:</strong> Select the next highest-value workflow from Discovery. Build the required agents in sprints. Activate when ready. Certify.</li>
+        <li><strong>Workflow 3:</strong> Repeat. By the third workflow, many agents are reusable — the build velocity increases.</li>
+        <li><strong>Cross-workflow orchestration:</strong> Once 3+ workflows are live, activate a Value Engine that orchestrates them (e.g., Growth Engine coordinates Lead Workflow + Upsell Workflow + Retention Workflow).</li>
+        <li><strong>Outcome compounding:</strong> Each new workflow delivers additional outcomes. The system doesn't just automate — it optimizes across workflows.</li>
+      </ul>
+      <p>This is how RTBoss scales. Not by deploying 50 agents at once. By proving one workflow, then the next, then the next. Each workflow increases autonomy. Each workflow reduces human dependency. The system compounds.</p>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>The agentic delivery model at scale:</strong> Start with outcomes. Build QMS first. Deploy agents iteratively. Prove the first workflow. Expand to the next. Repeat. Every client follows this model — Growth, Fulfillment, Innovation, Logistics. The playbook is universal. The outcomes are specific. The system compounds.</div>
+  </div>
+
+</div></div>
+
+<script>
+function showTab(n){
+  const tabs=document.querySelectorAll('.tab');
+  const panels=document.querySelectorAll('.panel');
+  tabs.forEach((t,i)=>{
+    if(i===n){t.classList.add('active');panels[i].classList.add('active');}
+    else{t.classList.remove('active');panels[i].classList.remove('active');}
+  });
+}
+function initGroupReviewSync_S08(){
+  var SECTION_KEY='S08', stateKey='rtboss_content_review_08_delivery_v1', progressKey='rtboss_content_review_progress_v1';
+  var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
+  function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
+  function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
+  function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
+  document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
+  applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
+}
+document.addEventListener('DOMContentLoaded', initGroupReviewSync_S08);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTBoss - Section 08 - Execution Standards</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020408;--s1:#0a1420;--s2:#12202e;--s3:#1a2c3e;
+  --border:#2a4060;--text:#e8f4ff;--mid:#a0b8d0;--dim:#607890;
+  --blue:#40c4ff;--green:#00e676;--amber:#ffca28;--violet:#b388ff;
+  --red:#ff5252;--teal:#1de9b6;--orange:#ff9100;--pink:#f48fb1;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;}
+
+/* -- NAV -- */
+.nav-header{background:var(--s1);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-title{font-size:1.2rem;font-weight:700;color:#00e676 !important;}
+.nav-back{color:var(--mid);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.nav-back:hover{color:#00e676 !important;}
+.tabs{background:var(--s1);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0.5rem;overflow-x:auto;position:sticky;top:57px;z-index:99;}
+.tab{padding:1rem 1.5rem;cursor:pointer;color:var(--dim);border:none;border-bottom:2px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;white-space:nowrap;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.tab:hover{color:var(--mid);}
+.tab.active{color:#00e676 !important;border-bottom-color:#00e676 !important;}
+.panel{display:none;}.panel.active{display:block;}
+.pw{max-width:1400px;margin:0 auto;padding-left:2rem;padding-right:2rem;}
+
+/* -- PAGE HEADER -- */
+.ph{text-align:center;padding:3rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem;}
+.ph-kicker{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;}
+.ph-title{font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem;}
+.ph-sub{font-size:1.05rem;color:var(--mid);max-width:800px;margin:0 auto;line-height:1.8;}
+
+/* -- SECTION HEADS -- */
+.sec-head{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
+.sec-label{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:var(--border);}
+
+/* -- CALLOUTS -- */
+.callout{background:var(--s2);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;display:flex;gap:0.75rem;}
+.callout.amber{border-left-color:var(--amber);}
+.callout.green{border-left-color:var(--green);}
+.callout.teal{border-left-color:var(--teal);}
+.callout.violet{border-left-color:var(--violet);}
+.callout.red{border-left-color:var(--red);}
+.callout-icon{font-size:1.2rem;flex-shrink:0;margin-top:0.1rem;}
+.callout-body{font-size:0.88rem;color:var(--mid);line-height:1.75;}
+.callout-body strong{color:var(--text);}
+
+/* -- CONTENT BLOCKS -- */
+.content-block{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+.content-block h3{font-size:1.05rem;font-weight:700;margin-bottom:0.75rem;color:var(--text);}
+.content-block p{color:var(--mid);line-height:1.8;margin-bottom:0.75rem;font-size:0.9rem;}
+.content-block p:last-child{margin-bottom:0;}
+.content-block ul{padding-left:1.25rem;color:var(--mid);line-height:1.8;font-size:0.9rem;margin-bottom:0.75rem;}
+.content-block li{margin-bottom:0.4rem;}
+.content-block strong{color:var(--text);}
+
+/* -- COMPONENT GRID -- */
+.component-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin:2rem 0;}
+.component-card{background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--c-color);border-radius:0 0 12px 12px;padding:1.5rem;}
+.component-id{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--c-color);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem;}
+.component-name{font-size:1rem;font-weight:700;margin-bottom:0.4rem;}
+.component-where{font-family:'Fira Code',monospace;font-size:0.62rem;color:var(--dim);margin-bottom:0.75rem;}
+.component-body{font-size:0.82rem;color:var(--mid);line-height:1.7;}
+.component-body ul{padding-left:1rem;margin-top:0.5rem;}
+.component-body li{margin-bottom:0.3rem;}
+
+/* -- TWO-COL -- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0;}
+@media(max-width:750px){.two-col{grid-template-columns:1fr;}}
+
+/* -- PIPELINE -- */
+.pipeline{display:flex;align-items:center;gap:0;margin:1.5rem 0;flex-wrap:wrap;}
+.pl-node{background:var(--s1);border:1px solid var(--border);padding:0.6rem 1rem;font-size:0.78rem;font-weight:600;white-space:nowrap;}
+.pl-node:first-child{border-radius:8px 0 0 8px;}
+.pl-node:last-child{border-radius:0 8px 8px 0;}
+.pl-arrow{background:var(--s2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.6rem 0.5rem;color:var(--dim);font-size:0.9rem;}
+
+/* -- TABLES -- */
+.std-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.85rem;}
+.std-table th{font-family:'Fira Code',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);padding:0.6rem 1rem;border-bottom:1px solid var(--border);text-align:left;}
+.std-table td{padding:0.65rem 1rem;border-bottom:1px solid rgba(42,64,96,0.4);color:var(--mid);vertical-align:top;line-height:1.6;}
+.std-table td:first-child{color:var(--text);font-weight:600;}
+.std-table tr:last-child td{border-bottom:none;}
+.std-table tr:hover td{background:rgba(42,64,96,0.15);}
+
+/* -- SCHEMA BLOCK -- */
+.schema-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1rem 1.25rem;font-family:'Fira Code',monospace;font-size:0.68rem;color:var(--green);line-height:1.8;overflow-x:auto;white-space:pre;margin:1rem 0;}
+
+/* -- FACT CARDS -- */
+.fact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0;}
+.fact-card{background:var(--s1);border:1px solid var(--border);border-left:3px solid var(--f-color);border-radius:0 10px 10px 0;padding:1.2rem;}
+.fact-type-label{font-family:'Fira Code',monospace;font-size:0.8rem;font-weight:600;color:var(--f-color);margin-bottom:0.25rem;}
+.fact-trigger{font-size:0.8rem;color:var(--mid);line-height:1.6;margin-bottom:0.6rem;}
+.fact-badges{display:flex;gap:0.3rem;flex-wrap:wrap;margin-bottom:0.5rem;}
+.src-auto{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.1rem 0.5rem;border-radius:3px;background:rgba(0,230,118,0.08);color:var(--green);border:1px solid rgba(0,230,118,0.2);}
+.src-manual{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.1rem 0.5rem;border-radius:3px;background:rgba(255,202,40,0.08);color:var(--amber);border:1px solid rgba(255,202,40,0.2);}
+.src-phase{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.1rem 0.5rem;border-radius:3px;background:rgba(64,196,255,0.08);color:var(--blue);border:1px solid rgba(64,196,255,0.2);}
+
+/* -- MATURITY STAGES -- */
+.maturity-track{margin:2rem 0;}
+.maturity-stage{display:grid;grid-template-columns:110px 1fr;gap:0;margin-bottom:0.5rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color 0.2s;}
+.maturity-stage:hover{border-color:var(--amber);}
+.ms-left{background:var(--s1);padding:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid var(--border);text-align:center;}
+.ms-pct{font-family:'Fira Code',monospace;font-size:1.5rem;font-weight:700;line-height:1;}
+.ms-stage-label{font-family:'Fira Code',monospace;font-size:0.52rem;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.3rem;}
+.ms-right{background:var(--s2);padding:1rem 1.25rem;}
+.ms-name{font-weight:700;font-size:0.92rem;margin-bottom:0.25rem;}
+.ms-desc{font-size:0.78rem;color:var(--mid);line-height:1.65;margin-bottom:0.6rem;}
+.ms-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.ms-tag{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.1rem 0.45rem;border-radius:3px;background:rgba(255,202,40,0.07);color:var(--amber);border:1px solid rgba(255,202,40,0.15);}
+
+/* -- THREE-LENS GRID -- */
+.lens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin:2rem 0;}
+.lens-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.lens-header{background:var(--s2);padding:1.25rem;border-bottom:1px solid var(--border);}
+.lens-kicker{font-family:'Fira Code',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.3rem;}
+.lens-title{font-size:1.05rem;font-weight:700;}
+.lens-body{padding:1.25rem;}
+.lens-row{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1px solid rgba(42,64,96,0.4);font-size:0.82rem;}
+.lens-row:last-child{border-bottom:none;}
+.lens-row-label{color:var(--mid);}
+.lens-row-val{font-family:'Fira Code',monospace;font-size:0.78rem;font-weight:600;}
+.lens-row-val.green{color:var(--green);}
+.lens-row-val.amber{color:var(--amber);}
+.lens-row-val.blue{color:var(--blue);}
+.lens-row-val.dim{color:var(--dim);}
+
+/* -- OPPORTUNITY CARDS -- */
+.opp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;margin:2rem 0;}
+.opp-card{background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.4rem;position:relative;overflow:hidden;}
+.opp-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--o-color);}
+.opp-type{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--o-color);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;padding-left:0.75rem;}
+.opp-title{font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;padding-left:0.75rem;}
+.opp-signal{font-size:0.78rem;color:var(--mid);line-height:1.65;padding-left:0.75rem;margin-bottom:0.75rem;}
+.opp-meta{display:flex;flex-wrap:wrap;gap:0.4rem;padding-left:0.75rem;}
+.opp-pill{font-family:'Fira Code',monospace;font-size:0.58rem;padding:0.12rem 0.5rem;border-radius:3px;}
+.pill-auto{background:rgba(0,230,118,0.07);color:var(--green);border:1px solid rgba(0,230,118,0.18);}
+.pill-manual{background:rgba(255,202,40,0.07);color:var(--amber);border:1px solid rgba(255,202,40,0.18);}
+.pill-pattern{background:rgba(179,136,255,0.07);color:var(--violet);border:1px solid rgba(179,136,255,0.18);}
+.pill-exception{background:rgba(255,82,82,0.07);color:var(--red);border:1px solid rgba(255,82,82,0.18);}
+
+/* -- EXCEPTION LIFECYCLE -- */
+.exc-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:1.5rem 0;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+@media(max-width:800px){.exc-flow{grid-template-columns:1fr 1fr;}}
+.exc-stage{padding:1rem;border-right:1px solid var(--border);text-align:center;}
+.exc-stage:last-child{border-right:none;}
+.exc-stage-num{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--dim);margin-bottom:0.3rem;}
+.exc-stage-name{font-size:0.82rem;font-weight:700;color:var(--text);}
+.exc-stage-action{font-size:0.72rem;color:var(--mid);margin-top:0.3rem;line-height:1.5;}
+
+/* -- CLIENT STATUS CARDS -- */
+.client-status-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;margin:2rem 0;}
+.csc{background:var(--s1);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.csc-header{padding:1.25rem 1.5rem;background:var(--s2);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;}
+.csc-id{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem;}
+.csc-name{font-size:1.1rem;font-weight:700;}
+.csc-badge{font-family:'Fira Code',monospace;font-size:0.6rem;padding:0.2rem 0.6rem;border-radius:20px;white-space:nowrap;align-self:flex-start;}
+.badge-live{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.25);}
+.badge-future{background:rgba(96,120,144,0.12);color:var(--dim);border:1px solid var(--border);}
+.csc-body{padding:1.25rem 1.5rem;}
+.csc-row{display:flex;justify-content:space-between;align-items:center;padding:0.55rem 0;border-bottom:1px solid rgba(42,64,96,0.35);font-size:0.82rem;}
+.csc-row:last-child{border-bottom:none;}
+.csc-row-label{color:var(--dim);font-family:'Fira Code',monospace;font-size:0.7rem;letter-spacing:0.05em;}
+.csc-row-val{font-weight:600;}
+.csc-row-val.green{color:var(--green);}
+.csc-row-val.amber{color:var(--amber);}
+.csc-row-val.dim{color:var(--dim);}
+.csc-link{display:block;margin:0 1.5rem 1.25rem;padding:0.75rem;border:1px dashed var(--border);border-radius:8px;text-align:center;font-size:0.82rem;color:var(--dim);font-family:'Fira Code',monospace;text-decoration:none;transition:all 0.2s;}
+.csc-link:hover{border-color:var(--amber);color:var(--amber);}
+.csc-link.live{border-style:solid;border-color:var(--green);color:var(--green);}
+.csc-link.live:hover{background:rgba(0,230,118,0.06);}
+.trk-toolbar{display:flex;align-items:center;gap:1rem;margin:0 0 1rem;}
+.trk-toolbar label{font-size:0.82rem;color:var(--mid);display:flex;align-items:center;gap:0.45rem;}
+.trk-actions{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.trk-actions label{font-size:0.72rem;color:var(--mid);display:flex;align-items:center;gap:0.3rem;border:1px solid var(--border);border-radius:6px;padding:0.2rem 0.45rem;background:var(--s2);}
+.trk-complete td{opacity:0.85;background:rgba(0,230,118,0.04);}
+.trk-ignored td{opacity:0.78;background:rgba(255,202,40,0.04);}
+.trk-deleted{display:none;}
+
+
+.def-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;font-family:'Fira Code',monospace;font-size:.72rem;color:var(--green);line-height:1.65;margin:.75rem 0;}
+.def-block.violet{border-left-color:var(--violet);color:var(--violet);}
+.def-block.blue{border-left-color:var(--blue);color:var(--blue);}
+.def-block.amber{border-left-color:var(--amber);color:var(--amber);}
+.tag-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem;}
+.tag{font-family:'Fira Code',monospace;font-size:.58rem;padding:.15rem .55rem;border-radius:3px;letter-spacing:.04em;}
+.tag.green{background:rgba(0,230,118,.07);color:var(--green);border:1px solid rgba(0,230,118,.2);}
+.tag.blue{background:rgba(64,196,255,.07);color:var(--blue);border:1px solid rgba(64,196,255,.2);}
+.tag.amber{background:rgba(255,202,40,.07);color:var(--amber);border:1px solid rgba(255,202,40,.2);}
+.tag.violet{background:rgba(179,136,255,.07);color:var(--violet);border:1px solid rgba(179,136,255,.2);}
+.tag.teal{background:rgba(29,233,182,.07);color:var(--teal);border:1px solid rgba(29,233,182,.2);}
+.tag.pink{background:rgba(244,143,177,.07);color:var(--pink);border:1px solid rgba(244,143,177,.2);}
+.rtbi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:2rem;}
+.rtbi-card{background:var(--s1);border:1px solid var(--border);border-top:2px solid var(--rc,var(--violet));border-radius:0 0 10px 10px;transition:border-color .2s,transform .2s;}
+.rtbi-card:hover{transform:translateY(-2px);}
+.rtbi-card-head{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);background:var(--s2);display:flex;align-items:center;gap:.75rem;}
+.rtbi-icon{font-size:1.2rem;flex-shrink:0;}
+.rtbi-card-title{font-weight:600;font-size:.88rem;color:#e8f4ff;}
+.rtbi-card-type{font-family:'Fira Code',monospace;font-size:.57rem;letter-spacing:.08em;margin-top:.15rem;text-transform:uppercase;}
+.rtbi-card-body{padding:.9rem 1.1rem;}
+.rtbi-card-body p{font-size:.77rem;color:var(--mid);line-height:1.7;margin-bottom:.65rem;}
+.rtbi-metrics{display:flex;flex-direction:column;gap:5px;}
+.rtbi-metric{display:flex;justify-content:space-between;align-items:center;padding:.32rem 0;border-bottom:1px solid rgba(24,36,53,.6);font-size:.73rem;}
+.rtbi-metric:last-child{border-bottom:none;}
+.rm-label{color:var(--mid);} .rm-val{font-family:'Fira Code',monospace;font-weight:500;}
+
+.sec-head-line{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);}
+.callout{display:flex;gap:.75rem;padding:.85rem 1.1rem;border-radius:8px;font-size:.8rem;line-height:1.7;margin:1rem 0;}
+.callout-icon{font-size:.95rem;flex-shrink:0;margin-top:.1rem;}
+.callout-body{color:var(--mid);} .callout-body strong{color:var(--text);font-weight:500;}
+.callout.info{background:rgba(64,196,255,.05);border:1px solid rgba(64,196,255,.15);}
+.callout.success{background:rgba(0,230,118,.05);border:1px solid rgba(0,230,118,.18);}
+.callout.warn{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.18);}
+.callout.violet{background:rgba(179,136,255,.05);border:1px solid rgba(179,136,255,.18);}
+.callout.amber{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.2);}
+</style>
+</head>
+<body>
+
+<div class="nav-header">
+  <div class="nav-title">Section 08 - Execution Standards</div>
+  <a href="index.html" class="nav-back">Back to Hub</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('tab-0', this)">01 - System Overview</div>
+  <div class="tab" onclick="showTab('tab-1', this)">02 - Fact Stream Design</div>
+  <div class="tab" onclick="showTab('tab-2', this)">03 - Workforce Maturity</div>
+  <div class="tab" onclick="showTab('tab-3', this)">04 - System Opportunities</div>
+  <div class="tab" onclick="showTab('tab-4', this)">05 - Client Tracking</div>
+  <div class="tab" onclick="showTab('tab-5', this)">06 - RTBoss Tracking</div>
+  <div class="tab" onclick="showTab('tab-6', this)">07 - Design Philosophy</div>
+</div>
+
+
+<!-- --------------------------------------
+     TAB 01 · SYSTEM OVERVIEW
+---------------------------------------- -->
+<div class="panel active" id="tab-0"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Execution & Tracking · Architecture</div>
+    <h1 class="ph-title">Tracking System Overview</h1>
+    <p class="ph-sub">This section defines the architecture and design of the RTBoss tracking system — what it is, where it lives, how it works, and how each client gets their own instance. Not the live tracker itself, but the blueprint that governs every tracker built.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>RTBoss eats its own cooking.</strong> The tracking system is built on RTBoss principles — every implementation step is a Fact, every agent deployment is a tracked event, every exception surfaces as an Opportunity. We use the same fact model to track the build as we use to run client operations.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">What the Tracking System Does</span><div class="sec-line"></div></div>
+
+  <div class="two-col">
+    <div class="content-block">
+      <h3>Pre-Deployment — Project Health Visibility</h3>
+      <p>Tracks discovery completion, build guide progress, and Genie specification status across all clients and Mini-OS domains. Engineering velocity: which Genies are specced, built, tested, and handed to Codex.</p>
+      <ul>
+        <li>Build guide completion % per client</li>
+        <li>Discovery status per Mini-OS</li>
+        <li>Genie pipeline: Specced ? Built ? Tested ? Deployed</li>
+        <li>Handoff readiness gates</li>
+      </ul>
+    </div>
+    <div class="content-block">
+      <h3>At Handoff — Implementation Facts</h3>
+      <p>When Codex and Azure AI execute the click-by-click build guides, every step completion fires a fact. Pass/fail gates. Real-time visibility on whether implementation is proceeding or stalled. Automated where pipeline hooks exist, manual fallback where not yet wired.</p>
+      <ul>
+        <li>Step completion events from Codex pipeline</li>
+        <li>Azure AI Foundry deployment confirmations</li>
+        <li>Service Bus, Key Vault, Fabric provisioning events</li>
+        <li>UAT pass/fail per agent and stream</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Post-Deployment — Live Operations Maturity</h3>
+    <p>Once agents are live, the tracker shifts to maturity measurement. Digital Worker % creeping up over time. COGS reduction accumulating. Genie uptime, fact throughput, exception rates. The compounding ROI story — visualised per client, per Mini-OS, per Genie. This is the data that tells the fund story.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Where It Lives</span><div class="sec-line"></div></div>
+
+  <div class="component-grid">
+    <div class="component-card" style="--c-color:var(--blue);">
+      <div class="component-id">STORE · 01</div>
+      <div class="component-name">Microsoft Dataverse</div>
+      <div class="component-where">Azure · Per-client environment</div>
+      <div class="component-body">Primary operational store. Every implementation fact, maturity score, agent status, and system opportunity record lives here. Structured, relational, ISO 27001-compliant. Each client has their own Dataverse environment — data never commingles between clients.</div>
+    </div>
+    <div class="component-card" style="--c-color:var(--teal);">
+      <div class="component-id">VISUALISE · 02</div>
+      <div class="component-name">Power BI Dashboard</div>
+      <div class="component-where">Per-client · MD overview · Investor view</div>
+      <div class="component-body">Live visualisation layer over Dataverse. Three report surfaces: client-facing operational dashboard, MD portfolio overview (all clients), and investor maturity narrative (Digital Worker % over time, COGS reduction, ROI). Embedded or shared link per audience.</div>
+    </div>
+    <div class="component-card" style="--c-color:var(--orange);">
+      <div class="component-id">EVENTS · 03</div>
+      <div class="component-name">Azure Service Bus</div>
+      <div class="component-where">Automated trigger source</div>
+      <div class="component-body">The automated fact source. When Codex executes a build step, when an Azure AI agent deploys, when a Power Automate flow activates — Service Bus topics carry those events to the fact writer. Decoupled, reliable, retry-enabled. Manual fallback writes direct to Dataverse.</div>
+    </div>
+    <div class="component-card" style="--c-color:var(--violet);">
+      <div class="component-id">AUTOMATE · 04</div>
+      <div class="component-name">Power Automate</div>
+      <div class="component-where">Orchestration · Notifications · Escalations</div>
+      <div class="component-body">Orchestrates tracking workflows. Receives Service Bus events, writes facts to Dataverse, triggers Power BI refresh, fires escalation notifications when exceptions are raised, sends maturity milestone alerts. The connective tissue between event sources and the data store.</div>
+    </div>
+    <div class="component-card" style="--c-color:var(--green);">
+      <div class="component-id">IMPLEMENT · 05</div>
+      <div class="component-name">Codex + Azure AI Foundry</div>
+      <div class="component-where">Implementation execution layer</div>
+      <div class="component-body">Executes the click-by-click build guides. Each step maps to a Codex task and fires a Service Bus event on completion. When Azure AI Foundry deploys an agent, that deployment event is the fact. The implementation system and tracking system share the same data model.</div>
+    </div>
+    <div class="component-card" style="--c-color:var(--amber);">
+      <div class="component-id">MANUAL · 06</div>
+      <div class="component-name">Engineer Manual Entry</div>
+      <div class="component-where">Fallback · Pre-automation phases</div>
+      <div class="component-body">Before pipeline hooks are wired, engineers record facts manually — step completions, test results, go-live confirmations. The manual entry interface mirrors the automated fact schema exactly, so when automation takes over, the data model is already correct and history is complete.</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Event Flow</span><div class="sec-line"></div></div>
+
+  <div class="pipeline">
+    <div class="pl-node" style="color:var(--blue);">Codex / Azure AI</div>
+    <div class="pl-arrow">?</div>
+    <div class="pl-node" style="color:var(--orange);">Service Bus Event</div>
+    <div class="pl-arrow">?</div>
+    <div class="pl-node" style="color:var(--violet);">Power Automate</div>
+    <div class="pl-arrow">?</div>
+    <div class="pl-node" style="color:var(--blue);">Dataverse Fact</div>
+    <div class="pl-arrow">?</div>
+    <div class="pl-node" style="color:var(--teal);">Power BI Refresh</div>
+    <div class="pl-arrow">?</div>
+    <div class="pl-node" style="color:var(--amber);">MD Dashboard</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Per-Client Isolation</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>Each Client Gets Their Own Instance</h3>
+    <p>The tracking system is not a shared platform. Every client has a dedicated Dataverse environment, dedicated Power BI workspace, and dedicated Service Bus namespace. Their implementation facts, maturity scores, and operational data are isolated by design — ISO 27001 data classification and access control requirements demand it.</p>
+    <p>The NEIT MD overview dashboard aggregates across all client instances pulling only summary metrics (maturity %, Genie count, last fact timestamp) — never raw client data — into a portfolio view. Investors see an aggregated narrative that cannot be traced back to individual client operations.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Design Principles</span><div class="sec-line"></div></div>
+
+  <table class="std-table">
+    <thead><tr><th>Principle</th><th>What It Means</th><th>Why It Matters</th></tr></thead>
+    <tbody>
+      <tr><td>Facts Are Immutable</td><td>Once written, a fact is never edited or deleted. Status changes create new facts.</td><td>Complete audit trail. ISO 27001 A.8.15 compliant. Fact history tells the implementation story.</td></tr>
+      <tr><td>Auto First, Manual Fallback</td><td>Every fact type has an automated source (Service Bus) and a manual entry path.</td><td>Works before pipelines are wired. Degrades gracefully. No tracking gaps during early phases.</td></tr>
+      <tr><td>Per-Client Isolation</td><td>Each client's data lives in their own Dataverse environment. No shared tables.</td><td>ISO 27001 data classification compliance. Client data sovereignty. Clear access control.</td></tr>
+      <tr><td>Same Model, Two Contexts</td><td>Implementation tracking uses the exact same Fact schema as live operational tracking.</td><td>No transition cost. Build data becomes the baseline. History starts day one, not at go-live.</td></tr>
+      <tr><td>Three Audiences</td><td>Every dashboard has three surfaces: engineering detail, MD overview, investor narrative, and project health status.</td><td>Right data, right person, right context. Engineers see step-level facts. Investors see maturity curves.</td></tr>
+      <tr><td>Velocity Is a Metric</td><td>Time from Genie specced to Genie live is tracked and trended across all builds.</td><td>The learning curve compression — Genie 1 takes days, Genie 20 takes hours — is itself a fundable data story.</td></tr>
+    </tbody>
+  </table>
+
+</div></div>
+
+
+<!-- --------------------------------------
+     TAB 02 · FACT STREAM DESIGN
+---------------------------------------- -->
+<div class="panel" id="tab-1"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Data Model · Implementation Events</div>
+    <h1 class="ph-title">Fact Stream Design</h1>
+    <p class="ph-sub">Every implementation step, agent deployment, test result, and go-live event is captured as a structured, immutable, timestamped Fact. This tab defines the fact types, payload schemas, trigger sources, and retention rules that govern the tracking system's data model.</p>
+  </div>
+
+  <div class="callout teal">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>The same model, used twice.</strong> RTBoss operational facts are business events — ORDER_RECEIVED, PARCEL_DISPATCHED. RTBoss tracking facts are implementation events — GENIE_DEPLOYED, TEST_PASSED, GO_LIVE_CONFIRMED. The schema is identical. The context differs. The discipline is the same.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Core Fact Schema</span><div class="sec-line"></div></div>
+
+  <div class="schema-block"><span style="color:var(--dim)">// Every tracking fact — whether fired by Codex, Azure AI, or manual entry — conforms to this schema</span>
+{
+  <span style="color:var(--blue)">"fact_id"</span>:         <span style="color:var(--green)">"FCT-EMS-20260219-0047"</span>,            <span style="color:var(--dim)">// {client}-{yyyymmdd}-{sequence}</span>
+  <span style="color:var(--blue)">"fact_type"</span>:        <span style="color:var(--green)">"GENIE_DEPLOYED"</span>,                    <span style="color:var(--dim)">// see Fact Type Registry below</span>
+  <span style="color:var(--blue)">"client_id"</span>:        <span style="color:var(--green)">"EMS"</span>,
+  <span style="color:var(--blue)">"mini_os"</span>:          <span style="color:var(--green)">"FINANCE_OS"</span>,                        <span style="color:var(--dim)">// domain context</span>
+  <span style="color:var(--blue)">"genie_id"</span>:         <span style="color:var(--green)">"GEN-FIN-004"</span>,                        <span style="color:var(--dim)">// if applicable</span>
+  <span style="color:var(--blue)">"phase"</span>:            <span style="color:var(--green)">"IMPLEMENTATION"</span>,                     <span style="color:var(--dim)">// PRE_BUILD | IMPLEMENTATION | LIVE_OPS</span>
+  <span style="color:var(--blue)">"source"</span>:           <span style="color:var(--green)">"AZURE_AI_FOUNDRY"</span>,                    <span style="color:var(--dim)">// CODEX | AZURE_AI_FOUNDRY | POWER_AUTOMATE | SERVICE_BUS</span>
+  <span style="color:var(--blue)">"source_mode"</span>:      <span style="color:var(--green)">"AUTO"</span>,                                <span style="color:var(--dim)">// AUTO | MANUAL</span>
+  <span style="color:var(--blue)">"timestamp"</span>:        <span style="color:var(--green)">"2026-02-19T14:33:07Z"</span>,               <span style="color:var(--dim)">// UTC — immutable after write</span>
+  <span style="color:var(--blue)">"recorded_by"</span>:      <span style="color:var(--green)">"codex-pipeline-v2"</span>,                  <span style="color:var(--dim)">// system agent ID or engineer ID</span>
+  <span style="color:var(--blue)">"status"</span>:           <span style="color:var(--green)">"PASS"</span>,                                <span style="color:var(--dim)">// PASS | FAIL | PARTIAL | SKIPPED</span>
+  <span style="color:var(--blue)">"payload"</span>: {                                                         <span style="color:var(--dim)">// fact-type-specific fields — see registry</span>
+    <span style="color:var(--blue)">"agent_name"</span>:      <span style="color:var(--green)">"Invoice Matching Genie"</span>,
+    <span style="color:var(--blue)">"environment"</span>:     <span style="color:var(--green)">"production"</span>,
+    <span style="color:var(--blue)">"version"</span>:         <span style="color:var(--green)">"1.0.0"</span>,
+    <span style="color:var(--blue)">"foundry_url"</span>:     <span style="color:var(--green)">"https://ai.azure.com/..."</span>
+  },
+  <span style="color:var(--blue)">"notes"</span>:            <span style="color:var(--green)">""</span>,                                    <span style="color:var(--dim)">// optional engineer note — never overwrites payload</span>
+  <span style="color:var(--blue)">"linked_fact_id"</span>:   <span style="color:var(--green)">"FCT-EMS-20260219-0031"</span>                <span style="color:var(--dim)">// optional — links to a preceding related fact</span>
+}
+  </div>
+  <div class="sec-head"><span class="sec-label">Fact Type Registry — Pre-Build Phase</span><div class="sec-line"></div></div>
+
+  <div class="fact-grid">
+    <div class="fact-card" style="--f-color:var(--blue);">
+      <div class="fact-type-label">DISCOVERY_COMPLETED</div>
+      <div class="fact-trigger">Discovery session for a Mini-OS domain is signed off. Output document attached or linked.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: future</span><span class="src-manual">MANUAL: now</span><span class="src-phase">PRE_BUILD</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--blue);">
+      <div class="fact-type-label">BUILD_GUIDE_COMPLETE</div>
+      <div class="fact-trigger">Build guide for a Mini-OS or specific Genie is reviewed, approved, and ready for handoff to Codex.</div>
+      <div class="fact-badges"><span class="src-manual">MANUAL</span><span class="src-phase">PRE_BUILD</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--blue);">
+      <div class="fact-type-label">GENIE_SPECCED</div>
+      <div class="fact-trigger">A Genie's specification is complete — system prompt, tools, inputs/outputs, ISO block all defined. Registered in Factory Library.</div>
+      <div class="fact-badges"><span class="src-manual">MANUAL</span><span class="src-phase">PRE_BUILD</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--blue);">
+      <div class="fact-type-label">HANDOFF_INITIATED</div>
+      <div class="fact-trigger">Build guide package handed to Codex / Azure AI Foundry for implementation. Marks the transition from pre-build to implementation phase.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: Codex hook</span><span class="src-manual">MANUAL: fallback</span><span class="src-phase">PRE_BUILD</span></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Fact Type Registry — Implementation Phase</span><div class="sec-line"></div></div>
+
+  <div class="fact-grid">
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">BUILD_STEP_COMPLETED</div>
+      <div class="fact-trigger">A single click-by-click step in a build guide is executed and verified. Payload includes step number, phase, and output validation result.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: Codex pipeline</span><span class="src-manual">MANUAL: fallback</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">INFRA_PROVISIONED</div>
+      <div class="fact-trigger">An Azure infrastructure component is provisioned — AI Foundry Hub, Cosmos DB, Service Bus namespace, Key Vault, Fabric workspace.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: Azure ARM events</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">GENIE_CREATED</div>
+      <div class="fact-trigger">A Genie is created in Copilot Studio or AI Foundry. System prompt loaded, tools configured. Not yet tested.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: Foundry API</span><span class="src-manual">MANUAL: fallback</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">GENIE_TESTED</div>
+      <div class="fact-trigger">A Genie completes its unit test suite. Payload includes test case count, pass/fail count, and the test plan reference.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: test runner</span><span class="src-manual">MANUAL: fallback</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">GENIE_DEPLOYED</div>
+      <div class="fact-trigger">A Genie passes all tests and is deployed to production environment. Version number and Foundry URL captured in payload.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: Foundry deploy hook</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">STREAM_ACTIVATED</div>
+      <div class="fact-trigger">A multi-Genie Stream (end-to-end workflow) passes integration testing and is activated in Power Automate. All Genies in the stream are live.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: Power Automate</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">UAT_COMPLETED</div>
+      <div class="fact-trigger">Client-side user acceptance testing is completed for a Mini-OS or workflow. Signed off by client representative. Pass/fail + notes in payload.</div>
+      <div class="fact-badges"><span class="src-manual">MANUAL</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--teal);">
+      <div class="fact-type-label">MINI_OS_LIVE</div>
+      <div class="fact-trigger">A Mini-OS domain is fully live — all Genies deployed, streams activated, UAT passed, client signed off. Maturity clock starts from this fact.</div>
+      <div class="fact-badges"><span class="src-manual">MANUAL: MD sign-off</span><span class="src-phase">IMPLEMENTATION</span></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Fact Type Registry — Live Operations Phase</span><div class="sec-line"></div></div>
+
+  <div class="fact-grid">
+    <div class="fact-card" style="--f-color:var(--green);">
+      <div class="fact-type-label">MATURITY_REVIEW</div>
+      <div class="fact-trigger">30 / 90 / 180-day maturity review completed. Payload includes Digital Worker %, COGS delta, open system opportunities count, and reviewer sign-off.</div>
+      <div class="fact-badges"><span class="src-manual">MANUAL: MD review</span><span class="src-phase">LIVE_OPS</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--green);">
+      <div class="fact-type-label">GENIE_EXCEPTION</div>
+      <div class="fact-trigger">A live Genie encounters an unhandled exception or produces an output that fails its quality gate. Exception code and context in payload.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: exception hook</span><span class="src-phase">LIVE_OPS</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--green);">
+      <div class="fact-type-label">OPPORTUNITY_RAISED</div>
+      <div class="fact-trigger">A system opportunity is surfaced — either by pattern detection in facts or by an engineer. Links to the triggering facts. Owner assigned.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: pattern engine</span><span class="src-manual">MANUAL: engineer</span><span class="src-phase">LIVE_OPS</span></div>
+    </div>
+    <div class="fact-card" style="--f-color:var(--green);">
+      <div class="fact-type-label">VELOCITY_MILESTONE</div>
+      <div class="fact-trigger">A Genie is built and deployed faster than the previous average. Tracks the learning curve compression — used in investor narrative.</div>
+      <div class="fact-badges"><span class="src-auto">AUTO: computed</span><span class="src-phase">LIVE_OPS</span></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Retention &amp; Compliance</span><div class="sec-line"></div></div>
+
+  <table class="std-table">
+    <thead><tr><th>Rule</th><th>Detail</th><th>ISO Control</th></tr></thead>
+    <tbody>
+      <tr><td>Immutability</td><td>Facts are write-once. No UPDATE or DELETE operations on fact records. Status changes create a new linked fact.</td><td>ISO 27001 A.8.15</td></tr>
+      <tr><td>Retention Period</td><td>All facts retained for minimum 7 years. Aligns with Australian business record-keeping requirements.</td><td>ISO 27001 A.8.15 / ISO 9001 Cl.7.5</td></tr>
+      <tr><td>Access Control</td><td>Facts are CONFIDENTIAL classification. Access scoped to NEIT engineers (full), client stakeholders (their client only), MD (all). Investors: aggregated summary only.</td><td>ISO 27001 A.5.12, A.5.15</td></tr>
+      <tr><td>Audit Log</td><td>Every fact read and write operation logged in neit_AuditLog. Log entries themselves are immutable.</td><td>ISO 27001 A.8.15</td></tr>
+      <tr><td>Manual Entry Audit</td><td>Manual fact entries include engineer ID, timestamp, and optional supporting evidence reference. Cannot be backdated.</td><td>ISO 9001 Cl.7.5.3</td></tr>
+    </tbody>
+  </table>
+
+</div></div>
+
+
+<!-- --------------------------------------
+     TAB 03 · MATURITY MODEL
+---------------------------------------- -->
+<div class="panel" id="tab-2"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Three-Lens View · Digital Worker Trajectory</div>
+    <h1 class="ph-title">Workforce Maturity</h1>
+    <p class="ph-sub">Maturity is the percentage of a client's operational workload handled by Digital Workers — agents — versus Hybrid (human + agent) or Human-only. The model tracks this across three lenses: per client, per Mini-OS domain, and per Genie. The compounding effect over time is the RTBoss commercial story.</p>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>The workforce maturity clock starts at MINI_OS_LIVE.</strong> From the moment a Mini-OS goes live, every maturity fact accumulates. The 30/90/180-day review cadence captures the progression. The target trajectory — 0% ? 18% ? 40% ? 80% Digital Worker over 24 months — is the measurable outcome RTBoss is sold on delivering.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">The Five Workforce Stages</span><div class="sec-line"></div></div>
+
+  <div class="maturity-track">
+    <div class="maturity-stage">
+      <div class="ms-left"><div class="ms-pct" style="color:var(--dim);">0%</div><div class="ms-stage-label">Stage 0</div></div>
+      <div class="ms-right">
+        <div class="ms-name">Baseline — Human-Only Operations</div>
+        <div class="ms-desc">All operational work is performed by humans. Processes may be partially digital (spreadsheets, email) but no agents are active. This is the pre-RTBoss state — documented during Discovery as the baseline against which all improvement is measured.</div>
+        <div class="ms-tags"><span class="ms-tag">no agents live</span><span class="ms-tag">discovery complete</span><span class="ms-tag">Digital Twin not yet active</span></div>
+      </div>
+    </div>
+    <div class="maturity-stage">
+      <div class="ms-left"><div class="ms-pct" style="color:var(--amber);">1–20%</div><div class="ms-stage-label">Stage 1</div></div>
+      <div class="ms-right">
+        <div class="ms-name">Emergence — First Agents Live</div>
+        <div class="ms-desc">First Mini-OS is live. Initial Genies handling bounded, high-volume, low-risk tasks — data capture, notifications, basic routing. Humans still make all decisions but agents handle the grunt work. Digital Twin is active and accumulating facts. The client sees value but humans are still running the show.</div>
+        <div class="ms-tags"><span class="ms-tag">1–3 Genies live</span><span class="ms-tag">Digital Twin active</span><span class="ms-tag">30-day review</span></div>
+      </div>
+    </div>
+    <div class="maturity-stage">
+      <div class="ms-left"><div class="ms-pct" style="color:var(--amber);">20–40%</div><div class="ms-stage-label">Stage 2</div></div>
+      <div class="ms-right">
+        <div class="ms-name">Expansion — Hybrid Workforce Operating</div>
+        <div class="ms-desc">Multiple Mini-OS active. Agents handling entire workflows end-to-end for well-defined task types. Humans focus on exceptions, edge cases, and decisions requiring judgement. COGS reduction becoming measurable. The hybrid model is the primary operating mode — agents and humans each doing what they do best.</div>
+        <div class="ms-tags"><span class="ms-tag">4–10 Genies live</span><span class="ms-tag">2+ Mini-OS active</span><span class="ms-tag">COGS delta measurable</span><span class="ms-tag">90-day review</span></div>
+      </div>
+    </div>
+    <div class="maturity-stage">
+      <div class="ms-left"><div class="ms-pct" style="color:var(--green);">40–70%</div><div class="ms-stage-label">Stage 3</div></div>
+      <div class="ms-right">
+        <div class="ms-name">Compounding — Value Engines Activating</div>
+        <div class="ms-desc">Cross-OS Value Engines becoming active — Growth, Fulfillment, Logistics. Agents now orchestrate outcomes that span multiple business domains. Human work is increasingly supervisory and strategic. The compounding effect is visible in the data: each new Genie makes the existing ones more effective.</div>
+        <div class="ms-tags"><span class="ms-tag">10+ Genies live</span><span class="ms-tag">Value Engines active</span><span class="ms-tag">cross-OS orchestration</span><span class="ms-tag">180-day review</span></div>
+      </div>
+    </div>
+    <div class="maturity-stage">
+      <div class="ms-left"><div class="ms-pct" style="color:var(--teal);">70–80%</div><div class="ms-stage-label">Stage 4</div></div>
+      <div class="ms-right">
+        <div class="ms-name">Optimized — Digital-First Operations</div>
+        <div class="ms-desc">The majority of operational throughput runs through agents. Humans operate in oversight, innovation, and relationship roles. The business has structurally lower COGS, faster operations, and higher capacity without headcount growth. This is the RTBoss target state — the proof point for the fund narrative.</div>
+        <div class="ms-tags"><span class="ms-tag">20+ Genies live</span><span class="ms-tag">all Value Engines active</span><span class="ms-tag">COGS reduction confirmed</span><span class="ms-tag">fund-ready data</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Lens 1 · Per Client</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>What This Lens Answers</h3>
+    <p><strong>How mature is this client's RTBoss deployment overall?</strong> Aggregates across all their Mini-OS and Genies to give a single workforce maturity score for the client. Used in MD portfolio overview, client reporting, and investor narrative. Tracks the trajectory from baseline to target over time.</p>
+  </div>
+
+  <div class="lens-grid">
+    <div class="lens-card">
+      <div class="lens-header">
+        <div class="lens-kicker" style="color:var(--green);">Client · EMS</div>
+        <div class="lens-title">Evergreen Medical Supplies</div>
+      </div>
+      <div class="lens-body">
+        <div class="lens-row"><span class="lens-row-label">Workforce Stage</span><span class="lens-row-val amber">Stage 1 — Emergence</span></div>
+        <div class="lens-row"><span class="lens-row-label">Digital Worker %</span><span class="lens-row-val amber">18%</span></div>
+        <div class="lens-row"><span class="lens-row-label">Genies Live</span><span class="lens-row-val green">6 of 13</span></div>
+        <div class="lens-row"><span class="lens-row-label">Mini-OS Active</span><span class="lens-row-val green">1 of 5</span></div>
+        <div class="lens-row"><span class="lens-row-label">Last Workforce Review</span><span class="lens-row-val">30-day · Feb 2026</span></div>
+        <div class="lens-row"><span class="lens-row-label">Target (Q3 2026)</span><span class="lens-row-val blue">40%</span></div>
+      </div>
+    </div>
+    <div class="lens-card">
+      <div class="lens-header">
+        <div class="lens-kicker" style="color:var(--dim);">Client · RDM</div>
+        <div class="lens-title">RDM</div>
+      </div>
+      <div class="lens-body">
+        <div class="lens-row"><span class="lens-row-label">Workforce Stage</span><span class="lens-row-val dim">Stage 0 — Pre-Deployment</span></div>
+        <div class="lens-row"><span class="lens-row-label">Digital Worker %</span><span class="lens-row-val dim">0%</span></div>
+        <div class="lens-row"><span class="lens-row-label">Genies Live</span><span class="lens-row-val dim">0</span></div>
+        <div class="lens-row"><span class="lens-row-label">Mini-OS Active</span><span class="lens-row-val dim">0</span></div>
+        <div class="lens-row"><span class="lens-row-label">Status</span><span class="lens-row-val amber">Future Project</span></div>
+        <div class="lens-row"><span class="lens-row-label">Target (On Engagement)</span><span class="lens-row-val blue">TBD</span></div>
+      </div>
+    </div>
+    <div class="lens-card">
+      <div class="lens-header">
+        <div class="lens-kicker" style="color:var(--dim);">Client · RLAW</div>
+        <div class="lens-title">RLAW</div>
+      </div>
+      <div class="lens-body">
+        <div class="lens-row"><span class="lens-row-label">Workforce Stage</span><span class="lens-row-val dim">Stage 0 — Pre-Deployment</span></div>
+        <div class="lens-row"><span class="lens-row-label">Digital Worker %</span><span class="lens-row-val dim">0%</span></div>
+        <div class="lens-row"><span class="lens-row-label">Genies Live</span><span class="lens-row-val dim">0</span></div>
+        <div class="lens-row"><span class="lens-row-label">Mini-OS Active</span><span class="lens-row-val dim">0</span></div>
+        <div class="lens-row"><span class="lens-row-label">Status</span><span class="lens-row-val amber">Future Project</span></div>
+        <div class="lens-row"><span class="lens-row-label">Target (On Engagement)</span><span class="lens-row-val blue">TBD</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Lens 2 · Per Mini-OS Domain</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>What This Lens Answers</h3>
+    <p><strong>Within a client, which domains are most mature and which are lagging?</strong> Finance OS might be at 60% while Ops OS is at 5%. This lens shows where the value is concentrating, which domains need acceleration, and which Value Engine prerequisites are closest to being met.</p>
+  </div>
+
+  <table class="std-table">
+    <thead><tr><th>Mini-OS Domain</th><th>Status</th><th>Genies Live / Total</th><th>Digital Worker %</th><th>Value Engine Unlock</th></tr></thead>
+    <tbody>
+      <tr><td>Finance OS</td><td style="color:var(--green);">Live (EMS)</td><td>6 / 6</td><td style="color:var(--green);">62%</td><td>Growth Engine (partial)</td></tr>
+      <tr><td>Ops OS</td><td style="color:var(--amber);">In Build</td><td>0 / 5</td><td style="color:var(--dim);">0%</td><td>Fulfillment Engine</td></tr>
+      <tr><td>CX OS</td><td style="color:var(--dim);">Specced</td><td>0 / 4</td><td style="color:var(--dim);">0%</td><td>Growth Engine (partial)</td></tr>
+      <tr><td>Compliance OS</td><td style="color:var(--dim);">Discovery</td><td>0 / 3</td><td style="color:var(--dim);">0%</td><td>Governance unlock</td></tr>
+      <tr><td>People OS</td><td style="color:var(--dim);">Not started</td><td>0 / 4</td><td style="color:var(--dim);">0%</td><td>Innovation Engine</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-head"><span class="sec-label">Lens 3 · Per Genie</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>What This Lens Answers</h3>
+    <p><strong>What is the status and performance of every individual Genie?</strong> The most granular view. Shows which Genies are live, which are in build, spec'd, or not started. For live Genies: uptime, fact throughput per day, exception rate, and time since last fact. Used by engineers daily, surfaced in MD overview as aggregate counts.</p>
+  </div>
+
+  <table class="std-table">
+    <thead><tr><th>Genie</th><th>Mini-OS</th><th>Status</th><th>Facts / Day (avg)</th><th>Exception Rate</th><th>Days Live</th></tr></thead>
+    <tbody>
+      <tr><td>Email Intake Genie</td><td>Finance OS</td><td style="color:var(--green);">Live</td><td>47</td><td style="color:var(--green);">0.4%</td><td>62</td></tr>
+      <tr><td>Order Parser Genie</td><td>Finance OS</td><td style="color:var(--green);">Live</td><td>47</td><td style="color:var(--green);">1.1%</td><td>62</td></tr>
+      <tr><td>Address Validator Genie</td><td>Finance OS</td><td style="color:var(--green);">Live</td><td>44</td><td style="color:var(--green);">2.3%</td><td>58</td></tr>
+      <tr><td>Cutoff Manager Genie</td><td>Finance OS</td><td style="color:var(--green);">Live</td><td>3</td><td style="color:var(--green);">0%</td><td>55</td></tr>
+      <tr><td>Dispatch Genie</td><td>Finance OS</td><td style="color:var(--green);">Live</td><td>41</td><td style="color:var(--amber);">4.7%</td><td>48</td></tr>
+      <tr><td>Exception Handler Genie</td><td>Finance OS</td><td style="color:var(--green);">Live</td><td>12</td><td style="color:var(--green);">0%</td><td>48</td></tr>
+      <tr><td>Invoice Matching Genie</td><td>Finance OS</td><td style="color:var(--amber);">In Build</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Remaining 6 Genies</td><td>Ops / CX / Other</td><td style="color:var(--dim);">Specced</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-head"><span class="sec-label">How Workforce Maturity % Is Calculated</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>The Calculation Method</h3>
+    <p><strong>Digital Worker % = (Tasks completed autonomously by agents) ÷ (Total tasks that entered the system) × 100</strong></p>
+    <p>A task that a Genie completes from trigger to output without human intervention counts as Digital. A task that requires a human decision or override at any point counts as Hybrid. A task that never touches an agent is Human.</p>
+    <p>The denominator is every task that entered the operational system in the measurement period. The numerator is every task resolved end-to-end by agents. Tasks that are escalated to humans and then returned to agents for completion count as Hybrid — even if agents did 90% of the work.</p>
+    <p>This definition is deliberately conservative. It means the maturity % only rises when agents genuinely own an outcome end-to-end. It makes the number credible and defensible — to clients, to the MD, and to investors.</p>
+  </div>
+
+</div></div>
+
+
+<!-- --------------------------------------
+     TAB 04 · SYSTEM OPPORTUNITIES
+---------------------------------------- -->
+<div class="panel" id="tab-3"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Continuous Improvement · Pattern Detection</div>
+    <h1 class="ph-title">System Opportunities</h1>
+    <p class="ph-sub">As agents go live and facts accumulate, patterns emerge. Recurring exceptions, bottlenecks, underused Genies, missing fact types, handoff failures. The System Opportunities engine surfaces these signals as structured, actionable improvements — each with an owner, proposed fix, and link to the triggering facts.</p>
+  </div>
+
+  <div class="callout violet">
+    <div class="callout-icon">?</div>
+    <div class="callout-body"><strong>The tracking system improves itself.</strong> Every GENIE_EXCEPTION fact, every BUILD_STEP_COMPLETED with status FAIL, every cluster of similar exceptions — these feed the System Opportunities engine. The system doesn't just record what happened. It tells you what to fix next.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">The Five Opportunity Types</span><div class="sec-line"></div></div>
+
+  <div class="opp-grid">
+    <div class="opp-card" style="--o-color:var(--red);">
+      <div class="opp-type">Exception Cluster</div>
+      <div class="opp-title">Recurring agent failure pattern</div>
+      <div class="opp-signal">When the same GENIE_EXCEPTION fact type occurs more than 3 times in a 7-day window from the same Genie, an Exception Cluster opportunity is raised automatically. Payload includes the exception code, frequency, and linked fact IDs.</div>
+      <div class="opp-meta"><span class="opp-pill pill-auto">Auto-detected</span><span class="opp-pill pill-exception">High priority</span></div>
+    </div>
+    <div class="opp-card" style="--o-color:var(--amber);">
+      <div class="opp-type">Bottleneck</div>
+      <div class="opp-title">Step or Genie slowing throughput</div>
+      <div class="opp-signal">When average processing time for a specific step or Genie exceeds 2× the baseline established in the first 30 days of operation. Indicates a prompt engineering issue, a tool latency problem, or an integration degradation.</div>
+      <div class="opp-meta"><span class="opp-pill pill-auto">Auto-detected</span><span class="opp-pill pill-pattern">Performance</span></div>
+    </div>
+    <div class="opp-card" style="--o-color:var(--blue);">
+      <div class="opp-type">Coverage Gap</div>
+      <div class="opp-title">Workflow reaching human when it shouldn't</div>
+      <div class="opp-signal">When a human is overriding or handling a task type that appears in the same-pattern fact stream 10+ times per week — indicating a Genie should exist for this task but doesn't. Raised manually by engineers reviewing the hybrid task log.</div>
+      <div class="opp-meta"><span class="opp-pill pill-manual">Manual review</span><span class="opp-pill pill-pattern">Maturity lift</span></div>
+    </div>
+    <div class="opp-card" style="--o-color:var(--violet);">
+      <div class="opp-type">Missing Fact Type</div>
+      <div class="opp-title">Operational event not being captured</div>
+      <div class="opp-signal">When engineers observe an operational event that has no corresponding fact type — meaning it's invisible to the tracking system and Digital Twin. Raised manually. Requires fact type definition, schema design, and trigger wiring before it can be automated.</div>
+      <div class="opp-meta"><span class="opp-pill pill-manual">Manual raise</span><span class="opp-pill pill-pattern">Data model</span></div>
+    </div>
+    <div class="opp-card" style="--o-color:var(--teal);">
+      <div class="opp-type">Velocity Opportunity</div>
+      <div class="opp-title">Build process can be faster</div>
+      <div class="opp-signal">When the time between GENIE_SPECCED and GENIE_DEPLOYED exceeds the rolling average by 50%+ — indicating a block in the build or implementation process. Also raised when a Genie type is built that matches an existing spec closely enough to reuse most of its components.</div>
+      <div class="opp-meta"><span class="opp-pill pill-auto">Auto-computed</span><span class="opp-pill pill-pattern">Build velocity</span></div>
+    </div>
+    <div class="opp-card" style="--o-color:var(--green);">
+      <div class="opp-type">Value Engine Prerequisite Met</div>
+      <div class="opp-title">Cross-OS engine can now be activated</div>
+      <div class="opp-signal">When the final required Mini-OS for a Value Engine goes live, a prerequisite-met opportunity is raised automatically. Prompts the MD to review Value Engine activation readiness and schedule the cross-OS stream configuration work.</div>
+      <div class="opp-meta"><span class="opp-pill pill-auto">Auto-detected</span><span class="opp-pill pill-pattern">Strategic unlock</span></div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Exception Lifecycle</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <p>Every System Opportunity — whether auto-detected or manually raised — follows the same five-stage lifecycle. This ensures no opportunity is raised and forgotten. Each stage transition creates a new linked fact in the Fact Stream.</p>
+  </div>
+
+  <div class="exc-flow">
+    <div class="exc-stage" style="background:rgba(255,82,82,0.05);">
+      <div class="exc-stage-num">01</div>
+      <div class="exc-stage-name" style="color:var(--red);">Raised</div>
+      <div class="exc-stage-action">Auto-detection or engineer raise. Fact type: OPPORTUNITY_RAISED. Owner assigned.</div>
+    </div>
+    <div class="exc-stage" style="background:rgba(255,202,40,0.05);">
+      <div class="exc-stage-num">02</div>
+      <div class="exc-stage-name" style="color:var(--amber);">Diagnosed</div>
+      <div class="exc-stage-action">Root cause identified. Linked to triggering facts. Fix approach agreed.</div>
+    </div>
+    <div class="exc-stage" style="background:rgba(64,196,255,0.05);">
+      <div class="exc-stage-num">03</div>
+      <div class="exc-stage-name" style="color:var(--blue);">Fix Applied</div>
+      <div class="exc-stage-action">Prompt updated, tool reconfigured, new Genie specced, or fact type added.</div>
+    </div>
+    <div class="exc-stage" style="background:rgba(29,233,182,0.05);">
+      <div class="exc-stage-num">04</div>
+      <div class="exc-stage-name" style="color:var(--teal);">Verified</div>
+      <div class="exc-stage-action">Fix confirmed by monitoring. Exception rate returns to baseline or better.</div>
+    </div>
+    <div class="exc-stage" style="background:rgba(0,230,118,0.05);">
+      <div class="exc-stage-num">05</div>
+      <div class="exc-stage-name" style="color:var(--green);">Closed</div>
+      <div class="exc-stage-action">Fact type: OPPORTUNITY_CLOSED. Lesson captured for ISO 9001 Cl.10.3 lesson log.</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Opportunity Backlog Design</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>Where Opportunities Live</h3>
+    <p>System opportunities are stored as records in Dataverse (neit_Opportunity table) and surfaced in a dedicated Power BI report page. Each system opportunity has: type, title, client, Mini-OS, severity, owner, lifecycle stage, linked fact IDs, and created/updated timestamps.</p>
+    <p>The backlog is reviewed at every 30/90/180-day workforce maturity review. High-severity system opportunities (Exception Cluster, Bottleneck) trigger immediate engineer review via Power Automate notification — they do not wait for the scheduled review cadence.</p>
+    <p>Closed system opportunities feed directly into the ISO 9001 Cl.10.3 Lesson Capture process in Section 09 &middot; Audit Standards). Every improvement cycle makes the next deployment better.</p>
+  </div>
+
+  <table class="std-table">
+    <thead><tr><th>Opportunity Schema Field</th><th>Type</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>opportunity_id</td><td>Fira Code</td><td>OPP-{client}-{yyyymmdd}-{seq}</td></tr>
+      <tr><td>opportunity_type</td><td>Enum</td><td>EXCEPTION_CLUSTER | BOTTLENECK | COVERAGE_GAP | MISSING_FACT | VELOCITY | VALUE_ENGINE_UNLOCK</td></tr>
+      <tr><td>severity</td><td>Enum</td><td>CRITICAL | HIGH | MEDIUM | LOW</td></tr>
+      <tr><td>lifecycle_stage</td><td>Enum</td><td>RAISED | DIAGNOSED | FIX_APPLIED | VERIFIED | CLOSED</td></tr>
+      <tr><td>owner</td><td>String</td><td>Engineer ID or "MD" for system-level opportunities</td></tr>
+      <tr><td>linked_fact_ids</td><td>Array</td><td>IDs of the triggering facts that caused this system opportunity to surface</td></tr>
+      <tr><td>lesson_id</td><td>String</td><td>Populated on CLOSED — links to Sec 12 lesson record</td></tr>
+    </tbody>
+  </table>
+
+</div></div>
+
+
+<!-- --------------------------------------
+     TAB 05 · CLIENT TRACKING
+---------------------------------------- -->
+<div class="panel" id="tab-4"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Portfolio View · Per-Client Tracking Instances</div>
+    <h1 class="ph-title">Client Tracking</h1>
+    <p class="ph-sub">Each client has their own dedicated tracking system instance — Dataverse environment, Power BI workspace, and Service Bus namespace. This page is the portfolio overview: current status, workforce maturity snapshot, and a direct link to each client's live tracking dashboard when it exists.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-icon">??</div>
+    <div class="callout-body"><strong>Links populate as systems go live.</strong> Each client card below will show a live link to their Power BI tracking dashboard once their first Mini-OS is live and the tracking system is provisioned. Until then, the card shows current build status and maturity stage.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Client Portfolio</span><div class="sec-line"></div></div>
+
+  <div class="client-status-grid">
+
+    <!-- EMS -->
+    <div class="csc">
+      <div class="csc-header">
+        <div>
+          <div class="csc-id">Client 01 · EMS</div>
+          <div class="csc-name">Evergreen Medical Supplies</div>
+        </div>
+        <span class="csc-badge badge-live">? Live</span>
+      </div>
+      <div class="csc-body">
+        <div class="csc-row"><span class="csc-row-label">Workforce Stage</span><span class="csc-row-val amber">Stage 1 — Emergence</span></div>
+        <div class="csc-row"><span class="csc-row-label">Digital Worker %</span><span class="csc-row-val amber">18%</span></div>
+        <div class="csc-row"><span class="csc-row-label">Genies Live</span><span class="csc-row-val green">6 of 13</span></div>
+        <div class="csc-row"><span class="csc-row-label">Mini-OS Active</span><span class="csc-row-val">Finance OS</span></div>
+        <div class="csc-row"><span class="csc-row-label">Last Fact</span><span class="csc-row-val green">Today</span></div>
+        <div class="csc-row"><span class="csc-row-label">Open Opportunities</span><span class="csc-row-val amber">2</span></div>
+        <div class="csc-row"><span class="csc-row-label">Next Review</span><span class="csc-row-val">90-day · May 2026</span></div>
+      </div>
+      <a href="#" class="csc-link live">? EMS Tracking Dashboard (Power BI) — Live</a>
+    </div>
+
+    <!-- RDM -->
+    <div class="csc">
+      <div class="csc-header">
+        <div>
+          <div class="csc-id">Client 02 · RDM</div>
+          <div class="csc-name">RDM</div>
+        </div>
+        <span class="csc-badge badge-future">? Future</span>
+      </div>
+      <div class="csc-body">
+        <div class="csc-row"><span class="csc-row-label">Workforce Stage</span><span class="csc-row-val dim">Stage 0 — Pre-Deployment</span></div>
+        <div class="csc-row"><span class="csc-row-label">Digital Worker %</span><span class="csc-row-val dim">0%</span></div>
+        <div class="csc-row"><span class="csc-row-label">Genies Live</span><span class="csc-row-val dim">0</span></div>
+        <div class="csc-row"><span class="csc-row-label">Mini-OS Active</span><span class="csc-row-val dim">None</span></div>
+        <div class="csc-row"><span class="csc-row-label">Status</span><span class="csc-row-val amber">Awaiting engagement start</span></div>
+        <div class="csc-row"><span class="csc-row-label">Tracking System</span><span class="csc-row-val dim">Not provisioned</span></div>
+        <div class="csc-row"><span class="csc-row-label">Provisioned On</span><span class="csc-row-val dim">MINI_OS_LIVE event</span></div>
+      </div>
+      <a href="#" class="csc-link">? RDM Tracking Dashboard — Activates at engagement start</a>
+    </div>
+
+    <!-- RLAW -->
+    <div class="csc">
+      <div class="csc-header">
+        <div>
+          <div class="csc-id">Client 03 · RLAW</div>
+          <div class="csc-name">RLAW</div>
+        </div>
+        <span class="csc-badge badge-future">? Future</span>
+      </div>
+      <div class="csc-body">
+        <div class="csc-row"><span class="csc-row-label">Workforce Stage</span><span class="csc-row-val dim">Stage 0 — Pre-Deployment</span></div>
+        <div class="csc-row"><span class="csc-row-label">Digital Worker %</span><span class="csc-row-val dim">0%</span></div>
+        <div class="csc-row"><span class="csc-row-label">Genies Live</span><span class="csc-row-val dim">0</span></div>
+        <div class="csc-row"><span class="csc-row-label">Mini-OS Active</span><span class="csc-row-val dim">None</span></div>
+        <div class="csc-row"><span class="csc-row-label">Status</span><span class="csc-row-val amber">Awaiting engagement start</span></div>
+        <div class="csc-row"><span class="csc-row-label">Special Handling</span><span class="csc-row-val amber">RESTRICTED data class</span></div>
+        <div class="csc-row"><span class="csc-row-label">Provisioned On</span><span class="csc-row-val dim">MINI_OS_LIVE event</span></div>
+      </div>
+      <a href="#" class="csc-link">? RLAW Tracking Dashboard — Activates at engagement start</a>
+    </div>
+
+  </div>
+
+  <div class="sec-head"><span class="sec-label">Provisioning a New Client Tracking Instance</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>When a New Client Engages</h3>
+    <p>A client tracking instance is provisioned in three stages: <strong>at contract signing</strong> — create the Dataverse environment, configure ISO access controls, and establish the client's data classification baseline; <strong>at discovery completion</strong> — wire the manual entry path so engineers can begin recording PRE_BUILD facts; <strong>at first MINI_OS_LIVE</strong> — provision Service Bus namespace, connect Power Automate flows, activate the Power BI workspace, and switch automated fact capture on.</p>
+    <p>The full provisioning guide will live in Section 11 &middot; Build Guides) under "How to Provision a Client Tracking Instance." That guide will be the click-by-click Codex handoff for standing up each new client's tracking infrastructure.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">MD Portfolio Dashboard — What It Shows</span><div class="sec-line"></div></div>
+
+  <table class="std-table">
+    <thead><tr><th>Metric</th><th>Source</th><th>Aggregation Method</th></tr></thead>
+    <tbody>
+      <tr><td>Portfolio Digital Worker %</td><td>All client maturity facts</td><td>Weighted average by client contract value</td></tr>
+      <tr><td>Total Genies Live</td><td>All GENIE_DEPLOYED facts</td><td>Sum across all active clients</td></tr>
+      <tr><td>Total Mini-OS Active</td><td>All MINI_OS_LIVE facts</td><td>Sum across all active clients</td></tr>
+      <tr><td>Open Opportunities</td><td>All OPPORTUNITY_RAISED facts (not closed)</td><td>Count by severity across all clients</td></tr>
+      <tr><td>Build Velocity (avg)</td><td>GENIE_SPECCED to GENIE_DEPLOYED delta</td><td>Rolling 30-day average across all builds</td></tr>
+      <tr><td>Project Health Score</td><td>Gate pass/fail facts + stale-fact alerts + open critical opportunities</td><td>Weighted score (0-100) across discovery, build, test, UAT, and live stability</td></tr>
+      <tr><td>Last Fact (per client)</td><td>Most recent fact timestamp per client</td><td>Live — alerts if no fact in 48h for a live client</td></tr>
+    </tbody>
+  </table>
+
+</div></div>
+
+
+<!-- ========================================
+     TAB 06 - RTBOSS TRACKING
+======================================== -->
+<div class="panel" id="tab-5"><div class="pw">
+
+  <div class="ph">
+    <div class="ph-kicker">Execution Governance - Improvement Register</div>
+    <h1 class="ph-title">RTBoss Tracking</h1>
+    <p class="ph-sub">Central register for the improvements, system opportunities, and missing pieces identified in Section 06 &middot; This tab is the working control surface for closing gaps in Tabs 03, 04, and 05.</p>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-icon">*</div>
+    <div class="callout-body"><strong>Baseline date:</strong> February 19, 2026. Every item below needs an owner, due date, and closure evidence link in the delivery cadence.</div>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">A. Honest Review Summary</span><div class="sec-line"></div></div>
+
+  <table class="std-table">
+    <thead><tr><th>Area</th><th>What is strong</th><th>Current gap</th><th>Risk if not fixed</th></tr></thead>
+    <tbody>
+      <tr><td>Strategic Narrative</td><td>Strong operating-model story and commercial framing</td><td>Execution evidence is behind narrative in multiple tabs</td><td>Credibility erosion with clients and investors</td></tr>
+      <tr><td>Workforce Maturity (Tab 03)</td><td>Clear stage model and useful lens structure</td><td>RDM and RLAW targets still TBD</td><td>No defensible forecast baseline for future clients</td></tr>
+      <tr><td>System Opportunities (Tab 04)</td><td>Good taxonomy and lifecycle model</td><td>Not yet tied to live evidence records in this page</td><td>System opportunities log becomes static documentation</td></tr>
+      <tr><td>Client Tracking (Tab 05)</td><td>Portfolio structure is clear and usable</td><td>Some values and links are still placeholder style</td><td>Dashboard trust declines as portfolio scales</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-head"><span class="sec-label">B. Improvements Backlog (Tabs 03, 04, 05)</span><div class="sec-line"></div></div>
+
+  <div class="trk-toolbar">
+    <label><input type="checkbox" id="trk-show-deleted"> Show deleted rows</label>
+  </div>
+
+  <table class="std-table">
+    <thead><tr><th>ID</th><th>Improvement</th><th>Mapped Tab</th><th>Owner</th><th>Due</th><th>Status</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr data-track-id="TRK-001"><td>TRK-001</td><td>Define non-TBD targets for RDM and RLAW maturity trajectories</td><td>Tab 03</td><td>MD + Delivery Lead</td><td>2026-03-15</td><td style="color:var(--amber);">Open</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="TRK-001" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="TRK-001" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="TRK-001" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="TRK-002"><td>TRK-002</td><td>Publish canonical Mini-OS naming/count list and align all Section 06 labels</td><td>Tab 03</td><td>Architecture Lead</td><td>2026-03-22</td><td style="color:var(--amber);">Open</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="TRK-002" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="TRK-002" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="TRK-002" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="TRK-003"><td>TRK-003</td><td>Bind opportunity counts and severity directly from Dataverse records</td><td>Tab 04</td><td>Data Engineer</td><td>2026-03-18</td><td style="color:var(--amber);">Open</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="TRK-003" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="TRK-003" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="TRK-003" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="TRK-004"><td>TRK-004</td><td>Add evidence links for diagnosed and closed opportunities</td><td>Tab 04</td><td>Platform Lead</td><td>2026-03-24</td><td style="color:var(--amber);">Open</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="TRK-004" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="TRK-004" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="TRK-004" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="TRK-005"><td>TRK-005</td><td>Replace placeholder client dashboard href values with live URLs or explicit no-link state</td><td>Tab 05</td><td>BI Lead</td><td>2026-03-14</td><td style="color:var(--amber);">Open</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="TRK-005" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="TRK-005" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="TRK-005" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="TRK-006"><td>TRK-006</td><td>Enable stale-data alert evidence for the 48-hour freshness rule</td><td>Tab 05</td><td>Platform Ops</td><td>2026-03-11</td><td style="color:var(--amber);">Open</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="TRK-006" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="TRK-006" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="TRK-006" data-action="delete">Delete</label></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-head"><span class="sec-label">C. Opportunities Register</span><div class="sec-line"></div></div>
+
+  <table class="std-table">
+    <thead><tr><th>ID</th><th>Opportunity</th><th>Type</th><th>Expected Lift</th><th>Next Step</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr data-track-id="OPP-TRK-001"><td>OPP-TRK-001</td><td>Live ENT-004 registry integration for deployment states</td><td>Velocity</td><td>Faster and more trusted portfolio reporting</td><td>Complete data bind and remove empty-state default from registry views</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-001" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-001" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-001" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="OPP-TRK-002"><td>OPP-TRK-002</td><td>Contradiction checks for counts, labels, and maturity claims across sections</td><td>Missing Fact Type</td><td>Lower documentation drift</td><td>Add automated doc QA checks before each publish cycle</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-002" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-002" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-002" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="OPP-TRK-003"><td>OPP-TRK-003</td><td>Client-specific evidence packs for COGS, NPS, and UAT outcomes</td><td>Value Unlock</td><td>Stronger audit and investor readiness</td><td>Attach evidence references in 30/90/180 review outputs</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-003" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-003" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-003" data-action="delete">Delete</label></div></td></tr>
+      <tr data-track-id="OPP-TRK-004"><td>OPP-TRK-004</td><td>De-template future client artifacts before go-live</td><td>Coverage Gap</td><td>Lower implementation and compliance risk</td><td>Remove inherited EMS-specific language from non-EMS projects</td><td><div class="trk-actions"><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-004" data-action="complete">Complete</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-004" data-action="ignore">Ignore</label><label><input type="checkbox" class="trk-action" data-row="OPP-TRK-004" data-action="delete">Delete</label></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-head"><span class="sec-label">E. Advisor Automation Design</span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>ADV-013 RTBoss Tracking Advisor Workflow</h3>
+    <p>The advisor runs this sequence: research evidence from Fact Stream and QMS sources, produce candid review findings, generate prioritized improvements and system opportunities, then post each item into this tracker as tracked rows.</p>
+    <p>Posting contract: each generated item must include <strong>ID</strong>, <strong>Owner</strong>, <strong>Due Date</strong>, <strong>Impact</strong>, and <strong>Recommended Action</strong>. Rows are then managed with the action checkboxes above: <strong>Complete</strong>, <strong>Ignore</strong>, or <strong>Delete</strong>.</p>
+  </div>
+
+  <div class="sec-head"><span class="sec-label">D. Missing Pieces Plan For Section 06 &middot; /span><div class="sec-line"></div></div>
+
+  <div class="content-block">
+    <h3>What is still missing and how completion is measured</h3>
+    <p><strong>Tab 03 complete when:</strong> all active and pipeline clients have committed target bands, weighted calculation notes are visible, and each lens reads from current records.</p>
+    <p><strong>Tab 04 complete when:</strong> opportunity rows are sourced from live records, lifecycle transitions are timestamped, and every closure references a lesson record.</p>
+    <p><strong>Tab 05 complete when:</strong> every client card shows either a validated dashboard link or a provision trigger state, plus automated freshness monitoring evidence.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="callout-icon">!</div>
+    <div class="callout-body"><strong>Operating rule:</strong> This tab is reviewed weekly. Any item older than 14 days without movement is escalated to MD review.</div>
+  </div>
+
+</div></div>
+<!-- -- TAB 07  DESIGN PHILOSOPHY -- -->
+<div class="panel" id="tab-6"><div class="pw">
+  <div class="sec-head" style="margin-bottom:2rem;">
+    <span class="sec-label">Model Strategy  Build vs Runtime  Foundry Architecture</span>
+    <div class="sec-head-line"></div>
+  </div>
+
+  <div style="max-width:860px;margin-bottom:2.5rem;">
+    <h2 style="font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">The Two-Layer Principle</h2>
+    <p style="font-size:0.82rem;color:var(--mid);line-height:1.85;">RTBoss operates on a strict separation between <strong style="color:var(--green)">construction time</strong> and <strong style="color:var(--violet)">runtime</strong>. These are not concurrent activities  they are sequential, use different models, and serve completely different purposes. Conflating them is the most common architectural mistake in multi-agent systems.</p>
+  </div>
+
+  <!-- TWO LAYER CARDS -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2.5rem;">
+
+    <div style="background:var(--s1);border:1px solid var(--border);border-top:3px solid #40c4ff;border-radius:0 0 10px 10px;padding:1.5rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:#40c4ff;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.75rem;">Layer 01  Construction Time</div>
+      <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">GPT-5.3-Codex</div>
+      <div style="font-size:0.75rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">Your engineer. Exits at deployment.</div>
+      <p style="font-size:0.79rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Codex 5.3 writes the system  not a deployed agent within it. It generates Foundry Agent Service registration code for all 13 agents from the RTBoss spec, writes Azure Function and Logic App tool bindings, and produces the full test harness for Phase 10 validation scenarios. With agent-teams mode, multiple Codex sessions work in parallel across agents.</p>
+      <div style="border-top:1px solid var(--border);padding-top:0.9rem;margin-top:0.5rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Codex 5.3 Responsibilities</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.9;">
+          -> Generate all 13 agent registration payloads<br>
+          -> Write Cosmos DB + Fabric + Service Bus connectors<br>
+          -> Scaffold orchestrator routing logic<br>
+          -> Build Phase 10 automated test scenarios<br>
+          -> Version, redeploy &amp; extend on spec change<br>
+          -> Collapses 11-phase build from days -> hours
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--s1);border:1px solid var(--border);border-top:3px solid var(--violet);border-radius:0 0 10px 10px;padding:1.5rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.75rem;">Layer 02  Runtime  Every Order  Every Day</div>
+      <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Opus 4.6 + Sonnet 4.5</div>
+      <div style="font-size:0.75rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">Your workforce. Never exits.</div>
+      <p style="font-size:0.79rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Once deployed, Codex 5.3 steps out entirely. The production loop is owned by two Claude models with a deliberate cost/capability split  Opus 4.6 at the orchestration layer where deep planning earns its premium, Sonnet 4.5 across all 13 specialists where bounded, structured work runs reliably at a fraction of the cost.</p>
+      <div style="border-top:1px solid var(--border);padding-top:0.9rem;margin-top:0.5rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Runtime Model Assignment</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.9;">
+          <span style="color:var(--violet);">Opus 4.6</span> -> RTBossOrchestratorAgent only<br>
+          <span style="color:var(--green);">Sonnet 4.5</span> -> All 13 specialist agents<br>
+          <span style="color:var(--green);">Sonnet 4.5</span> -> CutoffOrchestratorAgent<br>
+          <span style="color:var(--blue);">Haiku 4.5</span> -> High-volume lookup &amp; validation<br>
+          -> ~1 Opus call per order loop<br>
+          -> ~12 cost reduction vs all-Opus approach
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHILOSOPHICAL DIFFERENCES -->
+  <div style="margin-bottom:2.5rem;">
+    <div class="sec-head" style="margin-bottom:1.25rem;">
+      <span class="sec-label">Strategic &amp; Philosophical Differences  Opus 4.6 vs Codex 5.3</span>
+      <div class="sec-head-line"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+      <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">Anthropic  Opus 4.6</div>
+        <div style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;">"Deep Thinker First"</div>
+        <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Opus 4.6 is built on a reliability-before-speed doctrine. Its core architectural bet  adaptive thinking  means the model decides when to reason deeply and when not to. This is Constitutional AI heritage made practical: safety and trustworthiness are baked into the model, not bolted on. It is optimized less for one-shot cleverness and more for robust, multi-turn, tool-using workflows.</p>
+        <div style="font-size:0.74rem;color:var(--dim);line-height:1.85;">
+          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RTBoss</div>
+          A pharmacy EMS making real dispatch decisions requires a model that checks its work, honours context across a long loop, and fails safely. Opus 4.6's caution is a feature, not a limitation. Its 1M token context holds an entire day's order history without degradation.
+        </div>
+      </div>
+      <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:#40c4ff;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">OpenAI  Codex 5.3</div>
+        <div style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;">"General-Purpose Builder"</div>
+        <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Codex 5.3 merges the previous GPT-5.2 reasoning model and the GPT-5.2-Codex coding agent into a single system. Its philosophy is end-to-end execution  not just writing functions, but understanding all the work around the code: updating Jira, writing documentation, managing deployment pipelines. It was the first model instrumentally involved in building itself, signalling OpenAI's accelerationist posture toward self-improvement loops.</p>
+        <div style="font-size:0.74rem;color:var(--dim);line-height:1.85;">
+          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RTBoss</div>
+          Codex 5.3's strength is construction velocity. The 11-phase build guide becomes a Codex session. Its interactive steering  where you can redirect it mid-task without losing context  is ideal for the iterative agent-scaffolding work that human engineers would otherwise spend days doing in the portal.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAFETY POSTURE NOTE -->
+  <div style="background:rgba(255,202,40,0.04);border:1px solid rgba(255,202,40,0.2);border-radius:8px;padding:1.1rem 1.25rem;margin-bottom:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;">
+    <div style="font-size:1.2rem;padding-top:0.1rem;">??</div>
+    <div>
+      <div style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;">Safety Posture Divergence</div>
+      <p style="font-size:0.77rem;color:var(--mid);line-height:1.8;">Codex 5.3 is the first model OpenAI has designated "High capability" for cybersecurity under their Preparedness Framework  they cannot rule out its ability to automate end-to-end operations against hardened targets. Anthropic's posture is more conservative by design. For RTBoss runtime, this divergence is decisive: Opus 4.6's Constitutional AI heritage is the right choice for a system that touches real patient prescriptions, AusPost dispatch, and financial reconciliation. Use Codex 5.3's power at build time; deploy Opus 4.6's trustworthiness at runtime.</p>
+    </div>
+  </div>
+
+  <!-- FOUNDRY ARCHITECTURE -->
+  <div class="sec-head" style="margin-bottom:1.25rem;">
+    <span class="sec-label">How Foundry Wires This Together  Three Primitives</span>
+    <div class="sec-head-line"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2.5rem;">
+    <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.1rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--green);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">01  Connected Agents</div>
+      <div style="font-size:0.84rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">Primary -> Sub-agent Delegation</div>
+      <p style="font-size:0.76rem;color:var(--mid);line-height:1.8;">The Opus 4.6 Orchestrator is the primary agent. The 13 Sonnet 4.5 specialists are connected sub-agents. Foundry manages context handoff, retries, and routing  no hand-coded routing logic required. This is the DOL pattern implemented natively in the platform.</p>
+    </div>
+    <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.1rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">02  Workflows</div>
+      <div style="font-size:0.84rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">Stateful Long-Running Loops</div>
+      <p style="font-size:0.76rem;color:var(--mid);line-height:1.8;">The context envelope  the Digital Twin state  lives in the Workflow layer between agent calls, not only in Cosmos DB. Built-in error handling, retries, and recovery replace most of the Service Bus dependency for inter-agent handoff. The full order loop is a single stateful Workflow execution.</p>
+    </div>
+    <div style="background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:1.1rem;">
+      <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--violet);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;">03  Foundry IQ</div>
+      <div style="font-size:0.84rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">Unified Grounding API</div>
+      <p style="font-size:0.76rem;color:var(--mid);line-height:1.8;">DrugLookupAgent currently hits a Fabric Delta table directly. Foundry IQ becomes the abstraction layer  querying Fabric, OneLake, and drug reference data through one governed, permission-aware API. Reduces hardcoded connectors and respects data classification boundaries automatically.</p>
+    </div>
+  </div>
+
+  <!-- FORWARD LOOK -->
+  <div class="sec-head" style="margin-bottom:1.25rem;">
+    <span class="sec-label">Forward Look  Are We on the Right Track?</span>
+    <div class="sec-head-line"></div>
+  </div>
+  <div style="background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:2rem;">
+    <div style="font-size:0.88rem;font-weight:600;color:var(--green);margin-bottom:0.85rem;">RTBoss was designed for this model before either model existed.</div>
+    <p style="font-size:0.79rem;color:var(--mid);line-height:1.9;margin-bottom:1rem;">The Division of Labor pattern  specialist agents, clean context envelope, append-only audit trail, an orchestrator that routes but doesn't do  is precisely what both Foundry's Connected Agents primitive and Opus 4.6's parallel subagent capability were independently built to support. The architectural convergence is not coincidental: these are the patterns that work at scale for complex, multi-step, high-stakes workflows.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div>
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Validated by Platform Convergence</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.85;">
+          Opus 4.6 -> parallel subagents, context envelope, deep planning<br>
+          Foundry -> Connected Agents, stateful Workflows, governed tools<br>
+          Codex 5.3 -> agent-teams parallel build, self-healing scaffolding<br>
+          Microsoft Foundry -> only cloud with both GPT and Claude frontier models
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--amber);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">What Needs Updating</div>
+        <div style="font-size:0.76rem;color:var(--mid);line-height:1.85;">
+          Build guide model refs -> replace gpt-4o-rtbos with Sonnet 4.5<br>
+          Orchestrator -> upgrade to Opus 4.6 in agent config<br>
+          High-volume lookups -> route to Haiku 4.5<br>
+          Service Bus handoffs -> evaluate Foundry Workflow replacement
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="def-block">// The verdict: RTBoss is architecturally sound for where both models are going. You are not behind the curve  you designed a system the platform is now catching up to. Being a Microsoft shop on Azure Foundry is the strategic advantage: both model families, one governance roof, one billing surface, one observability layer.</div>
+
+</div></div>
+<!-- -- END TAB 07 -- -->
+
+
+<script>
+function showTab(panelId, el){
+  document.querySelectorAll('.tab').forEach((t)=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach((p)=>p.classList.remove('active'));
+  if(el){ el.classList.add('active'); }
+  const panel = document.getElementById(panelId);
+  if(panel){ panel.classList.add('active'); }
+}
+
+const TRK_STATE_KEY = 'rtboss_tracking_actions_v1';
+
+function loadTrackingState(){
+  try { return JSON.parse(localStorage.getItem(TRK_STATE_KEY) || '{}'); }
+  catch(e){ return {}; }
+}
+
+function saveTrackingState(state){
+  try { localStorage.setItem(TRK_STATE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+function applyTrackingRowState(rowEl, status, showDeleted){
+  rowEl.classList.remove('trk-complete', 'trk-ignored', 'trk-deleted');
+  if(status === 'complete') rowEl.classList.add('trk-complete');
+  if(status === 'ignore') rowEl.classList.add('trk-ignored');
+  if(status === 'delete'){
+    if(showDeleted){
+      rowEl.classList.add('trk-deleted');
+      rowEl.style.display = 'table-row';
+      rowEl.style.opacity = '0.45';
+    } else {
+      rowEl.classList.add('trk-deleted');
+      rowEl.style.display = 'none';
+    }
+  } else {
+    rowEl.style.display = 'table-row';
+    rowEl.style.opacity = '';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  try {
+  const state = loadTrackingState();
+  const showDeletedToggle = document.getElementById('trk-show-deleted');
+
+  function refreshAllRows(){
+    const showDeleted = !!(showDeletedToggle && showDeletedToggle.checked);
+    document.querySelectorAll('tr[data-track-id]').forEach((row) => {
+      const rowId = row.getAttribute('data-track-id');
+      const status = state[rowId] || '';
+      row.querySelectorAll('.trk-action').forEach((cb) => {
+        cb.checked = (cb.getAttribute('data-action') === status);
+      });
+      applyTrackingRowState(row, status, showDeleted);
+    });
+  }
+
+  document.querySelectorAll('.trk-action').forEach((cb) => {
+    cb.addEventListener('change', function(){
+      const rowId = this.getAttribute('data-row');
+      const action = this.getAttribute('data-action');
+      const row = document.querySelector('tr[data-track-id="' + rowId + '"]');
+      if(!row) return;
+
+      row.querySelectorAll('.trk-action').forEach((other) => {
+        if(other !== this) other.checked = false;
+      });
+
+      if(this.checked) state[rowId] = action;
+      else delete state[rowId];
+
+      saveTrackingState(state);
+      refreshAllRows();
+    });
+  });
+
+  if(showDeletedToggle){
+    showDeletedToggle.addEventListener('change', refreshAllRows);
+  }
+
+  refreshAllRows();
+  } catch(e) {
+    // Keep tab navigation functional even if tracking UI init fails.
+    console.error('RTBoss Tracking init error:', e);
+  }
+});
+
+function initGroupReviewSync_S06(){
+  var SECTION_KEY='S06', stateKey='rtboss_content_review_06_execution_v1', progressKey='rtboss_content_review_progress_v1';
+  var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
+  if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
+  function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
+  function saveProgressFromUI(){ if(syncing){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); var groups=checks.map(cb=>!!cb.checked); var p=readProgress(); p[SECTION_KEY]={done:groups.filter(Boolean).length,groups:groups}; try{ localStorage.setItem(progressKey, JSON.stringify(p)); }catch(e){} }
+  function applyProgressToUI(){ var ext=readProgress()[SECTION_KEY]; if(!ext||typeof ext!=='object'||!Array.isArray(ext.groups)){ return; } var checks=Array.from(document.querySelectorAll('.sec-group-check')); syncing=true; checks.forEach((cb,idx)=>{ var next=!!ext.groups[idx]; cb.checked=next; var h=cb.closest('.sec-head'); if(h){ h.classList.toggle('done',next);} var id=cb.dataset.reviewId; if(id){ state[id]=next; } }); syncing=false; saveState(); }
+  document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
+  applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
+}
+document.addEventListener('DOMContentLoaded', initGroupReviewSync_S06);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
