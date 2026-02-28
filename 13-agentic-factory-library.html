@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss – Agentic Factory Library</title>
+<title>RealTimeOS – Agentic Factory Library</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -159,12 +159,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">Canonical Deployment Registry</div>
     <h1 class="ph-title">Agentic Factory Library</h1>
-    <p class="ph-sub">The single source of truth for every Digital Worker across the RTBoss platform. Genies, Streams, Skills, Advisors, Flows, Code modules, and composite Digital Workers are all registered here. Agents post to this registry automatically on first successful deployment — a human confirms to promote status to <strong>deployed</strong>.</p>
+    <p class="ph-sub">The single source of truth for every Digital Worker across the RealTimeOS platform. Genies, Streams, Skills, Advisors, Flows, Code modules, and composite Digital Workers are all registered here. Agents post to this registry automatically on first successful deployment — a human confirms to promote status to <strong>deployed</strong>.</p>
   </div>
 
   <div class="store-row">
     <span class="store-badge sb-dv">??? Dataverse · ENT-004 Digital Worker Registry — master record store</span>
-    <span class="store-badge sb-gh">?? GitHub · neit-rtboss — system prompts, configs, skill definitions</span>
+    <span class="store-badge sb-gh">?? GitHub · neit-RealTimeOS — system prompts, configs, skill definitions</span>
     <span class="store-badge sb-cs">?? Copilot Studio — Genie + Advisor runtime</span>
     <span class="store-badge sb-pa">? Power Automate — Stream + Flow runtime</span>
   </div>
@@ -234,7 +234,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="ent-field">
         <div class="ent-field-name">github_repo</div>
         <div class="ent-field-type">Text · Optional</div>
-        <div class="ent-field-desc">GitHub repository name e.g. neit-rtboss or client-specific repo. Source of truth for all configs and system prompts.</div>
+        <div class="ent-field-desc">GitHub repository name e.g. neit-RealTimeOS or client-specific repo. Source of truth for all configs and system prompts.</div>
       </div>
       <div class="ent-field">
         <div class="ent-field-name">github_path</div>
@@ -686,8 +686,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
           <tr class="dw-row" data-status="planned" data-id="ADV-012" data-name="Legal Practice Advisor">
             <td class="dw-id" style="color:var(--violet);">ADV-012</td><td class="dw-name">Legal Practice Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">legal_practice_qld</td><td class="mono">Local KB + Web</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">—</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">RLAW</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Industry conditional. Activated if industry = legal.practice.</td>
           </tr>
-          <tr class="dw-row" data-status="planned" data-id="ADV-013" data-name="RTBoss Tracking Advisor">
-            <td class="dw-id" style="color:var(--violet);">ADV-013</td><td class="dw-name">RTBoss Tracking Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">execution_tracking</td><td class="mono">Local KB + ENT-004 + Fact Stream</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">/advisors/ADV-013-rtboss-tracking/</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Researches, critiques, and posts improvements/opportunities into Section 06 RTBoss Tracking.</td>
+          <tr class="dw-row" data-status="planned" data-id="ADV-013" data-name="RealTimeOS Tracking Advisor">
+            <td class="dw-id" style="color:var(--violet);">ADV-013</td><td class="dw-name">RealTimeOS Tracking Advisor</td><td><span class="st st-planned">? planned</span></td><td class="mono">—</td><td class="mono">execution_tracking</td><td class="mono">Local KB + ENT-004 + Fact Stream</td><td><span class="rt rt-cs">Copilot Studio</span></td><td class="gh-path">/advisors/ADV-013-RealTimeOS-tracking/</td><td class="mono">—</td><td><div class="client-tags"><span class="ctag">All</span></div></td><td class="mono">—</td><td class="mono">—</td><td class="notes-cell">Researches, critiques, and posts improvements/opportunities into Section 06 RealTimeOS Tracking.</td>
           </tr>
         </tbody>
       </table>
@@ -919,7 +919,7 @@ function searchRegistry(val){
 updateCounts();
 
 function initGroupReviewSync_S10(){
-  var SECTION_KEY='S10', stateKey='rtboss_content_review_10_factory_library_v1', progressKey='rtboss_content_review_progress_v1';
+  var SECTION_KEY='S10', stateKey='RealTimeOS_content_review_10_factory_library_v1', progressKey='RealTimeOS_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
   if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
@@ -932,6 +932,7 @@ document.addEventListener('DOMContentLoaded', initGroupReviewSync_S10);
 </script>
 </body>
 </html>
+
 
 
 

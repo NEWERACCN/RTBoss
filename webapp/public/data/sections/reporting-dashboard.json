@@ -1,0 +1,52 @@
+{
+  "slug": "reporting-dashboard",
+  "file": "12-reporting-dashboard.html",
+  "title": "RealTimeOS - Section 12 - Reporting Dashboard",
+  "tabs": [
+    {
+      "id": "tab-1",
+      "label": "01 - Overview",
+      "panelId": "tab-0",
+      "groups": [
+        {
+          "label": "Content",
+          "html": "<div class=\"wrap\"> <div class=\"ph\"> <div class=\"ph-kicker\">Reporting Layer Rebuild</div> <h1 class=\"ph-title\">Overview</h1> <p class=\"ph-sub\">Section 12 is the reporting view for build progress and completion status.</p> </div> <div class=\"callout\"><strong>Status:</strong> Redesign in progress. This section is reserved for the rebuilt reporting dashboard.</div> </div>"
+        }
+      ]
+    },
+    {
+      "id": "tab-2",
+      "label": "02 - Dashboard",
+      "panelId": "tab-1",
+      "groups": [
+        {
+          "label": "Overview",
+          "html": "<div class=\"wrap\"> <div class=\"ph\"> <div class=\"ph-kicker\">Reporting Layer Rebuild</div> <h1 class=\"ph-title\">Dashboard</h1> <p class=\"ph-sub\">Live metrics and checklist tracking for Section 12.</p> </div>"
+        },
+        {
+          "label": "Dashboard Snapshot",
+          "html": "<div class=\"metrics\"> <div class=\"metric\"><div class=\"k\">Sections Complete</div><div class=\"v\" id=\"dash-sections-complete\">0</div></div> <div class=\"metric\"><div class=\"k\">Sections In Progress</div><div class=\"v\" id=\"dash-sections-progress\">0</div></div> <div class=\"metric\"><div class=\"k\">Sections Not Started</div><div class=\"v\" id=\"dash-sections-not-started\">0</div></div> <div class=\"metric\"><div class=\"k\">Workstream Complete</div><div class=\"v\" id=\"dash-phase-pct\">0%</div>"
+        },
+        {
+          "label": "Major Phase Burn Down",
+          "html": "<div class=\"burndown-grid\"> <div class=\"bd-card\"> <div class=\"bd-title\">Content Burn Down</div> <div class=\"bd-bar\"><span class=\"bd-fill\" id=\"bd-content-fill\"></span></div> <div class=\"bd-meta\" id=\"bd-content-meta\">0%</div> </div> <div class=\"bd-card\"> <div class=\"bd-title\">Milestone Seed Burn Down</div> <div class=\"bd-bar\"><span class=\"bd-fill\" id=\"bd-seed-fill\"></span></div> <div class=\"bd-meta\" id=\"bd-seed-meta\">0%</div> </div> <div class=\"bd-card\"> <div class=\"bd-title\">Human-Led OS Burn Down</div> <div class=\"bd-bar\"><span class=\"bd-fill\" id=\"bd-dark-fill\"></span></div> <div class=\"bd-meta\" id=\"bd-dark-meta\">0%</div> </div> <div class=\"bd-card\"> <div class=\"bd-title\">Each Client Burn Down</div> <div class=\"client-list\" id=\"client-burndown-list\"></div>"
+        },
+        {
+          "label": "Dashboard Build Checklist",
+          "html": "<div class=\"phase-check-grid\" id=\"dashboard-check-grid\"> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"scope\">Dashboard Scope Locked</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"tiles\">Core Tiles Built</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"sources\">Data Sources Bound</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"qa\">QA Review Complete</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"publish\">Dashboard Published</label>"
+        }
+      ]
+    },
+    {
+      "id": "tab-3",
+      "label": "03 - Digital Twin Draft",
+      "panelId": "tab-2",
+      "groups": [
+        {
+          "label": "Content",
+          "html": "<div class=\"wrap\"> <div class=\"ph\"> <div class=\"ph-kicker\">Digital Twin</div> <h1 class=\"ph-title\">Digital Twin Draft</h1> <p class=\"ph-sub\">Working draft for the factory-style visual management twin used to track burndown and operational state.</p> </div> <div class=\"callout\"><strong>Draft location:</strong> The active draft is maintained on a separate page to avoid disturbing the baseline dashboard.</div> <a class=\"draft-link\" href=\"visual-management-draft.html\">Open Digital Twin Draft</a> </div>"
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss - Digital Twin Draft (3D Floor Scene)</title>
+<title>RealTimeOS - Digital Twin Draft (3D Floor Scene)</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#141a24;--grid:#2c3545;--text:#eaf3ff;--muted:#9fb3cf;--line:#6f85a5;--green:#00e676;--amber:#ffca28;--red:#ff5252;--blue:#40c4ff;--teal:#1de9b6}
@@ -125,7 +125,7 @@ const sections=[
 ];
 
 function readProgress(){
-  try{return JSON.parse(localStorage.getItem('rtboss_content_review_progress_v1')||'{}');}
+  try{return JSON.parse(localStorage.getItem('RealTimeOS_content_review_progress_v1')||'{}');}
   catch(e){return{};}
 }
 function status(p){ if(p===0) return 'bad'; if(p<0.8) return 'warn'; return 'good'; }
@@ -202,8 +202,9 @@ function drawScene(){
 }
 
 drawScene();
-window.addEventListener('storage', e=>{ if(e.key==='rtboss_content_review_progress_v1'){ drawScene(); } });
+window.addEventListener('storage', e=>{ if(e.key==='RealTimeOS_content_review_progress_v1'){ drawScene(); } });
 </script>
 </body>
 </html>
+
 

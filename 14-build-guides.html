@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss — Build Guides</title>
+<title>RealTimeOS — Build Guides</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -140,7 +140,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 <body class="no-checkboxes">
 
 <div class="nav-header">
-  <div class="nav-title">Section 14 &middot; RTBoss Build Guides</div>
+  <div class="nav-title">Section 14 &middot; RealTimeOS Build Guides</div>
   <a href="index.html" class="nav-back">Back to Hub</a>
 </div>
 
@@ -161,7 +161,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">Operational Playbook · 8-Step Process</div>
     <h1 class="ph-title">How to Build a Genie</h1>
-    <p class="ph-sub">A Genie is a discrete specialist agent that executes one bounded task, always within the rules of its Mini-OS. Every Genie in the RTBoss system — regardless of domain — is built using this same 8-step process. No shortcuts. No variations.</p>
+    <p class="ph-sub">A Genie is a discrete specialist agent that executes one bounded task, always within the rules of its Mini-OS. Every Genie in the RealTimeOS system — regardless of domain — is built using this same 8-step process. No shortcuts. No variations.</p>
   </div>
 
     <div class="section-label">Vault Draft Pages (Major UI Changes)</div>
@@ -1044,7 +1044,7 @@ with patients, or perform any task outside the single job above.</span></div>
   <div class="ph">
     <div class="ph-kicker">Operational Playbook · Cross-OS Orchestration</div>
     <h1 class="ph-title">How to Activate a Value Engine</h1>
-    <p class="ph-sub">Value Engines deliver outcomes no single Mini-OS can achieve alone. They orchestrate Genies and Streams across multiple domains. This makes them the most powerful — and most complex — components of RTBoss. Prerequisites are strict: the required Mini-OS must be live and stable before a Value Engine can activate.</p>
+    <p class="ph-sub">Value Engines deliver outcomes no single Mini-OS can achieve alone. They orchestrate Genies and Streams across multiple domains. This makes them the most powerful — and most complex — components of RealTimeOS. Prerequisites are strict: the required Mini-OS must be live and stable before a Value Engine can activate.</p>
   </div>
 
   <div class="section-label">Value Engine Overview</div>
@@ -1145,13 +1145,13 @@ with patients, or perform any task outside the single job above.</span></div>
       <div class="step-num">T1</div>
       <div class="step-body">
         <div class="step-title">Measure the Savings Baseline</div>
-        <div class="step-desc">At the 90-day review, calculate actual COGS reduction: compare pre-RTBoss cost per transaction vs current cost per transaction. COGS reduction = savings amount.</div>
+        <div class="step-desc">At the 90-day review, calculate actual COGS reduction: compare pre-RealTimeOS cost per transaction vs current cost per transaction. COGS reduction = savings amount.</div>
         <div class="info-box">
           <div class="info-box-title">Savings Calculation Formula</div>
           <div class="code-block" style="font-size:0.82rem;">
 <span class="comment">// EMS Example</span>
-<span class="key">Pre-RTBoss:</span>  <span class="val">45 min/prescription × $45/hr labor = $33.75/script</span>
-<span class="key">Post-RTBoss:</span> <span class="val">8 min/prescription (human review only) = $6.00/script</span>
+<span class="key">Pre-RealTimeOS:</span>  <span class="val">45 min/prescription × $45/hr labor = $33.75/script</span>
+<span class="key">Post-RealTimeOS:</span> <span class="val">8 min/prescription (human review only) = $6.00/script</span>
 <span class="key">Saving:</span>      <span class="val">$27.75/script</span>
 <span class="key">Volume:</span>      <span class="val">200 scripts/month</span>
 <span class="key">Monthly saving:</span> <span class="val">$5,550/month</span>
@@ -1246,7 +1246,7 @@ with patients, or perform any task outside the single job above.</span></div>
   <div class="ph">
     <div class="ph-kicker">Quality Assurance · ISO 9001 Cl.8.5</div>
     <h1 class="ph-title">How to Test & Validate</h1>
-    <p class="ph-sub">No RTBoss component goes live without passing its relevant test gate. This guide defines what "done" means for every component type, the test templates to use, and the evidence required for ISO audit purposes.</p>
+    <p class="ph-sub">No RealTimeOS component goes live without passing its relevant test gate. This guide defines what "done" means for every component type, the test templates to use, and the evidence required for ISO audit purposes.</p>
   </div>
 
   <div class="section-label">The Testing Hierarchy</div>
@@ -1599,7 +1599,7 @@ function openHashTarget(){
   setTimeout(function(){ target.scrollIntoView({behavior:'smooth',block:'start'}); }, 40);
 }
 function initGroupReviewSync_S11(){
-  var SECTION_KEY='S11', stateKey='rtboss_content_review_11_build_guides_v1', progressKey='rtboss_content_review_progress_v1';
+  var SECTION_KEY='S11', stateKey='RealTimeOS_content_review_11_build_guides_v1', progressKey='RealTimeOS_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
   if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label,.section-label.done{color:var(--teal)!important}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
@@ -1617,6 +1617,7 @@ window.addEventListener('hashchange', openHashTarget);
 </script>
 </body>
 </html>
+
 
 
 

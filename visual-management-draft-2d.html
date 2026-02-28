@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss - Digital Twin Draft (2D Content Burndown)</title>
+<title>RealTimeOS - Digital Twin Draft (2D Content Burndown)</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#03070f;--s1:#0b1624;--line:#2f4763;--text:#e9f3ff;--muted:#9ab3cc;--green:#00e676;--amber:#ffca28;--red:#ff5252;--teal:#1de9b6;--blue:#40c4ff}
@@ -109,7 +109,7 @@ body{background:radial-gradient(circle at 20% -10%,#13304f 0%,#07111d 35%,#03070
 
 <script>
 const meta=[{key:'IDX',num:'00',name:'Index (Hub)',tabs:1,groups:1},{key:'S01',num:'01',name:'Strategic Framework',tabs:5,groups:5},{key:'S02',num:'02',name:'OS Framework',tabs:10,groups:10},{key:'S03',num:'03',name:'Tech Infrastructure',tabs:8,groups:8},{key:'S04',num:'04',name:'Mini-OS Guides',tabs:14,groups:14},{key:'S05',num:'05',name:'Value Engine Guides',tabs:5,groups:5},{key:'S06',num:'06',name:'Agentic Factory',tabs:9,groups:9},{key:'S07',num:'07',name:'Quality Management System',tabs:7,groups:7},{key:'S08',num:'08',name:'Execution Standards',tabs:6,groups:6},{key:'S09',num:'09',name:'Audit Standards',tabs:9,groups:9},{key:'S10',num:'10',name:'Project Management',tabs:9,groups:9},{key:'S11',num:'11',name:'Client Projects',tabs:3,groups:3},{key:'S12',num:'12',name:'Reporting Dashboard',tabs:3,groups:3},{key:'S13',num:'13',name:'Factory Library',tabs:4,groups:4},{key:'S14',num:'14',name:'Build Guides',tabs:4,groups:4},{key:'S15',num:'15',name:'Change Log',tabs:3,groups:3}];
-function readProgress(){try{return JSON.parse(localStorage.getItem('rtboss_content_review_progress_v1')||'{}');}catch(e){return{};}}
+function readProgress(){try{return JSON.parse(localStorage.getItem('RealTimeOS_content_review_progress_v1')||'{}');}catch(e){return{};}}
 const tabShortNames={IDX:['Hub'],S01:['Core','Pillars','Fund','Revenue','Flywheel'],S02:['Overview','Mini-OS','Workforce','Value Eng','RTBI','Behind','Tech','Flow','Cadence','Ops'],S03:['M365','D365','Dataverse','Power Platform','Azure','Zero Touch','UniFi','Security'],S04:['Guide Map','Playbook','Templates','Routines','Roles','Inputs','Outputs','Controls','Cadence','Metrics','Triggers','Escalation','Examples','Review'],S05:['Overview','Value Design','Offer Model','Pricing','Delivery Ops'],S06:['Engage','Discover','Outcome','Infra','QMS','Deliver','Activate','Measure','Improve'],S07:['Brand','Personas','Advisors','Skills','Roles','Prompts','Templates'],S08:['System','Fact Flow','Maturity','Oppty','Client','Tracking'],S09:['Version','NCR','Lessons','Audit','Review','Controls','Records','Evidence','Actions'],S10:['Charter','Canon','Lifecycle','Build','Map','Reuse','Sweep','Delivery','Register'],S12:['Overview','Dash','Twin'],S13:['Library','Agents','Roles','Patterns'],S14:['Genie','Mini-OS','Stream','Validate'],S15:['Overview','Register','Publish']};
 function shortTabName(sectionKey, tabIndex){var arr=tabShortNames[sectionKey]; if(arr && arr[tabIndex]) return arr[tabIndex]; return 'Tab '+String(tabIndex+1).padStart(2,'0');}
 function distribute(total,count){if(count<=0)return[];const b=Math.floor(total/count);let r=total%count;const a=Array.from({length:count},()=>b);for(let i=0;i<count;i++){if(r>0){a[i]++;r--;}}return a;}
@@ -117,8 +117,8 @@ function state(m,p){const row=p[m.key]||{};const total=(Array.isArray(row.groups
 function cls(pct){if(pct===0)return'stop';if(pct<0.8)return'risk';return'run';}
 function txt(pct){if(pct===0)return'Not Started';if(pct<0.8)return'Partial';return'Healthy';}
 
-const EVENT_KEY='rtboss_fact_event_log_v1';
-const SNAP_KEY='rtboss_twin_prev_progress_v1';
+const EVENT_KEY='RealTimeOS_fact_event_log_v1';
+const SNAP_KEY='RealTimeOS_twin_prev_progress_v1';
 function safeReadObj(key){ try{return JSON.parse(localStorage.getItem(key)||'{}');}catch(e){return{};} }
 function safeReadArr(key){ try{var v=JSON.parse(localStorage.getItem(key)||'[]'); return Array.isArray(v)?v:[];}catch(e){return[];} }
 function fmtTs(ts){ return new Date(ts).toLocaleString(); }
@@ -209,10 +209,11 @@ function render(){
 }
 
 render();
-window.addEventListener('storage',function(e){ if(e.key==='rtboss_content_review_progress_v1' || e.key===EVENT_KEY){ render(); }});
+window.addEventListener('storage',function(e){ if(e.key==='RealTimeOS_content_review_progress_v1' || e.key===EVENT_KEY){ render(); }});
 </script>
 </body>
 </html>
+
 
 
 

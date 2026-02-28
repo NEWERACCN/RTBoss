@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss - Section 12 - Reporting Dashboard</title>
+<title>RealTimeOS - Section 12 - Reporting Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -195,8 +195,8 @@ function showTab(i){
 }
 
 function initReportingDashboardTab(){
-  var progressKey='rtboss_content_review_progress_v1';
-  var phaseKey='rtboss_phase_completion_v1';
+  var progressKey='RealTimeOS_content_review_progress_v1';
+  var phaseKey='RealTimeOS_phase_completion_v1';
   var sectionKeys=['S01','S02','S03','S04','S05','S06','S07','S08','S09','S10','S11','S12','S13','S15'];
   function read(k){ try{ return JSON.parse(localStorage.getItem(k)||'{}'); }catch(e){ return {}; } }
   function render(){
@@ -227,8 +227,8 @@ function initReportingDashboardTab(){
 
 function initReportingDashboardChecklist(){
   var sectionKey='S12';
-  var stateKey='rtboss_content_review_12_dashboard_v1';
-  var progressKey='rtboss_content_review_progress_v1';
+  var stateKey='RealTimeOS_content_review_12_dashboard_v1';
+  var progressKey='RealTimeOS_content_review_progress_v1';
   var boxes=Array.prototype.slice.call(document.querySelectorAll('.dash-build-check'));
   if(!boxes.length){ return; }
   var state={};
@@ -263,9 +263,9 @@ function initDashboardStructure(){
 }
 
 function initMajorBurndown(){
-  var progressKey='rtboss_content_review_progress_v1';
-  var darkKey='rtboss_dark_factory_progress_v1';
-  var clientsKey='rtboss_client_burndown_v1';
+  var progressKey='RealTimeOS_content_review_progress_v1';
+  var darkKey='RealTimeOS_dark_factory_progress_v1';
+  var clientsKey='RealTimeOS_client_burndown_v1';
   var contentSections=['S01','S02','S03','S04','S05','S06','S07','S08','S09','S10','S11','S12','S13','S14','S15'];
 
   function readObj(key){
@@ -331,6 +331,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 </body>
 </html>
+
 
 
 

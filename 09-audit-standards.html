@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss - Section 09 - Audit Standards</title>
+<title>RealTimeOS - Section 09 - Audit Standards</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -67,10 +67,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .ri{display:flex;align-items:flex-start;gap:0.5rem;padding:0.35rem 0;font-size:0.8rem;color:var(--mid);}
 .ri::before{content:"?";color:var(--cl);flex-shrink:0;font-family:'Fira Code',monospace;font-size:0.7rem;margin-top:0.15rem;}
 
-/* RTBOSS TEMPLATE HEADER */
+/* RealTimeOS TEMPLATE HEADER */
 .pw{padding-top:1.25rem !important;}
 .ph-kicker{color:var(--green) !important;}
-.rtboss-title-template{margin:0 0 1.35rem;}
+.RealTimeOS-title-template{margin:0 0 1.35rem;}
 .tpl-tech-core-flow{background:linear-gradient(90deg,rgba(10,31,56,.85),rgba(9,42,60,.78));border:1px solid rgba(64,196,255,.35);border-radius:12px;padding:1rem 1.05rem;margin:0 0 .85rem;}
 .tpl-tech-core-flow-k{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#9edbff;text-align:center;margin:0 0 .72rem;text-shadow:0 0 12px rgba(64,196,255,.22);}
 .tpl-tech-core-flow-v{font-family:'Fira Code',monospace;font-size:1.02rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#dff0ff;}
@@ -117,12 +117,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">ISO 9001 Cl.7.5 · ISO 27001 Cl.7.5</div>
     <h1 class="ph-title">Version Control &amp; Changelog</h1>
-    <p class="ph-sub">Every change to RTBoss — agents, system prompts, processes, ontology, documents, infrastructure — is versioned, logged, and traceable. Version control is not an admin burden; it is the audit trail that proves the system evolves intentionally.</p>
+    <p class="ph-sub">Every change to RealTimeOS — agents, system prompts, processes, ontology, documents, infrastructure — is versioned, logged, and traceable. Version control is not an admin burden; it is the audit trail that proves the system evolves intentionally.</p>
   </div>
   <div class="callout ci-iso"><div class="ci">?</div><div class="cb"><strong>ISO requirement:</strong> ISO 9001 Cl.7.5 requires that documented information be controlled — available when needed, adequately protected, and subject to distribution, access, retrieval, use, storage, and preservation controls. ISO 27001 Cl.7.5 has near-identical requirements. This Section 09 satisfies both.</div></div>
 
   <div class="sh"><div class="sl">Versioning Scheme — Semantic Version Standard</div><div class="sline"></div></div>
-  <p style="color:var(--mid);font-size:0.88rem;line-height:1.8;margin-bottom:1.5rem;">All RTBoss components use semantic versioning: <span style="font-family:Fira Code,monospace;color:var(--cl);">MAJOR.MINOR.PATCH</span>. The rules are strict — ambiguity about what constitutes a major vs minor change causes audit failures.</p>
+  <p style="color:var(--mid);font-size:0.88rem;line-height:1.8;margin-bottom:1.5rem;">All RealTimeOS components use semantic versioning: <span style="font-family:Fira Code,monospace;color:var(--cl);">MAJOR.MINOR.PATCH</span>. The rules are strict — ambiguity about what constitutes a major vs minor change causes audit failures.</p>
 
   <table class="dt">
     <thead><tr><th>Level</th><th>When to Use</th><th>Examples</th><th>Requires</th></tr></thead>
@@ -134,7 +134,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   </table>
 
   <div class="sh"><div class="sl">Changelog Entry Format</div><div class="sline"></div></div>
-  <div class="cb-block">RTBoss CHANGELOG ENTRY TEMPLATE
+  <div class="cb-block">RealTimeOS CHANGELOG ENTRY TEMPLATE
 ??????????????????????????????????????????????????????????
 Entry ID:         CL-[YYYY]-[nnn]                    e.g. CL-2026-042
 Date:             [YYYY-MM-DD]
@@ -194,8 +194,8 @@ Review &amp; Approval:
   <div class="sh"><div class="sl">What Triggers an NCR</div><div class="sline"></div></div>
   <div class="cg">
     <div class="card" style="--ca:var(--red);"><h3>Agent Failure</h3><p>A Genie produces an incorrect, incomplete, or unsafe output. Confidence score below threshold. Output causes a downstream process failure.</p></div>
-    <div class="card" style="--ca:var(--amber);"><h3>Process Deviation</h3><p>A defined RTBoss process was not followed. Sprint cycle skipped. Go-live gate not completed. Document classification not applied.</p></div>
-    <div class="card" style="--ca:var(--orange);"><h3>Client Complaint</h3><p>A client raises a formal concern about RTBoss outputs, service delivery, or SLA performance. Any NPS below target. Outcome Bonus disputed.</p></div>
+    <div class="card" style="--ca:var(--amber);"><h3>Process Deviation</h3><p>A defined RealTimeOS process was not followed. Sprint cycle skipped. Go-live gate not completed. Document classification not applied.</p></div>
+    <div class="card" style="--ca:var(--orange);"><h3>Client Complaint</h3><p>A client raises a formal concern about RealTimeOS outputs, service delivery, or SLA performance. Any NPS below target. Outcome Bonus disputed.</p></div>
     <div class="card" style="--ca:var(--violet);"><h3>Security Event</h3><p>Any event that may have compromised information confidentiality, integrity, or availability. Unauthorized access attempt. Data classification breach.</p></div>
     <div class="card" style="--ca:var(--blue);"><h3>Audit Finding</h3><p>An internal or external audit finds a gap. An observation not corrected becomes a minor NC. An unaddressed minor NC becomes a major NC.</p></div>
     <div class="card" style="--ca:var(--teal);"><h3>Proactive Identification</h3><p>Team member identifies a process that could fail. "We should raise an NCR" is a cultural indicator of a mature QMS — it means the team owns quality.</p></div>
@@ -218,7 +218,7 @@ Review &amp; Approval:
     <div class="ti"><div class="td" style="background:var(--orange);"></div><div class="tm">Step 3 · Root Cause Analysis</div><h4>5-Why Investigation</h4><p>Ask "Why?" five times. The first answer is usually a symptom; the fifth is usually a process or design failure. Document the 5-Why chain in root_cause. Involve the person closest to the failure.</p></div>
     <div class="ti"><div class="td" style="background:var(--blue);"></div><div class="tm">Step 4 · Corrective Action</div><h4>Fix the Root Cause, Not the Symptom</h4><p>Define what permanently prevents recurrence. Update the relevant Genie, process, or document. Create a Changelog entry. Update the test suite to catch this class of failure in future.</p></div>
     <div class="ti"><div class="td" style="background:var(--green);"></div><div class="tm">Step 5 · 30 to 90 days after correction</div><h4>Verify the Fix Worked</h4><p>Verify the corrective action prevented recurrence. Check output quality, review logs. Document in effectiveness_check. Only then set status to VERIFIED and CLOSED. An NCR not verified remains open for ISO purposes.</p></div>
-    <div class="ti"><div class="td" style="background:var(--violet);"></div><div class="tm">Step 6 · Playbook Update</div><h4>Prevent It System-Wide</h4><p>For MAJOR or CRITICAL NCRs: does this indicate a playbook gap? Document the playbook_update field with the section and version changed. This is how RTBoss learns.</p></div>
+    <div class="ti"><div class="td" style="background:var(--violet);"></div><div class="tm">Step 6 · Playbook Update</div><h4>Prevent It System-Wide</h4><p>For MAJOR or CRITICAL NCRs: does this indicate a playbook gap? Document the playbook_update field with the section and version changed. This is how RealTimeOS learns.</p></div>
   </div>
 
   <div class="sh"><div class="sl">NCR Register Dashboard</div><div class="sline"></div></div>
@@ -316,7 +316,7 @@ Implementation: [If implemented: what changed, Changelog ID, date]
   </table>
 
   <div class="sh"><div class="sl">Audit Report Format</div><div class="sline"></div></div>
-  <div class="cb-block">RTBoss INTERNAL AUDIT REPORT
+  <div class="cb-block">RealTimeOS INTERNAL AUDIT REPORT
 ??????????????????????????????????????????????????????????
 Audit ID:         AUD-[YYYY]-[nnn]             e.g. AUD-2026-001
 Audit Type:       annual | triggered
@@ -407,7 +407,7 @@ Filed: [SharePoint path]
 ??????????????????????????????????????????????????????????</div>
 
   <div class="sh"><div class="sl">The Continual Improvement Loop</div><div class="sline"></div></div>
-  <div class="callout ci-ok"><div class="ci">?</div><div class="cb"><strong>Section 09 closes the loop.</strong> Lessons feed NCRs. NCRs feed Changelog entries. Changelog entries update the Playbook. Internal audits verify the Playbook is being followed. Management Reviews assess whether the system is improving. The output of Management Reviews feeds the next sprint cycle. This is how RTBoss achieves ISO 9001 Cl.10.3 continual improvement — not as a compliance exercise, but as the operating rhythm of a system that genuinely learns.</div></div>
+  <div class="callout ci-ok"><div class="ci">?</div><div class="cb"><strong>Section 09 closes the loop.</strong> Lessons feed NCRs. NCRs feed Changelog entries. Changelog entries update the Playbook. Internal audits verify the Playbook is being followed. Management Reviews assess whether the system is improving. The output of Management Reviews feeds the next sprint cycle. This is how RealTimeOS achieves ISO 9001 Cl.10.3 continual improvement — not as a compliance exercise, but as the operating rhythm of a system that genuinely learns.</div></div>
 
   <div style="background:var(--s1);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1.5rem 0;">
     <div style="font-family:Fira Code,monospace;font-size:0.65rem;color:var(--cl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;">The Improvement Cycle</div>
@@ -445,7 +445,7 @@ function showTab(n){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function initGroupReviewSync_S12(){
-  var SECTION_KEY='S12', stateKey='rtboss_content_review_12_changelog_audit_v1', progressKey='rtboss_content_review_progress_v1';
+  var SECTION_KEY='S12', stateKey='RealTimeOS_content_review_12_changelog_audit_v1', progressKey='RealTimeOS_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
   if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sh.done .sl,.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
@@ -455,9 +455,9 @@ function initGroupReviewSync_S12(){
   labels.forEach((label, idx)=>{ var holder=label.closest('.sh')||label.closest('.sec-head'); if(!holder||holder.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=label.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); holder.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); holder.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
   applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
 }
-document.addEventListener('DOMContentLoaded', function(){ initRtbossTemplateHeader_09(); initGroupReviewSync_S12(); });
+document.addEventListener('DOMContentLoaded', function(){ initRealTimeOSTemplateHeader_09(); initGroupReviewSync_S12(); });
 
-function initRtbossTemplateHeader_09(){
+function initRealTimeOSTemplateHeader_09(){
   var sectionNum='09';
   var sectionLabel='Audit Standards';
   var roleText='Audit Standards close the loop with version control, NCRs, lessons, audits, and management review.';
@@ -486,28 +486,28 @@ function initRtbossTemplateHeader_09(){
       kickerEl.textContent='Section '+sectionNum+' - '+sectionLabel+' - '+(title||'Overview');
     }
 
-    if(pw.querySelector('.rtboss-title-template')){ return; }
+    if(pw.querySelector('.RealTimeOS-title-template')){ return; }
 
     var overview=firstSentence(sub);
     if(!overview){
-      overview='Purpose of this tab: define how '+(title||'this capability')+' supports the RTBoss Core Operating Chain and Human-First Operating Chain.';
+      overview='Purpose of this tab: define how '+(title||'this capability')+' supports the RealTimeOS Core Operating Chain and Human-First Operating Chain.';
     }
 
     var wrap=document.createElement('div');
-    wrap.className='rtboss-title-template';
+    wrap.className='RealTimeOS-title-template';
     wrap.innerHTML=''
       + '<div class="tpl-tech-core-flow">'
-      + '  <div class="tpl-tech-core-flow-k">RTBoss Operating Chain - Core</div>'
+      + '  <div class="tpl-tech-core-flow-k">RealTimeOS Operating Chain - Core</div>'
       + '  <div class="tpl-tech-core-flow-v"><span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span></div>'
       + '</div>'
       + '<div class="tpl-core-flow">'
-      + '  <div class="tpl-core-flow-k">RTBoss Operating Chain - Human-First</div>'
+      + '  <div class="tpl-core-flow-k">RealTimeOS Operating Chain - Human-First</div>'
       + '  <div class="tpl-core-flow-v"><span class="c1">Workforce</span> -> <span class="c2">Identities</span> -> <span class="c3">Mini-OS</span> -> <span class="c4">Value Engines</span> -> <span class="c5">RTBI</span> -> <span class="c6">Flow of Work</span> -> <span class="c7">Cadence</span></div>'
       + '</div>'
       + '<div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>'
       + '<div class="top-group-wrap">'
       + '  <div class="top-group-grid">'
-      + '    <div class="top-group-tile" style="--tg:#40c4ff;"><div class="top-group-k">Role in RTBoss</div><div class="top-group-v">'+roleText+'</div></div>'
+      + '    <div class="top-group-tile" style="--tg:#40c4ff;"><div class="top-group-k">Role in RealTimeOS</div><div class="top-group-v">'+roleText+'</div></div>'
       + '    <div class="top-group-tile" style="--tg:#1de9b6;"><div class="top-group-k">Overview</div><div class="top-group-v">'+overview+'</div></div>'
       + '  </div>'
       + '</div>';
@@ -518,6 +518,7 @@ function initRtbossTemplateHeader_09(){
 </script>
 </body>
 </html>
+
 
 
 

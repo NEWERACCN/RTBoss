@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss — RDM Project</title>
+<title>RealTimeOS — RDM Project</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -255,7 +255,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">RDM Project · Future Client</div>
     <h1 class="ph-title">Architecture & Overview</h1>
-    <p class="ph-sub">RDM RTBoss deployment will follow the EMS template structure. Vertical, business context, and specific agent configuration to be defined when project begins.</p>
+    <p class="ph-sub">RDM RealTimeOS deployment will follow the EMS template structure. Vertical, business context, and specific agent configuration to be defined when project begins.</p>
   </div>
   <div class="status-badge placeholder">STATUS: Future Project — Uses EMS Template</div>
   <div class="placeholder-content">
@@ -329,7 +329,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <ul>
       <li>Agent inventory table and dependency map</li>
       <li>Estimate bands and effort assumptions</li>
-      <li>Traditional vs RTBoss cost comparison</li>
+      <li>Traditional vs RealTimeOS cost comparison</li>
       <li>Reporting model and KPI structure</li>
     </ul>
   </div>
@@ -343,7 +343,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </ul>
   </div>
 <h3>RDM Agents & Estimates (Future)</h3>
-    <p>When RDM project begins, this tab will contain: complete agent specifications, build time estimates, traditional vs RTBoss cost comparison, and Power BI report structure. Use EMS Agents & Estimates as the template.</p>
+    <p>When RDM project begins, this tab will contain: complete agent specifications, build time estimates, traditional vs RealTimeOS cost comparison, and Power BI report structure. Use EMS Agents & Estimates as the template.</p>
   </div>
 </div></div>
 
@@ -460,7 +460,7 @@ az account show --query "{name:name, id:id, state:state}"
     {
       title:'Create Resource Group',
       where:'cli', whereLabel:'CLI',
-      desc:'All RTBoss resources live in one resource group. Use a consistent naming convention. Australasia East is recommended for AU pharmacy operations (lowest latency to AusPost APIs).',
+      desc:'All RealTimeOS resources live in one resource group. Use a consistent naming convention. Australasia East is recommended for AU pharmacy operations (lowest latency to AusPost APIs).',
       instructions:[
         'Choose a name — recommended: <span class="val">rg-rtbos-pharmacy-prod</span>',
         'Run the CLI command below',
@@ -535,12 +535,12 @@ az account show --query "{name:name, id:id, state:state}"
         'Click <span class="click">Next</span> ? <span class="click">Review + create</span> ? <span class="click">Create</span>',
         'Wait ~3 minutes for provisioning to complete'
       ],
-      callout:{ type:'info', icon:'??', body:'The Hub auto-creates a managed storage account and Key Vault. <strong>Do not use these for RTBoss secrets</strong> — create a dedicated Key Vault in Phase 08 for explicit control.' }
+      callout:{ type:'info', icon:'??', body:'The Hub auto-creates a managed storage account and Key Vault. <strong>Do not use these for RealTimeOS secrets</strong> — create a dedicated Key Vault in Phase 08 for explicit control.' }
     },
     {
       title:'Create Foundry Project inside the Hub',
       where:'portal', whereLabel:'ai.azure.com',
-      desc:'A Project is the working container for agents, deployments, and connections. All 13 RTBoss agents will be created inside this single project.',
+      desc:'A Project is the working container for agents, deployments, and connections. All 13 RealTimeOS agents will be created inside this single project.',
       instructions:[
         'Inside <span class="nav-click">ai.azure.com</span>, open the Hub you just created',
         'Click <span class="click">+ New project</span>',
@@ -607,7 +607,7 @@ az cognitiveservices account deployment show \\
     {
       title:'Create Cosmos DB account (NoSQL / Core API)',
       where:'portal', whereLabel:'Azure Portal',
-      desc:'Use the NoSQL (Core SQL) API for flexible JSON documents with strong consistency. The RTBoss pharmacy system requires strong consistency for twin version increments.',
+      desc:'Use the NoSQL (Core SQL) API for flexible JSON documents with strong consistency. The RealTimeOS pharmacy system requires strong consistency for twin version increments.',
       instructions:[
         'Go to <span class="nav-click">portal.azure.com</span> ? search <span class="val">Azure Cosmos DB</span> ? <span class="click">+ Create</span>',
         'Select <span class="click">Azure Cosmos DB for NoSQL</span>',
@@ -623,7 +623,7 @@ az cognitiveservices account deployment show \\
     {
       title:'Create the rtbos_pharmacy database',
       where:'portal', whereLabel:'Cosmos DB ? Data Explorer',
-      desc:'All RTBoss containers live in a single database. Use shared throughput at the database level for cost efficiency across containers.',
+      desc:'All RealTimeOS containers live in a single database. Use shared throughput at the database level for cost efficiency across containers.',
       instructions:[
         'Open <span class="val">cosmos-rtbos-pharmacy</span> in the Azure Portal',
         'Click <span class="click">Data Explorer</span> in the left sidebar',
@@ -673,7 +673,7 @@ az cognitiveservices account deployment show \\
     {
       title:'Deploy append-only stored procedure for audit trail',
       where:'code', whereLabel:'Cosmos DB ? Data Explorer',
-      desc:'The RTBoss audit trail relies on an append-only stored procedure — agents call it to add loop_trace entries without being able to modify existing ones.',
+      desc:'The RealTimeOS audit trail relies on an append-only stored procedure — agents call it to add loop_trace entries without being able to modify existing ones.',
       instructions:[
         'In Data Explorer, click on <span class="val">order_twins</span> container',
         'Click <span class="click">Stored Procedures</span> ? <span class="click">New Stored Procedure</span>',
@@ -853,7 +853,7 @@ df.write.format("delta").mode("overwrite") \\
     {
       title:'Navigate to Agent Studio in your Foundry project',
       where:'portal', whereLabel:'ai.azure.com',
-      desc:'All agents are created in the Foundry Agent Studio. You will repeat the create flow 13 times — one per RTBoss loop step.',
+      desc:'All agents are created in the Foundry Agent Studio. You will repeat the create flow 13 times — one per RealTimeOS loop step.',
       instructions:[
         'Go to <span class="nav-click">ai.azure.com</span> ? open <span class="val">proj-pharmacy-rtbos</span>',
         'In the left sidebar, click <span class="click">Agents</span>',
@@ -919,7 +919,7 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
     {
       title:'Create AGT-003 through AGT-013 — repeat pattern',
       where:'portal', whereLabel:'Foundry ? Agents',
-      desc:'Repeat the New Agent creation flow for each remaining agent. The pattern is identical: Name ? Deployment ? System Prompt ? Tools ? Save. Use the system prompts from the Agents tab of the RTBoss Architecture document.',
+      desc:'Repeat the New Agent creation flow for each remaining agent. The pattern is identical: Name ? Deployment ? System Prompt ? Tools ? Save. Use the system prompts from the Agents tab of the RealTimeOS Architecture document.',
       instructions:[
         'For each agent, click <span class="click">+ New agent</span>',
         'Set <span class="field">Name</span> exactly as specified (AGT-003 RxLinkClassifierAgent, AGT-004 OrderTypeClassifierAgent, etc.)',
@@ -929,7 +929,7 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
         'Click <span class="click">Save</span> after each one',
         'After all 13 are created, verify the Agents list shows all 13 with status <span class="val">Active</span>'
       ],
-      callout:{ type:'info', icon:'??', body:'<strong>Tool schemas:</strong> For each HTTP tool (AusPost, Google Sheets), you must define the OpenAPI-style function schema. Use the RTBoss Architecture document ? Agents tab ? each agent\'s "Tools & Connectors" section for the exact API endpoint and parameters.' }
+      callout:{ type:'info', icon:'??', body:'<strong>Tool schemas:</strong> For each HTTP tool (AusPost, Google Sheets), you must define the OpenAPI-style function schema. Use the RealTimeOS Architecture document ? Agents tab ? each agent\'s "Tools & Connectors" section for the exact API endpoint and parameters.' }
     },
     {
       title:'Configure tool definitions for HTTP agents',
@@ -967,15 +967,15 @@ If NON_ORDER: the orchestrator will log and exit. Do not attempt further process
       desc:'The Orchestrator is the DOL coordinator — the master agent that routes the context envelope through all specialist agents in sequence. It uses the multi-agent "handoff" pattern.',
       instructions:[
         'Click <span class="click">+ New agent</span>',
-        'Set <span class="field">Name</span>: <span class="val">RTBossOrchestratorAgent</span>',
+        'Set <span class="field">Name</span>: <span class="val">RealTimeOSOrchestratorAgent</span>',
         'Set <span class="field">Deployment</span>: <span class="val">gpt-4o-rtbos</span>',
         'Paste orchestrator system prompt below',
         'Under <span class="click">Tools</span> ? <span class="click">+ Add tool</span> ? <span class="click">Agent</span>',
         'Add all 13 specialist agents as sub-agents',
         'Click <span class="click">Save</span>'
       ],
-      code:`You are the RTBossOrchestratorAgent — the Division of Labor (DOL) coordinator
-for the RTBoss Pharmacy operating loop.
+      code:`You are the RealTimeOSOrchestratorAgent — the Division of Labor (DOL) coordinator
+for the RealTimeOS Pharmacy operating loop.
 
 Your role:
 1. Receive the trigger payload (email ingestion event)
@@ -1067,7 +1067,7 @@ def run_rtbos_loop(email_payload: dict) -> dict:
       where:'code', whereLabel:'Python / Foundry Playground',
       desc:'Before connecting Power Automate, verify the chain works end-to-end with a synthetic payload. Use the Foundry playground or a local Python run.',
       instructions:[
-        'In <span class="nav-click">ai.azure.com</span>, open <span class="val">RTBossOrchestratorAgent</span>',
+        'In <span class="nav-click">ai.azure.com</span>, open <span class="val">RealTimeOSOrchestratorAgent</span>',
         'Click <span class="click">Try in playground</span>',
         'Paste the test payload below into the chat',
         'Observe: each sub-agent should be called in sequence',
@@ -1106,11 +1106,11 @@ def run_rtbos_loop(email_payload: dict) -> dict:
     {
       title:'Create Power Automate flow — email trigger',
       where:'portal', whereLabel:'make.powerautomate.com',
-      desc:'The Power Automate flow is the RTBoss fact ingestion point. When email arrives, it calls the Orchestrator Agent HTTP endpoint to start the operating loop.',
+      desc:'The Power Automate flow is the RealTimeOS fact ingestion point. When email arrives, it calls the Orchestrator Agent HTTP endpoint to start the operating loop.',
       instructions:[
         'Go to <span class="nav-click">make.powerautomate.com</span>',
         'Click <span class="click">+ Create</span> ? <span class="click">Automated cloud flow</span>',
-        'Name: <span class="val">RTBoss-EmailTrigger</span>',
+        'Name: <span class="val">RealTimeOS-EmailTrigger</span>',
         'Search for trigger: <span class="val">When a new email arrives in a shared mailbox (V2)</span>',
         'Click <span class="click">Create</span>'
       ]
@@ -1170,7 +1170,7 @@ def run_rtbos_loop(email_payload: dict) -> dict:
     {
       title:'Create Service Bus namespace',
       where:'cli', whereLabel:'Azure CLI',
-      desc:'A single Service Bus namespace hosts all RTBoss topics. Use the Standard tier — it includes topics and subscriptions (Basic tier does not support topics).',
+      desc:'A single Service Bus namespace hosts all RealTimeOS topics. Use the Standard tier — it includes topics and subscriptions (Basic tier does not support topics).',
       instructions:[
         'Run the CLI command below',
         'Wait ~1 minute for provisioning',
@@ -1251,7 +1251,7 @@ az role assignment create \\
 
   p8: [
     {
-      title:'Create dedicated Key Vault for RTBoss secrets',
+      title:'Create dedicated Key Vault for RealTimeOS secrets',
       where:'cli', whereLabel:'Azure CLI',
       desc:'A dedicated Key Vault separate from the one auto-created by Foundry. This gives you explicit control over access policies and audit logs.',
       instructions:[
@@ -1268,7 +1268,7 @@ az role assignment create \\
     {
       title:'Store all secrets',
       where:'cli', whereLabel:'Azure CLI',
-      desc:'Store all five RTBoss secrets. Replace placeholder values with your real credentials gathered in Phase 00.',
+      desc:'Store all five RealTimeOS secrets. Replace placeholder values with your real credentials gathered in Phase 00.',
       instructions:[
         'Run each command below — replace all <span class="field">YOUR_*</span> values with real credentials',
         'Confirm each returns the secret URI'
@@ -1991,6 +1991,7 @@ renderAgents();
 </script>
 </body>
 </html>
+
 
 
 

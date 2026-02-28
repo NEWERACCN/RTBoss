@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RTBoss - Section 08 - Execution Standards</title>
+<title>RealTimeOS - Section 08 - Execution Standards</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -217,10 +217,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 .callout.warn{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.18);}
 .callout.violet{background:rgba(179,136,255,.05);border:1px solid rgba(179,136,255,.18);}
 .callout.amber{background:rgba(255,202,40,.05);border:1px solid rgba(255,202,40,.2);}
-/* RTBOSS TEMPLATE HEADER */
+/* RealTimeOS TEMPLATE HEADER */
 .pw{padding-top:1.25rem !important;}
 .ph-kicker{color:var(--green) !important;}
-.rtboss-title-template{margin:0 0 1.35rem;}
+.RealTimeOS-title-template{margin:0 0 1.35rem;}
 .tpl-tech-core-flow{background:linear-gradient(90deg,rgba(10,31,56,.85),rgba(9,42,60,.78));border:1px solid rgba(64,196,255,.35);border-radius:12px;padding:1rem 1.05rem;margin:0 0 .85rem;}
 .tpl-tech-core-flow-k{font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#9edbff;text-align:center;margin:0 0 .72rem;text-shadow:0 0 12px rgba(64,196,255,.22);}
 .tpl-tech-core-flow-v{font-family:'Fira Code',monospace;font-size:1.02rem;line-height:1.65;text-align:center;word-spacing:.05em;color:#dff0ff;}
@@ -262,7 +262,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="tab" onclick="showTab('tab-2', this)">03 - Workforce Maturity</div>
   <div class="tab" onclick="showTab('tab-3', this)">04 - System Opportunities</div>
   <div class="tab" onclick="showTab('tab-4', this)">05 - Client Tracking</div>
-  <div class="tab" onclick="showTab('tab-5', this)">06 - RTBoss Tracking</div>
+  <div class="tab" onclick="showTab('tab-5', this)">06 - RealTimeOS Tracking</div>
   <div class="tab" onclick="showTab('tab-6', this)">07 - Design Philosophy</div>
 </div>
 
@@ -275,12 +275,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">Execution & Tracking · Architecture</div>
     <h1 class="ph-title">Tracking System Overview</h1>
-    <p class="ph-sub">This section defines the architecture and design of the RTBoss tracking system — what it is, where it lives, how it works, and how each client gets their own instance. Not the live tracker itself, but the blueprint that governs every tracker built.</p>
+    <p class="ph-sub">This section defines the architecture and design of the RealTimeOS tracking system — what it is, where it lives, how it works, and how each client gets their own instance. Not the live tracker itself, but the blueprint that governs every tracker built.</p>
   </div>
 
   <div class="callout amber">
     <div class="callout-icon">?</div>
-    <div class="callout-body"><strong>RTBoss eats its own cooking.</strong> The tracking system is built on RTBoss principles — every implementation step is a Fact, every agent deployment is a tracked event, every exception surfaces as an Opportunity. We use the same fact model to track the build as we use to run client operations.</div>
+    <div class="callout-body"><strong>RealTimeOS eats its own cooking.</strong> The tracking system is built on RealTimeOS principles — every implementation step is a Fact, every agent deployment is a tracked event, every exception surfaces as an Opportunity. We use the same fact model to track the build as we use to run client operations.</div>
   </div>
 
   <div class="sec-head"><span class="sec-label">What the Tracking System Does</span><div class="sec-line"></div></div>
@@ -408,7 +408,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="callout teal">
     <div class="callout-icon">?</div>
-    <div class="callout-body"><strong>The same model, used twice.</strong> RTBoss operational facts are business events — ORDER_RECEIVED, PARCEL_DISPATCHED. RTBoss tracking facts are implementation events — GENIE_DEPLOYED, TEST_PASSED, GO_LIVE_CONFIRMED. The schema is identical. The context differs. The discipline is the same.</div>
+    <div class="callout-body"><strong>The same model, used twice.</strong> RealTimeOS operational facts are business events — ORDER_RECEIVED, PARCEL_DISPATCHED. RealTimeOS tracking facts are implementation events — GENIE_DEPLOYED, TEST_PASSED, GO_LIVE_CONFIRMED. The schema is identical. The context differs. The discipline is the same.</div>
   </div>
 
   <div class="sec-head"><span class="sec-label">Core Fact Schema</span><div class="sec-line"></div></div>
@@ -555,12 +555,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="ph">
     <div class="ph-kicker">Three-Lens View · Digital Worker Trajectory</div>
     <h1 class="ph-title">Workforce Maturity</h1>
-    <p class="ph-sub">Maturity is the percentage of a client's operational workload handled by Digital Workers — agents — versus Hybrid (human + agent) or Human-only. The model tracks this across three lenses: per client, per Mini-OS domain, and per Genie. The compounding effect over time is the RTBoss commercial story.</p>
+    <p class="ph-sub">Maturity is the percentage of a client's operational workload handled by Digital Workers — agents — versus Hybrid (human + agent) or Human-only. The model tracks this across three lenses: per client, per Mini-OS domain, and per Genie. The compounding effect over time is the RealTimeOS commercial story.</p>
   </div>
 
   <div class="callout green">
     <div class="callout-icon">?</div>
-    <div class="callout-body"><strong>The workforce maturity clock starts at MINI_OS_LIVE.</strong> From the moment a Mini-OS goes live, every maturity fact accumulates. The 30/90/180-day review cadence captures the progression. The target trajectory — 0% ? 18% ? 40% ? 80% Digital Worker over 24 months — is the measurable outcome RTBoss is sold on delivering.</div>
+    <div class="callout-body"><strong>The workforce maturity clock starts at MINI_OS_LIVE.</strong> From the moment a Mini-OS goes live, every maturity fact accumulates. The 30/90/180-day review cadence captures the progression. The target trajectory — 0% ? 18% ? 40% ? 80% Digital Worker over 24 months — is the measurable outcome RealTimeOS is sold on delivering.</div>
   </div>
 
   <div class="sec-head"><span class="sec-label">The Five Workforce Stages</span><div class="sec-line"></div></div>
@@ -570,7 +570,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="ms-left"><div class="ms-pct" style="color:var(--dim);">0%</div><div class="ms-stage-label">Stage 0</div></div>
       <div class="ms-right">
         <div class="ms-name">Baseline — Human-Only Operations</div>
-        <div class="ms-desc">All operational work is performed by humans. Processes may be partially digital (spreadsheets, email) but no agents are active. This is the pre-RTBoss state — documented during Discovery as the baseline against which all improvement is measured.</div>
+        <div class="ms-desc">All operational work is performed by humans. Processes may be partially digital (spreadsheets, email) but no agents are active. This is the pre-RealTimeOS state — documented during Discovery as the baseline against which all improvement is measured.</div>
         <div class="ms-tags"><span class="ms-tag">no agents live</span><span class="ms-tag">discovery complete</span><span class="ms-tag">Digital Twin not yet active</span></div>
       </div>
     </div>
@@ -602,7 +602,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div class="ms-left"><div class="ms-pct" style="color:var(--teal);">70–80%</div><div class="ms-stage-label">Stage 4</div></div>
       <div class="ms-right">
         <div class="ms-name">Optimized — Digital-First Operations</div>
-        <div class="ms-desc">The majority of operational throughput runs through agents. Humans operate in oversight, innovation, and relationship roles. The business has structurally lower COGS, faster operations, and higher capacity without headcount growth. This is the RTBoss target state — the proof point for the fund narrative.</div>
+        <div class="ms-desc">The majority of operational throughput runs through agents. Humans operate in oversight, innovation, and relationship roles. The business has structurally lower COGS, faster operations, and higher capacity without headcount growth. This is the RealTimeOS target state — the proof point for the fund narrative.</div>
         <div class="ms-tags"><span class="ms-tag">20+ Genies live</span><span class="ms-tag">all Value Engines active</span><span class="ms-tag">COGS reduction confirmed</span><span class="ms-tag">fund-ready data</span></div>
       </div>
     </div>
@@ -612,7 +612,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div class="content-block">
     <h3>What This Lens Answers</h3>
-    <p><strong>How mature is this client's RTBoss deployment overall?</strong> Aggregates across all their Mini-OS and Genies to give a single workforce maturity score for the client. Used in MD portfolio overview, client reporting, and investor narrative. Tracks the trajectory from baseline to target over time.</p>
+    <p><strong>How mature is this client's RealTimeOS deployment overall?</strong> Aggregates across all their Mini-OS and Genies to give a single workforce maturity score for the client. Used in MD portfolio overview, client reporting, and investor narrative. Tracks the trajectory from baseline to target over time.</p>
   </div>
 
   <div class="lens-grid">
@@ -940,13 +940,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
 
 <!-- ========================================
-     TAB 06 - RTBOSS TRACKING
+     TAB 06 - RealTimeOS TRACKING
 ======================================== -->
 <div class="panel" id="tab-5"><div class="pw">
 
   <div class="ph">
     <div class="ph-kicker">Execution Governance - Improvement Register</div>
-    <h1 class="ph-title">RTBoss Tracking</h1>
+    <h1 class="ph-title">RealTimeOS Tracking</h1>
     <p class="ph-sub">Central register for the improvements, system opportunities, and missing pieces identified in Section 06 &middot; This tab is the working control surface for closing gaps in Tabs 03, 04, and 05.</p>
   </div>
 
@@ -1000,7 +1000,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
   <div class="sec-head"><span class="sec-label">E. Advisor Automation Design</span><div class="sec-line"></div></div>
 
   <div class="content-block">
-    <h3>ADV-013 RTBoss Tracking Advisor Workflow</h3>
+    <h3>ADV-013 RealTimeOS Tracking Advisor Workflow</h3>
     <p>The advisor runs this sequence: research evidence from Fact Stream and QMS sources, produce candid review findings, generate prioritized improvements and system opportunities, then post each item into this tracker as tracked rows.</p>
     <p>Posting contract: each generated item must include <strong>ID</strong>, <strong>Owner</strong>, <strong>Due Date</strong>, <strong>Impact</strong>, and <strong>Recommended Action</strong>. Rows are then managed with the action checkboxes above: <strong>Complete</strong>, <strong>Ignore</strong>, or <strong>Delete</strong>.</p>
   </div>
@@ -1029,7 +1029,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
 
   <div style="max-width:860px;margin-bottom:2.5rem;">
     <h2 style="font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;">The Two-Layer Principle</h2>
-    <p style="font-size:0.82rem;color:var(--mid);line-height:1.85;">RTBoss operates on a strict separation between <strong style="color:var(--green)">construction time</strong> and <strong style="color:var(--violet)">runtime</strong>. These are not concurrent activities  they are sequential, use different models, and serve completely different purposes. Conflating them is the most common architectural mistake in multi-agent systems.</p>
+    <p style="font-size:0.82rem;color:var(--mid);line-height:1.85;">RealTimeOS operates on a strict separation between <strong style="color:var(--green)">construction time</strong> and <strong style="color:var(--violet)">runtime</strong>. These are not concurrent activities  they are sequential, use different models, and serve completely different purposes. Conflating them is the most common architectural mistake in multi-agent systems.</p>
   </div>
 
   <!-- TWO LAYER CARDS -->
@@ -1039,7 +1039,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:#40c4ff;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.75rem;">Layer 01  Construction Time</div>
       <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">GPT-5.3-Codex</div>
       <div style="font-size:0.75rem;color:var(--dim);font-style:italic;margin-bottom:1rem;">Your engineer. Exits at deployment.</div>
-      <p style="font-size:0.79rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Codex 5.3 writes the system  not a deployed agent within it. It generates Foundry Agent Service registration code for all 13 agents from the RTBoss spec, writes Azure Function and Logic App tool bindings, and produces the full test harness for Phase 10 validation scenarios. With agent-teams mode, multiple Codex sessions work in parallel across agents.</p>
+      <p style="font-size:0.79rem;color:var(--mid);line-height:1.8;margin-bottom:1rem;">Codex 5.3 writes the system  not a deployed agent within it. It generates Foundry Agent Service registration code for all 13 agents from the RealTimeOS spec, writes Azure Function and Logic App tool bindings, and produces the full test harness for Phase 10 validation scenarios. With agent-teams mode, multiple Codex sessions work in parallel across agents.</p>
       <div style="border-top:1px solid var(--border);padding-top:0.9rem;margin-top:0.5rem;">
         <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Codex 5.3 Responsibilities</div>
         <div style="font-size:0.76rem;color:var(--mid);line-height:1.9;">
@@ -1061,7 +1061,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
       <div style="border-top:1px solid var(--border);padding-top:0.9rem;margin-top:0.5rem;">
         <div style="font-family:'Fira Code',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Runtime Model Assignment</div>
         <div style="font-size:0.76rem;color:var(--mid);line-height:1.9;">
-          <span style="color:var(--violet);">Opus 4.6</span> -> RTBossOrchestratorAgent only<br>
+          <span style="color:var(--violet);">Opus 4.6</span> -> RealTimeOSOrchestratorAgent only<br>
           <span style="color:var(--green);">Sonnet 4.5</span> -> All 13 specialist agents<br>
           <span style="color:var(--green);">Sonnet 4.5</span> -> CutoffOrchestratorAgent<br>
           <span style="color:var(--blue);">Haiku 4.5</span> -> High-volume lookup &amp; validation<br>
@@ -1084,7 +1084,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;">"Deep Thinker First"</div>
         <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Opus 4.6 is built on a reliability-before-speed doctrine. Its core architectural bet  adaptive thinking  means the model decides when to reason deeply and when not to. This is Constitutional AI heritage made practical: safety and trustworthiness are baked into the model, not bolted on. It is optimized less for one-shot cleverness and more for robust, multi-turn, tool-using workflows.</p>
         <div style="font-size:0.74rem;color:var(--dim);line-height:1.85;">
-          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RTBoss</div>
+          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RealTimeOS</div>
           A pharmacy EMS making real dispatch decisions requires a model that checks its work, honours context across a long loop, and fails safely. Opus 4.6's caution is a feature, not a limitation. Its 1M token context holds an entire day's order history without degradation.
         </div>
       </div>
@@ -1093,7 +1093,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
         <div style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.7rem;">"General-Purpose Builder"</div>
         <p style="font-size:0.77rem;color:var(--mid);line-height:1.85;margin-bottom:0.9rem;">Codex 5.3 merges the previous GPT-5.2 reasoning model and the GPT-5.2-Codex coding agent into a single system. Its philosophy is end-to-end execution  not just writing functions, but understanding all the work around the code: updating Jira, writing documentation, managing deployment pipelines. It was the first model instrumentally involved in building itself, signalling OpenAI's accelerationist posture toward self-improvement loops.</p>
         <div style="font-size:0.74rem;color:var(--dim);line-height:1.85;">
-          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RTBoss</div>
+          <div style="color:var(--text);font-weight:500;margin-bottom:0.3rem;">Why this matters for RealTimeOS</div>
           Codex 5.3's strength is construction velocity. The 11-phase build guide becomes a Codex session. Its interactive steering  where you can redirect it mid-task without losing context  is ideal for the iterative agent-scaffolding work that human engineers would otherwise spend days doing in the portal.
         </div>
       </div>
@@ -1105,7 +1105,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div style="font-size:1.2rem;padding-top:0.1rem;">??</div>
     <div>
       <div style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;">Safety Posture Divergence</div>
-      <p style="font-size:0.77rem;color:var(--mid);line-height:1.8;">Codex 5.3 is the first model OpenAI has designated "High capability" for cybersecurity under their Preparedness Framework  they cannot rule out its ability to automate end-to-end operations against hardened targets. Anthropic's posture is more conservative by design. For RTBoss runtime, this divergence is decisive: Opus 4.6's Constitutional AI heritage is the right choice for a system that touches real patient prescriptions, AusPost dispatch, and financial reconciliation. Use Codex 5.3's power at build time; deploy Opus 4.6's trustworthiness at runtime.</p>
+      <p style="font-size:0.77rem;color:var(--mid);line-height:1.8;">Codex 5.3 is the first model OpenAI has designated "High capability" for cybersecurity under their Preparedness Framework  they cannot rule out its ability to automate end-to-end operations against hardened targets. Anthropic's posture is more conservative by design. For RealTimeOS runtime, this divergence is decisive: Opus 4.6's Constitutional AI heritage is the right choice for a system that touches real patient prescriptions, AusPost dispatch, and financial reconciliation. Use Codex 5.3's power at build time; deploy Opus 4.6's trustworthiness at runtime.</p>
     </div>
   </div>
 
@@ -1138,7 +1138,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     <div class="sec-head-line"></div>
   </div>
   <div style="background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:8px;padding:1.4rem 1.5rem;margin-bottom:2rem;">
-    <div style="font-size:0.88rem;font-weight:600;color:var(--green);margin-bottom:0.85rem;">RTBoss was designed for this model before either model existed.</div>
+    <div style="font-size:0.88rem;font-weight:600;color:var(--green);margin-bottom:0.85rem;">RealTimeOS was designed for this model before either model existed.</div>
     <p style="font-size:0.79rem;color:var(--mid);line-height:1.9;margin-bottom:1rem;">The Division of Labor pattern  specialist agents, clean context envelope, append-only audit trail, an orchestrator that routes but doesn't do  is precisely what both Foundry's Connected Agents primitive and Opus 4.6's parallel subagent capability were independently built to support. The architectural convergence is not coincidental: these are the patterns that work at scale for complex, multi-step, high-stakes workflows.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
       <div>
@@ -1162,7 +1162,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,
     </div>
   </div>
 
-  <div class="def-block">// The verdict: RTBoss is architecturally sound for where both models are going. You are not behind the curve  you designed a system the platform is now catching up to. Being a Microsoft shop on Azure Foundry is the strategic advantage: both model families, one governance roof, one billing surface, one observability layer.</div>
+  <div class="def-block">// The verdict: RealTimeOS is architecturally sound for where both models are going. You are not behind the curve  you designed a system the platform is now catching up to. Being a Microsoft shop on Azure Foundry is the strategic advantage: both model families, one governance roof, one billing surface, one observability layer.</div>
 
 </div></div>
 <!-- -- END TAB 07 -- -->
@@ -1177,7 +1177,7 @@ function showTab(panelId, el){
   if(panel){ panel.classList.add('active'); }
 }
 
-const TRK_STATE_KEY = 'rtboss_tracking_actions_v1';
+const TRK_STATE_KEY = 'RealTimeOS_tracking_actions_v1';
 
 function loadTrackingState(){
   try { return JSON.parse(localStorage.getItem(TRK_STATE_KEY) || '{}'); }
@@ -1250,12 +1250,12 @@ document.addEventListener('DOMContentLoaded', function(){
   refreshAllRows();
   } catch(e) {
     // Keep tab navigation functional even if tracking UI init fails.
-    console.error('RTBoss Tracking init error:', e);
+    console.error('RealTimeOS Tracking init error:', e);
   }
 });
 
 function initGroupReviewSync_S06(){
-  var SECTION_KEY='S06', stateKey='rtboss_content_review_06_execution_v1', progressKey='rtboss_content_review_progress_v1';
+  var SECTION_KEY='S06', stateKey='RealTimeOS_content_review_06_execution_v1', progressKey='RealTimeOS_content_review_progress_v1';
   var state={}; try{ state=JSON.parse(localStorage.getItem(stateKey)||'{}'); }catch(e){ state={}; } var syncing=false;
   if(!document.getElementById('group-review-sync-style')){ var st=document.createElement('style'); st.id='group-review-sync-style'; st.textContent='.sec-head.done .sec-label{color:var(--teal);}.sec-group-check{width:15px;height:15px;accent-color:var(--green);border:1px solid var(--border);border-radius:3px;background:var(--s2);cursor:pointer;transform:translateY(1px);flex-shrink:0;}'; document.head.appendChild(st); }
   function saveState(){ try{ localStorage.setItem(stateKey, JSON.stringify(state)); }catch(e){} } function readProgress(){ try{ return JSON.parse(localStorage.getItem(progressKey)||'{}'); }catch(e){ return {}; } }
@@ -1264,9 +1264,9 @@ function initGroupReviewSync_S06(){
   document.querySelectorAll('.sec-head').forEach((head, idx)=>{ var label=head.querySelector('.sec-label'); if(!label||head.querySelector('.sec-group-check')){ return; } var title=(label.textContent||'').trim(); if(!title){ return; } var panel=head.closest('.panel'); var panelId=panel?panel.id:'root'; var id=panelId+'::'+idx+'::'+title; var cb=document.createElement('input'); cb.type='checkbox'; cb.className='sec-group-check'; cb.dataset.reviewId=id; cb.checked=!!state[id]; label.insertAdjacentElement('afterend', cb); head.classList.toggle('done', cb.checked); cb.addEventListener('change', ()=>{ state[id]=cb.checked; saveState(); head.classList.toggle('done', cb.checked); saveProgressFromUI(); }); });
   applyProgressToUI(); saveProgressFromUI(); window.addEventListener('storage', (e)=>{ if(e.key===progressKey){ applyProgressToUI(); } });
 }
-document.addEventListener('DOMContentLoaded', function(){ initRtbossTemplateHeader_08(); initGroupReviewSync_S06(); });
+document.addEventListener('DOMContentLoaded', function(){ initRealTimeOSTemplateHeader_08(); initGroupReviewSync_S06(); });
 
-function initRtbossTemplateHeader_08(){
+function initRealTimeOSTemplateHeader_08(){
   var sectionNum='08';
   var sectionLabel='Execution Standards';
   var roleText='Execution Standards define how facts are tracked, measured, and improved across implementation and live operations.';
@@ -1295,28 +1295,28 @@ function initRtbossTemplateHeader_08(){
       kickerEl.textContent='Section '+sectionNum+' - '+sectionLabel+' - '+(title||'Overview');
     }
 
-    if(pw.querySelector('.rtboss-title-template')){ return; }
+    if(pw.querySelector('.RealTimeOS-title-template')){ return; }
 
     var overview=firstSentence(sub);
     if(!overview){
-      overview='Purpose of this tab: define how '+(title||'this capability')+' supports the RTBoss Core Operating Chain and Human-First Operating Chain.';
+      overview='Purpose of this tab: define how '+(title||'this capability')+' supports the RealTimeOS Core Operating Chain and Human-First Operating Chain.';
     }
 
     var wrap=document.createElement('div');
-    wrap.className='rtboss-title-template';
+    wrap.className='RealTimeOS-title-template';
     wrap.innerHTML=''
       + '<div class="tpl-tech-core-flow">'
-      + '  <div class="tpl-tech-core-flow-k">RTBoss Operating Chain - Core</div>'
+      + '  <div class="tpl-tech-core-flow-k">RealTimeOS Operating Chain - Core</div>'
       + '  <div class="tpl-tech-core-flow-v"><span class="t1">Facts</span> -> <span class="t2">Dimensions</span> -> <span class="t3">Digital Assets</span> -> <span class="t4">Agentic Factory</span> -> <span class="t5">Digital Workforce</span> -> <span class="t6">Digital Twin</span> -> <span class="t7">New Fact</span></div>'
       + '</div>'
       + '<div class="tpl-core-flow">'
-      + '  <div class="tpl-core-flow-k">RTBoss Operating Chain - Human-First</div>'
+      + '  <div class="tpl-core-flow-k">RealTimeOS Operating Chain - Human-First</div>'
       + '  <div class="tpl-core-flow-v"><span class="c1">Workforce</span> -> <span class="c2">Identities</span> -> <span class="c3">Mini-OS</span> -> <span class="c4">Value Engines</span> -> <span class="c5">RTBI</span> -> <span class="c6">Flow of Work</span> -> <span class="c7">Cadence</span></div>'
       + '</div>'
       + '<div class="sec-head"><span class="sec-label">Top Group</span><input class="sec-group-check" type="checkbox"><div class="sec-head-line"></div></div>'
       + '<div class="top-group-wrap">'
       + '  <div class="top-group-grid">'
-      + '    <div class="top-group-tile" style="--tg:#40c4ff;"><div class="top-group-k">Role in RTBoss</div><div class="top-group-v">'+roleText+'</div></div>'
+      + '    <div class="top-group-tile" style="--tg:#40c4ff;"><div class="top-group-k">Role in RealTimeOS</div><div class="top-group-v">'+roleText+'</div></div>'
       + '    <div class="top-group-tile" style="--tg:#1de9b6;"><div class="top-group-k">Overview</div><div class="top-group-v">'+overview+'</div></div>'
       + '  </div>'
       + '</div>';
@@ -1327,6 +1327,7 @@ function initRtbossTemplateHeader_08(){
 </script>
 </body>
 </html>
+
 
 
 
