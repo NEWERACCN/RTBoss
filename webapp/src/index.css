@@ -76,9 +76,10 @@ li + li {
 }
 
 .layout-shell {
+  --sidebar-width: 268px;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 268px 1fr;
+  grid-template-columns: var(--sidebar-width) 8px 1fr;
   background:
     linear-gradient(rgba(101, 146, 201, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(101, 146, 201, 0.04) 1px, transparent 1px),
@@ -95,6 +96,19 @@ li + li {
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 0.75rem;
+}
+
+.sidebar-resizer {
+  cursor: col-resize;
+  background: linear-gradient(180deg, rgba(48, 82, 138, 0.18), rgba(40, 67, 114, 0.18));
+  border-left: 1px solid rgba(102, 134, 189, 0.2);
+  border-right: 1px solid rgba(102, 134, 189, 0.2);
+  transition: background-color 120ms ease;
+}
+
+.sidebar-resizer:hover,
+.sidebar-resizer.active {
+  background: linear-gradient(180deg, rgba(82, 146, 244, 0.32), rgba(62, 112, 194, 0.32));
 }
 
 .sidebar-zone {
@@ -133,6 +147,18 @@ li + li {
   margin-top: 1.2rem;
 }
 
+.workstream-group {
+  margin-top: 0.68rem;
+}
+
+.workstream-title {
+  color: #84a5db;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.64rem;
+  margin: 0 0.3rem 0.28rem;
+}
+
 .nav-group-title {
   color: #7f90bf;
   text-transform: uppercase;
@@ -145,14 +171,18 @@ li + li {
   display: block;
   color: #c4d1f3;
   text-decoration: none;
-  padding: 0.68rem 0.8rem;
+  padding: 0.52rem 0.62rem;
   border-radius: 0.65rem;
-  margin-top: 0.35rem;
+  margin-top: 0.24rem;
   border: 1px solid rgba(68, 96, 150, 0.24);
   background: linear-gradient(180deg, rgba(19, 31, 58, 0.6), rgba(14, 24, 45, 0.6));
   transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.84rem;
+  line-height: 1.25;
 }
 
 .nav-item:hover {
@@ -176,6 +206,12 @@ li + li {
   width: 3px;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--accent-cyan), var(--accent));
+}
+
+.nav-item-subtle {
+  margin-top: 0.2rem;
+  padding: 0.48rem 0.56rem;
+  font-size: 0.8rem;
 }
 
 .subject-code {
@@ -215,6 +251,25 @@ li + li {
 
 .topbar-main {
   min-width: 200px;
+}
+
+.topbar-home-btn {
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.72rem;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(104, 138, 200, 0.34);
+  background: rgba(13, 24, 44, 0.82);
+  color: #dce8ff;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.topbar-home-btn:hover {
+  border-color: rgba(127, 172, 244, 0.64);
+  background: rgba(20, 35, 62, 0.9);
 }
 
 .topbar-actions {
@@ -1225,6 +1280,10 @@ li + li {
     display: block;
   }
 
+  .sidebar-resizer {
+    display: none;
+  }
+
   .menu-button {
     display: inline-block;
   }
@@ -1270,5 +1329,3 @@ li + li {
     align-items: flex-start;
   }
 }
-
-
