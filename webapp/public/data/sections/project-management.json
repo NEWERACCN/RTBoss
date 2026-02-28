@@ -10,15 +10,36 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Internal Transformation Program</div> <h1 class=\"ph-title\">RealTimeOS Enterprise Build Plan</h1> <p class=\"ph-sub\">This section defines how New Era implements RealTimeOS for itself. Every artifact is a deliverable that must emit facts. Strategy, SOWs, Mini-OS systems, genies, streams, QMS assets, and operating cadences all enter one executable plan.</p> </div> <div class=\"callout\"> <p><strong>Core rule:</strong> if a deliverable does not create traceable lifecycle facts, it is still an idea. The plan runs on fact evidence, not narrative status updates.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Internal Transformation Program</div> <h1 class=\"ph-title\">RealTimeOS Enterprise Build Plan</h1> <p class=\"ph-sub\">This section defines how New Era implements RealTimeOS for itself. Every artifact is a deliverable that must emit facts. Strategy, SOWs, Mini-OS systems, genies, streams, QMS assets, and operating cadences all enter one executable plan.</p> </div> <div class=\"callout\"> <p><strong>Core rule:</strong> if a deliverable does not create traceable lifecycle facts, it is still an idea. The plan runs on fact evidence, not narrative status updates.</p> </div>",
+          "id": "tab-1-group-01",
+          "purpose": "RealTimeOS Enterprise Build Plan",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Program Scope",
-          "html": "<div class=\"cards\"> <div class=\"card\"><h4>Scope Unit</h4><p>One internal program covering all RealTimeOS assets, not client projects.</p></div> <div class=\"card\"><h4>Execution Unit</h4><p>Deliverables grouped by domain and workstream, tracked through one lifecycle model.</p></div> <div class=\"card\"><h4>Control Unit</h4><p>Facts drive Project Health. Workforce Maturity remains a separate outcome metric.</p></div> <div class=\"card\"><h4>Output Unit</h4><p>Build guides are generated from completed deliverable facts, then improved each sprint.</p>"
+          "html": "<div class=\"cards\"> <div class=\"card\"><h4>Scope Unit</h4><p>One internal program covering all RealTimeOS assets, not client projects.</p></div> <div class=\"card\"><h4>Execution Unit</h4><p>Deliverables grouped by domain and workstream, tracked through one lifecycle model.</p></div> <div class=\"card\"><h4>Control Unit</h4><p>Facts drive Project Health. Workforce Maturity remains a separate outcome metric.</p></div> <div class=\"card\"><h4>Output Unit</h4><p>Build guides are generated from completed deliverable facts, then improved each sprint.</p>",
+          "id": "tab-1-group-02",
+          "purpose": "One internal program covering all RealTimeOS assets, not client projects.",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Program Workstreams",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Workstream</th><th>Mandate</th><th>Lead</th><th>Primary Deliverables</th></tr></thead> <tbody> <tr><td>WS-01 Strategy Operationalization</td><td>Turn strategic framework into executable initiatives and measurable outcomes</td><td>MD + Strategy Lead</td><td>Initiatives, KPI cadences, governance events</td></tr> <tr><td>WS-02 Mini-OS Buildout</td><td>Define and build Systems, Genies, and Streams for each internal domain</td><td>Platform Lead</td><td>Mini-OS assets, test packs, go-live records</td></tr> <tr><td>WS-03 QMS and Controls</td><td>Embed ISO process requirements into operational execution facts</td><td>QMS Lead</td><td>Templates, review packs, NCR and CAPA loops</td></tr> <tr><td>WS-04 Agentic Delivery Engine</td><td>Automate planning, tracking, review, and opportunity detection</td><td>Automation Lead</td><td>Advisor flows, rule engines, tracker automations</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Workstream</th><th>Mandate</th><th>Lead</th><th>Primary Deliverables</th></tr></thead> <tbody> <tr><td>WS-01 Strategy Operationalization</td><td>Turn strategic framework into executable initiatives and measurable outcomes</td><td>MD + Strategy Lead</td><td>Initiatives, KPI cadences, governance events</td></tr> <tr><td>WS-02 Mini-OS Buildout</td><td>Define and build Systems, Genies, and Streams for each internal domain</td><td>Platform Lead</td><td>Mini-OS assets, test packs, go-live records</td></tr> <tr><td>WS-03 QMS and Controls</td><td>Embed ISO process requirements into operational execution facts</td><td>QMS Lead</td><td>Templates, review packs, NCR and CAPA loops</td></tr> <tr><td>WS-04 Agentic Delivery Engine</td><td>Automate planning, tracking, review, and opportunity detection</td><td>Automation Lead</td><td>Advisor flows, rule engines, tracker automations</td></tr> </tbody> </table>",
+          "id": "tab-1-group-03",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -29,11 +50,25 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Canonical Inventory</div> <h1 class=\"ph-title\">Deliverable Canon</h1> <p class=\"ph-sub\">Every RealTimeOS artifact is normalized into one deliverable registry. This removes placeholder drift and creates one build queue across strategy, platform, and operations.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Canonical Inventory</div> <h1 class=\"ph-title\">Deliverable Canon</h1> <p class=\"ph-sub\">Every RealTimeOS artifact is normalized into one deliverable registry. This removes placeholder drift and creates one build queue across strategy, platform, and operations.</p> </div>",
+          "id": "tab-2-group-01",
+          "purpose": "Deliverable Canon",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Deliverable Types",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Type</th><th>ID Pattern</th><th>Examples</th><th>Required Evidence</th></tr></thead> <tbody> <tr><td>Strategic Initiative</td><td>INIT-###</td><td>Flywheel milestone, Workforce Maturity target plan, operating cadence</td><td>Hypothesis, owner, KPI definition, baseline fact</td></tr> <tr><td>SOW / Commercial Package</td><td>SOW-###</td><td>Internal package model, outcome bonus structure, scope constraints</td><td>Approved terms, pricing logic, control gates</td></tr> <tr><td>Mini-OS System</td><td>SYS-{OS}-###</td><td>Ops Intake, Finance Ledger Sync, HR Case Control</td><td>Schema, interfaces, test results</td></tr> <tr><td>Genie</td><td>GEN-{OS}-###</td><td>Exception Classifier, Eligibility Checker, Dispatch Engine</td><td>Prompt/config, tests, fail-mode behavior</td></tr> <tr><td>Stream</td><td>STR-{OS}-###</td><td>Weekly Ops Review, Month-End Close, Incident Escalation</td><td>Orchestration map, handoff contracts, SLA tests</td></tr> <tr><td>QMS Artifact</td><td>QMS-###</td><td>Project Health review pack, audit checklist, lesson capture form</td><td>Template version, clause mapping, approval record</td></tr> </tbody> </table> <div class=\"callout\"> <p><strong>Planning rule:</strong> all items currently marked as placeholder or idea must be created in this register with an owner and next required fact.</p> </div>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Type</th><th>ID Pattern</th><th>Examples</th><th>Required Evidence</th></tr></thead> <tbody> <tr><td>Strategic Initiative</td><td>INIT-###</td><td>Flywheel milestone, Workforce Maturity target plan, operating cadence</td><td>Hypothesis, owner, KPI definition, baseline fact</td></tr> <tr><td>SOW / Commercial Package</td><td>SOW-###</td><td>Internal package model, outcome bonus structure, scope constraints</td><td>Approved terms, pricing logic, control gates</td></tr> <tr><td>Mini-OS System</td><td>SYS-{OS}-###</td><td>Ops Intake, Finance Ledger Sync, HR Case Control</td><td>Schema, interfaces, test results</td></tr> <tr><td>Genie</td><td>GEN-{OS}-###</td><td>Exception Classifier, Eligibility Checker, Dispatch Engine</td><td>Prompt/config, tests, fail-mode behavior</td></tr> <tr><td>Stream</td><td>STR-{OS}-###</td><td>Weekly Ops Review, Month-End Close, Incident Escalation</td><td>Orchestration map, handoff contracts, SLA tests</td></tr> <tr><td>QMS Artifact</td><td>QMS-###</td><td>Project Health review pack, audit checklist, lesson capture form</td><td>Template version, clause mapping, approval record</td></tr> </tbody> </table> <div class=\"callout\"> <p><strong>Planning rule:</strong> all items currently marked as placeholder or idea must be created in this register with an owner and next required fact.</p> </div>",
+          "id": "tab-2-group-02",
+          "purpose": "Planning rule: all items currently marked as placeholder or idea must be created in this register with an owner and next required fact.",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -44,11 +79,25 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Execution Engine</div> <h1 class=\"ph-title\">Mandatory Fact Lifecycle</h1> <p class=\"ph-sub\">One lifecycle works for all deliverable types. This keeps planning simple and lets advisors generate status directly from facts.</p> </div> <div class=\"phase-grid\"> <div class=\"phase\"><div class=\"n\">PHASE 01</div><div class=\"t\">DELIVERABLE_DEFINED</div><div class=\"d\">Item exists with owner, type, and purpose.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 02</div><div class=\"t\">SCOPED</div><div class=\"d\">Acceptance criteria and dependencies documented.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 03</div><div class=\"t\">DESIGN_APPROVED</div><div class=\"d\">Architecture and controls approved.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 04</div><div class=\"t\">BUILD_COMPLETED</div><div class=\"d\">Implementation complete and packaged.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 05</div><div class=\"t\">TEST_PASSED</div><div class=\"d\">Functional and control tests passed.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 06</div><div class=\"t\">LIVE_ACTIVATED</div><div class=\"d\">Running in operations with monitoring.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 07</div><div class=\"t\">VALUE_VERIFIED</div><div class=\"d\">Outcome evidence captured and reviewed.</div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Execution Engine</div> <h1 class=\"ph-title\">Mandatory Fact Lifecycle</h1> <p class=\"ph-sub\">One lifecycle works for all deliverable types. This keeps planning simple and lets advisors generate status directly from facts.</p> </div> <div class=\"phase-grid\"> <div class=\"phase\"><div class=\"n\">PHASE 01</div><div class=\"t\">DELIVERABLE_DEFINED</div><div class=\"d\">Item exists with owner, type, and purpose.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 02</div><div class=\"t\">SCOPED</div><div class=\"d\">Acceptance criteria and dependencies documented.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 03</div><div class=\"t\">DESIGN_APPROVED</div><div class=\"d\">Architecture and controls approved.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 04</div><div class=\"t\">BUILD_COMPLETED</div><div class=\"d\">Implementation complete and packaged.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 05</div><div class=\"t\">TEST_PASSED</div><div class=\"d\">Functional and control tests passed.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 06</div><div class=\"t\">LIVE_ACTIVATED</div><div class=\"d\">Running in operations with monitoring.</div></div> <div class=\"phase\"><div class=\"n\">PHASE 07</div><div class=\"t\">VALUE_VERIFIED</div><div class=\"d\">Outcome evidence captured and reviewed.</div>",
+          "id": "tab-3-group-01",
+          "purpose": "Mandatory Fact Lifecycle",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Fact Payload Standard",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Field</th><th>Requirement</th><th>Example</th></tr></thead> <tbody> <tr><td>fact_type</td><td>One canonical lifecycle event</td><td>TEST_PASSED</td></tr> <tr><td>deliverable_id</td><td>Must resolve to deliverable register row</td><td>GEN-OPS-003</td></tr> <tr><td>owner</td><td>Accountable lead at event time</td><td>platform.lead</td></tr> <tr><td>evidence_link</td><td>Required for all phases from DESIGN_APPROVED onward</td><td>docs/tests/gen-ops-003-report.md</td></tr> <tr><td>event_ts</td><td>UTC timestamp from source system</td><td>2026-02-19T14:22:00Z</td></tr> <tr><td>status</td><td>PASS / FAIL / BLOCKED</td><td>PASS</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Field</th><th>Requirement</th><th>Example</th></tr></thead> <tbody> <tr><td>fact_type</td><td>One canonical lifecycle event</td><td>TEST_PASSED</td></tr> <tr><td>deliverable_id</td><td>Must resolve to deliverable register row</td><td>GEN-OPS-003</td></tr> <tr><td>owner</td><td>Accountable lead at event time</td><td>platform.lead</td></tr> <tr><td>evidence_link</td><td>Required for all phases from DESIGN_APPROVED onward</td><td>docs/tests/gen-ops-003-report.md</td></tr> <tr><td>event_ts</td><td>UTC timestamp from source system</td><td>2026-02-19T14:22:00Z</td></tr> <tr><td>status</td><td>PASS / FAIL / BLOCKED</td><td>PASS</td></tr> </tbody> </table>",
+          "id": "tab-3-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -59,15 +108,36 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Plan Generation</div> <h1 class=\"ph-title\">Complete RealTimeOS Build Plan</h1> <p class=\"ph-sub\">The plan is generated by listing all deliverables and sequencing them through lifecycle facts. This creates a practical backlog that can be executed by humans and agents.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Plan Generation</div> <h1 class=\"ph-title\">Complete RealTimeOS Build Plan</h1> <p class=\"ph-sub\">The plan is generated by listing all deliverables and sequencing them through lifecycle facts. This creates a practical backlog that can be executed by humans and agents.</p> </div>",
+          "id": "tab-4-group-01",
+          "purpose": "Complete RealTimeOS Build Plan",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "12-Week Trial Roadmap",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Sprint</th><th>Primary Goal</th><th>Fact Exit Criteria</th><th>Output</th></tr></thead> <tbody> <tr><td>Weeks 1-2</td><td>Build complete deliverable register and owners</td><td>100% of current artifacts emit DELIVERABLE_DEFINED</td><td>Canonical inventory, no orphan placeholders</td></tr> <tr><td>Weeks 3-4</td><td>Scope and design top-priority internal Mini-OS items</td><td>Top 25 items emit SCOPED and DESIGN_APPROVED</td><td>Executable build queue</td></tr> <tr><td>Weeks 5-8</td><td>Build and test highest-value Systems, Genies, Streams</td><td>Top 15 items emit BUILD_COMPLETED and TEST_PASSED</td><td>Pilot operating capability</td></tr> <tr><td>Weeks 9-10</td><td>Activate live flows and review controls</td><td>Pilot items emit LIVE_ACTIVATED</td><td>Live internal RealTimeOS loop</td></tr> <tr><td>Weeks 11-12</td><td>Verify value and publish build guide updates</td><td>Pilot items emit VALUE_VERIFIED</td><td>Evidence-backed guide revisions</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Sprint</th><th>Primary Goal</th><th>Fact Exit Criteria</th><th>Output</th></tr></thead> <tbody> <tr><td>Weeks 1-2</td><td>Build complete deliverable register and owners</td><td>100% of current artifacts emit DELIVERABLE_DEFINED</td><td>Canonical inventory, no orphan placeholders</td></tr> <tr><td>Weeks 3-4</td><td>Scope and design top-priority internal Mini-OS items</td><td>Top 25 items emit SCOPED and DESIGN_APPROVED</td><td>Executable build queue</td></tr> <tr><td>Weeks 5-8</td><td>Build and test highest-value Systems, Genies, Streams</td><td>Top 15 items emit BUILD_COMPLETED and TEST_PASSED</td><td>Pilot operating capability</td></tr> <tr><td>Weeks 9-10</td><td>Activate live flows and review controls</td><td>Pilot items emit LIVE_ACTIVATED</td><td>Live internal RealTimeOS loop</td></tr> <tr><td>Weeks 11-12</td><td>Verify value and publish build guide updates</td><td>Pilot items emit VALUE_VERIFIED</td><td>Evidence-backed guide revisions</td></tr> </tbody> </table>",
+          "id": "tab-4-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Project Health Gates",
-          "html": "<div class=\"kpi-grid\"> <div class=\"kpi\"><div class=\"k\">Gate Completion</div><div class=\"v\">40%</div><div class=\"m\">Percent of planned facts completed on time</div></div> <div class=\"kpi\"><div class=\"k\">Schedule Reliability</div><div class=\"v\">25%</div><div class=\"m\">Missed dates and queue churn</div></div> <div class=\"kpi\"><div class=\"k\">Blocker Age</div><div class=\"v\">20%</div><div class=\"m\">Aging blocked items over 7 days</div></div> <div class=\"kpi\"><div class=\"k\">Stale Fact Risk</div><div class=\"v\">15%</div><div class=\"m\">No lifecycle events in expected cadence</div>"
+          "html": "<div class=\"kpi-grid\"> <div class=\"kpi\"><div class=\"k\">Gate Completion</div><div class=\"v\">40%</div><div class=\"m\">Percent of planned facts completed on time</div></div> <div class=\"kpi\"><div class=\"k\">Schedule Reliability</div><div class=\"v\">25%</div><div class=\"m\">Missed dates and queue churn</div></div> <div class=\"kpi\"><div class=\"k\">Blocker Age</div><div class=\"v\">20%</div><div class=\"m\">Aging blocked items over 7 days</div></div> <div class=\"kpi\"><div class=\"k\">Stale Fact Risk</div><div class=\"v\">15%</div><div class=\"m\">No lifecycle events in expected cadence</div>",
+          "id": "tab-4-group-03",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -78,11 +148,25 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Operationalization Pattern</div> <h1 class=\"ph-title\">Strategy to Facts Mapping</h1> <p class=\"ph-sub\">This is how strategic framework content becomes executable project work. Each strategic statement is converted into initiatives, deliverables, and measurable facts.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Operationalization Pattern</div> <h1 class=\"ph-title\">Strategy to Facts Mapping</h1> <p class=\"ph-sub\">This is how strategic framework content becomes executable project work. Each strategic statement is converted into initiatives, deliverables, and measurable facts.</p> </div>",
+          "id": "tab-5-group-01",
+          "purpose": "Strategy to Facts Mapping",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Example Mapping",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Strategic Statement</th><th>Initiative</th><th>Deliverables</th><th>Required Facts</th></tr></thead> <tbody> <tr><td>Reach 40% Workforce Maturity</td><td>INIT-001 Workforce Shift Program</td><td>SYS-OPS-001, GEN-OPS-003, STR-OPS-002</td><td>BASELINE_CAPTURED, LIVE_ACTIVATED, VALUE_VERIFIED</td></tr> <tr><td>Compounding flywheel discipline</td><td>INIT-002 Lesson-to-Build Loop</td><td>QMS-014 lesson pack, STR-PLT-004 review stream</td><td>REVIEW_COMPLETED, SYSTEM_OPPORTUNITY_RAISED, BUILD_STARTED</td></tr> <tr><td>Agentic delivery as default mode</td><td>INIT-003 Internal Advisor Pipeline</td><td>GEN-PLT-011 planner, GEN-PLT-012 reviewer</td><td>TEST_PASSED, LIVE_ACTIVATED, WEEKLY_SUMMARY_PUBLISHED</td></tr> </tbody> </table> <div class=\"callout\"> <p><strong>Simplicity rule:</strong> strategic items are not tracked separately from delivery. They are tracked through the same deliverable and fact model.</p> </div>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Strategic Statement</th><th>Initiative</th><th>Deliverables</th><th>Required Facts</th></tr></thead> <tbody> <tr><td>Reach 40% Workforce Maturity</td><td>INIT-001 Workforce Shift Program</td><td>SYS-OPS-001, GEN-OPS-003, STR-OPS-002</td><td>BASELINE_CAPTURED, LIVE_ACTIVATED, VALUE_VERIFIED</td></tr> <tr><td>Compounding flywheel discipline</td><td>INIT-002 Lesson-to-Build Loop</td><td>QMS-014 lesson pack, STR-PLT-004 review stream</td><td>REVIEW_COMPLETED, SYSTEM_OPPORTUNITY_RAISED, BUILD_STARTED</td></tr> <tr><td>Agentic delivery as default mode</td><td>INIT-003 Internal Advisor Pipeline</td><td>GEN-PLT-011 planner, GEN-PLT-012 reviewer</td><td>TEST_PASSED, LIVE_ACTIVATED, WEEKLY_SUMMARY_PUBLISHED</td></tr> </tbody> </table> <div class=\"callout\"> <p><strong>Simplicity rule:</strong> strategic items are not tracked separately from delivery. They are tracked through the same deliverable and fact model.</p> </div>",
+          "id": "tab-5-group-02",
+          "purpose": "Simplicity rule: strategic items are not tracked separately from delivery. They are tracked through the same deliverable and fact model.",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -93,15 +177,36 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Template Pattern</div> <h1 class=\"ph-title\">Reuse EMS Build Guide Structure</h1> <p class=\"ph-sub\">EMS remains the format example. This section applies the same pattern to the full RealTimeOS internal program: staged build, test gates, evidence links, and rollout checkpoints.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Template Pattern</div> <h1 class=\"ph-title\">Reuse EMS Build Guide Structure</h1> <p class=\"ph-sub\">EMS remains the format example. This section applies the same pattern to the full RealTimeOS internal program: staged build, test gates, evidence links, and rollout checkpoints.</p> </div>",
+          "id": "tab-6-group-01",
+          "purpose": "Reuse EMS Build Guide Structure",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Reuse Rules",
-          "html": "<ul class=\"list\"> <li>Use the EMS staged guide shape for each deliverable family: System, Genie, Stream, Initiative, QMS artifact.</li> <li>Each guide includes prerequisites, step-by-step build tasks, test gate, go-live gate, and value verification gate.</li> <li>Guide progress is never manual status text only; it is driven by lifecycle facts from Section 06 tracking.</li> <li>Completed guides become templates for future clients after internal proof is captured.</li> </ul>"
+          "html": "<ul class=\"list\"> <li>Use the EMS staged guide shape for each deliverable family: System, Genie, Stream, Initiative, QMS artifact.</li> <li>Each guide includes prerequisites, step-by-step build tasks, test gate, go-live gate, and value verification gate.</li> <li>Guide progress is never manual status text only; it is driven by lifecycle facts from Section 06 tracking.</li> <li>Completed guides become templates for future clients after internal proof is captured.</li> </ul>",
+          "id": "tab-6-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Immediate Next Actions",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Fact to Emit</th></tr></thead> <tbody> <tr><td>Create full internal deliverable register seed (all sections)</td><td>Platform Lead</td><td>2026-02-26</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>Mark current placeholders with owners and priority</td><td>MD + Domain Leads</td><td>2026-02-28</td><td>SCOPED</td></tr> <tr><td>Choose first 15 build items and publish sprint sequence</td><td>Delivery Lead</td><td>2026-03-01</td><td>DESIGN_APPROVED</td></tr> <tr><td>Enable advisor-driven weekly plan/review posting to tracking</td><td>Automation Lead</td><td>2026-03-05</td><td>LIVE_ACTIVATED</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Fact to Emit</th></tr></thead> <tbody> <tr><td>Create full internal deliverable register seed (all sections)</td><td>Platform Lead</td><td>2026-02-26</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>Mark current placeholders with owners and priority</td><td>MD + Domain Leads</td><td>2026-02-28</td><td>SCOPED</td></tr> <tr><td>Choose first 15 build items and publish sprint sequence</td><td>Delivery Lead</td><td>2026-03-01</td><td>DESIGN_APPROVED</td></tr> <tr><td>Enable advisor-driven weekly plan/review posting to tracking</td><td>Automation Lead</td><td>2026-03-05</td><td>LIVE_ACTIVATED</td></tr> </tbody> </table>",
+          "id": "tab-6-group-03",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -112,11 +217,25 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Portfolio Audit</div> <h1 class=\"ph-title\">Section-by-Section Sweep Register</h1> <p class=\"ph-sub\">This register tracks real implementation status for every playbook section. Each missing item is a deliverable and must enter the fact lifecycle.</p> </div> <div class=\"callout\"> <p><strong>Execution rule:</strong> no section can be labeled complete if any critical platform or operating component is still idea-only, placeholder-only, or missing required facts.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Portfolio Audit</div> <h1 class=\"ph-title\">Section-by-Section Sweep Register</h1> <p class=\"ph-sub\">This register tracks real implementation status for every playbook section. Each missing item is a deliverable and must enter the fact lifecycle.</p> </div> <div class=\"callout\"> <p><strong>Execution rule:</strong> no section can be labeled complete if any critical platform or operating component is still idea-only, placeholder-only, or missing required facts.</p> </div>",
+          "id": "tab-7-group-01",
+          "purpose": "Section-by-Section Sweep Register",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Current Register",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Section</th><th>Status</th><th>Critical Missing Deliverables to Add</th><th>First Fact</th></tr></thead> <tbody> <tr><td>01 Strategy</td><td><span class=\"badge\">Needs Operationalization</span></td><td>Strategic mantras, decision cadence, initiative contracts, outcome definitions by workstream</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>02 Architecture</td><td><span class=\"badge\">In Progress</span></td><td>Canonical dependency map from strategy to systems/genies/streams, control ownership map</td><td>SCOPED</td></tr> <tr><td>03 Mini-OS</td><td><span class=\"badge\">Partially Defined</span></td><td>Productivity OS full implementation: personal workspace setup, standard operating rituals, personal dashboard facts</td><td>DESIGN_APPROVED</td></tr> <tr><td>04 Value Engines</td><td><span class=\"badge\">Partially Defined</span></td><td>Activation prerequisites tied to live facts, value verification methods per engine</td><td>SCOPED</td></tr> <tr><td>05 Infrastructure</td><td><span class=\"badge\">Critical Gaps</span></td><td>Business Central implementation plan, Contact Center implementation plan, identity and environment standards</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>06 Execution</td><td><span class=\"badge\">Operational Base</span></td><td>Live bindings from Dataverse for health and opportunities, section sweep telemetry</td><td>BUILD_COMPLETED</td></tr> <tr><td>07 Projects</td><td><span class=\"badge\">Template Ready</span></td><td>Internal program project space mirroring EMS format for NEIT-only rollout</td><td>SCOPED</td></tr> <tr><td>08 Delivery</td><td><span class=\"badge\">Needs Internal Variant</span></td><td>Internal-only delivery runbook for team of 4, care team operating model</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>09 QMS</td><td><span class=\"badge\">Strong Base</span></td><td>Email template packs, care team templates, service communication templates with fact triggers</td><td>SCOPED</td></tr> <tr><td>10 Factory Library</td><td><span class=\"badge\">Placeholder</span></td><td>Initial production entries for systems/genies/streams used in internal rollout</td><td>BUILD_COMPLETED</td></tr> <tr><td>11 Build Guides</td><td><span class=\"badge\">Placeholder</span></td><td>Step-by-step internal build guides generated from verified deliverable facts</td><td>TEST_PASSED</td></tr> <tr><td>12 Changelog/Audit</td><td><span class=\"badge\">Operational Base</span></td><td>Automated lesson capture loop for missed facts, stale items, and blocked items</td><td>LIVE_ACTIVATED</td></tr> <tr><td>13 Enterprise Build Plan</td><td><span class=\"badge\">Active</span></td><td>Master backlog and weekly plan generation from lifecycle gaps</td><td>LIVE_ACTIVATED</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Section</th><th>Status</th><th>Critical Missing Deliverables to Add</th><th>First Fact</th></tr></thead> <tbody> <tr><td>01 Strategy</td><td><span class=\"badge\">Needs Operationalization</span></td><td>Strategic mantras, decision cadence, initiative contracts, outcome definitions by workstream</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>02 Architecture</td><td><span class=\"badge\">In Progress</span></td><td>Canonical dependency map from strategy to systems/genies/streams, control ownership map</td><td>SCOPED</td></tr> <tr><td>03 Mini-OS</td><td><span class=\"badge\">Partially Defined</span></td><td>Productivity OS full implementation: personal workspace setup, standard operating rituals, personal dashboard facts</td><td>DESIGN_APPROVED</td></tr> <tr><td>04 Value Engines</td><td><span class=\"badge\">Partially Defined</span></td><td>Activation prerequisites tied to live facts, value verification methods per engine</td><td>SCOPED</td></tr> <tr><td>05 Infrastructure</td><td><span class=\"badge\">Critical Gaps</span></td><td>Business Central implementation plan, Contact Center implementation plan, identity and environment standards</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>06 Execution</td><td><span class=\"badge\">Operational Base</span></td><td>Live bindings from Dataverse for health and opportunities, section sweep telemetry</td><td>BUILD_COMPLETED</td></tr> <tr><td>07 Projects</td><td><span class=\"badge\">Template Ready</span></td><td>Internal program project space mirroring EMS format for NEIT-only rollout</td><td>SCOPED</td></tr> <tr><td>08 Delivery</td><td><span class=\"badge\">Needs Internal Variant</span></td><td>Internal-only delivery runbook for team of 4, care team operating model</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>09 QMS</td><td><span class=\"badge\">Strong Base</span></td><td>Email template packs, care team templates, service communication templates with fact triggers</td><td>SCOPED</td></tr> <tr><td>10 Factory Library</td><td><span class=\"badge\">Placeholder</span></td><td>Initial production entries for systems/genies/streams used in internal rollout</td><td>BUILD_COMPLETED</td></tr> <tr><td>11 Build Guides</td><td><span class=\"badge\">Placeholder</span></td><td>Step-by-step internal build guides generated from verified deliverable facts</td><td>TEST_PASSED</td></tr> <tr><td>12 Changelog/Audit</td><td><span class=\"badge\">Operational Base</span></td><td>Automated lesson capture loop for missed facts, stale items, and blocked items</td><td>LIVE_ACTIVATED</td></tr> <tr><td>13 Enterprise Build Plan</td><td><span class=\"badge\">Active</span></td><td>Master backlog and weekly plan generation from lifecycle gaps</td><td>LIVE_ACTIVATED</td></tr> </tbody> </table>",
+          "id": "tab-7-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -127,19 +246,47 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Operating Model</div> <h1 class=\"ph-title\">4-Person Delivery System</h1> <p class=\"ph-sub\">This is the practical execution system for a four-person team. It keeps work simple: one queue, one lifecycle, one weekly rhythm, agent-assisted planning.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Operating Model</div> <h1 class=\"ph-title\">4-Person Delivery System</h1> <p class=\"ph-sub\">This is the practical execution system for a four-person team. It keeps work simple: one queue, one lifecycle, one weekly rhythm, agent-assisted planning.</p> </div>",
+          "id": "tab-8-group-01",
+          "purpose": "4-Person Delivery System",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Role Split",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Role</th><th>Primary Accountability</th><th>Daily Focus</th><th>Non-Negotiable Output</th></tr></thead> <tbody> <tr><td>Clyde (CEO)</td><td>Executive owner of all business operations, delivery, and final decisions</td><td>Drive day-to-day execution across strategy, delivery, operations, and priorities</td><td>Executive approvals, gate sign-off facts, and cross-section execution decisions</td></tr> <tr><td>Matt Sampias (Director, Australia)</td><td>Board-level strategic and finance governance</td><td>Support high-level strategic direction, board decisions, and finance oversight; not in day-to-day operations</td><td>Board strategy decisions and finance governance facts</td></tr> <tr><td>Angel Garcia (Senior Engineer)</td><td>Systems, Genies, Streams implementation</td><td>Build, test, deploy, capture evidence links</td><td>BUILD_COMPLETED and TEST_PASSED facts</td></tr> <tr><td>Nigella Mosende (Care Team Lead)</td><td>QMS, care team, templates, communications</td><td>Care team playbooks, email templates, review packs, controls</td><td>QMS artifacts and VALUE_VERIFIED facts</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Role</th><th>Primary Accountability</th><th>Daily Focus</th><th>Non-Negotiable Output</th></tr></thead> <tbody> <tr><td>Clyde (CEO)</td><td>Executive owner of all business operations, delivery, and final decisions</td><td>Drive day-to-day execution across strategy, delivery, operations, and priorities</td><td>Executive approvals, gate sign-off facts, and cross-section execution decisions</td></tr> <tr><td>Matt Sampias (Director, Australia)</td><td>Board-level strategic and finance governance</td><td>Support high-level strategic direction, board decisions, and finance oversight; not in day-to-day operations</td><td>Board strategy decisions and finance governance facts</td></tr> <tr><td>Angel Garcia (Senior Engineer)</td><td>Systems, Genies, Streams implementation</td><td>Build, test, deploy, capture evidence links</td><td>BUILD_COMPLETED and TEST_PASSED facts</td></tr> <tr><td>Nigella Mosende (Care Team Lead)</td><td>QMS, care team, templates, communications</td><td>Care team playbooks, email templates, review packs, controls</td><td>QMS artifacts and VALUE_VERIFIED facts</td></tr> </tbody> </table>",
+          "id": "tab-8-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Weekly Cadence",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Day</th><th>Ritual</th><th>Agent Support</th><th>Fact Output</th></tr></thead> <tbody> <tr><td>Monday</td><td>Plan from lifecycle gaps</td><td>Planner agent drafts sprint queue</td><td>DELIVERABLE_SCOPED</td></tr> <tr><td>Tuesday-Wednesday</td><td>Build and test blocks</td><td>Builder advisor suggests next implementation steps</td><td>BUILD_COMPLETED / TEST_PASSED</td></tr> <tr><td>Thursday</td><td>Controls and documentation pass</td><td>Reviewer agent flags missing evidence</td><td>DESIGN_APPROVED / REVIEW_COMPLETED</td></tr> <tr><td>Friday</td><td>Project Health and opportunity review</td><td>Tracking agent posts gaps to RealTimeOS tracking</td><td>PROJECT_HEALTH_REVIEW_COMPLETED</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Day</th><th>Ritual</th><th>Agent Support</th><th>Fact Output</th></tr></thead> <tbody> <tr><td>Monday</td><td>Plan from lifecycle gaps</td><td>Planner agent drafts sprint queue</td><td>DELIVERABLE_SCOPED</td></tr> <tr><td>Tuesday-Wednesday</td><td>Build and test blocks</td><td>Builder advisor suggests next implementation steps</td><td>BUILD_COMPLETED / TEST_PASSED</td></tr> <tr><td>Thursday</td><td>Controls and documentation pass</td><td>Reviewer agent flags missing evidence</td><td>DESIGN_APPROVED / REVIEW_COMPLETED</td></tr> <tr><td>Friday</td><td>Project Health and opportunity review</td><td>Tracking agent posts gaps to RealTimeOS tracking</td><td>PROJECT_HEALTH_REVIEW_COMPLETED</td></tr> </tbody> </table>",
+          "id": "tab-8-group-03",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Priority Deliverables to Seed Now",
-          "html": "<ul class=\"list\"> <li>Business Central foundation setup and integration blueprint.</li> <li>Contact Center architecture and first operational stream.</li> <li>Productivity OS personal workspace setup guide and baseline facts.</li> <li>Strategic mantras as operational rules with weekly measurement.</li> <li>Care team operating model, escalation playbook, and quality checks.</li> <li>Email template library for delivery updates, incidents, reviews, and closures.</li> </ul>"
+          "html": "<ul class=\"list\"> <li>Business Central foundation setup and integration blueprint.</li> <li>Contact Center architecture and first operational stream.</li> <li>Productivity OS personal workspace setup guide and baseline facts.</li> <li>Strategic mantras as operational rules with weekly measurement.</li> <li>Care team operating model, escalation playbook, and quality checks.</li> <li>Email template library for delivery updates, incidents, reviews, and closures.</li> </ul>",
+          "id": "tab-8-group-04",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -150,15 +297,36 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Execution Backlog</div> <h1 class=\"ph-title\">Master Deliverable Register Seed</h1> <p class=\"ph-sub\">Initial seeded register to start execution now. Every row is a deliverable with one next lifecycle fact. Current owner is Clyde (CEO) across the register; assignment is delegated by you as work moves.</p> </div> <div class=\"callout\"> <p><strong>How to use:</strong> start each weekly planning session by moving highest-priority rows to their next fact. Do not add new work without owner and next-fact assignment. Agents should propose sequencing, drafts, and edits; final action is approved by Clyde (CEO).</p> </div> <div class=\"mr-summary\"> <span class=\"mr-chip\">Total: <strong id=\"mr-total\">0</strong></span> <span class=\"mr-chip\">Completed: <strong id=\"mr-done\">0</strong></span> <span class=\"mr-chip\">Open: <strong id=\"mr-open\">0</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">Master Register Burndown</span> <span class=\"burn-pct\" id=\"mr-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"mr-bar-fill\"></div></div> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">RealTimeOS Phase Burndown (Phase 1-4 + Dashboard)</span> <span class=\"burn-pct\" id=\"phase-pct-main\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"phase-bar-fill-main\"></div></div> <div class=\"phase-check-grid\" id=\"phase-check-grid-main\"> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase1\">Phase 1</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase2\">Phase 2</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase3\">Phase 3</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase4\">Phase 4</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"dashboard\">Dashboard</label>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Execution Backlog</div> <h1 class=\"ph-title\">Master Deliverable Register Seed</h1> <p class=\"ph-sub\">Initial seeded register to start execution now. Every row is a deliverable with one next lifecycle fact. Current owner is Clyde (CEO) across the register; assignment is delegated by you as work moves.</p> </div> <div class=\"callout\"> <p><strong>How to use:</strong> start each weekly planning session by moving highest-priority rows to their next fact. Do not add new work without owner and next-fact assignment. Agents should propose sequencing, drafts, and edits; final action is approved by Clyde (CEO).</p> </div> <div class=\"mr-summary\"> <span class=\"mr-chip\">Total: <strong id=\"mr-total\">0</strong></span> <span class=\"mr-chip\">Completed: <strong id=\"mr-done\">0</strong></span> <span class=\"mr-chip\">Open: <strong id=\"mr-open\">0</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">Master Register Burndown</span> <span class=\"burn-pct\" id=\"mr-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"mr-bar-fill\"></div></div> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">RealTimeOS Phase Burndown (Phase 1-4 + Dashboard)</span> <span class=\"burn-pct\" id=\"phase-pct-main\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"phase-bar-fill-main\"></div></div> <div class=\"phase-check-grid\" id=\"phase-check-grid-main\"> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase1\">Phase 1</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase2\">Phase 2</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase3\">Phase 3</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase4\">Phase 4</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"dashboard\">Dashboard</label>",
+          "id": "tab-9-group-01",
+          "purpose": "Master Deliverable Register Seed",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Seed Rows",
-          "html": "<table class=\"rule-table\" id=\"master-register-seed\"> <thead><tr><th>Done</th><th>Seed ID</th><th>Section</th><th>Scope</th><th>Next Fact</th><th>Owner</th><th>Status</th></tr></thead> <tbody> <tr><td></td><td>INIT-001</td><td>01</td><td>Strategic Initiative</td><td>Strategic mantras operationalization framework</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td></td><td>INIT-002</td><td>01</td><td>Strategic Initiative</td><td>Quarterly strategic priority map and governance cadence</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SOW-001</td><td>01/08</td><td>SOW Package</td><td>Internal SOW template pack with fact-based gates</td><td>Clyde (CEO)</td><td>Placeholder</td><td>SCOPED</td></tr> <tr><td>SOW-002</td><td>08</td><td>SOW Package</td><td>Outcome bonus rules and evidence standard</td><td>Clyde (CEO)</td><td>Placeholder</td><td>SCOPED</td></tr> <tr><td>ARCH-001</td><td>02</td><td>Architecture Artifact</td><td>Strategy-to-deliverable dependency map</td><td>Clyde (CEO)</td><td>In Progress</td><td>DESIGN_APPROVED</td></tr> <tr><td>ARCH-002</td><td>02</td><td>Architecture Artifact</td><td>Cross-section ownership map</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SYS-PROD-001</td><td>03</td><td>Mini-OS System</td><td>Productivity OS personal workspace baseline setup</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>GEN-PROD-001</td><td>03</td><td>Genie</td><td>Personal workspace setup assistant</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>STR-PROD-001</td><td>03</td><td>Stream</td><td>Weekly personal productivity review stream</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>VE-001</td><td>04</td><td>Value Engine</td><td>Value Engine activation gate pack tied to facts</td><td>Clyde (CEO)</td><td>Placeholder</td><td>DESIGN_APPROVED</td></tr> <tr><td>VE-002</td><td>04</td><td>Value Engine</td><td>Value verification method for each engine</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SYS-BC-001</td><td>05</td><td>Infrastructure System</td><td>Business Central tenant and environment setup</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SYS-BC-002</td><td>05</td><td>Infrastructure System</td><td>Business Central chart of accounts and baseline config</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>SCOPED</td></tr> <tr><td>STR-BC-001</td><td>05</td><td>Stream</td><td>Business Central month-end close stream</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>SYS-CC-001</td><td>05</td><td>Infrastructure System</td><td>Contact Center platform setup and telephony routing</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>STR-CC-001</td><td>05</td><td>Stream</td><td>Contact Center intake and escalation stream</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>SCOPED</td></tr> <tr><td>GEN-CC-001</td><td>05</td><td>Genie</td><td>Care triage and response recommendation genie</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>EXE-001</td><td>06</td><td>Tracking Enhancement</td><td>Live Dataverse bindings for Project Health</td><td>Clyde (CEO)</td><td>In Progress</td><td>BUILD_COMPLETED</td></tr> <tr><td>EXE-002</td><td>06</td><td>Tracking Enhancement</td><td>System Opportunities evidence links automation</td><td>Clyde (CEO)</td><td>In Progress</td><td>TEST_PASSED</td></tr> <tr><td>EXE-003</td><td>06</td><td>Tracking Enhancement</td><td>Section sweep telemetry and stale-fact alerts</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>PRJ-NE-001</td><td>07</td><td>Project Template</td><td>NEIT internal project page using EMS format</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>PRJ-NE-002</td><td>07</td><td>Project Template</td><td>Internal estimates and effort model</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>DLV-001</td><td>08</td><td>Delivery Runbook</td><td>Internal 4-person delivery runbook</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>DLV-002</td><td>08</td><td>Care Team Pack</td><td>Care team operating model and escalation matrix</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>QMS-CARE-001</td><td>09</td><td>QMS Artifact</td><td>Care team SOP template set</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>QMS-EMAIL-001</td><td>09</td><td>QMS Artifact</td><td>Email template library: updates, incidents, reviews, closures</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>QMS-EMAIL-002</td><td>09</td><td>QMS Artifact</td><td>Approval flow for outbound care communications</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>LIB-001</td><td>10</td><td>Factory Entry</td><td>Seed first 20 internal assets into Agentic Factory Library</td><td>Clyde (CEO)</td><td>Placeholder</td><td>BUILD_COMPLETED</td></tr> <tr><td>GUIDE-001</td><td>11</td><td>Build Guide</td><td>Business Central setup build guide (internal)</td><td>Clyde (CEO)</td><td>Placeholder</td><td>TEST_PASSED</td></tr> <tr><td>GUIDE-002</td><td>11</td><td>Build Guide</td><td>Contact Center setup build guide (internal)</td><td>Clyde (CEO)</td><td>Placeholder</td><td>TEST_PASSED</td></tr> <tr><td>GUIDE-003</td><td>11</td><td>Build Guide</td><td>Productivity OS personal workspace guide</td><td>Clyde (CEO)</td><td>Placeholder</td><td>SCOPED</td></tr> <tr><td>AUD-001</td><td>12</td><td>Audit Artifact</td><td>Automated lesson capture from blocked/stale facts</td><td>Clyde (CEO)</td><td>In Progress</td><td>LIVE_ACTIVATED</td></tr> <tr><td>PLAN-001</td><td>13</td><td>Program Artifact</td><td>Weekly planning bundle generated from lifecycle gaps</td><td>Clyde (CEO)</td><td>In Progress</td><td>LIVE_ACTIVATED</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\" id=\"master-register-seed\"> <thead><tr><th>Done</th><th>Seed ID</th><th>Section</th><th>Scope</th><th>Next Fact</th><th>Owner</th><th>Status</th></tr></thead> <tbody> <tr><td></td><td>INIT-001</td><td>01</td><td>Strategic Initiative</td><td>Strategic mantras operationalization framework</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td></td><td>INIT-002</td><td>01</td><td>Strategic Initiative</td><td>Quarterly strategic priority map and governance cadence</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SOW-001</td><td>01/08</td><td>SOW Package</td><td>Internal SOW template pack with fact-based gates</td><td>Clyde (CEO)</td><td>Placeholder</td><td>SCOPED</td></tr> <tr><td>SOW-002</td><td>08</td><td>SOW Package</td><td>Outcome bonus rules and evidence standard</td><td>Clyde (CEO)</td><td>Placeholder</td><td>SCOPED</td></tr> <tr><td>ARCH-001</td><td>02</td><td>Architecture Artifact</td><td>Strategy-to-deliverable dependency map</td><td>Clyde (CEO)</td><td>In Progress</td><td>DESIGN_APPROVED</td></tr> <tr><td>ARCH-002</td><td>02</td><td>Architecture Artifact</td><td>Cross-section ownership map</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SYS-PROD-001</td><td>03</td><td>Mini-OS System</td><td>Productivity OS personal workspace baseline setup</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>GEN-PROD-001</td><td>03</td><td>Genie</td><td>Personal workspace setup assistant</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>STR-PROD-001</td><td>03</td><td>Stream</td><td>Weekly personal productivity review stream</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>VE-001</td><td>04</td><td>Value Engine</td><td>Value Engine activation gate pack tied to facts</td><td>Clyde (CEO)</td><td>Placeholder</td><td>DESIGN_APPROVED</td></tr> <tr><td>VE-002</td><td>04</td><td>Value Engine</td><td>Value verification method for each engine</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SYS-BC-001</td><td>05</td><td>Infrastructure System</td><td>Business Central tenant and environment setup</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>SYS-BC-002</td><td>05</td><td>Infrastructure System</td><td>Business Central chart of accounts and baseline config</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>SCOPED</td></tr> <tr><td>STR-BC-001</td><td>05</td><td>Stream</td><td>Business Central month-end close stream</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>SYS-CC-001</td><td>05</td><td>Infrastructure System</td><td>Contact Center platform setup and telephony routing</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>STR-CC-001</td><td>05</td><td>Stream</td><td>Contact Center intake and escalation stream</td><td>Clyde (CEO)</td><td>Critical Gap</td><td>SCOPED</td></tr> <tr><td>GEN-CC-001</td><td>05</td><td>Genie</td><td>Care triage and response recommendation genie</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>EXE-001</td><td>06</td><td>Tracking Enhancement</td><td>Live Dataverse bindings for Project Health</td><td>Clyde (CEO)</td><td>In Progress</td><td>BUILD_COMPLETED</td></tr> <tr><td>EXE-002</td><td>06</td><td>Tracking Enhancement</td><td>System Opportunities evidence links automation</td><td>Clyde (CEO)</td><td>In Progress</td><td>TEST_PASSED</td></tr> <tr><td>EXE-003</td><td>06</td><td>Tracking Enhancement</td><td>Section sweep telemetry and stale-fact alerts</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>PRJ-NE-001</td><td>07</td><td>Project Template</td><td>NEIT internal project page using EMS format</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>PRJ-NE-002</td><td>07</td><td>Project Template</td><td>Internal estimates and effort model</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>DLV-001</td><td>08</td><td>Delivery Runbook</td><td>Internal 4-person delivery runbook</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>DLV-002</td><td>08</td><td>Care Team Pack</td><td>Care team operating model and escalation matrix</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>QMS-CARE-001</td><td>09</td><td>QMS Artifact</td><td>Care team SOP template set</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>QMS-EMAIL-001</td><td>09</td><td>QMS Artifact</td><td>Email template library: updates, incidents, reviews, closures</td><td>Clyde (CEO)</td><td>Idea</td><td>SCOPED</td></tr> <tr><td>QMS-EMAIL-002</td><td>09</td><td>QMS Artifact</td><td>Approval flow for outbound care communications</td><td>Clyde (CEO)</td><td>Idea</td><td>DELIVERABLE_DEFINED</td></tr> <tr><td>LIB-001</td><td>10</td><td>Factory Entry</td><td>Seed first 20 internal assets into Agentic Factory Library</td><td>Clyde (CEO)</td><td>Placeholder</td><td>BUILD_COMPLETED</td></tr> <tr><td>GUIDE-001</td><td>11</td><td>Build Guide</td><td>Business Central setup build guide (internal)</td><td>Clyde (CEO)</td><td>Placeholder</td><td>TEST_PASSED</td></tr> <tr><td>GUIDE-002</td><td>11</td><td>Build Guide</td><td>Contact Center setup build guide (internal)</td><td>Clyde (CEO)</td><td>Placeholder</td><td>TEST_PASSED</td></tr> <tr><td>GUIDE-003</td><td>11</td><td>Build Guide</td><td>Productivity OS personal workspace guide</td><td>Clyde (CEO)</td><td>Placeholder</td><td>SCOPED</td></tr> <tr><td>AUD-001</td><td>12</td><td>Audit Artifact</td><td>Automated lesson capture from blocked/stale facts</td><td>Clyde (CEO)</td><td>In Progress</td><td>LIVE_ACTIVATED</td></tr> <tr><td>PLAN-001</td><td>13</td><td>Program Artifact</td><td>Weekly planning bundle generated from lifecycle gaps</td><td>Clyde (CEO)</td><td>In Progress</td><td>LIVE_ACTIVATED</td></tr> </tbody> </table>",
+          "id": "tab-9-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Section Delivery Rule",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Section</th><th>Minimum Deliverables</th><th>Build Guide Requirement</th><th>Agent Automation Requirement</th></tr></thead> <tbody> <tr><td>Each section (01-13)</td><td>At least one initiative + one system/genie/stream + one control artifact</td><td>Each deliverable must have a step-by-step build guide with gates</td><td>Agent drafts steps, QA checks consistency, and posts updates to tracking automatically</td></tr> <tr><td>Infrastructure and Execution sections</td><td>Multiple technical deliverables expected (not single rows)</td><td>Guides must include environment setup, testing, and go-live checks</td><td>Agent runbooks generate checklists and flag missing prerequisites</td></tr> <tr><td>QMS and Delivery sections</td><td>Template packs and operating procedures as deliverables</td><td>Guides must include owner handoffs and review cadence</td><td>Agent validates template completeness and clause mappings</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Section</th><th>Minimum Deliverables</th><th>Build Guide Requirement</th><th>Agent Automation Requirement</th></tr></thead> <tbody> <tr><td>Each section (01-13)</td><td>At least one initiative + one system/genie/stream + one control artifact</td><td>Each deliverable must have a step-by-step build guide with gates</td><td>Agent drafts steps, QA checks consistency, and posts updates to tracking automatically</td></tr> <tr><td>Infrastructure and Execution sections</td><td>Multiple technical deliverables expected (not single rows)</td><td>Guides must include environment setup, testing, and go-live checks</td><td>Agent runbooks generate checklists and flag missing prerequisites</td></tr> <tr><td>QMS and Delivery sections</td><td>Template packs and operating procedures as deliverables</td><td>Guides must include owner handoffs and review cadence</td><td>Agent validates template completeness and clause mappings</td></tr> </tbody> </table>",
+          "id": "tab-9-group-03",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -169,35 +337,91 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Quality Execution</div> <h1 class=\"ph-title\">RealTimeOS Content Review Queue</h1> <p class=\"ph-sub\">All playbook content is reviewed with one action model: Pass, Edit, Delete, or Agent. This turns document cleanup into a managed delivery stream with clear ownership.</p> </div> <div class=\"callout\"> <p><strong>Decision model:</strong> each reviewed item must end in exactly one state. No undecided rows are allowed after review sessions.</p> </div> <div class=\"mr-summary\"> <span class=\"mr-chip\">Content Groups Total: <strong id=\"artifact-total\">0</strong></span> <span class=\"mr-chip\">Groups Reviewed: <strong id=\"artifact-done\">0</strong></span> <span class=\"mr-chip\">Groups Remaining: <strong id=\"artifact-open\">0</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">Content Review Burndown (Sections + Tabs + Groups)</span> <span class=\"burn-pct\" id=\"artifact-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"artifact-bar-fill\"></div></div> <div class=\"burn-milestones\" id=\"artifact-milestones\"></div> </div> <div class=\"mr-summary\"> <span class=\"mr-chip\">Phase Targets: <strong id=\"phase-total\">5</strong></span> <span class=\"mr-chip\">Phase Complete: <strong id=\"phase-done\">0</strong></span> <span class=\"mr-chip\">Phase Remaining: <strong id=\"phase-open\">5</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">RealTimeOS Phase Burndown (Phase 1-4 + Dashboard)</span> <span class=\"burn-pct\" id=\"phase-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"phase-bar-fill\"></div></div> <div class=\"phase-check-grid\" id=\"phase-check-grid\"> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase1\">Phase 1</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase2\">Phase 2</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase3\">Phase 3</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase4\">Phase 4</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"dashboard\">Dashboard</label>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Quality Execution</div> <h1 class=\"ph-title\">RealTimeOS Content Review Queue</h1> <p class=\"ph-sub\">All playbook content is reviewed with one action model: Pass, Edit, Delete, or Agent. This turns document cleanup into a managed delivery stream with clear ownership.</p> </div> <div class=\"callout\"> <p><strong>Decision model:</strong> each reviewed item must end in exactly one state. No undecided rows are allowed after review sessions.</p> </div> <div class=\"mr-summary\"> <span class=\"mr-chip\">Content Groups Total: <strong id=\"artifact-total\">0</strong></span> <span class=\"mr-chip\">Groups Reviewed: <strong id=\"artifact-done\">0</strong></span> <span class=\"mr-chip\">Groups Remaining: <strong id=\"artifact-open\">0</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">Content Review Burndown (Sections + Tabs + Groups)</span> <span class=\"burn-pct\" id=\"artifact-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"artifact-bar-fill\"></div></div> <div class=\"burn-milestones\" id=\"artifact-milestones\"></div> </div> <div class=\"mr-summary\"> <span class=\"mr-chip\">Phase Targets: <strong id=\"phase-total\">5</strong></span> <span class=\"mr-chip\">Phase Complete: <strong id=\"phase-done\">0</strong></span> <span class=\"mr-chip\">Phase Remaining: <strong id=\"phase-open\">5</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">RealTimeOS Phase Burndown (Phase 1-4 + Dashboard)</span> <span class=\"burn-pct\" id=\"phase-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"phase-bar-fill\"></div></div> <div class=\"phase-check-grid\" id=\"phase-check-grid\"> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase1\">Phase 1</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase2\">Phase 2</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase3\">Phase 3</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"phase4\">Phase 4</label> <label class=\"phase-check-item\"><input type=\"checkbox\" data-phase-key=\"dashboard\">Dashboard</label>",
+          "id": "tab-10-group-01",
+          "purpose": "RealTimeOS Content Review Queue",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Content Review Scope Baseline",
-          "html": "<table class=\"rule-table\" id=\"artifact-scope-table\"> <thead><tr><th>Section</th><th>Tabs</th><th>Group Estimate</th><th>Group Completion</th><th>Target Groups</th><th>Reviewed Groups</th></tr></thead> <tbody> <tr data-section=\"S01\" data-target=\"24\"><td>01 Strategy</td><td>5</td><td>24</td><td>24</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"24\" value=\"0\"></td></tr> <tr data-section=\"S02\" data-target=\"36\"><td>02 Architecture</td><td>9</td><td>36</td><td>36</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"36\" value=\"0\"></td></tr> <tr data-section=\"S03\" data-target=\"29\"><td>03 Technical Infrastructure</td><td>8</td><td>29</td><td>29</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"29\" value=\"0\"></td></tr> <tr data-section=\"S04\" data-target=\"56\"><td>04 Mini-OS</td><td>14</td><td>56</td><td>56</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"56\" value=\"0\"></td></tr> <tr data-section=\"S05\" data-target=\"20\"><td>05 Value Engines</td><td>5</td><td>20</td><td>20</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"20\" value=\"0\"></td></tr> <tr data-section=\"S06\" data-target=\"23\"><td>06 Execution</td><td>6</td><td>23</td><td>23</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"23\" value=\"0\"></td></tr> <tr data-section=\"S07\" data-target=\"17\"><td>07 Projects</td><td>4</td><td>17</td><td>17</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"17\" value=\"0\"></td></tr> <tr data-section=\"S08\" data-target=\"36\"><td>08 Delivery</td><td>9</td><td>36</td><td>36</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"36\" value=\"0\"></td></tr> <tr data-section=\"S09\" data-target=\"28\"><td>09 QMS</td><td>7</td><td>28</td><td>28</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"28\" value=\"0\"></td></tr> <tr data-section=\"S10\" data-target=\"16\"><td>10 Factory Library</td><td>4</td><td>16</td><td>16</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"16\" value=\"0\"></td></tr> <tr data-section=\"S11\" data-target=\"19\"><td>11 Build Guides</td><td>4</td><td>19</td><td>19</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"19\" value=\"0\"></td></tr> <tr data-section=\"S12\" data-target=\"24\"><td>12 Changelog/Audit</td><td>6</td><td>24</td><td>24</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"24\" value=\"0\"></td></tr> <tr data-section=\"S13\" data-target=\"40\"><td>13 Enterprise Build Plan</td><td>10</td><td>40</td><td>40</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"40\" value=\"0\"></td></tr> <tr data-section=\"SUM\" data-target=\"4\"><td>WS1 Summaries</td><td>4</td><td>4</td><td>4</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"4\" value=\"0\"></td></tr> </tbody> </table> <div class=\"mr-summary\"> <span class=\"mr-chip\">Review Queue Total: <strong id=\"review-total\">0</strong></span> <span class=\"mr-chip\">Review Queue Done: <strong id=\"review-done\">0</strong></span> <span class=\"mr-chip\">Review Queue Remaining: <strong id=\"review-open\">0</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">Review Queue Burndown</span> <span class=\"burn-pct\" id=\"review-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"review-bar-fill\"></div>"
+          "html": "<table class=\"rule-table\" id=\"artifact-scope-table\"> <thead><tr><th>Section</th><th>Tabs</th><th>Group Estimate</th><th>Group Completion</th><th>Target Groups</th><th>Reviewed Groups</th></tr></thead> <tbody> <tr data-section=\"S01\" data-target=\"24\"><td>01 Strategy</td><td>5</td><td>24</td><td>24</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"24\" value=\"0\"></td></tr> <tr data-section=\"S02\" data-target=\"36\"><td>02 Architecture</td><td>9</td><td>36</td><td>36</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"36\" value=\"0\"></td></tr> <tr data-section=\"S03\" data-target=\"29\"><td>03 Technical Infrastructure</td><td>8</td><td>29</td><td>29</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"29\" value=\"0\"></td></tr> <tr data-section=\"S04\" data-target=\"56\"><td>04 Mini-OS</td><td>14</td><td>56</td><td>56</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"56\" value=\"0\"></td></tr> <tr data-section=\"S05\" data-target=\"20\"><td>05 Value Engines</td><td>5</td><td>20</td><td>20</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"20\" value=\"0\"></td></tr> <tr data-section=\"S06\" data-target=\"23\"><td>06 Execution</td><td>6</td><td>23</td><td>23</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"23\" value=\"0\"></td></tr> <tr data-section=\"S07\" data-target=\"17\"><td>07 Projects</td><td>4</td><td>17</td><td>17</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"17\" value=\"0\"></td></tr> <tr data-section=\"S08\" data-target=\"36\"><td>08 Delivery</td><td>9</td><td>36</td><td>36</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"36\" value=\"0\"></td></tr> <tr data-section=\"S09\" data-target=\"28\"><td>09 QMS</td><td>7</td><td>28</td><td>28</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"28\" value=\"0\"></td></tr> <tr data-section=\"S10\" data-target=\"16\"><td>10 Factory Library</td><td>4</td><td>16</td><td>16</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"16\" value=\"0\"></td></tr> <tr data-section=\"S11\" data-target=\"19\"><td>11 Build Guides</td><td>4</td><td>19</td><td>19</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"19\" value=\"0\"></td></tr> <tr data-section=\"S12\" data-target=\"24\"><td>12 Changelog/Audit</td><td>6</td><td>24</td><td>24</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"24\" value=\"0\"></td></tr> <tr data-section=\"S13\" data-target=\"40\"><td>13 Enterprise Build Plan</td><td>10</td><td>40</td><td>40</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"40\" value=\"0\"></td></tr> <tr data-section=\"SUM\" data-target=\"4\"><td>WS1 Summaries</td><td>4</td><td>4</td><td>4</td><td><input class=\"art-input artifact-done-input\" type=\"number\" min=\"0\" max=\"4\" value=\"0\"></td></tr> </tbody> </table> <div class=\"mr-summary\"> <span class=\"mr-chip\">Review Queue Total: <strong id=\"review-total\">0</strong></span> <span class=\"mr-chip\">Review Queue Done: <strong id=\"review-done\">0</strong></span> <span class=\"mr-chip\">Review Queue Remaining: <strong id=\"review-open\">0</strong></span> </div> <div class=\"burn-wrap\"> <div class=\"burn-head\"> <span class=\"burn-title\">Review Queue Burndown</span> <span class=\"burn-pct\" id=\"review-pct\">0%</span> </div> <div class=\"burn-bar\"><div class=\"burn-fill\" id=\"review-bar-fill\"></div>",
+          "id": "tab-10-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Action Definitions",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Action</th><th>Use When</th><th>Owner</th><th>Required Fact</th></tr></thead> <tbody> <tr><td>PASS</td><td>Content is accurate, aligned, and usable as-is after quick polish check</td><td>Reviewer of record</td><td>CONTENT_REVIEW_PASSED</td></tr> <tr><td>EDIT</td><td>Core idea is right but wording, structure, evidence, or polish needs correction</td><td>Assigned editor</td><td>CONTENT_EDIT_COMPLETED</td></tr> <tr><td>DELETE</td><td>Content is duplicate, obsolete, or misleading</td><td>Section owner</td><td>CONTENT_DELETED_APPROVED</td></tr> <tr><td>AGENT</td><td>Agent should rewrite, normalize, summarize, expand, or polish using defined prompt</td><td>Agent operator + approver</td><td>AGENT_REVISION_COMPLETED</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Action</th><th>Use When</th><th>Owner</th><th>Required Fact</th></tr></thead> <tbody> <tr><td>PASS</td><td>Content is accurate, aligned, and usable as-is after quick polish check</td><td>Reviewer of record</td><td>CONTENT_REVIEW_PASSED</td></tr> <tr><td>EDIT</td><td>Core idea is right but wording, structure, evidence, or polish needs correction</td><td>Assigned editor</td><td>CONTENT_EDIT_COMPLETED</td></tr> <tr><td>DELETE</td><td>Content is duplicate, obsolete, or misleading</td><td>Section owner</td><td>CONTENT_DELETED_APPROVED</td></tr> <tr><td>AGENT</td><td>Agent should rewrite, normalize, summarize, expand, or polish using defined prompt</td><td>Agent operator + approver</td><td>AGENT_REVISION_COMPLETED</td></tr> </tbody> </table>",
+          "id": "tab-10-group-03",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Review Queue by Section",
-          "html": "<table class=\"rule-table\" id=\"content-review-queue\"> <thead><tr><th>Done</th><th>Queue ID</th><th>Section</th><th>Scope</th><th>Initial Action</th><th>Owner</th><th>Due</th></tr></thead> <tbody> <tr><td></td><td>REV-001</td><td>01 Strategy</td><td>Goals, strategic mantras, and initiative clarity</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-02-26</td></tr> <tr><td></td><td>REV-002</td><td>02 Architecture</td><td>Canon consistency, dependencies, and role ownership clarity</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-02-27</td></tr> <tr><td></td><td>REV-003</td><td>03 Mini-OS</td><td>Productivity OS implementation depth and personal workspace setup</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-02-28</td></tr> <tr><td></td><td>REV-004</td><td>04 Value Engines</td><td>Activation criteria and value verification rules</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-01</td></tr> <tr><td></td><td>REV-005</td><td>05 Infrastructure</td><td>Business Central + Contact Center build completeness</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-02</td></tr> <tr><td></td><td>REV-006</td><td>06 Execution</td><td>Fact bindings, Project Health logic, tracker controls</td><td>PASS</td><td>Clyde (CEO)</td><td>2026-03-03</td></tr> <tr><td></td><td>REV-007</td><td>07 Projects</td><td>Internal project parity and placeholder quality</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-03-04</td></tr> <tr><td></td><td>REV-008</td><td>08 Delivery</td><td>Internal 4-person runbook and care team flow</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-05</td></tr> <tr><td></td><td>REV-009</td><td>09 QMS</td><td>Template packs including email templates and care controls</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-06</td></tr> <tr><td></td><td>REV-010</td><td>10 Factory Library</td><td>Seed records for active internal assets</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-03-07</td></tr> <tr><td></td><td>REV-011</td><td>11 Build Guides</td><td>Completeness of real step-by-step internal guides</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-03-08</td></tr> <tr><td></td><td>REV-012</td><td>12 Changelog/Audit</td><td>Lesson loop, NCR traceability, and stale-fact handling</td><td>PASS</td><td>Clyde (CEO)</td><td>2026-03-09</td></tr> <tr><td></td><td>REV-013</td><td>13 Enterprise Build Plan</td><td>Backlog quality, ownership, and execution realism</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-10</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\" id=\"content-review-queue\"> <thead><tr><th>Done</th><th>Queue ID</th><th>Section</th><th>Scope</th><th>Initial Action</th><th>Owner</th><th>Due</th></tr></thead> <tbody> <tr><td></td><td>REV-001</td><td>01 Strategy</td><td>Goals, strategic mantras, and initiative clarity</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-02-26</td></tr> <tr><td></td><td>REV-002</td><td>02 Architecture</td><td>Canon consistency, dependencies, and role ownership clarity</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-02-27</td></tr> <tr><td></td><td>REV-003</td><td>03 Mini-OS</td><td>Productivity OS implementation depth and personal workspace setup</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-02-28</td></tr> <tr><td></td><td>REV-004</td><td>04 Value Engines</td><td>Activation criteria and value verification rules</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-01</td></tr> <tr><td></td><td>REV-005</td><td>05 Infrastructure</td><td>Business Central + Contact Center build completeness</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-02</td></tr> <tr><td></td><td>REV-006</td><td>06 Execution</td><td>Fact bindings, Project Health logic, tracker controls</td><td>PASS</td><td>Clyde (CEO)</td><td>2026-03-03</td></tr> <tr><td></td><td>REV-007</td><td>07 Projects</td><td>Internal project parity and placeholder quality</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-03-04</td></tr> <tr><td></td><td>REV-008</td><td>08 Delivery</td><td>Internal 4-person runbook and care team flow</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-05</td></tr> <tr><td></td><td>REV-009</td><td>09 QMS</td><td>Template packs including email templates and care controls</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-06</td></tr> <tr><td></td><td>REV-010</td><td>10 Factory Library</td><td>Seed records for active internal assets</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-03-07</td></tr> <tr><td></td><td>REV-011</td><td>11 Build Guides</td><td>Completeness of real step-by-step internal guides</td><td>AGENT</td><td>Clyde (CEO)</td><td>2026-03-08</td></tr> <tr><td></td><td>REV-012</td><td>12 Changelog/Audit</td><td>Lesson loop, NCR traceability, and stale-fact handling</td><td>PASS</td><td>Clyde (CEO)</td><td>2026-03-09</td></tr> <tr><td></td><td>REV-013</td><td>13 Enterprise Build Plan</td><td>Backlog quality, ownership, and execution realism</td><td>EDIT</td><td>Clyde (CEO)</td><td>2026-03-10</td></tr> </tbody> </table>",
+          "id": "tab-10-group-04",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Agent Execution Contract",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Field</th><th>Rule</th><th>Example</th></tr></thead> <tbody> <tr><td>agent_task_id</td><td>Mandatory when action = AGENT</td><td>AGREV-003</td></tr> <tr><td>prompt_scope</td><td>Must define exact file + section scope</td><td>04-minios.html Tab Productivity OS only</td></tr> <tr><td>acceptance_criteria</td><td>Must define pass conditions before run</td><td>No placeholders, includes setup steps, includes fact fields</td></tr> <tr><td>human_approver</td><td>Required before merge</td><td>Clyde (CEO)</td></tr> <tr><td>result_action</td><td>Final state after review of agent output</td><td>PASS or EDIT</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Field</th><th>Rule</th><th>Example</th></tr></thead> <tbody> <tr><td>agent_task_id</td><td>Mandatory when action = AGENT</td><td>AGREV-003</td></tr> <tr><td>prompt_scope</td><td>Must define exact file + section scope</td><td>04-minios.html Tab Productivity OS only</td></tr> <tr><td>acceptance_criteria</td><td>Must define pass conditions before run</td><td>No placeholders, includes setup steps, includes fact fields</td></tr> <tr><td>human_approver</td><td>Required before merge</td><td>Clyde (CEO)</td></tr> <tr><td>result_action</td><td>Final state after review of agent output</td><td>PASS or EDIT</td></tr> </tbody> </table>",
+          "id": "tab-10-group-05",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Content Assistant Workflow",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Step</th><th>Action</th><th>Output</th></tr></thead> <tbody> <tr><td>1</td><td>Assistant reads one section only (starting with REV-001), tab by tab, group by group</td><td>Structured review notes per group</td></tr> <tr><td>2</td><td>Clyde (CEO) and assistant review correctness and polish wording/structure for clarity</td><td>Polished content draft + PASS / EDIT / DELETE / AGENT decision</td></tr> <tr><td>3</td><td>Assistant runs fact-test on the reviewed group</td><td>FACT or NON-FACT classification</td></tr> <tr><td>4</td><td>If FACT, assistant creates candidate deliverable row for Master Register Seed</td><td>Seed candidate with next fact and status</td></tr> <tr><td>5</td><td>Assistant updates burndown counts for section and moves to next group</td><td>Live completion progress per tab and section</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Step</th><th>Action</th><th>Output</th></tr></thead> <tbody> <tr><td>1</td><td>Assistant reads one section only (starting with REV-001), tab by tab, group by group</td><td>Structured review notes per group</td></tr> <tr><td>2</td><td>Clyde (CEO) and assistant review correctness and polish wording/structure for clarity</td><td>Polished content draft + PASS / EDIT / DELETE / AGENT decision</td></tr> <tr><td>3</td><td>Assistant runs fact-test on the reviewed group</td><td>FACT or NON-FACT classification</td></tr> <tr><td>4</td><td>If FACT, assistant creates candidate deliverable row for Master Register Seed</td><td>Seed candidate with next fact and status</td></tr> <tr><td>5</td><td>Assistant updates burndown counts for section and moves to next group</td><td>Live completion progress per tab and section</td></tr> </tbody> </table>",
+          "id": "tab-10-group-06",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Fact Test Rule",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Test</th><th>Question</th><th>If Yes</th><th>If No</th></tr></thead> <tbody> <tr><td>Evidence Test</td><td>Can this be evidenced, observed, or measured in operation?</td><td>Candidate FACT</td><td>Narrative only</td></tr> <tr><td>Action Test</td><td>Does it require build/setup/operational action?</td><td>Create deliverable candidate</td><td>Keep as guidance text</td></tr> <tr><td>Ownership Test</td><td>Can Clyde assign a clear owner and next lifecycle fact?</td><td>Add to Seed tab</td><td>Return for clarification</td></tr> </tbody> </table>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Test</th><th>Question</th><th>If Yes</th><th>If No</th></tr></thead> <tbody> <tr><td>Evidence Test</td><td>Can this be evidenced, observed, or measured in operation?</td><td>Candidate FACT</td><td>Narrative only</td></tr> <tr><td>Action Test</td><td>Does it require build/setup/operational action?</td><td>Create deliverable candidate</td><td>Keep as guidance text</td></tr> <tr><td>Ownership Test</td><td>Can Clyde assign a clear owner and next lifecycle fact?</td><td>Add to Seed tab</td><td>Return for clarification</td></tr> </tbody> </table>",
+          "id": "tab-10-group-07",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "REV-001 Burndown (Section 01 -",
-          "html": "<table class=\"rule-table\"> <thead><tr><th>Tab</th><th>Groups</th><th>Reviewed</th><th>Remaining</th><th>Status</th></tr></thead> <tbody> <tr><td>01 RealTimeOS Core</td><td>Core Elements; Operating Loop; Why; Universal Truth</td><td>0</td><td>4</td><td>Open</td></tr> <tr><td>02 Strategic Pillars</td><td>Pillar definitions and execution blocks</td><td>0</td><td>TBD</td><td>Open</td></tr> <tr><td>03 Transformation Fund</td><td>Fund model groups and deployment logic</td><td>0</td><td>TBD</td><td>Open</td></tr> <tr><td>04 Revenue Model</td><td>Pricing, packaging, and economics groups</td><td>0</td><td>TBD</td><td>Open</td></tr> <tr><td>05 Flywheel</td><td>Compounding logic and operating cadence groups</td><td>0</td><td>TBD</td><td>Open</td></tr> </tbody> </table> <div class=\"callout\"> <p><strong>Operating rule for content review first:</strong> no new section work starts until current section review burndown is closed or explicitly deferred by Clyde (CEO).</p> </div>"
+          "html": "<table class=\"rule-table\"> <thead><tr><th>Tab</th><th>Groups</th><th>Reviewed</th><th>Remaining</th><th>Status</th></tr></thead> <tbody> <tr><td>01 RealTimeOS Core</td><td>Core Elements; Operating Loop; Why; Universal Truth</td><td>0</td><td>4</td><td>Open</td></tr> <tr><td>02 Strategic Pillars</td><td>Pillar definitions and execution blocks</td><td>0</td><td>TBD</td><td>Open</td></tr> <tr><td>03 Transformation Fund</td><td>Fund model groups and deployment logic</td><td>0</td><td>TBD</td><td>Open</td></tr> <tr><td>04 Revenue Model</td><td>Pricing, packaging, and economics groups</td><td>0</td><td>TBD</td><td>Open</td></tr> <tr><td>05 Flywheel</td><td>Compounding logic and operating cadence groups</td><td>0</td><td>TBD</td><td>Open</td></tr> </tbody> </table> <div class=\"callout\"> <p><strong>Operating rule for content review first:</strong> no new section work starts until current section review burndown is closed or explicitly deferred by Clyde (CEO).</p> </div>",
+          "id": "tab-10-group-08",
+          "purpose": "Operating rule for content review first: no new section work starts until current section review burndown is closed or explicitly deferred by Clyde (CEO).",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     },
@@ -208,11 +432,25 @@
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Reporting Layer Rebuild</div> <h1 class=\"ph-title\">Reporting Dashboard</h1> <p class=\"ph-sub\">This dashboard is being rebuilt. Section 10 remains the active execution view until the new reporting model is complete.</p> </div> <div class=\"callout\"> <p><strong>Status:</strong> Redesign in progress. This tab is reserved for the rebuilt reporting dashboard.</p> </div>"
+          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Reporting Layer Rebuild</div> <h1 class=\"ph-title\">Reporting Dashboard</h1> <p class=\"ph-sub\">This dashboard is being rebuilt. Section 10 remains the active execution view until the new reporting model is complete.</p> </div> <div class=\"callout\"> <p><strong>Status:</strong> Redesign in progress. This tab is reserved for the rebuilt reporting dashboard.</p> </div>",
+          "id": "tab-11-group-01",
+          "purpose": "Reporting Dashboard",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         },
         {
           "label": "Dashboard Build Checklist",
-          "html": "<div class=\"phase-check-grid\" id=\"dashboard-check-grid\"> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"scope\">Dashboard Scope Locked</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"tiles\">Core Tiles Built</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"sources\">Data Sources Bound</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"qa\">QA Review Complete</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"publish\">Dashboard Published</label> </div>"
+          "html": "<div class=\"phase-check-grid\" id=\"dashboard-check-grid\"> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"scope\">Dashboard Scope Locked</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"tiles\">Core Tiles Built</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"sources\">Data Sources Bound</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"qa\">QA Review Complete</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"publish\">Dashboard Published</label> </div>",
+          "id": "tab-11-group-02",
+          "purpose": "",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     }

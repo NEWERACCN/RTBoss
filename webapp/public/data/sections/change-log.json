@@ -10,7 +10,14 @@
       "groups": [
         {
           "label": "Content",
-          "html": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <title>RealTimeOS - Section 15 - Change Log</title> <link href=\"https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\"> <link href=\"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap\" rel=\"stylesheet\"> </head> <body> <div class=\"nav-header\"> <div class=\"nav-title\">Section 15 - Change Log</div> <a href=\"index.html\" class=\"nav-back\">Back to Hub</a> </div> <div class=\"wrap\"> <div class=\"kicker\">Vault</div> <h1 class=\"h1\">Change Log</h1> <p class=\"sub\">Canonical record of approved system, architecture, and Master Seed changes.</p> <div class=\"block\">Draft baseline page. Add final tabs and checklist when ready.</div> </div> </body> </html>"
+          "html": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <title>RealTimeOS - Section 15 - Change Log</title> <link href=\"https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\"> <link href=\"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap\" rel=\"stylesheet\"> </head> <body> <div class=\"nav-header\"> <div class=\"nav-title\">Section 15 - Change Log</div> <a href=\"index.html\" class=\"nav-back\">Back to Hub</a> </div> <div class=\"wrap\"> <div class=\"kicker\">Vault</div> <h1 class=\"h1\">Change Log</h1> <p class=\"sub\">Canonical record of approved system, architecture, and Master Seed changes.</p> <div class=\"block\">Draft baseline page. Add final tabs and checklist when ready.</div> </div> </body> </html>",
+          "id": "tab-1-group-01",
+          "purpose": "Change Log",
+          "inputs": [],
+          "outputs": [],
+          "steps": [],
+          "metrics": [],
+          "callout": ""
         }
       ]
     }
