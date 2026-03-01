@@ -20,7 +20,7 @@ export const subjects: SubjectMeta[] = [
   { slug: 'audit-standards', code: '09', title: 'Compliance Management System', purpose: 'Section 09 source content.', workstream: 'Governance', category: 'Audit', complete: false },
   { slug: 'project-management', code: '10', title: 'Enterprise Build Plan', purpose: 'Section 10 source content.', workstream: 'PMO', category: 'Planning', complete: false },
   { slug: 'client-projects', code: '11', title: 'Client Projects', purpose: 'Section 11 source content.', workstream: 'Client Delivery', category: 'Portfolio', complete: false },
-  { slug: 'reporting-dashboard', code: '12', title: 'Reporting Dashboard', purpose: 'Section 12 source content.', workstream: 'Analytics', category: 'Reporting', complete: false },
+  { slug: 'reporting-dashboard', code: '12', title: 'LiveSnap Shot', purpose: 'Section 12 source content.', workstream: 'Analytics', category: 'Reporting', complete: false },
   { slug: 'agentic-factory-library', code: '13', title: 'Agentic Factory Library', purpose: 'Section 13 source content.', workstream: 'Platform', category: 'Library', complete: false },
   { slug: 'build-guides', code: '14', title: 'Guides', purpose: 'Section 14 source content.', workstream: 'Enablement', category: 'Guides', complete: false },
   { slug: 'change-log', code: '15', title: 'Change Log', purpose: 'Section 15 source content.', workstream: 'Governance', category: 'Change Control', complete: false },
@@ -29,3 +29,5 @@ export const subjects: SubjectMeta[] = [
 export function getSubjectBySlug(slug: string) {
   return subjects.find((subject) => subject.slug === slug)
 }
+
+

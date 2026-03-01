@@ -1,7 +1,7 @@
 {
   "slug": "reporting-dashboard",
   "file": "12-reporting-dashboard.html",
-  "title": "RealTimeOS - Section 12 - Reporting Dashboard",
+  "title": "RealTimeOS - Section 12 - LiveSnap Shot",
   "tabs": [
     {
       "id": "tab-1",
@@ -23,14 +23,14 @@
     },
     {
       "id": "tab-2",
-      "label": "02 - Dashboard",
+      "label": "02 - LiveSnap Shot",
       "panelId": "tab-1",
       "groups": [
         {
           "label": "Overview",
-          "html": "<div class=\"wrap\"> <div class=\"ph\"> <div class=\"ph-kicker\">Reporting Layer Rebuild</div> <h1 class=\"ph-title\">Dashboard</h1> <p class=\"ph-sub\">Live metrics and checklist tracking for Section 12.</p> </div>",
+          "html": "<div class=\"wrap\"> <div class=\"ph\"> <div class=\"ph-kicker\">Reporting Layer Rebuild</div> <h1 class=\"ph-title\">LiveSnap Shot</h1> <p class=\"ph-sub\">Live metrics and checklist tracking for Section 12.</p> </div>",
           "id": "tab-2-group-01",
-          "purpose": "Dashboard",
+          "purpose": "LiveSnap Shot",
           "inputs": [],
           "outputs": [],
           "steps": [],
@@ -38,7 +38,7 @@
           "callout": ""
         },
         {
-          "label": "Dashboard Snapshot",
+          "label": "LiveSnap Shot Snapshot",
           "html": "<div class=\"metrics\"> <div class=\"metric\"><div class=\"k\">Sections Complete</div><div class=\"v\" id=\"dash-sections-complete\">0</div></div> <div class=\"metric\"><div class=\"k\">Sections In Progress</div><div class=\"v\" id=\"dash-sections-progress\">0</div></div> <div class=\"metric\"><div class=\"k\">Sections Not Started</div><div class=\"v\" id=\"dash-sections-not-started\">0</div></div> <div class=\"metric\"><div class=\"k\">Workstream Complete</div><div class=\"v\" id=\"dash-phase-pct\">0%</div>",
           "id": "tab-2-group-02",
           "purpose": "",
@@ -60,7 +60,7 @@
           "callout": ""
         },
         {
-          "label": "Dashboard Build Checklist",
+          "label": "LiveSnap Shot Build Checklist",
           "html": "<div class=\"phase-check-grid\" id=\"dashboard-check-grid\"> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"scope\">Dashboard Scope Locked</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"tiles\">Core Tiles Built</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"sources\">Data Sources Bound</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"qa\">QA Review Complete</label> <label class=\"phase-check-item\"><input type=\"checkbox\" class=\"dash-build-check\" data-dash-key=\"publish\">Dashboard Published</label>",
           "id": "tab-2-group-04",
           "purpose": "",
@@ -92,3 +92,4 @@
     }
   ]
 }
+

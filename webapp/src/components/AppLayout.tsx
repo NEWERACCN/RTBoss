@@ -79,24 +79,24 @@ export function AppLayout() {
       <aside className={`sidebar ${menuOpen ? 'open' : ''}`}>
         <div className="sidebar-zone sidebar-zone-top">
           <div className="brand">
-            <p className="brand-kicker">RealTimeOS Platform</p>
+            <p className="brand-kicker">LiveOpsOS</p>
             <h2>Command Center</h2>
           </div>
           <nav className="nav-group">
-            <p className="nav-group-title">Workspace</p>
+            <p className="nav-group-title">LiveOpsOS</p>
             <NavLink
-              to="/dashboards"
+              to="/mission-control"
               className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
               onClick={() => setMenuOpen(false)}
             >
-              Dashboards
+              Mission Control
             </NavLink>
             <NavLink
               to="/subject/reporting-dashboard"
               className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
               onClick={() => setMenuOpen(false)}
             >
-              Reporting Dashboard
+              LiveSnap Shot
             </NavLink>
           </nav>
         </div>
@@ -156,10 +156,10 @@ export function AppLayout() {
             Menu
           </button>
           <div className="topbar-main">
-            <p className="topbar-label">RealTimeOS Workspace</p>
+            <p className="topbar-label">LiveOpsOS</p>
             <strong>Command Center</strong>
           </div>
-          <NavLink to="/" className="topbar-home-btn">
+          <NavLink to="/mission-control" className="topbar-home-btn">
             Home
           </NavLink>
           <div className="topbar-actions">
@@ -218,3 +218,7 @@ export function AppLayout() {
     </div>
   )
 }
+
+
+
+

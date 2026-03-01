@@ -1,6 +1,6 @@
 const dashboardCards = [
   { title: 'Executive Snapshot', detail: 'High-level readiness, schedule confidence, and top risks.' },
-  { title: 'Quality Dashboard', detail: 'QMS controls, audit evidence status, and non-conformance trends.' },
+  { title: 'Quality Live Snapshot', detail: 'QMS controls, audit evidence status, and non-conformance trends.' },
   { title: 'Delivery Health', detail: 'Throughput, blocker aging, and iteration predictability.' },
   { title: 'Project Portfolio', detail: 'Cross-project status with dependency heatmap and owners.' },
 ]
@@ -11,17 +11,17 @@ export function DashboardsPage() {
       <section className="surface panel-l2 wireframe-board">
         <header className="wireframe-header">
           <div className="wireframe-title">
-            <h1>Dashboards</h1>
+            <h1>Live Snapshots</h1>
             <p className="muted">Launch points for KPI reports, BI views, and telemetry drilldowns.</p>
           </div>
           <div className="wireframe-header-fill" />
           <button type="button" className="topbar-action-btn">
-            + New Dashboard
+            + New Live Snapshot
           </button>
         </header>
 
         <div className="wireframe-controls">
-          <input className="topbar-search wireframe-search" placeholder="Search dashboards..." />
+          <input className="topbar-search wireframe-search" placeholder="Search live snapshots..." />
           <button type="button" className="ghost-link">
             Filter
           </button>
@@ -42,7 +42,7 @@ export function DashboardsPage() {
               <p className="tab-card-title">{card.title}</p>
               <p className="tab-card-summary">{card.detail}</p>
               <a className="tab-link" href="#">
-                Open Dashboard
+                Open Live Snapshot
               </a>
             </article>
           ))}
