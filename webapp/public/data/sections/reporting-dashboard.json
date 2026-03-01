@@ -1,7 +1,7 @@
 {
   "slug": "reporting-dashboard",
   "file": "12-reporting-dashboard.html",
-  "title": "RealTimeOS - Section 12 - LiveSnap Shot",
+  "title": "LiveOpsOS - Section 12 - LiveSnap Shot",
   "tabs": [
     {
       "id": "tab-1",
@@ -92,4 +92,5 @@
     }
   ]
 }
+
 

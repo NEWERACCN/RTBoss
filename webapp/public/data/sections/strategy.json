@@ -1,274 +1,421 @@
 {
-  "slug": "strategy",
-  "file": "01-strategy.html",
-  "title": "RealTimeOS - Strategic Framework",
-  "tabs": [
-    {
-      "id": "tab-1",
-      "label": "01 - RealTimeOS Core",
-      "panelId": "tab-0",
-      "groups": [
-        {
-          "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Tab 01 - RealTimeOS Core</div> <h1 class=\"ph-title\">The RealTime Operating System</h1> <p class=\"ph-sub\">It is not software, not a methodology, and not just automation. It is a real-time, living future-of-work operating model that delivers peak performance, increased value, and measurable outcomes.</p> </div> <div class=\"def-block workflow-hero\"> <span class=\"wf-label\">RealTimeOS Operating Chain - Core</span> <div class=\"wf-flow\"><span class=\"wf-s1\">Facts</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s2\">Dimensions</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s3\">Digital Assets</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s4\">Agentic Factory</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s5\">Digital Workforce</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s6\">Digital Twin</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s7\">New Fact</span>",
-          "id": "tab-1-group-01",
-          "purpose": "The RealTime Operating System",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Core Elements",
-          "html": "<div class=\"content-block\"> <h3 class=\"wf-s1\">Facts</h3> <p><strong>What it is:</strong> A real event with a time, source, and owner.</p> <p><strong>Why it matters:</strong> Work should start from what actually happened.</p> <p><strong>Output:</strong> A recorded event that can be acted on.</p> </div> <div class=\"content-block\"> <h3 class=\"wf-s2\">Dimensions</h3> <p><strong>What it is:</strong> Context fields on the fact: who, where, urgency, risk, value, and jurisdiction.</p> <p><strong>Why it matters:</strong> Context tells the system what to do first.</p> <p><strong>Output:</strong> A fact that is ready to route.</p> </div> <div class=\"content-block\"> <h3 class=\"wf-s3\">Digital Assets</h3> <p><strong>What it is:</strong> The thing affected by the fact: customer, contract, system, document, device, or queue.</p> <p><strong>Why it matters:</strong> You can see what changed and who owns it.</p> <p><strong>Output:</strong> Updated asset data linked to the event.</p> </div> <div class=\"content-block\"> <h3 class=\"wf-s4\">Agentic Factory</h3> <p><strong>What it is:</strong> The layer that runs agents, genies, and streams.</p> <p><strong>Why it matters:</strong> It moves work from start to finish in the right order.</p> <p><strong>Output:</strong> Work completed with a clear execution record.</p> </div> <div class=\"content-block\"> <h3 class=\"wf-s5\">Digital Workforce</h3> <p><strong>What it is:</strong> Human workers and digital workers working together.</p> <p><strong>Why it matters:</strong> Digital workers add speed, humans add judgment.</p> <p><strong>Output:</strong> Work completed with approvals and ownership.</p> </div> <div class=\"content-block\"> <h3 class=\"wf-s6\">Digital Twin</h3> <p><strong>What it is:</strong> A live view of current state and recent changes.</p> <p><strong>Why it matters:</strong> Teams can see what is happening now and what just changed.</p> <p><strong>Output:</strong> Current state plus a usable history.</p> </div> <div class=\"content-block\"> <h3 class=\"wf-s7\">New Fact</h3> <p><strong>What it is:</strong> The result captured as the next fact.</p> <p><strong>Why it matters:</strong> It closes the loop and starts the next cycle.</p> <p><strong>Output:</strong> The workflow continues with updated state.</p> </div>",
-          "id": "tab-1-group-02",
-          "purpose": "What it is: A real event with a time, source, and owner.",
-          "inputs": [],
-          "outputs": [
-            "A recorded event that can be acted on.",
-            "A fact that is ready to route.",
-            "Updated asset data linked to the event.",
-            "Work completed with a clear execution record.",
-            "Work completed with approvals and ownership.",
-            "Current state plus a usable history.",
-            "The workflow continues with updated state."
-          ],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "The Operating Loop",
-          "html": "<div class=\"content-block\"> <h3>A Single, Closed, Continuous Pipeline</h3> <ol style=\"padding-left:1.5rem;color:var(--mid);line-height:1.8;\"> <li>A real event is captured as a <strong class=\"wf-s1\">Fact</strong>.</li> <li><strong class=\"wf-s2\">Dimensions</strong> add context to the fact.</li> <li>The fact is linked to the right <strong class=\"wf-s3\">Digital Asset</strong>.</li> <li>The <strong class=\"wf-s4\">Agentic Factory</strong> routes and orchestrates the response.</li> <li>The <strong class=\"wf-s5\">Digital Workforce</strong> executes the required work.</li> <li>The <strong class=\"wf-s6\">Digital Twin</strong> updates current state and history.</li> <li>The result is captured as a <strong class=\"wf-s7\">New Fact</strong>, and the loop continues.</li> </ol> </div>",
-          "id": "tab-1-group-03",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [
-            "A real event is captured as a Fact .",
-            "Dimensions add context to the fact.",
-            "The fact is linked to the right Digital Asset .",
-            "The Agentic Factory routes and orchestrates the response.",
-            "The Digital Workforce executes the required work.",
-            "The Digital Twin updates current state and history.",
-            "The result is captured as a New Fact , and the loop continues."
-          ],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Why RealTime Operating System Works for Any Business",
-          "html": "<div class=\"content-block\"> <ul> <li><strong>Starts from facts:</strong> Teams work from what actually happened, not assumptions.</li> <li><strong>Uses one workflow:</strong> Every function follows the same operating loop.</li> <li><strong>Improves response speed:</strong> Work can move in real time, not days later.</li> <li><strong>Creates traceability:</strong> Decisions, actions, and outcomes are all recorded.</li> <li><strong>Supports step-by-step automation:</strong> You can shift work from human to digital safely.</li> <li><strong>Gives one operating view:</strong> Assets and events are visible across the business.</li> </ul> </div> <div class=\"callout success\"> <div class=\"callout-icon\">?</div> <div class=\"callout-body\"><strong>The universal truth:</strong> Every business runs on events (facts), applies context (dimensions), updates entities (digital assets), makes decisions (agentic factory), and executes work (hybrid workers). RealTimeOS simply makes this explicit, traceable, and optimizable.",
-          "id": "tab-1-group-04",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        }
-      ]
-    },
-    {
-      "id": "tab-2",
-      "label": "02 - Strategic Pillars",
-      "panelId": "tab-1",
-      "groups": [
-        {
-          "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Tab 02 - Strategic Pillars</div> <h1 class=\"ph-title\">Strategic Pillars</h1> <p class=\"ph-sub\">How the RealTime Operating System creates value across core business domains. Each pillar applies the same workflow in a different operating context.</p> </div> <div class=\"def-block workflow-hero\"> <span class=\"wf-label\">RealTimeOS Operating Chain - Core</span> <div class=\"wf-flow\"><span class=\"wf-s1\">Facts</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s2\">Dimensions</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s3\">Digital Assets</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s4\">Agentic Factory</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s5\">Digital Workforce</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s6\">Digital Twin</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s7\">New Fact</span>",
-          "id": "tab-2-group-01",
-          "purpose": "Strategic Pillars",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Commercial Verticals",
-          "html": "<div class=\"pillar-grid\"> <div class=\"pillar-card\" style=\"--accent:var(--green);\"> <div class=\"pillar-num\">Pillar 01</div> <div class=\"pillar-title\">Transformation Studio - Continuous Operations Delivery</div> <div class=\"pillar-desc\"> <ul> <li><strong>Commercial focus:</strong> Transform companies through AI, automation, and agency delivery services.</li> <li><strong>Core delivery:</strong> Fully autonomous and robotic solutions for key verticals: health, manufacturing, and BPO.</li> <li><strong>How value is created:</strong> Faster launches, verticalized solutions, continuous delivery, and live operations.</li> <li><strong>Revenue path:</strong> MRR from core solutions, value streams, and modular operations.</li> </ul> </div> </div> <div class=\"pillar-card\" style=\"--accent:var(--blue);\"> <div class=\"pillar-num\">Pillar 02</div> <div class=\"pillar-title\">Managed Intelligent Provider - Transform from MSP to MIP</div> <div class=\"pillar-desc\"> <ul> <li><strong>Commercial focus:</strong> Move from MSP to MIP through real-time, intelligent service operations.</li> <li><strong>Core delivery:</strong> AI-enabled and autonomous operations with personalized service and support.</li> <li><strong>How value is created:</strong> Technology is the enabler; client outcomes and service quality are the priority.</li> <li><strong>Revenue path:</strong> MRR per user and per location, plus layered value-stream revenue.</li> </ul> </div> </div> <div class=\"pillar-card\" style=\"--accent:var(--amber);\"> <div class=\"pillar-num\">Pillar 03</div> <div class=\"pillar-title\">Real-Time Business Intelligence - Visual Management, Planning & Simulation</div> <div class=\"pillar-desc\"> <ul> <li><strong>Commercial focus:</strong> Turn live operational data into visible, decision-ready business intelligence.</li> <li><strong>Core delivery:</strong> Visual management, analytics, planning, and simulation across business domains.</li> <li><strong>How value is created:</strong> Faster decisions, earlier risk detection, and better planning accuracy.</li> <li><strong>Revenue path:</strong> MRR for BI dashboards, analytics packages, planning modules, and simulation modules.</li> </ul> </div> </div> <div class=\"pillar-card\" style=\"--accent:var(--teal);\"> <div class=\"pillar-num\">Pillar 04</div> <div class=\"pillar-title\">Intelligent Buildings - Physical Operations & Robotics</div> <div class=\"pillar-desc\"> <ul> <li><strong>Commercial focus:</strong> Modernize physical operations with real-time control and automation.</li> <li><strong>Core delivery:</strong> Building systems, robotics, sensors, and site workflows in one operating model.</li> <li><strong>How value is created:</strong> Lower downtime, lower energy cost, faster response, and safer operations.</li> <li><strong>Revenue path:</strong> Deployment fees + MRR per site, per device group, and per value-stream type.</li> </ul> </div> </div> <div class=\"pillar-card\" style=\"--accent:var(--violet);\"> <div class=\"pillar-num\">Pillar 05</div> <div class=\"pillar-title\">LiveOps - Modular Continuous Operations</div> <div class=\"pillar-desc\"> <ul> <li><strong>Commercial focus:</strong> Run modular back-of-house operations for companies in real time.</li> <li><strong>Core delivery:</strong> A live command center that handles day-to-day operations, escalations, and service flow.</li> <li><strong>How value is created:</strong> Faster response, fewer misses, and consistent service quality.</li> <li><strong>Revenue path:</strong> MRR per seat, per service, per transaction, and per value-stream type.</li> </ul> </div> </div> </div> <div class=\"callout violet\"> <div class=\"callout-icon\">?</div> <div class=\"callout-body\"><strong>The meta-pillar:</strong> All five tenets use the same RealTimeOS loop. Transformation Studio builds and maintains the platform. MIP handles IT facts. Business Intelligence turns fact streams into insight. Intelligent Buildings handles physical facts. LiveOps orchestrates human work. The pattern never changes - only the domain of application.",
-          "id": "tab-2-group-02",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [
-            "Contains MRR references"
-          ],
-          "callout": ""
-        }
-      ]
-    },
-    {
-      "id": "tab-3",
-      "label": "03 - Transformation Fund",
-      "panelId": "tab-2",
-      "groups": [
-        {
-          "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Tab 03 - Transformation Fund</div> <h1 class=\"ph-title\">Transformation Fund</h1> <p class=\"ph-sub\">The Transformation Fund applies the RealTimeOS model to real companies and real operations. We invest where execution is weak, then improve performance using one operating workflow.</p> </div> <div class=\"def-block workflow-hero\"> <span class=\"wf-label\">RealTimeOS Operating Chain - Core</span> <div class=\"wf-flow\"><span class=\"wf-s1\">Facts</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s2\">Dimensions</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s3\">Digital Assets</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s4\">Agentic Factory</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s5\">Digital Workforce</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s6\">Digital Twin</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s7\">New Fact</span>",
-          "id": "tab-3-group-01",
-          "purpose": "Transformation Fund",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Transformation Fund Strategy",
-          "html": "<div class=\"content-block\"> <h3>Strategy Focus</h3> <ul> <li><strong>Commercial focus:</strong> Buy, invest, or partner in companies with operational upside.</li> <li><strong>Core delivery:</strong> Deploy RealTimeOS to stabilize operations, reduce waste, and improve speed.</li> <li><strong>How value is created:</strong> Better output, lower COGS, faster decisions, and stronger EBITDA.</li> <li><strong>Target profile:</strong> SMB and mid-market companies with fragmented workflows and clear improvement potential.</li> </ul> </div>",
-          "id": "tab-3-group-02",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Investment Opportunities",
-          "html": "<div class=\"content-block\"> <h3>Opportunity Types</h3> <ul> <li><strong>Commercial focus:</strong> Invest in opportunities where operations can be rebuilt with RealTimeOS.</li> <li><strong>Core delivery:</strong> Minority stakes, majority acquisitions, and joint ventures.</li> <li><strong>How value is created:</strong> Faster transformation after close and stronger margin performance.</li> <li><strong>Revenue path:</strong> Equity upside, cash-flow gains, and exit value growth.</li> </ul> </div>",
-          "id": "tab-3-group-03",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Global Focus",
-          "html": "<div class=\"content-block\"> <h3>Global Execution Model</h3> <ul> <li><strong>Commercial focus:</strong> Build a global portfolio using one operating model across regions.</li> <li><strong>Core delivery:</strong> Standard RealTimeOS deployment, then localize for regulation and workforce context.</li> <li><strong>How value is created:</strong> Reuse proven patterns, cut rollout time, and improve cross-border consistency.</li> <li><strong>Operating scope:</strong> Health, manufacturing, BPO, and other event-driven verticals.</li> </ul> </div>",
-          "id": "tab-3-group-04",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Value Creation & Returns",
-          "html": "<div class=\"content-block\"> <h3>Return Model</h3> <ul> <li><strong>Commercial focus:</strong> Improve operating results quickly and hold for strategic exit timing.</li> <li><strong>Core delivery:</strong> Hands-on execution over a 12-18 month transformation cycle.</li> <li><strong>How value is created:</strong> Margin expansion, cash-flow lift, and valuation multiple growth.</li> <li><strong>Return target:</strong> 3-5x outcomes across the portfolio lifecycle.</li> </ul> </div> <div class=\"callout success\"> <div class=\"callout-icon\">?</div> <div class=\"callout-body\"><strong>Why this fund succeeds:</strong> RealTimeOS is our proprietary transformation engine. We execute the same model across every deal, prove value fast, and scale the portfolio with repeatable operating patterns.</div> </div> <div class=\"content-block\"> <h3>Example Transformation Path</h3> <p><strong>Year 0 (Entry):</strong> Manufacturing company at $10M revenue with high COGS and fragmented operations.</p> <p><strong>Year 1 (Deployment):</strong></p> <ul> <li>MIP: reduce IT support costs by 40%.</li> <li>LiveOps: centralize operational control and back-office flow.</li> <li>Intelligent Buildings: automate warehouse steps and reduce energy by 25%.</li> <li>Result: COGS drops from 35% to 22%; EBITDA grows from $1M to $3.5M.</li> </ul> <p><strong>Year 2 (Scale and Exit):</strong></p> <ul> <li>RealTimeOS Intelligence identifies the next expansion lane.</li> <li>Revenue expands to $15M on nearly the same cost base.</li> <li>Exit improves from 4x to 8x EBITDA valuation context.</li> <li><strong>Fund return:</strong> 7x in 24 months.</li> </ul> </div>",
-          "id": "tab-3-group-05",
-          "purpose": "Year 0 (Entry): Manufacturing company at $10M revenue with high COGS and fragmented operations.",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": "Why this fund succeeds: RealTimeOS is our proprietary transformation engine. We execute the same model across every deal, prove value fast, and scale the portfolio with repeatable operating patterns."
-        }
-      ]
-    },
-    {
-      "id": "tab-4",
-      "label": "04 - Revenue Model",
-      "panelId": "tab-3",
-      "groups": [
-        {
-          "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Tab 04 - Revenue Model</div> <h1 class=\"ph-title\">Revenue Model & Strategic Anchors</h1> <p class=\"ph-sub\">The path to $50k MRR by mid-2026, 5 active clients by end-2026, and fund launch readiness. Multiple revenue streams compounding toward profitability and scalability.</p> </div> <div class=\"def-block workflow-hero\"> <span class=\"wf-label\">RealTimeOS Operating Chain - Core</span> <div class=\"wf-flow\"><span class=\"wf-s1\">Facts</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s2\">Dimensions</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s3\">Digital Assets</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s4\">Agentic Factory</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s5\">Digital Workforce</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s6\">Digital Twin</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s7\">New Fact</span>",
-          "id": "tab-4-group-01",
-          "purpose": "Revenue Model & Strategic Anchors",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [
-            "Contains MRR references"
-          ],
-          "callout": ""
-        },
-        {
-          "label": "Strategic Anchors (Non-Negotiable Targets)",
-          "html": "<div class=\"content-block\"> <h3>The Three Anchors</h3> <ol style=\"padding-left:1.5rem;color:var(--mid);line-height:1.8;\"> <li><strong>$50,000 AUD MRR by mid-2026</strong> - Recurring revenue proving business model viability</li> <li><strong>5 active RealTimeOS clients by end-2026</strong> - Portfolio demonstrating replicability across verticals</li> <li><strong>Fund launch readiness</strong> - Track record, deal flow, LP relationships established</li> </ol> <p style=\"margin-top:1rem;\"><strong>Current state (Feb 2026):</strong> $38.5k MRR, 4 active clients, fund thesis documented</p> </div>",
-          "id": "tab-4-group-02",
-          "purpose": "Current state (Feb 2026): $38.5k MRR, 4 active clients, fund thesis documented",
-          "inputs": [],
-          "outputs": [],
-          "steps": [
-            "$50,000 AUD MRR by mid-2026 - Recurring revenue proving business model viability",
-            "5 active RealTimeOS clients by end-2026 - Portfolio demonstrating replicability across verticals",
-            "Fund launch readiness - Track record, deal flow, LP relationships established"
-          ],
-          "metrics": [
-            "Contains MRR references"
-          ],
-          "callout": ""
-        },
-        {
-          "label": "Revenue Streams",
-          "html": "<div class=\"content-block\"> <h3>Current State (Now)</h3> <ul> <li><strong>Business reset:</strong> Stabilized and transformed a failing MSP into a viable RealTimeOS operation.</li> <li><strong>Commercial proof:</strong> 2 active RealTimeOS Transformation Studio clients now validate the model.</li> <li><strong>Revenue base:</strong> Existing managed operations revenue keeps the business stable while we scale the next offer.</li> <li><strong>Priority:</strong> Shift from reactive service work to repeatable transformation delivery.</li> </ul> </div> <div class=\"content-block\"> <h3>Future State (Target)</h3> <ul> <li><strong>Primary engine:</strong> Transformation Studio becomes the lead offer and top growth driver.</li> <li><strong>Commercial outcome:</strong> Higher-value client relationships, faster revenue growth, and stronger margins.</li> <li><strong>Portfolio motion:</strong> Every Studio engagement opens expansion into additional RealTimeOS modules.</li> <li><strong>Operating direction:</strong> Build a transformation-led business with recurring revenue and modular growth paths.</li> </ul> </div> <div class=\"content-block\"> <h3>Growth Design (What We Push)</h3> <ul> <li><strong>Core push:</strong> RealTimeOS Transformation Studio.</li> <li><strong>Support lanes:</strong> MIP and Intelligent Buildings are expansion lanes, not the front-door offer.</li> <li><strong>How value grows:</strong> Studio delivers the transformation plan, then implementation extends into operations, automation, and monitoring.</li> <li><strong>Commercial options:</strong> Per program, per module, per location, and ongoing MRR value streams.</li> </ul> </div> <div class=\"content-block\"> <h3>Go-To-Market Focus</h3> <ul> <li><strong>Vertical opportunities:</strong> Target health, manufacturing, BPO, and service-heavy businesses with fragmented operations.</li> <li><strong>Focused campaigns:</strong> Run industry-specific campaigns tied to clear operational outcomes and fast wins.</li> <li><strong>Rainmaker network:</strong> Build trusted relationships with lawyers, accountants, tax advisors, investors, and board-level operators who open qualified doors.</li> <li><strong>Referral channels:</strong> Partner referrals, client referrals, and rainmaker introductions that place us into active transformation programs.</li> </ul> </div> <div class=\"content-block\"> <h3>Revenue Path (Simple View)</h3> <ul> <li><strong>Stage 1:</strong> Transformation Studio projects create immediate commercial momentum.</li> <li><strong>Stage 2:</strong> Convert wins into recurring operations revenue.</li> <li><strong>Stage 3:</strong> Expand into modular value streams by function, site, and business unit.</li> <li><strong>Stage 4:</strong> Use performance proof to support fund growth and larger transformation plays.</li> </ul> </div>",
-          "id": "tab-4-group-03",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [
-            "Contains MRR references"
-          ],
-          "callout": ""
-        },
-        {
-          "label": "Unit Economics & Path to Profitability",
-          "html": "<div class=\"content-block\"> <h3>Current State Economics</h3> <ul> <li><strong>Position:</strong> Stable base business with proven delivery capability.</li> <li><strong>Strength:</strong> Real client outcomes and repeatable operating structure.</li> <li><strong>Gap:</strong> Growth is constrained if we keep selling only traditional managed services.</li> <li><strong>Decision:</strong> Put commercial weight behind Transformation Studio.</li> </ul> </div> <div class=\"content-block\"> <h3>Future State Economics</h3> <ul> <li><strong>Position:</strong> Transformation-led revenue model with higher margin profile.</li> <li><strong>Growth model:</strong> Studio-first sales, then recurring operations and modular expansion.</li> <li><strong>Scale model:</strong> More revenue per client without linear headcount growth.</li> <li><strong>Reinvestment:</strong> Fund buildout, new modules, and global expansion readiness.</li> </ul> </div> <div class=\"callout success\"> <div class=\"callout-icon\">?</div> <div class=\"callout-body\"><strong>Revenue growth summary:</strong> We stabilized and transformed a dead MSP, proved demand with Transformation Studio clients, and now use Studio as the main commercial engine. That engine lifts every other RealTimeOS offer and builds stronger long-term value streams.",
-          "id": "tab-4-group-04",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        }
-      ]
-    },
-    {
-      "id": "tab-5",
-      "label": "05 - The Flywheel",
-      "panelId": "tab-4",
-      "groups": [
-        {
-          "label": "Overview",
-          "html": "<div class=\"ph\"> <div class=\"ph-kicker\">Tab 05 - The Flywheel</div> <h1 class=\"ph-title\">The Flywheel & Long-Term Direction</h1> <p class=\"ph-sub\">How everything compounds. Each component reinforces the others, creating momentum that accelerates over time. The more we build, the faster we build. The more we deploy, the better we get. The better we get, the more valuable we become.</p> </div> <div class=\"def-block workflow-hero\"> <span class=\"wf-label\">RealTimeOS Operating Chain - Core</span> <div class=\"wf-flow\"><span class=\"wf-s1\">Facts</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s2\">Dimensions</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s3\">Digital Assets</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s4\">Agentic Factory</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s5\">Digital Workforce</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s6\">Digital Twin</span><span class=\"wf-arrow\">-&gt;</span><span class=\"wf-s7\">New Fact</span>",
-          "id": "tab-5-group-01",
-          "purpose": "The Flywheel & Long-Term Direction",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "The Compounding Effect",
-          "html": "<div class=\"content-block\"> <h3>How Each Element Feeds the Next</h3> <ol style=\"padding-left:1.5rem;color:var(--mid);line-height:2;\"> <li><strong>Transformation Studio</strong> wins and designs the transformation.</li> <li><strong>MIP</strong> stabilizes and operationalizes service delivery.</li> <li><strong>Intelligent Buildings</strong> extends execution into physical operations.</li> <li><strong>Real-Time Intelligence</strong> drives planning, analytics, and decisions.</li> <li><strong>More AI</strong> adds new agents, genies, and streams, then repeats the loop.</li> </ol> </div> <div class=\"callout violet\"> <div class=\"callout-icon\">?</div> <div class=\"callout-body\"><strong>The insight:</strong> Transformation Studio leads. MIP operationalizes. Intelligent Buildings expands execution. Real-Time Intelligence sharpens decisions. Then we add more AI and repeat. That is the flywheel.",
-          "id": "tab-5-group-02",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [
-            "Transformation Studio wins and designs the transformation.",
-            "MIP stabilizes and operationalizes service delivery.",
-            "Intelligent Buildings extends execution into physical operations.",
-            "Real-Time Intelligence drives planning, analytics, and decisions.",
-            "More AI adds new agents, genies, and streams, then repeats the loop."
-          ],
-          "metrics": [],
-          "callout": ""
-        },
-        {
-          "label": "Long-Term Direction",
-          "html": "<div class=\"content-block\"> <h3>Stabilize and Prove the Model</h3> <ul> <li>Stabilize delivery and prove repeatable transformation outcomes.</li> <li>Show that the model works across clients and use cases.</li> <li>Build a trusted commercial track record.</li> <li><strong>Outcome:</strong> A proven operating business that stands on its own.</li> </ul> </div> <div class=\"content-block\"> <h3>Scale the Business</h3> <ul> <li>Scale Transformation Studio and expand recurring value streams.</li> <li>Use delivery proof to increase deal quality and market trust.</li> <li>Grow operational capacity without losing execution quality.</li> <li><strong>Outcome:</strong> A scaled business with stronger margin and momentum.</li> </ul> </div> <div class=\"content-block\"> <h3>Fund Becomes the Primary Value Driver</h3> <ul> <li>Use the fund to acquire and transform companies directly.</li> <li>Build portfolio value through operating execution, not only advisory work.</li> <li>Turn the model into owned assets and long-horizon enterprise value.</li> <li><strong>Outcome:</strong> Fund-led ownership becomes the main growth engine.</li> </ul> </div> <div class=\"callout success\"> <div class=\"callout-icon\">?</div> <div class=\"callout-body\"><strong>Blue-sky direction:</strong> Agencies may want to acquire us, but that is not the core endgame. The core endgame is the fund owning and transforming companies at scale.",
-          "id": "tab-5-group-03",
-          "purpose": "",
-          "inputs": [],
-          "outputs": [],
-          "steps": [],
-          "metrics": [],
-          "callout": ""
-        }
-      ]
-    }
-  ]
+    "slug":  "strategy",
+    "file":  "01-strategy.html",
+    "title":  "LiveOpsOS - Strategic Framework",
+    "tabs":  [
+                 {
+                     "id":  "tab-1",
+                     "label":  "01 - LiveOpsOS Core",
+                     "panelId":  "tab-0",
+                     "groups":  [
+                                    {
+                                        "label":  "Core Elements",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3 class=\"wf-s1\"\u003eFact\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eWhat it is:\u003c/strong\u003e Something happened.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhy it matters:\u003c/strong\u003e Work starts from reality.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e Event captured.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3 class=\"wf-s2\"\u003eDimensions\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eWhat it is:\u003c/strong\u003e Adds context.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhy it matters:\u003c/strong\u003e Prioritizes what to do first.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e Fact ready to route.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3 class=\"wf-s3\"\u003eDigital Asset\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eWhat it is:\u003c/strong\u003e Thing affected.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhy it matters:\u003c/strong\u003e Shows what changed and who owns it.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e Asset linked to the fact.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3 class=\"wf-s4\"\u003eAgentic Factory\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eWhat it is:\u003c/strong\u003e Decides response.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhy it matters:\u003c/strong\u003e Routes work to the right path.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e Response plan created.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3 class=\"wf-s5\"\u003eHuman + Agents\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eWhat it is:\u003c/strong\u003e AI or human acts.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhy it matters:\u003c/strong\u003e Combines speed with judgment.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e Action completed.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3 class=\"wf-s6\"\u003eDigital Twin\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eWhat it is:\u003c/strong\u003e Live state updated.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhy it matters:\u003c/strong\u003e Shows what changed now.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e Current state and history.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3 class=\"wf-s7\"\u003eNew Fact\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eWhat it is:\u003c/strong\u003e Outcome recorded.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eWhy it matters:\u003c/strong\u003e Closes the loop and starts the next one.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e Next cycle begins.\u003c/p\u003e \u003c/div\u003e",
+                                        "id":  "tab-1-group-02",
+                                        "purpose":  "What it is: A real event with a time, source, and owner.",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+                                                        "A recorded event that can be acted on.",
+                                                        "A fact that is ready to route.",
+                                                        "Updated asset data linked to the event.",
+                                                        "Work completed with a clear execution record.",
+                                                        "Work completed with approvals and ownership.",
+                                                        "Current state plus a usable history.",
+                                                        "The workflow continues with updated state."
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Overview",
+                                        "html":  "\u003cdiv class=\"ph\"\u003e \u003cdiv class=\"ph-kicker\"\u003eTab 01 - LiveOpsOS Core\u003c/div\u003e \u003ch1 class=\"ph-title\"\u003eThe LiveOps Operating System\u003c/h1\u003e \u003cp class=\"ph-sub\"\u003eIt is not software, not a methodology, and not just automation. It is a real-time, living future-of-work operating model that delivers peak performance, increased value, and measurable outcomes.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"def-block workflow-hero\"\u003e \u003cspan class=\"wf-label\"\u003eLiveOps Operating Chain\u003c/span\u003e \u003cdiv class=\"wf-flow\"\u003e\u003cspan class=\"wf-s1\"\u003eFact\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s2\"\u003eDimensions\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s3\"\u003eDigital Asset\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s4\"\u003eAgentic Factory\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s5\"\u003eHuman + Agents\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s6\"\u003eDigital Twin\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s7\"\u003eNew Fact\u003c/span\u003e",
+                                        "id":  "tab-1-group-01",
+                                        "purpose":  "The LiveOps Operating System",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "The Operating Loop",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eA Single, Closed, Continuous Pipeline\u003c/h3\u003e \u003col style=\"padding-left:1.5rem;color:var(--mid);line-height:1.8;\"\u003e \u003cli\u003eA real event is captured as a \u003cstrong class=\"wf-s1\"\u003eFact\u003c/strong\u003e.\u003c/li\u003e \u003cli\u003e\u003cstrong class=\"wf-s2\"\u003eDimensions\u003c/strong\u003e add context to the fact.\u003c/li\u003e \u003cli\u003eThe fact is linked to the right \u003cstrong class=\"wf-s3\"\u003eDigital Asset\u003c/strong\u003e.\u003c/li\u003e \u003cli\u003eThe \u003cstrong class=\"wf-s4\"\u003eAgentic Factory\u003c/strong\u003e routes and orchestrates the response.\u003c/li\u003e \u003cli\u003eThe \u003cstrong class=\"wf-s5\"\u003eHuman + Agents\u003c/strong\u003e executes the required work.\u003c/li\u003e \u003cli\u003eThe \u003cstrong class=\"wf-s6\"\u003eDigital Twin\u003c/strong\u003e updates current state and history.\u003c/li\u003e \u003cli\u003eThe result is captured as a \u003cstrong class=\"wf-s7\"\u003eNew Fact\u003c/strong\u003e, and the loop continues.\u003c/li\u003e \u003c/ol\u003e \u003c/div\u003e",
+                                        "id":  "tab-1-group-03",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+                                                      "A real event is captured as a Fact .",
+                                                      "Dimensions add context to the fact.",
+                                                      "The fact is linked to the right Digital Asset .",
+                                                      "The Agentic Factory routes and orchestrates the response.",
+                                                      "The Human + Agents executes the required work.",
+                                                      "The Digital Twin updates current state and history.",
+                                                      "The result is captured as a New Fact , and the loop continues."
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Why LiveOps Operating System Works for Any Business",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eStarts from facts:\u003c/strong\u003e Teams work from what actually happened, not assumptions.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eUses one workflow:\u003c/strong\u003e Every function follows the same operating loop.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eImproves response speed:\u003c/strong\u003e Work can move in real time, not days later.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCreates traceability:\u003c/strong\u003e Decisions, actions, and outcomes are all recorded.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eSupports step-by-step automation:\u003c/strong\u003e You can shift work from human to digital safely.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eGives one operating view:\u003c/strong\u003e Assets and events are visible across the business.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e",
+                                        "id":  "tab-1-group-04",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Universal Truth",
+                                        "html":  "\u003cdiv class=\"callout success\"\u003e \u003cdiv class=\"callout-icon\"\u003e\u003c/div\u003e \u003cdiv class=\"callout-body\"\u003e\u003cstrong\u003eThe universal truth:\u003c/strong\u003e Every business runs on events (facts), applies context (dimensions), updates entities (digital assets), makes decisions (agentic factory), and executes work (Human + Agents). LiveOpsOS simply makes this explicit, traceable, and optimizable. \u003c/div\u003e \u003c/div\u003e",
+                                        "id":  "tab-1-group-05",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    }
+                                ]
+                 },
+                 {
+                     "id":  "tab-2",
+                     "label":  "02 - Strategic Pillars",
+                     "panelId":  "tab-1",
+                     "groups":  [
+                                    {
+                                        "label":  "Overview",
+                                        "html":  "\u003cdiv class=\"ph\"\u003e \u003cdiv class=\"ph-kicker\"\u003eTab 02 - Strategic Pillars\u003c/div\u003e \u003ch1 class=\"ph-title\"\u003eStrategic Pillars\u003c/h1\u003e \u003cp class=\"ph-sub\"\u003eHow the LiveOps Operating System creates value across core business domains. Each pillar applies the same workflow in a different operating context.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"def-block workflow-hero\"\u003e \u003cspan class=\"wf-label\"\u003eLiveOps Operating Chain\u003c/span\u003e \u003cdiv class=\"wf-flow\"\u003e\u003cspan class=\"wf-s1\"\u003eFacts\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s2\"\u003eDimensions\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s3\"\u003eDigital Assets\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s4\"\u003eAgentic Factory\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s5\"\u003eHuman + Agents\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s6\"\u003eDigital Twin\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s7\"\u003eNew Fact\u003c/span\u003e",
+                                        "id":  "tab-2-group-01",
+                                        "purpose":  "Strategic Pillars",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Commercial Verticals",
+                                        "html":  "\u003cdiv class=\"pillar-grid\"\u003e \u003cdiv class=\"pillar-card\" style=\"--accent:var(--green);\"\u003e \u003cdiv class=\"pillar-num\"\u003ePillar 01\u003c/div\u003e \u003cdiv class=\"pillar-title\"\u003eTransformation Studio - Continuous Operations Delivery\u003c/div\u003e \u003cdiv class=\"pillar-desc\"\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Transform companies through AI, automation, and agency delivery services.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e Fully autonomous and robotic solutions for key verticals: health, manufacturing, and BPO.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Faster launches, verticalized solutions, continuous delivery, and live operations.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRevenue path:\u003c/strong\u003e MRR from core solutions, value streams, and modular operations.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"pillar-card\" style=\"--accent:var(--blue);\"\u003e \u003cdiv class=\"pillar-num\"\u003ePillar 02\u003c/div\u003e \u003cdiv class=\"pillar-title\"\u003eManaged Intelligent Provider - Transform from MSP to MIP\u003c/div\u003e \u003cdiv class=\"pillar-desc\"\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Move from MSP to MIP through real-time, intelligent service operations.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e AI-enabled and autonomous operations with personalized service and support.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Technology is the enabler; client outcomes and service quality are the priority.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRevenue path:\u003c/strong\u003e MRR per user and per location, plus layered value-stream revenue.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"pillar-card\" style=\"--accent:var(--amber);\"\u003e \u003cdiv class=\"pillar-num\"\u003ePillar 03\u003c/div\u003e \u003cdiv class=\"pillar-title\"\u003eReal-Time Business Intelligence - Visual Management, Planning \u0026 Simulation\u003c/div\u003e \u003cdiv class=\"pillar-desc\"\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Turn live operational data into visible, decision-ready business intelligence.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e Visual management, analytics, planning, and simulation across business domains.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Faster decisions, earlier risk detection, and better planning accuracy.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRevenue path:\u003c/strong\u003e MRR for BI dashboards, analytics packages, planning modules, and simulation modules.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"pillar-card\" style=\"--accent:var(--teal);\"\u003e \u003cdiv class=\"pillar-num\"\u003ePillar 04\u003c/div\u003e \u003cdiv class=\"pillar-title\"\u003eIntelligent Buildings - Physical Operations \u0026 Robotics\u003c/div\u003e \u003cdiv class=\"pillar-desc\"\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Modernize physical operations with real-time control and automation.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e Building systems, robotics, sensors, and site workflows in one operating model.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Lower downtime, lower energy cost, faster response, and safer operations.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRevenue path:\u003c/strong\u003e Deployment fees + MRR per site, per device group, and per value-stream type.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"pillar-card\" style=\"--accent:var(--violet);\"\u003e \u003cdiv class=\"pillar-num\"\u003ePillar 05\u003c/div\u003e \u003cdiv class=\"pillar-title\"\u003eLiveOps - Modular Continuous Operations\u003c/div\u003e \u003cdiv class=\"pillar-desc\"\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Run modular back-of-house operations for companies in real time.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e A live command center that handles day-to-day operations, escalations, and service flow.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Faster response, fewer misses, and consistent service quality.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRevenue path:\u003c/strong\u003e MRR per seat, per service, per transaction, and per value-stream type.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"callout violet\"\u003e \u003cdiv class=\"callout-icon\"\u003e?\u003c/div\u003e \u003cdiv class=\"callout-body\"\u003e\u003cstrong\u003eThe meta-pillar:\u003c/strong\u003e All five tenets use the same LiveOpsOS loop. Transformation Studio builds and maintains the platform. MIP handles IT facts. Business Intelligence turns fact streams into insight. Intelligent Buildings handles physical facts. LiveOps orchestrates human work. The pattern never changes - only the domain of application.",
+                                        "id":  "tab-2-group-02",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+                                                        "Contains MRR references"
+                                                    ],
+                                        "callout":  ""
+                                    }
+                                ]
+                 },
+                 {
+                     "id":  "tab-3",
+                     "label":  "03 - Transformation Fund",
+                     "panelId":  "tab-2",
+                     "groups":  [
+                                    {
+                                        "label":  "Overview",
+                                        "html":  "\u003cdiv class=\"ph\"\u003e \u003cdiv class=\"ph-kicker\"\u003eTab 03 - Transformation Fund\u003c/div\u003e \u003ch1 class=\"ph-title\"\u003eTransformation Fund\u003c/h1\u003e \u003cp class=\"ph-sub\"\u003eThe Transformation Fund applies the LiveOpsOS model to real companies and real operations. We invest where execution is weak, then improve performance using one operating workflow.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"def-block workflow-hero\"\u003e \u003cspan class=\"wf-label\"\u003eLiveOps Operating Chain\u003c/span\u003e \u003cdiv class=\"wf-flow\"\u003e\u003cspan class=\"wf-s1\"\u003eFacts\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s2\"\u003eDimensions\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s3\"\u003eDigital Assets\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s4\"\u003eAgentic Factory\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s5\"\u003eHuman + Agents\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s6\"\u003eDigital Twin\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s7\"\u003eNew Fact\u003c/span\u003e",
+                                        "id":  "tab-3-group-01",
+                                        "purpose":  "Transformation Fund",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Transformation Fund Strategy",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eStrategy Focus\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Buy, invest, or partner in companies with operational upside.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e Deploy LiveOpsOS to stabilize operations, reduce waste, and improve speed.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Better output, lower COGS, faster decisions, and stronger EBITDA.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eTarget profile:\u003c/strong\u003e SMB and mid-market companies with fragmented workflows and clear improvement potential.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e",
+                                        "id":  "tab-3-group-02",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Investment Opportunities",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eOpportunity Types\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Invest in opportunities where operations can be rebuilt with LiveOpsOS.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e Minority stakes, majority acquisitions, and joint ventures.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Faster transformation after close and stronger margin performance.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRevenue path:\u003c/strong\u003e Equity upside, cash-flow gains, and exit value growth.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e",
+                                        "id":  "tab-3-group-03",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Global Focus",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eGlobal Execution Model\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Build a global portfolio using one operating model across regions.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e Standard LiveOpsOS deployment, then localize for regulation and workforce context.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Reuse proven patterns, cut rollout time, and improve cross-border consistency.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOperating scope:\u003c/strong\u003e Health, manufacturing, BPO, and other event-driven verticals.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e",
+                                        "id":  "tab-3-group-04",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Value Creation \u0026 Returns",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eReturn Model\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCommercial focus:\u003c/strong\u003e Improve operating results quickly and hold for strategic exit timing.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCore delivery:\u003c/strong\u003e Hands-on execution over a 12-18 month transformation cycle.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value is created:\u003c/strong\u003e Margin expansion, cash-flow lift, and valuation multiple growth.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eReturn target:\u003c/strong\u003e 3-5x outcomes across the portfolio lifecycle.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"callout success\"\u003e \u003cdiv class=\"callout-icon\"\u003e?\u003c/div\u003e \u003cdiv class=\"callout-body\"\u003e\u003cstrong\u003eWhy this fund succeeds:\u003c/strong\u003e LiveOpsOS is our proprietary transformation engine. We execute the same model across every deal, prove value fast, and scale the portfolio with repeatable operating patterns.\u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eExample Transformation Path\u003c/h3\u003e \u003cp\u003e\u003cstrong\u003eYear 0 (Entry):\u003c/strong\u003e Manufacturing company at $10M revenue with high COGS and fragmented operations.\u003c/p\u003e \u003cp\u003e\u003cstrong\u003eYear 1 (Deployment):\u003c/strong\u003e\u003c/p\u003e \u003cul\u003e \u003cli\u003eMIP: reduce IT support costs by 40%.\u003c/li\u003e \u003cli\u003eLiveOps: centralize operational control and back-office flow.\u003c/li\u003e \u003cli\u003eIntelligent Buildings: automate warehouse steps and reduce energy by 25%.\u003c/li\u003e \u003cli\u003eResult: COGS drops from 35% to 22%; EBITDA grows from $1M to $3.5M.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003cstrong\u003eYear 2 (Scale and Exit):\u003c/strong\u003e\u003c/p\u003e \u003cul\u003e \u003cli\u003eLiveOpsOS Intelligence identifies the next expansion lane.\u003c/li\u003e \u003cli\u003eRevenue expands to $15M on nearly the same cost base.\u003c/li\u003e \u003cli\u003eExit improves from 4x to 8x EBITDA valuation context.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eFund return:\u003c/strong\u003e 7x in 24 months.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e",
+                                        "id":  "tab-3-group-05",
+                                        "purpose":  "Year 0 (Entry): Manufacturing company at $10M revenue with high COGS and fragmented operations.",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  "Why this fund succeeds: LiveOpsOS is our proprietary transformation engine. We execute the same model across every deal, prove value fast, and scale the portfolio with repeatable operating patterns."
+                                    }
+                                ]
+                 },
+                 {
+                     "id":  "tab-4",
+                     "label":  "04 - Revenue Model",
+                     "panelId":  "tab-3",
+                     "groups":  [
+                                    {
+                                        "label":  "Overview",
+                                        "html":  "\u003cdiv class=\"ph\"\u003e \u003cdiv class=\"ph-kicker\"\u003eTab 04 - Revenue Model\u003c/div\u003e \u003ch1 class=\"ph-title\"\u003eRevenue Model \u0026 Strategic Anchors\u003c/h1\u003e \u003cp class=\"ph-sub\"\u003eThe path to $50k MRR by mid-2026, 5 active clients by end-2026, and fund launch readiness. Multiple revenue streams compounding toward profitability and scalability.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"def-block workflow-hero\"\u003e \u003cspan class=\"wf-label\"\u003eLiveOps Operating Chain\u003c/span\u003e \u003cdiv class=\"wf-flow\"\u003e\u003cspan class=\"wf-s1\"\u003eFacts\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s2\"\u003eDimensions\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s3\"\u003eDigital Assets\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s4\"\u003eAgentic Factory\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s5\"\u003eHuman + Agents\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s6\"\u003eDigital Twin\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s7\"\u003eNew Fact\u003c/span\u003e",
+                                        "id":  "tab-4-group-01",
+                                        "purpose":  "Revenue Model \u0026 Strategic Anchors",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+                                                        "Contains MRR references"
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Strategic Anchors (Non-Negotiable Targets)",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eThe Three Anchors\u003c/h3\u003e \u003col style=\"padding-left:1.5rem;color:var(--mid);line-height:1.8;\"\u003e \u003cli\u003e\u003cstrong\u003e$50,000 AUD MRR by mid-2026\u003c/strong\u003e - Recurring revenue proving business model viability\u003c/li\u003e \u003cli\u003e\u003cstrong\u003e5 active LiveOpsOS clients by end-2026\u003c/strong\u003e - Portfolio demonstrating replicability across verticals\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eFund launch readiness\u003c/strong\u003e - Track record, deal flow, LP relationships established\u003c/li\u003e \u003c/ol\u003e \u003cp style=\"margin-top:1rem;\"\u003e\u003cstrong\u003eCurrent state (Feb 2026):\u003c/strong\u003e $38.5k MRR, 4 active clients, fund thesis documented\u003c/p\u003e \u003c/div\u003e",
+                                        "id":  "tab-4-group-02",
+                                        "purpose":  "Current state (Feb 2026): $38.5k MRR, 4 active clients, fund thesis documented",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+                                                      "$50,000 AUD MRR by mid-2026 - Recurring revenue proving business model viability",
+                                                      "5 active LiveOpsOS clients by end-2026 - Portfolio demonstrating replicability across verticals",
+                                                      "Fund launch readiness - Track record, deal flow, LP relationships established"
+                                                  ],
+                                        "metrics":  [
+                                                        "Contains MRR references"
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Revenue Streams",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eCurrent State (Now)\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eBusiness reset:\u003c/strong\u003e Stabilized and transformed a failing MSP into a viable LiveOpsOS operation.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCommercial proof:\u003c/strong\u003e 2 active LiveOpsOS Transformation Studio clients now validate the model.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRevenue base:\u003c/strong\u003e Existing managed operations revenue keeps the business stable while we scale the next offer.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003ePriority:\u003c/strong\u003e Shift from reactive service work to repeatable transformation delivery.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eFuture State (Target)\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003ePrimary engine:\u003c/strong\u003e Transformation Studio becomes the lead offer and top growth driver.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCommercial outcome:\u003c/strong\u003e Higher-value client relationships, faster revenue growth, and stronger margins.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003ePortfolio motion:\u003c/strong\u003e Every Studio engagement opens expansion into additional LiveOpsOS modules.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOperating direction:\u003c/strong\u003e Build a transformation-led business with recurring revenue and modular growth paths.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eGrowth Design (What We Push)\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eCore push:\u003c/strong\u003e LiveOpsOS Transformation Studio.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eSupport lanes:\u003c/strong\u003e MIP and Intelligent Buildings are expansion lanes, not the front-door offer.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eHow value grows:\u003c/strong\u003e Studio delivers the transformation plan, then implementation extends into operations, automation, and monitoring.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eCommercial options:\u003c/strong\u003e Per program, per module, per location, and ongoing MRR value streams.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eGo-To-Market Focus\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eVertical opportunities:\u003c/strong\u003e Target health, manufacturing, BPO, and service-heavy businesses with fragmented operations.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eFocused campaigns:\u003c/strong\u003e Run industry-specific campaigns tied to clear operational outcomes and fast wins.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eRainmaker network:\u003c/strong\u003e Build trusted relationships with lawyers, accountants, tax advisors, investors, and board-level operators who open qualified doors.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eReferral channels:\u003c/strong\u003e Partner referrals, client referrals, and rainmaker introductions that place us into active transformation programs.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eRevenue Path (Simple View)\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003eStage 1:\u003c/strong\u003e Transformation Studio projects create immediate commercial momentum.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eStage 2:\u003c/strong\u003e Convert wins into recurring operations revenue.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eStage 3:\u003c/strong\u003e Expand into modular value streams by function, site, and business unit.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eStage 4:\u003c/strong\u003e Use performance proof to support fund growth and larger transformation plays.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e",
+                                        "id":  "tab-4-group-03",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+                                                        "Contains MRR references"
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Unit Economics \u0026 Path to Profitability",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eCurrent State Economics\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003ePosition:\u003c/strong\u003e Stable base business with proven delivery capability.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eStrength:\u003c/strong\u003e Real client outcomes and repeatable operating structure.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eGap:\u003c/strong\u003e Growth is constrained if we keep selling only traditional managed services.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eDecision:\u003c/strong\u003e Put commercial weight behind Transformation Studio.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eFuture State Economics\u003c/h3\u003e \u003cul\u003e \u003cli\u003e\u003cstrong\u003ePosition:\u003c/strong\u003e Transformation-led revenue model with higher margin profile.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eGrowth model:\u003c/strong\u003e Studio-first sales, then recurring operations and modular expansion.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eScale model:\u003c/strong\u003e More revenue per client without linear headcount growth.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eReinvestment:\u003c/strong\u003e Fund buildout, new modules, and global expansion readiness.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"callout success\"\u003e \u003cdiv class=\"callout-icon\"\u003e?\u003c/div\u003e \u003cdiv class=\"callout-body\"\u003e\u003cstrong\u003eRevenue growth summary:\u003c/strong\u003e We stabilized and transformed a dead MSP, proved demand with Transformation Studio clients, and now use Studio as the main commercial engine. That engine lifts every other LiveOpsOS offer and builds stronger long-term value streams.",
+                                        "id":  "tab-4-group-04",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    }
+                                ]
+                 },
+                 {
+                     "id":  "tab-5",
+                     "label":  "05 - The Flywheel",
+                     "panelId":  "tab-4",
+                     "groups":  [
+                                    {
+                                        "label":  "Overview",
+                                        "html":  "\u003cdiv class=\"ph\"\u003e \u003cdiv class=\"ph-kicker\"\u003eTab 05 - The Flywheel\u003c/div\u003e \u003ch1 class=\"ph-title\"\u003eThe Flywheel \u0026 Long-Term Direction\u003c/h1\u003e \u003cp class=\"ph-sub\"\u003eHow everything compounds. Each component reinforces the others, creating momentum that accelerates over time. The more we build, the faster we build. The more we deploy, the better we get. The better we get, the more valuable we become.\u003c/p\u003e \u003c/div\u003e \u003cdiv class=\"def-block workflow-hero\"\u003e \u003cspan class=\"wf-label\"\u003eLiveOps Operating Chain\u003c/span\u003e \u003cdiv class=\"wf-flow\"\u003e\u003cspan class=\"wf-s1\"\u003eFacts\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s2\"\u003eDimensions\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s3\"\u003eDigital Assets\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s4\"\u003eAgentic Factory\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s5\"\u003eHuman + Agents\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s6\"\u003eDigital Twin\u003c/span\u003e\u003cspan class=\"wf-arrow\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"wf-s7\"\u003eNew Fact\u003c/span\u003e",
+                                        "id":  "tab-5-group-01",
+                                        "purpose":  "The Flywheel \u0026 Long-Term Direction",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "The Compounding Effect",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eHow Each Element Feeds the Next\u003c/h3\u003e \u003col style=\"padding-left:1.5rem;color:var(--mid);line-height:2;\"\u003e \u003cli\u003e\u003cstrong\u003eTransformation Studio\u003c/strong\u003e wins and designs the transformation.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eMIP\u003c/strong\u003e stabilizes and operationalizes service delivery.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eIntelligent Buildings\u003c/strong\u003e extends execution into physical operations.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eReal-Time Intelligence\u003c/strong\u003e drives planning, analytics, and decisions.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eMore AI\u003c/strong\u003e adds new agents, genies, and streams, then repeats the loop.\u003c/li\u003e \u003c/ol\u003e \u003c/div\u003e \u003cdiv class=\"callout violet\"\u003e \u003cdiv class=\"callout-icon\"\u003e?\u003c/div\u003e \u003cdiv class=\"callout-body\"\u003e\u003cstrong\u003eThe insight:\u003c/strong\u003e Transformation Studio leads. MIP operationalizes. Intelligent Buildings expands execution. Real-Time Intelligence sharpens decisions. Then we add more AI and repeat. That is the flywheel.",
+                                        "id":  "tab-5-group-02",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+                                                      "Transformation Studio wins and designs the transformation.",
+                                                      "MIP stabilizes and operationalizes service delivery.",
+                                                      "Intelligent Buildings extends execution into physical operations.",
+                                                      "Real-Time Intelligence drives planning, analytics, and decisions.",
+                                                      "More AI adds new agents, genies, and streams, then repeats the loop."
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    },
+                                    {
+                                        "label":  "Long-Term Direction",
+                                        "html":  "\u003cdiv class=\"content-block\"\u003e \u003ch3\u003eStabilize and Prove the Model\u003c/h3\u003e \u003cul\u003e \u003cli\u003eStabilize delivery and prove repeatable transformation outcomes.\u003c/li\u003e \u003cli\u003eShow that the model works across clients and use cases.\u003c/li\u003e \u003cli\u003eBuild a trusted commercial track record.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOutcome:\u003c/strong\u003e A proven operating business that stands on its own.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eScale the Business\u003c/h3\u003e \u003cul\u003e \u003cli\u003eScale Transformation Studio and expand recurring value streams.\u003c/li\u003e \u003cli\u003eUse delivery proof to increase deal quality and market trust.\u003c/li\u003e \u003cli\u003eGrow operational capacity without losing execution quality.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOutcome:\u003c/strong\u003e A scaled business with stronger margin and momentum.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"content-block\"\u003e \u003ch3\u003eFund Becomes the Primary Value Driver\u003c/h3\u003e \u003cul\u003e \u003cli\u003eUse the fund to acquire and transform companies directly.\u003c/li\u003e \u003cli\u003eBuild portfolio value through operating execution, not only advisory work.\u003c/li\u003e \u003cli\u003eTurn the model into owned assets and long-horizon enterprise value.\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOutcome:\u003c/strong\u003e Fund-led ownership becomes the main growth engine.\u003c/li\u003e \u003c/ul\u003e \u003c/div\u003e \u003cdiv class=\"callout success\"\u003e \u003cdiv class=\"callout-icon\"\u003e?\u003c/div\u003e \u003cdiv class=\"callout-body\"\u003e\u003cstrong\u003eBlue-sky direction:\u003c/strong\u003e Agencies may want to acquire us, but that is not the core endgame. The core endgame is the fund owning and transforming companies at scale.",
+                                        "id":  "tab-5-group-03",
+                                        "purpose":  "",
+                                        "inputs":  [
+
+                                                   ],
+                                        "outputs":  [
+
+                                                    ],
+                                        "steps":  [
+
+                                                  ],
+                                        "metrics":  [
+
+                                                    ],
+                                        "callout":  ""
+                                    }
+                                ]
+                 }
+             ]
 }

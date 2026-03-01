@@ -1,9 +1,9 @@
-# RealTimeOS x New Era IT
+# LiveOpsOS x New Era IT
 ## Design + Brand Guide (v1)
 
 ## 1) Brand Position
 - Brand: `New Era IT`
-- Platform: `RealTimeOS`
+- Platform: `LiveOpsOS`
 - Promise: `Shaping the future of work`
 - Tone: `command center`, `high trust`, `operational precision`, `human-first + AI-native`
 
@@ -135,3 +135,4 @@ Type scale:
 ## Decision Log (v1)
 - Direction approved: dark command-center UI with cyan/blue New Era accents.
 - Priority: parity first, then visual polish in controlled passes.
+

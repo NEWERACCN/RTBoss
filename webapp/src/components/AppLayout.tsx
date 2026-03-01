@@ -44,7 +44,7 @@ export function AppLayout() {
   })).filter((group) => group.items.length > 0)
 
   useEffect(() => {
-    const raw = window.localStorage.getItem('realtimeos.sidebarWidth')
+    const raw = window.localStorage.getItem('LiveOpsOS.sidebarWidth')
     const parsed = raw ? Number(raw) : NaN
     if (!Number.isNaN(parsed)) {
       const clamped = Math.min(420, Math.max(248, parsed))
@@ -71,7 +71,7 @@ export function AppLayout() {
   }, [resizing])
 
   useEffect(() => {
-    window.localStorage.setItem('realtimeos.sidebarWidth', String(sidebarWidth))
+    window.localStorage.setItem('LiveOpsOS.sidebarWidth', String(sidebarWidth))
   }, [sidebarWidth])
 
   return (
@@ -218,6 +218,7 @@ export function AppLayout() {
     </div>
   )
 }
+
 
 
 

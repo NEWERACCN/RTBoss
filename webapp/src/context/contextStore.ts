@@ -19,7 +19,7 @@ type ContextState = {
 type Listener = () => void
 
 const listeners = new Set<Listener>()
-const STORAGE_KEY = 'realtimeos.context.v1'
+const STORAGE_KEY = 'LiveOpsOS.context.v1'
 
 function getInitialState(): ContextState {
   if (typeof window !== 'undefined') {
@@ -83,3 +83,4 @@ export function useContextPresetId() {
     () => state.presetId,
   )
 }
+

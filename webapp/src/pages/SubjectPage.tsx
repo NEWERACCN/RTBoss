@@ -24,6 +24,7 @@ function splitTabLabel(label: string, fallback: number) {
 
 function isWideGroup(label: string, index: number) {
   if (index === 0) return true
+  if (/^footer$/i.test(label) || /^universal truth$/i.test(label)) return true
   return /overview|workflow|loop|callout|truth|diagram|chain/i.test(label)
 }
 
@@ -51,13 +52,29 @@ export function SubjectPage() {
 
   const contextualGroups = useMemo(() => {
     if (!selectedTab) return []
+    const priorityForLabel = (label: string) => {
+      if (slug === 'strategy' && selectedTab.id === 'tab-1') {
+        if (label === 'Overview') return 4
+        if (label === 'Core Elements') return 3
+        if (label === 'The Operating Loop') return 2
+        if (label === 'Why LiveOps Operating System Works for Any Business') return 1
+        if (label === 'Footer') return -1
+        if (label === 'Universal Truth') return -1
+      }
+      return 0
+    }
+
     return selectedTab.groups
       .map((group, index) => ({
         group,
         index,
         decision: evaluateGroupContext(context, selectedTab, group, index),
       }))
-      .sort((a, b) => b.decision.score - a.decision.score || a.index - b.index)
+      .sort((a, b) => {
+        const priorityDelta = priorityForLabel(b.group.label) - priorityForLabel(a.group.label)
+        if (priorityDelta !== 0) return priorityDelta
+        return b.decision.score - a.decision.score || a.index - b.index
+      })
   }, [context, selectedTab])
 
   const visibleContextualGroups = useMemo(
@@ -131,7 +148,7 @@ export function SubjectPage() {
           <div className="unified-title-wrap">
             <span className="counter-chip">{subject.code} Section</span>
             <h1>{subject.title}</h1>
-            <p className="muted">{selectedTab ? selectedTab.label : subject.purpose}</p>
+            {!selectedTab && <p className="muted">{subject.purpose}</p>}
           </div>
           {selectedTab && (
             <Link className="ghost-link" to={`/subject/${slug}`}>
@@ -271,7 +288,7 @@ export function SubjectPage() {
                   <>
                     <div className="content-check-controls">
                       {selectedTabContentMetrics.items
-                        .filter((item) => item.id === 'header' || item.id === 'diagram' || item.id === 'footer')
+                        .filter((item) => item.id === 'header')
                         .map((item) => (
                           <label key={item.id} className="tab-content-signal-chip">
                             <input
@@ -333,7 +350,7 @@ export function SubjectPage() {
             {visibleContextualGroups.map(({ group, index, decision }) => (
               <section
                 key={`${selectedTab.id}-${index}`}
-                className={`ref-group-wrap ${isWideGroup(group.label, index) ? 'group-wide' : ''} ${slug === 'minios' ? 'minios-group' : ''}`}
+                className={`ref-group-wrap group-${group.label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')} ${isWideGroup(group.label, index) ? 'group-wide' : ''} ${slug === 'minios' ? 'minios-group' : ''}`}
               >
                 <div className="ref-section-head">
                   <span className="ref-section-label">{group.label}</span>

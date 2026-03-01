@@ -16,7 +16,7 @@ export const tab_registry: Record<string, TabRegistryEntry[]> = {
   strategy: [
     {
       tabId: 'tab-1',
-      tabName: 'RealTimeOS Core',
+      tabName: 'LiveOpsOS Core',
       contentChecklist: [
         { id: 'core-c-01', label: 'Core definition', done: false },
         { id: 'core-c-02', label: 'Operating chain text', done: false },
@@ -372,3 +372,4 @@ export function importTabProgress(payload: string) {
     return false
   }
 }
+
